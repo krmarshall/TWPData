@@ -461,7 +461,30 @@
                           "effect_type": "positive",
                           "max_damaged_entities": -1,
                           "mana_regen_mod": 0.05,
-                          "imbue_contact": "wh2_pro08_unit_contact_dampen",
+                          "imbue_contact": {
+                            "id": "wh2_pro08_unit_contact_dampen",
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": -25,
+                                "stat": "stat_resistance_magic",
+                                "how": "add",
+                                "description": "-25 Magic Resistance",
+                                "sort_order": 10,
+                                "icon": "resistance_magic.png"
+                              },
+                              {
+                                "value": -10,
+                                "stat": "stat_armour",
+                                "how": "add",
+                                "description": "-10 Armour",
+                                "sort_order": 6,
+                                "icon": "icon_stat_armour.png"
+                              }
+                            ]
+                          },
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
@@ -532,6 +555,80 @@
                 "priority": 1000,
                 "is_positive_value_good": true,
                 "description": "Army spell: \"Empowered Urannon's Thunderbolt\"\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh_army_spell_heavens_urannons_thunderbolt_upgraded_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_army_spell_heavens_urannons_thunderbolt_upgraded",
+                      "icon_name": "wh_main_spell_heavens_urannons_thunderbolt",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "icon_spell_bombardment.png",
+                        "description": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Empowered Urannon's Thunderbolt",
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_spell_heavens_urannons_thunderbolt_upgraded",
+                          "sort_order": 1,
+                          "description": "➕ Calls down 3 projectiles each dealing 0 600 damage and 25 50 explosion damage (10m)"
+                        },
+                        {
+                          "key": "wh2_main_all_magical_damage_major",
+                          "sort_order": 104,
+                          "description": "➕ Causes magical damage"
+                        },
+                        {
+                          "key": "wh_main_bombardment_small_strike_aoe",
+                          "sort_order": 105,
+                          "description": "➕ Small strike area"
+                        },
+                        {
+                          "key": "wh_main_all_good_vs_artillery",
+                          "sort_order": 106,
+                          "description": "➕ Good against artillery pieces"
+                        }
+                      ],
+                      "num_uses": 3,
+                      "active_time": 8,
+                      "recharge_time": 100,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": -1,
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_heavens_urannons_thunderbolt_upgraded",
+                        "projectile_type": {
+                          "key": "wh_main_spell_heavens_urannons_thunderbolt_upgraded",
+                          "explosion_type": {
+                            "key": "wh_main_spell_heavens_urannons_thunderbolt_upgraded",
+                            "detonation_radius": 10,
+                            "detonation_damage": 25,
+                            "is_magical": true,
+                            "detonation_damage_ap": 50,
+                            "affects_allies": true
+                          },
+                          "damage": 0,
+                          "ap_damage": 600,
+                          "bonus_v_cavalry": "0",
+                          "shockwave_radius": 2,
+                          "is_grapple": "false",
+                          "is_magical": true
+                        },
+                        "num_projectiles": 3,
+                        "start_time": 3,
+                        "arrival_window": 8,
+                        "radius_spread": 1
+                      },
+                      "target_self": false
+                    }
+                  }
+                ],
                 "key": "wh_army_spell_heavens_urannons_thunderbolt_upgraded_enable",
                 "value": 1
               }
@@ -693,6 +790,88 @@
                 "priority": 1000,
                 "is_positive_value_good": true,
                 "description": "Army spell: \"Empowered The Burning Head\"\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh_army_spell_fire_the_burning_head_upgraded_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_army_spell_fire_the_burning_head_upgraded",
+                      "icon_name": "wh_main_spell_fire_the_burning_head",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "icon_spell_wind.png",
+                        "description": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Empowered The Burning Head",
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_spell_fire_the_burning_head_upgraded",
+                          "sort_order": 1,
+                          "description": "➕ Deals 40 0 damage per second (7m)"
+                        },
+                        {
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "sort_order": 104,
+                          "description": "➕ Causes magical & fire damage"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "sort_order": 105,
+                          "description": "➕ Medium, forward-moving area of effect"
+                        }
+                      ],
+                      "num_uses": 3,
+                      "active_time": 20,
+                      "recharge_time": 140,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": -1,
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_the_burning_head_upgraded",
+                        "duration": 20,
+                        "damage": 40,
+                        "damage_ap": 0,
+                        "goal_radius": 7,
+                        "movement_speed": 9,
+                        "contact_effect": {
+                          "id": "wh_main_unit_contact_morale",
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "max_damaged_entities": -1,
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -8,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-8 Leadership",
+                              "sort_order": 1,
+                              "icon": "icon_stat_morale.png"
+                            },
+                            {
+                              "value": -10,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-10 Weakness to Fire Damage",
+                              "sort_order": 0,
+                              "icon": "modifier_icon_flaming.png"
+                            }
+                          ]
+                        },
+                        "is_magical": true,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_flaming": true
+                      },
+                      "target_self": false
+                    }
+                  }
+                ],
                 "key": "wh_army_spell_fire_the_burning_head_upgraded_enable",
                 "value": 1
               }
@@ -724,6 +903,58 @@
                 "priority": 1000,
                 "is_positive_value_good": true,
                 "description": "Army spell: \"Empowered Light of Battle\"\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh_army_spell_light_light_of_battle_upgraded_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_army_spell_light_light_of_battle_upgraded",
+                      "icon_name": "wh_main_spell_light_light_of_battle",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "icon_spell_area_of_augments.png",
+                        "description": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Empowered Light of Battle",
+                      "num_uses": 3,
+                      "active_time": 35,
+                      "recharge_time": 120,
+                      "wind_up_time": 3,
+                      "effect_range": 40,
+                      "target_friends": true,
+                      "target_enemies": false,
+                      "target_ground": true,
+                      "target_intercept_range": -1,
+                      "target_self": true,
+                      "phases": [
+                        {
+                          "duration": 35,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "attributes": [
+                            {
+                              "key": "unbreakable",
+                              "description": " Unbreakable",
+                              "attribute_type": "positive"
+                            }
+                          ],
+                          "stat_effects": [
+                            {
+                              "value": 30,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "+30 Magic Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_magic.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh_army_spell_light_light_of_battle_upgraded_enable",
                 "value": 1
               }
@@ -1734,66 +1965,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_heavens_harmonic_convergence",
-                      "icon_name": "wh_main_spell_heavens_harmonic_convergence",
-                      "overpower_option": "wh_main_spell_heavens_harmonic_convergence_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Harmonic Convergence",
-                      "active_time": 30,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 5,
-                      "miscast_chance": 0.25,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 30,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 30,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+30 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": 30,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+30 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+20 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_heavens_harmonic_convergence",
@@ -1874,66 +2045,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Harmonic Convergence Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_heavens_harmonic_convergence",
-                      "icon_name": "wh_main_spell_heavens_harmonic_convergence",
-                      "overpower_option": "wh_main_spell_heavens_harmonic_convergence_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Harmonic Convergence",
-                      "active_time": 30,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 5,
-                      "miscast_chance": 0.25,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 30,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 30,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+30 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": 30,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+30 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+20 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
                     "bonus_value_id": "enable",
@@ -2058,62 +2169,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_apotheosis",
-                      "icon_name": "wh2_main_spell_high_magic_apotheosis",
-                      "overpower_option": "wh2_main_spell_high_magic_apotheosis_upgraded",
-                      "type": {
-                        "key": "wh_type_regeneration",
-                        "icon_path": "icon_spell_regeneration.png",
-                        "description": "Regeneration"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Apotheosis",
-                      "ui_effects": [
-                        {
-                          "key": "wh_heal_active_600",
-                          "sort_order": 1,
-                          "description": "➕ Restores up to 600 Hit Points"
-                        },
-                        {
-                          "key": "wh2_dlc15_heal_active_480",
-                          "sort_order": 108,
-                          "description": "Units won't regenerate if cap was reached"
-                        }
-                      ],
-                      "active_time": 10,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.2,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 10,
-                          "effect_type": "positive",
-                          "ability_recharge_change": -10,
-                          "hp_change_frequency": 0.5,
-                          "heal_amount": 30,
-                          "is_hidden_in_ui": false,
-                          "attributes": [
-                            {
-                              "key": "causes_fear",
-                              "description": "Can  Cause Fear",
-                              "attribute_type": "positive"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_apotheosis",
@@ -2190,62 +2245,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Apotheosis Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_apotheosis",
-                      "icon_name": "wh2_main_spell_high_magic_apotheosis",
-                      "overpower_option": "wh2_main_spell_high_magic_apotheosis_upgraded",
-                      "type": {
-                        "key": "wh_type_regeneration",
-                        "icon_path": "icon_spell_regeneration.png",
-                        "description": "Regeneration"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Apotheosis",
-                      "ui_effects": [
-                        {
-                          "key": "wh_heal_active_600",
-                          "sort_order": 1,
-                          "description": "➕ Restores up to 600 Hit Points"
-                        },
-                        {
-                          "key": "wh2_dlc15_heal_active_480",
-                          "sort_order": 108,
-                          "description": "Units won't regenerate if cap was reached"
-                        }
-                      ],
-                      "active_time": 10,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.2,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 10,
-                          "effect_type": "positive",
-                          "ability_recharge_change": -10,
-                          "hp_change_frequency": 0.5,
-                          "heal_amount": 30,
-                          "is_hidden_in_ui": false,
-                          "attributes": [
-                            {
-                              "key": "causes_fear",
-                              "description": "Can  Cause Fear",
-                              "attribute_type": "positive"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
                     "bonus_value_id": "enable",
@@ -2414,41 +2413,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_light_net_of_amyntok",
-                      "icon_name": "wh_main_spell_light_net_of_amyntok",
-                      "overpower_option": "wh_main_spell_light_net_of_amyntok_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Net of Amyntok",
-                      "active_time": 15,
-                      "recharge_time": 60,
-                      "wind_up_time": 3,
-                      "effect_range": 15,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "cant_move": true,
-                          "is_hidden_in_ui": false
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_light_net_of_amyntok",
@@ -2504,41 +2468,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Net of Amyntok Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_light_net_of_amyntok",
-                      "icon_name": "wh_main_spell_light_net_of_amyntok",
-                      "overpower_option": "wh_main_spell_light_net_of_amyntok_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Net of Amyntok",
-                      "active_time": 15,
-                      "recharge_time": 60,
-                      "wind_up_time": 3,
-                      "effect_range": 15,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "cant_move": true,
-                          "is_hidden_in_ui": false
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
                     "bonus_value_id": "enable",
@@ -2719,74 +2648,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                      "icon_name": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                      "overpower_option": "wh_main_spell_heavens_curse_of_the_midnight_wind_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "icon_spell_area_of_hexes.png",
-                        "description": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Curse of the Midnight Wind",
-                      "active_time": 25,
-                      "recharge_time": 50,
-                      "wind_up_time": 3,
-                      "effect_range": 40,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 12,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 25,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-30 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            },
-                            {
-                              "value": -30,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-30 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": -30,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-30 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.9 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_heavens_curse_of_the_midnight_wind",
@@ -2875,74 +2736,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Curse of the Midnight Wind Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                      "icon_name": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                      "overpower_option": "wh_main_spell_heavens_curse_of_the_midnight_wind_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "icon_spell_area_of_hexes.png",
-                        "description": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Curse of the Midnight Wind",
-                      "active_time": 25,
-                      "recharge_time": 50,
-                      "wind_up_time": 3,
-                      "effect_range": 40,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 12,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 25,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-30 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            },
-                            {
-                              "value": -30,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-30 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": -30,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-30 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.9 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
                     "bonus_value_id": "enable",
@@ -3283,114 +3076,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_arcane_unforging",
-                      "icon_name": "wh2_main_spell_high_magic_arcane_unforging",
-                      "overpower_option": "wh2_main_spell_high_magic_arcane_unforging_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Arcane Unforging",
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_spell_high_magic_arcane_unforging",
-                          "sort_order": 1,
-                          "description": "➕ 100% chance to deal 50 direct damage to 1 entity per second"
-                        },
-                        {
-                          "key": "wh_effects_multiplicative",
-                          "sort_order": 1,
-                          "description": "➕ Effects are multiplicative"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs a single combatant"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_resist",
-                          "sort_order": 201,
-                          "description": "➖ Chance opponent will resist damage"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_multiple",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs multiple combatants"
-                        }
-                      ],
-                      "active_time": 30,
-                      "recharge_time": 75,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 15,
-                      "miscast_chance": 0.2,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "ability_recharge_change": 30,
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 50,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_physical",
-                              "how": "mult",
-                              "description": "x0.9 Physical Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_physical.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_missile",
-                              "how": "mult",
-                              "description": "x0.9 Missile Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_missile.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_magic",
-                              "how": "mult",
-                              "description": "x0.9 Magic Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_magic.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_flame",
-                              "how": "mult",
-                              "description": "x0.9 Flame Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_fire.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_all",
-                              "how": "mult",
-                              "description": "x0.9 Damage Resistance ",
-                              "sort_order": 10,
-                              "icon": "resistance_ward_save.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_arcane_unforging",
@@ -3519,114 +3204,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Arcane Unforging Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_arcane_unforging",
-                      "icon_name": "wh2_main_spell_high_magic_arcane_unforging",
-                      "overpower_option": "wh2_main_spell_high_magic_arcane_unforging_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Arcane Unforging",
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_spell_high_magic_arcane_unforging",
-                          "sort_order": 1,
-                          "description": "➕ 100% chance to deal 50 direct damage to 1 entity per second"
-                        },
-                        {
-                          "key": "wh_effects_multiplicative",
-                          "sort_order": 1,
-                          "description": "➕ Effects are multiplicative"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs a single combatant"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_resist",
-                          "sort_order": 201,
-                          "description": "➖ Chance opponent will resist damage"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_multiple",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs multiple combatants"
-                        }
-                      ],
-                      "active_time": 30,
-                      "recharge_time": 75,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 15,
-                      "miscast_chance": 0.2,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "ability_recharge_change": 30,
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 50,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_physical",
-                              "how": "mult",
-                              "description": "x0.9 Physical Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_physical.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_missile",
-                              "how": "mult",
-                              "description": "x0.9 Missile Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_missile.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_magic",
-                              "how": "mult",
-                              "description": "x0.9 Magic Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_magic.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_flame",
-                              "how": "mult",
-                              "description": "x0.9 Flame Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_fire.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_resistance_all",
-                              "how": "mult",
-                              "description": "x0.9 Damage Resistance ",
-                              "sort_order": 10,
-                              "icon": "resistance_ward_save.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
                     "bonus_value_id": "enable",
@@ -3894,88 +3471,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_heavens_comet_of_casandora",
-                      "icon_name": "wh_main_spell_heavens_comet_of_casandora",
-                      "overpower_option": "wh_main_spell_heavens_comet_of_casandora_upgraded",
-                      "type": {
-                        "key": "wh_type_bombardment",
-                        "icon_path": "icon_spell_bombardment.png",
-                        "description": "Bombardment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Comet of Casandora",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_heavens_comet_of_casandora",
-                          "sort_order": 1,
-                          "description": "➕ Calls down 1 projectile dealing 1000 500 damage and 100 50 explosion damage (20m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_massive",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_all_huge_static_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Huge explosion area"
-                        },
-                        {
-                          "key": "wh_main_bombardment_large_strike_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Large strike area"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "sort_order": 106,
-                          "description": "➕ Good against armour"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        }
-                      ],
-                      "active_time": 7,
-                      "recharge_time": 100,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "bombardment": {
-                        "bombardment_key": "wh_main_spell_heavens_comet_of_casandora",
-                        "projectile_type": {
-                          "key": "wh_main_spell_heavens_comet_of_casandora",
-                          "explosion_type": {
-                            "key": "wh_main_spell_heavens_comet_of_casandora",
-                            "detonation_radius": 20,
-                            "detonation_damage": 100,
-                            "is_magical": true,
-                            "detonation_damage_ap": 50,
-                            "affects_allies": true
-                          },
-                          "damage": 1000,
-                          "ap_damage": 500,
-                          "bonus_v_cavalry": "0",
-                          "shockwave_radius": 5,
-                          "is_grapple": "false",
-                          "is_magical": true
-                        },
-                        "start_time": 4,
-                        "arrival_window": 1,
-                        "radius_spread": 8
-                      },
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_heavens_comet_of_casandora",
@@ -4078,88 +3573,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Comet of Casandora Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_heavens_comet_of_casandora",
-                      "icon_name": "wh_main_spell_heavens_comet_of_casandora",
-                      "overpower_option": "wh_main_spell_heavens_comet_of_casandora_upgraded",
-                      "type": {
-                        "key": "wh_type_bombardment",
-                        "icon_path": "icon_spell_bombardment.png",
-                        "description": "Bombardment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Comet of Casandora",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_heavens_comet_of_casandora",
-                          "sort_order": 1,
-                          "description": "➕ Calls down 1 projectile dealing 1000 500 damage and 100 50 explosion damage (20m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_massive",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_all_huge_static_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Huge explosion area"
-                        },
-                        {
-                          "key": "wh_main_bombardment_large_strike_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Large strike area"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "sort_order": 106,
-                          "description": "➕ Good against armour"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        }
-                      ],
-                      "active_time": 7,
-                      "recharge_time": 100,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "bombardment": {
-                        "bombardment_key": "wh_main_spell_heavens_comet_of_casandora",
-                        "projectile_type": {
-                          "key": "wh_main_spell_heavens_comet_of_casandora",
-                          "explosion_type": {
-                            "key": "wh_main_spell_heavens_comet_of_casandora",
-                            "detonation_radius": 20,
-                            "detonation_damage": 100,
-                            "is_magical": true,
-                            "detonation_damage_ap": 50,
-                            "affects_allies": true
-                          },
-                          "damage": 1000,
-                          "ap_damage": 500,
-                          "bonus_v_cavalry": "0",
-                          "shockwave_radius": 5,
-                          "is_grapple": "false",
-                          "is_magical": true
-                        },
-                        "start_time": 4,
-                        "arrival_window": 1,
-                        "radius_spread": 8
-                      },
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
                     "bonus_value_id": "enable",
@@ -4609,22 +4022,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_attack_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_damage_hidden",
-                "value": -3
-              },
-              {
                 "icon": "melee_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -4645,22 +4042,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_attack_hidden",
-                "value": -3
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_damage_hidden",
-                "value": -6
-              },
-              {
                 "icon": "melee_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -4680,22 +4061,6 @@
           },
           {
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_attack_hidden",
-                "value": -5
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_damage_hidden",
-                "value": -10
-              },
               {
                 "icon": "melee_character.png",
                 "priority": 55,
@@ -4736,30 +4101,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_missile_attack_rate_hidden",
-                "value": -2
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ammunition_hidden",
-                "value": -2
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_missile_damage_hidden",
-                "value": -2
-              },
-              {
                 "icon": "icon_stat_reload_time_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -4788,30 +4129,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_missile_attack_rate_hidden",
-                "value": -4
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ammunition_hidden",
-                "value": -4
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_missile_damage_hidden",
-                "value": -4
-              },
-              {
                 "icon": "icon_stat_reload_time_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -4839,30 +4156,6 @@
           },
           {
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_missile_attack_rate_hidden",
-                "value": -8
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ammunition_hidden",
-                "value": -8
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_missile_damage_hidden",
-                "value": -8
-              },
               {
                 "icon": "icon_stat_reload_time_character.png",
                 "priority": 55,
@@ -4911,22 +4204,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_battle_movement_speed_hidden",
-                "value": -3
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_charge_bonus_hidden",
-                "value": -5
-              },
-              {
                 "icon": "battle_movement_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -4947,22 +4224,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_battle_movement_speed_hidden",
-                "value": -7
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_charge_bonus_hidden",
-                "value": -10
-              },
-              {
                 "icon": "battle_movement_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -4982,22 +4243,6 @@
           },
           {
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_battle_movement_speed_hidden",
-                "value": -15
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_charge_bonus_hidden",
-                "value": -20
-              },
               {
                 "icon": "battle_movement_character.png",
                 "priority": 55,
@@ -5179,22 +4424,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_defence_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_fire_hidden",
-                "value": -3
-              },
-              {
                 "icon": "defence_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -5215,22 +4444,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_defence_hidden",
-                "value": -3
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_fire_hidden",
-                "value": -6
-              },
-              {
                 "icon": "defence_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -5250,22 +4463,6 @@
           },
           {
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_melee_defence_hidden",
-                "value": -5
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_fire_hidden",
-                "value": -10
-              },
               {
                 "icon": "defence_character.png",
                 "priority": 55,
@@ -5306,22 +4503,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_missile_hidden",
-                "value": -3
-              },
-              {
                 "icon": "morale_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -5342,22 +4523,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": -3
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_missile_hidden",
-                "value": -6
-              },
-              {
                 "icon": "morale_character.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -5377,22 +4542,6 @@
           },
           {
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": -5
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_missile_hidden",
-                "value": -10
-              },
               {
                 "icon": "morale_character.png",
                 "priority": 55,
@@ -5433,22 +4582,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_physical_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_armour_hidden",
-                "value": -3
-              },
-              {
                 "icon": "resistance_physical.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -5469,22 +4602,6 @@
           {
             "effects": [
               {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_physical_hidden",
-                "value": -3
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_armour_hidden",
-                "value": -6
-              },
-              {
                 "icon": "resistance_physical.png",
                 "priority": 55,
                 "is_positive_value_good": true,
@@ -5504,22 +4621,6 @@
           },
           {
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_ward_save_physical_hidden",
-                "value": -5
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_armour_hidden",
-                "value": -10
-              },
               {
                 "icon": "resistance_physical.png",
                 "priority": 55,
@@ -6334,232 +5435,16 @@
               {
                 "icon": "",
                 "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_character_upkeep_sneaky",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_character_upkeep_sneaky_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_loot_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
                 "is_positive_value_good": true,
                 "description": "[HIDDEN]",
                 "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod_hidden",
                 "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_raid_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_razing_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_sacking_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_gdp_mod_all_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_modify_vassal_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_horde_building_gdp_mod_all_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_trade_tariff_mod_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh2_main_effect_slave_decline_modifier_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh2_main_effect_slave_income_modifier_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
               }
             ]
           },
           {
             "unlocked_at_rank": 30,
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh2_main_effect_slave_decline_modifier_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
-              },
               {
                 "icon": "military_spending.png",
                 "priority": 1000,
@@ -8282,66 +7167,6 @@
               "related_abilities": [
                 {
                   "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_heavens_harmonic_convergence",
-                    "icon_name": "wh_main_spell_heavens_harmonic_convergence",
-                    "overpower_option": "wh_main_spell_heavens_harmonic_convergence_upgraded",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "icon_spell_augment.png",
-                      "description": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Harmonic Convergence",
-                    "active_time": 30,
-                    "recharge_time": 35,
-                    "wind_up_time": 1,
-                    "effect_range": 0,
-                    "target_friends": true,
-                    "target_enemies": false,
-                    "target_ground": false,
-                    "target_intercept_range": 200,
-                    "mana_cost": 5,
-                    "miscast_chance": 0.25,
-                    "target_self": true,
-                    "phases": [
-                      {
-                        "duration": 30,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 30,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+30 Melee Attack",
-                            "sort_order": 2,
-                            "icon": "icon_stat_attack.png"
-                          },
-                          {
-                            "value": 30,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+30 Melee Defence",
-                            "sort_order": 3,
-                            "icon": "icon_stat_defence.png"
-                          },
-                          {
-                            "value": 20,
-                            "stat": "stat_armour",
-                            "how": "add",
-                            "description": "+20 Armour",
-                            "sort_order": 6,
-                            "icon": "icon_stat_armour.png"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh_main_spell_heavens_harmonic_convergence",
@@ -8422,66 +7247,6 @@
               "is_positive_value_good": true,
               "description": "Overcast spell: \"Harmonic Convergence Upgraded\"",
               "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_heavens_harmonic_convergence",
-                    "icon_name": "wh_main_spell_heavens_harmonic_convergence",
-                    "overpower_option": "wh_main_spell_heavens_harmonic_convergence_upgraded",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "icon_spell_augment.png",
-                      "description": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Harmonic Convergence",
-                    "active_time": 30,
-                    "recharge_time": 35,
-                    "wind_up_time": 1,
-                    "effect_range": 0,
-                    "target_friends": true,
-                    "target_enemies": false,
-                    "target_ground": false,
-                    "target_intercept_range": 200,
-                    "mana_cost": 5,
-                    "miscast_chance": 0.25,
-                    "target_self": true,
-                    "phases": [
-                      {
-                        "duration": 30,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 30,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+30 Melee Attack",
-                            "sort_order": 2,
-                            "icon": "icon_stat_attack.png"
-                          },
-                          {
-                            "value": 30,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+30 Melee Defence",
-                            "sort_order": 3,
-                            "icon": "icon_stat_defence.png"
-                          },
-                          {
-                            "value": 20,
-                            "stat": "stat_armour",
-                            "how": "add",
-                            "description": "+20 Armour",
-                            "sort_order": 6,
-                            "icon": "icon_stat_armour.png"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
                 {
                   "effect": "wh2_main_effect_magic_heavens_enable_harmonic_convergence_upgraded",
                   "bonus_value_id": "enable",
@@ -8607,62 +7372,6 @@
               "related_abilities": [
                 {
                   "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh2_main_spell_high_magic_apotheosis",
-                    "icon_name": "wh2_main_spell_high_magic_apotheosis",
-                    "overpower_option": "wh2_main_spell_high_magic_apotheosis_upgraded",
-                    "type": {
-                      "key": "wh_type_regeneration",
-                      "icon_path": "icon_spell_regeneration.png",
-                      "description": "Regeneration"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Apotheosis",
-                    "ui_effects": [
-                      {
-                        "key": "wh_heal_active_600",
-                        "sort_order": 1,
-                        "description": "➕ Restores up to 600 Hit Points"
-                      },
-                      {
-                        "key": "wh2_dlc15_heal_active_480",
-                        "sort_order": 108,
-                        "description": "Units won't regenerate if cap was reached"
-                      }
-                    ],
-                    "active_time": 10,
-                    "recharge_time": 35,
-                    "wind_up_time": 1,
-                    "effect_range": 0,
-                    "target_friends": true,
-                    "target_enemies": false,
-                    "target_ground": false,
-                    "target_intercept_range": 200,
-                    "mana_cost": 6,
-                    "miscast_chance": 0.2,
-                    "target_self": true,
-                    "phases": [
-                      {
-                        "duration": 10,
-                        "effect_type": "positive",
-                        "ability_recharge_change": -10,
-                        "hp_change_frequency": 0.5,
-                        "heal_amount": 30,
-                        "is_hidden_in_ui": false,
-                        "attributes": [
-                          {
-                            "key": "causes_fear",
-                            "description": "Can  Cause Fear",
-                            "attribute_type": "positive"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh2_main_spell_high_magic_apotheosis",
@@ -8739,62 +7448,6 @@
               "is_positive_value_good": true,
               "description": "Overcast spell: \"Apotheosis Upgraded\"",
               "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh2_main_spell_high_magic_apotheosis",
-                    "icon_name": "wh2_main_spell_high_magic_apotheosis",
-                    "overpower_option": "wh2_main_spell_high_magic_apotheosis_upgraded",
-                    "type": {
-                      "key": "wh_type_regeneration",
-                      "icon_path": "icon_spell_regeneration.png",
-                      "description": "Regeneration"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Apotheosis",
-                    "ui_effects": [
-                      {
-                        "key": "wh_heal_active_600",
-                        "sort_order": 1,
-                        "description": "➕ Restores up to 600 Hit Points"
-                      },
-                      {
-                        "key": "wh2_dlc15_heal_active_480",
-                        "sort_order": 108,
-                        "description": "Units won't regenerate if cap was reached"
-                      }
-                    ],
-                    "active_time": 10,
-                    "recharge_time": 35,
-                    "wind_up_time": 1,
-                    "effect_range": 0,
-                    "target_friends": true,
-                    "target_enemies": false,
-                    "target_ground": false,
-                    "target_intercept_range": 200,
-                    "mana_cost": 6,
-                    "miscast_chance": 0.2,
-                    "target_self": true,
-                    "phases": [
-                      {
-                        "duration": 10,
-                        "effect_type": "positive",
-                        "ability_recharge_change": -10,
-                        "hp_change_frequency": 0.5,
-                        "heal_amount": 30,
-                        "is_hidden_in_ui": false,
-                        "attributes": [
-                          {
-                            "key": "causes_fear",
-                            "description": "Can  Cause Fear",
-                            "attribute_type": "positive"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
                 {
                   "effect": "wh2_main_effect_magic_high_enable_apotheosis_upgraded",
                   "bonus_value_id": "enable",
@@ -8964,41 +7617,6 @@
               "related_abilities": [
                 {
                   "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_light_net_of_amyntok",
-                    "icon_name": "wh_main_spell_light_net_of_amyntok",
-                    "overpower_option": "wh_main_spell_light_net_of_amyntok_upgraded",
-                    "type": {
-                      "key": "wh_type_hex",
-                      "icon_path": "icon_spell_hex.png",
-                      "description": "Hex"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Net of Amyntok",
-                    "active_time": 15,
-                    "recharge_time": 60,
-                    "wind_up_time": 3,
-                    "effect_range": 15,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": 200,
-                    "mana_cost": 15,
-                    "miscast_chance": 0.25,
-                    "target_self": false,
-                    "phases": [
-                      {
-                        "duration": 15,
-                        "effect_type": "negative",
-                        "cant_move": true,
-                        "is_hidden_in_ui": false
-                      }
-                    ]
-                  }
-                },
-                {
-                  "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh_main_spell_light_net_of_amyntok",
@@ -9054,41 +7672,6 @@
               "is_positive_value_good": true,
               "description": "Overcast spell: \"Net of Amyntok Upgraded\"",
               "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_light_net_of_amyntok",
-                    "icon_name": "wh_main_spell_light_net_of_amyntok",
-                    "overpower_option": "wh_main_spell_light_net_of_amyntok_upgraded",
-                    "type": {
-                      "key": "wh_type_hex",
-                      "icon_path": "icon_spell_hex.png",
-                      "description": "Hex"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Net of Amyntok",
-                    "active_time": 15,
-                    "recharge_time": 60,
-                    "wind_up_time": 3,
-                    "effect_range": 15,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": 200,
-                    "mana_cost": 15,
-                    "miscast_chance": 0.25,
-                    "target_self": false,
-                    "phases": [
-                      {
-                        "duration": 15,
-                        "effect_type": "negative",
-                        "cant_move": true,
-                        "is_hidden_in_ui": false
-                      }
-                    ]
-                  }
-                },
                 {
                   "effect": "wh2_main_effect_magic_light_enable_net_of_amyntok_upgraded",
                   "bonus_value_id": "enable",
@@ -9270,74 +7853,6 @@
               "related_abilities": [
                 {
                   "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                    "icon_name": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                    "overpower_option": "wh_main_spell_heavens_curse_of_the_midnight_wind_upgraded",
-                    "type": {
-                      "key": "wh_type_area_of_hexes",
-                      "icon_path": "icon_spell_area_of_hexes.png",
-                      "description": "Hex (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Curse of the Midnight Wind",
-                    "active_time": 25,
-                    "recharge_time": 50,
-                    "wind_up_time": 3,
-                    "effect_range": 40,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": 200,
-                    "mana_cost": 12,
-                    "miscast_chance": 0.25,
-                    "target_self": false,
-                    "phases": [
-                      {
-                        "duration": 25,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": -30,
-                            "stat": "stat_armour",
-                            "how": "add",
-                            "description": "-30 Armour",
-                            "sort_order": 6,
-                            "icon": "icon_stat_armour.png"
-                          },
-                          {
-                            "value": -30,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "-30 Melee Attack",
-                            "sort_order": 2,
-                            "icon": "icon_stat_attack.png"
-                          },
-                          {
-                            "value": -30,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "-30 Melee Defence",
-                            "sort_order": 3,
-                            "icon": "icon_stat_defence.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.9 Speed",
-                            "sort_order": 10,
-                            "icon": "icon_stat_speed.png"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh_main_spell_heavens_curse_of_the_midnight_wind",
@@ -9426,74 +7941,6 @@
               "is_positive_value_good": true,
               "description": "Overcast spell: \"Curse of the Midnight Wind Upgraded\"",
               "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                    "icon_name": "wh_main_spell_heavens_curse_of_the_midnight_wind",
-                    "overpower_option": "wh_main_spell_heavens_curse_of_the_midnight_wind_upgraded",
-                    "type": {
-                      "key": "wh_type_area_of_hexes",
-                      "icon_path": "icon_spell_area_of_hexes.png",
-                      "description": "Hex (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Curse of the Midnight Wind",
-                    "active_time": 25,
-                    "recharge_time": 50,
-                    "wind_up_time": 3,
-                    "effect_range": 40,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": 200,
-                    "mana_cost": 12,
-                    "miscast_chance": 0.25,
-                    "target_self": false,
-                    "phases": [
-                      {
-                        "duration": 25,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": -30,
-                            "stat": "stat_armour",
-                            "how": "add",
-                            "description": "-30 Armour",
-                            "sort_order": 6,
-                            "icon": "icon_stat_armour.png"
-                          },
-                          {
-                            "value": -30,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "-30 Melee Attack",
-                            "sort_order": 2,
-                            "icon": "icon_stat_attack.png"
-                          },
-                          {
-                            "value": -30,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "-30 Melee Defence",
-                            "sort_order": 3,
-                            "icon": "icon_stat_defence.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.9 Speed",
-                            "sort_order": 10,
-                            "icon": "icon_stat_speed.png"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
                 {
                   "effect": "wh2_main_effect_magic_heavens_enable_curse_of_the_midnight_wind_upgraded",
                   "bonus_value_id": "enable",
@@ -9933,114 +8380,6 @@
               "related_abilities": [
                 {
                   "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh2_main_spell_high_magic_arcane_unforging",
-                    "icon_name": "wh2_main_spell_high_magic_arcane_unforging",
-                    "overpower_option": "wh2_main_spell_high_magic_arcane_unforging_upgraded",
-                    "type": {
-                      "key": "wh_type_direct_damage",
-                      "icon_path": "icon_spell_direct_damage.png",
-                      "description": "Direct Damage"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Arcane Unforging",
-                    "ui_effects": [
-                      {
-                        "key": "wh2_main_spell_high_magic_arcane_unforging",
-                        "sort_order": 1,
-                        "description": "➕ 100% chance to deal 50 direct damage to 1 entity per second"
-                      },
-                      {
-                        "key": "wh_effects_multiplicative",
-                        "sort_order": 1,
-                        "description": "➕ Effects are multiplicative"
-                      },
-                      {
-                        "key": "wh_main_all_strong_against_single",
-                        "sort_order": 106,
-                        "description": "➕ Strong vs a single combatant"
-                      },
-                      {
-                        "key": "wh_main_all_direct_damage_resist",
-                        "sort_order": 201,
-                        "description": "➖ Chance opponent will resist damage"
-                      },
-                      {
-                        "key": "wh_main_all_weak_against_multiple",
-                        "sort_order": 203,
-                        "description": "➖ Weak vs multiple combatants"
-                      }
-                    ],
-                    "active_time": 30,
-                    "recharge_time": 75,
-                    "wind_up_time": 5,
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": false,
-                    "target_intercept_range": 100,
-                    "mana_cost": 15,
-                    "miscast_chance": 0.2,
-                    "target_self": false,
-                    "phases": [
-                      {
-                        "duration": 30,
-                        "effect_type": "negative",
-                        "ability_recharge_change": 30,
-                        "hp_change_frequency": 1,
-                        "damage_chance": 1,
-                        "damage_amount": 50,
-                        "max_damaged_entities": 1,
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_physical",
-                            "how": "mult",
-                            "description": "x0.9 Physical Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_physical.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_missile",
-                            "how": "mult",
-                            "description": "x0.9 Missile Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_missile.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_magic",
-                            "how": "mult",
-                            "description": "x0.9 Magic Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_magic.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_flame",
-                            "how": "mult",
-                            "description": "x0.9 Flame Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_fire.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_all",
-                            "how": "mult",
-                            "description": "x0.9 Damage Resistance ",
-                            "sort_order": 10,
-                            "icon": "resistance_ward_save.png"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh2_main_spell_high_magic_arcane_unforging",
@@ -10169,114 +8508,6 @@
               "is_positive_value_good": true,
               "description": "Overcast spell: \"Arcane Unforging Upgraded\"",
               "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh2_main_spell_high_magic_arcane_unforging",
-                    "icon_name": "wh2_main_spell_high_magic_arcane_unforging",
-                    "overpower_option": "wh2_main_spell_high_magic_arcane_unforging_upgraded",
-                    "type": {
-                      "key": "wh_type_direct_damage",
-                      "icon_path": "icon_spell_direct_damage.png",
-                      "description": "Direct Damage"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Arcane Unforging",
-                    "ui_effects": [
-                      {
-                        "key": "wh2_main_spell_high_magic_arcane_unforging",
-                        "sort_order": 1,
-                        "description": "➕ 100% chance to deal 50 direct damage to 1 entity per second"
-                      },
-                      {
-                        "key": "wh_effects_multiplicative",
-                        "sort_order": 1,
-                        "description": "➕ Effects are multiplicative"
-                      },
-                      {
-                        "key": "wh_main_all_strong_against_single",
-                        "sort_order": 106,
-                        "description": "➕ Strong vs a single combatant"
-                      },
-                      {
-                        "key": "wh_main_all_direct_damage_resist",
-                        "sort_order": 201,
-                        "description": "➖ Chance opponent will resist damage"
-                      },
-                      {
-                        "key": "wh_main_all_weak_against_multiple",
-                        "sort_order": 203,
-                        "description": "➖ Weak vs multiple combatants"
-                      }
-                    ],
-                    "active_time": 30,
-                    "recharge_time": 75,
-                    "wind_up_time": 5,
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": false,
-                    "target_intercept_range": 100,
-                    "mana_cost": 15,
-                    "miscast_chance": 0.2,
-                    "target_self": false,
-                    "phases": [
-                      {
-                        "duration": 30,
-                        "effect_type": "negative",
-                        "ability_recharge_change": 30,
-                        "hp_change_frequency": 1,
-                        "damage_chance": 1,
-                        "damage_amount": 50,
-                        "max_damaged_entities": 1,
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_physical",
-                            "how": "mult",
-                            "description": "x0.9 Physical Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_physical.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_missile",
-                            "how": "mult",
-                            "description": "x0.9 Missile Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_missile.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_magic",
-                            "how": "mult",
-                            "description": "x0.9 Magic Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_magic.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_flame",
-                            "how": "mult",
-                            "description": "x0.9 Flame Resistance",
-                            "sort_order": 10,
-                            "icon": "resistance_fire.png"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_resistance_all",
-                            "how": "mult",
-                            "description": "x0.9 Damage Resistance ",
-                            "sort_order": 10,
-                            "icon": "resistance_ward_save.png"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
                 {
                   "effect": "wh2_main_effect_magic_high_enable_arcane_unforging_upgraded",
                   "bonus_value_id": "enable",
@@ -10545,88 +8776,6 @@
               "related_abilities": [
                 {
                   "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_heavens_comet_of_casandora",
-                    "icon_name": "wh_main_spell_heavens_comet_of_casandora",
-                    "overpower_option": "wh_main_spell_heavens_comet_of_casandora_upgraded",
-                    "type": {
-                      "key": "wh_type_bombardment",
-                      "icon_path": "icon_spell_bombardment.png",
-                      "description": "Bombardment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Comet of Casandora",
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_spell_heavens_comet_of_casandora",
-                        "sort_order": 1,
-                        "description": "➕ Calls down 1 projectile dealing 1000 500 damage and 100 50 explosion damage (20m)"
-                      },
-                      {
-                        "key": "wh2_main_all_magical_damage_massive",
-                        "sort_order": 104,
-                        "description": "➕ Causes magical damage"
-                      },
-                      {
-                        "key": "wh2_main_all_huge_static_aoe",
-                        "sort_order": 105,
-                        "description": "➕ Huge explosion area"
-                      },
-                      {
-                        "key": "wh_main_bombardment_large_strike_aoe",
-                        "sort_order": 105,
-                        "description": "➕ Large strike area"
-                      },
-                      {
-                        "key": "wh2_main_all_good_against_armour",
-                        "sort_order": 106,
-                        "description": "➕ Good against armour"
-                      },
-                      {
-                        "key": "wh_main_all_strong_against_units",
-                        "sort_order": 106,
-                        "description": "➕ Strong vs multiple units"
-                      }
-                    ],
-                    "active_time": 7,
-                    "recharge_time": 100,
-                    "wind_up_time": 5,
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": 200,
-                    "bombardment": {
-                      "bombardment_key": "wh_main_spell_heavens_comet_of_casandora",
-                      "projectile_type": {
-                        "key": "wh_main_spell_heavens_comet_of_casandora",
-                        "explosion_type": {
-                          "key": "wh_main_spell_heavens_comet_of_casandora",
-                          "detonation_radius": 20,
-                          "detonation_damage": 100,
-                          "is_magical": true,
-                          "detonation_damage_ap": 50,
-                          "affects_allies": true
-                        },
-                        "damage": 1000,
-                        "ap_damage": 500,
-                        "bonus_v_cavalry": "0",
-                        "shockwave_radius": 5,
-                        "is_grapple": "false",
-                        "is_magical": true
-                      },
-                      "start_time": 4,
-                      "arrival_window": 1,
-                      "radius_spread": 8
-                    },
-                    "mana_cost": 15,
-                    "miscast_chance": 0.25,
-                    "target_self": false
-                  }
-                },
-                {
-                  "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh_main_spell_heavens_comet_of_casandora",
@@ -10729,88 +8878,6 @@
               "is_positive_value_good": true,
               "description": "Overcast spell: \"Comet of Casandora Upgraded\"",
               "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
-                  "bonus_value_id": "enable_overchage",
-                  "unit_ability": {
-                    "key": "wh_main_spell_heavens_comet_of_casandora",
-                    "icon_name": "wh_main_spell_heavens_comet_of_casandora",
-                    "overpower_option": "wh_main_spell_heavens_comet_of_casandora_upgraded",
-                    "type": {
-                      "key": "wh_type_bombardment",
-                      "icon_path": "icon_spell_bombardment.png",
-                      "description": "Bombardment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "description": "Comet of Casandora",
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_spell_heavens_comet_of_casandora",
-                        "sort_order": 1,
-                        "description": "➕ Calls down 1 projectile dealing 1000 500 damage and 100 50 explosion damage (20m)"
-                      },
-                      {
-                        "key": "wh2_main_all_magical_damage_massive",
-                        "sort_order": 104,
-                        "description": "➕ Causes magical damage"
-                      },
-                      {
-                        "key": "wh2_main_all_huge_static_aoe",
-                        "sort_order": 105,
-                        "description": "➕ Huge explosion area"
-                      },
-                      {
-                        "key": "wh_main_bombardment_large_strike_aoe",
-                        "sort_order": 105,
-                        "description": "➕ Large strike area"
-                      },
-                      {
-                        "key": "wh2_main_all_good_against_armour",
-                        "sort_order": 106,
-                        "description": "➕ Good against armour"
-                      },
-                      {
-                        "key": "wh_main_all_strong_against_units",
-                        "sort_order": 106,
-                        "description": "➕ Strong vs multiple units"
-                      }
-                    ],
-                    "active_time": 7,
-                    "recharge_time": 100,
-                    "wind_up_time": 5,
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": 200,
-                    "bombardment": {
-                      "bombardment_key": "wh_main_spell_heavens_comet_of_casandora",
-                      "projectile_type": {
-                        "key": "wh_main_spell_heavens_comet_of_casandora",
-                        "explosion_type": {
-                          "key": "wh_main_spell_heavens_comet_of_casandora",
-                          "detonation_radius": 20,
-                          "detonation_damage": 100,
-                          "is_magical": true,
-                          "detonation_damage_ap": 50,
-                          "affects_allies": true
-                        },
-                        "damage": 1000,
-                        "ap_damage": 500,
-                        "bonus_v_cavalry": "0",
-                        "shockwave_radius": 5,
-                        "is_grapple": "false",
-                        "is_magical": true
-                      },
-                      "start_time": 4,
-                      "arrival_window": 1,
-                      "radius_spread": 8
-                    },
-                    "mana_cost": 15,
-                    "miscast_chance": 0.25,
-                    "target_self": false
-                  }
-                },
                 {
                   "effect": "wh2_main_effect_magic_heavens_enable_comet_of_casandora_upgraded",
                   "bonus_value_id": "enable",

@@ -413,6 +413,116 @@
                 "priority": 77,
                 "is_positive_value_good": true,
                 "description": "Ability: \"Napalm Bomb\" (when piloting a Gyrobomber)\n\t(replaces: \"Skyhammer Bomb\")",
+                "related_abilities": [
+                  {
+                    "effect": "mixu_LL_enable_ability_napalm_bomb_dwf_grimm_bomber",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "mixu_dwf_grimm_ability_gyrobomber_bomb",
+                      "icon_name": "wh_main_unit_abilities_gyrobomber_bomb",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "icon_spell_bombardment.png",
+                        "description": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Napalm Bomb",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "sort_order": 104,
+                          "effect_state": "positive",
+                          "description": "Causes fire damage"
+                        },
+                        {
+                          "key": "wh_main_projectile_powerful_explosion",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Powerful explosion"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Strong vs multiple combatants"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Weak vs a single combatant"
+                        }
+                      ],
+                      "num_uses": 5,
+                      "active_time": 0.1,
+                      "recharge_time": 0.1,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 10,
+                      "bombardment": {
+                        "bombardment_key": "mixu_dwf_grimm_ability_gyrobomber_bomb",
+                        "projectile_type": {
+                          "key": "mixu_dwf_grimm_ability_gyrobomber_bomb",
+                          "explosion_type": {
+                            "key": "mixu_dwf_grimm_ability_gyrobomber_bomb",
+                            "detonation_radius": 7,
+                            "detonation_damage": 70,
+                            "contact_phase_effect": {
+                              "id": "wh_main_unit_contact_morale",
+                              "duration": 10,
+                              "effect_type": "negative",
+                              "is_hidden_in_ui": false,
+                              "freeze_recharge": false,
+                              "stat_effects": [
+                                {
+                                  "value": -8,
+                                  "stat": "stat_morale",
+                                  "how": "add",
+                                  "description": "-8 Leadership",
+                                  "sort_order": 1,
+                                  "icon": "icon_stat_morale.png"
+                                }
+                              ]
+                            },
+                            "detonation_damage_ap": 30,
+                            "affects_allies": true,
+                            "is_flaming": true
+                          },
+                          "projectile_number": 4,
+                          "damage": 70,
+                          "ap_damage": 70,
+                          "contact_stat_effect": {
+                            "id": "wh_main_unit_contact_morale",
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "is_hidden_in_ui": false,
+                            "freeze_recharge": false,
+                            "stat_effects": [
+                              {
+                                "value": -8,
+                                "stat": "stat_morale",
+                                "how": "add",
+                                "description": "-8 Leadership",
+                                "sort_order": 1,
+                                "icon": "icon_stat_morale.png"
+                              }
+                            ]
+                          },
+                          "shockwave_radius": 1.2,
+                          "can_damage_allies": true,
+                          "is_flaming": true
+                        },
+                        "start_time": 0.1,
+                        "arrival_window": 0.2,
+                        "radius_spread": 1.5
+                      },
+                      "target_self": false
+                    }
+                  }
+                ],
                 "key": "mixu_LL_enable_ability_napalm_bomb_dwf_grimm_bomber",
                 "value": 1
               }
@@ -478,6 +588,58 @@
                 "priority": 60,
                 "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Ballistics Calibration\"",
+                "related_abilities": [
+                  {
+                    "effect": "mixu_dwf_grimm_ability_cooldown_master_of_calibration",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh_main_hero_abilities_ballistics_calibration",
+                      "icon_name": "wh_main_hero_abilities_ballistics_calibration",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "icon_spell_area_of_augments.png",
+                        "description": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Ballistics Calibration",
+                      "active_time": 32,
+                      "recharge_time": 90,
+                      "effect_range": 35,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 32,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 60,
+                              "stat": "stat_accuracy",
+                              "how": "add",
+                              "description": "+60 Accuracy",
+                              "sort_order": 9,
+                              "icon": "icon_stat_range.png"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+20 Reload Skill",
+                              "sort_order": 8,
+                              "icon": "icon_stat_reload_time.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "mixu_dwf_grimm_ability_cooldown_master_of_calibration",
                 "value": -50
               },
@@ -486,6 +648,50 @@
                 "priority": 60,
                 "is_positive_value_good": false,
                 "description": "Cooldown: -30% for \"Restock!\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc17_effect_ability_cooldown_restock",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh2_dlc17_hero_abilities_more_powder_generic",
+                      "icon_name": "wh2_dlc11_hero_abilities_more_powder",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Restock!",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc11_all_replenish_ammo",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Replenishes ammunition"
+                        }
+                      ],
+                      "num_uses": 4,
+                      "active_time": 10,
+                      "recharge_time": 60,
+                      "effect_range": 0,
+                      "target_friends": true,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 100,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 10,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "replenish_ammo": 0.3,
+                          "freeze_recharge": false
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc17_effect_ability_cooldown_restock",
                 "value": -30
               },
@@ -494,6 +700,50 @@
                 "priority": 705,
                 "is_positive_value_good": true,
                 "description": "Ability number of uses: +2 for \"Restock!\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc17_effect_ability_uses_restock",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh2_dlc17_hero_abilities_more_powder_generic",
+                      "icon_name": "wh2_dlc11_hero_abilities_more_powder",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Restock!",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc11_all_replenish_ammo",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Replenishes ammunition"
+                        }
+                      ],
+                      "num_uses": 4,
+                      "active_time": 10,
+                      "recharge_time": 60,
+                      "effect_range": 0,
+                      "target_friends": true,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 100,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 10,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "replenish_ammo": 0.3,
+                          "freeze_recharge": false
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc17_effect_ability_uses_restock",
                 "value": 2
               }
@@ -671,6 +921,82 @@
                 "priority": 33,
                 "is_positive_value_good": true,
                 "description": "Army ability: \"Grudgebuster Rocket\"",
+                "related_abilities": [
+                  {
+                    "effect": "mixu_LL_enable_army_ability_dwf_grudgebuster_rocket",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "mixu_LL_army_ability_dwf_grudgebuster_rocket",
+                      "icon_name": "mixu_dwf_grimm_ability_grudgebuster_rocket",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "icon_spell_bombardment.png",
+                        "description": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Grudgebuster Rocket",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_army_damage_explosion_ranged",
+                          "sort_order": 1,
+                          "effect_state": "magic",
+                          "description": "Good damage & explosion damage"
+                        },
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "sort_order": 104,
+                          "effect_state": "positive",
+                          "description": "Causes fire damage"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Strong vs multiple combatants"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Weak vs a single combatant"
+                        }
+                      ],
+                      "num_uses": 3,
+                      "active_time": 7,
+                      "recharge_time": 60,
+                      "initial_recharge": 45,
+                      "wind_up_time": 5,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": -1,
+                      "bombardment": {
+                        "bombardment_key": "mixu_LL_army_ability_dwf_grudgebuster_rocket",
+                        "projectile_type": {
+                          "key": "mixu_LL_army_ability_dwf_grudgebuster_rocket",
+                          "explosion_type": {
+                            "key": "mixu_LL_army_ability_dwf_grudgebuster_rocket",
+                            "detonation_radius": 20,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 112,
+                            "affects_allies": true
+                          },
+                          "damage": 88,
+                          "ap_damage": 330,
+                          "shockwave_radius": 3.5,
+                          "can_damage_allies": true,
+                          "is_flaming": true
+                        },
+                        "start_time": 0.1,
+                        "arrival_window": 0.1,
+                        "radius_spread": 3
+                      },
+                      "target_self": false
+                    }
+                  }
+                ],
                 "key": "mixu_LL_enable_army_ability_dwf_grudgebuster_rocket",
                 "value": 1
               }
@@ -2383,14 +2709,6 @@
           },
           {
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "mixu_LL_enable_attribute_siege_attacker_hidden",
-                "value": 1
-              },
               {
                 "icon": "attribute_can_siege.png",
                 "priority": 101,

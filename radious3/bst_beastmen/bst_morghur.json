@@ -334,6 +334,52 @@
                 "priority": 3,
                 "is_positive_value_good": true,
                 "description": "Upgrades \"Aura of Madness\" ability for Jabberslythe units with increased damage over time\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc17_effect_ability_upgrade_jabberslythe_aura",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc17_unit_passive_greater_aura_of_madness",
+                      "icon_name": "wh2_dlc17_unit_passive_aura_of_madness",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "icon_spell_area_of_direct_damage.png",
+                        "description": "Direct Damage (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Greater Aura of Madness",
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "sort_order": 104,
+                          "effect_state": "positive",
+                          "description": "Causes damage to combatants"
+                        }
+                      ],
+                      "effect_range": 35,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "negative",
+                          "hp_change_frequency": 1,
+                          "damage_amount": 4,
+                          "max_damaged_entities": 4,
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false
+                        }
+                      ],
+                      "enabled_if": [
+                        "In melee"
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc17_effect_ability_upgrade_jabberslythe_aura",
                 "value": 1
               },
@@ -342,6 +388,68 @@
                 "priority": 4,
                 "is_positive_value_good": true,
                 "description": "Passive ability: \"Horrible Regeneration\" for Chaos Spawn units\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc17_effect_ability_enable_horrible_regeneration_chaos_spawn",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc17_unit_passive_horrible_regeneration",
+                      "icon_name": "wh_main_unit_passive_regeneration",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "icon_spell_regeneration.png",
+                        "description": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Horrible Regeneration",
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_resurrect",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Resurrects dead combatants"
+                        },
+                        {
+                          "key": "wh_main_all_resurrect_hp",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Heals injured before resurrecting"
+                        }
+                      ],
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "resurrect": true,
+                          "hp_change_frequency": 1,
+                          "heal_amount": 0.001,
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": -20,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-20 Weakness to Fire Damage",
+                              "sort_order": 0,
+                              "icon": "modifier_icon_flaming.png"
+                            }
+                          ]
+                        }
+                      ],
+                      "enabled_if": [
+                        "Battle outcome is undecided"
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc17_effect_ability_enable_horrible_regeneration_chaos_spawn",
                 "value": 1
               },

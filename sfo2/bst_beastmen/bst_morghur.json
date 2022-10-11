@@ -475,6 +475,56 @@
                 "priority": 3,
                 "is_positive_value_good": true,
                 "description": "Upgrades \"Aura of Madness\" ability for Jabberslythe units with increased damage over time\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc17_effect_ability_upgrade_jabberslythe_aura",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc17_unit_passive_greater_aura_of_madness",
+                      "icon_name": "wh2_dlc17_unit_passive_aura_of_madness",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "icon_spell_area_of_direct_damage.png",
+                        "description": "Direct Damage (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Greater Aura of Madness",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc17_unit_passive_greater_aura_of_madness",
+                          "sort_order": 1,
+                          "description": "➕100% chance to deal 4 direct damage to 4 entities per second"
+                        },
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "sort_order": 104,
+                          "description": "➕ Causes damage to combatants"
+                        }
+                      ],
+                      "effect_range": 60,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "negative",
+                          "hp_change_frequency": 1,
+                          "damage_chance": 1,
+                          "damage_amount": 4,
+                          "max_damaged_entities": 4,
+                          "is_hidden_in_ui": false
+                        }
+                      ],
+                      "enabled_if": [
+                        "In melee"
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc17_effect_ability_upgrade_jabberslythe_aura",
                 "value": 1
               },
@@ -483,6 +533,72 @@
                 "priority": 4,
                 "is_positive_value_good": true,
                 "description": "Passive ability: \"Horrible Regeneration\" for Chaos Spawn units\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc17_effect_ability_enable_horrible_regeneration_chaos_spawn",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc17_unit_passive_horrible_regeneration",
+                      "icon_name": "wh_main_unit_passive_regeneration",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "icon_spell_regeneration.png",
+                        "description": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Horrible Regeneration",
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_passive_4",
+                          "sort_order": 1,
+                          "description": "➕ Restores 4 Hit Points per second"
+                        },
+                        {
+                          "key": "wh_main_all_resurrect",
+                          "sort_order": 105,
+                          "description": "➕ Resurrects dead combatants"
+                        },
+                        {
+                          "key": "wh_main_all_resurrect_hp",
+                          "sort_order": 106,
+                          "description": "➕ Heals injured before resurrecting"
+                        },
+                        {
+                          "key": "wh2_dlc15_heal_passive_4",
+                          "sort_order": 109,
+                          "description": "Units won't regenerate if cap was reached"
+                        }
+                      ],
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "hp_change_frequency": 0.5,
+                          "resurrect": true,
+                          "heal_amount": 2,
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -25,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-25 Weakness to Fire Damage",
+                              "sort_order": 0,
+                              "icon": "modifier_icon_flaming.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc17_effect_ability_enable_horrible_regeneration_chaos_spawn",
                 "value": 1
               },
@@ -3056,128 +3172,16 @@
               {
                 "icon": "",
                 "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_horde_building_gdp_mod_all_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_gdp_mod_all_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_loot_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
                 "is_positive_value_good": true,
                 "description": "[HIDDEN]",
                 "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod_hidden",
                 "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_raid_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_razing_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_sacking_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_trade_tariff_mod_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_modify_vassal_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
               }
             ]
           },
           {
             "unlocked_at_rank": 30,
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
-              },
               {
                 "icon": "military_spending.png",
                 "priority": 1000,

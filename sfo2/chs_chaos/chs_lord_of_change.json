@@ -24,6 +24,69 @@
                 "priority": 1000,
                 "is_positive_value_good": false,
                 "description": "Cooldown: -25% to \"Soul Leech of Tzeentch\"\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "chs_tzeentch_unit_ability_recharge_damage",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "chs_active_tzeentch_soul_drain",
+                      "icon_name": "chs_active_tzeentch_soul_drain",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "icon_spell_area_of_direct_damage.png",
+                        "description": "Direct Damage (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Soul Leech of Tzeentch",
+                      "ui_effects": [
+                        {
+                          "key": "chs_active_tzeentch_soul_drain",
+                          "sort_order": 1,
+                          "description": "➕75% chance to deal 1 direct damage to 80 entities per second"
+                        }
+                      ],
+                      "num_uses": 5,
+                      "active_time": 25,
+                      "recharge_time": 120,
+                      "effect_range": 30,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": 150,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 25,
+                          "effect_type": "negative",
+                          "hp_change_frequency": 1,
+                          "damage_chance": 0.75,
+                          "damage_amount": 1,
+                          "max_damaged_entities": 80,
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -5,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-5 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "icon_stat_defence.png"
+                            },
+                            {
+                              "value": -15,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "-15 Magic Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_magic.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "chs_tzeentch_unit_ability_recharge_damage",
                 "value": -25
               },
@@ -32,6 +95,73 @@
                 "priority": 1000,
                 "is_positive_value_good": false,
                 "description": "Cooldown: -25% to \"Unholy Pact with the Changer\"\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "chs_tzeentch_unit_ability_recharge_heal",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "chs_active_tzeentch_dark_healing",
+                      "icon_name": "chs_active_tzeentch_dark_healing",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Unholy Pact with the Changer",
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_active_1000",
+                          "sort_order": 1,
+                          "description": "➕ Restores up to 1000 Hit Points"
+                        },
+                        {
+                          "key": "wh_main_all_replenish",
+                          "sort_order": 105,
+                          "description": "Units won't regenerate if cap was reached"
+                        }
+                      ],
+                      "num_uses": 5,
+                      "active_time": 30,
+                      "recharge_time": 120,
+                      "wind_up_time": 3,
+                      "effect_range": 30,
+                      "num_effected_friendly_units": 4,
+                      "target_friends": true,
+                      "target_enemies": false,
+                      "target_ground": true,
+                      "target_intercept_range": 150,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "hp_change_frequency": 1,
+                          "heal_amount": 33,
+                          "is_hidden_in_ui": false,
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "attribute_type": "positive"
+                            }
+                          ],
+                          "stat_effects": [
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "+25 Magic Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_magic.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "chs_tzeentch_unit_ability_recharge_heal",
                 "value": -25
               },
@@ -98,84 +228,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Melkoth's Mystifying Miasma Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_melkoths_mystifying_miasma_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma",
-                      "icon_name": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma",
-                      "overpower_option": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Melkoth's Mystifying Miasma",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma",
-                          "sort_order": 1,
-                          "description": "➕ 25% chance to deal 7 direct damage to 18 entities per second"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "sort_order": 104,
-                          "description": "➕ Causes damage to combatants"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple combatants"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 15,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 8,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_chance": 0.25,
-                          "damage_amount": 7,
-                          "max_damaged_entities": 18,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.8 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            },
-                            {
-                              "value": -25,
-                              "stat": "stat_reloading",
-                              "how": "add",
-                              "description": "-25 Reload Skill",
-                              "sort_order": 8,
-                              "icon": "icon_stat_reload_time.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_melkoths_mystifying_miasma_upgraded",
                     "bonus_value_id": "enable",
@@ -276,84 +328,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Melkoth's Mystifying Miasma Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_melkoths_mystifying_miasma_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma",
-                      "icon_name": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma",
-                      "overpower_option": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Melkoth's Mystifying Miasma",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_shadow_melkoths_mystifying_miasma",
-                          "sort_order": 1,
-                          "description": "➕ 25% chance to deal 7 direct damage to 18 entities per second"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "sort_order": 104,
-                          "description": "➕ Causes damage to combatants"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple combatants"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 15,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 8,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_chance": 0.25,
-                          "damage_amount": 7,
-                          "max_damaged_entities": 18,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.8 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            },
-                            {
-                              "value": -25,
-                              "stat": "stat_reloading",
-                              "how": "add",
-                              "description": "-25 Reload Skill",
-                              "sort_order": 8,
-                              "icon": "icon_stat_reload_time.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_melkoths_mystifying_miasma_upgraded",
                     "bonus_value_id": "enable",
@@ -646,59 +620,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_melkoths_enfeebling_foe_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_the_enfeebling_foe",
-                      "icon_name": "wh_dlc05_spell_shadow_the_enfeebling_foe",
-                      "overpower_option": "wh_dlc05_spell_shadow_the_enfeebling_foe_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "The Enfeebling Foe",
-                      "active_time": 25,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 25,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -35,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-35 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": -35,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-35 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_melkoths_enfeebling_foe_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_dlc05_spell_shadow_the_enfeebling_foe",
@@ -772,59 +693,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"The Enfeebling Foe Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_melkoths_enfeebling_foe_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_the_enfeebling_foe",
-                      "icon_name": "wh_dlc05_spell_shadow_the_enfeebling_foe",
-                      "overpower_option": "wh_dlc05_spell_shadow_the_enfeebling_foe_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "The Enfeebling Foe",
-                      "active_time": 25,
-                      "recharge_time": 35,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 25,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -35,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-35 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": -35,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-35 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_melkoths_enfeebling_foe_upgraded",
                     "bonus_value_id": "enable",
@@ -1104,155 +972,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_the_withering_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_the_withering",
-                      "icon_name": "wh_dlc05_spell_shadow_the_withering",
-                      "overpower_option": "wh_dlc05_spell_shadow_the_withering_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "The Withering",
-                      "active_time": 60,
-                      "recharge_time": 60,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -4,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-4 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 1.1,
-                              "stat": "scalar_miscast_chance",
-                              "how": "mult",
-                              "description": "x1.1 Miscast Chance",
-                              "sort_order": 10,
-                              "icon": "icon_stat_miscast.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -8,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-8 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 1.1,
-                              "stat": "scalar_miscast_chance",
-                              "how": "mult",
-                              "description": "x1.1 Miscast Chance",
-                              "sort_order": 10,
-                              "icon": "icon_stat_miscast.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -16,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-16 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 1.2,
-                              "stat": "scalar_miscast_chance",
-                              "how": "mult",
-                              "description": "x1.2 Miscast Chance",
-                              "sort_order": 10,
-                              "icon": "icon_stat_miscast.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_the_withering_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_dlc05_spell_shadow_the_withering",
@@ -1422,155 +1141,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"The Withering Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_the_withering_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_the_withering",
-                      "icon_name": "wh_dlc05_spell_shadow_the_withering",
-                      "overpower_option": "wh_dlc05_spell_shadow_the_withering_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "The Withering",
-                      "active_time": 60,
-                      "recharge_time": 60,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -4,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-4 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 1.1,
-                              "stat": "scalar_miscast_chance",
-                              "how": "mult",
-                              "description": "x1.1 Miscast Chance",
-                              "sort_order": 10,
-                              "icon": "icon_stat_miscast.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -8,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-8 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 1.1,
-                              "stat": "scalar_miscast_chance",
-                              "how": "mult",
-                              "description": "x1.1 Miscast Chance",
-                              "sort_order": 10,
-                              "icon": "icon_stat_miscast.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": 0.9,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "max_damaged_entities": -1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -16,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-16 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 1.2,
-                              "stat": "scalar_miscast_chance",
-                              "how": "mult",
-                              "description": "x1.2 Miscast Chance",
-                              "sort_order": 10,
-                              "icon": "icon_stat_miscast.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_the_withering_upgraded",
                     "bonus_value_id": "enable",
@@ -1862,71 +1432,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_penumbral_pendulum_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                      "icon_name": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                      "overpower_option": "wh_dlc05_spell_shadow_the_penumbral_pendulum_upgraded",
-                      "type": {
-                        "key": "wh_type_wind",
-                        "icon_path": "icon_spell_wind.png",
-                        "description": "Wind"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "The Penumbral Pendulum",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                          "sort_order": 1,
-                          "description": "➕ Deals 120 60 damage per second (4m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_massive",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_small_wind",
-                          "sort_order": 105,
-                          "description": "➕ Small, forward-moving area of effect"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 2,
-                      "recharge_time": 70,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "vortex": {
-                        "vortex_key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                        "duration": 2,
-                        "damage": 120,
-                        "damage_ap": 60,
-                        "goal_radius": 4,
-                        "movement_speed": 40,
-                        "is_magical": true,
-                        "delay": 1,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_penumbral_pendulum_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
@@ -2012,71 +1517,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"The Penumbral Pendulum Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_penumbral_pendulum_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                      "icon_name": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                      "overpower_option": "wh_dlc05_spell_shadow_the_penumbral_pendulum_upgraded",
-                      "type": {
-                        "key": "wh_type_wind",
-                        "icon_path": "icon_spell_wind.png",
-                        "description": "Wind"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "The Penumbral Pendulum",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                          "sort_order": 1,
-                          "description": "➕ Deals 120 60 damage per second (4m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_massive",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_small_wind",
-                          "sort_order": 105,
-                          "description": "➕ Small, forward-moving area of effect"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 2,
-                      "recharge_time": 70,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "vortex": {
-                        "vortex_key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
-                        "duration": 2,
-                        "damage": 120,
-                        "damage_ap": 60,
-                        "goal_radius": 4,
-                        "movement_speed": 40,
-                        "is_magical": true,
-                        "delay": 1,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_penumbral_pendulum_upgraded",
                     "bonus_value_id": "enable",
@@ -2307,93 +1747,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_pit_of_shades_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_pit_of_shades",
-                      "icon_name": "wh_dlc05_spell_shadow_pit_of_shades",
-                      "overpower_option": "wh_dlc05_spell_shadow_pit_of_shades_upgraded",
-                      "type": {
-                        "key": "wh_type_vortex",
-                        "icon_path": "icon_spell_vortex.png",
-                        "description": "Vortex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Pit of Shades",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_shadow_pit_of_shades",
-                          "sort_order": 1,
-                          "description": "➕ Deals 0 15 damage per second (15m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_stationary_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Huge, stationary area of effect"
-                        },
-                        {
-                          "key": "wh_main_all_can_disrupt_formation",
-                          "sort_order": 105,
-                          "description": "➕ Can disrupt unit formation"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "sort_order": 106,
-                          "description": "➕ Good against armour"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        }
-                      ],
-                      "active_time": 13,
-                      "recharge_time": 90,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "vortex": {
-                        "vortex_key": "wh_dlc05_spell_shadow_pit_of_shades",
-                        "duration": 13,
-                        "damage": 0,
-                        "damage_ap": 15,
-                        "goal_radius": 15,
-                        "movement_speed": 0,
-                        "contact_effect": {
-                          "id": "wh_main_unit_contact_vortex_leadership",
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "max_damaged_entities": 5,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -10,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-10 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            }
-                          ]
-                        },
-                        "is_magical": true,
-                        "delay": 0,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_pit_of_shades_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_dlc05_spell_shadow_pit_of_shades",
@@ -2501,93 +1854,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Pit of Shades Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_pit_of_shades_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_pit_of_shades",
-                      "icon_name": "wh_dlc05_spell_shadow_pit_of_shades",
-                      "overpower_option": "wh_dlc05_spell_shadow_pit_of_shades_upgraded",
-                      "type": {
-                        "key": "wh_type_vortex",
-                        "icon_path": "icon_spell_vortex.png",
-                        "description": "Vortex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Pit of Shades",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_shadow_pit_of_shades",
-                          "sort_order": 1,
-                          "description": "➕ Deals 0 15 damage per second (15m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_stationary_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Huge, stationary area of effect"
-                        },
-                        {
-                          "key": "wh_main_all_can_disrupt_formation",
-                          "sort_order": 105,
-                          "description": "➕ Can disrupt unit formation"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "sort_order": 106,
-                          "description": "➕ Good against armour"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        }
-                      ],
-                      "active_time": 13,
-                      "recharge_time": 90,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "vortex": {
-                        "vortex_key": "wh_dlc05_spell_shadow_pit_of_shades",
-                        "duration": 13,
-                        "damage": 0,
-                        "damage_ap": 15,
-                        "goal_radius": 15,
-                        "movement_speed": 0,
-                        "contact_effect": {
-                          "id": "wh_main_unit_contact_vortex_leadership",
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "max_damaged_entities": 5,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -10,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-10 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            }
-                          ]
-                        },
-                        "is_magical": true,
-                        "delay": 0,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 15,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_pit_of_shades_upgraded",
                     "bonus_value_id": "enable",
@@ -2801,60 +2067,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_okkams_mindrazor_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_okkams_mindrazor",
-                      "icon_name": "wh_dlc05_spell_shadow_okkams_mindrazor",
-                      "overpower_option": "wh_dlc05_spell_shadow_okkams_mindrazor_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Okkam's Mindrazor",
-                      "active_time": 40,
-                      "recharge_time": 60,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 10,
-                      "miscast_chance": 0.25,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 40,
-                          "effect_type": "positive",
-                          "max_damaged_entities": -1,
-                          "imbue_magical": true,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.5,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.5 Armour-Piercing Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "modifier_icon_armour_piercing.png"
-                            },
-                            {
-                              "value": 1.5,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x1.5 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_okkams_mindrazor_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_dlc05_spell_shadow_okkams_mindrazor",
@@ -2929,60 +2141,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Okkam's Mindrazor Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_shadow_enable_okkams_mindrazor_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_shadow_okkams_mindrazor",
-                      "icon_name": "wh_dlc05_spell_shadow_okkams_mindrazor",
-                      "overpower_option": "wh_dlc05_spell_shadow_okkams_mindrazor_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Okkam's Mindrazor",
-                      "active_time": 40,
-                      "recharge_time": 60,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 10,
-                      "miscast_chance": 0.25,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 40,
-                          "effect_type": "positive",
-                          "max_damaged_entities": -1,
-                          "imbue_magical": true,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.5,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.5 Armour-Piercing Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "modifier_icon_armour_piercing.png"
-                            },
-                            {
-                              "value": 1.5,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x1.5 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_shadow_enable_okkams_mindrazor_upgraded",
                     "bonus_value_id": "enable",
@@ -3109,84 +2267,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_searing_doom_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_searing_doom",
-                      "icon_name": "wh_main_spell_metal_searing_doom",
-                      "overpower_option": "wh_main_spell_metal_searing_doom_upgraded",
-                      "type": {
-                        "key": "wh_type_bombardment",
-                        "icon_path": "icon_spell_bombardment.png",
-                        "description": "Bombardment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Searing Doom",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "sort_order": 1,
-                          "description": "➕ Calls down 40 projectiles each dealing 25 75 damage and 25 75 explosion damage (3m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_bombardment_medium_strike_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Medium strike area"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_unit",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs a single unit"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 9,
-                      "recharge_time": 70,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "bombardment": {
-                        "bombardment_key": "wh_main_spell_metal_searing_doom",
-                        "projectile_type": {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "explosion_type": {
-                            "key": "wh_main_spell_metal_searing_doom",
-                            "detonation_radius": 3,
-                            "detonation_damage": 25,
-                            "is_magical": true,
-                            "detonation_damage_ap": 75,
-                            "affects_allies": true
-                          },
-                          "damage": 25,
-                          "ap_damage": 75,
-                          "bonus_v_cavalry": "0",
-                          "shockwave_radius": 1,
-                          "is_grapple": "false",
-                          "is_magical": true
-                        },
-                        "num_projectiles": 40,
-                        "start_time": 2,
-                        "arrival_window": 3,
-                        "radius_spread": 10
-                      },
-                      "mana_cost": 14,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_searing_doom_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_metal_searing_doom",
@@ -3285,84 +2365,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Searing Doom Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_searing_doom_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_searing_doom",
-                      "icon_name": "wh_main_spell_metal_searing_doom",
-                      "overpower_option": "wh_main_spell_metal_searing_doom_upgraded",
-                      "type": {
-                        "key": "wh_type_bombardment",
-                        "icon_path": "icon_spell_bombardment.png",
-                        "description": "Bombardment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Searing Doom",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "sort_order": 1,
-                          "description": "➕ Calls down 40 projectiles each dealing 25 75 damage and 25 75 explosion damage (3m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_bombardment_medium_strike_aoe",
-                          "sort_order": 105,
-                          "description": "➕ Medium strike area"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_unit",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs a single unit"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 9,
-                      "recharge_time": 70,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "bombardment": {
-                        "bombardment_key": "wh_main_spell_metal_searing_doom",
-                        "projectile_type": {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "explosion_type": {
-                            "key": "wh_main_spell_metal_searing_doom",
-                            "detonation_radius": 3,
-                            "detonation_damage": 25,
-                            "is_magical": true,
-                            "detonation_damage_ap": 75,
-                            "affects_allies": true
-                          },
-                          "damage": 25,
-                          "ap_damage": 75,
-                          "bonus_v_cavalry": "0",
-                          "shockwave_radius": 1,
-                          "is_grapple": "false",
-                          "is_magical": true
-                        },
-                        "num_projectiles": 40,
-                        "start_time": 2,
-                        "arrival_window": 3,
-                        "radius_spread": 10
-                      },
-                      "mana_cost": 14,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_searing_doom_upgraded",
                     "bonus_value_id": "enable",
@@ -3589,58 +2591,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_plague_of_rust_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_plague_of_rust",
-                      "icon_name": "wh_main_spell_metal_plague_of_rust",
-                      "overpower_option": "wh_main_spell_metal_plague_of_rust_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Plague of Rust",
-                      "active_time": 45,
-                      "recharge_time": 45,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 45,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -50,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-50 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.8 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_plague_of_rust_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_metal_plague_of_rust",
@@ -3713,58 +2663,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Plague of Rust Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_plague_of_rust_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_plague_of_rust",
-                      "icon_name": "wh_main_spell_metal_plague_of_rust",
-                      "overpower_option": "wh_main_spell_metal_plague_of_rust_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "icon_spell_hex.png",
-                        "description": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Plague of Rust",
-                      "active_time": 45,
-                      "recharge_time": 45,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 45,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -50,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-50 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.8 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_plague_of_rust_upgraded",
                     "bonus_value_id": "enable",
@@ -3962,74 +2860,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_glittering_robe_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_glittering_robe",
-                      "icon_name": "wh_main_spell_metal_glittering_robe",
-                      "overpower_option": "wh_main_spell_metal_glittering_robe_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Glittering Robe",
-                      "active_time": 40,
-                      "recharge_time": 50,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 40,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 60,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+60 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            },
-                            {
-                              "value": 10,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "+10 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 25,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+25 Physical Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_physical.png"
-                            },
-                            {
-                              "value": 25,
-                              "stat": "stat_resistance_missile",
-                              "how": "add",
-                              "description": "+25 Missile Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_missile.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_glittering_robe_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_metal_glittering_robe",
@@ -4118,74 +2948,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Glittering Robe Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_glittering_robe_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_glittering_robe",
-                      "icon_name": "wh_main_spell_metal_glittering_robe",
-                      "overpower_option": "wh_main_spell_metal_glittering_robe_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Glittering Robe",
-                      "active_time": 40,
-                      "recharge_time": 50,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 6,
-                      "miscast_chance": 0.25,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 40,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 60,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+60 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            },
-                            {
-                              "value": 10,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "+10 Leadership",
-                              "sort_order": 1,
-                              "icon": "icon_stat_morale.png"
-                            },
-                            {
-                              "value": 25,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+25 Physical Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_physical.png"
-                            },
-                            {
-                              "value": 25,
-                              "stat": "stat_resistance_missile",
-                              "how": "add",
-                              "description": "+25 Missile Resistance",
-                              "sort_order": 10,
-                              "icon": "resistance_missile.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_glittering_robe_upgraded",
                     "bonus_value_id": "enable",
@@ -4413,88 +3175,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_gehennas_golden_hounds_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_gehennas_golden_hounds",
-                      "icon_name": "wh_main_spell_metal_gehennas_golden_hounds",
-                      "overpower_option": "wh_main_spell_metal_gehennas_golden_hounds_upgraded",
-                      "type": {
-                        "key": "wh_type_vortex",
-                        "icon_path": "icon_spell_vortex.png",
-                        "description": "Vortex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Gehenna's Golden Hounds",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_metal_gehennas_golden_hounds",
-                          "sort_order": 1,
-                          "description": "➕ Deals 15 10 damage per second (12m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_major",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_medium_vortex",
-                          "sort_order": 105,
-                          "description": "➕ Medium, randomly-moving area of effect"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 20,
-                      "recharge_time": 75,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "vortex": {
-                        "vortex_key": "wh_main_spell_metal_gehennas_golden_hounds",
-                        "duration": 20,
-                        "damage": 15,
-                        "damage_ap": 10,
-                        "goal_radius": 12,
-                        "movement_speed": 1.5,
-                        "contact_effect": {
-                          "id": "wh_main_unit_contact_vortex_armour",
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "max_damaged_entities": 5,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -25,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-25 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            }
-                          ]
-                        },
-                        "is_magical": true,
-                        "delay": 0,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 10,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_gehennas_golden_hounds_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_metal_gehennas_golden_hounds",
@@ -4597,88 +3277,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Gehenna's Golden Hounds Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_gehennas_golden_hounds_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_gehennas_golden_hounds",
-                      "icon_name": "wh_main_spell_metal_gehennas_golden_hounds",
-                      "overpower_option": "wh_main_spell_metal_gehennas_golden_hounds_upgraded",
-                      "type": {
-                        "key": "wh_type_vortex",
-                        "icon_path": "icon_spell_vortex.png",
-                        "description": "Vortex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Gehenna's Golden Hounds",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_metal_gehennas_golden_hounds",
-                          "sort_order": 1,
-                          "description": "➕ Deals 15 10 damage per second (12m)"
-                        },
-                        {
-                          "key": "wh2_main_all_magical_damage_major",
-                          "sort_order": 104,
-                          "description": "➕ Causes magical damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_medium_vortex",
-                          "sort_order": 105,
-                          "description": "➕ Medium, randomly-moving area of effect"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs multiple units"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 20,
-                      "recharge_time": 75,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "vortex": {
-                        "vortex_key": "wh_main_spell_metal_gehennas_golden_hounds",
-                        "duration": 20,
-                        "damage": 15,
-                        "damage_ap": 10,
-                        "goal_radius": 12,
-                        "movement_speed": 1.5,
-                        "contact_effect": {
-                          "id": "wh_main_unit_contact_vortex_armour",
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "max_damaged_entities": 5,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -25,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-25 Armour",
-                              "sort_order": 6,
-                              "icon": "icon_stat_armour.png"
-                            }
-                          ]
-                        },
-                        "is_magical": true,
-                        "delay": 0,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 10,
-                      "miscast_chance": 0.25,
-                      "target_self": false
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_gehennas_golden_hounds_upgraded",
                     "bonus_value_id": "enable",
@@ -5018,90 +3616,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_transmutation_of_lead_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_transmutation_of_lead",
-                      "icon_name": "wh_main_spell_metal_transmutation_of_lead",
-                      "overpower_option": "wh_main_spell_metal_transmutation_of_lead_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "icon_spell_area_of_hexes.png",
-                        "description": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Transmutation of Lead",
-                      "active_time": 30,
-                      "recharge_time": 75,
-                      "wind_up_time": 5,
-                      "effect_range": 40,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 12,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -20,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-20 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": -40,
-                              "stat": "stat_accuracy",
-                              "how": "add",
-                              "description": "-40 Accuracy",
-                              "sort_order": 9,
-                              "icon": "icon_stat_range.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "modifier_icon_armour_piercing.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_missile_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Missile Damage",
-                              "sort_order": 0,
-                              "icon": "modifier_icon_armour_piercing_ranged.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_transmutation_of_lead_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_metal_transmutation_of_lead",
@@ -5206,90 +3720,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Transmutation of Lead Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_transmutation_of_lead_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_transmutation_of_lead",
-                      "icon_name": "wh_main_spell_metal_transmutation_of_lead",
-                      "overpower_option": "wh_main_spell_metal_transmutation_of_lead_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "icon_spell_area_of_hexes.png",
-                        "description": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Transmutation of Lead",
-                      "active_time": 30,
-                      "recharge_time": 75,
-                      "wind_up_time": 5,
-                      "effect_range": 40,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 12,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -20,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-20 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "icon_stat_damage_base.png"
-                            },
-                            {
-                              "value": -40,
-                              "stat": "stat_accuracy",
-                              "how": "add",
-                              "description": "-40 Accuracy",
-                              "sort_order": 9,
-                              "icon": "icon_stat_range.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Weapon Damage",
-                              "sort_order": 0,
-                              "icon": "modifier_icon_armour_piercing.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_missile_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Missile Damage",
-                              "sort_order": 0,
-                              "icon": "modifier_icon_armour_piercing_ranged.png"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Missile Damage",
-                              "sort_order": 10,
-                              "icon": "icon_stat_ranged_damage_base.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_transmutation_of_lead_upgraded",
                     "bonus_value_id": "enable",
@@ -5582,137 +4012,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_final_transmutation_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_final_transmutation",
-                      "icon_name": "wh_main_spell_metal_final_transmutation",
-                      "overpower_option": "wh_main_spell_metal_final_transmutation_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Final Transmutation",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_metal_final_transmutation",
-                          "sort_order": 1,
-                          "description": "➕ 100% chance to deal 33, then 50, then 100 direct damage to 1 entity per second"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "sort_order": 104,
-                          "description": "➕ Causes damage to combatants"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs a single combatant"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_resist",
-                          "sort_order": 201,
-                          "description": "➖ Chance opponent will resist damage"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_unit",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single unit"
-                        }
-                      ],
-                      "active_time": 30,
-                      "recharge_time": 100,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 20,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 33,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.8 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            },
-                            {
-                              "value": -5,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-5 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 10,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 50,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.5,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.5 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            },
-                            {
-                              "value": -10,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-10 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 5,
-                          "effect_type": "negative",
-                          "unbreakable": true,
-                          "cant_move": true,
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 100,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -20,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-20 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_final_transmutation_upgraded",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_main_spell_metal_final_transmutation",
@@ -5864,137 +4163,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Final Transmutation Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_magic_metal_enable_final_transmutation_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_final_transmutation",
-                      "icon_name": "wh_main_spell_metal_final_transmutation",
-                      "overpower_option": "wh_main_spell_metal_final_transmutation_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Final Transmutation",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_metal_final_transmutation",
-                          "sort_order": 1,
-                          "description": "➕ 100% chance to deal 33, then 50, then 100 direct damage to 1 entity per second"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "sort_order": 104,
-                          "description": "➕ Causes damage to combatants"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "description": "➕ Strong vs a single combatant"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_resist",
-                          "sort_order": 201,
-                          "description": "➖ Chance opponent will resist damage"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_unit",
-                          "sort_order": 203,
-                          "description": "➖ Weak vs a single unit"
-                        }
-                      ],
-                      "active_time": 30,
-                      "recharge_time": 100,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 20,
-                      "miscast_chance": 0.25,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 33,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.8 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            },
-                            {
-                              "value": -5,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-5 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 10,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 50,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.5,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.5 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            },
-                            {
-                              "value": -10,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-10 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        },
-                        {
-                          "duration": 5,
-                          "effect_type": "negative",
-                          "unbreakable": true,
-                          "cant_move": true,
-                          "hp_change_frequency": 1,
-                          "damage_chance": 1,
-                          "damage_amount": 100,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -20,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-20 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "icon_stat_defence.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_magic_metal_enable_final_transmutation_upgraded",
                     "bonus_value_id": "enable",
@@ -8352,232 +6520,16 @@
               {
                 "icon": "",
                 "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_character_upkeep_sneaky",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_character_upkeep_sneaky_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_loot_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
                 "is_positive_value_good": true,
                 "description": "[HIDDEN]",
                 "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod_hidden",
                 "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_raid_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_razing_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_sacking_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_gdp_mod_all_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_modify_vassal_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_horde_building_gdp_mod_all_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_trade_tariff_mod_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh2_main_effect_slave_decline_modifier_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh2_main_effect_slave_income_modifier_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
               }
             ]
           },
           {
             "unlocked_at_rank": 30,
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh2_main_effect_slave_decline_modifier_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
-              },
               {
                 "icon": "military_spending.png",
                 "priority": 1000,

@@ -415,6 +415,56 @@
                 "priority": 999,
                 "is_positive_value_good": true,
                 "description": "Ability: \"Will of Aeons\" for Saurus units\n\t(all armies)",
+                "related_abilities": [
+                  {
+                    "effect": "lzd_passive_gorrok_faction_2_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "lzd_passive_gorrok_faction_2",
+                      "icon_name": "lzd_passive_gorrok_faction_2",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Will of Aeons",
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "max_damaged_entities": -1,
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+10 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "icon_stat_attack.png"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+10 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "icon_stat_defence.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "lzd_passive_gorrok_faction_2_enable",
                 "value": 1
               },
@@ -1514,6 +1564,65 @@
                 "priority": 550,
                 "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Supreme Shield of the Old Ones\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc12_skill_cooldown_kroak_supreme_shield_of_the_old_ones",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh2_dlc12_character_abilities_supreme_shield_of_the_old_ones",
+                      "icon_name": "wh2_dlc12_character_abilities_supreme_shield_of_the_old_ones",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_ward_save",
+                        "icon_path": "icon_spell_area_of_ward_saves.png",
+                        "description": "Ward Save (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Supreme Shield of the Old Ones",
+                      "ui_effects": [
+                        {
+                          "key": "explosion",
+                          "sort_order": 1,
+                          "description": "➕ Triggers explosion that knocks back enemies"
+                        }
+                      ],
+                      "active_time": 30,
+                      "recharge_time": 120,
+                      "effect_range": 60,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": true,
+                      "target_intercept_range": 150,
+                      "target_self": true,
+                      "phases": [
+                        {
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "max_damaged_entities": -1,
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 40,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+40 Damage Resistance ",
+                              "sort_order": 10,
+                              "icon": "resistance_ward_save.png"
+                            },
+                            {
+                              "value": 100,
+                              "stat": "stat_resistance_missile",
+                              "how": "add",
+                              "description": "+100 Missile Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_missile.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc12_skill_cooldown_kroak_supreme_shield_of_the_old_ones",
                 "value": -50
               }
@@ -1628,6 +1737,192 @@
                 "priority": 10000,
                 "is_positive_value_good": true,
                 "description": "Number of uses: +2 for \"Bolt of the Old Ones\" and \"Blessing of the Old Ones\"\n\t(all armies factionwide)",
+                "related_abilities": [
+                  {
+                    "effect": "lzd_active_slann_use",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "lzd_active_slann_beam",
+                      "icon_name": "lzd_active_slann_beam",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_magic_missiles",
+                        "icon_path": "icon_spell_magic_missiles.png",
+                        "description": "Magic Missiles"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Bolt of the Old Ones",
+                      "ui_effects": [
+                        {
+                          "key": "lzd_active_slann_beam",
+                          "sort_order": 1,
+                          "description": "➕ Fires 1 projectile dealing 200 100 damage and 200 100 explosion damage (12m)"
+                        },
+                        {
+                          "key": "wh2_main_all_magical_damage_major",
+                          "sort_order": 104,
+                          "description": "➕ Causes magical damage"
+                        }
+                      ],
+                      "num_uses": 3,
+                      "recharge_time": 150,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "activated_projectile": {
+                        "key": "lzd_active_slann_beam",
+                        "explosion_type": {
+                          "key": "lzd_active_slann_beam",
+                          "detonation_radius": 12,
+                          "detonation_damage": 200,
+                          "is_magical": true,
+                          "detonation_damage_ap": 100,
+                          "affects_allies": true
+                        },
+                        "damage": 200,
+                        "ap_damage": 100,
+                        "bonus_v_cavalry": "0",
+                        "contact_stat_effect": {
+                          "id": "wh_dlc06_unit_contact_blinded",
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 0.7,
+                              "stat": "stat_accuracy",
+                              "how": "mult",
+                              "description": "x0.7 Accuracy",
+                              "sort_order": 9,
+                              "icon": "icon_stat_range.png"
+                            },
+                            {
+                              "value": -15,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-15 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "icon_stat_attack.png"
+                            },
+                            {
+                              "value": -15,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-15 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "icon_stat_defence.png"
+                            }
+                          ]
+                        },
+                        "shockwave_radius": 2,
+                        "is_grapple": "false",
+                        "is_magical": true
+                      },
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": false,
+                      "target_intercept_range": 250,
+                      "min_range": 50,
+                      "target_self": false
+                    }
+                  },
+                  {
+                    "effect": "lzd_active_slann_use",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "lzd_active_slann_blessing",
+                      "icon_name": "lzd_active_slann_blessing",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Blessing of the Old Ones",
+                      "num_uses": 3,
+                      "active_time": 1,
+                      "recharge_time": 150,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "target_friends": true,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 100,
+                      "vortex": {
+                        "vortex_key": "lzd_active_slann_blessing",
+                        "duration": 2,
+                        "damage": 0,
+                        "damage_ap": 0,
+                        "goal_radius": 1,
+                        "movement_speed": 0,
+                        "contact_effect": {
+                          "id": "lzd_active_slann_blessing_miscast",
+                          "duration": 300,
+                          "effect_type": "positive",
+                          "max_damaged_entities": -1,
+                          "is_hidden_in_ui": false,
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "attribute_type": "positive"
+                            },
+                            {
+                              "key": "charge_reflector",
+                              "description": " Expert Charge Defence",
+                              "attribute_type": "positive"
+                            }
+                          ],
+                          "stat_effects": [
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "modifier_icon_armour_piercing.png"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.5 Base Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "icon_stat_damage_base.png"
+                            },
+                            {
+                              "value": 2,
+                              "stat": "stat_accuracy",
+                              "how": "mult",
+                              "description": "x2 Accuracy",
+                              "sort_order": 9,
+                              "icon": "icon_stat_range.png"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+25 Reload Skill",
+                              "sort_order": 8,
+                              "icon": "icon_stat_reload_time.png"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "+25 Magic Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_magic.png"
+                            }
+                          ]
+                        },
+                        "delay": 0,
+                        "affects_allies": true
+                      },
+                      "target_self": false
+                    }
+                  }
+                ],
                 "key": "lzd_active_slann_use",
                 "value": 2
               }
@@ -1640,6 +1935,192 @@
                 "priority": 10000,
                 "is_positive_value_good": true,
                 "description": "Number of uses: +4 for \"Bolt of the Old Ones\" and \"Blessing of the Old Ones\"\n\t(all armies factionwide)",
+                "related_abilities": [
+                  {
+                    "effect": "lzd_active_slann_use",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "lzd_active_slann_beam",
+                      "icon_name": "lzd_active_slann_beam",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_magic_missiles",
+                        "icon_path": "icon_spell_magic_missiles.png",
+                        "description": "Magic Missiles"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Bolt of the Old Ones",
+                      "ui_effects": [
+                        {
+                          "key": "lzd_active_slann_beam",
+                          "sort_order": 1,
+                          "description": "➕ Fires 1 projectile dealing 200 100 damage and 200 100 explosion damage (12m)"
+                        },
+                        {
+                          "key": "wh2_main_all_magical_damage_major",
+                          "sort_order": 104,
+                          "description": "➕ Causes magical damage"
+                        }
+                      ],
+                      "num_uses": 3,
+                      "recharge_time": 150,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "activated_projectile": {
+                        "key": "lzd_active_slann_beam",
+                        "explosion_type": {
+                          "key": "lzd_active_slann_beam",
+                          "detonation_radius": 12,
+                          "detonation_damage": 200,
+                          "is_magical": true,
+                          "detonation_damage_ap": 100,
+                          "affects_allies": true
+                        },
+                        "damage": 200,
+                        "ap_damage": 100,
+                        "bonus_v_cavalry": "0",
+                        "contact_stat_effect": {
+                          "id": "wh_dlc06_unit_contact_blinded",
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 0.7,
+                              "stat": "stat_accuracy",
+                              "how": "mult",
+                              "description": "x0.7 Accuracy",
+                              "sort_order": 9,
+                              "icon": "icon_stat_range.png"
+                            },
+                            {
+                              "value": -15,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-15 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "icon_stat_attack.png"
+                            },
+                            {
+                              "value": -15,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-15 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "icon_stat_defence.png"
+                            }
+                          ]
+                        },
+                        "shockwave_radius": 2,
+                        "is_grapple": "false",
+                        "is_magical": true
+                      },
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": false,
+                      "target_intercept_range": 250,
+                      "min_range": 50,
+                      "target_self": false
+                    }
+                  },
+                  {
+                    "effect": "lzd_active_slann_use",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "lzd_active_slann_blessing",
+                      "icon_name": "lzd_active_slann_blessing",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Blessing of the Old Ones",
+                      "num_uses": 3,
+                      "active_time": 1,
+                      "recharge_time": 150,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "target_friends": true,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 100,
+                      "vortex": {
+                        "vortex_key": "lzd_active_slann_blessing",
+                        "duration": 2,
+                        "damage": 0,
+                        "damage_ap": 0,
+                        "goal_radius": 1,
+                        "movement_speed": 0,
+                        "contact_effect": {
+                          "id": "lzd_active_slann_blessing_miscast",
+                          "duration": 300,
+                          "effect_type": "positive",
+                          "max_damaged_entities": -1,
+                          "is_hidden_in_ui": false,
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "attribute_type": "positive"
+                            },
+                            {
+                              "key": "charge_reflector",
+                              "description": " Expert Charge Defence",
+                              "attribute_type": "positive"
+                            }
+                          ],
+                          "stat_effects": [
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "modifier_icon_armour_piercing.png"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.5 Base Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "icon_stat_damage_base.png"
+                            },
+                            {
+                              "value": 2,
+                              "stat": "stat_accuracy",
+                              "how": "mult",
+                              "description": "x2 Accuracy",
+                              "sort_order": 9,
+                              "icon": "icon_stat_range.png"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+25 Reload Skill",
+                              "sort_order": 8,
+                              "icon": "icon_stat_reload_time.png"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "+25 Magic Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_magic.png"
+                            }
+                          ]
+                        },
+                        "delay": 0,
+                        "affects_allies": true
+                      },
+                      "target_self": false
+                    }
+                  }
+                ],
                 "key": "lzd_active_slann_use",
                 "value": 4
               }
@@ -3017,232 +3498,16 @@
               {
                 "icon": "",
                 "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_character_upkeep_sneaky",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_character_upkeep_sneaky_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_loot_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
                 "is_positive_value_good": true,
                 "description": "[HIDDEN]",
                 "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod_hidden",
                 "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_raid_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_razing_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_sacking_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_gdp_mod_all_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_modify_vassal_income_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_horde_building_gdp_mod_all_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_economy_trade_tariff_mod_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh2_main_effect_slave_decline_modifier_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh2_main_effect_slave_income_modifier_hidden",
-                "value": -1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
               }
             ]
           },
           {
             "unlocked_at_rank": 30,
             "effects": [
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_main_effect_agent_action_cost_mod_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_hero_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh_lord_cost_horde_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_character_stat_mod_morale_hidden",
-                "value": 0
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": false,
-                "description": "",
-                "key": "wh2_main_effect_slave_decline_modifier_hidden",
-                "value": 1
-              },
-              {
-                "icon": "",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate_hidden",
-                "value": 0
-              },
               {
                 "icon": "military_spending.png",
                 "priority": 1000,
@@ -3318,54 +3583,6 @@
       "levels": [
         {
           "effects": [
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "[hidden]",
-              "key": "wh2_dlc11_effect_agent_action_enable_wizard_hinder_settlement_treasure_hunt",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "[hidden]",
-              "key": "wh2_dlc12_agent_action_wizard_discover_under_empire",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "[hidden]",
-              "key": "wh2_dlc12_effect_agent_action_enable_kroak_assist_army_replenish_troops",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "[hidden]",
-              "key": "wh2_dlc12_effect_agent_action_enable_kroak_assist_army_training",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "[hidden]",
-              "key": "wh2_dlc12_effect_agent_action_enable_kroak_passive_boost_income",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "[hidden]",
-              "key": "wh2_dlc12_effect_agent_action_enable_kroak_passive_stimulate_growth",
-              "value": 1
-            },
             {
               "icon": "",
               "priority": 0,

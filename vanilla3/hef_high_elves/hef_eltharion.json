@@ -210,6 +210,50 @@
                 "priority": 600,
                 "is_positive_value_good": true,
                 "description": "Ability: \"Unending Volley\" for missile units\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc15_effect_ability_enable_unending_volley",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc15_unit_abilities_unending_volley",
+                      "icon_name": "wh2_dlc15_unit_passive_unending_volley",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Unending Volley",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc11_all_replenish_ammo",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Replenishes ammunition"
+                        }
+                      ],
+                      "active_time": 5,
+                      "recharge_time": 25,
+                      "initial_recharge": 25,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 5,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "replenish_ammo": 0.03,
+                          "freeze_recharge": false
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc15_effect_ability_enable_unending_volley",
                 "value": 1
               }
@@ -296,6 +340,77 @@
                 "priority": 60,
                 "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Mistwalker Barrage\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc15_effect_ability_cooldown_mistwalker_barrage",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh2_dlc15_lord_passive_mistwalkers_barrage",
+                      "icon_name": "wh2_dlc15_lord_passive_mistwalkers_barrage",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "icon_spell_bombardment.png",
+                        "description": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Mistwalkers' Barrage",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc15_bombardment_passive_melee",
+                          "sort_order": 1,
+                          "effect_state": "positive",
+                          "description": "Enemies hit by bombardment in melee combat"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Strong vs multiple combatants"
+                        }
+                      ],
+                      "active_time": 3,
+                      "recharge_time": 30,
+                      "initial_recharge": 15,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "bombardment": {
+                        "bombardment_key": "wh2_dlc15_passive_ability_mistwalkers_barrage",
+                        "projectile_type": {
+                          "key": "wh2_dlc15_mistwalkers_barrage_trail",
+                          "explosion_type": {
+                            "key": "wh2_dlc15_lord_passive_mistwalkers_barrage",
+                            "detonation_radius": 1,
+                            "detonation_damage": 0,
+                            "is_magical": true,
+                            "detonation_damage_ap": 50,
+                            "affects_allies": false
+                          },
+                          "damage": 0,
+                          "ap_damage": 0,
+                          "shockwave_radius": 1,
+                          "can_damage_allies": true
+                        },
+                        "num_projectiles": 15,
+                        "start_time": 2,
+                        "arrival_window": 2,
+                        "radius_spread": 10
+                      },
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 3,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc15_effect_ability_cooldown_mistwalker_barrage",
                 "value": -50
               },
@@ -383,6 +498,56 @@
                 "priority": 1,
                 "is_positive_value_good": true,
                 "description": "Passive Ability: \"Grim Discipline\"\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc15_effect_ability_enable_grim_discipline",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc15_unit_passive_grim_discipline",
+                      "icon_name": "wh2_dlc15_unit_passive_grim_discipline",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Grim Discipline",
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 8,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+8 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "icon_stat_attack.png"
+                            },
+                            {
+                              "value": 12,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+12 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "icon_stat_defence.png"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
                 "key": "wh2_dlc15_effect_ability_enable_grim_discipline",
                 "value": 1
               },
@@ -1100,57 +1265,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_ability_overcast_apotheosis",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_apotheosis",
-                      "icon_name": "wh2_main_spell_high_magic_apotheosis",
-                      "overpower_option": "wh2_main_spell_high_magic_apotheosis_upgraded",
-                      "type": {
-                        "key": "wh_type_regeneration",
-                        "icon_path": "icon_spell_regeneration.png",
-                        "description": "Regeneration"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Apotheosis",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_replenish",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Replenishes hit points of combatants"
-                        }
-                      ],
-                      "active_time": 10,
-                      "recharge_time": 29,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 5,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 10,
-                          "effect_type": "positive",
-                          "hp_change_frequency": 1,
-                          "heal_amount": 0.008,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "attributes": [
-                            {
-                              "key": "causes_fear",
-                              "description": " Can Cause Fear",
-                              "attribute_type": "positive"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_apotheosis",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_apotheosis",
@@ -1222,57 +1336,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Apotheosis Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_apotheosis",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_apotheosis",
-                      "icon_name": "wh2_main_spell_high_magic_apotheosis",
-                      "overpower_option": "wh2_main_spell_high_magic_apotheosis_upgraded",
-                      "type": {
-                        "key": "wh_type_regeneration",
-                        "icon_path": "icon_spell_regeneration.png",
-                        "description": "Regeneration"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Apotheosis",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_replenish",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Replenishes hit points of combatants"
-                        }
-                      ],
-                      "active_time": 10,
-                      "recharge_time": 29,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 5,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 10,
-                          "effect_type": "positive",
-                          "hp_change_frequency": 1,
-                          "heal_amount": 0.008,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "attributes": [
-                            {
-                              "key": "causes_fear",
-                              "description": " Can Cause Fear",
-                              "attribute_type": "positive"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_ability_overcast_apotheosis",
                     "bonus_value_id": "enable",
@@ -1535,58 +1598,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_ability_overcast_hand_of_glory",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_hand_of_glory",
-                      "icon_name": "wh2_main_spell_high_magic_hand_of_glory",
-                      "overpower_option": "wh2_main_spell_high_magic_hand_of_glory_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Hand of Glory",
-                      "active_time": 29,
-                      "recharge_time": 28,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 4,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 29,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+24 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": 40,
-                              "stat": "stat_reloading",
-                              "how": "add",
-                              "description": "+40 Reload Skill",
-                              "sort_order": 8,
-                              "icon": "icon_stat_reload_time.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_hand_of_glory",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_hand_of_glory",
@@ -1659,58 +1670,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Hand of Glory Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_hand_of_glory",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_hand_of_glory",
-                      "icon_name": "wh2_main_spell_high_magic_hand_of_glory",
-                      "overpower_option": "wh2_main_spell_high_magic_hand_of_glory_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "icon_spell_augment.png",
-                        "description": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Hand of Glory",
-                      "active_time": 29,
-                      "recharge_time": 28,
-                      "wind_up_time": 1,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "mana_cost": 4,
-                      "target_self": true,
-                      "phases": [
-                        {
-                          "duration": 29,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+24 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "icon_stat_attack.png"
-                            },
-                            {
-                              "value": 40,
-                              "stat": "stat_reloading",
-                              "how": "add",
-                              "description": "+40 Reload Skill",
-                              "sort_order": 8,
-                              "icon": "icon_stat_reload_time.png"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_ability_overcast_hand_of_glory",
                     "bonus_value_id": "enable",
@@ -1830,95 +1789,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_ability_overcast_soul_quench",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_soul_quench",
-                      "icon_name": "wh2_main_spell_high_magic_soul_quench",
-                      "overpower_option": "wh2_main_spell_high_magic_soul_quench_upgraded",
-                      "type": {
-                        "key": "wh_type_magic_missile",
-                        "icon_path": "icon_spell_magic_missile.png",
-                        "description": "Magic Missile"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Soul Quench",
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes moderate magical damage"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes damage to combatants"
-                        },
-                        {
-                          "key": "wh_main_projectile_powerful_explosion",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Powerful explosion"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs multiple combatants"
-                        },
-                        {
-                          "key": "wh_main_projectile_effective_long_range",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Effective at long range"
-                        },
-                        {
-                          "key": "wh3_main_projectile_requires_line_of_sight",
-                          "sort_order": 215,
-                          "effect_state": "negative",
-                          "description": "Requires line of sight to the target"
-                        }
-                      ],
-                      "recharge_time": 43,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "activated_projectile": {
-                        "key": "wh2_main_spell_high_magic_soul_quench",
-                        "explosion_type": {
-                          "key": "wh2_main_spell_high_magic_soul_quench",
-                          "detonation_radius": 5,
-                          "detonation_damage": 180,
-                          "is_magical": true,
-                          "detonation_damage_ap": 0,
-                          "affects_allies": true
-                        },
-                        "damage": 475,
-                        "ap_damage": 200,
-                        "contact_stat_effect": {
-                          "id": "wh2_main_unit_contact_souls",
-                          "duration": 3,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_amount": 5,
-                          "max_damaged_entities": 25,
-                          "is_hidden_in_ui": true,
-                          "freeze_recharge": false
-                        },
-                        "shockwave_radius": 1,
-                        "is_magical": true,
-                        "can_damage_allies": true
-                      },
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 250,
-                      "mana_cost": 7,
-                      "target_self": false
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_soul_quench",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_soul_quench",
@@ -2028,95 +1898,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Soul Quench Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_soul_quench",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_soul_quench",
-                      "icon_name": "wh2_main_spell_high_magic_soul_quench",
-                      "overpower_option": "wh2_main_spell_high_magic_soul_quench_upgraded",
-                      "type": {
-                        "key": "wh_type_magic_missile",
-                        "icon_path": "icon_spell_magic_missile.png",
-                        "description": "Magic Missile"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Soul Quench",
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes moderate magical damage"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes damage to combatants"
-                        },
-                        {
-                          "key": "wh_main_projectile_powerful_explosion",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Powerful explosion"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs multiple combatants"
-                        },
-                        {
-                          "key": "wh_main_projectile_effective_long_range",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Effective at long range"
-                        },
-                        {
-                          "key": "wh3_main_projectile_requires_line_of_sight",
-                          "sort_order": 215,
-                          "effect_state": "negative",
-                          "description": "Requires line of sight to the target"
-                        }
-                      ],
-                      "recharge_time": 43,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "activated_projectile": {
-                        "key": "wh2_main_spell_high_magic_soul_quench",
-                        "explosion_type": {
-                          "key": "wh2_main_spell_high_magic_soul_quench",
-                          "detonation_radius": 5,
-                          "detonation_damage": 180,
-                          "is_magical": true,
-                          "detonation_damage_ap": 0,
-                          "affects_allies": true
-                        },
-                        "damage": 475,
-                        "ap_damage": 200,
-                        "contact_stat_effect": {
-                          "id": "wh2_main_unit_contact_souls",
-                          "duration": 3,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_amount": 5,
-                          "max_damaged_entities": 25,
-                          "is_hidden_in_ui": true,
-                          "freeze_recharge": false
-                        },
-                        "shockwave_radius": 1,
-                        "is_magical": true,
-                        "can_damage_allies": true
-                      },
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 250,
-                      "mana_cost": 7,
-                      "target_self": false
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_ability_overcast_soul_quench",
                     "bonus_value_id": "enable",
@@ -2273,76 +2054,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_ability_overcast_tempest",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_tempest",
-                      "icon_name": "wh2_main_spell_high_magic_tempest",
-                      "overpower_option": "wh2_main_spell_high_magic_tempest_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_direct_damage",
-                        "icon_path": "icon_spell_area_of_direct_damage.png",
-                        "description": "Direct Damage (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Tempest",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Strong vs character"
-                        },
-                        {
-                          "key": "wh_main_all_good_against_flying",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Good against flying"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs a single combatant"
-                        }
-                      ],
-                      "active_time": 18,
-                      "recharge_time": 37,
-                      "wind_up_time": 3,
-                      "effect_range": 35,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 150,
-                      "mana_cost": 10,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 18,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_amount": 67,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.4,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.4 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            }
-                          ]
-                        }
-                      ],
-                      "target_if": [
-                        "Flying unit"
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_tempest",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_tempest",
@@ -2433,76 +2144,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Tempest Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_tempest",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_tempest",
-                      "icon_name": "wh2_main_spell_high_magic_tempest",
-                      "overpower_option": "wh2_main_spell_high_magic_tempest_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_direct_damage",
-                        "icon_path": "icon_spell_area_of_direct_damage.png",
-                        "description": "Direct Damage (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Tempest",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Strong vs character"
-                        },
-                        {
-                          "key": "wh_main_all_good_against_flying",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Good against flying"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs a single combatant"
-                        }
-                      ],
-                      "active_time": 18,
-                      "recharge_time": 37,
-                      "wind_up_time": 3,
-                      "effect_range": 35,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 150,
-                      "mana_cost": 10,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 18,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_amount": 67,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.4,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.4 Speed",
-                              "sort_order": 10,
-                              "icon": "icon_stat_speed.png"
-                            }
-                          ]
-                        }
-                      ],
-                      "target_if": [
-                        "Flying unit"
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_ability_overcast_tempest",
                     "bonus_value_id": "enable",
@@ -2855,64 +2496,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_ability_overcast_arcane_unforging",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_arcane_unforging",
-                      "icon_name": "wh2_main_spell_high_magic_arcane_unforging",
-                      "overpower_option": "wh2_main_spell_high_magic_arcane_unforging_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Arcane Unforging",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Strong vs character"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs a single combatant"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_multiple",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Weak vs multiple combatants"
-                        }
-                      ],
-                      "active_time": 22,
-                      "recharge_time": 52,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 16,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 22,
-                          "effect_type": "negative",
-                          "ability_recharge_change": 30,
-                          "hp_change_frequency": 1,
-                          "damage_amount": 67,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_arcane_unforging",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_arcane_unforging",
@@ -2991,64 +2574,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Arcane Unforging Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_arcane_unforging",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_arcane_unforging",
-                      "icon_name": "wh2_main_spell_high_magic_arcane_unforging",
-                      "overpower_option": "wh2_main_spell_high_magic_arcane_unforging_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "icon_spell_direct_damage.png",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Arcane Unforging",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Strong vs character"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs a single combatant"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_multiple",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Weak vs multiple combatants"
-                        }
-                      ],
-                      "active_time": 22,
-                      "recharge_time": 52,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 16,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 22,
-                          "effect_type": "negative",
-                          "ability_recharge_change": 30,
-                          "hp_change_frequency": 1,
-                          "damage_amount": 67,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false
-                        }
-                      ]
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_ability_overcast_arcane_unforging",
                     "bonus_value_id": "enable",
@@ -3254,76 +2779,6 @@
                 "related_abilities": [
                   {
                     "effect": "wh2_main_effect_ability_overcast_fiery_convocation",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_fiery_convocation",
-                      "icon_name": "wh2_main_spell_high_magic_fiery_convocation",
-                      "overpower_option": "wh2_main_spell_high_magic_fiery_convocation_upgraded",
-                      "type": {
-                        "key": "wh_type_wind",
-                        "icon_path": "icon_spell_wind.png",
-                        "description": "Wind"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Fiery Convocation",
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_and_flaming_major",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes major magical & fire damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_medium_wind",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Medium, forward-moving area of effect"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Good against armour"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs multiple units"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 10,
-                      "recharge_time": 52,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "vortex": {
-                        "vortex_key": "wh2_main_spell_high_magic_fiery_convocation",
-                        "duration": 3,
-                        "damage": 0,
-                        "damage_ap": 35,
-                        "goal_radius": 7,
-                        "movement_speed": 44,
-                        "is_magical": true,
-                        "delay": 4.6,
-                        "affects_allies": true,
-                        "is_flaming": true
-                      },
-                      "mana_cost": 15,
-                      "target_self": false
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_fiery_convocation",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh2_main_spell_high_magic_fiery_convocation",
@@ -3414,76 +2869,6 @@
                 "is_positive_value_good": true,
                 "description": "Overcast spell: \"Fiery Convocation Upgraded\"",
                 "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_fiery_convocation",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh2_main_spell_high_magic_fiery_convocation",
-                      "icon_name": "wh2_main_spell_high_magic_fiery_convocation",
-                      "overpower_option": "wh2_main_spell_high_magic_fiery_convocation_upgraded",
-                      "type": {
-                        "key": "wh_type_wind",
-                        "icon_path": "icon_spell_wind.png",
-                        "description": "Wind"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Fiery Convocation",
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_and_flaming_major",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes major magical & fire damage"
-                        },
-                        {
-                          "key": "wh2_main_spell_medium_wind",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Medium, forward-moving area of effect"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Good against armour"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs multiple units"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Weak vs a single combatant"
-                        }
-                      ],
-                      "active_time": 10,
-                      "recharge_time": 52,
-                      "wind_up_time": 5,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "vortex": {
-                        "vortex_key": "wh2_main_spell_high_magic_fiery_convocation",
-                        "duration": 3,
-                        "damage": 0,
-                        "damage_ap": 35,
-                        "goal_radius": 7,
-                        "movement_speed": 44,
-                        "is_magical": true,
-                        "delay": 4.6,
-                        "affects_allies": true,
-                        "is_flaming": true
-                      },
-                      "mana_cost": 15,
-                      "target_self": false
-                    }
-                  },
                   {
                     "effect": "wh2_main_effect_ability_overcast_fiery_convocation",
                     "bonus_value_id": "enable",

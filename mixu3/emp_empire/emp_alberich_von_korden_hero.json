@@ -1693,14 +1693,6 @@
               "value": 1
             },
             {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "mixu_LL_add_name_alberich_von_korden_hidden",
-              "value": 1
-            },
-            {
               "icon": "modifier_icon_flaming.png",
               "priority": 61,
               "is_positive_value_good": true,
@@ -1736,54 +1728,6 @@
       "levels": [
         {
           "effects": [
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_spy_assist_army_scavenge",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_spy_hinder_agent_assassinate",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_spy_hinder_army_block_army",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_spy_hinder_settlement_damage_walls",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_spy_hinder_settlement_scout_settlement",
-              "value": 1
-            },
-            {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_spy_passive_spread_corruption",
-              "value": 1
-            },
             {
               "icon": "corruption.png",
               "priority": 0,
@@ -1884,6 +1828,150 @@
           "priority": 155,
           "is_positive_value_good": false,
           "description": "Cooldown: -30% to \"Focused Shot\" and \"Von Korden's Accusation\"",
+          "related_abilities": [
+            {
+              "effect": "mixu_emp_alberich_von_korden_ability_cooldown_personal",
+              "bonus_value_id": "recharge_mod",
+              "unit_ability": {
+                "key": "mixu_emp_alberich_von_korden_ability_accusation",
+                "icon_name": "wh_main_hero_abilities_accusation",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_hex",
+                  "icon_path": "icon_spell_hex.png",
+                  "description": "Hex"
+                },
+                "is_hidden_in_ui": false,
+                "description": "Von Korden's Accusation",
+                "active_time": 35,
+                "recharge_time": 90,
+                "effect_range": 0,
+                "target_friends": false,
+                "target_enemies": true,
+                "target_ground": false,
+                "target_intercept_range": 75,
+                "target_self": false,
+                "phases": [
+                  {
+                    "duration": 35,
+                    "effect_type": "negative",
+                    "is_hidden_in_ui": false,
+                    "freeze_recharge": false,
+                    "stat_effects": [
+                      {
+                        "value": -30,
+                        "stat": "stat_armour",
+                        "how": "add",
+                        "description": "-30 Armour",
+                        "sort_order": 6,
+                        "icon": "icon_stat_armour.png"
+                      },
+                      {
+                        "value": -24,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "-24 Melee Attack",
+                        "sort_order": 2,
+                        "icon": "icon_stat_attack.png"
+                      },
+                      {
+                        "value": -48,
+                        "stat": "stat_melee_defence",
+                        "how": "add",
+                        "description": "-48 Melee Defence",
+                        "sort_order": 3,
+                        "icon": "icon_stat_defence.png"
+                      },
+                      {
+                        "value": 0.6,
+                        "stat": "scalar_spell_mastery",
+                        "how": "mult",
+                        "description": "x0.6 Spell Mastery",
+                        "sort_order": 0,
+                        "icon": "spell_mastery.png"
+                      }
+                    ]
+                  }
+                ],
+                "target_if": [
+                  "Unit is not composed of a single entity"
+                ]
+              }
+            },
+            {
+              "effect": "mixu_emp_alberich_von_korden_ability_cooldown_personal",
+              "bonus_value_id": "recharge_mod",
+              "unit_ability": {
+                "key": "mixu_emp_alberich_von_korden_ability_kill_shot",
+                "icon_name": "wh2_dlc13_lord_abilities_kill_shot",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_magic_missile",
+                  "icon_path": "icon_spell_magic_missile.png",
+                  "description": "Magic Missile"
+                },
+                "is_hidden_in_ui": false,
+                "description": "Focused Shot",
+                "ui_effects": [
+                  {
+                    "key": "wh2_dlc13_scaling_damage",
+                    "sort_order": 1,
+                    "effect_state": "double_positive",
+                    "description": "Scaled projectile damage against combatants with missing health "
+                  },
+                  {
+                    "key": "wh2_main_all_magical_damage_moderate",
+                    "sort_order": 104,
+                    "effect_state": "positive",
+                    "description": "Causes moderate magical damage"
+                  },
+                  {
+                    "key": "wh2_main_all_good_against_armour",
+                    "sort_order": 106,
+                    "effect_state": "positive",
+                    "description": "Good against armour"
+                  },
+                  {
+                    "key": "wh_main_all_good_vs_large",
+                    "sort_order": 106,
+                    "effect_state": "positive",
+                    "description": "Good against large combatants"
+                  },
+                  {
+                    "key": "wh3_main_projectile_requires_line_of_sight",
+                    "sort_order": 215,
+                    "effect_state": "negative",
+                    "description": "Requires line of sight to the target"
+                  }
+                ],
+                "num_uses": 2,
+                "recharge_time": 120,
+                "wind_up_time": 5,
+                "effect_range": 0,
+                "activated_projectile": {
+                  "key": "mixu_emp_alberich_von_korden_ability_kill_shot",
+                  "explosion_type": {
+                    "key": "wh2_dlc13_lord_abilities_kill_shot",
+                    "detonation_radius": 1,
+                    "detonation_damage": 0,
+                    "detonation_damage_ap": 50,
+                    "affects_allies": true
+                  },
+                  "damage": 100,
+                  "ap_damage": 230,
+                  "bonus_v_large": 120,
+                  "shockwave_radius": 0.4,
+                  "is_magical": true,
+                  "can_damage_allies": true
+                },
+                "target_friends": false,
+                "target_enemies": true,
+                "target_ground": false,
+                "target_intercept_range": 250,
+                "target_self": false
+              }
+            }
+          ],
           "value": -30,
           "key": "mixu_emp_alberich_von_korden_ability_cooldown_personal"
         },

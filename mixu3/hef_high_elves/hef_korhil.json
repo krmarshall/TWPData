@@ -545,6 +545,58 @@
                 "priority": 101,
                 "is_positive_value_good": true,
                 "description": "Passive ability: \"Guardians of Chrace\" for White Lions of Chrace units\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "mixu_hef_korhil_enable_ability_guardians_of_chrace_hef_white_lions",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "mixu_hef_white_lions_ability_guardians_of_chrace",
+                      "icon_name": "mixu_hef_white_lions_ability_guardians_of_chrace",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Guardians of Chrace",
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "attributes": [
+                            {
+                              "key": "fatigue_immune",
+                              "description": " Perfect Vigour",
+                              "attribute_type": "positive"
+                            }
+                          ],
+                          "stat_effects": [
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+20 Physical Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_physical.png"
+                            }
+                          ]
+                        }
+                      ],
+                      "enabled_if": [
+                        "Unit is in forest"
+                      ]
+                    }
+                  }
+                ],
                 "key": "mixu_hef_korhil_enable_ability_guardians_of_chrace_hef_white_lions",
                 "value": 1
               }
@@ -639,6 +691,99 @@
                 "priority": 122,
                 "is_positive_value_good": true,
                 "description": "Passive ability: \"Berserk\" for War Lion units\n\t(Lord's army)",
+                "related_abilities": [
+                  {
+                    "effect": "mixu_LL_enable_ability_berserk_hef_war_lions",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_unit_passive_berserk",
+                      "icon_name": "wh_dlc08_unit_passive_berserk",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "icon_spell_augment.png",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Berserk",
+                      "ui_effects": [
+                        {
+                          "key": "wh3_dlc20_ability_intensity_time_in_melee",
+                          "sort_order": 1,
+                          "effect_state": "positive",
+                          "description": "Effect intensity increases with time spent engaged in melee."
+                        }
+                      ],
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 60,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 13,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+13 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "icon_stat_attack.png"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+20 Physical Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_physical.png"
+                            }
+                          ]
+                        },
+                        {
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "attributes": [
+                            {
+                              "key": "rampage",
+                              "description": "➖ Rampage!",
+                              "attribute_type": "positive"
+                            }
+                          ],
+                          "stat_effects": [
+                            {
+                              "value": 13,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+13 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "icon_stat_attack.png"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+20 Physical Resistance",
+                              "sort_order": 10,
+                              "icon": "resistance_physical.png"
+                            }
+                          ]
+                        }
+                      ],
+                      "enabled_if": [
+                        "Leadership is higher than broken",
+                        "In melee"
+                      ]
+                    }
+                  }
+                ],
                 "key": "mixu_LL_enable_ability_berserk_hef_war_lions",
                 "value": 1
               }
@@ -2825,14 +2970,6 @@
               "value": 1
             },
             {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "",
-              "key": "mixu_LL_name_dummy_hef_korhil",
-              "value": 1
-            },
-            {
               "icon": "morale.png",
               "priority": 100,
               "is_positive_value_good": true,
@@ -3008,7 +3145,23 @@
                   {
                     "duration": 32,
                     "effect_type": "positive",
-                    "imbue_contact": "wh_dlc06_unit_contact_discouraged",
+                    "imbue_contact": {
+                      "id": "wh_dlc06_unit_contact_discouraged",
+                      "duration": 10,
+                      "effect_type": "negative",
+                      "is_hidden_in_ui": false,
+                      "freeze_recharge": false,
+                      "stat_effects": [
+                        {
+                          "value": -16,
+                          "stat": "stat_morale",
+                          "how": "add",
+                          "description": "-16 Leadership",
+                          "sort_order": 1,
+                          "icon": "icon_stat_morale.png"
+                        }
+                      ]
+                    },
                     "is_hidden_in_ui": false,
                     "freeze_recharge": false,
                     "stat_effects": [
