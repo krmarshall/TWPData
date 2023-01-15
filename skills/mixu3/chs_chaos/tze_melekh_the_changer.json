@@ -187,6 +187,84 @@
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
+      },
+      {
+        "key": "mixu_skill_node_stupid_mentor_tze_melekh_the_changer",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "is_background_skill": false,
+        "name": "Mentor",
+        "description": "Having learned much in their long years of service, this character now turns their attention to training others.",
+        "levels": [
+          {
+            "unlocked_at_rank": 30,
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
+                "priority": 10,
+                "is_positive_value_good": true,
+                "description": "Character will share +15% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "value": 15
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
+                "priority": 14,
+                "is_positive_value_good": true,
+                "description": "Character experience gain: +20%\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "unlocked_at_rank": 40,
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
+                "priority": 10,
+                "is_positive_value_good": true,
+                "description": "Character will share +30% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "value": 30
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
+                "priority": 14,
+                "is_positive_value_good": true,
+                "description": "Character experience gain: +35%\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "value": 35
+              }
+            ]
+          },
+          {
+            "unlocked_at_rank": 50,
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
+                "priority": 10,
+                "is_positive_value_good": true,
+                "description": "Character will share +50% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "value": 50
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
+                "priority": 14,
+                "is_positive_value_good": true,
+                "description": "Character experience gain: +50%\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "value": 50
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh3_main_skill_all_mentor_lord",
+        "tier": 66,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true
       }
     ],
     [
@@ -334,35 +412,41 @@
                     "effect": "mixu_LL_ability_num_uses_bound_spells_tze_doom_knights",
                     "bonus_value_id": "uses_mod",
                     "unit_ability": {
-                      "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch_bound",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tzeentch_blue_fire_of_tzeentch",
+                      "key": "wh3_dlc20_spell_bound_pink_fire_of_tzeentch",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tzeentch_pink_fire_of_tzeentch",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_magic_missiles",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
-                        "description": "Magic Missiles"
+                        "key": "wh_type_breath",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_breath",
+                        "description": "Breath"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Blue Fire of Tzeentch",
-                      "num_uses": 1,
+                      "description": "Pink Fire of Tzeentch",
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_vortex_large_breath_long",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Long, thin, expanding, tear-shaped attack"
+                        }
+                      ],
+                      "num_uses": 2,
+                      "active_time": 2,
+                      "recharge_time": 30,
                       "wind_up_time": 1,
                       "effect_range": 0,
-                      "activated_projectile": {
-                        "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch",
-                        "explosion_type": {
-                          "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch",
-                          "detonation_radius": 3,
-                          "detonation_damage": 30,
-                          "is_magical": true,
-                          "detonation_damage_ap": 10,
-                          "affects_allies": true,
-                          "is_flaming": true
-                        },
-                        "projectile_number": 9,
-                        "damage": 50,
-                        "ap_damage": 20,
-                        "bonus_v_large": 25,
-                        "contact_stat_effect": {
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": 100,
+                      "vortex": {
+                        "vortex_key": "wh3_main_spell_tzeentch_pink_fire_of_tzeentch",
+                        "duration": 2,
+                        "damage": 16,
+                        "damage_ap": 0,
+                        "goal_radius": 12,
+                        "movement_speed": 24,
+                        "contact_effect": {
                           "id": "wh3_main_unit_contact_warpflame",
                           "duration": 10,
                           "effect_type": "negative",
@@ -387,16 +471,15 @@
                             }
                           ]
                         },
-                        "shockwave_radius": 0.3,
                         "is_magical": true,
-                        "can_damage_allies": true,
+                        "delay": 0,
+                        "affects_allies": true,
                         "is_flaming": true
                       },
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 175,
-                      "target_self": false
+                      "target_self": false,
+                      "target_if": [
+                        "Grounded"
+                      ]
                     }
                   }
                 ],
@@ -3996,41 +4079,47 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
               "priority": 33,
               "is_positive_value_good": true,
-              "description": "Bound spell: \"Blue Fire of Tzeentch\" for Doom Knights of Tzeentch units\n\t(Lord's army)",
+              "description": "Bound spell: \"Pink Fire of Tzeentch\" for Doom Knights of Tzeentch units\n\t(Lord's army)",
               "related_abilities": [
                 {
-                  "effect": "mixu_LL_enable_ability_blue_fire_of_tzeentch_tze_doom_knights",
+                  "effect": "mixu_LL_enable_ability_pink_fire_of_tzeentch_tze_doom_knights",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch_bound",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tzeentch_blue_fire_of_tzeentch",
+                    "key": "wh3_dlc20_spell_bound_pink_fire_of_tzeentch",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tzeentch_pink_fire_of_tzeentch",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_magic_missiles",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
-                      "description": "Magic Missiles"
+                      "key": "wh_type_breath",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_breath",
+                      "description": "Breath"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Blue Fire of Tzeentch",
-                    "num_uses": 1,
+                    "description": "Pink Fire of Tzeentch",
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_vortex_large_breath_long",
+                        "sort_order": 105,
+                        "effect_state": "positive",
+                        "description": "Long, thin, expanding, tear-shaped attack"
+                      }
+                    ],
+                    "num_uses": 2,
+                    "active_time": 2,
+                    "recharge_time": 30,
                     "wind_up_time": 1,
                     "effect_range": 0,
-                    "activated_projectile": {
-                      "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch",
-                      "explosion_type": {
-                        "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch",
-                        "detonation_radius": 3,
-                        "detonation_damage": 30,
-                        "is_magical": true,
-                        "detonation_damage_ap": 10,
-                        "affects_allies": true,
-                        "is_flaming": true
-                      },
-                      "projectile_number": 9,
-                      "damage": 50,
-                      "ap_damage": 20,
-                      "bonus_v_large": 25,
-                      "contact_stat_effect": {
+                    "target_friends": false,
+                    "target_enemies": true,
+                    "target_ground": true,
+                    "target_intercept_range": 100,
+                    "vortex": {
+                      "vortex_key": "wh3_main_spell_tzeentch_pink_fire_of_tzeentch",
+                      "duration": 2,
+                      "damage": 16,
+                      "damage_ap": 0,
+                      "goal_radius": 12,
+                      "movement_speed": 24,
+                      "contact_effect": {
                         "id": "wh3_main_unit_contact_warpflame",
                         "duration": 10,
                         "effect_type": "negative",
@@ -4055,20 +4144,19 @@
                           }
                         ]
                       },
-                      "shockwave_radius": 0.3,
                       "is_magical": true,
-                      "can_damage_allies": true,
+                      "delay": 0,
+                      "affects_allies": true,
                       "is_flaming": true
                     },
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": false,
-                    "target_intercept_range": 175,
-                    "target_self": false
+                    "target_self": false,
+                    "target_if": [
+                      "Grounded"
+                    ]
                   }
                 }
               ],
-              "key": "mixu_LL_enable_ability_blue_fire_of_tzeentch_tze_doom_knights",
+              "key": "mixu_LL_enable_ability_pink_fire_of_tzeentch_tze_doom_knights",
               "value": 1
             },
             {
