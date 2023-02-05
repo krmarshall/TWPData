@@ -2,35 +2,81 @@
   "skillTree": [
     [
       {
-        "key": "jbv_nugui_skill_node_unique_01",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "key": "wh_main_skill_node_jbv_courtesan__unique_03",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_lord_passive_the_hunger",
         "is_background_skill": false,
-        "name": "Ghostly Howl",
-        "description": "The wails of a Banshee can be lethal and strike terror into the hearts of any who hear them.",
+        "name": "The Hunger",
+        "description": "",
         "levels": [
           {
-            "unlocked_at_rank": 6,
+            "unlocked_at_rank": 8,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character",
-                "priority": 130,
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 310,
                 "is_positive_value_good": true,
-                "description": "Melee attack: +5",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "value": 5
+                "description": "Passive ability: \"The Hunger\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_the_hunger",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_lord_passive_the_hunger",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lord_passive_the_hunger",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "description": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "The Hunger",
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_replenish",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Replenishes hit points of combatants"
+                        }
+                      ],
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "hp_change_frequency": 1,
+                          "heal_amount": 0.001,
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false
+                        }
+                      ],
+                      "enabled_if": [
+                        "Leadership is higher than broken",
+                        "In melee"
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh_main_effect_ability_enable_the_hunger",
+                "value": 1
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_vmp_spy_unique_tomb_banshee_ghostly_howl",
-        "tier": 0,
+        "character_skill_key": "wh_main_skill_vmp_dignitary_unique_the_hunger",
+        "tier": 2,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
       },
       {
-        "key": "jbv_nugui_skill_node_unique_02",
+        "key": "wh_main_skill_node_jbv_courtesan__unique_04",
         "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
         "is_background_skill": false,
         "name": "Grave Ward",
@@ -51,14 +97,14 @@
           }
         ],
         "character_skill_key": "wh_main_skill_vmp_all_unique_grave_ward",
-        "tier": 1,
+        "tier": 3,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
       },
       {
-        "key": "jbv_nugui_skill_node_immortality",
+        "key": "wh_main_skill_node_jbv_courtesan_immortality",
         "image_path": "vanilla3/campaign_ui/skills/character_wound_time",
         "is_background_skill": false,
         "name": "Immortality",
@@ -79,61 +125,7 @@
           }
         ],
         "character_skill_key": "wh2_main_skill_all_immortality_hero",
-        "tier": 2,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
-        "is_background_skill": false,
-        "name": "Mentor",
-        "description": "Having learned much in their long years of service, this character now turns their attention to training others.",
-        "levels": [
-          {
-            "unlocked_at_rank": 30,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-                "priority": 10,
-                "is_positive_value_good": true,
-                "description": "Character will share +15% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "value": 15
-              }
-            ]
-          },
-          {
-            "unlocked_at_rank": 40,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-                "priority": 10,
-                "is_positive_value_good": true,
-                "description": "Character will share +30% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "value": 30
-              }
-            ]
-          },
-          {
-            "unlocked_at_rank": 50,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-                "priority": 10,
-                "is_positive_value_good": true,
-                "description": "Character will share +50% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "value": 50
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh3_main_skill_all_mentor_hero",
-        "tier": 12,
+        "tier": 4,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -142,26 +134,26 @@
     ],
     [
       {
-        "key": "jbv_nugui_skill_node_self_01",
-        "image_path": "vanilla3/campaign_ui/skills/character_damage",
+        "key": "wh_main_skill_node_jbv_courtesan__self_01",
+        "image_path": "vanilla3/campaign_ui/skills/character_armour",
         "is_background_skill": false,
-        "name": "Bloody Blade",
-        "description": "A drawn blade should not be put away until slaked in blood.",
+        "name": "Safeguard",
+        "description": "It is no easy task to bend or break the armour of this being.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
-                "priority": 160,
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character",
+                "priority": 100,
                 "is_positive_value_good": true,
-                "description": "Weapon strength: +10%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "value": 10
+                "description": "Armour: +6",
+                "key": "wh_main_effect_character_stat_armour",
+                "value": 6
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_spy_self_bloody_blade",
+        "character_skill_key": "wh_main_skill_all_dignitary_self_safeguard",
         "tier": 0,
         "indent": 1,
         "points_on_creation": 0,
@@ -170,66 +162,11 @@
         "right_arrow": true
       },
       {
-        "key": "jbv_nugui_skill_node_self_02",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "is_background_skill": false,
-        "name": "Gutter Fighter",
-        "description": "This being fights dirty, no honour system applies here!",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character",
-                "priority": 130,
-                "is_positive_value_good": true,
-                "description": "Melee attack: +3",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "value": 3
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character",
-                "priority": 130,
-                "is_positive_value_good": true,
-                "description": "Melee attack: +7",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "value": 7
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character",
-                "priority": 130,
-                "is_positive_value_good": true,
-                "description": "Melee attack: +12",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "value": 12
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_skill_all_spy_self_gutter_fighter_2",
-        "tier": 1,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_nugui_skill_node_self_01"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_self_03",
+        "key": "wh_main_skill_node_jbv_courtesan__self_02",
         "image_path": "vanilla3/campaign_ui/skills/character_defence",
         "is_background_skill": false,
-        "name": "Elusive",
-        "description": "\"Stay in one place, gods-damn you!\"",
+        "name": "Impassioned",
+        "description": "There is nothing but utter belief. There is no reasoning with this one.",
         "levels": [
           {
             "effects": [
@@ -268,223 +205,23 @@
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_spy_self_elusive",
-        "tier": 2,
+        "character_skill_key": "wh_main_skill_all_dignitary_self_impassioned",
+        "tier": 1,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_nugui_skill_node_self_01"
+          "wh_main_skill_node_jbv_courtesan__self_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_nugui_skill_node_self_04",
-        "image_path": "vanilla3/campaign_ui/skills/character_damage",
-        "is_background_skill": false,
-        "name": "Precise",
-        "description": "Whether a targeted slice to the throat, or a precision stab to the heart, this one knows how to kill!",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
-                "priority": 160,
-                "is_positive_value_good": true,
-                "description": "Weapon strength: +5%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "value": 5
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
-                "priority": 160,
-                "is_positive_value_good": true,
-                "description": "Weapon strength: +12%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "value": 12
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
-                "priority": 160,
-                "is_positive_value_good": true,
-                "description": "Weapon strength: +20%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "value": 20
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_skill_all_spy_self_precise_2",
-        "tier": 3,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_nugui_skill_node_self_01"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_self_05",
-        "image_path": "vanilla3/campaign_ui/skills/character_speed",
-        "is_background_skill": false,
-        "name": "Fleet-Footed",
-        "description": "Those who are fleet of foot can reach the enemy faster.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character",
-                "priority": 120,
-                "is_positive_value_good": true,
-                "description": "Speed: +3%",
-                "key": "wh_main_effect_character_stat_speed",
-                "value": 3
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character",
-                "priority": 120,
-                "is_positive_value_good": true,
-                "description": "Speed: +8%",
-                "key": "wh_main_effect_character_stat_speed",
-                "value": 8
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character",
-                "priority": 120,
-                "is_positive_value_good": true,
-                "description": "Speed: +15%",
-                "key": "wh_main_effect_character_stat_speed",
-                "value": 15
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_skill_all_spy_self_fleet-footed",
-        "tier": 4,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_nugui_skill_node_self_01"
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_self_06",
-        "image_path": "vanilla3/campaign_ui/skills/character_subterfuge",
-        "is_background_skill": false,
-        "name": "Stalker",
-        "description": "\"I spy with my beady eye… something that needs to be killed.\"",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent",
-                "priority": 101,
-                "is_positive_value_good": true,
-                "description": "Campaign line of sight: +12%",
-                "key": "wh_main_effect_agent_field_line_of_sight_mod",
-                "value": 12
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_skill_all_spy_self_stalker",
-        "tier": 5,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "parent_subset_required": [
-          "jbv_nugui_skill_node_self_02",
-          "jbv_nugui_skill_node_self_03",
-          "jbv_nugui_skill_node_self_04",
-          "jbv_nugui_skill_node_self_05"
-        ],
-        "right_arrow": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_self_07",
-        "image_path": "vanilla3/campaign_ui/skills/character_charge",
-        "is_background_skill": false,
-        "name": "Opportunist",
-        "description": "Always on the lookout for an opening or advantage in battle - somewhere to put the knife in…",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character",
-                "priority": 200,
-                "is_positive_value_good": true,
-                "description": "Charge bonus: +4",
-                "key": "wh_main_effect_character_stat_charge_bonus_add",
-                "value": 4
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character",
-                "priority": 200,
-                "is_positive_value_good": true,
-                "description": "Charge bonus: +9",
-                "key": "wh_main_effect_character_stat_charge_bonus_add",
-                "value": 9
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character",
-                "priority": 200,
-                "is_positive_value_good": true,
-                "description": "Charge bonus: +15",
-                "key": "wh_main_effect_character_stat_charge_bonus_add",
-                "value": 15
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_skill_all_spy_self_opportunist",
-        "tier": 6,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_nugui_skill_node_self_06"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_self_08",
+        "key": "wh_main_skill_node_jbv_courtesan__self_03",
         "image_path": "vanilla3/campaign_ui/skills/character_attack",
         "is_background_skill": false,
-        "name": "Counter-Striker",
-        "description": "The harder they hit, the more they commit, the easier it is to strike back.",
+        "name": "Wild-Eyed",
+        "description": "\"Don't look into their eyes, there is only death there!\"",
         "levels": [
           {
             "effects": [
@@ -504,9 +241,9 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee_character",
                 "priority": 130,
                 "is_positive_value_good": true,
-                "description": "Melee attack: +7",
+                "description": "Melee attack: +6",
                 "key": "wh_main_effect_character_stat_melee_attack",
-                "value": 7
+                "value": 6
               }
             ]
           },
@@ -516,85 +253,30 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee_character",
                 "priority": 130,
                 "is_positive_value_good": true,
-                "description": "Melee attack: +12",
+                "description": "Melee attack: +9",
                 "key": "wh_main_effect_character_stat_melee_attack",
-                "value": 12
+                "value": 9
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_spy_self_counter-striker_2",
-        "tier": 7,
+        "character_skill_key": "wh_main_skill_all_dignitary_self_wild-eyed",
+        "tier": 2,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_nugui_skill_node_self_06"
+          "wh_main_skill_node_jbv_courtesan__self_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_nugui_skill_node_self_09",
-        "image_path": "vanilla3/campaign_ui/skills/character_health",
-        "is_background_skill": false,
-        "name": "Survivalist",
-        "description": "\"The enemy's fear; their blood spilt in the mud – these are the things that sustain me.\"",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character",
-                "priority": 90,
-                "is_positive_value_good": true,
-                "description": "Hit points: +3%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "value": 3
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character",
-                "priority": 90,
-                "is_positive_value_good": true,
-                "description": "Hit points: +8%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "value": 8
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character",
-                "priority": 90,
-                "is_positive_value_good": true,
-                "description": "Hit points: +15%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "value": 15
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_skill_all_spy_self_survivalist_2",
-        "tier": 8,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_nugui_skill_node_self_06"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_self_10",
+        "key": "wh_main_skill_node_jbv_courtesan__self_04",
         "image_path": "vanilla3/campaign_ui/skills/character_morale",
         "is_background_skill": false,
-        "name": "Cornered Rat",
-        "description": "Never trap this one, when cornered they have nothing left to lose.",
+        "name": "Conviction",
+        "description": "Such is this one's conviction that others have no choice but to believe.",
         "levels": [
           {
             "effects": [
@@ -633,24 +315,79 @@
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_spy_self_cornered_rat",
-        "tier": 9,
+        "character_skill_key": "wh_main_skill_all_dignitary_self_conviction",
+        "tier": 3,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_nugui_skill_node_self_06"
+          "wh_main_skill_node_jbv_courtesan__self_01"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan__self_05",
+        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
+        "is_background_skill": false,
+        "name": "Soothsaying",
+        "description": "Speaking words of power or faith can alter perceptions on the battlefield.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 260,
+                "is_positive_value_good": true,
+                "description": "Leadership aura size: +10%",
+                "key": "wh_main_effect_character_stat_leadership_aura_size",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 260,
+                "is_positive_value_good": true,
+                "description": "Leadership aura size: +20%",
+                "key": "wh_main_effect_character_stat_leadership_aura_size",
+                "value": 20
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 260,
+                "is_positive_value_good": true,
+                "description": "Leadership aura size: +40%",
+                "key": "wh_main_effect_character_stat_leadership_aura_size",
+                "value": 40
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh_main_skill_all_dignitary_self_soothsaying",
+        "tier": 4,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "wh_main_skill_node_jbv_courtesan__self_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_nugui_skill_node_self_11",
-        "image_path": "scm3/campaign_ui/skills/wh_main_hero_abilities_slippery",
+        "key": "wh_main_skill_node_jbv_courtesan__self_06",
+        "image_path": "scm3/campaign_ui/skills/wh_main_character_abilities_foe_seeker",
         "is_background_skill": false,
-        "name": "Slippery",
-        "description": "",
+        "name": "Foe-Seeker",
+        "description": " From one bloodied, lifeless corpse to the next, this one is always looking for the next adversary to best.",
         "levels": [
           {
             "effects": [
@@ -658,14 +395,14 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "priority": 300,
                 "is_positive_value_good": true,
-                "description": "Ability: \"Slippery\"",
+                "description": "Ability: \"Foe-Seeker\"",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_slippery",
+                    "effect": "wh_main_effect_ability_enable_foe-seeker",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_hero_abilities_slippery",
-                      "icon_name": "scm3/campaign_ui/skills/wh_main_hero_abilities_slippery",
+                      "key": "wh_main_character_abilities_foe_seeker",
+                      "icon_name": "scm3/campaign_ui/skills/wh_main_character_abilities_foe_seeker",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_augment",
@@ -673,7 +410,7 @@
                         "description": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Slippery",
+                      "description": "Foe-Seeker",
                       "active_time": 25,
                       "recharge_time": 60,
                       "effect_range": 0,
@@ -685,6 +422,306 @@
                       "phases": [
                         {
                           "duration": 25,
+                          "effect_type": "positive",
+                          "fatigue_change_ratio": -0.01,
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.3,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.3 Speed",
+                              "sort_order": 10,
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh_main_effect_ability_enable_foe-seeker",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh_main_skill_all_all_self_foe-seeker",
+        "tier": 5,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "parent_subset_required": [
+          "wh_main_skill_node_jbv_courtesan__self_02",
+          "wh_main_skill_node_jbv_courtesan__self_03",
+          "wh_main_skill_node_jbv_courtesan__self_04",
+          "wh_main_skill_node_jbv_courtesan__self_05"
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan__self_07",
+        "image_path": "vanilla3/campaign_ui/skills/character_health",
+        "is_background_skill": false,
+        "name": "Tenacity",
+        "description": "This one will not go down easily – it will be necessary to break both the will and the body first.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character",
+                "priority": 90,
+                "is_positive_value_good": true,
+                "description": "Hit points: +3%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character",
+                "priority": 90,
+                "is_positive_value_good": true,
+                "description": "Hit points: +8%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "value": 8
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character",
+                "priority": 90,
+                "is_positive_value_good": true,
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "value": 15
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh_main_skill_all_dignitary_self_tenacity_2",
+        "tier": 6,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "wh_main_skill_node_jbv_courtesan__self_06"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan__self_08",
+        "image_path": "vanilla3/campaign_ui/skills/character_morale",
+        "is_background_skill": false,
+        "name": "Augury",
+        "description": "An omen, a sign - this being knows things and any who follow will share their glory.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character",
+                "priority": 260,
+                "is_positive_value_good": true,
+                "description": "Character's aura leadership effect: +2",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character",
+                "priority": 260,
+                "is_positive_value_good": true,
+                "description": "Character's aura leadership effect: +5",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character",
+                "priority": 260,
+                "is_positive_value_good": true,
+                "description": "Character's aura leadership effect: +9",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "value": 9
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh_main_skill_all_dignitary_self_augury",
+        "tier": 7,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "wh_main_skill_node_jbv_courtesan__self_06"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan__self_09",
+        "image_path": "vanilla3/campaign_ui/skills/character_armour",
+        "is_background_skill": false,
+        "name": "Inviolable",
+        "description": "Never to be broken or dishonoured – never to succumb to the foe.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character",
+                "priority": 100,
+                "is_positive_value_good": true,
+                "description": "Armour: +3",
+                "key": "wh_main_effect_character_stat_armour",
+                "value": 3
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character",
+                "priority": 100,
+                "is_positive_value_good": true,
+                "description": "Armour: +8",
+                "key": "wh_main_effect_character_stat_armour",
+                "value": 8
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character",
+                "priority": 100,
+                "is_positive_value_good": true,
+                "description": "Armour: +15",
+                "key": "wh_main_effect_character_stat_armour",
+                "value": 15
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh_main_skill_all_dignitary_self_inviolable_2",
+        "tier": 8,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "wh_main_skill_node_jbv_courtesan__self_06"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan__self_10",
+        "image_path": "vanilla3/campaign_ui/skills/character_damage",
+        "is_background_skill": false,
+        "name": "Fervour",
+        "description": "This one fights with a fervour to be both admired and despised.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
+                "priority": 160,
+                "is_positive_value_good": true,
+                "description": "Weapon strength: +5%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
+                "priority": 160,
+                "is_positive_value_good": true,
+                "description": "Weapon strength: +12%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "value": 12
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
+                "priority": 160,
+                "is_positive_value_good": true,
+                "description": "Weapon strength: +20%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "value": 20
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh_main_skill_all_dignitary_self_fervour",
+        "tier": 9,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "wh_main_skill_node_jbv_courtesan__self_06"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan__self_11",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_lightning_reflexes",
+        "is_background_skill": false,
+        "name": "Lightning Reflexes",
+        "description": "The body of a Vampire looks human, but is capable of reactions so fast that even the quickest swordsman would look clumsy in comparison.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 300,
+                "is_positive_value_good": true,
+                "description": "Ability: \"Lightning Reflexes\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc11_effect_ability_enable_lightning_reflexes",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc11_lord_abilities_lightning_reflexes",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_lightning_reflexes",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Lightning Reflexes",
+                      "active_time": 32,
+                      "recharge_time": 90,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 32,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "freeze_recharge": false,
@@ -698,12 +735,12 @@
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
+                              "value": 20,
+                              "stat": "stat_resistance_all",
                               "how": "add",
-                              "description": "+24 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                              "description": "+20 Damage Resistance ",
+                              "sort_order": 10,
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                             }
                           ]
                         }
@@ -711,75 +748,91 @@
                     }
                   }
                 ],
-                "key": "wh_main_effect_ability_enable_slippery",
+                "key": "wh2_dlc11_effect_ability_enable_lightning_reflexes",
                 "value": 1
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_spy_self_slippery",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_self_lightning_reflexes",
         "tier": 10,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_nugui_skill_node_self_07",
-          "jbv_nugui_skill_node_self_08",
-          "jbv_nugui_skill_node_self_09",
-          "jbv_nugui_skill_node_self_10"
+          "wh_main_skill_node_jbv_courtesan__self_07",
+          "wh_main_skill_node_jbv_courtesan__self_08",
+          "wh_main_skill_node_jbv_courtesan__self_09",
+          "wh_main_skill_node_jbv_courtesan__self_10"
         ]
       }
     ],
     [],
+    [],
     [
       {
-        "key": "jbv_nugui_skill_node_skills_01",
-        "image_path": "scm3/campaign_ui/skills/jbv_ghost_curse",
+        "key": "wh_main_skill_node_jbv_courtesan_skill_01",
+        "image_path": "scm3/campaign_ui/skills/jbv_dance_fleet",
         "is_background_skill": false,
-        "name": "Curse of Weng-Chang",
-        "description": "Although renowned for miraculous life magicks, mystical Weng-Chang was also home to a darker manipulation of the jade winds.",
+        "name": "Dance of the Crane",
+        "description": "With fleet of foot, the courtesan soars through the battlefield as though a mirage in order to slip through enemy lines.",
         "levels": [
           {
-            "unlocked_at_rank": 12,
+            "unlocked_at_rank": 9,
             "effects": [
               {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_ghost_curse",
+                "icon": "scm3/campaign_ui/effect_bundles/jbv_dance_fleet",
                 "priority": 300,
                 "is_positive_value_good": true,
-                "description": "Ability: \"Curse of Weng-Chang\"",
+                "description": "Ability: \"Dance of the Crane\"",
                 "related_abilities": [
                   {
-                    "effect": "enable_jbv_ghost_curse_nugui",
+                    "effect": "enable_jbv_dance_fleet",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "cth_ghost_curse",
-                      "icon_name": "scm3/battle_ui/ability_icons/cth_ghost_curse",
+                      "key": "jbv_dance_fleet",
+                      "icon_name": "scm3/battle_ui/ability_icons/jbv_dance_fleet",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "description": "Hex (Area)"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Curse of Weng-Chang",
-                      "num_uses": 1,
-                      "active_time": 16,
-                      "recharge_time": 47,
-                      "wind_up_time": 5,
-                      "effect_range": 25,
+                      "description": "Dance of the Crane",
+                      "active_time": 30,
+                      "recharge_time": 120,
+                      "effect_range": 0,
                       "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
                       "target_self": false,
                       "phases": [
                         {
-                          "duration": 16,
-                          "effect_type": "negative",
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "fatigue_change_ratio": 0.01,
                           "is_hidden_in_ui": false,
                           "freeze_recharge": false,
                           "stat_effects": [
+                            {
+                              "value": 2,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x2 Speed",
+                              "sort_order": 10,
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.3,
+                              "stat": "stat_resistance_missile",
+                              "how": "mult",
+                              "description": "x1.3 Missile Resistance",
+                              "sort_order": 10,
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                            },
                             {
                               "value": 0.8,
                               "stat": "stat_melee_attack",
@@ -787,30 +840,6 @@
                               "description": "x0.8 Melee Attack",
                               "sort_order": 2,
                               "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_defence",
-                              "how": "mult",
-                              "description": "x0.8 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 0.6,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.6 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.5,
-                              "stat": "stat_mass",
-                              "how": "mult",
-                              "description": "x0.5  Mass",
-                              "sort_order": 0,
-                              "icon": "vanilla3/skins/default/icon_stat_mass"
                             }
                           ]
                         }
@@ -818,107 +847,197 @@
                     }
                   }
                 ],
-                "key": "enable_jbv_ghost_curse_nugui",
+                "key": "enable_jbv_dance_fleet",
                 "value": 1
               }
             ]
           }
         ],
-        "character_skill_key": "jbv_ghost_curse_nugui",
-        "tier": 0,
-        "indent": 3,
+        "character_skill_key": "jbv_dance_fleet",
+        "tier": 1,
+        "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
       },
       {
-        "key": "jbv_nugui_skill_node_skills_02",
-        "image_path": "scm3/campaign_ui/skills/jbv_ghost_soul",
+        "key": "wh_main_skill_node_jbv_courtesan_skill_02",
+        "image_path": "scm3/campaign_ui/skills/jbv_dance_murder",
         "is_background_skill": false,
-        "name": "Qi Destruction",
-        "description": "The jade-blooded sorceror severs and corrupts the harmony of life energies, inducing a catatonic, near-death state on the enemy.",
+        "name": "Dance of the Tiger",
+        "description": "The dancer strikes a bold pose, cold eyes full of murderous intent, then pounces at her befuddled audience in a whirlwind of blades.",
         "levels": [
           {
-            "unlocked_at_rank": 21,
+            "unlocked_at_rank": 12,
             "effects": [
               {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_ghost_soul",
+                "icon": "scm3/campaign_ui/effect_bundles/jbv_dance_murder",
                 "priority": 300,
                 "is_positive_value_good": true,
-                "description": "Ability: \"Qi Destruction\"",
+                "description": "Ability: \"Dance of the Tiger\"",
                 "related_abilities": [
                   {
-                    "effect": "enable_jbv_ghost_soul_nugui",
+                    "effect": "enable_jbv_dance_murder",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "cth_ghost_soul",
-                      "icon_name": "scm3/battle_ui/ability_icons/cth_ghost_soul",
+                      "key": "jbv_dance_murder",
+                      "icon_name": "scm3/battle_ui/ability_icons/jbv_dance_murder",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
-                        "description": "Direct Damage (Area)"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Qi Destruction",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_magical",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes magical damage"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "sort_order": 104,
-                          "effect_state": "positive",
-                          "description": "Causes damage to combatants"
-                        }
-                      ],
-                      "num_uses": 1,
-                      "active_time": 8,
+                      "description": "Dance of the Tiger",
+                      "active_time": 30,
                       "recharge_time": 120,
-                      "wind_up_time": 5,
-                      "effect_range": 30,
+                      "effect_range": 0,
                       "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 100,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
                       "target_self": false,
                       "phases": [
                         {
-                          "duration": 8,
-                          "effect_type": "negative",
-                          "cant_move": true,
-                          "fatigue_change_ratio": 0.006,
-                          "hp_change_frequency": 1,
-                          "damage_amount": 80,
-                          "max_damaged_entities": 1,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "fatigue_change_ratio": 0.03,
                           "is_hidden_in_ui": false,
-                          "freeze_recharge": true
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "stat_melee_defence",
+                              "how": "mult",
+                              "description": "x0.5 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_bonus_vs_infantry",
+                              "how": "add",
+                              "description": "+10 Bonus vs. Infantry",
+                              "sort_order": 0,
+                              "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_infantry"
+                            },
+                            {
+                              "value": 1.4,
+                              "stat": "stat_melee_attack",
+                              "how": "mult",
+                              "description": "x1.4 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
                         }
                       ]
                     }
                   }
                 ],
-                "key": "enable_jbv_ghost_soul_nugui",
+                "key": "enable_jbv_dance_murder",
                 "value": 1
               }
             ]
           }
         ],
-        "character_skill_key": "jbv_ghost_soul_nugui",
-        "tier": 1,
-        "indent": 3,
+        "character_skill_key": "jbv_dance_murder",
+        "tier": 2,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan_skill_03",
+        "image_path": "scm3/campaign_ui/skills/jbv_dance_seduction",
+        "is_background_skill": false,
+        "name": "Dance of the Rattlesnake",
+        "description": "Like a serpent beguiling its prey with alluring movements, the vampire uses suggestive dance and speech to lower her victim's defenses.",
+        "levels": [
+          {
+            "unlocked_at_rank": 18,
+            "effects": [
+              {
+                "icon": "scm3/campaign_ui/effect_bundles/jbv_dance_seduction",
+                "priority": 300,
+                "is_positive_value_good": true,
+                "description": "Ability: \"Dance of the Rattlesnake\"",
+                "related_abilities": [
+                  {
+                    "effect": "enable_jbv_dance_seduction",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "jbv_seduction",
+                      "icon_name": "scm3/battle_ui/ability_icons/jbv_dance_seduction",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "description": "Hex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Dance of the Rattlesnake",
+                      "num_uses": 2,
+                      "active_time": 60,
+                      "recharge_time": 180,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": false,
+                      "target_intercept_range": 100,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 60,
+                          "effect_type": "negative",
+                          "fatigue_change_ratio": 0.05,
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "stat_armour",
+                              "how": "mult",
+                              "description": "x0.5 Armour",
+                              "sort_order": 6,
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            },
+                            {
+                              "value": -20,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-20 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ],
+                      "target_if": [
+                        "Unit is rampaging"
+                      ]
+                    }
+                  }
+                ],
+                "key": "enable_jbv_dance_seduction",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "jbv_seduction",
+        "tier": 3,
+        "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
       }
     ],
-    [],
     [
       {
-        "key": "jbv_nugui_skill_node_campaign_01",
+        "key": "wh_main_skill_node_jbv_courtesan__campaign_01",
         "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
         "is_background_skill": false,
         "name": "Increase Mobility",
@@ -971,121 +1090,28 @@
         "visible_in_ui": true
       },
       {
-        "key": "jbv_nugui_skill_node_campaign_02",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_growth",
+        "key": "wh_main_skill_node_jbv_courtesan__campaign_02",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_vampiric_corruption",
         "is_background_skill": false,
-        "name": "Stimulate Growth",
-        "description": "All will listen, for the news will either be dire or wonderful.",
+        "name": "Spread Corruption",
+        "description": "The locals take notice and will be inspired or frightened into action.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
                 "priority": 0,
                 "is_positive_value_good": true,
-                "description": "Growth: -10\n\t(local enemy province)",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_negative",
-                "value": -10
+                "description": "Vampiric corruption: +1\n\t(local province)",
+                "key": "wh3_main_effect_agent_action_passive_spread_corruption_vampiric_effect",
+                "value": 1
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "Growth: +10\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_positive",
-                "value": 10
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
                 "priority": 8,
                 "is_positive_value_good": true,
-                "description": "Stimulate Growth action: Growth is modified by an additional 10",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_buff",
-                "value": 10
-              }
-            ]
-          },
-          {
-            "unlocked_at_rank": 5,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "Growth: -20\n\t(local enemy province)",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_negative",
-                "value": -20
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "Growth: +20\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_positive",
-                "value": 20
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-                "priority": 8,
-                "is_positive_value_good": true,
-                "description": "Stimulate Growth action: Growth is modified by an additional 20",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_buff",
-                "value": 20
-              }
-            ]
-          },
-          {
-            "unlocked_at_rank": 10,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "Growth: -30\n\t(local enemy province)",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_negative",
-                "value": -30
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-                "priority": 0,
-                "is_positive_value_good": true,
-                "description": "Growth: +30\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_positive",
-                "value": 30
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-                "priority": 8,
-                "is_positive_value_good": true,
-                "description": "Stimulate Growth action: Growth is modified by an additional 30",
-                "key": "wh2_main_effect_agent_action_passive_stimulate_growth_buff",
-                "value": 30
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh2_main_skill_all_hero_passive_stimulate_growth",
-        "tier": 1,
-        "indent": 5,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
-      },
-      {
-        "key": "jbv_nugui_skill_node_campaign_03",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_siege_attack",
-        "is_background_skill": false,
-        "name": "Damage Walls",
-        "description": "They cannot stop what they cannot see.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/siege_attack",
-                "priority": 9,
-                "is_positive_value_good": true,
-                "description": "Damage Walls action: 1 additional wall breaches",
-                "key": "wh2_main_effect_agent_action_hinder_settlement_damage_walls_buff",
+                "description": "Spread Corruption action: Vampiric corruption is increased by an additional 1",
+                "key": "wh2_main_effect_agent_action_passive_spread_corruption_buff_vmp",
                 "value": 1
               }
             ]
@@ -1094,11 +1120,19 @@
             "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/siege_attack",
-                "priority": 9,
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+                "priority": 0,
                 "is_positive_value_good": true,
-                "description": "Damage Walls action: 2 additional wall breaches",
-                "key": "wh2_main_effect_agent_action_hinder_settlement_damage_walls_buff",
+                "description": "Vampiric corruption: +2\n\t(local province)",
+                "key": "wh3_main_effect_agent_action_passive_spread_corruption_vampiric_effect",
+                "value": 2
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+                "priority": 8,
+                "is_positive_value_good": true,
+                "description": "Spread Corruption action: Vampiric corruption is increased by an additional 2",
+                "key": "wh2_main_effect_agent_action_passive_spread_corruption_buff_vmp",
                 "value": 2
               }
             ]
@@ -1107,17 +1141,78 @@
             "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/siege_attack",
-                "priority": 9,
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+                "priority": 0,
                 "is_positive_value_good": true,
-                "description": "Damage Walls action: 3 additional wall breaches",
-                "key": "wh2_main_effect_agent_action_hinder_settlement_damage_walls_buff",
+                "description": "Vampiric corruption: +3\n\t(local province)",
+                "key": "wh3_main_effect_agent_action_passive_spread_corruption_vampiric_effect",
+                "value": 3
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+                "priority": 8,
+                "is_positive_value_good": true,
+                "description": "Spread Corruption action: Vampiric corruption is increased by an additional 3",
+                "key": "wh2_main_effect_agent_action_passive_spread_corruption_buff_vmp",
                 "value": 3
               }
             ]
           }
         ],
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_damage_walls",
+        "character_skill_key": "wh2_main_skill_all_hero_passive_spread_corruption_vmp",
+        "tier": 1,
+        "indent": 5,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true
+      },
+      {
+        "key": "wh_main_skill_node_jbv_courtesan__campaign_03",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_siege_attack",
+        "is_background_skill": false,
+        "name": "Damage Building",
+        "description": "It is not just the forces of Chaos that can despoil, break and ruin.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/siege_attack",
+                "priority": 9,
+                "is_positive_value_good": true,
+                "description": "Damage Building action: Additional 5% damage caused",
+                "key": "wh2_main_effect_agent_action_hinder_settlement_damage_building_buff",
+                "value": 5
+              }
+            ]
+          },
+          {
+            "unlocked_at_rank": 5,
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/siege_attack",
+                "priority": 9,
+                "is_positive_value_good": true,
+                "description": "Damage Building action: Additional 15% damage caused",
+                "key": "wh2_main_effect_agent_action_hinder_settlement_damage_building_buff",
+                "value": 15
+              }
+            ]
+          },
+          {
+            "unlocked_at_rank": 10,
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/siege_attack",
+                "priority": 9,
+                "is_positive_value_good": true,
+                "description": "Damage Building action: Additional 30% damage caused",
+                "key": "wh2_main_effect_agent_action_hinder_settlement_damage_building_buff",
+                "value": 30
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_damage_building",
         "tier": 2,
         "indent": 5,
         "points_on_creation": 0,
@@ -1125,21 +1220,21 @@
         "visible_in_ui": true
       },
       {
-        "key": "jbv_nugui_skill_node_campaign_04",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
+        "key": "wh_main_skill_node_jbv_courtesan__campaign_04",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_wound_time",
         "is_background_skill": false,
-        "name": "Assassinate",
-        "description": "A skilled assassin is a cold-hearted killer and merciless murderer.",
+        "name": "Wound",
+        "description": "Such a champion will not bend or break, but slay in their Lord's name.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wound_time",
                 "priority": 10,
                 "is_positive_value_good": true,
-                "description": "Assassinate action: Additional 3% success chance",
-                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "value": 3
+                "description": "Wound action: Additional 5% chance of wounding target",
+                "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
+                "value": 5
               }
             ]
           },
@@ -1147,12 +1242,12 @@
             "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wound_time",
                 "priority": 10,
                 "is_positive_value_good": true,
-                "description": "Assassinate action: Additional 8% success chance",
-                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "value": 8
+                "description": "Wound action: Additional 12% chance of wounding target",
+                "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
+                "value": 12
               }
             ]
           },
@@ -1160,17 +1255,17 @@
             "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wound_time",
                 "priority": 10,
                 "is_positive_value_good": true,
-                "description": "Assassinate action: Additional 15% success chance",
-                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "value": 15
+                "description": "Wound action: Additional 21% chance of wounding target",
+                "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
+                "value": 21
               }
             ]
           }
         ],
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_agent_assassinate",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_agent_wound",
         "tier": 3,
         "indent": 5,
         "points_on_creation": 0,
@@ -1178,21 +1273,21 @@
         "visible_in_ui": true
       },
       {
-        "key": "jbv_nugui_skill_node_campaign_05",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+        "key": "wh_main_skill_node_jbv_courtesan__campaign_05",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_replenishment",
         "is_background_skill": false,
-        "name": "Block Army",
-        "description": "To sow discord and confuse the enemy, sending them down the wrong route or befuddling their senses.",
+        "name": "Hinder Replenishment",
+        "description": "The sight of a powerful figure extolling death and blasphemies can bring enemy ranks to their knees.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment",
                 "priority": 11,
                 "is_positive_value_good": false,
-                "description": "Block Army action: Movement range is modified by an additional -3%",
-                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
-                "value": -3
+                "description": "Hinder Replenishment action: Replenishment is modified by an additional -10%",
+                "key": "wh2_main_effect_agent_action_hinder_army_hinder_replenishment_buff",
+                "value": -10
               }
             ]
           },
@@ -1200,12 +1295,12 @@
             "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment",
                 "priority": 11,
                 "is_positive_value_good": false,
-                "description": "Block Army action: Movement range is modified by an additional -8%",
-                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
-                "value": -8
+                "description": "Hinder Replenishment action: Replenishment is modified by an additional -20%",
+                "key": "wh2_main_effect_agent_action_hinder_army_hinder_replenishment_buff",
+                "value": -20
               }
             ]
           },
@@ -1213,17 +1308,17 @@
             "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment",
                 "priority": 11,
                 "is_positive_value_good": false,
-                "description": "Block Army action: Movement range is modified by an additional -15%",
-                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
-                "value": -15
+                "description": "Hinder Replenishment action: Replenishment is modified by an additional -40%",
+                "key": "wh2_main_effect_agent_action_hinder_army_hinder_replenishment_buff",
+                "value": -40
               }
             ]
           }
         ],
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_block_army",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_hinder_replenishment",
         "tier": 4,
         "indent": 5,
         "points_on_creation": 0,
@@ -1231,7 +1326,7 @@
         "visible_in_ui": true
       },
       {
-        "key": "jbv_nugui_skill_node_campaign_06",
+        "key": "wh_main_skill_node_jbv_courtesan__campaign_06",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "is_background_skill": false,
         "name": "Specialist",
@@ -1307,10 +1402,10 @@
       }
     ]
   ],
-  "key": "jbv_nugui",
+  "key": "jbv_courtesan",
   "backgroundSkills": [
     {
-      "key": "jbv_nugui_skill_node_campaign_actions_dummy",
+      "key": "wh_main_skill_node_jbv_courtesan_campaign_actions_dummy",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
       "is_background_skill": false,
       "name": "",
@@ -1319,26 +1414,18 @@
         {
           "effects": [
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
               "priority": 0,
               "is_positive_value_good": true,
-              "description": "Growth: -10\n\t(local enemy province)",
-              "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_negative",
-              "value": -10
-            },
-            {
-              "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "Growth: +10\n\t(local province)",
-              "key": "wh2_main_effect_agent_action_passive_stimulate_growth_effect_positive",
-              "value": 10
+              "description": "Vampiric corruption: +2\n\t(local province)",
+              "key": "wh3_main_effect_agent_action_passive_spread_corruption_vampiric_effect",
+              "value": 2
             }
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
-      "character_skill_key": "dummy_agent_actions_jbv_nugui",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
+      "character_skill_key": "jbv_courtesan_dummy_agent_actions",
       "tier": 0,
       "indent": 8,
       "points_on_creation": 1,
@@ -1346,7 +1433,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_01",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_01",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Dark Majesty",
@@ -1373,7 +1460,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_vmp_dark_majesty",
       "tier": 0,
       "indent": 6,
@@ -1382,7 +1469,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_02",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_02",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Devious ",
@@ -1409,7 +1496,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_vmp_devious",
       "tier": 1,
       "indent": 6,
@@ -1418,7 +1505,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_03",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_03",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Dread Incarnate",
@@ -1445,7 +1532,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_vmp_dread_incarnate",
       "tier": 2,
       "indent": 6,
@@ -1454,7 +1541,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_04",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_04",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Lore Keeper ",
@@ -1481,7 +1568,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_vmp_lore_keeper",
       "tier": 3,
       "indent": 6,
@@ -1490,7 +1577,82 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_06",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_05",
+      "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
+      "is_background_skill": true,
+      "name": "Master of the Black Arts ",
+      "description": "A master indeed - to rival the Great Necromancer himself?",
+      "levels": [
+        {
+          "effects": [
+            {
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic",
+              "priority": 100,
+              "is_positive_value_good": false,
+              "description": "Miscast base chance: -10% for all spellcasters\n\t(local region)",
+              "key": "wh2_main_effect_force_stat_miscast",
+              "value": -10
+            },
+            {
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+              "priority": 291,
+              "is_positive_value_good": true,
+              "description": "Bound spell: \"Spirit Leech\"",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_bound_spirit_leech",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_spell_bound_spirit_leech",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "description": "Direct Damage"
+                    },
+                    "is_hidden_in_ui": false,
+                    "description": "Spirit Leech",
+                    "num_uses": 4,
+                    "active_time": 13,
+                    "recharge_time": 60,
+                    "wind_up_time": 1,
+                    "effect_range": 0,
+                    "target_friends": false,
+                    "target_enemies": true,
+                    "target_ground": false,
+                    "target_intercept_range": 100,
+                    "target_self": false,
+                    "phases": [
+                      {
+                        "duration": 13,
+                        "effect_type": "negative",
+                        "hp_change_frequency": 1,
+                        "damage_amount": 67,
+                        "max_damaged_entities": 1,
+                        "is_hidden_in_ui": false,
+                        "freeze_recharge": false
+                      }
+                    ]
+                  }
+                }
+              ],
+              "key": "wh3_main_effect_ability_enable_bound_spirit_leech",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
+      "character_skill_key": "wh2_main_skill_innate_vmp_master_of_the_black_arts",
+      "tier": 4,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false
+    },
+    {
+      "key": "wh_main_skill_node_jbv_courtesan_innate_06",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Fleet-Footed",
@@ -1517,7 +1679,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_fleet_footed",
       "tier": 5,
       "indent": 6,
@@ -1526,7 +1688,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_07",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_07",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Cunning",
@@ -1553,7 +1715,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_cunning",
       "tier": 6,
       "indent": 6,
@@ -1562,7 +1724,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_08",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_08",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Determined",
@@ -1589,7 +1751,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_determined",
       "tier": 7,
       "indent": 6,
@@ -1598,7 +1760,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_09",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_09",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Confident",
@@ -1625,7 +1787,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_confident",
       "tier": 8,
       "indent": 6,
@@ -1634,7 +1796,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_10",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_10",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Disciplined",
@@ -1661,7 +1823,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_disciplined",
       "tier": 9,
       "indent": 6,
@@ -1670,7 +1832,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_11",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_11",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Perceptive",
@@ -1697,7 +1859,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_perceptive",
       "tier": 10,
       "indent": 6,
@@ -1706,7 +1868,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_12",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_12",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Aggressive",
@@ -1733,7 +1895,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_aggressive",
       "tier": 11,
       "indent": 6,
@@ -1742,7 +1904,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_13",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_13",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Tough",
@@ -1769,7 +1931,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_tough",
       "tier": 12,
       "indent": 6,
@@ -1778,7 +1940,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_14",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_14",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Strong",
@@ -1813,7 +1975,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_strong",
       "tier": 13,
       "indent": 6,
@@ -1822,7 +1984,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_15",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_15",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Weapon Master",
@@ -1849,7 +2011,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_weapon_master",
       "tier": 14,
       "indent": 6,
@@ -1858,7 +2020,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_16",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_16",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Strategist",
@@ -1877,7 +2039,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_strategist",
       "tier": 15,
       "indent": 6,
@@ -1886,7 +2048,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_nugui_skill_node_innate_17",
+      "key": "wh_main_skill_node_jbv_courtesan_innate_17",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Tactician",
@@ -1913,7 +2075,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_nugui_node_set",
+      "character_skill_node_set_key": "jbv_courtesan_node_set",
       "character_skill_key": "wh2_main_skill_innate_all_tactician",
       "tier": 16,
       "indent": 6,

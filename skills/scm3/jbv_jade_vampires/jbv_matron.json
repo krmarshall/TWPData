@@ -2,55 +2,43 @@
   "skillTree": [
     [
       {
-        "key": "jbv_jade_blooded_node_unique_02",
-        "image_path": "vanilla3/campaign_ui/skills/mount_barded_nightmare",
+        "key": "jbv_matron_nodeset_unique_06",
+        "image_path": "vanilla3/campaign_ui/skills/character_agent",
         "is_background_skill": false,
-        "name": "Barded Skeletal Steed",
-        "description": "A skeletal warhorse fashioned in the cathayan aesthetic; a favored mount by the equally macabre jade-blooded vampires.",
+        "name": "Queen Bee",
+        "description": "\"Who's queen? That's right… Now, prostrate yourself before me, worm!\"",
         "levels": [
           {
+            "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount",
-                "priority": 50,
-                "is_positive_value_good": true,
-                "description": "Mount: Barded Skeletal Steed",
-                "key": "enable_jbv_skel_horse_lord_mount",
-                "value": 1
-              }
-            ],
-            "auto_unlock_at_rank": 7
-          }
-        ],
-        "character_skill_key": "jbv_skel_horse_lord_mount",
-        "tier": 1,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
-      },
-      {
-        "key": "jbv_jade_blooded_node_unique_03",
-        "image_path": "vanilla3/campaign_ui/skills/mount_hellsteed",
-        "is_background_skill": false,
-        "name": "Necro-Longma",
-        "description": "A great jade longma raised unto undeath; its trampling hooves and draconian wings imbued with necrotic magic.",
-        "levels": [
-          {
-            "effects": [
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
+                "priority": 101,
+                "is_positive_value_good": false,
+                "description": "Hero action cost: -50%\n\t(Heroes in local region)",
+                "key": "wh_main_effect_agent_action_cost_mod",
+                "value": -50
+              },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount",
-                "priority": 50,
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent",
+                "priority": 101,
                 "is_positive_value_good": true,
-                "description": "Mount: Necro-Longma",
-                "key": "enable_jbv_skel_horse_longma_mount",
-                "value": 1
+                "description": "Hero action success chance: +50%\n\t(Heroes in local region)",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "value": 50
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent",
+                "priority": 102,
+                "is_positive_value_good": false,
+                "description": "Enemy Hero action success chance: -25%\n\t(Heroes in local region)",
+                "key": "wh2_main_effect_agent_action_success_chance_enemies_in_region",
+                "value": -25
               }
-            ],
-            "auto_unlock_at_rank": 18
+            ]
           }
         ],
-        "character_skill_key": "jbv_skel_horse_longma_mount",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_unique_queen_bee",
         "tier": 2,
         "indent": 0,
         "points_on_creation": 0,
@@ -58,7 +46,160 @@
         "visible_in_ui": true
       },
       {
-        "key": "jbv_jade_blooded_node_unique_05",
+        "key": "jbv_matron_nodeset_unique_03",
+        "image_path": "scm3/campaign_ui/skills/jbv_summon_newbloods",
+        "is_background_skill": false,
+        "name": "Mother of the Evil Blood",
+        "description": "A jade-blooded matron is the proud progenitor of many vampires that infest Cathay's midnight empire, and any such matriarch would be well defended to the death by her brood.",
+        "levels": [
+          {
+            "unlocked_at_rank": 12,
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 600,
+                "is_positive_value_good": true,
+                "description": "Ability: \"Brood of the Evil Blood\"",
+                "related_abilities": [
+                  {
+                    "effect": "enable_jbv_summon_newbloods",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "jbv_summon_newbloods",
+                      "icon_name": "scm3/battle_ui/ability_icons/jbv_summon_newbloods",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_summon_unit",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Summon Unit"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Brood of the Evil Blood",
+                      "ui_effects": [
+                        {
+                          "key": "jbv_newbloods_summon",
+                          "sort_order": 103,
+                          "effect_state": "positive",
+                          "description": "Summons Fledgling Vampires"
+                        },
+                        {
+                          "key": "wh_main_all_direct_damage_unbinding",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Summoned units degrade over time"
+                        }
+                      ],
+                      "num_uses": 1,
+                      "active_time": 1,
+                      "recharge_time": 90,
+                      "wind_up_time": 10,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": 150,
+                      "target_self": false
+                    }
+                  }
+                ],
+                "key": "enable_jbv_summon_newbloods",
+                "value": 1
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "jbv_summon_newbloods",
+        "tier": 3,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true
+      },
+      {
+        "key": "jbv_matron_nodeset_unique_05",
+        "image_path": "",
+        "is_background_skill": false,
+        "name": "Vampire Matriarch",
+        "description": "When her existence is threatened, a vampire matron will cast away all pretense of charm and elegance and reveal her true monsrous form befitting a hive queen of vampires.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent",
+                "priority": 101,
+                "is_positive_value_good": true,
+                "description": "Campaign line of sight: +10%\n\t(Lord's army)",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "value": 10
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 260,
+                "is_positive_value_good": true,
+                "description": "Leadership aura size: +20%",
+                "key": "wh_main_effect_character_stat_leadership_aura_size",
+                "value": 20
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
+                "priority": 298,
+                "is_positive_value_good": true,
+                "description": "Ability: \"Discard Glamour\"",
+                "related_abilities": [
+                  {
+                    "effect": "enable_jbv_matron_queen",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "jbv_matron_queen",
+                      "icon_name": "scm3/battle_ui/ability_icons/jbv_matron_queen",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_transform",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_transform",
+                        "description": "Transform"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Discard Glamour",
+                      "ui_effects": [
+                        {
+                          "key": "jbv_matron_queen_transform",
+                          "sort_order": 103,
+                          "effect_state": "positive",
+                          "description": "Transforms into a powerful monster"
+                        }
+                      ],
+                      "active_time": 5,
+                      "recharge_time": 120,
+                      "initial_recharge": 30,
+                      "wind_up_time": 5,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "enabled_if": [
+                        "Hit Points less than 50%"
+                      ]
+                    }
+                  }
+                ],
+                "key": "enable_jbv_matron_queen",
+                "value": 1
+              }
+            ],
+            "auto_unlock_at_rank": 18
+          }
+        ],
+        "character_skill_key": "jbv_matron_queen",
+        "tier": 4,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true
+      },
+      {
+        "key": "jbv_matron_nodeset_unique_07",
         "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
         "is_background_skill": false,
         "name": "Aura of Dark Majesty",
@@ -78,232 +219,14 @@
           }
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_battle_aura_of_dark_majesty",
-        "tier": 3,
+        "tier": 5,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
       },
       {
-        "key": "jbv_jade_blooded_node_unique_07",
-        "image_path": "scm3/campaign_ui/skills/jbv_jiangshi_summon",
-        "is_background_skill": false,
-        "name": "Jiangshi Master",
-        "description": "The feared Jiangshi are the mindless thralls of the Jade-Blooded Vampires. Their inhuman resilience and supernatural strength makes them the ideal minions.",
-        "levels": [
-          {
-            "unlocked_at_rank": 12,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 600,
-                "is_positive_value_good": true,
-                "description": "Ability: \"Command Jiangshi\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_jiangshi_summon",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "jbv_jiangshi_summon",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_jiangshi_summon",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Command Jiangshi",
-                      "ui_effects": [
-                        {
-                          "key": "jbv_jiangshi_summon",
-                          "sort_order": 103,
-                          "effect_state": "positive",
-                          "description": "Summons Jiangshi"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Summoned units degrade over time"
-                        }
-                      ],
-                      "num_uses": 1,
-                      "active_time": 1,
-                      "recharge_time": 120,
-                      "wind_up_time": 10,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "target_self": false
-                    }
-                  }
-                ],
-                "key": "enable_jbv_jiangshi_summon",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement",
-                "priority": 421,
-                "is_positive_value_good": true,
-                "description": "Speed: +4% for Jiangshi units\n\t(Lord's army)",
-                "key": "jbv_tech_jiangshi_spd",
-                "value": 4
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence",
-                "priority": 451,
-                "is_positive_value_good": true,
-                "description": "Melee defense: +5% for Jiangshi units\n\t(Lord's army)",
-                "key": "jbv_jiangshi_md",
-                "value": 5
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 600,
-                "is_positive_value_good": true,
-                "description": "Ability: \"Command Jiangshi\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_jiangshi_summon",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "jbv_jiangshi_summon",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_jiangshi_summon",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Command Jiangshi",
-                      "ui_effects": [
-                        {
-                          "key": "jbv_jiangshi_summon",
-                          "sort_order": 103,
-                          "effect_state": "positive",
-                          "description": "Summons Jiangshi"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Summoned units degrade over time"
-                        }
-                      ],
-                      "num_uses": 1,
-                      "active_time": 1,
-                      "recharge_time": 120,
-                      "wind_up_time": 10,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "target_self": false
-                    }
-                  }
-                ],
-                "key": "enable_jbv_jiangshi_summon",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage",
-                "priority": 10,
-                "is_positive_value_good": true,
-                "description": "Weapon strength: +12% for Jiangshi units\n\t(Lord's army)",
-                "key": "jbv_jiangshi_ws",
-                "value": 12
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement",
-                "priority": 421,
-                "is_positive_value_good": true,
-                "description": "Speed: +6% for Jiangshi units\n\t(Lord's army)",
-                "key": "jbv_tech_jiangshi_spd",
-                "value": 6
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence",
-                "priority": 451,
-                "is_positive_value_good": true,
-                "description": "Melee defense: +8% for Jiangshi units\n\t(Lord's army)",
-                "key": "jbv_jiangshi_md",
-                "value": 8
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 600,
-                "is_positive_value_good": true,
-                "description": "Ability: \"Command Jiangshi\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_jiangshi_summon",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "jbv_jiangshi_summon",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_jiangshi_summon",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Command Jiangshi",
-                      "ui_effects": [
-                        {
-                          "key": "jbv_jiangshi_summon",
-                          "sort_order": 103,
-                          "effect_state": "positive",
-                          "description": "Summons Jiangshi"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Summoned units degrade over time"
-                        }
-                      ],
-                      "num_uses": 1,
-                      "active_time": 1,
-                      "recharge_time": 120,
-                      "wind_up_time": 10,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "target_self": false
-                    }
-                  }
-                ],
-                "key": "enable_jbv_jiangshi_summon",
-                "value": 1
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "jbv_jiangshi_summon",
-        "tier": 4,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
-      },
-      {
-        "key": "jbv_jade_blooded_node_unique_06",
+        "key": "jbv_matron_nodeset_unique_08",
         "image_path": "vanilla3/campaign_ui/skills/character_morale",
         "is_background_skill": false,
         "name": "Dark Pact",
@@ -323,14 +246,42 @@
           }
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_battle_dark_pact",
-        "tier": 5,
+        "tier": 6,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
       },
       {
-        "key": "jbv_jade_blooded_node_immortality",
+        "key": "jbv_matron_nodeset_unique_04",
+        "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
+        "is_background_skill": false,
+        "name": "Grave Ward",
+        "description": "Whereby the power of death itself is used to hold back the physical world.",
+        "levels": [
+          {
+            "unlocked_at_rank": 8,
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile",
+                "priority": 280,
+                "is_positive_value_good": true,
+                "description": "Missile resistance: 10%",
+                "key": "wh_main_effect_character_stat_missile_resistance",
+                "value": 10
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh_main_skill_vmp_all_unique_grave_ward",
+        "tier": 7,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true
+      },
+      {
+        "key": "jbv_matron_nodeset_immortality",
         "image_path": "vanilla3/campaign_ui/skills/character_wound_time",
         "is_background_skill": false,
         "name": "Immortality",
@@ -351,16 +302,17 @@
           }
         ],
         "character_skill_key": "wh2_main_skill_all_immortality_lord",
-        "tier": 6,
+        "tier": 8,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true
       }
     ],
+    [],
     [
       {
-        "key": "jbv_jade_blooded_node_self_01",
+        "key": "jbv_matron_nodeset_self_01",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_lord_passive_the_hunger",
         "is_background_skill": false,
         "name": "The Hunger",
@@ -427,14 +379,14 @@
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_self_the_hunger",
         "tier": 0,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_02",
+        "key": "jbv_matron_nodeset_self_02",
         "image_path": "vanilla3/campaign_ui/skills/character_charge",
         "is_background_skill": false,
         "name": "Devastating Charge",
@@ -467,17 +419,17 @@
         ],
         "character_skill_key": "wh2_dlc11_skill_all_lord_self_devastating_charge",
         "tier": 1,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_01"
+          "jbv_matron_nodeset_self_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_03",
+        "key": "jbv_matron_nodeset_self_03",
         "image_path": "vanilla3/campaign_ui/skills/character_armour",
         "is_background_skill": false,
         "name": "Dark Knight",
@@ -510,17 +462,17 @@
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_self_dark_knight",
         "tier": 2,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_01"
+          "jbv_matron_nodeset_self_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_04",
+        "key": "jbv_matron_nodeset_self_04",
         "image_path": "vanilla3/campaign_ui/skills/character_defence",
         "is_background_skill": false,
         "name": "Beguile",
@@ -553,17 +505,17 @@
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_self_beguile",
         "tier": 3,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_01"
+          "jbv_matron_nodeset_self_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_05",
+        "key": "jbv_matron_nodeset_self_05",
         "image_path": "vanilla3/campaign_ui/skills/character_attack",
         "is_background_skill": false,
         "name": "Quickblood",
@@ -596,61 +548,104 @@
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_self_quickblood",
         "tier": 4,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_01"
+          "jbv_matron_nodeset_self_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_06",
-        "image_path": "vanilla3/campaign_ui/skills/wh2_dlc11_cynosure",
+        "key": "jbv_matron_nodeset_self_06",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_lightning_reflexes",
         "is_background_skill": false,
-        "name": "Cynosure",
-        "description": "See the future, change the present.",
+        "name": "Lightning Reflexes",
+        "description": "The body of a Vampire looks human, but is capable of reactions so fast that even the quickest swordsman would look clumsy in comparison.",
         "levels": [
           {
-            "unlocked_at_rank": 6,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign",
-                "priority": 100,
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 300,
                 "is_positive_value_good": true,
-                "description": "Winds of Magic power reserve change: +10% when increasing",
-                "key": "wh3_main_effect_winds_of_magic_pooled_resource_change_positive_mod",
-                "value": 10
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 298,
-                "is_positive_value_good": false,
-                "description": "Miscast base chance: -10%",
-                "key": "wh_main_effect_character_stat_miscast",
-                "value": -10
+                "description": "Ability: \"Lightning Reflexes\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc11_effect_ability_enable_lightning_reflexes",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc11_lord_abilities_lightning_reflexes",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_lightning_reflexes",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Lightning Reflexes",
+                      "active_time": 32,
+                      "recharge_time": 90,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 0,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 32,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.3,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.3 Speed",
+                              "sort_order": 10,
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+20 Damage Resistance ",
+                              "sort_order": 10,
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh2_dlc11_effect_ability_enable_lightning_reflexes",
+                "value": 1
               }
             ]
           }
         ],
-        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_necrarch_unique_cynosure",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_self_lightning_reflexes",
         "tier": 5,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_self_02",
-          "jbv_jade_blooded_node_self_03",
-          "jbv_jade_blooded_node_self_04",
-          "jbv_jade_blooded_node_self_05"
+          "jbv_matron_nodeset_self_02",
+          "jbv_matron_nodeset_self_03",
+          "jbv_matron_nodeset_self_04",
+          "jbv_matron_nodeset_self_05"
         ],
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_07",
+        "key": "jbv_matron_nodeset_self_07",
         "image_path": "vanilla3/campaign_ui/skills/character_damage",
         "is_background_skill": false,
         "name": "Master Strike",
@@ -683,17 +678,17 @@
         ],
         "character_skill_key": "wh2_dlc11_skill_vmp_lord_self_master_strike",
         "tier": 6,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_06"
+          "jbv_matron_nodeset_self_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_08",
+        "key": "jbv_matron_nodeset_self_08",
         "image_path": "vanilla3/campaign_ui/skills/character_health",
         "is_background_skill": false,
         "name": "Curse of the Revenant",
@@ -726,17 +721,17 @@
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_self_curse_of_the_revenant",
         "tier": 7,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_06"
+          "jbv_matron_nodeset_self_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_09",
+        "key": "jbv_matron_nodeset_self_09",
         "image_path": "vanilla3/campaign_ui/skills/causes_terror",
         "is_background_skill": false,
         "name": "Supernatural Horror",
@@ -757,17 +752,17 @@
         ],
         "character_skill_key": "wh_main_skill_vmp_lord_self_supernatural_horror",
         "tier": 8,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_06"
+          "jbv_matron_nodeset_self_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_10",
+        "key": "jbv_matron_nodeset_self_10",
         "image_path": "vanilla3/campaign_ui/skills/character_defence",
         "is_background_skill": false,
         "name": "Blade Shield",
@@ -800,54 +795,47 @@
         ],
         "character_skill_key": "wh2_dlc11_skill_all_lord_self_blade_shield",
         "tier": 9,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_self_06"
+          "jbv_matron_nodeset_self_06"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_self_11",
-        "image_path": "vanilla3/campaign_ui/skills/wh_main_lore_passive_life_leeching",
+        "key": "jbv_matron_nodeset_self_11",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_transfix",
         "is_background_skill": false,
-        "name": "Life-Leeching",
-        "description": "",
+        "name": "Transfix",
+        "description": "A Vampire's eyes are like deep pits within which mortals find their doom; the unfortunate victims can do nothing but stare, entranced by the deadly hunter preparing to strike.",
         "levels": [
           {
             "effects": [
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 310,
+                "priority": 300,
                 "is_positive_value_good": true,
-                "description": "Passive ability: \"Life Leeching\"",
+                "description": "Ability: \"Transfix\"",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_life-leeching",
+                    "effect": "wh2_dlc11_effect_ability_enable_transfix",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_lore_passive_life_leeching",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_life_leeching",
+                      "key": "wh2_dlc11_lord_abilities_transfix",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_transfix",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_augment_of_the_winds",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                        "description": "Augment of the Winds"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Life Leeching",
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_trigger_when_casting",
-                          "sort_order": 1,
-                          "effect_state": "positive",
-                          "description": "Triggers when casting spell"
-                        }
-                      ],
-                      "active_time": 25,
+                      "description": "Transfix",
+                      "active_time": 26,
+                      "recharge_time": 120,
                       "effect_range": 0,
                       "target_friends": false,
                       "target_enemies": false,
@@ -856,77 +844,108 @@
                       "target_self": false,
                       "phases": [
                         {
-                          "duration": 25,
+                          "duration": 26,
                           "effect_type": "positive",
-                          "mana_max_depletion_mod": 0.1,
+                          "imbue_contact": {
+                            "id": "wh_dlc06_unit_contact_discouraged",
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "is_hidden_in_ui": false,
+                            "freeze_recharge": false,
+                            "stat_effects": [
+                              {
+                                "value": -16,
+                                "stat": "stat_morale",
+                                "how": "add",
+                                "description": "-16 Leadership",
+                                "sort_order": 1,
+                                "icon": "vanilla3/skins/default/icon_stat_morale"
+                              }
+                            ]
+                          },
                           "is_hidden_in_ui": false,
-                          "freeze_recharge": false
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.3,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.3 Speed",
+                              "sort_order": 10,
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+20 Damage Resistance ",
+                              "sort_order": 10,
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            }
+                          ]
                         }
-                      ],
-                      "enabled_if": [
-                        "Casting"
                       ]
                     }
                   }
                 ],
-                "key": "wh_main_effect_ability_enable_life-leeching",
+                "key": "wh2_dlc11_effect_ability_enable_transfix",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "priority": 305,
+                "is_positive_value_good": true,
+                "description": "Replaces: \"Lightning Reflexes\"",
+                "key": "wh2_dlc11_effect_ability_disable_lightning_reflexes",
                 "value": 1
               }
             ]
           }
         ],
-        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_necrarch_unique_life_leeching",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_self_transfix",
         "tier": 10,
-        "indent": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_self_07",
-          "jbv_jade_blooded_node_self_08",
-          "jbv_jade_blooded_node_self_09",
-          "jbv_jade_blooded_node_self_10"
+          "jbv_matron_nodeset_self_07",
+          "jbv_matron_nodeset_self_08",
+          "jbv_matron_nodeset_self_09",
+          "jbv_matron_nodeset_self_10"
         ]
       }
     ],
     [
       {
-        "key": "jbv_jade_blooded_node_magic1_01",
-        "image_path": "scm3/campaign_ui/skills/jbv_psychic",
+        "key": "jbv_matron_nodeset_magic1_01",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
         "is_background_skill": false,
-        "name": "Xiaolan's Spirit Seal",
-        "description": "The necromancer recites from forbidden scrolls an ancient rite used to trap and bind wandering spirits into a chosen corpse, thereby enslaving the creature in undeath.",
+        "name": "Invocation of Nehek",
+        "description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -30% to \"Xiaolan's Spirit Seal\"",
-                "key": "enable_jbv_psychic_cooldown",
-                "value": -30
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_psychic",
-                "priority": 700,
                 "is_positive_value_good": true,
-                "description": "Overcast spell: \"Xiaolan's Spirit Seal Upgraded\"",
+                "description": "Overcast spell: \"Invocation of Nehek Upgraded\"",
                 "related_abilities": [
                   {
-                    "effect": "enable_jbv_psychic_overcast",
+                    "effect": "wh2_main_effect_ability_overcast_invocation_of_nehek",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_psychic",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_psychic",
-                      "overpower_option": "wh_main_spell_vampires_psychic_upgraded",
+                      "key": "wh_main_spell_vampires_invocation_of_nehek",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
+                      "overpower_option": "wh_main_spell_vampires_invocation_of_nehek_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Augment"
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "description": "Regeneration"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Xiaolan's Spirit Seal",
+                      "description": "Invocation of Nehek",
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -947,91 +966,69 @@
                           "description": "Heals injured before resurrecting"
                         }
                       ],
-                      "active_time": 22,
-                      "recharge_time": 60,
+                      "active_time": 18,
+                      "recharge_time": 30,
                       "wind_up_time": 1,
                       "effect_range": 0,
                       "target_friends": true,
                       "target_enemies": false,
                       "target_ground": false,
                       "target_intercept_range": 200,
-                      "mana_cost": 5,
+                      "mana_cost": 6,
                       "target_self": true,
                       "phases": [
                         {
-                          "duration": 22,
+                          "duration": 18,
                           "effect_type": "positive",
                           "resurrect": true,
                           "hp_change_frequency": 1,
-                          "heal_amount": 0.003,
+                          "heal_amount": 0.008,
                           "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 12,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+12 Physical Resistance",
-                              "sort_order": 10,
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                            },
-                            {
-                              "value": 5,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "+5 Leadership",
-                              "sort_order": 1,
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            }
-                          ]
+                          "freeze_recharge": false
                         }
+                      ],
+                      "target_if": [
+                        "Hit point replenishment cap not reached",
+                        "Undead"
                       ]
                     }
                   }
                 ],
-                "key": "enable_jbv_psychic_overcast",
+                "key": "wh2_main_effect_ability_overcast_invocation_of_nehek",
                 "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -30% to \"Invocation of Nehek\"",
+                "key": "wh_main_effect_ability_cooldown_invocation_of_nehek",
+                "value": -30
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -50% to \"Xiaolan's Spirit Seal\"",
-                "key": "enable_jbv_psychic_cooldown",
-                "value": -50
-              },
-              {
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
-                "description": "Winds of magic cost: -2 to \"Xiaolan's Spirit Seal\"",
-                "key": "enable_jbv_psychic_cost",
-                "value": -2
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_psychic",
-                "priority": 700,
+                "priority": 292,
                 "is_positive_value_good": true,
-                "description": "Overcast spell: \"Xiaolan's Spirit Seal Upgraded\"",
+                "description": "Overcast spell: \"Invocation of Nehek Upgraded\"",
                 "related_abilities": [
                   {
-                    "effect": "enable_jbv_psychic_overcast",
+                    "effect": "wh2_main_effect_ability_overcast_invocation_of_nehek",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_psychic",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_psychic",
-                      "overpower_option": "wh_main_spell_vampires_psychic_upgraded",
+                      "key": "wh_main_spell_vampires_invocation_of_nehek",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
+                      "overpower_option": "wh_main_spell_vampires_invocation_of_nehek_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Augment"
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "description": "Regeneration"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Xiaolan's Spirit Seal",
+                      "description": "Invocation of Nehek",
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -1052,68 +1049,86 @@
                           "description": "Heals injured before resurrecting"
                         }
                       ],
-                      "active_time": 22,
-                      "recharge_time": 60,
+                      "active_time": 18,
+                      "recharge_time": 30,
                       "wind_up_time": 1,
                       "effect_range": 0,
                       "target_friends": true,
                       "target_enemies": false,
                       "target_ground": false,
                       "target_intercept_range": 200,
-                      "mana_cost": 5,
+                      "mana_cost": 6,
                       "target_self": true,
                       "phases": [
                         {
-                          "duration": 22,
+                          "duration": 18,
                           "effect_type": "positive",
                           "resurrect": true,
                           "hp_change_frequency": 1,
-                          "heal_amount": 0.003,
+                          "heal_amount": 0.008,
                           "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 12,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+12 Physical Resistance",
-                              "sort_order": 10,
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                            },
-                            {
-                              "value": 5,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "+5 Leadership",
-                              "sort_order": 1,
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            }
-                          ]
+                          "freeze_recharge": false
                         }
+                      ],
+                      "target_if": [
+                        "Hit point replenishment cap not reached",
+                        "Undead"
                       ]
                     }
                   }
                 ],
-                "key": "enable_jbv_psychic_overcast",
+                "key": "wh2_main_effect_ability_overcast_invocation_of_nehek",
                 "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -50% to \"Invocation of Nehek\"",
+                "key": "wh_main_effect_ability_cooldown_invocation_of_nehek",
+                "value": -50
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 294,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -1 for \"Invocation of Nehek\"",
+                "key": "wh2_main_effect_ability_wom_cost_invocation_of_nehek",
+                "value": -1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 295,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -2 for \"Invocation of Nehek Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_invocation_of_nehek_upgraded",
+                "value": -2
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
+                "priority": 298,
+                "is_positive_value_good": false,
+                "description": "Miscast base chance: -15% for \"Invocation of Nehek Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_invocation_of_nehek_upgraded",
+                "value": -15
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_ability_vampires_psychic",
+        "character_skill_key": "wh_main_skill_vmp_magic_vampires_01_invocation_of_nehek",
         "tier": 0,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_magic1_02",
+        "key": "jbv_matron_nodeset_magic1_02",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_lore_passive_the_curse_of_undeath",
         "is_background_skill": false,
         "name": "The Curse of Undeath",
-        "description": "",
+        "description": "As the powers of Dark Magic are wielded for the purpose of Necromancy, its unwholesome energies invigorate the Undead.",
         "levels": [
           {
             "effects": [
@@ -1197,315 +1212,78 @@
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_vmp_magic_vampires_03_the_curse_of_undeath",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_curse_of_undeath",
         "tier": 1,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_magic1_01"
+          "jbv_matron_nodeset_magic1_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_magic1_03",
-        "image_path": "scm3/battle_ui/ability_icons/jbv_haunt",
+        "key": "jbv_matron_nodeset_magic1_03",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
         "is_background_skill": false,
-        "name": "Ancestral Haunting",
-        "description": "The victim's ancestors erupt from their ancient graves, sapping away their bravado with thoughts of guilt and despair as they get dragged into the afterlife.",
+        "name": "The Enfeebling Foe",
+        "description": "When cast this spell enfeebles enemy minds; they feel the crushing weight of reality bearing down upon them.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -20% to \"Ancestral Haunt\"",
-                "key": "enable_jbv_haunt_cooldown",
-                "value": -20
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_haunt",
-                "priority": 700,
                 "is_positive_value_good": true,
-                "description": "Overcast spell: \"Ancestral Haunt Upgraded\"",
+                "description": "Overcast spell: \"The Enfeebling Foe Upgraded\"",
                 "related_abilities": [
                   {
-                    "effect": "enable_jbv_haunt_overcast",
+                    "effect": "wh2_main_effect_ability_overcast_melkoths_enfeebling_foe",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_haunt",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_haunt",
-                      "overpower_option": "wh_main_spell_vampires_haunt_upgraded",
+                      "key": "wh_dlc05_spell_shadow_the_enfeebling_foe",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
+                      "overpower_option": "wh_dlc05_spell_shadow_the_enfeebling_foe_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "description": "Direct Damage"
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "description": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Ancestral Haunting",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs multiple combatants"
-                        }
-                      ],
-                      "active_time": 13,
-                      "recharge_time": 60,
-                      "wind_up_time": 4,
+                      "description": "The Enfeebling Foe",
+                      "active_time": 17,
+                      "recharge_time": 30,
+                      "wind_up_time": 1,
                       "effect_range": 0,
                       "target_friends": false,
                       "target_enemies": true,
                       "target_ground": false,
-                      "target_intercept_range": 150,
-                      "mana_cost": 9,
+                      "target_intercept_range": 200,
+                      "mana_cost": 6,
                       "target_self": false,
                       "phases": [
                         {
-                          "duration": 13,
+                          "duration": 17,
                           "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_amount": 30,
-                          "max_damaged_entities": 6,
                           "is_hidden_in_ui": false,
                           "freeze_recharge": false,
                           "stat_effects": [
                             {
-                              "value": -8,
-                              "stat": "stat_morale",
+                              "value": -24,
+                              "stat": "stat_melee_attack",
                               "how": "add",
-                              "description": "-8 Leadership",
-                              "sort_order": 1,
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                              "description": "-24 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": 0.6,
-                              "stat": "scalar_bracing",
-                              "how": "mult",
-                              "description": "x0.6 Charge Resistance",
-                              "sort_order": 0,
-                              "icon": "vanilla3/skins/default/icon_stat_bracing"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ],
-                "key": "enable_jbv_haunt_overcast",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 250,
-                "is_positive_value_good": false,
-                "description": "Miscast chance: -50% to \"Ancestral Haunt Upgraded\"",
-                "key": "enable_jbv_haunt_upgrade_miscast",
-                "value": -50
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -30% to \"Ancestral Haunt\"",
-                "key": "enable_jbv_haunt_cooldown",
-                "value": -30
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
-                "description": "Winds of magic cost: -2 to \"Ancestral Haunt\"",
-                "key": "enable_jbv_haunt_cost",
-                "value": -2
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
-                "description": "Winds of magic cost: -3 to \"Ancestral Haunt Upgraded\"",
-                "key": "enable_jbv_haunt_upgrade_cost",
-                "value": -3
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_haunt",
-                "priority": 700,
-                "is_positive_value_good": true,
-                "description": "Overcast spell: \"Ancestral Haunt Upgraded\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_haunt_overcast",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_haunt",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_haunt",
-                      "overpower_option": "wh_main_spell_vampires_haunt_upgraded",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "description": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Ancestral Haunting",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "sort_order": 106,
-                          "effect_state": "positive",
-                          "description": "Strong vs multiple combatants"
-                        }
-                      ],
-                      "active_time": 13,
-                      "recharge_time": 60,
-                      "wind_up_time": 4,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 150,
-                      "mana_cost": 9,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 13,
-                          "effect_type": "negative",
-                          "hp_change_frequency": 1,
-                          "damage_amount": 30,
-                          "max_damaged_entities": 6,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": -8,
-                              "stat": "stat_morale",
+                              "value": -24,
+                              "stat": "stat_melee_defence",
                               "how": "add",
-                              "description": "-8 Leadership",
-                              "sort_order": 1,
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 0.6,
-                              "stat": "scalar_bracing",
-                              "how": "mult",
-                              "description": "x0.6 Charge Resistance",
-                              "sort_order": 0,
-                              "icon": "vanilla3/skins/default/icon_stat_bracing"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ],
-                "key": "enable_jbv_haunt_overcast",
-                "value": 1
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_ability_vampires_haunt",
-        "tier": 2,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_jade_blooded_node_magic1_01"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "jbv_jade_blooded_node_magic1_04",
-        "image_path": "scm3/campaign_ui/skills/jbv_ghost_curse",
-        "is_background_skill": false,
-        "name": "Curse of Weng-Chang",
-        "description": "Although renowned for miraculous life magicks, mystical Weng-Chang was also home to a darker manipulation of the jade winds.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -10% to \"Curse of Weng-Chang\"",
-                "key": "enable_jbv_ghost_curse_cooldown",
-                "value": -10
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_ghost_curse",
-                "priority": 700,
-                "is_positive_value_good": true,
-                "description": "Overcast spell: \"Curse of Weng-Chang Upgraded\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_ghost_curse_overcast",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_ghost_curse",
-                      "icon_name": "scm3/battle_ui/ability_icons/cth_ghost_curse",
-                      "overpower_option": "wh_main_spell_vampires_ghost_curse_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "description": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Curse of Weng-Chang",
-                      "active_time": 25,
-                      "recharge_time": 60,
-                      "wind_up_time": 5,
-                      "effect_range": 40,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 11,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 25,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_attack",
-                              "how": "mult",
-                              "description": "x0.8 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_defence",
-                              "how": "mult",
-                              "description": "x0.8 Melee Defence",
+                              "description": "-24 Melee Defence",
                               "sort_order": 3,
                               "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 0.6,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.6 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.5,
-                              "stat": "stat_mass",
-                              "how": "mult",
-                              "description": "x0.5  Mass",
-                              "sort_order": 0,
-                              "icon": "vanilla3/skins/default/icon_stat_mass"
                             }
                           ]
                         }
@@ -1513,251 +1291,385 @@
                     }
                   }
                 ],
-                "key": "enable_jbv_ghost_curse_overcast",
+                "key": "wh2_main_effect_ability_overcast_melkoths_enfeebling_foe",
                 "value": 1
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -20% to \"Curse of Weng-Chang\"",
-                "key": "enable_jbv_ghost_curse_cooldown",
-                "value": -20
               },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
-                "description": "Winds of magic cost: -2 to \"Curse of Weng-Chang\"",
-                "key": "enable_jbv_ghost_curse_cost",
-                "value": -2
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
-                "description": "Winds of magic cost: -3 to \"Curse of Weng-Chang Upgraded\"",
-                "key": "enable_jbv_ghost_curse_upgrade_cost",
-                "value": -3
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 298,
-                "is_positive_value_good": true,
-                "description": "Effect range: +10 to \"Curse of Weng-Chang Upgraded\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_ghost_curse_upgrade_range",
-                    "bonus_value_id": "effect_range_mod",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_ghost_curse_upgraded",
-                      "icon_name": "scm3/battle_ui/ability_icons/cth_ghost_curse",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "description": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Curse of Weng-Chang Upgraded",
-                      "active_time": 40,
-                      "recharge_time": 60,
-                      "wind_up_time": 8,
-                      "effect_range": 40,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 14,
-                      "miscast_chance": 0.5,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 25,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_attack",
-                              "how": "mult",
-                              "description": "x0.8 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_defence",
-                              "how": "mult",
-                              "description": "x0.8 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 0.6,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.6 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.5,
-                              "stat": "stat_mass",
-                              "how": "mult",
-                              "description": "x0.5  Mass",
-                              "sort_order": 0,
-                              "icon": "vanilla3/skins/default/icon_stat_mass"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ],
-                "key": "enable_jbv_ghost_curse_upgrade_range",
-                "value": 10
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_ghost_curse",
-                "priority": 700,
-                "is_positive_value_good": true,
-                "description": "Overcast spell: \"Curse of Weng-Chang Upgraded\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_ghost_curse_overcast",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_ghost_curse",
-                      "icon_name": "scm3/battle_ui/ability_icons/cth_ghost_curse",
-                      "overpower_option": "wh_main_spell_vampires_ghost_curse_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "description": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Curse of Weng-Chang",
-                      "active_time": 25,
-                      "recharge_time": 60,
-                      "wind_up_time": 5,
-                      "effect_range": 40,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "mana_cost": 11,
-                      "target_self": false,
-                      "phases": [
-                        {
-                          "duration": 25,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_attack",
-                              "how": "mult",
-                              "description": "x0.8 Melee Attack",
-                              "sort_order": 2,
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_defence",
-                              "how": "mult",
-                              "description": "x0.8 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 0.6,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.6 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.5,
-                              "stat": "stat_mass",
-                              "how": "mult",
-                              "description": "x0.5  Mass",
-                              "sort_order": 0,
-                              "icon": "vanilla3/skins/default/icon_stat_mass"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ],
-                "key": "enable_jbv_ghost_curse_overcast",
-                "value": 1
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_ability_vampires_curse_wengchang",
-        "tier": 3,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_jade_blooded_node_magic1_01"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "jbv_jade_blooded_node_magic1_05",
-        "image_path": "scm3/campaign_ui/skills/jbv_ghosts",
-        "is_background_skill": false,
-        "name": "Call From the Beyond",
-        "description": "A rusty bell is rang and hateful spirits of the dead are roused from the underworld, clawing and howling, upon the mortal realm. ",
-        "levels": [
-          {
-            "effects": [
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
                 "priority": 293,
                 "is_positive_value_good": false,
-                "description": "Cooldown: -30% to \"Call From the Beyond\"",
-                "key": "wh_main_effect_ability_cooldown_vampires_ghosts",
+                "description": "Cooldown: -30% to \"The Enfeebling Foe\"",
+                "key": "wh_dlc05_effect_ability_cooldown_enfeebling_foe",
                 "value": -30
-              },
+              }
+            ]
+          },
+          {
+            "effects": [
               {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_ghosts",
-                "priority": 700,
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
                 "is_positive_value_good": true,
-                "description": "Overcast spell: \"Call From the Beyond Upgraded\"",
+                "description": "Overcast spell: \"The Enfeebling Foe Upgraded\"",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_vampires_ghosts",
+                    "effect": "wh2_main_effect_ability_overcast_melkoths_enfeebling_foe",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_ghosts",
-                      "icon_name": "scm3/battle_ui/ability_icons/wh_main_spell_vampires_ghosts",
-                      "overpower_option": "wh_main_spell_vampires_ghosts_upgraded",
+                      "key": "wh_dlc05_spell_shadow_the_enfeebling_foe",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
+                      "overpower_option": "wh_dlc05_spell_shadow_the_enfeebling_foe_upgraded",
+                      "type": {
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "description": "Hex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "The Enfeebling Foe",
+                      "active_time": 17,
+                      "recharge_time": 30,
+                      "wind_up_time": 1,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": false,
+                      "target_intercept_range": 200,
+                      "mana_cost": 6,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": 17,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": -24,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-24 Melee Attack",
+                              "sort_order": 2,
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": -24,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-24 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh2_main_effect_ability_overcast_melkoths_enfeebling_foe",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -50% to \"The Enfeebling Foe\"",
+                "key": "wh_dlc05_effect_ability_cooldown_enfeebling_foe",
+                "value": -50
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 294,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -1 for \"The Enfeebling Foe\"",
+                "key": "wh2_main_effect_ability_wom_cost_melkoths_enfeebling_foe",
+                "value": -1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 295,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -2 for \"The Enfeebling Foe Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_melkoths_enfeebling_foe_upgraded",
+                "value": -2
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
+                "priority": 298,
+                "is_positive_value_good": false,
+                "description": "Miscast base chance: -15% for \"The Enfeebling Foe Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_melkoths_enfeebling_foe_upgraded",
+                "value": -15
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_the_enfeebling_foe",
+        "tier": 2,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "jbv_matron_nodeset_magic1_01"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "jbv_matron_nodeset_magic1_04",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_penumbral_pendulum",
+        "is_background_skill": false,
+        "name": "The Penumbral Pendulum",
+        "description": "A spectral pendulum is summoned by the Wizard. On command, it swings, razor sharp and with lethal speed, through the foe.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 290,
+                "is_positive_value_good": true,
+                "description": "Spell: \"The Penumbral Pendulum\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc05_effect_ability_enable_penumbral_pendulum",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "overpower_option": "wh_dlc05_spell_shadow_the_penumbral_pendulum_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "description": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "The Penumbral Pendulum",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Small, forward-moving area of effect"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Strong vs multiple units"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Weak vs a single combatant"
+                        }
+                      ],
+                      "active_time": 2,
+                      "recharge_time": 40,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": 200,
+                      "vortex": {
+                        "vortex_key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                        "duration": 2,
+                        "damage": 18,
+                        "damage_ap": 18,
+                        "goal_radius": 4,
+                        "movement_speed": 40,
+                        "is_magical": true,
+                        "delay": 1,
+                        "affects_allies": true
+                      },
+                      "mana_cost": 13,
+                      "target_self": false,
+                      "target_if": [
+                        "Grounded"
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh_dlc05_effect_ability_enable_penumbral_pendulum",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
+                "is_positive_value_good": true,
+                "description": "Overcast spell: \"The Penumbral Pendulum Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_penumbral_pendulum",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -30% to \"The Penumbral Pendulum\"",
+                "key": "wh_dlc05_effect_ability_cooldown_penumbral_pendulum",
+                "value": -30
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
+                "is_positive_value_good": true,
+                "description": "Overcast spell: \"The Penumbral Pendulum Upgraded\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_penumbral_pendulum",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "overpower_option": "wh_dlc05_spell_shadow_the_penumbral_pendulum_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "description": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "The Penumbral Pendulum",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Small, forward-moving area of effect"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Strong vs multiple units"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Weak vs a single combatant"
+                        }
+                      ],
+                      "active_time": 2,
+                      "recharge_time": 40,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": 200,
+                      "vortex": {
+                        "vortex_key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                        "duration": 2,
+                        "damage": 18,
+                        "damage_ap": 18,
+                        "goal_radius": 4,
+                        "movement_speed": 40,
+                        "is_magical": true,
+                        "delay": 1,
+                        "affects_allies": true
+                      },
+                      "mana_cost": 13,
+                      "target_self": false,
+                      "target_if": [
+                        "Grounded"
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh2_main_effect_ability_overcast_penumbral_pendulum",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -50% to \"The Penumbral Pendulum\"",
+                "key": "wh_dlc05_effect_ability_cooldown_penumbral_pendulum",
+                "value": -50
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 294,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -2 for \"The Penumbral Pendulum\"",
+                "key": "wh2_main_effect_ability_wom_cost_penumbral_pendulum",
+                "value": -2
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 295,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -3 for \"The Penumbral Pendulum Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_penumbral_pendulum_upgraded",
+                "value": -3
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
+                "priority": 298,
+                "is_positive_value_good": false,
+                "description": "Miscast base chance: -15% for \"The Penumbral Pendulum Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_penumbral_pendulum_upgraded",
+                "value": -15
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_penumbral_pendulum",
+        "tier": 3,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "jbv_matron_nodeset_magic1_01"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "jbv_matron_nodeset_magic1_05",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+        "is_background_skill": false,
+        "name": "Raise Dead",
+        "description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
+                "is_positive_value_good": true,
+                "description": "Overcast spell: \"Raise Dead Upgraded\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_raise_dead",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_raise_dead",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+                      "overpower_option": "wh_main_spell_vampires_raise_dead_upgraded",
                       "type": {
                         "key": "wh_type_summon_unit",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
                         "description": "Summon Unit"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Call From the Beyond",
+                      "description": "Raise Dead",
                       "ui_effects": [
                         {
-                          "key": "wh_main_spell_vampires_ghosts",
-                          "sort_order": 103,
+                          "key": "wh_main_all_summon_zombies",
+                          "sort_order": 105,
                           "effect_state": "positive",
-                          "description": "Summons Vengeful Spirits"
+                          "description": "Summons a unit of Zombies"
+                        },
+                        {
+                          "key": "wh_main_all_defend_vs_charge",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Good at defending spellcaster"
                         },
                         {
                           "key": "wh_main_all_direct_damage_unbinding",
@@ -1766,88 +1678,112 @@
                           "description": "Summoned units degrade over time"
                         }
                       ],
-                      "num_uses": 4,
+                      "num_uses": 7,
                       "active_time": 1,
-                      "recharge_time": 90,
+                      "recharge_time": 39,
                       "wind_up_time": 3,
                       "effect_range": 0,
                       "target_friends": true,
                       "target_enemies": false,
                       "target_ground": true,
                       "target_intercept_range": 50,
-                      "mana_cost": 6,
+                      "mana_cost": 4,
                       "target_self": true
                     }
                   }
                 ],
-                "key": "wh2_main_effect_ability_overcast_vampires_ghosts",
+                "key": "wh2_main_effect_ability_overcast_raise_dead",
                 "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -30% to \"Raise Dead\"",
+                "key": "wh_main_effect_ability_cooldown_raise_dead",
+                "value": -30
               }
             ]
           },
           {
             "effects": [
               {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
+                "is_positive_value_good": true,
+                "description": "Overcast spell: \"Raise Dead Upgraded\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_raise_dead",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_raise_dead",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+                      "overpower_option": "wh_main_spell_vampires_raise_dead_upgraded",
+                      "type": {
+                        "key": "wh_type_summon_unit",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Summon Unit"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Raise Dead",
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_summon_zombies",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Summons a unit of Zombies"
+                        },
+                        {
+                          "key": "wh_main_all_defend_vs_charge",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Good at defending spellcaster"
+                        },
+                        {
+                          "key": "wh_main_all_direct_damage_unbinding",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Summoned units degrade over time"
+                        }
+                      ],
+                      "num_uses": 7,
+                      "active_time": 1,
+                      "recharge_time": 39,
+                      "wind_up_time": 3,
+                      "effect_range": 0,
+                      "target_friends": true,
+                      "target_enemies": false,
+                      "target_ground": true,
+                      "target_intercept_range": 50,
+                      "mana_cost": 4,
+                      "target_self": true
+                    }
+                  }
+                ],
+                "key": "wh2_main_effect_ability_overcast_raise_dead",
+                "value": 1
+              },
+              {
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
                 "priority": 293,
                 "is_positive_value_good": false,
-                "description": "Cooldown: -50% to \"Call From the Beyond\"",
-                "key": "wh_main_effect_ability_cooldown_vampires_ghosts",
+                "description": "Cooldown: -50% to \"Raise Dead\"",
+                "key": "wh_main_effect_ability_cooldown_raise_dead",
                 "value": -50
               },
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "priority": 295,
                 "is_positive_value_good": true,
-                "description": "Spell number of uses: +1 for \"Call From the Beyond\" and \"Call From the Beyond Upgraded\"",
+                "description": "Spell number of uses: +1 for \"Raise Dead\" and \"Raise Dead Upgraded\"",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_uses_raise_dead_vampires_ghosts_upgraded",
+                    "effect": "wh2_main_effect_ability_uses_raise_dead_raise_dead_upgraded",
                     "bonus_value_id": "uses_mod",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_ghosts",
-                      "icon_name": "scm3/battle_ui/ability_icons/wh_main_spell_vampires_ghosts",
-                      "overpower_option": "wh_main_spell_vampires_ghosts_upgraded",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Call From the Beyond",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_vampires_ghosts",
-                          "sort_order": 103,
-                          "effect_state": "positive",
-                          "description": "Summons Vengeful Spirits"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Summoned units degrade over time"
-                        }
-                      ],
-                      "num_uses": 4,
-                      "active_time": 1,
-                      "recharge_time": 90,
-                      "wind_up_time": 3,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": true,
-                      "target_intercept_range": 50,
-                      "mana_cost": 6,
-                      "target_self": true
-                    }
-                  },
-                  {
-                    "effect": "wh2_main_effect_ability_uses_raise_dead_vampires_ghosts_upgraded",
-                    "bonus_value_id": "uses_mod",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_ghosts_upgraded",
-                      "icon_name": "scm3/battle_ui/ability_icons/wh_main_spell_vampires_ghosts",
+                      "key": "wh_main_spell_vampires_raise_dead_upgraded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_summon_unit",
@@ -1855,13 +1791,19 @@
                         "description": "Summon Unit"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Call From the Beyond Upgraded",
+                      "description": "Raise Dead Upgraded",
                       "ui_effects": [
                         {
-                          "key": "wh_main_spell_vampires_ghosts_2",
-                          "sort_order": 103,
+                          "key": "wh_main_spell_upgraded_summon_skeletons",
+                          "sort_order": 1,
+                          "effect_state": "magic",
+                          "description": "Summons a unit of Skeleton Warriors"
+                        },
+                        {
+                          "key": "wh_main_all_defend_vs_charge",
+                          "sort_order": 106,
                           "effect_state": "positive",
-                          "description": "Summons Ravenous Vengeful Spirits"
+                          "description": "Good at defending spellcaster"
                         },
                         {
                           "key": "wh_main_all_direct_damage_unbinding",
@@ -1870,57 +1812,49 @@
                           "description": "Summoned units degrade over time"
                         }
                       ],
-                      "num_uses": 4,
+                      "num_uses": 7,
                       "active_time": 1,
-                      "recharge_time": 60,
+                      "recharge_time": 39,
                       "wind_up_time": 3,
                       "effect_range": 0,
                       "target_friends": true,
                       "target_enemies": false,
                       "target_ground": true,
                       "target_intercept_range": 50,
-                      "mana_cost": 9,
+                      "mana_cost": 6,
                       "miscast_chance": 0.5,
                       "target_self": true
                     }
                   }
                 ],
-                "key": "wh2_main_effect_ability_uses_raise_dead_vampires_ghosts_upgraded",
+                "key": "wh2_main_effect_ability_uses_raise_dead_raise_dead_upgraded",
                 "value": 1
               },
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic",
                 "priority": 298,
-                "is_positive_value_good": true,
-                "description": "Range: +50% to \"Call From the Beyond Upgraded\"",
-                "key": "wh2_main_effect_ability_range_vampires_ghosts_upgraded",
-                "value": 50
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_ghosts",
-                "priority": 700,
-                "is_positive_value_good": true,
-                "description": "Overcast spell: \"Call From the Beyond Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_vampires_ghosts",
-                "value": 1
+                "is_positive_value_good": false,
+                "description": "Miscast base chance: -15% for \"Raise Dead Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_raise_dead_upgraded",
+                "value": -15
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_ability_vampires_ghosts",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_raise_dead",
         "tier": 4,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_magic1_01"
+          "jbv_matron_nodeset_magic1_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_magic1_06",
+        "key": "jbv_matron_nodeset_magic1_06",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_passive_evasion",
         "is_background_skill": false,
         "name": "Evasion",
@@ -1991,394 +1925,440 @@
         ],
         "character_skill_key": "wh_main_skill_all_magic_all_06_evasion",
         "tier": 5,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_magic1_02",
-          "jbv_jade_blooded_node_magic1_03",
-          "jbv_jade_blooded_node_magic1_04",
-          "jbv_jade_blooded_node_magic1_05"
+          "jbv_matron_nodeset_magic1_02",
+          "jbv_matron_nodeset_magic1_03",
+          "jbv_matron_nodeset_magic1_04",
+          "jbv_matron_nodeset_magic1_05"
         ],
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_magic1_09",
-        "image_path": "scm3/campaign_ui/skills/jbv_jadesoul",
+        "key": "jbv_matron_nodeset_magic1_09",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
         "is_background_skill": false,
-        "name": "Soul Vampirism",
-        "description": "Outstretching both gnarled hands, the jade-blooded vampire drains its victim's spirit, leaving an empty, withered husk.",
+        "name": "Okkam's Mindrazor",
+        "description": "The supernatural solution is often the best; weapons materialise before the caster's allies, allowing them to slice through flesh, soul, and consciousness.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -20% to \"Soul Vampirism\"",
-                "key": "enable_jbv_jadesoul_cooldown",
-                "value": -20
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_jadesoul",
-                "priority": 700,
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 290,
                 "is_positive_value_good": true,
-                "description": "Overcast spell: \"Soul Vampirism Upgraded\"",
+                "description": "Spell: \"Okkam's Mindrazor\"",
                 "related_abilities": [
                   {
-                    "effect": "enable_jbv_jadesoul_overcast",
+                    "effect": "wh_dlc05_effect_ability_enable_okkams_mindrazor",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_jadesoul",
-                      "icon_name": "scm3/battle_ui/ability_icons/cth_jadesoul",
-                      "overpower_option": "wh_main_spell_vampires_jadesoul_upgraded",
+                      "key": "wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "overpower_option": "wh_dlc05_spell_shadow_okkams_mindrazor_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "description": "Direct Damage"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Soul Vampirism",
-                      "active_time": 8,
-                      "recharge_time": 90,
+                      "description": "Okkam's Mindrazor",
+                      "active_time": 32,
+                      "recharge_time": 46,
                       "wind_up_time": 5,
                       "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
+                      "target_friends": true,
+                      "target_enemies": false,
                       "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 16,
-                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "mana_cost": 9,
+                      "target_self": true,
                       "phases": [
                         {
-                          "duration": 8,
-                          "effect_type": "negative",
-                          "fatigue_change_ratio": 0.025,
-                          "hp_change_frequency": 1,
-                          "damage_amount": 150,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false
-                        },
-                        {
-                          "duration": 8,
+                          "duration": 32,
                           "effect_type": "positive",
-                          "fatigue_change_ratio": -0.025,
-                          "hp_change_frequency": 1,
-                          "mana_regen_mod": 0.4,
-                          "mana_max_depletion_mod": 0.5,
+                          "imbue_magical": true,
                           "is_hidden_in_ui": false,
-                          "freeze_recharge": false
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.5 Base Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            }
+                          ]
                         }
                       ]
                     }
                   }
                 ],
-                "key": "enable_jbv_jadesoul_overcast",
+                "key": "wh_dlc05_effect_ability_enable_okkams_mindrazor",
                 "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
+                "is_positive_value_good": true,
+                "description": "Overcast spell: \"Okkam's Mindrazor Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_okkams_mindrazor",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -30% to \"Okkam's Mindrazor\"",
+                "key": "wh_dlc05_effect_ability_cooldown_okkams_mindrazor",
+                "value": -30
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -30% to \"Soul Vampirism\"",
-                "key": "enable_jbv_jadesoul_cooldown",
-                "value": -30
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
-                "description": "Winds of magic cost: -2 to \"Soul Vampirism\"",
-                "key": "enable_jbv_jadesoul_cost",
-                "value": -2
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
-                "description": "Winds of magic cost: -3 to \"Soul Vampirism Upgraded\"",
-                "key": "enable_jbv_jadesoul_upgrade_cost",
-                "value": -3
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 298,
                 "is_positive_value_good": true,
-                "description": "Range: +50 to \"Soul Vampirism Upgraded\"",
-                "key": "enable_jbv_jadesoul_upgrade_range",
-                "value": 50
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_jadesoul",
-                "priority": 700,
-                "is_positive_value_good": true,
-                "description": "Overcast spell: \"Soul Vampirism Upgraded\"",
+                "description": "Overcast spell: \"Okkam's Mindrazor Upgraded\"",
                 "related_abilities": [
                   {
-                    "effect": "enable_jbv_jadesoul_overcast",
+                    "effect": "wh2_main_effect_ability_overcast_okkams_mindrazor",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_jadesoul",
-                      "icon_name": "scm3/battle_ui/ability_icons/cth_jadesoul",
-                      "overpower_option": "wh_main_spell_vampires_jadesoul_upgraded",
+                      "key": "wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "overpower_option": "wh_dlc05_spell_shadow_okkams_mindrazor_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "description": "Direct Damage"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Soul Vampirism",
-                      "active_time": 8,
-                      "recharge_time": 90,
+                      "description": "Okkam's Mindrazor",
+                      "active_time": 32,
+                      "recharge_time": 46,
                       "wind_up_time": 5,
                       "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
+                      "target_friends": true,
+                      "target_enemies": false,
                       "target_ground": false,
-                      "target_intercept_range": 100,
-                      "mana_cost": 16,
-                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "mana_cost": 9,
+                      "target_self": true,
                       "phases": [
                         {
-                          "duration": 8,
-                          "effect_type": "negative",
-                          "fatigue_change_ratio": 0.025,
-                          "hp_change_frequency": 1,
-                          "damage_amount": 150,
-                          "max_damaged_entities": 1,
-                          "is_hidden_in_ui": false,
-                          "freeze_recharge": false
-                        },
-                        {
-                          "duration": 8,
+                          "duration": 32,
                           "effect_type": "positive",
-                          "fatigue_change_ratio": -0.025,
-                          "hp_change_frequency": 1,
-                          "mana_regen_mod": 0.4,
-                          "mana_max_depletion_mod": 0.5,
+                          "imbue_magical": true,
                           "is_hidden_in_ui": false,
-                          "freeze_recharge": false
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.5 Base Weapon Damage",
+                              "sort_order": 0,
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            }
+                          ]
                         }
                       ]
                     }
                   }
                 ],
-                "key": "enable_jbv_jadesoul_overcast",
-                "value": 1
-              }
-            ]
-          }
-        ],
-        "character_skill_key": "wh_main_ability_vampires_soul_vampirism",
-        "tier": 6,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "parent_required": [
-          "jbv_jade_blooded_node_magic1_06"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "jbv_jade_blooded_node_magic1_10",
-        "image_path": "scm3/campaign_ui/skills/jbv_gateguardian",
-        "is_background_skill": false,
-        "name": "Gate of the Spirit Realm",
-        "description": "A small rift to the afterlife is opened by the sorceror, drawing forth the attention of powerful spirits that reside within.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 290,
-                "is_positive_value_good": true,
-                "description": "Spell number of uses: +1 for \"Gate of the Spirit Realm\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_gateguardian_uses",
-                    "bonus_value_id": "uses_mod",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_gateguardian",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_gateguardian",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Gate of the Spirit Realm",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_vampires_gateguardian",
-                          "sort_order": 103,
-                          "effect_state": "positive",
-                          "description": "Summons an Underworld Gate Guardian"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Summoned units degrade over time"
-                        }
-                      ],
-                      "num_uses": 1,
-                      "active_time": 1,
-                      "recharge_time": 129,
-                      "wind_up_time": 9,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": true,
-                      "target_intercept_range": 100,
-                      "vortex": {
-                        "vortex_key": "jbv_spirit_portal",
-                        "duration": 10,
-                        "damage": 0,
-                        "damage_ap": 5,
-                        "goal_radius": 15,
-                        "movement_speed": 0,
-                        "is_magical": true,
-                        "delay": 0,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 21,
-                      "target_self": true
-                    }
-                  }
-                ],
-                "key": "enable_jbv_gateguardian_uses",
+                "key": "wh2_main_effect_ability_overcast_okkams_mindrazor",
                 "value": 1
               },
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 292,
+                "priority": 293,
                 "is_positive_value_good": false,
-                "description": "Cooldown: -30% to \"Gate of the Spirit Realm\"",
-                "key": "enable_jbv_gateguardian_cooldown",
-                "value": -30
-              },
-              {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_gateguardian",
-                "priority": 700,
-                "is_positive_value_good": true,
-                "description": "Ability: \"Gate of the Spirit Realm\"",
-                "key": "enable_jbv_gateguardian",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 290,
-                "is_positive_value_good": true,
-                "description": "Spell number of uses: +2 for \"Gate of the Spirit Realm\"",
-                "related_abilities": [
-                  {
-                    "effect": "enable_jbv_gateguardian_uses",
-                    "bonus_value_id": "uses_mod",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_gateguardian",
-                      "icon_name": "scm3/battle_ui/ability_icons/jbv_gateguardian",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "description": "Gate of the Spirit Realm",
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_spell_vampires_gateguardian",
-                          "sort_order": 103,
-                          "effect_state": "positive",
-                          "description": "Summons an Underworld Gate Guardian"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "sort_order": 203,
-                          "effect_state": "negative",
-                          "description": "Summoned units degrade over time"
-                        }
-                      ],
-                      "num_uses": 1,
-                      "active_time": 1,
-                      "recharge_time": 129,
-                      "wind_up_time": 9,
-                      "effect_range": 0,
-                      "target_friends": true,
-                      "target_enemies": false,
-                      "target_ground": true,
-                      "target_intercept_range": 100,
-                      "vortex": {
-                        "vortex_key": "jbv_spirit_portal",
-                        "duration": 10,
-                        "damage": 0,
-                        "damage_ap": 5,
-                        "goal_radius": 15,
-                        "movement_speed": 0,
-                        "is_magical": true,
-                        "delay": 0,
-                        "affects_allies": true
-                      },
-                      "mana_cost": 21,
-                      "target_self": true
-                    }
-                  }
-                ],
-                "key": "enable_jbv_gateguardian_uses",
-                "value": 2
-              },
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 292,
-                "is_positive_value_good": false,
-                "description": "Cooldown: -50% to \"Gate of the Spirit Realm\"",
-                "key": "enable_jbv_gateguardian_cooldown",
+                "description": "Cooldown: -50% to \"Okkam's Mindrazor\"",
+                "key": "wh_dlc05_effect_ability_cooldown_okkams_mindrazor",
                 "value": -50
               },
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "priority": 294,
                 "is_positive_value_good": false,
-                "description": "Winds of magic cost: -3 to \"Gate of the Spirit Realm\"",
-                "key": "enable_jbv_gateguardian_cost",
+                "description": "Winds of Magic cost: -2 for \"Okkam's Mindrazor\"",
+                "key": "wh2_main_effect_ability_wom_cost_okkams_mindrazor",
+                "value": -2
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 295,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -3 for \"Okkam's Mindrazor Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_okkams_mindrazor_upgraded",
                 "value": -3
               },
               {
-                "icon": "scm3/campaign_ui/effect_bundles/jbv_gateguardian",
-                "priority": 700,
-                "is_positive_value_good": true,
-                "description": "Ability: \"Gate of the Spirit Realm\"",
-                "key": "enable_jbv_gateguardian",
-                "value": 1
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
+                "priority": 298,
+                "is_positive_value_good": false,
+                "description": "Miscast base chance: -15% for \"Okkam's Mindrazor Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_okkams_mindrazor_upgraded",
+                "value": -15
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_ability_vampires_gateguardian",
-        "tier": 7,
-        "indent": 2,
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_okkams_mindrazor",
+        "tier": 6,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_magic1_06"
+          "jbv_matron_nodeset_magic1_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_magic1_07",
+        "key": "jbv_matron_nodeset_magic1_10",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_wind_of_death",
+        "is_background_skill": false,
+        "name": "Wind of Death",
+        "description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
+                "is_positive_value_good": true,
+                "description": "Overcast spell: \"Wind of Death Upgraded\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_wind_of_death",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_wind_of_death",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_wind_of_death",
+                      "overpower_option": "wh_main_spell_vampires_wind_of_death_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "description": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Wind of Death",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Medium, forward-moving area of effect"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Good against armour"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Strong vs multiple units"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Weak vs a single combatant"
+                        }
+                      ],
+                      "active_time": 5,
+                      "recharge_time": 44,
+                      "wind_up_time": 5,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": 150,
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_vampires_wind_of_death",
+                        "duration": 5,
+                        "damage": 0,
+                        "damage_ap": 24,
+                        "goal_radius": 6,
+                        "movement_speed": 20,
+                        "is_magical": true,
+                        "delay": 0,
+                        "affects_allies": true
+                      },
+                      "mana_cost": 15,
+                      "target_self": false,
+                      "target_if": [
+                        "Grounded"
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh2_main_effect_ability_overcast_wind_of_death",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -30% to \"Wind of Death\"",
+                "key": "wh_main_effect_ability_cooldown_wind_of_death",
+                "value": -30
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 292,
+                "is_positive_value_good": true,
+                "description": "Overcast spell: \"Wind of Death Upgraded\"",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_wind_of_death",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_wind_of_death",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_wind_of_death",
+                      "overpower_option": "wh_main_spell_vampires_wind_of_death_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "description": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Wind of Death",
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "sort_order": 105,
+                          "effect_state": "positive",
+                          "description": "Medium, forward-moving area of effect"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Good against armour"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "sort_order": 106,
+                          "effect_state": "positive",
+                          "description": "Strong vs multiple units"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "sort_order": 203,
+                          "effect_state": "negative",
+                          "description": "Weak vs a single combatant"
+                        }
+                      ],
+                      "active_time": 5,
+                      "recharge_time": 44,
+                      "wind_up_time": 5,
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": true,
+                      "target_ground": true,
+                      "target_intercept_range": 150,
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_vampires_wind_of_death",
+                        "duration": 5,
+                        "damage": 0,
+                        "damage_ap": 24,
+                        "goal_radius": 6,
+                        "movement_speed": 20,
+                        "is_magical": true,
+                        "delay": 0,
+                        "affects_allies": true
+                      },
+                      "mana_cost": 15,
+                      "target_self": false,
+                      "target_if": [
+                        "Grounded"
+                      ]
+                    }
+                  }
+                ],
+                "key": "wh2_main_effect_ability_overcast_wind_of_death",
+                "value": 1
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "priority": 293,
+                "is_positive_value_good": false,
+                "description": "Cooldown: -50% to \"Wind of Death\"",
+                "key": "wh_main_effect_ability_cooldown_wind_of_death",
+                "value": -50
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 294,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -3 for \"Wind of Death\"",
+                "key": "wh2_main_effect_ability_wom_cost_wind_of_death",
+                "value": -3
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "priority": 295,
+                "is_positive_value_good": false,
+                "description": "Winds of Magic cost: -4 for \"Wind of Death Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_wind_of_death_upgraded",
+                "value": -4
+              },
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
+                "priority": 298,
+                "is_positive_value_good": false,
+                "description": "Miscast base chance: -15% for \"Wind of Death Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_wind_of_death_upgraded",
+                "value": -15
+              }
+            ]
+          }
+        ],
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_wind_of_death",
+        "tier": 7,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "parent_required": [
+          "jbv_matron_nodeset_magic1_06"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "jbv_matron_nodeset_magic1_07",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
         "is_background_skill": false,
         "name": "Earthing",
@@ -2399,17 +2379,17 @@
         ],
         "character_skill_key": "wh_main_skill_all_magic_all_07_earthing",
         "tier": 8,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_magic1_06"
+          "jbv_matron_nodeset_magic1_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_magic1_08",
+        "key": "jbv_matron_nodeset_magic1_08",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
         "is_background_skill": false,
         "name": "Magical Reserves",
@@ -2430,36 +2410,36 @@
         ],
         "character_skill_key": "wh_main_skill_all_magic_all_08_power_drain",
         "tier": 9,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_magic1_06"
+          "jbv_matron_nodeset_magic1_06"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_magic1_11",
+        "key": "jbv_matron_nodeset_magic1_11",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_arcane_conduit",
         "is_background_skill": false,
-        "name": "Greater Arcane Conduit",
-        "description": "\"Forces of Necromancy, hear the request of your most-studious adept: flow through me according to my will!\"",
+        "name": "Arcane Conduit",
+        "description": "",
         "levels": [
           {
             "effects": [
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 310,
+                "priority": 300,
                 "is_positive_value_good": true,
-                "description": "Passive ability: \"Greater Arcane Conduit\"",
+                "description": "Passive ability: \"Arcane Conduit\"",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
+                    "effect": "wh_main_effect_ability_enable_arcane_conduit",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh2_main_character_passive_grand_arcane_conduit",
+                      "key": "wh_main_character_abilities_arcane_conduit",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
                       "overpower_option": "",
                       "type": {
@@ -2468,7 +2448,7 @@
                         "description": "Augment of the Winds"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Greater Arcane Conduit",
+                      "description": "Arcane Conduit",
                       "effect_range": 0,
                       "target_friends": false,
                       "target_enemies": false,
@@ -2479,48 +2459,37 @@
                         {
                           "duration": -1,
                           "effect_type": "positive",
-                          "mana_regen_mod": 0.6,
+                          "mana_regen_mod": 0.4,
                           "is_hidden_in_ui": false,
-                          "freeze_recharge": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.1,
-                              "stat": "scalar_spell_mastery",
-                              "how": "mult",
-                              "description": "x1.1 Spell Mastery",
-                              "sort_order": 0,
-                              "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
-                            }
-                          ]
+                          "freeze_recharge": false
                         }
                       ]
                     }
                   }
                 ],
-                "key": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
+                "key": "wh_main_effect_ability_enable_arcane_conduit",
                 "value": 1
               }
             ]
           }
         ],
-        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_necrarch_magic_greater_arcane_conduit",
+        "character_skill_key": "wh_main_skill_all_magic_all_11_arcane_conduit",
         "tier": 10,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_magic1_07",
-          "jbv_jade_blooded_node_magic1_08",
-          "jbv_jade_blooded_node_magic1_09",
-          "jbv_jade_blooded_node_magic1_10"
+          "jbv_matron_nodeset_magic1_07",
+          "jbv_matron_nodeset_magic1_08",
+          "jbv_matron_nodeset_magic1_09",
+          "jbv_matron_nodeset_magic1_10"
         ]
       }
     ],
-    [],
     [
       {
-        "key": "jbv_jade_blooded_node_battle_01",
+        "key": "jbv_matron_nodeset_battle_01",
         "image_path": "vanilla3/campaign_ui/skills/battle_morale",
         "is_background_skill": false,
         "name": "Aura of Supremacy",
@@ -2556,7 +2525,7 @@
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_02",
+        "key": "jbv_matron_nodeset_battle_02",
         "image_path": "vanilla3/campaign_ui/skills/battle_defence",
         "is_background_skill": false,
         "name": "Army of the Damned",
@@ -2630,12 +2599,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_01"
+          "jbv_matron_nodeset_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_03",
+        "key": "jbv_matron_nodeset_battle_03",
         "image_path": "vanilla3/campaign_ui/skills/battle_speed",
         "is_background_skill": false,
         "name": "Call of the Night",
@@ -2701,12 +2670,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_01"
+          "jbv_matron_nodeset_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_04",
+        "key": "jbv_matron_nodeset_battle_04",
         "image_path": "vanilla3/campaign_ui/skills/battle_damage",
         "is_background_skill": false,
         "name": "Cursed Ghosts",
@@ -2780,12 +2749,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_01"
+          "jbv_matron_nodeset_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_05",
+        "key": "jbv_matron_nodeset_battle_05",
         "image_path": "vanilla3/campaign_ui/skills/battle_ward_save",
         "is_background_skill": false,
         "name": "Monsters of the Nether",
@@ -2859,12 +2828,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_01"
+          "jbv_matron_nodeset_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_06",
+        "key": "jbv_matron_nodeset_battle_06",
         "image_path": "vanilla3/campaign_ui/skills/battle_charge",
         "is_background_skill": false,
         "name": "Revenant Heroes",
@@ -2930,12 +2899,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_01"
+          "jbv_matron_nodeset_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_07",
+        "key": "jbv_matron_nodeset_battle_07",
         "image_path": "vanilla3/campaign_ui/skills/battle_attack",
         "is_background_skill": false,
         "name": "Eastern Terrors",
@@ -3009,13 +2978,13 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_01"
+          "jbv_matron_nodeset_battle_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_08",
+        "key": "jbv_matron_nodeset_battle_08",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_magical_animus",
         "is_background_skill": false,
         "name": "Magical Animus",
@@ -3085,17 +3054,17 @@
         "required_num_parents": 6,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_battle_02",
-          "jbv_jade_blooded_node_battle_03",
-          "jbv_jade_blooded_node_battle_04",
-          "jbv_jade_blooded_node_battle_05",
-          "jbv_jade_blooded_node_battle_06",
-          "jbv_jade_blooded_node_battle_07"
+          "jbv_matron_nodeset_battle_02",
+          "jbv_matron_nodeset_battle_03",
+          "jbv_matron_nodeset_battle_04",
+          "jbv_matron_nodeset_battle_05",
+          "jbv_matron_nodeset_battle_06",
+          "jbv_matron_nodeset_battle_07"
         ],
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_09",
+        "key": "jbv_matron_nodeset_battle_09",
         "image_path": "vanilla3/campaign_ui/skills/battle_armour",
         "is_background_skill": false,
         "name": "Dead of the Orient",
@@ -3129,12 +3098,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_08"
+          "jbv_matron_nodeset_battle_08"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_10",
+        "key": "jbv_matron_nodeset_battle_10",
         "image_path": "vanilla3/campaign_ui/skills/battle_attack",
         "is_background_skill": false,
         "name": "Cruel Souls",
@@ -3168,12 +3137,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_08"
+          "jbv_matron_nodeset_battle_08"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_11",
+        "key": "jbv_matron_nodeset_battle_11",
         "image_path": "vanilla3/campaign_ui/skills/battle_charge",
         "is_background_skill": false,
         "name": "Nightmares of the Dark",
@@ -3207,12 +3176,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_08"
+          "jbv_matron_nodeset_battle_08"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_12",
+        "key": "jbv_matron_nodeset_battle_12",
         "image_path": "vanilla3/campaign_ui/skills/battle_speed",
         "is_background_skill": false,
         "name": "Parade of Midnight",
@@ -3246,13 +3215,13 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_battle_08"
+          "jbv_matron_nodeset_battle_08"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_battle_13",
+        "key": "jbv_matron_nodeset_battle_13",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_undeath_resurgent",
         "is_background_skill": false,
         "name": "Undeath Resurgent",
@@ -3338,16 +3307,16 @@
         "required_num_parents": 1,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_battle_09",
-          "jbv_jade_blooded_node_battle_10",
-          "jbv_jade_blooded_node_battle_11",
-          "jbv_jade_blooded_node_battle_12"
+          "jbv_matron_nodeset_battle_09",
+          "jbv_matron_nodeset_battle_10",
+          "jbv_matron_nodeset_battle_11",
+          "jbv_matron_nodeset_battle_12"
         ]
       }
     ],
     [
       {
-        "key": "jbv_jade_blooded_node_campaign_01",
+        "key": "jbv_matron_nodeset_campaign_01",
         "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
         "is_background_skill": false,
         "name": "The Restless Dead",
@@ -3375,7 +3344,7 @@
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_02",
+        "key": "jbv_matron_nodeset_campaign_02",
         "image_path": "vanilla3/campaign_ui/skills/campaign_replenishment",
         "is_background_skill": false,
         "name": "Undying Horde",
@@ -3449,12 +3418,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_01"
+          "jbv_matron_nodeset_campaign_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_03",
+        "key": "jbv_matron_nodeset_campaign_03",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "is_background_skill": false,
         "name": "Children of the Night",
@@ -3528,12 +3497,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_01"
+          "jbv_matron_nodeset_campaign_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_04",
+        "key": "jbv_matron_nodeset_campaign_04",
         "image_path": "vanilla3/campaign_ui/skills/campaign_disaster",
         "is_background_skill": false,
         "name": "Darkling Skies",
@@ -3583,12 +3552,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_01"
+          "jbv_matron_nodeset_campaign_01"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_05",
+        "key": "jbv_matron_nodeset_campaign_05",
         "image_path": "vanilla3/campaign_ui/skills/campaign_ambush",
         "is_background_skill": false,
         "name": "Ancient Cunning",
@@ -3638,13 +3607,13 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_01"
+          "jbv_matron_nodeset_campaign_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_06",
+        "key": "jbv_matron_nodeset_campaign_06",
         "image_path": "vanilla3/campaign_ui/skills/campaign_wound_time",
         "is_background_skill": false,
         "name": "Immortal Horror",
@@ -3686,15 +3655,15 @@
         "required_num_parents": 4,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_campaign_02",
-          "jbv_jade_blooded_node_campaign_03",
-          "jbv_jade_blooded_node_campaign_04",
-          "jbv_jade_blooded_node_campaign_05"
+          "jbv_matron_nodeset_campaign_02",
+          "jbv_matron_nodeset_campaign_03",
+          "jbv_matron_nodeset_campaign_04",
+          "jbv_matron_nodeset_campaign_05"
         ],
         "right_arrow": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_07",
+        "key": "jbv_matron_nodeset_campaign_07",
         "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
         "is_background_skill": false,
         "name": "Lightning Strike",
@@ -3752,12 +3721,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_06"
+          "jbv_matron_nodeset_campaign_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_08",
+        "key": "jbv_matron_nodeset_campaign_08",
         "image_path": "vanilla3/campaign_ui/skills/campaign_vampiric_corruption",
         "is_background_skill": false,
         "name": "Guile & Glamour",
@@ -3807,12 +3776,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_06"
+          "jbv_matron_nodeset_campaign_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_09",
+        "key": "jbv_matron_nodeset_campaign_09",
         "image_path": "vanilla3/campaign_ui/skills/campaign_growth",
         "is_background_skill": false,
         "name": "Necrarch",
@@ -3862,12 +3831,12 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_06"
+          "jbv_matron_nodeset_campaign_06"
         ],
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_10",
+        "key": "jbv_matron_nodeset_campaign_10",
         "image_path": "vanilla3/campaign_ui/skills/campaign_siege_defence",
         "is_background_skill": false,
         "name": "Eternal Warden",
@@ -3917,13 +3886,13 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "parent_required": [
-          "jbv_jade_blooded_node_campaign_06"
+          "jbv_matron_nodeset_campaign_06"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "jbv_jade_blooded_node_campaign_11",
+        "key": "jbv_matron_nodeset_campaign_11",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "is_background_skill": false,
         "name": "Uncanny Prescience",
@@ -3973,18 +3942,18 @@
         "required_num_parents": 4,
         "visible_in_ui": true,
         "parent_subset_required": [
-          "jbv_jade_blooded_node_campaign_07",
-          "jbv_jade_blooded_node_campaign_08",
-          "jbv_jade_blooded_node_campaign_09",
-          "jbv_jade_blooded_node_campaign_10"
+          "jbv_matron_nodeset_campaign_07",
+          "jbv_matron_nodeset_campaign_08",
+          "jbv_matron_nodeset_campaign_09",
+          "jbv_matron_nodeset_campaign_10"
         ]
       }
     ]
   ],
-  "key": "jbv_jade_blooded",
+  "key": "jbv_matron",
   "backgroundSkills": [
     {
-      "key": "jbv_jade_blooded_node_innate_01",
+      "key": "jbv_matron_nodeset_innate_01",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Dark Majesty",
@@ -4011,7 +3980,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_vmp_dark_majesty",
       "tier": 0,
       "indent": 6,
@@ -4020,7 +3989,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_02",
+      "key": "jbv_matron_nodeset_innate_02",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Devious ",
@@ -4047,7 +4016,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_vmp_devious",
       "tier": 1,
       "indent": 6,
@@ -4056,7 +4025,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_03",
+      "key": "jbv_matron_nodeset_innate_03",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Dread Incarnate",
@@ -4083,7 +4052,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_vmp_dread_incarnate",
       "tier": 2,
       "indent": 6,
@@ -4092,7 +4061,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_04",
+      "key": "jbv_matron_nodeset_innate_04",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Lore Keeper ",
@@ -4119,7 +4088,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_vmp_lore_keeper",
       "tier": 3,
       "indent": 6,
@@ -4128,7 +4097,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_05",
+      "key": "jbv_matron_nodeset_innate_05",
       "image_path": "vanilla3/campaign_ui/skills/trait_vampire_counts",
       "is_background_skill": true,
       "name": "Master of the Black Arts ",
@@ -4194,7 +4163,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_vmp_master_of_the_black_arts",
       "tier": 4,
       "indent": 6,
@@ -4203,7 +4172,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_06",
+      "key": "jbv_matron_nodeset_innate_06",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Fleet-Footed",
@@ -4230,7 +4199,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_fleet_footed",
       "tier": 5,
       "indent": 6,
@@ -4239,7 +4208,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_07",
+      "key": "jbv_matron_nodeset_innate_07",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Cunning",
@@ -4266,7 +4235,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_cunning",
       "tier": 6,
       "indent": 6,
@@ -4275,7 +4244,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_08",
+      "key": "jbv_matron_nodeset_innate_08",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Determined",
@@ -4302,7 +4271,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_determined",
       "tier": 7,
       "indent": 6,
@@ -4311,7 +4280,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_09",
+      "key": "jbv_matron_nodeset_innate_09",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Confident",
@@ -4338,7 +4307,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_confident",
       "tier": 8,
       "indent": 6,
@@ -4347,7 +4316,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_10",
+      "key": "jbv_matron_nodeset_innate_10",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Disciplined",
@@ -4374,7 +4343,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_disciplined",
       "tier": 9,
       "indent": 6,
@@ -4383,7 +4352,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_11",
+      "key": "jbv_matron_nodeset_innate_11",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Perceptive",
@@ -4410,7 +4379,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_perceptive",
       "tier": 10,
       "indent": 6,
@@ -4419,7 +4388,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_12",
+      "key": "jbv_matron_nodeset_innate_12",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Aggressive",
@@ -4446,7 +4415,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_aggressive",
       "tier": 11,
       "indent": 6,
@@ -4455,7 +4424,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_13",
+      "key": "jbv_matron_nodeset_innate_13",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Tough",
@@ -4482,7 +4451,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_tough",
       "tier": 12,
       "indent": 6,
@@ -4491,7 +4460,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_14",
+      "key": "jbv_matron_nodeset_innate_14",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Strong",
@@ -4526,7 +4495,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_strong",
       "tier": 13,
       "indent": 6,
@@ -4535,7 +4504,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_15",
+      "key": "jbv_matron_nodeset_innate_15",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Weapon Master",
@@ -4562,7 +4531,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_weapon_master",
       "tier": 14,
       "indent": 6,
@@ -4571,7 +4540,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_16",
+      "key": "jbv_matron_nodeset_innate_16",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Strategist",
@@ -4590,7 +4559,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_strategist",
       "tier": 15,
       "indent": 6,
@@ -4599,7 +4568,7 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_innate_17",
+      "key": "jbv_matron_nodeset_innate_17",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "is_background_skill": true,
       "name": "Tactician",
@@ -4626,7 +4595,7 @@
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
       "character_skill_key": "wh2_main_skill_innate_all_tactician",
       "tier": 16,
       "indent": 6,
@@ -4635,34 +4604,96 @@
       "visible_in_ui": false
     },
     {
-      "key": "jbv_jade_blooded_node_magic1_dummy",
-      "image_path": "scm3/campaign_ui/skills/jbv_psychic",
+      "key": "jbv_matron_nodeset_magic1_dummy",
+      "image_path": "vanilla3/campaign_ui/skills/battle_attack",
       "is_background_skill": false,
-      "name": "",
+      "name": "Invocation of Nehek [HIDDEN]",
       "description": "",
       "levels": [
         {
           "effects": [
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-              "priority": 298,
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "priority": 290,
               "is_positive_value_good": true,
-              "description": "Ability: \"Xiaolan's Spirit Seal\"",
+              "description": "Spell: \"The Enfeebling Foe\"",
               "related_abilities": [
                 {
-                  "effect": "enable_jbv_psychic",
+                  "effect": "wh_dlc05_effect_ability_enable_enfeebling_foe",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh_main_spell_vampires_psychic",
-                    "icon_name": "scm3/battle_ui/ability_icons/jbv_psychic",
-                    "overpower_option": "wh_main_spell_vampires_psychic_upgraded",
+                    "key": "wh_dlc05_spell_shadow_the_enfeebling_foe",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
+                    "overpower_option": "wh_dlc05_spell_shadow_the_enfeebling_foe_upgraded",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "description": "Augment"
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "description": "Hex"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Xiaolan's Spirit Seal",
+                    "description": "The Enfeebling Foe",
+                    "active_time": 17,
+                    "recharge_time": 30,
+                    "wind_up_time": 1,
+                    "effect_range": 0,
+                    "target_friends": false,
+                    "target_enemies": true,
+                    "target_ground": false,
+                    "target_intercept_range": 200,
+                    "mana_cost": 6,
+                    "target_self": false,
+                    "phases": [
+                      {
+                        "duration": 17,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "freeze_recharge": false,
+                        "stat_effects": [
+                          {
+                            "value": -24,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "-24 Melee Attack",
+                            "sort_order": 2,
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": -24,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "-24 Melee Defence",
+                            "sort_order": 3,
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "key": "wh_dlc05_effect_ability_enable_enfeebling_foe",
+              "value": 1
+            },
+            {
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "priority": 290,
+              "is_positive_value_good": true,
+              "description": "Spell: \"Invocation of Nehek\"",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_invocation_of_nehek",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_spell_vampires_invocation_of_nehek",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
+                    "overpower_option": "wh_main_spell_vampires_invocation_of_nehek_upgraded",
+                    "type": {
+                      "key": "wh_type_regeneration",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                      "description": "Regeneration"
+                    },
+                    "is_hidden_in_ui": false,
+                    "description": "Invocation of Nehek",
                     "ui_effects": [
                       {
                         "key": "wh_main_all_replenish",
@@ -4683,58 +4714,44 @@
                         "description": "Heals injured before resurrecting"
                       }
                     ],
-                    "active_time": 22,
-                    "recharge_time": 60,
+                    "active_time": 18,
+                    "recharge_time": 30,
                     "wind_up_time": 1,
                     "effect_range": 0,
                     "target_friends": true,
                     "target_enemies": false,
                     "target_ground": false,
                     "target_intercept_range": 200,
-                    "mana_cost": 5,
+                    "mana_cost": 6,
                     "target_self": true,
                     "phases": [
                       {
-                        "duration": 22,
+                        "duration": 18,
                         "effect_type": "positive",
                         "resurrect": true,
                         "hp_change_frequency": 1,
-                        "heal_amount": 0.003,
+                        "heal_amount": 0.008,
                         "is_hidden_in_ui": false,
-                        "freeze_recharge": false,
-                        "stat_effects": [
-                          {
-                            "value": 12,
-                            "stat": "stat_resistance_physical",
-                            "how": "add",
-                            "description": "+12 Physical Resistance",
-                            "sort_order": 10,
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                          },
-                          {
-                            "value": 5,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+5 Leadership",
-                            "sort_order": 1,
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          }
-                        ]
+                        "freeze_recharge": false
                       }
+                    ],
+                    "target_if": [
+                      "Hit point replenishment cap not reached",
+                      "Undead"
                     ]
                   }
                 }
               ],
-              "key": "enable_jbv_psychic",
+              "key": "wh_main_effect_ability_enable_invocation_of_nehek",
               "value": 1
             }
           ]
         }
       ],
-      "character_skill_node_set_key": "jbv_jade_blooded_nodeset",
-      "character_skill_key": "wh_main_ability_vampires_psychic_dummy",
+      "character_skill_node_set_key": "jbv_matron_nodeset",
+      "character_skill_key": "wh2_dlc11_skill_vmp_magic_vampires_dummy_invocation_of_nehek_enfeebling_foe",
       "tier": 11,
-      "indent": 2,
+      "indent": 3,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false
