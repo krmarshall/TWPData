@@ -4,7 +4,36 @@
   "culture": "mixer_gnob_gnoblar_horde",
   "tree": [
     [
-      null,
+      {
+        "key": "gnob_tech_improved_huts",
+        "indent": 0,
+        "tier": 0,
+        "research_points_required": 500,
+        "technology": {
+          "key": "gnob_tech_improved_huts",
+          "icon_name": "wh3_main_tech_ogr_1_11_0",
+          "name": "Improved Huts",
+          "effects": [
+            {
+              "key": "wh_main_effect_province_growth_tech",
+              "description": "Growth: +10",
+              "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+              "priority": 101,
+              "is_positive_value_good": true
+            },
+            {
+              "key": "wh_main_effect_force_all_campaign_recruitment_cost_all",
+              "description": "Recruitment cost: -10%",
+              "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
+              "priority": 106,
+              "is_positive_value_good": false
+            }
+          ]
+        },
+        "requires_parent_nodes": [
+          "mixer_gnob_dummy"
+        ]
+      },
       {
         "key": "gnob_tech_travel_snacks",
         "indent": 0,
@@ -32,7 +61,7 @@
           ]
         },
         "requires_parent_nodes": [
-          "mixer_gnob_dummy"
+          "gnob_tech_improved_huts"
         ]
       },
       {
@@ -190,10 +219,10 @@
           "name": "Gnoblar Hordes",
           "effects": [
             {
-              "key": "wh_main_effect_province_growth_tech",
-              "description": "Growth: +10",
-              "icon": "vanilla3/campaign_ui/effect_bundles/growth",
-              "priority": 101,
+              "key": "gnob_effect_attrition_immunity_regionless",
+              "description": "Immune to regionless attrition",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attrition",
+              "priority": 66,
               "is_positive_value_good": true
             },
             {
@@ -337,11 +366,11 @@
               "is_positive_value_good": false
             },
             {
-              "key": "wh_dlc05_effect_building_global_recruitment_duration",
-              "description": "Global recruitment duration: -1 turn(s) (minimum 1)",
-              "icon": "vanilla3/campaign_ui/effect_bundles/turns",
-              "priority": 130,
-              "is_positive_value_good": false
+              "key": "gnob_effect_income_from_settlements",
+              "description": "Income from Settlement buildings: +15%",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income",
+              "priority": 100,
+              "is_positive_value_good": true
             },
             {
               "key": "wh_main_effect_public_order_tech",
@@ -368,7 +397,36 @@
     ],
     null,
     [
-      null,
+      {
+        "key": "gnob_tech_da_shiny_stuff_guards",
+        "indent": 4,
+        "tier": 0,
+        "research_points_required": 500,
+        "technology": {
+          "key": "gnob_tech_da_shiny_stuff_guards",
+          "icon_name": "wh3_main_tech_ogr_2_0_1",
+          "name": "Guard Da Shiny Stuff",
+          "effects": [
+            {
+              "key": "gnob_effect_income_from_shiny_stuff",
+              "description": "Income from Shiny Stuff buildings: +10%",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income",
+              "priority": 101,
+              "is_positive_value_good": true
+            },
+            {
+              "key": "gnob_effect_income_from_loot_piles",
+              "description": "Income from Loot Pile buildings: +10%",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income",
+              "priority": 103,
+              "is_positive_value_good": true
+            }
+          ]
+        },
+        "requires_parent_nodes": [
+          "mixer_gnob_dummy"
+        ]
+      },
       {
         "key": "gnob_tech_master_baiters",
         "indent": 4,
@@ -473,7 +531,7 @@
           ]
         },
         "requires_parent_nodes": [
-          "mixer_gnob_dummy"
+          "gnob_tech_da_shiny_stuff_guards"
         ]
       },
       {
@@ -620,16 +678,16 @@
     },
     {
       "parent_key": "mixer_gnob_dummy",
-      "child_key": "gnob_tech_travel_snacks",
+      "child_key": "gnob_tech_improved_huts",
       "parent_link_position": "top",
-      "child_link_position": "left",
+      "child_link_position": "bottom",
       "visible": true
     },
     {
       "parent_key": "mixer_gnob_dummy",
-      "child_key": "gnob_tech_master_baiters",
+      "child_key": "gnob_tech_da_shiny_stuff_guards",
       "parent_link_position": "bottom",
-      "child_link_position": "left",
+      "child_link_position": "top",
       "visible": true
     },
     {
@@ -742,6 +800,20 @@
       "child_key": "gnob_tech_gnoblar_country",
       "parent_link_position": "right",
       "child_link_position": "bottom",
+      "visible": true
+    },
+    {
+      "parent_key": "gnob_tech_improved_huts",
+      "child_key": "gnob_tech_travel_snacks",
+      "parent_link_position": "right",
+      "child_link_position": "left",
+      "visible": true
+    },
+    {
+      "parent_key": "gnob_tech_da_shiny_stuff_guards",
+      "child_key": "gnob_tech_master_baiters",
+      "parent_link_position": "right",
+      "child_link_position": "left",
       "visible": true
     }
   ]
