@@ -450,12 +450,65 @@
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-                "priority": 2,
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "priority": 55,
                 "is_positive_value_good": true,
-                "description": "Faction leader grants +15% of experience earned to other Lords",
-                "key": "wh3_dlc20_effect_character_xp_share_leadertext",
-                "value": 15
+                "description": "Passive ability: \"Loner\"\n\t(all units in army)",
+                "related_abilities": [
+                  {
+                    "effect": "gnob_enable_ability_loner",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_character_passive_loner",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_passive_loner",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "description": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "description": "Loner",
+                      "effect_range": 0,
+                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_ground": false,
+                      "target_intercept_range": 30,
+                      "target_self": false,
+                      "phases": [
+                        {
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "freeze_recharge": false,
+                          "stat_effects": [
+                            {
+                              "stat": "scalar_speed",
+                              "value": 1.1,
+                              "how": "mult",
+                              "description": "x1.1 Speed",
+                              "sort_order": 10,
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "stat": "stat_morale",
+                              "value": 12,
+                              "how": "add",
+                              "description": "+12 Leadership",
+                              "sort_order": 1,
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      ],
+                      "enabled_if": [
+                        "No friendly units in ability range."
+                      ]
+                    }
+                  }
+                ],
+                "key": "gnob_enable_ability_loner",
+                "value": 1
               },
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage",
@@ -552,6 +605,14 @@
         "levels": [
           {
             "effects": [
+              {
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
+                "priority": 2,
+                "is_positive_value_good": true,
+                "description": "Faction leader grants +15% of experience earned to other Lords",
+                "key": "wh3_dlc20_effect_character_xp_share_leadertext",
+                "value": 15
+              },
               {
                 "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
                 "priority": 99,
@@ -676,9 +737,20 @@
                               "description": "-6 Leadership",
                               "sort_order": 1,
                               "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "stat": "stat_melee_defence",
+                              "value": -6,
+                              "how": "add",
+                              "description": "-6 Melee Defence",
+                              "sort_order": 3,
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
                             }
                           ]
                         }
+                      ],
+                      "enabled_if": [
+                        "Leadership is higher than wavering"
                       ]
                     }
                   }
@@ -2814,9 +2886,20 @@
                             "description": "-6 Leadership",
                             "sort_order": 1,
                             "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "stat": "stat_melee_defence",
+                            "value": -6,
+                            "how": "add",
+                            "description": "-6 Melee Defence",
+                            "sort_order": 3,
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
                           }
                         ]
                       }
+                    ],
+                    "enabled_if": [
+                      "Leadership is higher than wavering"
                     ]
                   }
                 }
