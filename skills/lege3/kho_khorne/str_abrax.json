@@ -406,6 +406,14 @@
                       },
                       "is_hidden_in_ui": false,
                       "description": "Bloody Reward",
+                      "ui_effects": [
+                        {
+                          "key": "wh3_main_ability_intensity_kills",
+                          "sort_order": 1,
+                          "effect_state": "positive",
+                          "description": "Effect intensity increases with each kill made by the unit."
+                        }
+                      ],
                       "effect_range": 0,
                       "target_friends": false,
                       "target_enemies": false,
@@ -3121,5 +3129,161 @@
       "required_num_parents": 0,
       "visible_in_ui": false
     }
-  ]
+  ],
+  "factionEffects": {
+    "key": "str_abrax_faction_bundle",
+    "ui_icon": "character.png",
+    "title": "",
+    "description": "",
+    "effects": [
+      {
+        "effect": "wh3_main_effect_kho_post_battle_skull_income",
+        "icon": "vanilla3/campaign_ui/effect_bundles/khorne_skulls_bundle",
+        "priority": 200,
+        "is_positive_value_good": true,
+        "description": "Skulls gained from kills: +50%",
+        "key": "wh3_main_effect_kho_post_battle_skull_income",
+        "value": 50
+      },
+      {
+        "effect": "str_abrax_revel_slaughter",
+        "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+        "priority": 300,
+        "is_positive_value_good": true,
+        "description": "Ability: \"Revel in Slaughter\"",
+        "related_abilities": [
+          {
+            "effect": "str_abrax_revel_slaughter",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "str_abrax_revel_slaughter",
+              "icon_name": "lege3/battle_ui/ability_icons/str_abrax_bloody_reward",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_augment",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                "description": "Augment"
+              },
+              "is_hidden_in_ui": false,
+              "description": "Revel in Slaughter",
+              "ui_effects": [
+                {
+                  "key": "wh3_main_ability_intensity_kills",
+                  "sort_order": 1,
+                  "effect_state": "positive",
+                  "description": "Effect intensity increases with each kill made by the unit."
+                }
+              ],
+              "effect_range": 0,
+              "target_friends": false,
+              "target_enemies": false,
+              "target_ground": false,
+              "target_intercept_range": 0,
+              "target_self": false,
+              "phases": [
+                {
+                  "duration": -1,
+                  "effect_type": "positive",
+                  "max_damaged_entities": -1,
+                  "is_hidden_in_ui": false,
+                  "freeze_recharge": false,
+                  "stat_effects": [
+                    {
+                      "stat": "stat_melee_attack",
+                      "value": 8,
+                      "how": "add",
+                      "description": "+8 Melee Attack",
+                      "sort_order": 2,
+                      "icon": "vanilla3/skins/default/icon_stat_attack"
+                    },
+                    {
+                      "stat": "stat_melee_defence",
+                      "value": -8,
+                      "how": "add",
+                      "description": "-8 Melee Defence",
+                      "sort_order": 3,
+                      "icon": "vanilla3/skins/default/icon_stat_defence"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "value": 1,
+        "key": "str_abrax_revel_slaughter"
+      },
+      {
+        "effect": "str_abrax_glory_death",
+        "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+        "priority": 300,
+        "is_positive_value_good": true,
+        "description": "Ability: \"Glory in Death\"",
+        "related_abilities": [
+          {
+            "effect": "str_abrax_glory_death",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "str_abrax_glory_death",
+              "icon_name": "lege3/battle_ui/ability_icons/str_scyla_fury_khorne",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_area_of_hexes",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                "description": "Hex (Area)"
+              },
+              "is_hidden_in_ui": false,
+              "description": "Glory in Death",
+              "effect_range": 35,
+              "target_friends": false,
+              "target_enemies": false,
+              "target_ground": false,
+              "target_intercept_range": 0,
+              "target_self": false,
+              "phases": [
+                {
+                  "duration": -1,
+                  "effect_type": "negative",
+                  "is_hidden_in_ui": false,
+                  "freeze_recharge": false,
+                  "attributes": [
+                    {
+                      "key": "rampage",
+                      "description": "➖ Rampage!",
+                      "attribute_type": "positive",
+                      "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                    }
+                  ],
+                  "stat_effects": [
+                    {
+                      "stat": "stat_melee_attack",
+                      "value": 4,
+                      "how": "add",
+                      "description": "+4 Melee Attack",
+                      "sort_order": 2,
+                      "icon": "vanilla3/skins/default/icon_stat_attack"
+                    }
+                  ]
+                }
+              ],
+              "enabled_if": [
+                "More than 80 kills"
+              ]
+            }
+          }
+        ],
+        "value": 1,
+        "key": "str_abrax_glory_death"
+      },
+      {
+        "effect": "wh2_dlc10_effect_attribute_enable_rampage",
+        "icon": "vanilla3/campaign_ui/effect_bundles/run_amok",
+        "priority": 320,
+        "is_positive_value_good": false,
+        "description": "Attribute: Rampage",
+        "value": 1,
+        "key": "wh2_dlc10_effect_attribute_enable_rampage"
+      }
+    ]
+  }
 }
