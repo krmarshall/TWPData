@@ -12,34 +12,28 @@
       null,
       {
         "key": "dlc20_chs_sla_top_bonus",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 1,
         "tier": 5,
+        "indent": 1,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_weapons",
-          "icon_name": "wh3_main_tech_sla_1_5",
-          "is_hidden": "false",
-          "name": "Vicious Lash",
-          "description": "Few sounds thrill like the crack of a whip, promising both pain and pleasure.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_1_5",
+          "onscreen_name": "Vicious Lash",
+          "short_description": "Few sounds thrill like the crack of a whip, promising both pain and pleasure.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_melee_attack_per_rank_hellscourge_units",
               "description": "Melee attack: +1 per experience rank for all Hellscourge units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-              "priority": 59,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_melee_attack_per_rank_hellscourge_units",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             },
             {
-              "key": "wh3_dlc20_effect_bonus_vs_infantry_chs_hellscourge_units_rank_4",
               "description": "Bonus vs Infantry: +8 for all Hellscourge units (rank 4 and above)",
-              "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small",
-              "priority": 60,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_bonus_vs_infantry_chs_hellscourge_units_rank_4",
+              "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_top_2"
         ]
       }
@@ -51,67 +45,231 @@
       null,
       {
         "key": "dlc20_chs_sla_top_1",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 2,
         "tier": 4,
+        "indent": 2,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_spells",
-          "icon_name": "wh3_main_tech_sla_6_1",
-          "is_hidden": "false",
-          "name": "Flesh-Bound Book",
-          "description": "A weathered book of spells holds the secrets of Slaanesh, bound in delicate, unblemished flesh.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_6_1",
+          "onscreen_name": "Flesh-Bound Book",
+          "short_description": "A weathered book of spells holds the secrets of Slaanesh, bound in delicate, unblemished flesh.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_enable_soporific_musk_aspiring_champions",
               "description": "Enables Soporific Musk attacks for Aspiring Champions and Chosen of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/soporific_musk",
-              "priority": 140,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_enable_soporific_musk_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/soporific_musk"
             },
             {
-              "key": "wh3_main_effect_ability_cooldown_lore_of_slaanesh_shadow",
               "description": "Cooldown: -10% to Lore of Slaanesh and Shadow spells",
+              "key": "wh3_main_effect_ability_cooldown_lore_of_slaanesh_shadow",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character",
-              "priority": 293,
-              "is_positive_value_good": false
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_cooldown_lore_of_slaanesh_shadow",
+                  "bonus_value_id": "recharge_mod",
+                  "unit_ability": {
+                    "key": "wh3_main_spell_slaanesh_acquiescence_upgraded",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_slaanesh_acquiescence",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Acquiescence Upgraded",
+                    "active_time": 45,
+                    "effect_range": 0,
+                    "mana_cost": 10,
+                    "miscast_chance": 0.5,
+                    "num_effected_enemy_units": 1,
+                    "recharge_time": 60,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 1,
+                    "ui_effects": [
+                      {
+                        "key": "wh_dlc03_spell_upgraded_speed_reduction",
+                        "localised_text": "Greater effect on speed",
+                        "effect_state": "magic"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 45,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -25,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "-25 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 0.5,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.5 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "attribute_type": "negative",
+                            "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "wh3_main_effect_ability_cooldown_lore_of_slaanesh_shadow",
+                  "bonus_value_id": "recharge_mod",
+                  "unit_ability": {
+                    "key": "wh3_main_spell_slaanesh_hysterical_frenzy_upgraded",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_slaanesh_hysterical_frenzy",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Hysterical Frenzy Upgraded",
+                    "active_time": 45,
+                    "effect_range": 20,
+                    "mana_cost": 16,
+                    "miscast_chance": 0.5,
+                    "num_effected_enemy_units": 1,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 60,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": true,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 3,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_spell_upgraded_ap_damage",
+                        "localised_text": "Increased armour-piercing damage",
+                        "effect_state": "magic"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 45,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.6,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.6 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 40,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+40 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "attribute_type": "positive",
+                            "icon": "sfo3/battle_ui/ability_icons/rampage"
+                          }
+                        ]
+                      },
+                      {
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 45,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.7,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.7 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "-20 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "attribute_type": "positive",
+                            "icon": "sfo3/battle_ui/ability_icons/rampage"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_top_0"
         ]
       },
       {
         "key": "dlc20_chs_sla_top_2",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 2,
         "tier": 5,
+        "indent": 2,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_gift_slot_1",
-          "icon_name": "wh3_main_tech_sla_3_4",
-          "is_hidden": "false",
-          "name": "Vows of Excess",
-          "description": "Slaanesh shares in all manner of delights, for those willing to wholly give themselves over to His whims.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_3_4",
+          "onscreen_name": "Vows of Excess",
+          "short_description": "Slaanesh shares in all manner of delights, for those willing to wholly give themselves over to His whims.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_sla",
               "description": "Maximum active gifts: +1 for Gifts of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_sla",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "key": "wh3_main_effect_army_ability_enable_narcissism",
               "description": "Army ability: \"Narcissism\"",
+              "key": "wh3_main_effect_army_ability_enable_narcissism",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 301,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_main_effect_army_ability_enable_narcissism",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_army_abilities_narcissism",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_narcissism",
@@ -119,32 +277,36 @@
                     "type": {
                       "key": "wh_type_area_of_hexes",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                      "description": "Hex (Area)"
+                      "onscreen_name": "Hex (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Narcissism",
+                    "onscreen_name": "Narcissism",
                     "active_time": 30,
-                    "recharge_time": 90,
                     "effect_range": 0,
-                    "target_friends": false,
+                    "num_effected_enemy_units": 1,
+                    "recharge_time": 90,
                     "target_enemies": true,
+                    "target_friends": false,
                     "target_ground": false,
+                    "target_self": false,
                     "target_intercept_range": -1,
                     "wind_up_time": 1,
-                    "target_self": false,
                     "phases": [
                       {
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
                         "duration": 30,
                         "effect_type": "negative",
-                        "cant_move": true,
                         "is_hidden_in_ui": false,
+                        "cant_move": true,
                         "stat_effects": [
                           {
-                            "stat": "stat_melee_attack",
                             "value": 0.5,
+                            "stat": "stat_melee_attack",
                             "how": "mult",
                             "description": "x0.5 Melee Attack",
-                            "sort_order": 2,
                             "icon": "vanilla3/skins/default/icon_stat_attack"
                           }
                         ]
@@ -156,40 +318,34 @@
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_top_1"
         ]
       },
       {
         "key": "dlc20_chs_sla_top_3",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 2,
         "tier": 6,
+        "indent": 2,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_shared_gift_upgrade_summons",
-          "icon_name": "wh3_main_tech_sla_5_2",
-          "is_hidden": "false",
-          "name": "Summons of Slaanesh",
-          "description": "With the favour of Slaanesh comes command over His forces, calling the vicious Daemonettes to battle.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_5_2",
+          "onscreen_name": "Summons of Slaanesh",
+          "short_description": "With the favour of Slaanesh comes command over His forces, calling the vicious Daemonettes to battle.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_faction_merc_capacity_daemonettes",
               "description": "Gifted Units pool capacity: +2 for Daemonettes units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen",
-              "priority": 11,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_faction_merc_capacity_daemonettes",
+              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen"
             },
             {
-              "key": "wh3_dlc20_effect_faction_merc_capacity_seeker_chariots",
               "description": "Gifted Units pool capacity: +2 for Seeker Chariots units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen",
-              "priority": 11,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_faction_merc_capacity_seeker_chariots",
+              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_top_2"
         ]
       }
@@ -199,34 +355,28 @@
       null,
       {
         "key": "dlc20_chs_sla_top_0",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 3,
         "tier": 2,
+        "indent": 3,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_military_1",
-          "icon_name": "wh3_main_tech_sla_4_6",
-          "is_hidden": "false",
-          "name": "Pleasure Altars",
-          "description": "Mortals prostrate themselves at the altars of Slaanesh, empowered by the ecstasy of His favour.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_4_6",
+          "onscreen_name": "Pleasure Altars",
+          "short_description": "Mortals prostrate themselves at the altars of Slaanesh, empowered by the ecstasy of His favour.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_speed_dummy",
               "description": "Speed: +5% for all units for each active Gift of Slaanesh\n\t(all armies)",
-              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement",
-              "priority": 10,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_speed_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_cost_reduction_mark_of_slaanesh",
               "description": "Path to Glory: -25% Souls cost to devote to Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/souls",
-              "priority": 104,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_initiative_cost_reduction_mark_of_slaanesh",
+              "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_start_1"
         ]
       },
@@ -234,34 +384,28 @@
       null,
       {
         "key": "dlc20_chs_und_5_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 3,
         "tier": 5,
+        "indent": 3,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_daemonic_mounts",
-          "icon_name": "wh_main_chs_lure_of_dark_promises",
-          "is_hidden": "false",
-          "name": "Daemon Mounts",
-          "description": "Daemonic steeds are driven by unnatural hunger, carrying mortals sworn to Chaos into battle in search of prey.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_lure_of_dark_promises",
+          "onscreen_name": "Daemon Mounts",
+          "short_description": "Daemonic steeds are driven by unnatural hunger, carrying mortals sworn to Chaos into battle in search of prey.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_daemon_steeds_context_dummy",
               "description": "Unlocks Warband upgrades: Gorebeast Chariots, Doom Knights and Skullcrushers",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_daemon_steeds_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_knights",
               "description": "Unit experience gain: +25% for Chaos Knights",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_knights",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_6_azazel"
         ]
       },
@@ -269,27 +413,23 @@
       null,
       {
         "key": "dlc20_chs_sla_top_4",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 3,
         "tier": 8,
+        "indent": 3,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_military_2",
-          "icon_name": "wh3_main_tech_sla_5_5",
-          "is_hidden": "false",
-          "name": "Urgent Whispers",
-          "description": "The Prince of Chaos lives in the heart of mortal men, urging them to fight harder in His name.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_5_5",
+          "onscreen_name": "Urgent Whispers",
+          "short_description": "The Prince of Chaos lives in the heart of mortal men, urging them to fight harder in His name.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_ability_soulhunters_aspiring_champtions",
               "description": "Passive ability: \"Soul Hunters\" for Aspiring Champions and Chaos Knights of Slaanesh units",
+              "key": "wh3_dlc20_effect_ability_soulhunters_aspiring_champtions",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 100,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_dlc20_effect_ability_soulhunters_aspiring_champtions",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_soul_hunters",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_soul_hunters",
@@ -297,58 +437,57 @@
                     "type": {
                       "key": "wh_type_augment",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "description": "Augment"
+                      "onscreen_name": "Augment"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Soul Hunters",
+                    "onscreen_name": "Soul Hunters",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
                     "ui_effects": [
                       {
                         "key": "wh3_main_ability_intensity_kills",
-                        "sort_order": 1,
-                        "effect_state": "positive",
-                        "description": "Effect intensity increases with each kill made by the unit."
+                        "localised_text": "Effect intensity increases with each kill made by the unit.",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_intensity_kills_200",
-                        "sort_order": 600,
-                        "effect_state": "positive",
-                        "description": "Effect intensity increases with each kill made by the unit (200)"
+                        "localised_text": "Effect intensity increases with each kill made by the unit (200)",
+                        "effect_state": "positive"
                       }
                     ],
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": false,
-                    "target_ground": false,
-                    "target_intercept_range": 0,
-                    "target_self": false,
                     "phases": [
                       {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
                         "duration": -1,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "stat": "stat_charge_bonus",
-                            "value": 20,
-                            "how": "add",
-                            "description": "+20 Charge Bonus",
-                            "sort_order": 4,
-                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                          },
-                          {
-                            "stat": "stat_morale",
                             "value": 15,
+                            "stat": "stat_morale",
                             "how": "add",
                             "description": "+15 Leadership",
-                            "sort_order": 1,
                             "icon": "vanilla3/skins/default/icon_stat_morale"
                           },
                           {
-                            "stat": "stat_resistance_all",
                             "value": 20,
+                            "stat": "stat_charge_bonus",
+                            "how": "add",
+                            "description": "+20 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_all",
                             "how": "add",
                             "description": "+20 Damage Resistance ",
-                            "sort_order": 10,
                             "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                           }
                         ]
@@ -357,8 +496,8 @@
                   }
                 },
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_dlc20_effect_ability_soulhunters_aspiring_champtions",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_soul_hunters",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_soul_hunters",
@@ -366,58 +505,57 @@
                     "type": {
                       "key": "wh_type_augment",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "description": "Augment"
+                      "onscreen_name": "Augment"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Soul Hunters",
+                    "onscreen_name": "Soul Hunters",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
                     "ui_effects": [
                       {
                         "key": "wh3_main_ability_intensity_kills",
-                        "sort_order": 1,
-                        "effect_state": "positive",
-                        "description": "Effect intensity increases with each kill made by the unit."
+                        "localised_text": "Effect intensity increases with each kill made by the unit.",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_intensity_kills_200",
-                        "sort_order": 600,
-                        "effect_state": "positive",
-                        "description": "Effect intensity increases with each kill made by the unit (200)"
+                        "localised_text": "Effect intensity increases with each kill made by the unit (200)",
+                        "effect_state": "positive"
                       }
                     ],
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": false,
-                    "target_ground": false,
-                    "target_intercept_range": 0,
-                    "target_self": false,
                     "phases": [
                       {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
                         "duration": -1,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "stat": "stat_charge_bonus",
-                            "value": 20,
-                            "how": "add",
-                            "description": "+20 Charge Bonus",
-                            "sort_order": 4,
-                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                          },
-                          {
-                            "stat": "stat_morale",
                             "value": 15,
+                            "stat": "stat_morale",
                             "how": "add",
                             "description": "+15 Leadership",
-                            "sort_order": 1,
                             "icon": "vanilla3/skins/default/icon_stat_morale"
                           },
                           {
-                            "stat": "stat_resistance_all",
                             "value": 20,
+                            "stat": "stat_charge_bonus",
+                            "how": "add",
+                            "description": "+20 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_all",
                             "how": "add",
                             "description": "+20 Damage Resistance ",
-                            "sort_order": 10,
                             "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                           }
                         ]
@@ -428,15 +566,13 @@
               ]
             },
             {
-              "key": "wh3_dlc20_effect_vigour_loss_reduction_cav_chariots_msla",
               "description": "Vigour loss reduction: -35% for all cavalry and chariots with the Mark of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/vigour",
-              "priority": 100,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_vigour_loss_reduction_cav_chariots_msla",
+              "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_top_3"
         ]
       }
@@ -447,102 +583,84 @@
       null,
       {
         "key": "dlc20_chs_und_1_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 4,
         "tier": 3,
+        "indent": 4,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_chosen",
-          "icon_name": "wh_main_chs_aspiration_for_greatness",
-          "is_hidden": "false",
-          "name": "Rite of Ascension",
-          "description": "The dark rites must be performed, if the chosen are to rise among the ranks of Ruin.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_aspiration_for_greatness",
+          "onscreen_name": "Rite of Ascension",
+          "short_description": "The dark rites must be performed, if the chosen are to rise among the ranks of Ruin.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chosen_context_dummy",
               "description": "Unlocks Warband upgrades: Chosen",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chosen_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_warriors",
               "description": "Unit experience gain: +25% for Chaos Warriors",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_warriors",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_15_azazel"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_6_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 4,
         "tier": 5,
+        "indent": 4,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_knights",
-          "icon_name": "wh_main_chs_banners_of_ruin",
-          "is_hidden": "false",
-          "name": "Profane Weaponry",
-          "description": "The arms of a Chaos Knight are imbued with a small but not inconsequential amount of Unholy power.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_banners_of_ruin",
+          "onscreen_name": "Profane Weaponry",
+          "short_description": "The arms of a Chaos Knight are imbued with a small but not inconsequential amount of Unholy power.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_lances_context_dummy",
               "description": "Unlocks Warband upgrades: Chaos Knights",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_lances_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_magic_attacks_chaos_knights",
               "description": "Enables magical attacks for Chaos Knights units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks",
-              "priority": 140,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_magic_attacks_chaos_knights",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_1_azazel"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_12_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 4,
         "tier": 7,
+        "indent": 4,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_upgrades",
-          "icon_name": "wh_main_chs_daemonic_armour",
-          "is_hidden": "false",
-          "name": "Inscribed Chaos Armour",
-          "description": "Chaos Armour, inscribed with powerful litanies of hate, will glow hot and vengeful when struck.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_daemonic_armour",
+          "onscreen_name": "Inscribed Chaos Armour",
+          "short_description": "Chaos Armour, inscribed with powerful litanies of hate, will glow hot and vengeful when struck.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_cost",
               "description": "Unit Upgrades cost: -20% for all units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending",
-              "priority": 100,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_unit_upgrade_cost",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             },
             {
-              "key": "wh3_dlc20_effect_armour_mod_warrior_chosen_knights_aspiring_champions",
               "description": "Armour: +10 for Chaos Warriors, Chosen, Chaos Knights and Aspiring Champion units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/armour",
-              "priority": 107,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_armour_mod_warrior_chosen_knights_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/armour"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_6_azazel"
         ]
       }
@@ -554,69 +672,56 @@
       null,
       {
         "key": "dlc20_chs_und_3_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 5,
         "tier": 4,
+        "indent": 5,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_diplomacy",
-          "icon_name": "wh_main_chs_pennants_of_chaos",
-          "is_hidden": "false",
-          "name": "Dark Diplomacy",
-          "description": "All the forces of Chaos must unite, if the scourge of Order is to ever be undone.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_pennants_of_chaos",
+          "onscreen_name": "Dark Diplomacy",
+          "short_description": "All the forces of Chaos must unite, if the scourge of Order is to ever be undone.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_allegiance_points_mod_skv_bst_nor",
               "description": "Allegiance points gained: +25% for alliances and vassalage with Skaven, Beastmen and Norsca",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_allegiance_points_mod_skv_bst_nor",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_diplomacy_dummy",
               "description": "Diplomatic relations: +15 with Skaven, Norsca and Beastmen for each active Gift of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_diplomacy_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_1_azazel"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_10_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 5,
         "tier": 6,
+        "indent": 5,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_beasts",
-          "icon_name": "wh_main_chs_rituals_of_corruption",
-          "is_hidden": "false",
-          "name": "Unchained Beasts",
-          "description": "A worthy Beastmaster needs no chains to direct the ferocious nature of his darling pets.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_rituals_of_corruption",
+          "onscreen_name": "Unchained Beasts",
+          "short_description": "A worthy Beastmaster needs no chains to direct the ferocious nature of his darling pets.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_melee_attack_chs_warhounds_manticores",
               "description": "Melee attack: +8 for Chaos Warhounds and Feral Manticore units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-              "priority": 431,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_melee_attack_chs_warhounds_manticores",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             },
             {
-              "key": "wh3_dlc20_effect_ability_gorefeast_chs_warhounds_manticores_rank_4",
               "description": "Passive ability: \"Gorefeast\" for Chaos Warhounds and Feral Manticore units (Rank 4 and above)",
+              "key": "wh3_dlc20_effect_ability_gorefeast_chs_warhounds_manticores_rank_4",
               "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
-              "priority": 580,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_dlc20_effect_ability_gorefeast_chs_warhounds_manticores_rank_4",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_gorefeast",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_gorefeast",
@@ -624,36 +729,39 @@
                     "type": {
                       "key": "wh_type_regeneration",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                      "description": "Regeneration"
+                      "onscreen_name": "Regeneration"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Gorefeast",
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_all_replenish",
-                        "sort_order": 105,
-                        "effect_state": "positive",
-                        "description": "Replenishes hit points of combatants"
-                      }
-                    ],
+                    "onscreen_name": "Gorefeast",
                     "effect_range": 0,
-                    "target_friends": false,
                     "target_enemies": false,
+                    "target_friends": false,
                     "target_ground": false,
-                    "target_intercept_range": 0,
                     "target_self": false,
-                    "phases": [
-                      {
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "hp_change_frequency": 1,
-                        "is_hidden_in_ui": false,
-                        "heal_amount": 0.001
-                      }
-                    ],
+                    "target_intercept_range": 0,
                     "enabled_if": [
                       "In melee",
                       "Battle outcome is undecided"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_replenish",
+                        "localised_text": "Replenishes hit points of combatants",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.001,
+                        "hp_change_frequency": 1
+                      }
                     ]
                   }
                 }
@@ -661,7 +769,8 @@
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_6_azazel",
           "dlc20_chs_und_7_azazel"
         ]
@@ -670,170 +779,138 @@
     [
       {
         "key": "dlc20_chs_sla_start_0",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 0,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_marks_slaanesh",
-          "icon_name": "wh3_main_tech_sla_1_2",
-          "is_hidden": "false",
-          "name": "Sensuous Branding Iron",
-          "description": "The brand of Slaanesh always stings, evoking wanton pleasure from pain.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_1_2",
+          "onscreen_name": "Sensuous Branding Iron",
+          "short_description": "The brand of Slaanesh always stings, evoking wanton pleasure from pain.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_slaanesh_context_dummy",
               "description": "Warband upgrades: Allows Undivided units to receive the Mark of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_slaanesh_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_immpsy_aspiring_champions",
               "description": "Attribute: Immune to Psychology for Aspiring Champions",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_immpsy_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_strider_aspiring_champions",
               "description": "Attribute: Strider for Aspiring Champions",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_strider_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties"
             }
           ]
         }
       },
       {
         "key": "dlc20_chs_sla_start_1",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 1,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_shared_gift_upgrade_authority",
-          "icon_name": "wh3_main_tech_sla_3_1",
-          "is_hidden": "false",
-          "name": "Echo Chamber",
-          "description": "The screams of every sacrifice ring out for miles, their agony like music of inspiration.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_3_1",
+          "onscreen_name": "Echo Chamber",
+          "short_description": "The screams of every sacrifice ring out for miles, their agony like music of inspiration.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_authority_dummy",
               "description": "Slaanesh Authority: +1 for each active Gift of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_authority_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_start_0"
         ]
       },
       {
         "key": "dlc20_chs_und_0_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 2,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_marauders",
-          "icon_name": "wh_main_chs_scrutiny_of_the_dark_gods",
-          "is_hidden": "false",
-          "name": "Scrutiny of the Dark Gods",
-          "description": "Let the Marauders gather under their Dark Masters' eternal gaze.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_scrutiny_of_the_dark_gods",
+          "onscreen_name": "Scrutiny of the Dark Gods",
+          "short_description": "Let the Marauders gather under their Dark Masters' eternal gaze.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_marauders",
               "description": "Unit experience gain: +25% for Marauders",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_marauders",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
       },
       {
         "key": "dlc20_chs_und_15_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 3,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_chariots",
-          "icon_name": "wh_main_chs_ensorcelled_weapons",
-          "is_hidden": "false",
-          "name": "Charioteer",
-          "description": "Engineers have perfected a wicked machine of war, drawn by fearsome steeds into the very heart of battle.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_ensorcelled_weapons",
+          "onscreen_name": "Charioteer",
+          "short_description": "Engineers have perfected a wicked machine of war, drawn by fearsome steeds into the very heart of battle.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chaos_chariots_context_dummy",
               "description": "Unlocks Warband upgrades: Chaos Chariots and Hellstriders",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chaos_chariots_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_marauder_horsemen",
               "description": "Unit experience gain: +25% for Marauder Horsemen",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_marauder_horsemen",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_0_azazel"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_7_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 5,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_gift_slot_1",
-          "icon_name": "wh_main_chs_daemonic_pact",
-          "is_hidden": "false",
-          "name": "Daemonic Pact",
-          "description": "A pact with the Dark Gods should not be taken lightly.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_daemonic_pact",
+          "onscreen_name": "Daemonic Pact",
+          "short_description": "A pact with the Dark Gods should not be taken lightly.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
               "description": "Maximum active gifts: +1 for Gifts of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "chs_army_spawn_enable",
               "description": "Army ability: \"Chaotic Torment\" when attacking",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "chs_army_spawn_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_fear_aspiring_champions",
               "description": "Attribute: Cause Fear for Aspiring Champions and Undivided Chosen units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_fear_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
             },
             {
-              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
               "description": "All Authority: +1",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 500,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_3_azazel",
           "dlc20_chs_und_4_azazel"
         ]
@@ -841,117 +918,95 @@
       null,
       {
         "key": "dlc20_chs_und_16_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 7,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_monsters",
-          "icon_name": "wh_main_chs_second_to_none",
-          "is_hidden": "false",
-          "name": "Giant Manacles",
-          "description": "Such massive iron bands are a marvel to behold, lending strength to the swing of the most colossal creatures.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_second_to_none",
+          "onscreen_name": "Giant Manacles",
+          "short_description": "Such massive iron bands are a marvel to behold, lending strength to the swing of the most colossal creatures.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_weapon_strength_chs_trolls_giants",
               "description": "Weapon strength: +15% for Chaos Trolls and Chaos Giant units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage",
-              "priority": 461,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_weapon_strength_chs_trolls_giants",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
             },
             {
-              "key": "wh3_dlc20_effect_missile_resistance_chs_trolls_giants_rank_4",
               "description": "Missile resistance: 25% for Chaos Trolls and Chaos Giant units (Rank 4 and above)",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile",
-              "priority": 580,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_missile_resistance_chs_trolls_giants_rank_4",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_12_azazel",
           "dlc20_chs_und_13_azazel"
         ]
       },
       {
         "key": "dlc20_chs_und_14_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 8,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_gift_slot_2",
-          "icon_name": "wh_main_chs_gaze_of_the_dark_gods",
-          "is_hidden": "false",
-          "name": "Gaze of the Dark Gods",
-          "description": "All hope to catch the attention of the Gods, gathering where they think the Ruinous Powers will be looking.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_gaze_of_the_dark_gods",
+          "onscreen_name": "Gaze of the Dark Gods",
+          "short_description": "All hope to catch the attention of the Gods, gathering where they think the Ruinous Powers will be looking.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
               "description": "Maximum active gifts: +1 for Gifts of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "chs_army_forsaken_enable",
               "description": "Army ability: \"Forsaken Blessing\" when attacking",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "chs_army_forsaken_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_perfect_vigour_aspiring_champions",
               "description": "Attribute: Perfect Vigour for Aspiring Champions and Undivided Chosen units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_fatigue_immune",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_perfect_vigour_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_fatigue_immune"
             },
             {
-              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
               "description": "All Authority: +1",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 500,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_16_azazel"
         ]
       },
       {
         "key": "dlc20_chs_sla_final_0",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 9,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_gift_slot_3",
-          "icon_name": "wh3_main_tech_sla_5_6",
-          "is_hidden": "false",
-          "name": "Blessings of Slaanesh",
-          "description": "Azazel reaps the rewards of his service, touched by the overwhelming presence of his Prince.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_5_6",
+          "onscreen_name": "Blessings of Slaanesh",
+          "short_description": "Azazel reaps the rewards of his service, touched by the overwhelming presence of his Prince.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_sla",
               "description": "Maximum active gifts: +1 for Gifts of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_sla",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "key": "wh3_dlc20_effect_ability_feasting_on_fear_aspiring_champtions",
               "description": "Passive ability: \"Feasting on Fear\" for Aspiring Champions units",
+              "key": "wh3_dlc20_effect_ability_feasting_on_fear_aspiring_champtions",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 100,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_dlc20_effect_ability_feasting_on_fear_aspiring_champtions",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_lord_passive_feasting_on_fear",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_feasting_on_fear",
@@ -959,47 +1014,48 @@
                     "type": {
                       "key": "wh_type_regeneration",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                      "description": "Regeneration"
+                      "onscreen_name": "Regeneration"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Feasting on Fear",
+                    "onscreen_name": "Feasting on Fear",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 30,
+                    "enabled_if": [
+                      "Battle outcome is undecided"
+                    ],
                     "ui_effects": [
                       {
                         "key": "wh3_main_ability_intensity_enemy_low_morale_nearby",
-                        "sort_order": 1,
-                        "effect_state": "positive",
-                        "description": "Effect intensity increases by each enemy unit in range with leadership wavering or lower."
+                        "localised_text": "Effect intensity increases by each enemy unit in range with leadership wavering or lower.",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh2_main_ability_range_30m",
-                        "sort_order": 101,
-                        "effect_state": "positive",
-                        "description": "Ability range 30m"
+                        "localised_text": "Ability range 30m",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_main_all_replenish",
-                        "sort_order": 105,
-                        "effect_state": "positive",
-                        "description": "Replenishes hit points of combatants"
+                        "localised_text": "Replenishes hit points of combatants",
+                        "effect_state": "positive"
                       }
                     ],
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": false,
-                    "target_ground": false,
-                    "target_intercept_range": 30,
-                    "target_self": false,
                     "phases": [
                       {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
                         "duration": -1,
                         "effect_type": "positive",
-                        "hp_change_frequency": 1,
                         "is_hidden_in_ui": false,
-                        "heal_amount": 0.004
+                        "heal_amount": 0.004,
+                        "hp_change_frequency": 1
                       }
-                    ],
-                    "enabled_if": [
-                      "Battle outcome is undecided"
                     ]
                   }
                 }
@@ -1007,48 +1063,40 @@
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_bot_4",
           "dlc20_chs_sla_top_4"
         ]
       },
       {
         "key": "dlc20_chs_sla_final_1",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 6,
         "tier": 10,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_ultimate",
-          "icon_name": "wh3_main_tech_sla_6_6",
-          "is_hidden": "false",
-          "name": "Daemonic Aid",
-          "description": "The Daemons of Slaanesh are drawn in by the irresistible allure of Azazel's countenance.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_6_6",
+          "onscreen_name": "Daemonic Aid",
+          "short_description": "The Daemons of Slaanesh are drawn in by the irresistible allure of Azazel's countenance.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_faction_merc_capacity_keepers_of_secrets",
               "description": "Gifted Units pool capacity: +2 for Keeper of Secrets units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen",
-              "priority": 11,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_faction_merc_capacity_keepers_of_secrets",
+              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen"
             },
             {
-              "key": "wh3_main_effect_force_all_seduce_units_budget",
               "description": "Seduce Units budget: +100%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/daemon/military_spending",
-              "priority": 70,
-              "is_positive_value_good": true
+              "key": "wh3_main_effect_force_all_seduce_units_budget",
+              "icon": "vanilla3/campaign_ui/effect_bundles/daemon/military_spending"
             },
             {
-              "key": "wh3_dlc20_effect_character_ascension_mod_sla_daemon_prince",
               "description": "Path to Glory: -25% Souls cost to upgrade characters to a Daemon Prince of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/souls",
-              "priority": 101,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_character_ascension_mod_sla_daemon_prince",
+              "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_final_0"
         ]
       }
@@ -1060,69 +1108,57 @@
       null,
       {
         "key": "dlc20_chs_und_4_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 7,
         "tier": 4,
+        "indent": 7,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_movement",
-          "icon_name": "wh_main_chs_infernal_march",
-          "is_hidden": "false",
-          "name": "Infernal March",
-          "description": "The Chaos Gods grow impatient. Lending a sliver of majesty, they enable their followers to march faster.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_infernal_march",
+          "onscreen_name": "Infernal March",
+          "short_description": "The Chaos Gods grow impatient. Lending a sliver of majesty, they enable their followers to march faster.",
           "effects": [
             {
-              "key": "wh_main_effect_force_all_campaign_movement_range",
               "description": "Campaign movement range: +5% for armies",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement",
-              "priority": 13,
-              "is_positive_value_good": true
+              "key": "wh_main_effect_force_all_campaign_movement_range",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             },
             {
-              "key": "wh3_main_effect_own_reinforcement_time_percentage_mod",
               "description": "Battle reinforcement time: -50%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military",
-              "priority": 101,
-              "is_positive_value_good": false
+              "key": "wh3_main_effect_own_reinforcement_time_percentage_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_2_azazel"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_11_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 7,
         "tier": 6,
+        "indent": 7,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_building",
-          "icon_name": "wh_main_chs_erection_of_ruinous_monuments",
-          "is_hidden": "false",
-          "name": "Erection of Ruinous Monuments",
-          "description": "Tributes and monuments to the Dark Powers ensure the Chaos Gods' favour.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_erection_of_ruinous_monuments",
+          "onscreen_name": "Erection of Ruinous Monuments",
+          "short_description": "Tributes and monuments to the Dark Powers ensure the Chaos Gods' favour.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_cult_upgrade_und_context_dummy",
               "description": "Unlocks Hero recruitment and post-battle loot bonus effects for Altar Improvement buildings",
-              "icon": "vanilla3/campaign_ui/effect_bundles/cult",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_cult_upgrade_und_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/cult"
             },
             {
-              "key": "wh2_main_effect_building_construction_time_mod_all",
               "description": "Construction time: -20% for all buildings",
-              "icon": "vanilla3/campaign_ui/effect_bundles/construction",
-              "priority": 102,
-              "is_positive_value_good": false
+              "key": "wh2_main_effect_building_construction_time_mod_all",
+              "icon": "vanilla3/campaign_ui/effect_bundles/construction"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_7_azazel",
           "dlc20_chs_und_8_azazel"
         ]
@@ -1134,102 +1170,84 @@
       null,
       {
         "key": "dlc20_chs_und_2_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 8,
         "tier": 3,
+        "indent": 8,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_mutants",
-          "icon_name": "wh_main_chs_a_thousand_twisted_blessings",
-          "is_hidden": "false",
-          "name": "A Thousand Twisted Blessings",
-          "description": "Such a generous gift is the thousand twisted blessings. Think of all the needle-teeth and tentacles it bestows.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_a_thousand_twisted_blessings",
+          "onscreen_name": "A Thousand Twisted Blessings",
+          "short_description": "Such a generous gift is the thousand twisted blessings. Think of all the needle-teeth and tentacles it bestows.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_forsaken_context_dummy",
               "description": "Unlocks Warband upgrades: Forsaken",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_forsaken_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_terror_chaos_spawn",
               "description": "Attribute: Cause Terror for Chaos Spawn units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_terror_chaos_spawn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
             },
             {
-              "key": "wh_main_effect_force_stat_melee_attack_chaos_spawns",
               "description": "Melee attack: +5 for Chaos Spawn units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-              "priority": 431,
-              "is_positive_value_good": true
+              "key": "wh_main_effect_force_stat_melee_attack_chaos_spawns",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_15_azazel"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_8_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 8,
         "tier": 5,
+        "indent": 8,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_corruption",
-          "icon_name": "wh_main_chs_unholy_communion",
-          "is_hidden": "false",
-          "name": "Malignant Totems",
-          "description": "Unholy tributes and towering monuments ensure the Chaos Gods' favour.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_unholy_communion",
+          "onscreen_name": "Malignant Totems",
+          "short_description": "Unholy tributes and towering monuments ensure the Chaos Gods' favour.",
           "effects": [
             {
-              "key": "wh_main_faction_xp_increase_generals",
               "description": "Lord recruit rank: +3",
-              "icon": "vanilla3/campaign_ui/effect_bundles/army",
-              "priority": 51,
-              "is_positive_value_good": true
+              "key": "wh_main_faction_xp_increase_generals",
+              "icon": "vanilla3/campaign_ui/effect_bundles/army"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_corruption_dummy",
               "description": "Chaos corruption: +2 for each active Gift of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_corruption_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_2_azazel"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_13_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 8,
         "tier": 7,
+        "indent": 8,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_souls",
-          "icon_name": "wh_main_chs_culling_of_the_weak",
-          "is_hidden": "false",
-          "name": "Culling of the Weak",
-          "description": "Stragglers will not be entertained. If you can't keep the pace, you are food for the Warhounds.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_culling_of_the_weak",
+          "onscreen_name": "Culling of the Weak",
+          "short_description": "Stragglers will not be entertained. If you can't keep the pace, you are food for the Warhounds.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_pooled_resource_mod_souls_battle",
               "description": "Souls gained from battles: +20%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/souls",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_pooled_resource_mod_souls_battle",
+              "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_8_azazel"
         ]
       }
@@ -1239,34 +1257,28 @@
       null,
       {
         "key": "dlc20_chs_sla_bot_0",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 9,
         "tier": 2,
+        "indent": 9,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_shared_gift_upgrade_corruption",
-          "icon_name": "wh3_main_tech_sla_3_3",
-          "is_hidden": "false",
-          "name": "Corrupted Offerings",
-          "description": "Souls are sent to Slaanesh alongside idols of corruption, allowing His influence to seep into the mortal plane.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_3_3",
+          "onscreen_name": "Corrupted Offerings",
+          "short_description": "Souls are sent to Slaanesh alongside idols of corruption, allowing His influence to seep into the mortal plane.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_building_upgrade_sla_corruption_context_dummy",
               "description": "Slaanesh corruption: +2 from Chaos Altars",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_building_upgrade_sla_corruption_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_corruption_dummy",
               "description": "Slaanesh corruption: +2 for each active Gift of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_corruption_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_start_1"
         ]
       },
@@ -1274,34 +1286,28 @@
       null,
       {
         "key": "dlc20_chs_und_9_azazel",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 9,
         "tier": 5,
+        "indent": 9,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_vassals",
-          "icon_name": "wh_main_chs_dark_standards",
-          "is_hidden": "false",
-          "name": "Slaves to Darkness",
-          "description": "Perhaps the threat of a collar and chain would remind these lesser beings of their place.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_dark_standards",
+          "onscreen_name": "Slaves to Darkness",
+          "short_description": "Perhaps the threat of a collar and chain would remind these lesser beings of their place.",
           "effects": [
             {
-              "key": "wh3_main_effect_allegiance_points_loan_army_mod",
               "description": "Request army cost: -25%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": false
+              "key": "wh3_main_effect_allegiance_points_loan_army_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             },
             {
-              "key": "wh3_main_effect_allegiance_points_war_coordination_target_mod",
               "description": "War co-ordination target cost: -25%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": false
+              "key": "wh3_main_effect_allegiance_points_war_coordination_target_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_8_azazel"
         ]
       },
@@ -1309,27 +1315,23 @@
       null,
       {
         "key": "dlc20_chs_sla_bot_4",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 9,
         "tier": 8,
+        "indent": 9,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_mark",
-          "icon_name": "wh3_main_tech_sla_4_1",
-          "is_hidden": "false",
-          "name": "Unholy Aid",
-          "description": "A hypnotic trance falls upon the enemies of Slaanesh, when He reaches in and plucks at their deepest desires.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_4_1",
+          "onscreen_name": "Unholy Aid",
+          "short_description": "A hypnotic trance falls upon the enemies of Slaanesh, when He reaches in and plucks at their deepest desires.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_souls_gift_of_azazel_mod",
               "description": "Souls from enemy characters granted the Gift of Slaanesh: +25",
-              "icon": "vanilla3/campaign_ui/effect_bundles/souls",
-              "priority": 70,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_souls_gift_of_azazel_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_bot_3"
         ]
       }
@@ -1341,60 +1343,50 @@
       null,
       {
         "key": "dlc20_chs_sla_bot_1",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 10,
         "tier": 4,
+        "indent": 10,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_buildings",
-          "icon_name": "wh3_main_tech_sla_1_6",
-          "is_hidden": "false",
-          "name": "Debauched Designs",
-          "description": "The Pleasure Houses are rife with debauchery under Azazel's keen instruction.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_1_6",
+          "onscreen_name": "Debauched Designs",
+          "short_description": "The Pleasure Houses are rife with debauchery under Azazel's keen instruction.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_cult_upgrade_azazel_context_dummy",
               "description": "Unlocks Warband upgrade cost reduction effect for Dark Fortress military buildings",
-              "icon": "vanilla3/campaign_ui/effect_bundles/cult",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_cult_upgrade_azazel_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/cult"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_bot_0"
         ]
       },
       {
         "key": "dlc20_chs_sla_bot_2",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 10,
         "tier": 5,
+        "indent": 10,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_gift_slot_2",
-          "icon_name": "wh3_main_tech_sla_3_6",
-          "is_hidden": "false",
-          "name": "Sensuous Gifts",
-          "description": "The Prince of Pleasure rewards His faithful well, offering decadent reward for their service.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_3_6",
+          "onscreen_name": "Sensuous Gifts",
+          "short_description": "The Prince of Pleasure rewards His faithful well, offering decadent reward for their service.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_sla",
               "description": "Maximum active gifts: +1 for Gifts of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_sla",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
               "description": "Army ability: \"Sweet Sorrow\"",
+              "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 301,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_army_abilities_sweet_sorrow",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
@@ -1402,40 +1394,41 @@
                     "type": {
                       "key": "wh_type_area_of_augments",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "description": "Augment (Area)"
+                      "onscreen_name": "Augment (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Sweet Sorrow",
+                    "onscreen_name": "Sweet Sorrow",
                     "active_time": 30,
-                    "recharge_time": 120,
                     "effect_range": -1,
-                    "target_friends": false,
+                    "recharge_time": 120,
                     "target_enemies": false,
+                    "target_friends": false,
                     "target_ground": false,
+                    "target_self": false,
                     "target_intercept_range": -1,
                     "wind_up_time": 5,
-                    "target_self": false,
                     "phases": [
                       {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
                         "duration": 30,
                         "effect_type": "positive",
-                        "fatigue_change_ratio": -0.02,
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "stat": "scalar_speed",
-                            "value": 1.3,
+                            "value": 2,
+                            "stat": "scalar_entity_acceleration_modifier",
                             "how": "mult",
-                            "description": "x1.3 Speed",
-                            "sort_order": 10,
+                            "description": "x2 Acceleration",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
-                            "stat": "scalar_entity_acceleration_modifier",
-                            "value": 2,
+                            "value": 1.25,
+                            "stat": "scalar_speed",
                             "how": "mult",
-                            "description": "x2 Acceleration",
-                            "sort_order": 0,
+                            "description": "x1.25 Speed",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
                           }
                         ]
@@ -1447,40 +1440,34 @@
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_bot_1"
         ]
       },
       {
         "key": "dlc20_chs_sla_bot_3",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 10,
         "tier": 6,
+        "indent": 10,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_shared_gift_upgrade_diplomacy",
-          "icon_name": "wh3_main_tech_sla_2_6",
-          "is_hidden": "false",
-          "name": "Herald of Sacrifice",
-          "description": "A herald travels far and wide, sharing word of every soul sacrificed in Slaanesh's name.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_2_6",
+          "onscreen_name": "Herald of Sacrifice",
+          "short_description": "A herald travels far and wide, sharing word of every soul sacrificed in Slaanesh's name.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_allegiance_points_mod_slaanesh",
               "description": "Allegiance points gained: +25% for alliances and vassalage with Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_allegiance_points_mod_slaanesh",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_diplomacy_dummy",
               "description": "Diplomatic relations: +15 with Slaaneshi factions for each active Gift of Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_sla_diplomacy_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_bot_2"
         ]
       }
@@ -1493,41 +1480,33 @@
       null,
       {
         "key": "dlc20_chs_sla_bot_bonus",
-        "faction_key": "wh3_dlc20_chs_azazel",
-        "indent": 11,
         "tier": 5,
+        "indent": 11,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_sla_azazel_heroes_lords",
-          "icon_name": "wh3_main_tech_sla_3_4",
-          "is_hidden": "false",
-          "name": "Sensation's Call",
-          "description": "Those marked by Slaanesh answer the call, summoned to serve at His champion's behest.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_sla_3_4",
+          "onscreen_name": "Sensation's Call",
+          "short_description": "Those marked by Slaanesh answer the call, summoned to serve at His champion's behest.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_char_upgrade_xp_loss_mod_slaanesh_scripted",
               "description": "Path to Glory: +50% levels kept when devoting a character to Slaanesh",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_char_upgrade_xp_loss_mod_slaanesh_scripted",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
             {
-              "key": "wh_main_effect_agent_cap_increase_wizard_chaos_sorcerer",
               "description": "Hero capacity: +2 for Chaos Sorcerers",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
-              "priority": 102,
-              "is_positive_value_good": true
+              "key": "wh_main_effect_agent_cap_increase_wizard_chaos_sorcerer",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
             },
             {
-              "key": "wh3_dlc20_effect_unlock_recruitment_marked_sorcerers_context_dummy",
               "description": "Enables direct recruitment of Marked Chaos Sorcerers",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
-              "priority": 103,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unlock_recruitment_marked_sorcerers_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_sla_bot_2"
         ]
       }
@@ -1539,252 +1518,252 @@
       "child_key": "dlc20_chs_sla_bot_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_bot_1",
       "child_key": "dlc20_chs_sla_bot_2",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_bot_2",
       "child_key": "dlc20_chs_sla_bot_3",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_bot_2",
       "child_key": "dlc20_chs_sla_bot_bonus",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_bot_3",
       "child_key": "dlc20_chs_sla_bot_4",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_bot_4",
       "child_key": "dlc20_chs_sla_final_0",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_final_0",
       "child_key": "dlc20_chs_sla_final_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_start_0",
       "child_key": "dlc20_chs_sla_start_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_start_1",
       "child_key": "dlc20_chs_sla_bot_0",
       "parent_link_position": "bottom",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_start_1",
       "child_key": "dlc20_chs_sla_top_0",
       "parent_link_position": "top",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_top_0",
       "child_key": "dlc20_chs_sla_top_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_top_1",
       "child_key": "dlc20_chs_sla_top_2",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_top_2",
       "child_key": "dlc20_chs_sla_top_3",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_top_2",
       "child_key": "dlc20_chs_sla_top_bonus",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_top_3",
       "child_key": "dlc20_chs_sla_top_4",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_sla_top_4",
       "child_key": "dlc20_chs_sla_final_0",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_0_azazel",
       "child_key": "dlc20_chs_und_15_azazel",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_12_azazel",
       "child_key": "dlc20_chs_und_16_azazel",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_13_azazel",
       "child_key": "dlc20_chs_und_16_azazel",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_15_azazel",
       "child_key": "dlc20_chs_und_1_azazel",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_15_azazel",
       "child_key": "dlc20_chs_und_2_azazel",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_16_azazel",
       "child_key": "dlc20_chs_und_14_azazel",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_1_azazel",
       "child_key": "dlc20_chs_und_3_azazel",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_1_azazel",
       "child_key": "dlc20_chs_und_6_azazel",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_2_azazel",
       "child_key": "dlc20_chs_und_4_azazel",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_2_azazel",
       "child_key": "dlc20_chs_und_8_azazel",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_3_azazel",
       "child_key": "dlc20_chs_und_7_azazel",
       "parent_link_position": "bottom",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_4_azazel",
       "child_key": "dlc20_chs_und_7_azazel",
       "parent_link_position": "top",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_6_azazel",
       "child_key": "dlc20_chs_und_10_azazel",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_6_azazel",
       "child_key": "dlc20_chs_und_12_azazel",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_6_azazel",
       "child_key": "dlc20_chs_und_5_azazel",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_7_azazel",
       "child_key": "dlc20_chs_und_10_azazel",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_7_azazel",
       "child_key": "dlc20_chs_und_11_azazel",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_8_azazel",
       "child_key": "dlc20_chs_und_11_azazel",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_8_azazel",
       "child_key": "dlc20_chs_und_13_azazel",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_8_azazel",
       "child_key": "dlc20_chs_und_9_azazel",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     }
   ]
 }

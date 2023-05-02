@@ -12,34 +12,28 @@
       null,
       {
         "key": "dlc20_chs_tze_top_bonus",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 1,
         "tier": 5,
+        "indent": 1,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_weapons",
-          "icon_name": "wh3_main_tech_tze_4_8",
-          "is_hidden": "false",
-          "name": "Ritual Staff",
-          "description": "Every staff blessed by the God of Magic's sorcery doubles as a blunt instrument of brutality.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_4_8",
+          "onscreen_name": "Ritual Staff",
+          "short_description": "Every staff blessed by the God of Magic's sorcery doubles as a blunt instrument of brutality.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_melee_defence_per_rank_chs_spear_halberd_units",
               "description": "Melee defence: +1 per experience rank for all Halberd and Spear units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence",
-              "priority": 59,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_melee_defence_per_rank_chs_spear_halberd_units",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_expert_charge_defence_chs_spear_halberd_units_rank_4",
               "description": "Attribute: Expert Charge Defence for all Spear and Halberd infantry (Rank 4 and above)",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_reflector",
-              "priority": 60,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_expert_charge_defence_chs_spear_halberd_units_rank_4",
+              "icon": "vanilla3/campaign_ui/effect_bundles/charge_reflector"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_top_2"
         ]
       }
@@ -51,67 +45,221 @@
       null,
       {
         "key": "dlc20_chs_tze_top_1",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 2,
         "tier": 4,
+        "indent": 2,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_spells",
-          "icon_name": "wh3_main_tech_tze_0_2",
-          "is_hidden": "false",
-          "name": "Twisted Tome",
-          "description": "An ancient books of spells contains dark, hidden wisdom; enough to drive its reader to madness.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_0_2",
+          "onscreen_name": "Twisted Tome",
+          "short_description": "An ancient books of spells contains dark, hidden wisdom; enough to drive its reader to madness.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_warpflame_aspiring_champions",
               "description": "Enables Warpflame attacks for Aspiring Champions and Chosen of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wh3_main_unit_contact_warpflame",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_warpflame_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wh3_main_unit_contact_warpflame"
             },
             {
-              "key": "wh3_main_effect_ability_cooldown_lore_of_tzeentch_metal",
               "description": "Cooldown: -10% to Lore of Tzeentch and Metal spells",
+              "key": "wh3_main_effect_ability_cooldown_lore_of_tzeentch_metal",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character",
-              "priority": 293,
-              "is_positive_value_good": false
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_cooldown_lore_of_tzeentch_metal",
+                  "bonus_value_id": "recharge_mod",
+                  "unit_ability": {
+                    "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch_upgraded",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tzeentch_blue_fire_of_tzeentch",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_magic_missiles",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
+                      "onscreen_name": "Magic Missiles"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Blue Fire of Tzeentch Upgraded",
+                    "effect_range": 0,
+                    "mana_cost": 8,
+                    "miscast_chance": 0.5,
+                    "recharge_time": 45,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 175,
+                    "wind_up_time": 1,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_spell_upgraded_ap_damage",
+                        "localised_text": "Increased armour-piercing damage",
+                        "effect_state": "magic"
+                      },
+                      {
+                        "key": "wh_main_all_good_vs_large",
+                        "localised_text": "Good against large combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_all",
+                        "localised_text": "Strong vs single and multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_number_9",
+                        "localised_text": "Projectiles: 9",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_aoe_4",
+                        "localised_text": "Explosion area of effect: 4m",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_main_projectile_requires_line_of_sight",
+                        "localised_text": "Requires line of sight to the target",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "activated_projectile": {
+                      "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch_upgraded",
+                      "damage": 100,
+                      "ap_damage": 100,
+                      "shockwave_radius": 0.3,
+                      "bonus_v_large": 25,
+                      "projectile_number": 9,
+                      "is_magical": true,
+                      "is_flaming": true,
+                      "can_damage_allies": true,
+                      "explosion_type": {
+                        "key": "wh3_main_spell_tzeentch_blue_fire_of_tzeentch_upgraded",
+                        "affects_allies": true,
+                        "detonation_damage": 50,
+                        "detonation_damage_ap": 50,
+                        "detonation_radius": 4,
+                        "is_magical": true,
+                        "is_flaming": true
+                      },
+                      "contact_stat_effect": {
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 10,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -15,
+                            "stat": "stat_weakness_flame",
+                            "how": "add",
+                            "description": "-15 Weakness to Fire Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                          },
+                          {
+                            "value": -15,
+                            "stat": "stat_armour",
+                            "how": "add",
+                            "description": "-15 Armour",
+                            "icon": "vanilla3/skins/default/icon_stat_armour"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
+                {
+                  "effect": "wh3_main_effect_ability_cooldown_lore_of_tzeentch_metal",
+                  "bonus_value_id": "recharge_mod",
+                  "unit_ability": {
+                    "key": "wh3_main_spell_tzeentch_glean_magic_upgraded",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tzeentch_glean_magic",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex_of_the_winds",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex_of_the_winds",
+                      "onscreen_name": "Hex of the Winds"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Glean Magic Upgraded",
+                    "active_time": 50,
+                    "effect_range": 0,
+                    "mana_cost": 10,
+                    "miscast_chance": 0.5,
+                    "num_effected_enemy_units": 1,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 45,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 3,
+                    "target_if": [
+                      "Is a spellcaster"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_spell_upgraded_duration",
+                        "localised_text": "Extended effect duration",
+                        "effect_state": "magic"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 45,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false
+                      },
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 45,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "mana_max_depletion_mod": 0.2,
+                        "mana_regen_mod": 0.8
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_top_0"
         ]
       },
       {
         "key": "dlc20_chs_tze_top_2",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 2,
         "tier": 5,
+        "indent": 2,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_gift_slot_2",
-          "icon_name": "wh3_main_tech_tze_2_8",
-          "is_hidden": "false",
-          "name": "Attuning Ritual",
-          "description": "Attuning with the energies of Chaos opens many doors in the mind.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_2_8",
+          "onscreen_name": "Attuning Ritual",
+          "short_description": "Attuning with the energies of Chaos opens many doors in the mind.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_tze",
               "description": "Maximum active gifts: +1 for Gifts of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_tze",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
             },
             {
-              "key": "wh3_main_effect_army_ability_enable_storm_of_fire",
               "description": "Army ability: \"Storm of Fire\"",
+              "key": "wh3_main_effect_army_ability_enable_storm_of_fire",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 301,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_main_effect_army_ability_enable_storm_of_fire",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_army_abilities_storm_of_fire",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_storm_of_fire",
@@ -119,126 +267,118 @@
                     "type": {
                       "key": "wh_type_bombardment",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                      "description": "Bombardment"
+                      "onscreen_name": "Bombardment"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Storm of Fire",
+                    "onscreen_name": "Storm of Fire",
+                    "active_time": 30,
+                    "effect_range": 0,
+                    "recharge_time": 120,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": -1,
+                    "wind_up_time": 5,
                     "ui_effects": [
                       {
                         "key": "wh_main_bombardment_large_strike_aoe",
-                        "sort_order": 105,
-                        "effect_state": "positive",
-                        "description": "Large strike area"
+                        "localised_text": "Large strike area",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_main_all_strong_against_units",
-                        "sort_order": 106,
-                        "effect_state": "positive",
-                        "description": "Strong vs multiple units"
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_projectile_number_180",
-                        "sort_order": 200,
-                        "effect_state": "positive",
-                        "description": "Projectiles: 180"
+                        "localised_text": "Projectiles: 180",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_projectile_aoe_4",
-                        "sort_order": 201,
-                        "effect_state": "positive",
-                        "description": "Explosion area of effect: 4m"
+                        "localised_text": "Explosion area of effect: 4m",
+                        "effect_state": "positive"
                       }
                     ],
-                    "active_time": 30,
-                    "recharge_time": 120,
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": -1,
-                    "wind_up_time": 5,
                     "bombardment": {
                       "bombardment_key": "wh3_main_army_abilities_storm_of_fire",
                       "arrival_window": 12,
-                      "num_projectiles": 180,
+                      "radius_spread": 30,
+                      "start_time": 2,
                       "projectile_type": {
                         "key": "wh3_main_army_abilities_storm_of_fire",
-                        "explosion_type": {
-                          "key": "wh3_main_army_abilities_storm_of_fire",
-                          "detonation_radius": 4,
-                          "detonation_damage": 0,
-                          "is_magical": true,
-                          "detonation_damage_ap": 100,
-                          "affects_allies": true,
-                          "is_flaming": true
-                        },
                         "damage": 0,
                         "ap_damage": 125,
                         "shockwave_radius": 1,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh3_main_army_abilities_storm_of_fire",
+                          "affects_allies": true,
+                          "detonation_damage": 0,
+                          "detonation_damage_ap": 100,
+                          "detonation_radius": 4,
+                          "is_magical": true,
+                          "is_flaming": true
+                        },
                         "contact_stat_effect": {
-                          "id": "wh_dlc06_unit_contact_discouraged",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
                           "duration": 10,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "stat_morale",
                               "value": -10,
+                              "stat": "stat_morale",
                               "how": "add",
                               "description": "-10 Leadership",
-                              "sort_order": 1,
                               "icon": "vanilla3/skins/default/icon_stat_morale"
                             }
                           ]
-                        },
-                        "is_magical": true,
-                        "can_damage_allies": true,
-                        "is_flaming": true
+                        }
                       },
-                      "radius_spread": 30,
-                      "start_time": 2
-                    },
-                    "target_self": false
+                      "num_projectiles": 180
+                    }
                   }
                 }
               ]
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_top_1"
         ]
       },
       {
         "key": "dlc20_chs_tze_top_3",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 2,
         "tier": 6,
+        "indent": 2,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_shared_gift_upgrade_summons",
-          "icon_name": "wh3_main_tech_tze_0_9",
-          "is_hidden": "false",
-          "name": "Pink Horrors",
-          "description": "The Whirling Destroyers of Tzeentch answer only to their God's most valued servants.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_0_9",
+          "onscreen_name": "Pink Horrors",
+          "short_description": "The Whirling Destroyers of Tzeentch answer only to their God's most valued servants.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_faction_merc_capacity_flamers",
               "description": "Gifted Units pool capacity: +2 for Flamers units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen",
-              "priority": 11,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_faction_merc_capacity_flamers",
+              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen"
             },
             {
-              "key": "wh3_dlc20_effect_faction_merc_capacity_pink_horrors",
               "description": "Gifted Units pool capacity: +3 for Pink Horrors units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen",
-              "priority": 11,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_faction_merc_capacity_pink_horrors",
+              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_top_2"
         ]
       }
@@ -248,34 +388,28 @@
       null,
       {
         "key": "dlc20_chs_tze_top_0",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 3,
         "tier": 2,
+        "indent": 3,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_military_1",
-          "icon_name": "wh3_main_tech_tze_4_2",
-          "is_hidden": "false",
-          "name": "Temple of Tzeentch",
-          "description": "Bolstered by ritual and prayer, the mortal warriors of Tzeentch fight with renewed vigour.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_4_2",
+          "onscreen_name": "Temple of Tzeentch",
+          "short_description": "Bolstered by ritual and prayer, the mortal warriors of Tzeentch fight with renewed vigour.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_physical_resist_dummy",
               "description": "Physical resistance: 3% for all units for each active Gift of Tzeentch\n\t(all armies)",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical",
-              "priority": 10,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_physical_resist_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_cost_reduction_mark_of_tzeentch",
               "description": "Path to Glory: -25% Souls cost to devote to Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/souls",
-              "priority": 104,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_initiative_cost_reduction_mark_of_tzeentch",
+              "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_start_1"
         ]
       },
@@ -283,34 +417,28 @@
       null,
       {
         "key": "dlc20_chs_und_5_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 3,
         "tier": 5,
+        "indent": 3,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_daemonic_mounts",
-          "icon_name": "wh_main_chs_lure_of_dark_promises",
-          "is_hidden": "false",
-          "name": "Daemon Mounts",
-          "description": "Daemonic steeds are driven by unnatural hunger, carrying mortals sworn to Chaos into battle in search of prey.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_lure_of_dark_promises",
+          "onscreen_name": "Daemon Mounts",
+          "short_description": "Daemonic steeds are driven by unnatural hunger, carrying mortals sworn to Chaos into battle in search of prey.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_daemon_steeds_context_dummy",
               "description": "Unlocks Warband upgrades: Gorebeast Chariots, Doom Knights and Skullcrushers",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_daemon_steeds_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_knights",
               "description": "Unit experience gain: +25% for Chaos Knights",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_knights",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_6_vilitch"
         ]
       },
@@ -318,27 +446,23 @@
       null,
       {
         "key": "dlc20_chs_tze_top_4",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 3,
         "tier": 8,
+        "indent": 3,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_military_2",
-          "icon_name": "wh3_main_tech_tze_3_4",
-          "is_hidden": "false",
-          "name": "Enchanted Armour",
-          "description": "Foul magic is weaved into leather and chain, strengthening its mortal wearer.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_3_4",
+          "onscreen_name": "Enchanted Armour",
+          "short_description": "Foul magic is weaved into leather and chain, strengthening its mortal wearer.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_ability_hidden_in_time_aspiring_champions",
               "description": "Ability: \"Hidden in Time\" for Aspiring Champions units",
+              "key": "wh3_dlc20_effect_ability_hidden_in_time_aspiring_champions",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 100,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_dlc20_effect_ability_hidden_in_time_aspiring_champions",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_lord_abilities_hidden_in_time",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_abilities_hidden_in_time",
@@ -346,21 +470,25 @@
                     "type": {
                       "key": "wh_type_hiding",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hiding",
-                      "description": "Hiding"
+                      "onscreen_name": "Hiding"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Hidden in Time",
+                    "onscreen_name": "Hidden in Time",
                     "active_time": 75,
-                    "recharge_time": 90,
-                    "num_uses": 2,
                     "effect_range": 0,
-                    "target_friends": false,
+                    "num_uses": 2,
+                    "recharge_time": 90,
                     "target_enemies": false,
+                    "target_friends": false,
                     "target_ground": false,
-                    "target_intercept_range": 0,
                     "target_self": false,
+                    "target_intercept_range": 0,
                     "phases": [
                       {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
                         "duration": 75,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
@@ -385,22 +513,18 @@
               ]
             },
             {
-              "key": "wh3_dlc20_effect_barrier_tzeentch_mortals",
               "description": "Barrier hit points: +25% for all units with the Mark of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/barrier",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_barrier_tzeentch_mortals",
+              "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             },
             {
-              "key": "wh3_dlc20_effect_bonus_v_large_doom_knights",
               "description": "Bonus vs Large: +8 for Doom Knights of Tzeentch units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large",
-              "priority": 501,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_bonus_v_large_doom_knights",
+              "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_top_3"
         ]
       }
@@ -411,102 +535,84 @@
       null,
       {
         "key": "dlc20_chs_und_1_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 4,
         "tier": 3,
+        "indent": 4,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_chosen",
-          "icon_name": "wh_main_chs_aspiration_for_greatness",
-          "is_hidden": "false",
-          "name": "Rite of Ascension",
-          "description": "The dark rites must be performed, if the chosen are to rise among the ranks of Ruin.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_aspiration_for_greatness",
+          "onscreen_name": "Rite of Ascension",
+          "short_description": "The dark rites must be performed, if the chosen are to rise among the ranks of Ruin.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chosen_context_dummy",
               "description": "Unlocks Warband upgrades: Chosen",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chosen_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_warriors",
               "description": "Unit experience gain: +25% for Chaos Warriors",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_warriors",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_15_vilitch"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_6_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 4,
         "tier": 5,
+        "indent": 4,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_knights",
-          "icon_name": "wh_main_chs_banners_of_ruin",
-          "is_hidden": "false",
-          "name": "Profane Weaponry",
-          "description": "The arms of a Chaos Knight are imbued with a small but not inconsequential amount of Unholy power.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_banners_of_ruin",
+          "onscreen_name": "Profane Weaponry",
+          "short_description": "The arms of a Chaos Knight are imbued with a small but not inconsequential amount of Unholy power.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_lances_context_dummy",
               "description": "Unlocks Warband upgrades: Chaos Knights",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_lances_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_magic_attacks_chaos_knights",
               "description": "Enables magical attacks for Chaos Knights units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks",
-              "priority": 140,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_magic_attacks_chaos_knights",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_1_vilitch"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_12_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 4,
         "tier": 7,
+        "indent": 4,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_upgrades",
-          "icon_name": "wh_main_chs_daemonic_armour",
-          "is_hidden": "false",
-          "name": "Inscribed Chaos Armour",
-          "description": "Chaos Armour, inscribed with powerful litanies of hate, will glow hot and vengeful when struck.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_daemonic_armour",
+          "onscreen_name": "Inscribed Chaos Armour",
+          "short_description": "Chaos Armour, inscribed with powerful litanies of hate, will glow hot and vengeful when struck.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_cost",
               "description": "Unit Upgrades cost: -20% for all units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending",
-              "priority": 100,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_unit_upgrade_cost",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             },
             {
-              "key": "wh3_dlc20_effect_armour_mod_warrior_chosen_knights_aspiring_champions",
               "description": "Armour: +10 for Chaos Warriors, Chosen, Chaos Knights and Aspiring Champion units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/armour",
-              "priority": 107,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_armour_mod_warrior_chosen_knights_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/armour"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_6_vilitch"
         ]
       }
@@ -518,69 +624,56 @@
       null,
       {
         "key": "dlc20_chs_und_3_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 5,
         "tier": 4,
+        "indent": 5,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_diplomacy",
-          "icon_name": "wh_main_chs_pennants_of_chaos",
-          "is_hidden": "false",
-          "name": "Dark Diplomacy",
-          "description": "All the forces of Chaos must unite, if the scourge of Order is to ever be undone.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_pennants_of_chaos",
+          "onscreen_name": "Dark Diplomacy",
+          "short_description": "All the forces of Chaos must unite, if the scourge of Order is to ever be undone.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_allegiance_points_mod_skv_bst_nor",
               "description": "Allegiance points gained: +25% for alliances and vassalage with Skaven, Beastmen and Norsca",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_allegiance_points_mod_skv_bst_nor",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_diplomacy_dummy",
               "description": "Diplomatic relations: +15 with Skaven, Norsca and Beastmen for each active Gift of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_diplomacy_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_1_vilitch"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_10_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 5,
         "tier": 6,
+        "indent": 5,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_beasts",
-          "icon_name": "wh_main_chs_rituals_of_corruption",
-          "is_hidden": "false",
-          "name": "Unchained Beasts",
-          "description": "A worthy Beastmaster needs no chains to direct the ferocious nature of his darling pets.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_rituals_of_corruption",
+          "onscreen_name": "Unchained Beasts",
+          "short_description": "A worthy Beastmaster needs no chains to direct the ferocious nature of his darling pets.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_melee_attack_chs_warhounds_manticores",
               "description": "Melee attack: +8 for Chaos Warhounds and Feral Manticore units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-              "priority": 431,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_melee_attack_chs_warhounds_manticores",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             },
             {
-              "key": "wh3_dlc20_effect_ability_gorefeast_chs_warhounds_manticores_rank_4",
               "description": "Passive ability: \"Gorefeast\" for Chaos Warhounds and Feral Manticore units (Rank 4 and above)",
+              "key": "wh3_dlc20_effect_ability_gorefeast_chs_warhounds_manticores_rank_4",
               "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
-              "priority": 580,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_dlc20_effect_ability_gorefeast_chs_warhounds_manticores_rank_4",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_gorefeast",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_gorefeast",
@@ -588,36 +681,39 @@
                     "type": {
                       "key": "wh_type_regeneration",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                      "description": "Regeneration"
+                      "onscreen_name": "Regeneration"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Gorefeast",
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_all_replenish",
-                        "sort_order": 105,
-                        "effect_state": "positive",
-                        "description": "Replenishes hit points of combatants"
-                      }
-                    ],
+                    "onscreen_name": "Gorefeast",
                     "effect_range": 0,
-                    "target_friends": false,
                     "target_enemies": false,
+                    "target_friends": false,
                     "target_ground": false,
-                    "target_intercept_range": 0,
                     "target_self": false,
-                    "phases": [
-                      {
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "hp_change_frequency": 1,
-                        "is_hidden_in_ui": false,
-                        "heal_amount": 0.001
-                      }
-                    ],
+                    "target_intercept_range": 0,
                     "enabled_if": [
                       "In melee",
                       "Battle outcome is undecided"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_replenish",
+                        "localised_text": "Replenishes hit points of combatants",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.001,
+                        "hp_change_frequency": 1
+                      }
                     ]
                   }
                 }
@@ -625,7 +721,8 @@
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_6_vilitch",
           "dlc20_chs_und_7_vilitch"
         ]
@@ -634,163 +731,133 @@
     [
       {
         "key": "dlc20_chs_tze_start_0",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 0,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_marks_tzeentch",
-          "icon_name": "wh3_main_tech_tze_4_1",
-          "is_hidden": "false",
-          "name": "Arcane Branding Iron",
-          "description": "Once one bears the Mark of Tzeentch, their fate is forever changed.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_4_1",
+          "onscreen_name": "Arcane Branding Iron",
+          "short_description": "Once one bears the Mark of Tzeentch, their fate is forever changed.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_tzeentch_context_dummy",
               "description": "Warband upgrades: Allows Undivided units to receive the Mark of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_tzeentch_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_barrier_aspiring_champions",
               "description": "Barrier hit points: +800 for Aspiring Champions",
-              "icon": "vanilla3/campaign_ui/effect_bundles/barrier",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_barrier_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             }
           ]
         }
       },
       {
         "key": "dlc20_chs_tze_start_1",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 1,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_shared_gift_upgrade_authority",
-          "icon_name": "wh3_main_tech_tze_0_4",
-          "is_hidden": "false",
-          "name": "Mystical Banner",
-          "description": "All sacrifices are made under the banner of Slaanesh, filling the hearts of His warriors with pride.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_0_4",
+          "onscreen_name": "Mystical Banner",
+          "short_description": "All sacrifices are made under the banner of Slaanesh, filling the hearts of His warriors with pride.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_authority_dummy",
               "description": "Tzeentch Authority: +1 for each active Gift of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_authority_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_start_0"
         ]
       },
       {
         "key": "dlc20_chs_und_0_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 2,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_marauders",
-          "icon_name": "wh_main_chs_scrutiny_of_the_dark_gods",
-          "is_hidden": "false",
-          "name": "Scrutiny of the Dark Gods",
-          "description": "Let the Marauders gather under their Dark Masters' eternal gaze.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_scrutiny_of_the_dark_gods",
+          "onscreen_name": "Scrutiny of the Dark Gods",
+          "short_description": "Let the Marauders gather under their Dark Masters' eternal gaze.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_marauders",
               "description": "Unit experience gain: +25% for Marauders",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_marauders",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
       },
       {
         "key": "dlc20_chs_und_15_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 3,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_chariots",
-          "icon_name": "wh_main_chs_ensorcelled_weapons",
-          "is_hidden": "false",
-          "name": "Charioteer",
-          "description": "Engineers have perfected a wicked machine of war, drawn by fearsome steeds into the very heart of battle.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_ensorcelled_weapons",
+          "onscreen_name": "Charioteer",
+          "short_description": "Engineers have perfected a wicked machine of war, drawn by fearsome steeds into the very heart of battle.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chaos_chariots_context_dummy",
               "description": "Unlocks Warband upgrades: Chaos Chariots and Hellstriders",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_chaos_chariots_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_xp_gain_rate_marauder_horsemen",
               "description": "Unit experience gain: +25% for Marauder Horsemen",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 611,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_xp_gain_rate_marauder_horsemen",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_0_vilitch"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_7_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 5,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_gift_slot_1",
-          "icon_name": "wh_main_chs_daemonic_pact",
-          "is_hidden": "false",
-          "name": "Daemonic Pact",
-          "description": "A pact with the Dark Gods should not be taken lightly.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_daemonic_pact",
+          "onscreen_name": "Daemonic Pact",
+          "short_description": "A pact with the Dark Gods should not be taken lightly.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
               "description": "Maximum active gifts: +1 for Gifts of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "chs_army_spawn_enable",
               "description": "Army ability: \"Chaotic Torment\" when attacking",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "chs_army_spawn_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_fear_aspiring_champions",
               "description": "Attribute: Cause Fear for Aspiring Champions and Undivided Chosen units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_fear_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
             },
             {
-              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
               "description": "All Authority: +1",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 500,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_3_vilitch",
           "dlc20_chs_und_4_vilitch"
         ]
@@ -798,124 +865,100 @@
       null,
       {
         "key": "dlc20_chs_und_16_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 7,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_monsters",
-          "icon_name": "wh_main_chs_second_to_none",
-          "is_hidden": "false",
-          "name": "Giant Manacles",
-          "description": "Such massive iron bands are a marvel to behold, lending strength to the swing of the most colossal creatures.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_second_to_none",
+          "onscreen_name": "Giant Manacles",
+          "short_description": "Such massive iron bands are a marvel to behold, lending strength to the swing of the most colossal creatures.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_weapon_strength_chs_trolls_giants",
               "description": "Weapon strength: +15% for Chaos Trolls and Chaos Giant units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage",
-              "priority": 461,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_weapon_strength_chs_trolls_giants",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
             },
             {
-              "key": "wh3_dlc20_effect_missile_resistance_chs_trolls_giants_rank_4",
               "description": "Missile resistance: 25% for Chaos Trolls and Chaos Giant units (Rank 4 and above)",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile",
-              "priority": 580,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_missile_resistance_chs_trolls_giants_rank_4",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_12_vilitch",
           "dlc20_chs_und_13_vilitch"
         ]
       },
       {
         "key": "dlc20_chs_und_14_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 8,
+        "indent": 6,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_gift_slot_2",
-          "icon_name": "wh_main_chs_gaze_of_the_dark_gods",
-          "is_hidden": "false",
-          "name": "Gaze of the Dark Gods",
-          "description": "All hope to catch the attention of the Gods, gathering where they think the Ruinous Powers will be looking.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_gaze_of_the_dark_gods",
+          "onscreen_name": "Gaze of the Dark Gods",
+          "short_description": "All hope to catch the attention of the Gods, gathering where they think the Ruinous Powers will be looking.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
               "description": "Maximum active gifts: +1 for Gifts of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_und",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "chs_army_forsaken_enable",
               "description": "Army ability: \"Forsaken Blessing\" when attacking",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "chs_army_forsaken_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_perfect_vigour_aspiring_champions",
               "description": "Attribute: Perfect Vigour for Aspiring Champions and Undivided Chosen units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_fatigue_immune",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_perfect_vigour_aspiring_champions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_fatigue_immune"
             },
             {
-              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
               "description": "All Authority: +1",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 500,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_all_faction",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_16_vilitch"
         ]
       },
       {
         "key": "dlc20_chs_tze_final_0",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 9,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_gift_slot_3",
-          "icon_name": "wh3_main_tech_tze_2_7",
-          "is_hidden": "false",
-          "name": "Chaos Moon",
-          "description": "When Morrslieb bathes the land in its sickly glow, the Curseling's capacity for power greatly expands.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_2_7",
+          "onscreen_name": "Chaos Moon",
+          "short_description": "When Morrslieb bathes the land in its sickly glow, the Curseling's capacity for power greatly expands.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_tze",
               "description": "Maximum active gifts: +1 for Gifts of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_tze",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
             },
             {
-              "key": "wh3_main_effect_tze_cotw_enable_break_alliance",
               "description": "Changing of the Ways: \"Break Alliance\"",
-              "icon": "vanilla3/campaign_ui/effect_bundles/cotw_break_alliance",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_main_effect_tze_cotw_enable_break_alliance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/cotw_break_alliance"
             },
             {
-              "key": "wh3_dlc20_effect_ability_gate_of_tzeentch_aspiring_champions",
               "description": "Ability: \"Gate of Tzeentch\" for Aspiring Champions units",
+              "key": "wh3_dlc20_effect_ability_gate_of_tzeentch_aspiring_champions",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 100,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_dlc20_effect_ability_gate_of_tzeentch_aspiring_champions",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_character_abilities_gate_of_tzeentch",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_gate_of_tzeentch",
@@ -923,83 +966,75 @@
                     "type": {
                       "key": "wh_type_summon_unit",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "description": "Summon Unit"
+                      "onscreen_name": "Summon Unit"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Gate of Tzeentch",
+                    "onscreen_name": "Gate of Tzeentch",
+                    "active_time": 10,
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 50,
+                    "wind_up_time": 5,
+                    "target_if": [
+                      ""
+                    ],
                     "ui_effects": [
                       {
                         "key": "wh3_main_all_summon_pink_horrors",
-                        "sort_order": 105,
-                        "effect_state": "positive",
-                        "description": "Summons a unit of Pink Horrors"
+                        "localised_text": "Summons a unit of Pink Horrors",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_main_all_direct_damage_unbinding",
-                        "sort_order": 203,
-                        "effect_state": "negative",
-                        "description": "Summoned units degrade over time"
+                        "localised_text": "Summoned units degrade over time",
+                        "effect_state": "negative"
                       }
-                    ],
-                    "active_time": 10,
-                    "recharge_time": 90,
-                    "num_uses": 1,
-                    "effect_range": 0,
-                    "initial_recharge": 90,
-                    "target_friends": true,
-                    "target_enemies": false,
-                    "target_ground": true,
-                    "target_intercept_range": 50,
-                    "wind_up_time": 5,
-                    "target_self": false
+                    ]
                   }
                 }
               ]
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_bot_4",
           "dlc20_chs_tze_top_4"
         ]
       },
       {
         "key": "dlc20_chs_tze_final_1",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 6,
         "tier": 10,
+        "indent": 6,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_ultimate",
-          "icon_name": "wh3_main_tech_tze_1_2",
-          "is_hidden": "false",
-          "name": "Unholy Intervention",
-          "description": "Tzeentch directs His Daemons to His champion, to aid the cause of worldly domination.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_1_2",
+          "onscreen_name": "Unholy Intervention",
+          "short_description": "Tzeentch directs His Daemons to His champion, to aid the cause of worldly domination.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_faction_merc_capacity_lords_of_change",
               "description": "Gifted Units pool capacity: +2 for Lord of Change units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen",
-              "priority": 11,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_faction_merc_capacity_lords_of_change",
+              "icon": "vanilla3/campaign_ui/effect_bundles/merc_replen"
             },
             {
-              "key": "wh3_dlc20_effect_character_ascension_mod_tze_daemon_prince",
               "description": "Path to Glory: -25% Souls cost to upgrade characters to a Daemon Prince of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/souls",
-              "priority": 101,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_character_ascension_mod_tze_daemon_prince",
+              "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             },
             {
-              "key": "wh3_main_effect_ability_wom_cost_pct_tzeentch_spells",
               "description": "Winds of Magic cost: -10% for Lore of Tzeentch spells",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "priority": 294,
-              "is_positive_value_good": false
+              "key": "wh3_main_effect_ability_wom_cost_pct_tzeentch_spells",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_final_0"
         ]
       }
@@ -1011,69 +1046,57 @@
       null,
       {
         "key": "dlc20_chs_und_4_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 7,
         "tier": 4,
+        "indent": 7,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_movement",
-          "icon_name": "wh_main_chs_infernal_march",
-          "is_hidden": "false",
-          "name": "Infernal March",
-          "description": "The Chaos Gods grow impatient. Lending a sliver of majesty, they enable their followers to march faster.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_infernal_march",
+          "onscreen_name": "Infernal March",
+          "short_description": "The Chaos Gods grow impatient. Lending a sliver of majesty, they enable their followers to march faster.",
           "effects": [
             {
-              "key": "wh_main_effect_force_all_campaign_movement_range",
               "description": "Campaign movement range: +5% for armies",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement",
-              "priority": 13,
-              "is_positive_value_good": true
+              "key": "wh_main_effect_force_all_campaign_movement_range",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             },
             {
-              "key": "wh3_main_effect_own_reinforcement_time_percentage_mod",
               "description": "Battle reinforcement time: -50%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military",
-              "priority": 101,
-              "is_positive_value_good": false
+              "key": "wh3_main_effect_own_reinforcement_time_percentage_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_2_vilitch"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_11_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 7,
         "tier": 6,
+        "indent": 7,
         "research_points_required": 800,
-        "required_parents": 1,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_building",
-          "icon_name": "wh_main_chs_erection_of_ruinous_monuments",
-          "is_hidden": "false",
-          "name": "Erection of Ruinous Monuments",
-          "description": "Tributes and monuments to the Dark Powers ensure the Chaos Gods' favour.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_erection_of_ruinous_monuments",
+          "onscreen_name": "Erection of Ruinous Monuments",
+          "short_description": "Tributes and monuments to the Dark Powers ensure the Chaos Gods' favour.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_cult_upgrade_und_context_dummy",
               "description": "Unlocks Hero recruitment and post-battle loot bonus effects for Altar Improvement buildings",
-              "icon": "vanilla3/campaign_ui/effect_bundles/cult",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_cult_upgrade_und_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/cult"
             },
             {
-              "key": "wh2_main_effect_building_construction_time_mod_all",
               "description": "Construction time: -20% for all buildings",
-              "icon": "vanilla3/campaign_ui/effect_bundles/construction",
-              "priority": 102,
-              "is_positive_value_good": false
+              "key": "wh2_main_effect_building_construction_time_mod_all",
+              "icon": "vanilla3/campaign_ui/effect_bundles/construction"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_parents": 1,
+        "required_tech_node_keys": [
           "dlc20_chs_und_7_vilitch",
           "dlc20_chs_und_8_vilitch"
         ]
@@ -1085,102 +1108,84 @@
       null,
       {
         "key": "dlc20_chs_und_2_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 8,
         "tier": 3,
+        "indent": 8,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_mutants",
-          "icon_name": "wh_main_chs_a_thousand_twisted_blessings",
-          "is_hidden": "false",
-          "name": "A Thousand Twisted Blessings",
-          "description": "Such a generous gift is the thousand twisted blessings. Think of all the needle-teeth and tentacles it bestows.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_a_thousand_twisted_blessings",
+          "onscreen_name": "A Thousand Twisted Blessings",
+          "short_description": "Such a generous gift is the thousand twisted blessings. Think of all the needle-teeth and tentacles it bestows.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_unit_upgrade_unlock_forsaken_context_dummy",
               "description": "Unlocks Warband upgrades: Forsaken",
-              "icon": "vanilla3/campaign_ui/effect_bundles/warband",
-              "priority": 2,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unit_upgrade_unlock_forsaken_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/warband"
             },
             {
-              "key": "wh3_dlc20_effect_attribute_terror_chaos_spawn",
               "description": "Attribute: Cause Terror for Chaos Spawn units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_attribute_terror_chaos_spawn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
             },
             {
-              "key": "wh_main_effect_force_stat_melee_attack_chaos_spawns",
               "description": "Melee attack: +5 for Chaos Spawn units",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-              "priority": 431,
-              "is_positive_value_good": true
+              "key": "wh_main_effect_force_stat_melee_attack_chaos_spawns",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_15_vilitch"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_8_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 8,
         "tier": 5,
+        "indent": 8,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_corruption",
-          "icon_name": "wh_main_chs_unholy_communion",
-          "is_hidden": "false",
-          "name": "Malignant Totems",
-          "description": "Unholy tributes and towering monuments ensure the Chaos Gods' favour.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_unholy_communion",
+          "onscreen_name": "Malignant Totems",
+          "short_description": "Unholy tributes and towering monuments ensure the Chaos Gods' favour.",
           "effects": [
             {
-              "key": "wh_main_faction_xp_increase_generals",
               "description": "Lord recruit rank: +3",
-              "icon": "vanilla3/campaign_ui/effect_bundles/army",
-              "priority": 51,
-              "is_positive_value_good": true
+              "key": "wh_main_faction_xp_increase_generals",
+              "icon": "vanilla3/campaign_ui/effect_bundles/army"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_corruption_dummy",
               "description": "Chaos corruption: +2 for each active Gift of Chaos Undivided",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_und_corruption_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_2_vilitch"
         ]
       },
       null,
       {
         "key": "dlc20_chs_und_13_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 8,
         "tier": 7,
+        "indent": 8,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_souls",
-          "icon_name": "wh_main_chs_culling_of_the_weak",
-          "is_hidden": "false",
-          "name": "Culling of the Weak",
-          "description": "Stragglers will not be entertained. If you can't keep the pace, you are food for the Warhounds.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_culling_of_the_weak",
+          "onscreen_name": "Culling of the Weak",
+          "short_description": "Stragglers will not be entertained. If you can't keep the pace, you are food for the Warhounds.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_pooled_resource_mod_souls_battle",
               "description": "Souls gained from battles: +20%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/souls",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_pooled_resource_mod_souls_battle",
+              "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_8_vilitch"
         ]
       }
@@ -1190,34 +1195,28 @@
       null,
       {
         "key": "dlc20_chs_tze_bot_0",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 9,
         "tier": 2,
+        "indent": 9,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_shared_gift_upgrade_corruption",
-          "icon_name": "wh3_main_tech_tze_0_1",
-          "is_hidden": "false",
-          "name": "Enchanted Idols",
-          "description": "Enchanted idols sit atop the altar of sacrifice, exuding waves of pure corruption.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_0_1",
+          "onscreen_name": "Enchanted Idols",
+          "short_description": "Enchanted idols sit atop the altar of sacrifice, exuding waves of pure corruption.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_building_upgrade_tze_corruption_context_dummy",
               "description": "Tzeentch corruption: +2 from Chaos Altars",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_building_upgrade_tze_corruption_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_corruption_dummy",
               "description": "Tzeentch corruption: +1 for each active Gift of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_corruption_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_start_1"
         ]
       },
@@ -1225,34 +1224,28 @@
       null,
       {
         "key": "dlc20_chs_und_9_vilitch",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 9,
         "tier": 5,
+        "indent": 9,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_und_shared_vassals",
-          "icon_name": "wh_main_chs_dark_standards",
-          "is_hidden": "false",
-          "name": "Slaves to Darkness",
-          "description": "Perhaps the threat of a collar and chain would remind these lesser beings of their place.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh_main_chs_dark_standards",
+          "onscreen_name": "Slaves to Darkness",
+          "short_description": "Perhaps the threat of a collar and chain would remind these lesser beings of their place.",
           "effects": [
             {
-              "key": "wh3_main_effect_allegiance_points_loan_army_mod",
               "description": "Request army cost: -25%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": false
+              "key": "wh3_main_effect_allegiance_points_loan_army_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             },
             {
-              "key": "wh3_main_effect_allegiance_points_war_coordination_target_mod",
               "description": "War co-ordination target cost: -25%",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": false
+              "key": "wh3_main_effect_allegiance_points_war_coordination_target_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_und_8_vilitch"
         ]
       },
@@ -1260,27 +1253,23 @@
       null,
       {
         "key": "dlc20_chs_tze_bot_4",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 9,
         "tier": 8,
+        "indent": 9,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_teleport",
-          "icon_name": "wh3_main_tech_tze_0_5",
-          "is_hidden": "false",
-          "name": "Teleportation Stone",
-          "description": "Where Thomin's long stride is not fast enough, teleportation will surely suffice.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_0_5",
+          "onscreen_name": "Teleportation Stone",
+          "short_description": "Where Thomin's long stride is not fast enough, teleportation will surely suffice.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_wom_cost_teleport_stance",
               "description": "Teleport stance usage cost: -50% Winds of Magic",
-              "icon": "vanilla3/campaign_ui/effect_bundles/teleport",
-              "priority": 4,
-              "is_positive_value_good": false
+              "key": "wh3_dlc20_effect_wom_cost_teleport_stance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/teleport"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_bot_3"
         ]
       }
@@ -1292,60 +1281,50 @@
       null,
       {
         "key": "dlc20_chs_tze_bot_1",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 10,
         "tier": 4,
+        "indent": 10,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_buildings",
-          "icon_name": "wh3_main_tech_tze_1_3",
-          "is_hidden": "false",
-          "name": "Arcane Construction",
-          "description": "The vile sorcery of Vilitch is weaved into the foundations of every building.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_1_3",
+          "onscreen_name": "Arcane Construction",
+          "short_description": "The vile sorcery of Vilitch is weaved into the foundations of every building.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_cult_upgrade_vilitch_context_dummy",
               "description": "Unlocks bonus research rate effect for Dark Fortress military buildings",
-              "icon": "vanilla3/campaign_ui/effect_bundles/cult",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_cult_upgrade_vilitch_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/cult"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_bot_0"
         ]
       },
       {
         "key": "dlc20_chs_tze_bot_2",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 10,
         "tier": 5,
+        "indent": 10,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_gift_slot_1",
-          "icon_name": "wh3_main_tech_tze_4_3",
-          "is_hidden": "false",
-          "name": "Dark Meditation",
-          "description": "A free mind is one unshackled by the burdens of ignorance, and open to receiving Tzeentch's twisted blessings.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_4_3",
+          "onscreen_name": "Dark Meditation",
+          "short_description": "A free mind is one unshackled by the burdens of ignorance, and open to receiving Tzeentch's twisted blessings.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_chs_gift_cap_mod_tze",
               "description": "Maximum active gifts: +1 for Gifts of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_chs_gift_cap_mod_tze",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
             },
             {
-              "key": "wh3_main_effect_army_ability_enable_bolt_of_change",
               "description": "Army ability: \"Bolt of Change\"",
+              "key": "wh3_main_effect_army_ability_enable_bolt_of_change",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "priority": 301,
-              "is_positive_value_good": true,
               "related_abilities": [
                 {
-                  "bonus_value_id": "enable",
                   "effect": "wh3_main_effect_army_ability_enable_bolt_of_change",
+                  "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_main_army_abilities_bolt_of_change",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_bolt_of_change",
@@ -1353,148 +1332,137 @@
                     "type": {
                       "key": "wh_type_bombardment",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                      "description": "Bombardment"
+                      "onscreen_name": "Bombardment"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Bolt of Change",
+                    "onscreen_name": "Bolt of Change",
+                    "active_time": 10,
+                    "effect_range": 0,
+                    "recharge_time": 90,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": -1,
+                    "wind_up_time": 3,
                     "ui_effects": [
                       {
                         "key": "wh2_main_bombardment_medium_strike_aoe",
-                        "sort_order": 105,
-                        "effect_state": "positive",
-                        "description": "Medium strike area"
+                        "localised_text": "Medium strike area",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_main_all_strong_against_single",
-                        "sort_order": 106,
-                        "effect_state": "positive",
-                        "description": "Strong vs a single unit"
+                        "localised_text": "Strong vs a single unit",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_projectile_number_1",
-                        "sort_order": 200,
-                        "effect_state": "positive",
-                        "description": "Projectiles: 1"
+                        "localised_text": "Projectiles: 1",
+                        "effect_state": "positive"
                       },
                       {
                         "key": "wh_projectile_aoe_10",
-                        "sort_order": 201,
-                        "effect_state": "positive",
-                        "description": "Explosion area of effect: 10m"
+                        "localised_text": "Explosion area of effect: 10m",
+                        "effect_state": "positive"
                       }
                     ],
-                    "active_time": 10,
-                    "recharge_time": 90,
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": false,
-                    "target_intercept_range": -1,
-                    "wind_up_time": 3,
                     "bombardment": {
                       "bombardment_key": "wh3_main_army_abilities_bolt_of_change",
                       "arrival_window": 0.5,
+                      "radius_spread": 6,
+                      "start_time": 4,
                       "projectile_type": {
                         "key": "wh3_main_army_abilities_bolt_of_change",
-                        "explosion_type": {
-                          "key": "wh3_main_army_abilities_bolt_of_change",
-                          "detonation_radius": 10,
-                          "detonation_damage": 0,
-                          "is_magical": true,
-                          "detonation_damage_ap": 50,
-                          "affects_allies": true
-                        },
                         "damage": 0,
                         "ap_damage": 2500,
                         "shockwave_radius": 1,
+                        "is_magical": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh3_main_army_abilities_bolt_of_change",
+                          "affects_allies": true,
+                          "detonation_damage": 0,
+                          "detonation_damage_ap": 50,
+                          "detonation_radius": 10,
+                          "is_magical": true
+                        },
                         "contact_stat_effect": {
-                          "id": "wh2_dlc12_unit_passive_zzzap",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
                           "duration": 5,
                           "effect_type": "negative",
-                          "ability_recharge_change": 10,
                           "is_hidden_in_ui": false,
+                          "ability_recharge_change": 10,
                           "stat_effects": [
                             {
-                              "stat": "scalar_missile_range",
                               "value": 0,
-                              "how": "mult",
-                              "description": "x0 Range",
-                              "sort_order": 7,
-                              "icon": "vanilla3/skins/default/icon_stat_range"
-                            },
-                            {
-                              "stat": "scalar_speed",
-                              "value": 0,
-                              "how": "mult",
-                              "description": "x0 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
                               "stat": "stat_melee_attack",
-                              "value": 0,
                               "how": "mult",
                               "description": "x0 Melee Attack",
-                              "sort_order": 2,
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "stat": "scalar_charge_speed",
                               "value": 0,
+                              "stat": "scalar_missile_range",
+                              "how": "mult",
+                              "description": "x0 Range",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            },
+                            {
+                              "value": 0,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 0,
+                              "stat": "scalar_charge_speed",
                               "how": "mult",
                               "description": "x0 Charge Speed",
-                              "sort_order": 10,
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
-                        },
-                        "is_magical": true,
-                        "can_damage_allies": true
-                      },
-                      "radius_spread": 6,
-                      "start_time": 4
-                    },
-                    "target_self": false
+                        }
+                      }
+                    }
                   }
                 }
               ]
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_bot_1"
         ]
       },
       {
         "key": "dlc20_chs_tze_bot_3",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 10,
         "tier": 6,
+        "indent": 10,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_shared_gift_upgrade_diplomacy",
-          "icon_name": "wh3_main_tech_tze_1_6",
-          "is_hidden": "false",
-          "name": "Sacrificial Prophecy",
-          "description": "The most powerful seers of Tzeentch divine the location of every sacrifice made in His honour.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_1_6",
+          "onscreen_name": "Sacrificial Prophecy",
+          "short_description": "The most powerful seers of Tzeentch divine the location of every sacrifice made in His honour.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_allegiance_points_mod_tzeentch",
               "description": "Allegiance points gained: +25% for alliances and vassalage with Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_allegiance_points_mod_tzeentch",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             },
             {
-              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_diplomacy_dummy",
               "description": "Diplomatic relations: +15 with Tzeentchian factions for each active Gift of Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
-              "priority": 100,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_initiative_upgrade_all_tze_diplomacy_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_bot_2"
         ]
       }
@@ -1507,41 +1475,33 @@
       null,
       {
         "key": "dlc20_chs_tze_bot_bonus",
-        "faction_key": "wh3_dlc20_chs_vilitch",
-        "indent": 11,
         "tier": 5,
+        "indent": 11,
         "research_points_required": 800,
         "technology": {
           "key": "wh3_dlc20_chs_tze_vilitch_heroes_lords",
-          "icon_name": "wh3_main_tech_tze_2_3",
-          "is_hidden": "false",
-          "name": "Summoning Rite",
-          "description": "Those bearing the Mark of Tzeentch gather in strength, answering the summons of the Master of Misrule.",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_tze_2_3",
+          "onscreen_name": "Summoning Rite",
+          "short_description": "Those bearing the Mark of Tzeentch gather in strength, answering the summons of the Master of Misrule.",
           "effects": [
             {
-              "key": "wh3_dlc20_effect_char_upgrade_xp_loss_mod_tzeentch_scripted",
               "description": "Path to Glory: +50% levels kept when devoting a character to Tzeentch",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-              "priority": 1,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_char_upgrade_xp_loss_mod_tzeentch_scripted",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
             {
-              "key": "wh_main_effect_agent_cap_increase_wizard_chaos_sorcerer",
               "description": "Hero capacity: +2 for Chaos Sorcerers",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
-              "priority": 102,
-              "is_positive_value_good": true
+              "key": "wh_main_effect_agent_cap_increase_wizard_chaos_sorcerer",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
             },
             {
-              "key": "wh3_dlc20_effect_unlock_recruitment_marked_sorcerers_context_dummy",
               "description": "Enables direct recruitment of Marked Chaos Sorcerers",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
-              "priority": 103,
-              "is_positive_value_good": true
+              "key": "wh3_dlc20_effect_unlock_recruitment_marked_sorcerers_context_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
             }
           ]
         },
-        "requires_parent_nodes": [
+        "required_tech_node_keys": [
           "dlc20_chs_tze_bot_2"
         ]
       }
@@ -1553,252 +1513,252 @@
       "child_key": "dlc20_chs_tze_bot_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_bot_1",
       "child_key": "dlc20_chs_tze_bot_2",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_bot_2",
       "child_key": "dlc20_chs_tze_bot_3",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_bot_2",
       "child_key": "dlc20_chs_tze_bot_bonus",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_bot_3",
       "child_key": "dlc20_chs_tze_bot_4",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_bot_4",
       "child_key": "dlc20_chs_tze_final_0",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_final_0",
       "child_key": "dlc20_chs_tze_final_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_start_0",
       "child_key": "dlc20_chs_tze_start_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_start_1",
       "child_key": "dlc20_chs_tze_bot_0",
       "parent_link_position": "bottom",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_start_1",
       "child_key": "dlc20_chs_tze_top_0",
       "parent_link_position": "top",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_top_0",
       "child_key": "dlc20_chs_tze_top_1",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_top_1",
       "child_key": "dlc20_chs_tze_top_2",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_top_2",
       "child_key": "dlc20_chs_tze_top_3",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_top_2",
       "child_key": "dlc20_chs_tze_top_bonus",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_top_3",
       "child_key": "dlc20_chs_tze_top_4",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_tze_top_4",
       "child_key": "dlc20_chs_tze_final_0",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_0_vilitch",
       "child_key": "dlc20_chs_und_15_vilitch",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_12_vilitch",
       "child_key": "dlc20_chs_und_16_vilitch",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_13_vilitch",
       "child_key": "dlc20_chs_und_16_vilitch",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_15_vilitch",
       "child_key": "dlc20_chs_und_1_vilitch",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_15_vilitch",
       "child_key": "dlc20_chs_und_2_vilitch",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_16_vilitch",
       "child_key": "dlc20_chs_und_14_vilitch",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_1_vilitch",
       "child_key": "dlc20_chs_und_3_vilitch",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_1_vilitch",
       "child_key": "dlc20_chs_und_6_vilitch",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_2_vilitch",
       "child_key": "dlc20_chs_und_4_vilitch",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_2_vilitch",
       "child_key": "dlc20_chs_und_8_vilitch",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_3_vilitch",
       "child_key": "dlc20_chs_und_7_vilitch",
       "parent_link_position": "bottom",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_4_vilitch",
       "child_key": "dlc20_chs_und_7_vilitch",
       "parent_link_position": "top",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_6_vilitch",
       "child_key": "dlc20_chs_und_10_vilitch",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_6_vilitch",
       "child_key": "dlc20_chs_und_12_vilitch",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_6_vilitch",
       "child_key": "dlc20_chs_und_5_vilitch",
       "parent_link_position": "top",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_7_vilitch",
       "child_key": "dlc20_chs_und_10_vilitch",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_7_vilitch",
       "child_key": "dlc20_chs_und_11_vilitch",
       "parent_link_position": "right",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_8_vilitch",
       "child_key": "dlc20_chs_und_11_vilitch",
       "parent_link_position": "right",
       "child_link_position": "bottom",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_8_vilitch",
       "child_key": "dlc20_chs_und_13_vilitch",
       "parent_link_position": "right",
       "child_link_position": "left",
-      "visible": true
+      "visible_in_ui": true
     },
     {
       "parent_key": "dlc20_chs_und_8_vilitch",
       "child_key": "dlc20_chs_und_9_vilitch",
       "parent_link_position": "bottom",
       "child_link_position": "top",
-      "visible": true
+      "visible_in_ui": true
     }
   ]
 }

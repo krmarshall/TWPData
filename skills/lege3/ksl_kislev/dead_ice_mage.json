@@ -1,76 +1,76 @@
 {
+  "key": "dead_ice_mage",
   "skillTree": [
     [
       {
         "key": "dead_ice_mage_generic_02",
         "image_path": "vanilla3/campaign_ui/skills/mount_warhorse",
+        "character_skill_key": "dead_ice_mage_mount",
+        "tier": 1,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Steppe Horse",
-        "description": "Wild stallions that are ferocious and agile. Most are used by Kislev's horse archers.",
+        "localised_name": "Steppe Horse",
+        "localised_description": "Wild stallions that are ferocious and agile. Most are used by Kislev's horse archers.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount",
-                "priority": 50,
-                "is_positive_value_good": true,
                 "description": "Mount: Warhorse",
                 "key": "wh_main_effect_enable_mount_warhorse",
-                "value": 1
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
               }
             ],
             "auto_unlock_at_rank": 6
           }
-        ],
-        "character_skill_key": "dead_ice_mage_mount",
-        "indent": 0,
-        "tier": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       },
       {
         "key": "dead_ice_mage_generic_04",
         "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
-        "is_background_skill": false,
-        "name": "Ursun's Protection",
-        "description": "Naught can penetrate the swirling mists of ice and sleet that churn around those afforded Father Bear's protection.",
-        "levels": [
-          {
-            "unlocked_at_rank": 7,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile",
-                "priority": 280,
-                "is_positive_value_good": true,
-                "description": "Missile resistance: 10%",
-                "key": "wh_main_effect_character_stat_missile_resistance",
-                "value": 10
-              }
-            ]
-          }
-        ],
         "character_skill_key": "wh3_main_skill_ksl_all_unique_missile_resist",
-        "indent": 0,
         "tier": 3,
+        "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
-        "visible_in_ui": true
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Ursun's Protection",
+        "localised_description": "Naught can penetrate the swirling mists of ice and sleet that churn around those afforded Father Bear's protection.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Missile resistance: 10%",
+                "key": "wh_main_effect_character_stat_missile_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              }
+            ],
+            "unlocked_at_rank": 7
+          }
+        ]
       },
       {
         "key": "dead_ice_mage_generic_05",
         "image_path": "vanilla3/campaign_ui/skills/wh3_main_character_passive_heroic_resilience",
+        "character_skill_key": "wh3_main_skill_ksl_generic_heroic_resilience",
+        "tier": 4,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Heroic Resilience",
-        "description": "",
+        "localised_name": "Heroic Resilience",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 310,
-                "is_positive_value_good": true,
                 "description": "Passive ability: \"Heroic Resilience\"",
+                "key": "wh3_main_effect_ability_enable_heroic_resilience",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_heroic_resilience",
@@ -82,131 +82,120 @@
                       "type": {
                         "key": "wh_type_augment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Augment"
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Heroic Resilience",
+                      "onscreen_name": "Heroic Resilience",
                       "effect_range": 0,
-                      "target_friends": false,
                       "target_enemies": false,
+                      "target_friends": false,
                       "target_ground": false,
-                      "target_intercept_range": 0,
                       "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Hit Points less than 50% base"
+                      ],
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "stat_melee_defence",
-                              "value": 14,
-                              "how": "add",
-                              "description": "+14 Melee Defence",
-                              "sort_order": 3,
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "stat": "stat_morale",
                               "value": 8,
+                              "stat": "stat_morale",
                               "how": "add",
                               "description": "+8 Leadership",
-                              "sort_order": 1,
                               "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 14,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+14 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
                             }
                           ]
                         }
-                      ],
-                      "enabled_if": [
-                        "Hit Points less than 50% base"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_heroic_resilience",
-                "value": 1
+                ]
               }
             ]
           }
-        ],
-        "character_skill_key": "wh3_main_skill_ksl_generic_heroic_resilience",
-        "indent": 0,
-        "tier": 4,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       },
       {
         "key": "dead_vlad_unique_mentor",
         "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
-        "is_background_skill": false,
-        "name": "Mentor",
-        "description": "Having learned much in their long years of service, this character now turns their attention to training others.",
-        "levels": [
-          {
-            "unlocked_at_rank": 30,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-                "priority": 10,
-                "is_positive_value_good": true,
-                "description": "Character will share +15% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "value": 15
-              }
-            ]
-          },
-          {
-            "unlocked_at_rank": 40,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-                "priority": 10,
-                "is_positive_value_good": true,
-                "description": "Character will share +30% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "value": 30
-              }
-            ]
-          },
-          {
-            "unlocked_at_rank": 50,
-            "effects": [
-              {
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience",
-                "priority": 10,
-                "is_positive_value_good": true,
-                "description": "Character will share +50% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "value": 50
-              }
-            ]
-          }
-        ],
         "character_skill_key": "wh3_main_skill_all_mentor_hero",
-        "indent": 0,
         "tier": 12,
+        "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
-        "visible_in_ui": true
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Mentor",
+        "localised_description": "Having learned much in their long years of service, this character now turns their attention to training others.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Character will share +15% of experience earned between all other active Heroes of the same type",
+                "key": "wh3_main_effect_character_xp_share_generic_herotext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "unlocked_at_rank": 30
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +30% of experience earned between all other active Heroes of the same type",
+                "key": "wh3_main_effect_character_xp_share_generic_herotext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "unlocked_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +50% of experience earned between all other active Heroes of the same type",
+                "key": "wh3_main_effect_character_xp_share_generic_herotext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "unlocked_at_rank": 50
+          }
+        ]
       }
     ],
     [
       {
         "key": "dead_ice_custom_1",
         "image_path": "vanilla3/campaign_ui/skills/character_damage",
+        "character_skill_key": "dead_ice_iceshard",
+        "tier": 0,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Ice Shard",
-        "description": "A mighty spike of the hardest ice blasts forth to impale ranks of enemies like a well-aimed cannonball from below.",
+        "localised_name": "Ice Shard",
+        "localised_description": "A mighty spike of the hardest ice blasts forth to impale ranks of enemies like a well-aimed cannonball from below.",
         "levels": [
           {
-            "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 300,
-                "is_positive_value_good": true,
                 "description": "Ability: \"Ice Shard\"",
+                "key": "wh3_main_effect_ability_enable_ice_shard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_ice_shard",
@@ -218,90 +207,89 @@
                       "type": {
                         "key": "wh_type_magic_missile",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
-                        "description": "Magic Missile"
+                        "onscreen_name": "Magic Missile"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Ice Shard",
+                      "onscreen_name": "Ice Shard",
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 90,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
                       "ui_effects": [
                         {
                           "key": "wh3_main_projectile_requires_line_of_sight",
-                          "sort_order": 215,
-                          "effect_state": "negative",
-                          "description": "Requires line of sight to the target"
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
                         }
                       ],
-                      "recharge_time": 90,
-                      "num_uses": 3,
-                      "effect_range": 0,
                       "activated_projectile": {
                         "key": "wh3_main_character_abilities_ice_shard",
-                        "explosion_type": {
-                          "key": "wh3_main_character_abilities_ice_shard",
-                          "detonation_radius": 3,
-                          "detonation_damage": 0,
-                          "is_magical": true,
-                          "detonation_damage_ap": 30,
-                          "affects_allies": true
-                        },
                         "damage": 165,
                         "ap_damage": 385,
                         "shockwave_radius": 1,
+                        "is_magical": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh3_main_character_abilities_ice_shard",
+                          "affects_allies": true,
+                          "detonation_damage": 0,
+                          "detonation_damage_ap": 30,
+                          "detonation_radius": 3,
+                          "is_magical": true
+                        },
                         "contact_stat_effect": {
-                          "id": "wh_dlc08_unit_contact_frostbite",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
                           "duration": 10,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
                               "value": 0.7,
+                              "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.7 Speed",
-                              "sort_order": 10,
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
-                        },
-                        "is_magical": true,
-                        "can_damage_allies": true
-                      },
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_ice_shard",
-                "value": 1
+                ]
               }
-            ]
+            ],
+            "unlocked_at_rank": 10
           }
         ],
-        "character_skill_key": "dead_ice_iceshard",
-        "indent": 1,
-        "tier": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "right_arrow": true
       },
       {
         "key": "dead_ice_custom_2",
         "image_path": "vanilla3/battle_ui/ability_icons/wh2_dlc11_character_abilities_taunt",
+        "character_skill_key": "dead_ice_glacial",
+        "tier": 1,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Glacial Blast",
-        "description": "This eldritch explosion propels lacerating shards of ice outwards, devastating anyone caught in its deadly squall.",
+        "localised_name": "Glacial Blast",
+        "localised_description": "This eldritch explosion propels lacerating shards of ice outwards, devastating anyone caught in its deadly squall.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 300,
-                "is_positive_value_good": true,
                 "description": "Ability: \"Glacial Blast\"",
+                "key": "wh3_main_effect_ability_enable_glacial_blast",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_glacial_blast",
@@ -313,136 +301,124 @@
                       "type": {
                         "key": "wh_type_explosion",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
-                        "description": "Explosion"
+                        "onscreen_name": "Explosion"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Glacial Blast",
+                      "onscreen_name": "Glacial Blast",
                       "active_time": 4,
-                      "recharge_time": 90,
-                      "num_uses": 3,
                       "effect_range": 0,
-                      "target_friends": false,
+                      "num_uses": 3,
+                      "recharge_time": 90,
                       "target_enemies": false,
+                      "target_friends": false,
                       "target_ground": false,
+                      "target_self": false,
                       "target_intercept_range": 0,
                       "wind_up_time": 3,
                       "vortex": {
                         "vortex_key": "wh3_main_character_abilities_glacial_blast",
+                        "duration": 1,
+                        "damage": 10,
+                        "damage_ap": 5,
+                        "goal_radius": 15,
+                        "movement_speed": 0,
+                        "delay": 2,
+                        "affects_allies": true,
+                        "is_magical": true,
                         "contact_effect": {
-                          "id": "wh_dlc08_unit_contact_frostbite",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
                           "duration": 10,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
                               "value": 0.7,
+                              "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.7 Speed",
-                              "sort_order": 10,
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
-                        },
-                        "damage": 10,
-                        "damage_ap": 5,
-                        "duration": 1,
-                        "goal_radius": 15,
-                        "movement_speed": 0,
-                        "is_magical": true,
-                        "delay": 2,
-                        "affects_allies": true
-                      },
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_glacial_blast",
-                "value": 1
+                ]
               }
             ]
           }
         ],
-        "character_skill_key": "dead_ice_glacial",
-        "indent": 1,
-        "tier": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_custom_1"
-        ],
-        "boxed": true
+        ]
       },
       {
         "key": "dead_ice_custom_3",
         "image_path": "vanilla3/campaign_ui/skills/campaign_technology",
+        "character_skill_key": "dead_ice_chillblade",
+        "tier": 2,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Forbidden Knowledge",
-        "description": "Being a man in a woman's world has driven Vladimir to find every scrap and piece of knowledge that he can, knowledge that he brings forth at Boris' side.",
+        "localised_name": "Forbidden Knowledge",
+        "localised_description": "Being a man in a woman's world has driven Vladimir to find every scrap and piece of knowledge that he can, knowledge that he brings forth at Boris' side.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology",
-                "priority": 61,
-                "is_positive_value_good": true,
                 "description": "Research rate: +10%",
                 "key": "wh_main_effect_technology_research_rate_mod",
-                "value": 10
+                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology",
-                "priority": 61,
-                "is_positive_value_good": true,
                 "description": "Research rate: +20%",
                 "key": "wh_main_effect_technology_research_rate_mod",
-                "value": 20
+                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology",
-                "priority": 61,
-                "is_positive_value_good": true,
                 "description": "Research rate: +30%",
                 "key": "wh_main_effect_technology_research_rate_mod",
-                "value": 30
+                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
               }
             ]
           }
         ],
-        "character_skill_key": "dead_ice_chillblade",
-        "indent": 1,
-        "tier": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_custom_1"
-        ],
-        "boxed": true
+        ]
       },
       {
         "key": "dead_ice_custom_4",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_spell_yin_missile_mirror",
+        "character_skill_key": "wh3_main_skill_cth_magic_yin_04_missile_mirror",
+        "tier": 3,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Missile Mirror",
-        "description": "",
+        "localised_name": "Missile Mirror",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 290,
-                "is_positive_value_good": true,
                 "description": "Spell: \"Missile Mirror\"",
+                "key": "wh3_main_effect_ability_enable_missile_mirror",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_missile_mirror",
@@ -454,57 +430,58 @@
                       "type": {
                         "key": "wh_type_hex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "description": "Hex"
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Missile Mirror",
+                      "onscreen_name": "Missile Mirror",
+                      "active_time": 18,
+                      "effect_range": 0,
+                      "mana_cost": 10,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 44,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Missile unit"
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh3_main_spell_redirects_projectiles",
-                          "sort_order": 1,
-                          "effect_state": "positive",
-                          "description": "Redirects projectiles back towards the firing unit"
+                          "localised_text": "Redirects projectiles back towards the firing unit",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 18,
-                      "recharge_time": 44,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "mana_cost": 10,
-                      "target_self": false,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": 18,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false
                         }
-                      ],
-                      "target_if": [
-                        "Missile unit"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_missile_mirror",
-                "value": 1
+                ]
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Missile Mirror\"",
+                "key": "wh3_main_effect_ability_overcast_missile_mirror",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_missile_mirror",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_yin_missile_mirror",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_yin_missile_mirror",
@@ -512,65 +489,63 @@
                       "type": {
                         "key": "wh_type_hex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "description": "Hex"
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Missile Mirror",
+                      "onscreen_name": "Missile Mirror",
+                      "active_time": 18,
+                      "effect_range": 0,
+                      "mana_cost": 10,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 44,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Missile unit"
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh3_main_spell_redirects_projectiles",
-                          "sort_order": 1,
-                          "effect_state": "positive",
-                          "description": "Redirects projectiles back towards the firing unit"
+                          "localised_text": "Redirects projectiles back towards the firing unit",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 18,
-                      "recharge_time": 44,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "mana_cost": 10,
-                      "target_self": false,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": 18,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false
                         }
-                      ],
-                      "target_if": [
-                        "Missile unit"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_missile_mirror",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -30% to \"Missile Mirror\"",
                 "key": "wh3_main_effect_ability_cooldown_missile_mirror",
-                "value": -30
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Missile Mirror\"",
+                "key": "wh3_main_effect_ability_overcast_missile_mirror",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_missile_mirror",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_yin_missile_mirror",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_yin_missile_mirror",
@@ -578,104 +553,92 @@
                       "type": {
                         "key": "wh_type_hex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "description": "Hex"
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Missile Mirror",
+                      "onscreen_name": "Missile Mirror",
+                      "active_time": 18,
+                      "effect_range": 0,
+                      "mana_cost": 10,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 44,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Missile unit"
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh3_main_spell_redirects_projectiles",
-                          "sort_order": 1,
-                          "effect_state": "positive",
-                          "description": "Redirects projectiles back towards the firing unit"
+                          "localised_text": "Redirects projectiles back towards the firing unit",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 18,
-                      "recharge_time": 44,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "mana_cost": 10,
-                      "target_self": false,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": 18,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false
                         }
-                      ],
-                      "target_if": [
-                        "Missile unit"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_missile_mirror",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Missile Mirror\"",
                 "key": "wh3_main_effect_ability_cooldown_missile_mirror",
-                "value": -50
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Missile Mirror\"",
                 "key": "wh3_main_effect_ability_wom_cost_missile_mirror",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 295,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Missile Mirror Upgraded\"",
                 "key": "wh3_main_effect_ability_wom_cost_missile_mirror_upgraded",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15% for \"Missile Mirror Upgraded\"",
                 "key": "wh3_main_effect_ability_miscast_missile_mirror_upgraded",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_cth_magic_yin_04_missile_mirror",
-        "indent": 1,
-        "tier": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_custom_1"
-        ],
-        "boxed": true
+        ]
       },
       {
         "key": "dead_ice_custom_5",
         "image_path": "vanilla3/campaign_ui/skills/wh3_main_lore_passive_freezing_winds",
+        "character_skill_key": "dead_ice_aura",
+        "tier": 4,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "The Chilling Aura",
-        "description": "As if the enemy were caught in a blizzard or wading through treacle, the ice-cold aura slows any unit within range to a near-standstill.",
+        "localised_name": "The Chilling Aura",
+        "localised_description": "As if the enemy were caught in a blizzard or wading through treacle, the ice-cold aura slows any unit within range to a near-standstill.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 300,
-                "is_positive_value_good": true,
                 "description": "Ability: \"Chilling Aura\"",
+                "key": "dead_ice_enable_frost_aura",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
                     "effect": "dead_ice_enable_frost_aura",
@@ -687,28 +650,31 @@
                       "type": {
                         "key": "wh_type_hex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "description": "Hex"
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "The Chilling Aura",
+                      "onscreen_name": "The Chilling Aura",
                       "effect_range": 35,
-                      "target_friends": false,
                       "target_enemies": false,
+                      "target_friends": false,
                       "target_ground": false,
-                      "target_intercept_range": 0,
                       "target_self": false,
+                      "target_intercept_range": 0,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": -1,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
                               "value": 0.7,
+                              "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.7 Speed",
-                              "sort_order": 10,
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
@@ -716,44 +682,40 @@
                       ]
                     }
                   }
-                ],
-                "key": "dead_ice_enable_frost_aura",
-                "value": 1
+                ]
               }
             ]
           }
         ],
-        "character_skill_key": "dead_ice_aura",
-        "indent": 1,
-        "tier": 4,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_custom_1"
-        ],
-        "boxed": true
+        ]
       }
     ],
     [
       {
         "key": "dead_ice_mage_magic_0",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_spell_great_maw_bullgorger",
+        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_01_hailstorm",
+        "tier": 0,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Hailstorm",
-        "description": "",
+        "localised_name": "Hailstorm",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Hailstorm Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_hailstorm",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_hailstorm",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_hailstorm",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_hailstorm",
@@ -761,78 +723,71 @@
                       "type": {
                         "key": "wh_type_bombardment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                        "description": "Bombardment"
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Hailstorm",
+                      "onscreen_name": "Hailstorm",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 6,
+                      "recharge_time": 30,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
                       "ui_effects": [
                         {
                           "key": "wh2_main_bombardment_medium_strike_aoe",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Medium strike area"
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 9,
-                      "recharge_time": 30,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
                       "bombardment": {
                         "bombardment_key": "wh3_main_spell_tempest_hailstorm",
                         "arrival_window": 6,
-                        "num_projectiles": 40,
+                        "radius_spread": 15,
+                        "start_time": 2,
                         "projectile_type": {
                           "key": "wh3_main_spell_tempest_hailstorm",
-                          "explosion_type": {
-                            "key": "wh3_main_spell_tempest_hailstorm",
-                            "detonation_radius": 3,
-                            "detonation_damage": 0,
-                            "is_magical": true,
-                            "detonation_damage_ap": 30,
-                            "affects_allies": true
-                          },
                           "damage": 24,
                           "ap_damage": 12,
                           "shockwave_radius": 1,
                           "is_magical": true,
-                          "can_damage_allies": true
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_main_spell_tempest_hailstorm",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 30,
+                            "detonation_radius": 3,
+                            "is_magical": true
+                          }
                         },
-                        "radius_spread": 15,
-                        "start_time": 2
-                      },
-                      "mana_cost": 6,
-                      "target_self": false
+                        "num_projectiles": 40
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_hailstorm",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -30% to \"Hailstorm\"",
                 "key": "wh3_main_effect_ability_cooldown_hailstorm",
-                "value": -30
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Hailstorm Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_hailstorm",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_hailstorm",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_hailstorm",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_hailstorm",
@@ -840,114 +795,98 @@
                       "type": {
                         "key": "wh_type_bombardment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                        "description": "Bombardment"
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Hailstorm",
+                      "onscreen_name": "Hailstorm",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 6,
+                      "recharge_time": 30,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
                       "ui_effects": [
                         {
                           "key": "wh2_main_bombardment_medium_strike_aoe",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Medium strike area"
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 9,
-                      "recharge_time": 30,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
                       "bombardment": {
                         "bombardment_key": "wh3_main_spell_tempest_hailstorm",
                         "arrival_window": 6,
-                        "num_projectiles": 40,
+                        "radius_spread": 15,
+                        "start_time": 2,
                         "projectile_type": {
                           "key": "wh3_main_spell_tempest_hailstorm",
-                          "explosion_type": {
-                            "key": "wh3_main_spell_tempest_hailstorm",
-                            "detonation_radius": 3,
-                            "detonation_damage": 0,
-                            "is_magical": true,
-                            "detonation_damage_ap": 30,
-                            "affects_allies": true
-                          },
                           "damage": 24,
                           "ap_damage": 12,
                           "shockwave_radius": 1,
                           "is_magical": true,
-                          "can_damage_allies": true
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_main_spell_tempest_hailstorm",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 30,
+                            "detonation_radius": 3,
+                            "is_magical": true
+                          }
                         },
-                        "radius_spread": 15,
-                        "start_time": 2
-                      },
-                      "mana_cost": 6,
-                      "target_self": false
+                        "num_projectiles": 40
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_hailstorm",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Hailstorm\"",
                 "key": "wh3_main_effect_ability_cooldown_hailstorm",
-                "value": -50
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -1 for \"Hailstorm\"",
                 "key": "wh3_main_effect_ability_wom_cost_hailstorm",
-                "value": -1
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 295,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -1 for \"Hailstorm Upgraded\"",
                 "key": "wh3_main_effect_ability_wom_cost_hailstorm_upgraded",
-                "value": -1
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15% for \"Hailstorm Upgraded\"",
                 "key": "wh3_main_effect_ability_miscast_hailstorm_upgraded",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_01_hailstorm",
-        "indent": 2,
-        "tier": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "right_arrow": true
       },
       {
         "key": "dead_ice_mage_magic_1_1",
         "image_path": "vanilla3/campaign_ui/skills/wh3_main_lore_passive_freezing_winds",
+        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_05_freezing_winds",
+        "tier": 1,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Freezing Winds",
-        "description": "",
+        "localised_name": "Freezing Winds",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 310,
-                "is_positive_value_good": true,
                 "description": "Passive ability: \"Freezing Winds\"",
+                "key": "wh3_main_effect_ability_enable_freezing_winds",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_freezing_winds",
@@ -959,60 +898,54 @@
                       "type": {
                         "key": "wh_type_area_of_hexes",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "description": "Hex (Area)"
+                        "onscreen_name": "Hex (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Freezing Winds",
+                      "onscreen_name": "Freezing Winds",
+                      "active_time": 12,
+                      "effect_range": -1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Casting"
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh_dlc05_spell_trigger_when_casting",
-                          "sort_order": 1,
-                          "effect_state": "positive",
-                          "description": "Triggers when casting spell"
+                          "localised_text": "Triggers when casting spell",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 12,
-                      "effect_range": -1,
-                      "target_friends": false,
-                      "target_enemies": false,
-                      "target_ground": false,
-                      "target_intercept_range": 0,
-                      "target_self": false,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": 12,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
+                              "value": 0.75,
                               "stat": "scalar_speed",
-                              "value": 0.8,
                               "how": "mult",
-                              "description": "x0.8 Speed",
-                              "sort_order": 10,
+                              "description": "x0.75 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
-                      ],
-                      "enabled_if": [
-                        "Casting"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_freezing_winds",
-                "value": 1
+                ]
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_05_freezing_winds",
-        "indent": 2,
-        "tier": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_0"
         ],
@@ -1021,17 +954,22 @@
       {
         "key": "dead_ice_mage_magic_1_2",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_spell_great_maw_braingobbler",
+        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_02_gust_of_true_flight",
+        "tier": 2,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Gust of True Flight",
-        "description": "",
+        "localised_name": "Gust of True Flight",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 290,
-                "is_positive_value_good": true,
                 "description": "Spell: \"Gust of True Flight\"",
+                "key": "wh3_main_effect_ability_enable_gust_of_true_flight",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_gust_of_true_flight",
@@ -1043,67 +981,67 @@
                       "type": {
                         "key": "wh_type_augment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Augment"
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Gust of True Flight",
+                      "onscreen_name": "Gust of True Flight",
                       "active_time": 36,
-                      "recharge_time": 28,
                       "effect_range": 0,
-                      "target_friends": true,
+                      "mana_cost": 4,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 28,
                       "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 1,
-                      "mana_cost": 4,
-                      "target_self": true,
+                      "target_if": [
+                        "Missile attack possible"
+                      ],
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 36,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_missile_range",
                               "value": 1.3,
+                              "stat": "scalar_missile_range",
                               "how": "mult",
                               "description": "x1.3 Range",
-                              "sort_order": 7,
                               "icon": "vanilla3/skins/default/icon_stat_range"
                             },
                             {
-                              "stat": "stat_accuracy",
                               "value": 30,
+                              "stat": "stat_accuracy",
                               "how": "add",
                               "description": "+30 Accuracy",
-                              "sort_order": 9,
                               "icon": "vanilla3/skins/default/icon_stat_range"
                             }
                           ]
                         }
-                      ],
-                      "target_if": [
-                        "Missile attack possible"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_gust_of_true_flight",
-                "value": 1
+                ]
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Gust of True Flight Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_gust_of_true_flight",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_gust_of_true_flight",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_gust_of_true_flight",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_gust_of_true_flight",
@@ -1111,75 +1049,72 @@
                       "type": {
                         "key": "wh_type_augment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Augment"
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Gust of True Flight",
+                      "onscreen_name": "Gust of True Flight",
                       "active_time": 36,
-                      "recharge_time": 28,
                       "effect_range": 0,
-                      "target_friends": true,
+                      "mana_cost": 4,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 28,
                       "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 1,
-                      "mana_cost": 4,
-                      "target_self": true,
+                      "target_if": [
+                        "Missile attack possible"
+                      ],
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 36,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_missile_range",
                               "value": 1.3,
+                              "stat": "scalar_missile_range",
                               "how": "mult",
                               "description": "x1.3 Range",
-                              "sort_order": 7,
                               "icon": "vanilla3/skins/default/icon_stat_range"
                             },
                             {
-                              "stat": "stat_accuracy",
                               "value": 30,
+                              "stat": "stat_accuracy",
                               "how": "add",
                               "description": "+30 Accuracy",
-                              "sort_order": 9,
                               "icon": "vanilla3/skins/default/icon_stat_range"
                             }
                           ]
                         }
-                      ],
-                      "target_if": [
-                        "Missile attack possible"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_gust_of_true_flight",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -30% to \"Gust of True Flight\"",
                 "key": "wh3_main_effect_ability_cooldown_gust_of_true_flight",
-                "value": -30
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Gust of True Flight Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_gust_of_true_flight",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_gust_of_true_flight",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_gust_of_true_flight",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_gust_of_true_flight",
@@ -1187,95 +1122,78 @@
                       "type": {
                         "key": "wh_type_augment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Augment"
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Gust of True Flight",
+                      "onscreen_name": "Gust of True Flight",
                       "active_time": 36,
-                      "recharge_time": 28,
                       "effect_range": 0,
-                      "target_friends": true,
+                      "mana_cost": 4,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 28,
                       "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 1,
-                      "mana_cost": 4,
-                      "target_self": true,
+                      "target_if": [
+                        "Missile attack possible"
+                      ],
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 36,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_missile_range",
                               "value": 1.3,
+                              "stat": "scalar_missile_range",
                               "how": "mult",
                               "description": "x1.3 Range",
-                              "sort_order": 7,
                               "icon": "vanilla3/skins/default/icon_stat_range"
                             },
                             {
-                              "stat": "stat_accuracy",
                               "value": 30,
+                              "stat": "stat_accuracy",
                               "how": "add",
                               "description": "+30 Accuracy",
-                              "sort_order": 9,
                               "icon": "vanilla3/skins/default/icon_stat_range"
                             }
                           ]
                         }
-                      ],
-                      "target_if": [
-                        "Missile attack possible"
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_gust_of_true_flight",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Gust of True Flight\"",
                 "key": "wh3_main_effect_ability_cooldown_gust_of_true_flight",
-                "value": -50
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -1 for \"Gust of True Flight\"",
                 "key": "wh3_main_effect_ability_wom_cost_gust_of_true_flight",
-                "value": -1
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 295,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Gust of True Flight Upgraded\"",
                 "key": "wh3_main_effect_ability_wom_cost_gust_of_true_flight_upgraded",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15% for \"Gust of True Flight Upgraded\"",
                 "key": "wh3_main_effect_ability_miscast_gust_of_true_flight_upgraded",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_02_gust_of_true_flight",
-        "indent": 2,
-        "tier": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_0"
         ],
@@ -1284,17 +1202,22 @@
       {
         "key": "dead_ice_mage_magic_1_3",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_spell_great_maw_toothcracker",
+        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_03_swiftwing",
+        "tier": 3,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Swiftwing",
-        "description": "",
+        "localised_name": "Swiftwing",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 290,
-                "is_positive_value_good": true,
                 "description": "Spell: \"Swiftwing\"",
+                "key": "wh3_main_effect_ability_enable_swiftwing",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_swiftwing",
@@ -1306,64 +1229,63 @@
                       "type": {
                         "key": "wh_type_area_of_augments",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "description": "Augment (Area)"
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Swiftwing",
+                      "onscreen_name": "Swiftwing",
                       "active_time": 26,
-                      "recharge_time": 44,
                       "effect_range": 35,
-                      "target_friends": true,
+                      "mana_cost": 8,
+                      "recharge_time": 44,
                       "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 3,
-                      "mana_cost": 8,
-                      "target_self": true,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 26,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
-                              "value": 1.3,
-                              "how": "mult",
-                              "description": "x1.3 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "stat": "stat_charge_bonus",
                               "value": 1.4,
+                              "stat": "stat_charge_bonus",
                               "how": "mult",
                               "description": "x1.4 Charge Bonus",
-                              "sort_order": 4,
                               "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.25 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_swiftwing",
-                "value": 1
+                ]
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Swiftwing Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_swiftwing",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_swiftwing",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_swiftwing",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_swiftwing",
@@ -1371,72 +1293,68 @@
                       "type": {
                         "key": "wh_type_area_of_augments",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "description": "Augment (Area)"
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Swiftwing",
+                      "onscreen_name": "Swiftwing",
                       "active_time": 26,
-                      "recharge_time": 44,
                       "effect_range": 35,
-                      "target_friends": true,
+                      "mana_cost": 8,
+                      "recharge_time": 44,
                       "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 3,
-                      "mana_cost": 8,
-                      "target_self": true,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 26,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
-                              "value": 1.3,
-                              "how": "mult",
-                              "description": "x1.3 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "stat": "stat_charge_bonus",
                               "value": 1.4,
+                              "stat": "stat_charge_bonus",
                               "how": "mult",
                               "description": "x1.4 Charge Bonus",
-                              "sort_order": 4,
                               "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.25 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_swiftwing",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -30% to \"Swiftwing\"",
                 "key": "wh3_main_effect_ability_cooldown_swiftwing",
-                "value": -30
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Swiftwing Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_swiftwing",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_swiftwing",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_swiftwing",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_swiftwing",
@@ -1444,92 +1362,74 @@
                       "type": {
                         "key": "wh_type_area_of_augments",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "description": "Augment (Area)"
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Swiftwing",
+                      "onscreen_name": "Swiftwing",
                       "active_time": 26,
-                      "recharge_time": 44,
                       "effect_range": 35,
-                      "target_friends": true,
+                      "mana_cost": 8,
+                      "recharge_time": 44,
                       "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 3,
-                      "mana_cost": 8,
-                      "target_self": true,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 26,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
-                              "value": 1.3,
-                              "how": "mult",
-                              "description": "x1.3 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "stat": "stat_charge_bonus",
                               "value": 1.4,
+                              "stat": "stat_charge_bonus",
                               "how": "mult",
                               "description": "x1.4 Charge Bonus",
-                              "sort_order": 4,
                               "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.25 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
                       ]
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_swiftwing",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Swiftwing\"",
                 "key": "wh3_main_effect_ability_cooldown_swiftwing",
-                "value": -50
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Swiftwing\"",
                 "key": "wh3_main_effect_ability_wom_cost_swiftwing",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 295,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -3 for \"Swiftwing Upgraded\"",
                 "key": "wh3_main_effect_ability_wom_cost_swiftwing_upgraded",
-                "value": -3
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15% for \"Swiftwing Upgraded\"",
                 "key": "wh3_main_effect_ability_miscast_swiftwing_upgraded",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_03_swiftwing",
-        "indent": 2,
-        "tier": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_0"
         ],
@@ -1538,17 +1438,22 @@
       {
         "key": "dead_ice_mage_magic_1_4",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_spell_great_maw_bonecrusher",
+        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_04_biting_wind",
+        "tier": 4,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Biting Wind",
-        "description": "",
+        "localised_name": "Biting Wind",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 290,
-                "is_positive_value_good": true,
                 "description": "Spell: \"Biting Wind\"",
+                "key": "wh3_main_effect_ability_enable_biting_wind",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_biting_wind",
@@ -1560,58 +1465,57 @@
                       "type": {
                         "key": "wh_type_wind",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
-                        "description": "Wind"
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Biting Wind",
+                      "onscreen_name": "Biting Wind",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 12,
+                      "recharge_time": 39,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh3_main_spell_expanding_wind",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Expanding, forward-moving area of effect"
+                          "localised_text": "Expanding, forward-moving area of effect",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 9,
-                      "recharge_time": 39,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
-                      "mana_cost": 12,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_biting_wind",
+                        "duration": 8,
                         "damage": 18,
                         "damage_ap": 8,
-                        "duration": 8,
                         "goal_radius": 8,
                         "movement_speed": 20,
-                        "is_magical": true,
                         "delay": 3,
-                        "affects_allies": true
-                      },
-                      "target_self": false
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_biting_wind",
-                "value": 1
+                ]
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Biting Wind Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_biting_wind",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_biting_wind",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_biting_wind",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_biting_wind",
@@ -1619,66 +1523,62 @@
                       "type": {
                         "key": "wh_type_wind",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
-                        "description": "Wind"
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Biting Wind",
+                      "onscreen_name": "Biting Wind",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 12,
+                      "recharge_time": 39,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh3_main_spell_expanding_wind",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Expanding, forward-moving area of effect"
+                          "localised_text": "Expanding, forward-moving area of effect",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 9,
-                      "recharge_time": 39,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
-                      "mana_cost": 12,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_biting_wind",
+                        "duration": 8,
                         "damage": 18,
                         "damage_ap": 8,
-                        "duration": 8,
                         "goal_radius": 8,
                         "movement_speed": 20,
-                        "is_magical": true,
                         "delay": 3,
-                        "affects_allies": true
-                      },
-                      "target_self": false
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_biting_wind",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -30% to \"Biting Wind\"",
                 "key": "wh3_main_effect_ability_cooldown_biting_wind",
-                "value": -30
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Biting Wind Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_biting_wind",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_biting_wind",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_biting_wind",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_biting_wind",
@@ -1686,86 +1586,68 @@
                       "type": {
                         "key": "wh_type_wind",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
-                        "description": "Wind"
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Biting Wind",
+                      "onscreen_name": "Biting Wind",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 12,
+                      "recharge_time": 39,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh3_main_spell_expanding_wind",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Expanding, forward-moving area of effect"
+                          "localised_text": "Expanding, forward-moving area of effect",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 9,
-                      "recharge_time": 39,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
-                      "mana_cost": 12,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_biting_wind",
+                        "duration": 8,
                         "damage": 18,
                         "damage_ap": 8,
-                        "duration": 8,
                         "goal_radius": 8,
                         "movement_speed": 20,
-                        "is_magical": true,
                         "delay": 3,
-                        "affects_allies": true
-                      },
-                      "target_self": false
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_biting_wind",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Biting Wind\"",
                 "key": "wh3_main_effect_ability_cooldown_biting_wind",
-                "value": -50
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Biting Wind\"",
                 "key": "wh3_main_effect_ability_wom_cost_biting_wind",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 295,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -3 for \"Biting Wind Upgraded\"",
                 "key": "wh3_main_effect_ability_wom_cost_biting_wind_upgraded",
-                "value": -3
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15% for \"Biting Wind Upgraded\"",
                 "key": "wh3_main_effect_ability_miscast_biting_wind_upgraded",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_04_biting_wind",
-        "indent": 2,
-        "tier": 4,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_0"
         ],
@@ -1775,17 +1657,22 @@
       {
         "key": "dead_ice_mage_magic_2",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_passive_evasion",
+        "character_skill_key": "wh_main_skill_all_magic_all_06_evasion",
+        "tier": 5,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Evasion",
-        "description": "",
+        "localised_name": "Evasion",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 310,
-                "is_positive_value_good": true,
                 "description": "Passive ability: \"Evasion\"",
+                "key": "wh_main_effect_ability_enable_evasion",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
                     "effect": "wh_main_effect_ability_enable_evasion",
@@ -1797,78 +1684,77 @@
                       "type": {
                         "key": "wh_type_augment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "description": "Augment"
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Evasion",
+                      "onscreen_name": "Evasion",
                       "effect_range": 0,
-                      "target_friends": false,
                       "target_enemies": false,
+                      "target_friends": false,
                       "target_ground": false,
-                      "target_intercept_range": 0,
                       "target_self": false,
+                      "target_intercept_range": 0,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
-                              "value": 1.1,
-                              "how": "mult",
-                              "description": "x1.1 Speed",
-                              "sort_order": 10,
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "stat": "stat_melee_defence",
                               "value": 5,
+                              "stat": "stat_melee_defence",
                               "how": "add",
                               "description": "+5 Melee Defence",
-                              "sort_order": 3,
                               "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 1.05,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.05 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
                       ]
                     }
                   }
-                ],
-                "key": "wh_main_effect_ability_enable_evasion",
-                "value": 1
+                ]
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_magic_all_06_evasion",
-        "indent": 2,
-        "tier": 5,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
+        "right_arrow": true,
         "parent_subset_required": [
           "dead_ice_mage_magic_1_1",
           "dead_ice_mage_magic_1_2",
           "dead_ice_mage_magic_1_3",
           "dead_ice_mage_magic_1_4"
-        ],
-        "right_arrow": true
+        ]
       },
       {
         "key": "dead_ice_mage_magic_3_3",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_spell_great_maw_the_maw",
+        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_07_hawks_of_miska",
+        "tier": 6,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Hawks of Miska",
-        "description": "",
+        "localised_name": "Hawks of Miska",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 290,
-                "is_positive_value_good": true,
                 "description": "Spell: \"Hawks of Miska\"",
+                "key": "wh3_main_effect_ability_enable_hawks_of_miska",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_hawks_of_miska",
@@ -1880,74 +1766,75 @@
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "description": "Vortex"
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Hawks of Miska",
+                      "onscreen_name": "Hawks of Miska",
+                      "active_time": 21,
+                      "effect_range": 0,
+                      "mana_cost": 13,
+                      "recharge_time": 49,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh2_main_spell_friendly_fire_explosion",
-                          "sort_order": 101,
-                          "effect_state": "positive",
-                          "description": "Explosion does not affect friendly troops"
+                          "localised_text": "Explosion does not affect friendly troops",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 21,
-                      "recharge_time": 49,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 5,
-                      "mana_cost": 13,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_hawks_of_miska",
+                        "duration": 20,
+                        "damage": 6,
+                        "damage_ap": 0,
+                        "goal_radius": 15,
+                        "movement_speed": 4,
+                        "delay": 1,
+                        "affects_allies": false,
+                        "is_magical": true,
                         "contact_effect": {
-                          "id": "wh3_main_spell_tempest_hawks_of_miska",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": 21,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "stat_morale",
                               "value": -16,
+                              "stat": "stat_morale",
                               "how": "add",
                               "description": "-16 Leadership",
-                              "sort_order": 1,
                               "icon": "vanilla3/skins/default/icon_stat_morale"
                             }
                           ]
-                        },
-                        "damage": 6,
-                        "damage_ap": 0,
-                        "duration": 20,
-                        "goal_radius": 15,
-                        "movement_speed": 4,
-                        "is_magical": true,
-                        "delay": 1,
-                        "affects_allies": false
-                      },
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_hawks_of_miska",
-                "value": 1
+                ]
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Hawks of Miska Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_hawks_of_miska",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_hawks_of_miska",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_hawks_of_miska",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_hawks_of_miska",
@@ -1955,82 +1842,80 @@
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "description": "Vortex"
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Hawks of Miska",
+                      "onscreen_name": "Hawks of Miska",
+                      "active_time": 21,
+                      "effect_range": 0,
+                      "mana_cost": 13,
+                      "recharge_time": 49,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh2_main_spell_friendly_fire_explosion",
-                          "sort_order": 101,
-                          "effect_state": "positive",
-                          "description": "Explosion does not affect friendly troops"
+                          "localised_text": "Explosion does not affect friendly troops",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 21,
-                      "recharge_time": 49,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 5,
-                      "mana_cost": 13,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_hawks_of_miska",
+                        "duration": 20,
+                        "damage": 6,
+                        "damage_ap": 0,
+                        "goal_radius": 15,
+                        "movement_speed": 4,
+                        "delay": 1,
+                        "affects_allies": false,
+                        "is_magical": true,
                         "contact_effect": {
-                          "id": "wh3_main_spell_tempest_hawks_of_miska",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": 21,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "stat_morale",
                               "value": -16,
+                              "stat": "stat_morale",
                               "how": "add",
                               "description": "-16 Leadership",
-                              "sort_order": 1,
                               "icon": "vanilla3/skins/default/icon_stat_morale"
                             }
                           ]
-                        },
-                        "damage": 6,
-                        "damage_ap": 0,
-                        "duration": 20,
-                        "goal_radius": 15,
-                        "movement_speed": 4,
-                        "is_magical": true,
-                        "delay": 1,
-                        "affects_allies": false
-                      },
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_hawks_of_miska",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -30% to \"Hawks of Miska\"",
                 "key": "wh3_main_effect_ability_cooldown_hawks_of_miska",
-                "value": -30
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Hawks of Miska Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_hawks_of_miska",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_hawks_of_miska",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_hawks_of_miska",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_hawks_of_miska",
@@ -2038,102 +1923,86 @@
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "description": "Vortex"
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Hawks of Miska",
+                      "onscreen_name": "Hawks of Miska",
+                      "active_time": 21,
+                      "effect_range": 0,
+                      "mana_cost": 13,
+                      "recharge_time": 49,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh2_main_spell_friendly_fire_explosion",
-                          "sort_order": 101,
-                          "effect_state": "positive",
-                          "description": "Explosion does not affect friendly troops"
+                          "localised_text": "Explosion does not affect friendly troops",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 21,
-                      "recharge_time": 49,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 5,
-                      "mana_cost": 13,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_hawks_of_miska",
+                        "duration": 20,
+                        "damage": 6,
+                        "damage_ap": 0,
+                        "goal_radius": 15,
+                        "movement_speed": 4,
+                        "delay": 1,
+                        "affects_allies": false,
+                        "is_magical": true,
                         "contact_effect": {
-                          "id": "wh3_main_spell_tempest_hawks_of_miska",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": 21,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "stat_morale",
                               "value": -16,
+                              "stat": "stat_morale",
                               "how": "add",
                               "description": "-16 Leadership",
-                              "sort_order": 1,
                               "icon": "vanilla3/skins/default/icon_stat_morale"
                             }
                           ]
-                        },
-                        "damage": 6,
-                        "damage_ap": 0,
-                        "duration": 20,
-                        "goal_radius": 15,
-                        "movement_speed": 4,
-                        "is_magical": true,
-                        "delay": 1,
-                        "affects_allies": false
-                      },
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_hawks_of_miska",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Hawks of Miska\"",
                 "key": "wh3_main_effect_ability_cooldown_hawks_of_miska",
-                "value": -50
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Hawks of Miska\"",
                 "key": "wh3_main_effect_ability_wom_cost_hawks_of_miska",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 295,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Hawks of Miska Upgraded\"",
                 "key": "wh3_main_effect_ability_wom_cost_hawks_of_miska_upgraded",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15% for \"Hawks of Miska Upgraded\"",
                 "key": "wh3_main_effect_ability_miscast_hawks_of_miska_upgraded",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_07_hawks_of_miska",
-        "indent": 2,
-        "tier": 6,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_2"
         ],
@@ -2142,17 +2011,22 @@
       {
         "key": "dead_ice_mage_magic_3_4",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_spell_great_maw_trollguts",
+        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_07_blizzard",
+        "tier": 7,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Blizzard",
-        "description": "",
+        "localised_name": "Blizzard",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 290,
-                "is_positive_value_good": true,
                 "description": "Spell: \"Blizzard\"",
+                "key": "wh3_main_effect_ability_enable_blizzard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_enable_blizzard",
@@ -2164,74 +2038,75 @@
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "description": "Vortex"
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Blizzard",
+                      "onscreen_name": "Blizzard",
+                      "active_time": 18,
+                      "effect_range": 0,
+                      "mana_cost": 18,
+                      "recharge_time": 54,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_vortex_large_static_aoe",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Large explosion area"
+                          "localised_text": "Large explosion area",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 18,
-                      "recharge_time": 54,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 5,
-                      "mana_cost": 18,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_blizzard",
+                        "duration": 15,
+                        "damage": 0,
+                        "damage_ap": 4,
+                        "goal_radius": 20,
+                        "movement_speed": 0,
+                        "delay": 2.3,
+                        "affects_allies": true,
+                        "is_magical": true,
                         "contact_effect": {
-                          "id": "wh_dlc08_unit_contact_frostbite",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
                           "duration": 10,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
                               "value": 0.7,
+                              "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.7 Speed",
-                              "sort_order": 10,
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
-                        },
-                        "damage": 0,
-                        "damage_ap": 4,
-                        "duration": 15,
-                        "goal_radius": 20,
-                        "movement_speed": 0,
-                        "is_magical": true,
-                        "delay": 2.3,
-                        "affects_allies": true
-                      },
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_enable_blizzard",
-                "value": 1
+                ]
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Blizzard Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_blizzard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_blizzard",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_blizzard",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_blizzard",
@@ -2239,82 +2114,80 @@
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "description": "Vortex"
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Blizzard",
+                      "onscreen_name": "Blizzard",
+                      "active_time": 18,
+                      "effect_range": 0,
+                      "mana_cost": 18,
+                      "recharge_time": 54,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_vortex_large_static_aoe",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Large explosion area"
+                          "localised_text": "Large explosion area",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 18,
-                      "recharge_time": 54,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 5,
-                      "mana_cost": 18,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_blizzard",
+                        "duration": 15,
+                        "damage": 0,
+                        "damage_ap": 4,
+                        "goal_radius": 20,
+                        "movement_speed": 0,
+                        "delay": 2.3,
+                        "affects_allies": true,
+                        "is_magical": true,
                         "contact_effect": {
-                          "id": "wh_dlc08_unit_contact_frostbite",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
                           "duration": 10,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
                               "value": 0.7,
+                              "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.7 Speed",
-                              "sort_order": 10,
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
-                        },
-                        "damage": 0,
-                        "damage_ap": 4,
-                        "duration": 15,
-                        "goal_radius": 20,
-                        "movement_speed": 0,
-                        "is_magical": true,
-                        "delay": 2.3,
-                        "affects_allies": true
-                      },
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_blizzard",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -30% to \"Blizzard\"",
                 "key": "wh3_main_effect_ability_cooldown_blizzard",
-                "value": -30
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 292,
-                "is_positive_value_good": true,
                 "description": "Overcast spell: \"Blizzard Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_blizzard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
                     "effect": "wh3_main_effect_ability_overcast_blizzard",
-                    "bonus_value_id": "enable",
+                    "bonus_value_id": "enable_overchage",
                     "unit_ability": {
                       "key": "wh3_main_spell_tempest_blizzard",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_blizzard",
@@ -2322,102 +2195,86 @@
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "description": "Vortex"
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Blizzard",
+                      "onscreen_name": "Blizzard",
+                      "active_time": 18,
+                      "effect_range": 0,
+                      "mana_cost": 18,
+                      "recharge_time": 54,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        ""
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_vortex_large_static_aoe",
-                          "sort_order": 105,
-                          "effect_state": "positive",
-                          "description": "Large explosion area"
+                          "localised_text": "Large explosion area",
+                          "effect_state": "positive"
                         }
                       ],
-                      "active_time": 18,
-                      "recharge_time": 54,
-                      "effect_range": 0,
-                      "target_friends": false,
-                      "target_enemies": true,
-                      "target_ground": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 5,
-                      "mana_cost": 18,
                       "vortex": {
                         "vortex_key": "wh3_main_spell_tempest_blizzard",
+                        "duration": 15,
+                        "damage": 0,
+                        "damage_ap": 4,
+                        "goal_radius": 20,
+                        "movement_speed": 0,
+                        "delay": 2.3,
+                        "affects_allies": true,
+                        "is_magical": true,
                         "contact_effect": {
-                          "id": "wh_dlc08_unit_contact_frostbite",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
                           "duration": 10,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "stat": "scalar_speed",
                               "value": 0.7,
+                              "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.7 Speed",
-                              "sort_order": 10,
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
-                        },
-                        "damage": 0,
-                        "damage_ap": 4,
-                        "duration": 15,
-                        "goal_radius": 20,
-                        "movement_speed": 0,
-                        "is_magical": true,
-                        "delay": 2.3,
-                        "affects_allies": true
-                      },
-                      "target_self": false
+                        }
+                      }
                     }
                   }
-                ],
-                "key": "wh3_main_effect_ability_overcast_blizzard",
-                "value": 1
+                ]
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
-                "priority": 293,
-                "is_positive_value_good": false,
                 "description": "Cooldown: -50% to \"Blizzard\"",
                 "key": "wh3_main_effect_ability_cooldown_blizzard",
-                "value": -50
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 294,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -2 for \"Blizzard\"",
                 "key": "wh3_main_effect_ability_wom_cost_blizzard",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 295,
-                "is_positive_value_good": false,
                 "description": "Winds of Magic cost: -3 for \"Blizzard Upgraded\"",
                 "key": "wh3_main_effect_ability_wom_cost_blizzard_upgraded",
-                "value": -3
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15% for \"Blizzard Upgraded\"",
                 "key": "wh3_main_effect_ability_miscast_blizzard_upgraded",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
-        "character_skill_key": "wh3_main_skill_ksl_magic_tempest_07_blizzard",
-        "indent": 2,
-        "tier": 7,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_2"
         ],
@@ -2426,29 +2283,26 @@
       {
         "key": "dead_ice_mage_magic_3_1",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "wh_main_skill_all_magic_all_07_earthing",
+        "tier": 8,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Earthing",
-        "description": "By stabbing a staff or some arcane conduit into the ground, an accomplished magic-user can earth or tether the Winds and hopefully reduce a chance of miscasting.",
+        "localised_name": "Earthing",
+        "localised_description": "By stabbing a staff or some arcane conduit into the ground, an accomplished magic-user can earth or tether the Winds and hopefully reduce a chance of miscasting.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "priority": 298,
-                "is_positive_value_good": false,
                 "description": "Miscast base chance: -15%",
                 "key": "wh_main_effect_character_stat_miscast",
-                "value": -15
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_magic_all_07_earthing",
-        "indent": 2,
-        "tier": 8,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_2"
         ],
@@ -2457,29 +2311,26 @@
       {
         "key": "dead_ice_mage_magic_3_2",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "wh_main_skill_all_magic_all_08_power_drain",
+        "tier": 9,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Magical Reserves",
-        "description": "A few magic-users have the ability to store the Winds of Magic for later use, increasing their spellcasting power when it really counts.",
+        "localised_name": "Magical Reserves",
+        "localised_description": "A few magic-users have the ability to store the Winds of Magic for later use, increasing their spellcasting power when it really counts.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign",
-                "priority": 3,
-                "is_positive_value_good": true,
                 "description": "Winds of Magic power reserve capacity: +5",
                 "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "value": 5
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_magic_all_08_power_drain",
-        "indent": 2,
-        "tier": 9,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
         "parent_required": [
           "dead_ice_mage_magic_2"
         ],
@@ -2489,17 +2340,22 @@
       {
         "key": "dead_ice_mage_magic_4",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_arcane_conduit",
+        "character_skill_key": "wh_main_skill_all_magic_all_11_arcane_conduit",
+        "tier": 12,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Arcane Conduit",
-        "description": "",
+        "localised_name": "Arcane Conduit",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "priority": 300,
-                "is_positive_value_good": true,
                 "description": "Passive ability: \"Arcane Conduit\"",
+                "key": "wh_main_effect_ability_enable_arcane_conduit",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
                     "effect": "wh_main_effect_ability_enable_arcane_conduit",
@@ -2511,39 +2367,35 @@
                       "type": {
                         "key": "wh_type_augment_of_the_winds",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                        "description": "Augment of the Winds"
+                        "onscreen_name": "Augment of the Winds"
                       },
                       "is_hidden_in_ui": false,
-                      "description": "Arcane Conduit",
+                      "onscreen_name": "Arcane Conduit",
                       "effect_range": 0,
-                      "target_friends": false,
                       "target_enemies": false,
+                      "target_friends": false,
                       "target_ground": false,
-                      "target_intercept_range": 0,
                       "target_self": false,
+                      "target_intercept_range": 0,
                       "phases": [
                         {
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
-                          "mana_regen_mod": 0.4,
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "mana_regen_mod": 0.4
                         }
                       ]
                     }
                   }
-                ],
-                "key": "wh_main_effect_ability_enable_arcane_conduit",
-                "value": 1
+                ]
               }
             ]
           }
         ],
-        "character_skill_key": "wh_main_skill_all_magic_all_11_arcane_conduit",
-        "indent": 2,
-        "tier": 12,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
         "parent_subset_required": [
           "dead_ice_mage_magic_3_1",
           "dead_ice_mage_magic_3_2",
@@ -2558,445 +2410,391 @@
       {
         "key": "dead_ice_mage_campaign_01",
         "image_path": "vanilla3/campaign_ui/skills/campaign_item",
+        "character_skill_key": "wh2_main_skill_all_hero_assist_army_scouting",
+        "tier": 0,
+        "indent": 5,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Scouting",
-        "description": "Spellcasters can oft-sense when magic is close or being drawn from the Winds.",
+        "localised_name": "{{tr:agent_action_name_scouting}}",
+        "localised_description": "Spellcasters can oft-sense when magic is close or being drawn from the Winds.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "priority": 7,
-                "is_positive_value_good": true,
                 "description": "Scouting action: Magic item drop chance is increased by an additional 5%",
                 "key": "wh2_main_effect_agent_action_assist_army_scouting_buff",
-                "value": 5
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
               }
             ]
           },
           {
-            "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "priority": 7,
-                "is_positive_value_good": true,
                 "description": "Scouting action: Magic item drop chance is increased by an additional 10%",
                 "key": "wh2_main_effect_agent_action_assist_army_scouting_buff",
-                "value": 10
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
               }
-            ]
+            ],
+            "unlocked_at_rank": 5
           },
           {
-            "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "priority": 7,
-                "is_positive_value_good": true,
                 "description": "Scouting action: Magic item drop chance is increased by an additional 15%",
                 "key": "wh2_main_effect_agent_action_assist_army_scouting_buff",
-                "value": 15
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
               }
-            ]
+            ],
+            "unlocked_at_rank": 10
           }
-        ],
-        "character_skill_key": "wh2_main_skill_all_hero_assist_army_scouting",
-        "indent": 5,
-        "tier": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       },
       {
         "key": "dead_ice_mage_campaign_02",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
+        "character_skill_key": "wh2_main_skill_all_hero_passive_boost_income",
+        "tier": 1,
+        "indent": 5,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Boost Income",
-        "description": "Such magic-users may be wise and able to offer sage advice, especially if they have scried the region.",
+        "localised_name": "{{tr:agent_action_name_boost_income}}",
+        "localised_description": "Such magic-users may be wise and able to offer sage advice, especially if they have scried the region.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 0,
-                "is_positive_value_good": true,
                 "description": "Income from all buildings: -2%\n\t(local province)",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-                "value": -2
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 0,
-                "is_positive_value_good": true,
                 "description": "Income from all buildings: +2%\n\t(local province)",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-                "value": 2
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 8,
-                "is_positive_value_good": true,
                 "description": "Boost Income action: Income is modified by an additional 2%",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_buff",
-                "value": 2
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               }
             ]
           },
           {
-            "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 0,
-                "is_positive_value_good": true,
                 "description": "Income from all buildings: -4%\n\t(local province)",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-                "value": -4
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 0,
-                "is_positive_value_good": true,
                 "description": "Income from all buildings: +4%\n\t(local province)",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-                "value": 4
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 8,
-                "is_positive_value_good": true,
                 "description": "Boost Income action: Income is modified by an additional 4%",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_buff",
-                "value": 4
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               }
-            ]
+            ],
+            "unlocked_at_rank": 5
           },
           {
-            "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 0,
-                "is_positive_value_good": true,
                 "description": "Income from all buildings: -6%\n\t(local province)",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-                "value": -6
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 0,
-                "is_positive_value_good": true,
                 "description": "Income from all buildings: +6%\n\t(local province)",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-                "value": 6
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/income",
-                "priority": 8,
-                "is_positive_value_good": true,
                 "description": "Boost Income action: Income is modified by an additional 6%",
                 "key": "wh2_main_effect_agent_action_passive_boost_income_buff",
-                "value": 6
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               }
-            ]
+            ],
+            "unlocked_at_rank": 10
           }
-        ],
-        "character_skill_key": "wh2_main_skill_all_hero_passive_boost_income",
-        "indent": 5,
-        "tier": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       },
       {
         "key": "dead_ice_mage_campaign_03",
         "image_path": "vanilla3/campaign_ui/skills/campaign_technology",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_steal_technology",
+        "tier": 2,
+        "indent": 5,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Steal Technology",
-        "description": "Oft-times, though you may have much, what you want the most is what your rivals have; such envy focuses the mind and creativity.",
+        "localised_name": "{{tr:agent_action_name_steal_technology}}",
+        "localised_description": "Oft-times, though you may have much, what you want the most is what your rivals have; such envy focuses the mind and creativity.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology",
-                "priority": 9,
-                "is_positive_value_good": true,
                 "description": "Steal Technology action: Research rate is increased by an additional 3%",
                 "key": "wh2_main_effect_agent_action_hinder_settlement_steal_technology_buff",
-                "value": 3
+                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
               }
             ]
           },
           {
-            "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology",
-                "priority": 9,
-                "is_positive_value_good": true,
                 "description": "Steal Technology action: Research rate is increased by an additional 6%",
                 "key": "wh2_main_effect_agent_action_hinder_settlement_steal_technology_buff",
-                "value": 6
+                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
               }
-            ]
+            ],
+            "unlocked_at_rank": 5
           },
           {
-            "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology",
-                "priority": 9,
-                "is_positive_value_good": true,
                 "description": "Steal Technology action: Research rate is increased by an additional 10%",
                 "key": "wh2_main_effect_agent_action_hinder_settlement_steal_technology_buff",
-                "value": 10
+                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
               }
-            ]
+            ],
+            "unlocked_at_rank": 10
           }
-        ],
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_steal_technology",
-        "indent": 5,
-        "tier": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       },
       {
         "key": "dead_ice_mage_campaign_04",
         "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_agent_assassinate",
+        "tier": 3,
+        "indent": 5,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Assassinate",
-        "description": "A skilled assassin is a cold-hearted killer and merciless murderer.",
+        "localised_name": "{{tr:agent_action_name_assassinate}}",
+        "localised_description": "A skilled assassin is a cold-hearted killer and merciless murderer.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge",
-                "priority": 10,
-                "is_positive_value_good": true,
                 "description": "Assassinate action: Additional 3% success chance",
                 "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "value": 3
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
               }
             ]
           },
           {
-            "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge",
-                "priority": 10,
-                "is_positive_value_good": true,
                 "description": "Assassinate action: Additional 8% success chance",
                 "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "value": 8
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
               }
-            ]
+            ],
+            "unlocked_at_rank": 5
           },
           {
-            "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge",
-                "priority": 10,
-                "is_positive_value_good": true,
                 "description": "Assassinate action: Additional 15% success chance",
                 "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "value": 15
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
               }
-            ]
+            ],
+            "unlocked_at_rank": 10
           }
-        ],
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_agent_assassinate",
-        "indent": 5,
-        "tier": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       },
       {
         "key": "dead_ice_mage_campaign_05",
         "image_path": "vanilla3/campaign_ui/skills/campaign_disaster",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_assault_unit",
+        "tier": 4,
+        "indent": 5,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Assault Unit",
-        "description": "\"I'm no pupil, but an adept! A hex on them, may their souls shrivel from their bones!\"",
+        "localised_name": "{{tr:agent_action_name_assault_unit}}",
+        "localised_description": "\"I'm no pupil, but an adept! A hex on them, may their souls shrivel from their bones!\"",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition",
-                "priority": 11,
-                "is_positive_value_good": true,
                 "description": "Assault Unit action: Additional 5% damage caused",
                 "key": "wh2_main_effect_agent_action_hinder_army_assault_unit_buff",
-                "value": 5
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
             ]
           },
           {
-            "unlocked_at_rank": 5,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition",
-                "priority": 11,
-                "is_positive_value_good": true,
                 "description": "Assault Unit action: Additional 15% damage caused",
                 "key": "wh2_main_effect_agent_action_hinder_army_assault_unit_buff",
-                "value": 15
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
-            ]
+            ],
+            "unlocked_at_rank": 5
           },
           {
-            "unlocked_at_rank": 10,
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition",
-                "priority": 11,
-                "is_positive_value_good": true,
                 "description": "Assault Unit action: Additional 30% damage caused",
                 "key": "wh2_main_effect_agent_action_hinder_army_assault_unit_buff",
-                "value": 30
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
-            ]
+            ],
+            "unlocked_at_rank": 10
           }
-        ],
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_assault_unit",
-        "indent": 5,
-        "tier": 4,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       },
       {
         "key": "dead_ice_mage_campaign_06",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
+        "character_skill_key": "wh2_main_skill_all_hero_reduce_action_cost",
+        "tier": 5,
+        "indent": 5,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
         "is_background_skill": false,
-        "name": "Specialist",
-        "description": "An expert in their craft, this Hero knows all the mistakes that can be made and how to best avoid making them.",
+        "localised_name": "Specialist",
+        "localised_description": "An expert in their craft, this Hero knows all the mistakes that can be made and how to best avoid making them.",
         "levels": [
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
-                "priority": 101,
-                "is_positive_value_good": false,
                 "description": "Hero action cost: -10%",
                 "key": "wh_main_effect_agent_action_cost_mod",
-                "value": -10
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent",
-                "priority": 101,
-                "is_positive_value_good": true,
                 "description": "Hero action success chance: +1%",
                 "key": "wh_main_effect_agent_action_success_chance",
-                "value": 1
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
-                "priority": 101,
-                "is_positive_value_good": false,
                 "description": "Hero action cost: -20%",
                 "key": "wh_main_effect_agent_action_cost_mod",
-                "value": -20
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent",
-                "priority": 101,
-                "is_positive_value_good": true,
                 "description": "Hero action success chance: +3%",
                 "key": "wh_main_effect_agent_action_success_chance",
-                "value": 3
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ]
           },
           {
             "effects": [
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
-                "priority": 101,
-                "is_positive_value_good": false,
                 "description": "Hero action cost: -40%",
                 "key": "wh_main_effect_agent_action_cost_mod",
-                "value": -40
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent",
-                "priority": 101,
-                "is_positive_value_good": true,
                 "description": "Hero action success chance: +6%",
                 "key": "wh_main_effect_agent_action_success_chance",
-                "value": 6
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ]
           }
-        ],
-        "character_skill_key": "wh2_main_skill_all_hero_reduce_action_cost",
-        "indent": 5,
-        "tier": 5,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true
+        ]
       }
     ]
   ],
-  "key": "dead_ice_mage",
   "backgroundSkills": [
     {
       "key": "dead_ice_mage_campaign_actions_dummy",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
+      "character_skill_key": "wh3_main_skill_all_dummy_agent_actions_ksl_frost_maiden",
+      "tier": 0,
+      "indent": 8,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
       "is_background_skill": false,
-      "name": "",
-      "description": "",
+      "localised_name": "",
+      "localised_description": "",
       "levels": [
         {
           "effects": [
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/income",
-              "priority": 0,
-              "is_positive_value_good": true,
-              "description": "Income from all buildings: -5%\n\t(local province)",
-              "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-              "value": -5
+              "description": "",
+              "key": "wh2_main_effect_agent_action_enable_wizard_assist_army_scouting",
+              "icon": ""
             },
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/income",
-              "priority": 0,
-              "is_positive_value_good": true,
+              "description": "",
+              "key": "wh2_main_effect_agent_action_enable_wizard_hinder_army_assault_unit",
+              "icon": ""
+            },
+            {
+              "description": "",
+              "key": "wh2_main_effect_agent_action_enable_wizard_hinder_settlement_scout_settlement",
+              "icon": ""
+            },
+            {
+              "description": "",
+              "key": "wh2_main_effect_agent_action_enable_wizard_hinder_settlement_steal_technology",
+              "icon": ""
+            },
+            {
+              "description": "",
+              "key": "wh2_main_effect_agent_action_enable_wizard_passive_boost_income",
+              "icon": ""
+            },
+            {
+              "description": "Income from all buildings: -5%\n\t(local province)",
+              "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income"
+            },
+            {
               "description": "Income from all buildings: +5%\n\t(local province)",
               "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-              "value": 5
+              "icon": "vanilla3/campaign_ui/effect_bundles/income"
+            },
+            {
+              "description": "",
+              "key": "wh3_main_effect_agent_action_enable_wizard_hinder_agent_assassinate",
+              "icon": ""
             }
           ]
         }
-      ],
-      "character_skill_key": "wh3_main_skill_all_dummy_agent_actions_ksl_frost_maiden",
-      "character_skill_node_set_key": "dead_ice_mage",
-      "indent": 8,
-      "tier": 0,
-      "points_on_creation": 1,
-      "required_num_parents": 0,
-      "visible_in_ui": false
+      ]
     },
     {
       "key": "dead_ice_mage_magic_dummy",
       "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "wh3_main_skill_ksl_magic_tempest_dummy_hailstorm",
+      "tier": 13,
+      "indent": 2,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
       "is_background_skill": false,
-      "name": "",
-      "description": "",
+      "localised_name": "",
+      "localised_description": "",
       "levels": [
         {
           "effects": [
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "priority": 290,
-              "is_positive_value_good": true,
               "description": "Spell: \"Hailstorm\"",
+              "key": "wh3_main_effect_ability_enable_hailstorm",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
                   "effect": "wh3_main_effect_ability_enable_hailstorm",
@@ -3008,127 +2806,101 @@
                     "type": {
                       "key": "wh_type_bombardment",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                      "description": "Bombardment"
+                      "onscreen_name": "Bombardment"
                     },
                     "is_hidden_in_ui": false,
-                    "description": "Hailstorm",
+                    "onscreen_name": "Hailstorm",
+                    "active_time": 9,
+                    "effect_range": 0,
+                    "mana_cost": 6,
+                    "recharge_time": 30,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 1,
                     "ui_effects": [
                       {
                         "key": "wh2_main_bombardment_medium_strike_aoe",
-                        "sort_order": 105,
-                        "effect_state": "positive",
-                        "description": "Medium strike area"
+                        "localised_text": "Medium strike area",
+                        "effect_state": "positive"
                       }
                     ],
-                    "active_time": 9,
-                    "recharge_time": 30,
-                    "effect_range": 0,
-                    "target_friends": false,
-                    "target_enemies": true,
-                    "target_ground": true,
-                    "target_intercept_range": 200,
-                    "wind_up_time": 1,
                     "bombardment": {
                       "bombardment_key": "wh3_main_spell_tempest_hailstorm",
                       "arrival_window": 6,
-                      "num_projectiles": 40,
+                      "radius_spread": 15,
+                      "start_time": 2,
                       "projectile_type": {
                         "key": "wh3_main_spell_tempest_hailstorm",
-                        "explosion_type": {
-                          "key": "wh3_main_spell_tempest_hailstorm",
-                          "detonation_radius": 3,
-                          "detonation_damage": 0,
-                          "is_magical": true,
-                          "detonation_damage_ap": 30,
-                          "affects_allies": true
-                        },
                         "damage": 24,
                         "ap_damage": 12,
                         "shockwave_radius": 1,
                         "is_magical": true,
-                        "can_damage_allies": true
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh3_main_spell_tempest_hailstorm",
+                          "affects_allies": true,
+                          "detonation_damage": 0,
+                          "detonation_damage_ap": 30,
+                          "detonation_radius": 3,
+                          "is_magical": true
+                        }
                       },
-                      "radius_spread": 15,
-                      "start_time": 2
-                    },
-                    "mana_cost": 6,
-                    "target_self": false
+                      "num_projectiles": 40
+                    }
                   }
                 }
-              ],
-              "key": "wh3_main_effect_ability_enable_hailstorm",
-              "value": 1
+              ]
             }
           ]
         }
-      ],
-      "character_skill_key": "wh3_main_skill_ksl_magic_tempest_dummy_hailstorm",
-      "character_skill_node_set_key": "dead_ice_mage",
-      "indent": 2,
-      "tier": 13,
-      "points_on_creation": 1,
-      "required_num_parents": 0,
-      "visible_in_ui": false
+      ]
     },
     {
       "key": "dead_ice_mage_innate",
       "image_path": "vanilla3/campaign_ui/skills/trait_kislev",
+      "character_skill_key": "dead_ice_innate",
+      "tier": 0,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
       "is_background_skill": true,
-      "name": "Vladimir Stormbringer",
-      "description": "A wielder of Ice Magic, a native form of Magic practised in the northern regions of Kislev, he is able to produce deadly spells of ice and cold. The last thing he remembers is helping the Grudgebringers fight undead, this does not seem to be the same world. Ursun is in pain and this may be the source of his mysterious appearance in this familiar yet unknown world.",
+      "localised_name": "Vladimir Stormbringer",
+      "localised_description": "A wielder of Ice Magic, a native form of Magic practised in the northern regions of Kislev, he is able to produce deadly spells of ice and cold. The last thing he remembers is helping the Grudgebringers fight undead, this does not seem to be the same world. Ursun is in pain and this may be the source of his mysterious appearance in this familiar yet unknown world.",
       "levels": [
         {
           "effects": [
             {
-              "icon": "",
-              "priority": 0,
-              "is_positive_value_good": true,
               "description": "[HIDDEN] adds immortal",
               "key": "wh2_dlc11_enable_immortal_hidden",
-              "value": 1
+              "icon": ""
             },
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "priority": 294,
-              "is_positive_value_good": false,
               "description": "Winds of Magic cost: -1 for \"Blizzard\"",
               "key": "wh3_main_effect_ability_wom_cost_blizzard",
-              "value": -1
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             },
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "priority": 294,
-              "is_positive_value_good": false,
               "description": "Winds of Magic cost: -1 for \"Hailstorm\"",
               "key": "wh3_main_effect_ability_wom_cost_hailstorm",
-              "value": -1
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             },
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "priority": 295,
-              "is_positive_value_good": false,
               "description": "Winds of Magic cost: -1 for \"Blizzard Upgraded\"",
               "key": "wh3_main_effect_ability_wom_cost_blizzard_upgraded",
-              "value": -1
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             },
             {
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "priority": 295,
-              "is_positive_value_good": false,
               "description": "Winds of Magic cost: -1 for \"Hailstorm Upgraded\"",
               "key": "wh3_main_effect_ability_wom_cost_hailstorm_upgraded",
-              "value": -1
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             }
           ]
         }
-      ],
-      "character_skill_key": "dead_ice_innate",
-      "character_skill_node_set_key": "dead_ice_mage",
-      "indent": 6,
-      "tier": 0,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false
+      ]
     }
   ]
 }
