@@ -296,7 +296,6 @@
                             {
                               "key": "immune_to_psychology",
                               "description": " Immune to Psychology",
-                              "attribute_type": "negative",
                               "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                             }
                           ]
@@ -3635,6 +3634,592 @@
       }
     ]
   ],
+  "unitStats": {
+    "run_speed": 4,
+    "mass": 1000,
+    "size": "small",
+    "hit_points": 0,
+    "bonus_hit_points": 5500,
+    "armour": 20,
+    "missile_block_chance": 0,
+    "morale": 70,
+    "damage_mod_flame": 0,
+    "damage_mod_magic": 10,
+    "damage_mod_physical": 10,
+    "damage_mod_missile": 15,
+    "damage_mod_all": 0,
+    "melee_attack": 55,
+    "melee_defense": null,
+    "charge_bonus": 45,
+    "bonus_v_large": 0,
+    "bonus_v_infantry": 0,
+    "damage": 300,
+    "ap_damage": 300,
+    "splash_target_size_limit": "very_large",
+    "splash_attack_max_attacks": 10,
+    "melee_attack_interval": 4,
+    "barrier": 0,
+    "fly_speed": 11,
+    "is_flaming": true,
+    "is_magical": true,
+    "contact_phase": {
+      "order": 1,
+      "target_enemies": true,
+      "target_self": false,
+      "target_friends": false,
+      "duration": 10,
+      "effect_type": "negative",
+      "is_hidden_in_ui": false,
+      "stat_effects": [
+        {
+          "value": -10,
+          "stat": "stat_morale",
+          "how": "add",
+          "description": "-10 Leadership",
+          "icon": "vanilla3/skins/default/icon_stat_morale"
+        }
+      ]
+    },
+    "attributes": [
+      {
+        "key": "encourages",
+        "description": "Encourage",
+        "icon": "sfo3/battle_ui/ability_icons/encourages"
+      },
+      {
+        "key": "guerrilla_deploy",
+        "description": "Vanguard Deployment||This unit can deploy outside the deployment zone.",
+        "icon": "sfo3/battle_ui/ability_icons/guerrilla_deploy"
+      },
+      {
+        "key": "hide_forest",
+        "description": "Hide (forest)",
+        "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+      },
+      {
+        "key": "strider",
+        "description": " Strider",
+        "icon": "sfo3/battle_ui/ability_icons/strider"
+      },
+      {
+        "key": "flying",
+        "description": "Can fly",
+        "icon": "sfo3/battle_ui/ability_icons/flying"
+      }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_dlc03_hero_passive_something_wicked_this_way_comes",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passvie_something_wicked_this_way_comes",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_hexes",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+            "onscreen_name": "Hex (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Something Wicked This Way Comes",
+          "effect_range": 50,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "In melee"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": -5,
+                  "stat": "stat_bonus_vs_infantry",
+                  "how": "add",
+                  "description": "-5 Bonus vs. Infantry",
+                  "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_infantry"
+                },
+                {
+                  "value": -5,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "-5 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": -5,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-5 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": -5,
+                  "stat": "stat_bonus_vs_large",
+                  "how": "add",
+                  "description": "-5 Bonus vs. Large",
+                  "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_dlc03_hero_passive_unholy_power",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_unholy_power",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Unholy Power",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Out of melee"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "mana_regen_mod": 0.6,
+              "stat_effects": [
+                {
+                  "value": 1.2,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.2 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_magic",
+                  "how": "add",
+                  "description": "+10 Spell Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_missile",
+                  "how": "add",
+                  "description": "+10 Missile Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_dlc03_unit_passive_primal_fury",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_unit_passive_primal_fury",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Primal Fury",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than 50% of base"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_charge_bonus",
+                  "how": "add",
+                  "description": "+10 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.1 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_character_abilities_arcane_conduit",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Conduit",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "mana_regen_mod": 0.4,
+              "stat_effects": [
+                {
+                  "value": 1.05,
+                  "stat": "scalar_spell_mastery",
+                  "how": "mult",
+                  "description": "x1.05 Spell Mastery",
+                  "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "bst_active_roar",
+          "icon_name": "sfo3/battle_ui/ability_icons/bst_active_roar",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Beastmen Roar",
+          "active_time": 30,
+          "effect_range": -1,
+          "recharge_time": 180,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 10,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+10 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "bst_active_malagor_crows",
+          "icon_name": "sfo3/battle_ui/ability_icons/bst_active_malagor_crows",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_vortex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+            "onscreen_name": "Vortex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Crowfather",
+          "active_time": 10,
+          "effect_range": 0,
+          "num_uses": 3,
+          "recharge_time": 120,
+          "target_enemies": true,
+          "target_friends": false,
+          "target_ground": true,
+          "target_self": false,
+          "target_intercept_range": 75,
+          "wind_up_time": 3,
+          "ui_effects": [
+            {
+              "key": "spawn_crows",
+              "localised_text": "Summons a unit of Defiled Crows",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_explosion",
+              "localised_text": "Explosion with knockback effect",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_strong_against_units",
+              "localised_text": "Strong vs multiple units",
+              "effect_state": "positive"
+            }
+          ],
+          "vortex": {
+            "vortex_key": "bst_active_malagor_crows",
+            "duration": 10,
+            "damage": 4,
+            "damage_ap": 4,
+            "goal_radius": 20,
+            "movement_speed": 0,
+            "delay": 0,
+            "affects_allies": false
+          }
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_active_takeoff",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_active_takeoff",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Take Off",
+          "active_time": 30,
+          "effect_range": 0,
+          "recharge_time": 90,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "ui_effects": [
+            {
+              "key": "wh_explosion",
+              "localised_text": "Explosion with knockback effect",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh2_main_spell_escape",
+              "localised_text": "Allows chance to escape melee",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 2,
+                  "stat": "scalar_entity_acceleration_modifier",
+                  "how": "mult",
+                  "description": "x2 Acceleration",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.25,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.25 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
   "factionEffects": {
     "key": "wh_dlc03_lord_trait_bst_malagor",
     "localised_description": "Malagor is swift, as if riding the very Winds of Magic. His every step and word boils with corruption, and the Bray-Shamans who serve him carry out their horrific work with increased fervour.",

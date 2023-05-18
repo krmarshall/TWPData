@@ -832,7 +832,6 @@
                             {
                               "key": "ogre_charge",
                               "description": "Unstoppable Charge",
-                              "attribute_type": "positive",
                               "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
                             }
                           ]
@@ -1704,6 +1703,594 @@
       }
     ]
   ],
+  "unitStats": {
+    "run_speed": 5.5,
+    "mass": 1500,
+    "size": "large",
+    "hit_points": 0,
+    "bonus_hit_points": 5000,
+    "armour": 50,
+    "missile_block_chance": 0,
+    "morale": 60,
+    "damage_mod_flame": 0,
+    "damage_mod_magic": 0,
+    "damage_mod_physical": 50,
+    "damage_mod_missile": 0,
+    "damage_mod_all": 0,
+    "melee_attack": 65,
+    "melee_defense": null,
+    "charge_bonus": 50,
+    "bonus_v_large": 0,
+    "bonus_v_infantry": 40,
+    "damage": 150,
+    "ap_damage": 150,
+    "splash_target_size_limit": "medium",
+    "splash_attack_max_attacks": 6,
+    "melee_attack_interval": 3,
+    "barrier": 0,
+    "can_siege": true,
+    "fly_speed": 0,
+    "is_flaming": true,
+    "attributes": [
+      {
+        "key": "stalk",
+        "description": " Stalk",
+        "icon": "sfo3/battle_ui/ability_icons/stalk"
+      },
+      {
+        "key": "causes_fear",
+        "description": " Can Cause Fear",
+        "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+      },
+      {
+        "key": "causes_terror",
+        "description": " Can Cause Terror",
+        "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+      },
+      {
+        "key": "guerrilla_deploy",
+        "description": "Vanguard Deployment||This unit can deploy outside the deployment zone.",
+        "icon": "sfo3/battle_ui/ability_icons/guerrilla_deploy"
+      },
+      {
+        "key": "undead",
+        "description": "Undead",
+        "icon": "sfo3/battle_ui/ability_icons/undead"
+      },
+      {
+        "key": "strider",
+        "description": " Strider",
+        "icon": "sfo3/battle_ui/ability_icons/strider"
+      }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh2_dlc11_unit_passive_the_hunger",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lord_passive_the_hunger",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_regeneration",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+            "onscreen_name": "Regeneration"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "The Hunger",
+          "active_time": 60,
+          "effect_range": 0,
+          "recharge_time": 30,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "In melee",
+            "Leadership is higher than broken",
+            "Battle outcome is undecided"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_replenish",
+              "localised_text": "Replenishes hit points of combatants",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 60,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "heal_amount": 0.0016,
+              "hp_change_frequency": 1,
+              "stat_effects": [
+                {
+                  "value": 5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 1.25,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.25 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_missile",
+                  "how": "add",
+                  "description": "+10 Missile Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_dlc04_unit_passive_chilling_aura",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc04_unit_passive_chilling_aura",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "The Chilling Aura",
+          "effect_range": 40,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.6,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.6 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_character_abilities_deadly_onslaught",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Deadly Onslaught",
+          "active_time": 30,
+          "effect_range": 0,
+          "recharge_time": 120,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.25 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.25 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.5,
+                  "stat": "scalar_splash_attack_power",
+                  "how": "mult",
+                  "description": "x1.5 Splash Attack Power",
+                  "icon": "vanilla3/skins/default/icon_stat_damage"
+                },
+                {
+                  "value": 1.5,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.5 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "ogre_charge",
+                  "description": "Unstoppable Charge",
+                  "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_character_abilities_foe_seeker",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_foe_seeker",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Foe-Seeker",
+          "active_time": 30,
+          "effect_range": 0,
+          "recharge_time": 90,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.4,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.4 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_unit_passive_unstable",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_unstable",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Crumbling",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is broken"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 20,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 2,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.75 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_unit_passive_unstable_mark_ii",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_unstable_mark_ii",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Disintegrating",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is shattered"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self_high",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 200,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 2
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "cst_passive_mourn_stalk",
+          "icon_name": "sfo3/battle_ui/ability_icons/cst_passive_mourn_stalk",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Haunters of the Dark",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Out of melee",
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.5,
+                  "stat": "scalar_entity_acceleration_modifier",
+                  "how": "mult",
+                  "description": "x1.5 Acceleration",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.25,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.25 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "unspottable",
+                  "description": " Unspottable",
+                  "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_thirst",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_thirst",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Ravenous Hunger",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "In melee",
+            "Battle outcome is undecided"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_replenish",
+              "localised_text": "Replenishes hit points of combatants",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "heal_amount": 0.001,
+              "hp_change_frequency": 1
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_vigour",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Vigorous",
+          "active_time": 10,
+          "effect_range": 0,
+          "recharge_time": 30,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Out of melee"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false
+            }
+          ]
+        }
+      }
+    ]
+  },
   "backgroundSkills": [
     {
       "key": "wh2_dlc11_skill_dummy_agent_actions_mourngul",
@@ -2163,6 +2750,11 @@
         {
           "effects": [
             {
+              "description": "Melee defence: -5",
+              "key": "wh_main_effect_character_stat_melee_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+            },
+            {
               "description": "Weapon strength: +10%",
               "key": "wh_main_effect_character_stat_weapon_strength",
               "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
@@ -2245,12 +2837,17 @@
         {
           "effects": [
             {
-              "description": "Hero self-defence: +5% chance of wounding aggressors",
+              "description": "Upkeep: -2%\n\t(all units in army)",
+              "key": "wh_main_effect_force_all_campaign_upkeep",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+            },
+            {
+              "description": "Hero self-defence: +10% chance of wounding aggressors",
               "key": "wh_main_effect_agent_defence_wound_chance_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/agent"
             },
             {
-              "description": "Ambush defence chance: +20%\n\t(all units in army)",
+              "description": "Ambush defence chance: +10%\n\t(all units in army)",
               "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
               "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
             }

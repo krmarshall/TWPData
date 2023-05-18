@@ -1988,32 +1988,32 @@
       },
       {
         "key": "str_ilja_campaign_05",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_disaster",
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_assault_units",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_block_army",
         "tier": 4,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Assault Units",
-        "localised_description": "Lying in wait, experienced and patient, striking when the foe least expects.",
+        "localised_name": "Block Army",
+        "localised_description": "To sow discord and confuse the enemy, sending them down the wrong route or befuddling their senses.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Assault Units action: Additional 3% casualties inflicted",
-                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+                "description": "Block Army action: Movement range is modified by an additional -3%",
+                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Assault Units action: Additional 8% casualties inflicted",
-                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+                "description": "Block Army action: Movement range is modified by an additional -8%",
+                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ],
             "unlocked_at_rank": 5
@@ -2021,9 +2021,9 @@
           {
             "effects": [
               {
-                "description": "Assault Units action: Additional 15% casualties inflicted",
-                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+                "description": "Block Army action: Movement range is modified by an additional -15%",
+                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ],
             "unlocked_at_rank": 10
@@ -2089,6 +2089,442 @@
       }
     ]
   ],
+  "unitStats": {
+    "run_speed": 3.6,
+    "mass": 700,
+    "size": "small",
+    "hit_points": 8,
+    "bonus_hit_points": 4260,
+    "armour": 15,
+    "missile_block_chance": 0,
+    "morale": 66,
+    "damage_mod_flame": 0,
+    "damage_mod_magic": 0,
+    "damage_mod_physical": 0,
+    "damage_mod_missile": 15,
+    "damage_mod_all": 0,
+    "melee_attack": 33,
+    "melee_defense": null,
+    "charge_bonus": 30,
+    "bonus_v_large": 0,
+    "bonus_v_infantry": 0,
+    "damage": 270,
+    "ap_damage": 270,
+    "splash_target_size_limit": "medium",
+    "splash_attack_max_attacks": 5,
+    "melee_attack_interval": 4,
+    "barrier": 0,
+    "can_skirmish": true,
+    "fly_speed": 0,
+    "is_flaming": true,
+    "projectile": {
+      "key": "str_ilja_bow",
+      "damage": 85,
+      "ap_damage": 195,
+      "shockwave_radius": 0.2,
+      "bonus_v_large": 80,
+      "can_damage_allies": true
+    },
+    "accuracy": 15,
+    "reload": 10,
+    "primary_ammo": 45,
+    "fire_arc": 60,
+    "attributes": [
+      {
+        "key": "encourages",
+        "description": "Encourage",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
+      },
+      {
+        "key": "hide_forest",
+        "description": "Hide (forest)",
+        "icon": "vanilla3/battle_ui/ability_icons/hide_forest"
+      },
+      {
+        "key": "stalk",
+        "description": " Stalk",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk"
+      },
+      {
+        "key": "strider",
+        "description": " Strider",
+        "icon": "vanilla3/battle_ui/ability_icons/strider"
+      },
+      {
+        "key": "mounted_fire_move",
+        "description": "Fire Whilst Moving",
+        "icon": "vanilla3/battle_ui/ability_icons/mounted_fire_move"
+      }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 0.9,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.9 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "str_ilja_bear_form",
+          "icon_name": "lege3/battle_ui/ability_icons/str_ilja_bear_form",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_transform",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_transform",
+            "onscreen_name": "Transform"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Spirit of the Great Bear",
+          "active_time": 5,
+          "effect_range": 0,
+          "num_effected_friendly_units": 1,
+          "recharge_time": 120,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "wind_up_time": 5.3,
+          "ui_effects": [
+            {
+              "key": "str_ilja_bear_form_transform",
+              "localised_text": "Transform to Bear form.",
+              "effect_state": "positive"
+            },
+            {
+              "key": "str_ilja_bear_form_advantages",
+              "localised_text": "Form offers powerful melee attacks, abilities, and armour.",
+              "effect_state": "positive"
+            },
+            {
+              "key": "str_ilja_bear_form_disadvantages",
+              "localised_text": "Form loses stalk, ranged attack, hunting abilities.",
+              "effect_state": "negative"
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "str_ilja_net",
+          "icon_name": "lege3/battle_ui/ability_icons/str_ilja_net",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Trap the Prey",
+          "active_time": 18,
+          "effect_range": 0,
+          "num_effected_enemy_units": 1,
+          "num_uses": 3,
+          "recharge_time": 90,
+          "target_enemies": true,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 100,
+          "target_if": [
+            "Grounded",
+            "Unit is a single entity"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 18,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "cant_move": true,
+              "stat_effects": [
+                {
+                  "value": -24,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-24 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "str_ilja_traps",
+          "icon_name": "lege3/battle_ui/ability_icons/str_ilja_traps",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Experienced Trapper",
+          "effect_range": 10,
+          "target_enemies": true,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 5,
+          "target_if": [
+            "Grounded"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 20,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 5,
+              "hp_change_frequency": 5,
+              "max_damaged_entities": 25,
+              "stat_effects": [
+                {
+                  "value": 0.6,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x0.6 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 0.55,
+                  "stat": "scalar_charge_speed",
+                  "how": "mult",
+                  "description": "x0.55 Charge Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.55,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.55 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_by_our_blood",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_by_our_blood",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "By Our Blood",
+          "active_time": 30,
+          "effect_range": 0,
+          "num_uses": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is wavering or lower"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "attributes": [
+                {
+                  "key": "unbreakable",
+                  "description": " Unbreakable",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "str_ilja_fury",
+          "icon_name": "lege3/battle_ui/ability_icons/str_ilja_fury",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Fury of Ursun",
+          "active_time": 29,
+          "effect_range": 0,
+          "recharge_time": 90,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 29,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.25 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.25 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 24,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+24 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "str_ilja_pick_off",
+          "icon_name": "lege3/battle_ui/ability_icons/str_ilja_pick_off",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_magic_missile",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+            "onscreen_name": "Magic Missile"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Pick Off",
+          "effect_range": 0,
+          "num_uses": 2,
+          "recharge_time": 120,
+          "target_enemies": true,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 250,
+          "wind_up_time": 5,
+          "target_if": [
+            "Unit is a single entity"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh2_main_all_magical_damage_moderate",
+              "localised_text": "Causes moderate magical damage",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh2_main_all_good_against_armour",
+              "localised_text": "Good against armour",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_good_vs_large",
+              "localised_text": "Good against large combatants",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh3_main_projectile_requires_line_of_sight",
+              "localised_text": "Requires line of sight to the target",
+              "effect_state": "negative"
+            }
+          ],
+          "activated_projectile": {
+            "key": "str_ilja_pick_off",
+            "damage": 495,
+            "ap_damage": 855,
+            "shockwave_radius": 0.4,
+            "bonus_v_large": 120,
+            "can_damage_allies": true,
+            "explosion_type": {
+              "key": "wh2_dlc13_lord_abilities_kill_shot",
+              "affects_allies": true,
+              "detonation_damage": 0,
+              "detonation_damage_ap": 50,
+              "detonation_radius": 1
+            }
+          }
+        }
+      }
+    ]
+  },
   "backgroundSkills": [
     {
       "key": "str_ilja_innate",

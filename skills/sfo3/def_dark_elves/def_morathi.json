@@ -23,6 +23,589 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/mount"
               }
             ],
+            "mount_unit_stats": {
+              "run_speed": 4.5,
+              "mass": 450,
+              "size": "small",
+              "hit_points": 0,
+              "bonus_hit_points": 5750,
+              "armour": 40,
+              "missile_block_chance": 0,
+              "morale": 85,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 25,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 10,
+              "melee_attack": 60,
+              "melee_defense": null,
+              "charge_bonus": 85,
+              "bonus_v_large": 15,
+              "bonus_v_infantry": 0,
+              "damage": 150,
+              "ap_damage": 150,
+              "splash_target_size_limit": "medium",
+              "splash_attack_max_attacks": 4,
+              "melee_attack_interval": 4,
+              "barrier": 0,
+              "fly_speed": 0,
+              "is_flaming": true,
+              "is_magical": true,
+              "contact_phase": {
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 10,
+                "effect_type": "negative",
+                "is_hidden_in_ui": false,
+                "stat_effects": [
+                  {
+                    "value": -15,
+                    "stat": "stat_melee_attack",
+                    "how": "add",
+                    "description": "-15 Melee Attack",
+                    "icon": "vanilla3/skins/default/icon_stat_attack"
+                  },
+                  {
+                    "value": -15,
+                    "stat": "stat_melee_defence",
+                    "how": "add",
+                    "description": "-15 Melee Defence",
+                    "icon": "vanilla3/skins/default/icon_stat_defence"
+                  },
+                  {
+                    "value": 0.7,
+                    "stat": "stat_accuracy",
+                    "how": "mult",
+                    "description": "x0.7 Accuracy",
+                    "icon": "vanilla3/skins/default/icon_stat_range"
+                  }
+                ]
+              },
+              "attributes": [
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "icon": "sfo3/battle_ui/ability_icons/encourages"
+                },
+                {
+                  "key": "flying",
+                  "description": "Can fly",
+                  "icon": "sfo3/battle_ui/ability_icons/flying"
+                }
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh2_main_character_passive_grand_arcane_conduit",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment_of_the_winds",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                      "onscreen_name": "Augment of the Winds"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Greater Arcane Conduit",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "mana_regen_mod": 0.6,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_spell_mastery",
+                            "how": "mult",
+                            "description": "x1.1 Spell Mastery",
+                            "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_main_faction_abilities_murderous_prowess",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_faction_abilities_murderous_prowess",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Murderous Prowess",
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken",
+                      "Unit has exceeded the murderous prowess value"
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 60,
+                        "effect_type": "positive",
+                        "onscreen_name": "Stage One ",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.5,
+                            "stat": "scalar_missile_damage_ap",
+                            "how": "mult",
+                            "description": "x1.5 Armour-Piercing Missile Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "stat_melee_attack",
+                            "how": "mult",
+                            "description": "x1.5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.5 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ]
+                      },
+                      {
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "onscreen_name": "Stage Two ",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_missile_damage_ap",
+                            "how": "mult",
+                            "description": "x1.2 Armour-Piercing Missile Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_attack",
+                            "how": "mult",
+                            "description": "x1.1 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_main_faction_abilities_murderous_prowess_indicator",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_faction_abilities_murderous_prowess",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": true,
+                    "onscreen_name": "Murderous Prowess Indicator",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      ""
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": true
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_main_lord_passive_enchanting_beauty",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_lord_passive_enchanting_beauty",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Enchanting Beauty",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_spell_mastery",
+                            "how": "mult",
+                            "description": "x0.9 Spell Mastery",
+                            "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                          },
+                          {
+                            "value": -5,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "-5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 0.75,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x0.75 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_main_character_abilities_deadly_onslaught",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Deadly Onslaught",
+                    "active_time": 30,
+                    "effect_range": 0,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.25 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "scalar_splash_attack_power",
+                            "how": "mult",
+                            "description": "x1.5 Splash Attack Power",
+                            "icon": "vanilla3/skins/default/icon_stat_damage"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.5 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "ogre_charge",
+                            "description": "Unstoppable Charge",
+                            "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_dlc10_item_bound_arnizipals_black_horror",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc10_item_bound_arnizipals_black_horror",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_wind",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                      "onscreen_name": "Wind"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arnzipal's Black Horror",
+                    "active_time": 16,
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 100,
+                    "wind_up_time": 5,
+                    "target_if": [
+                      "Grounded",
+                      ""
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh2_main_spell_medium_wind",
+                        "localised_text": "Medium, forward-moving area of effect",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "vortex": {
+                      "vortex_key": "wh2_dlc10_item_bound_arnizipals_black_horror",
+                      "duration": 20,
+                      "damage": 11,
+                      "damage_ap": 5,
+                      "goal_radius": 10,
+                      "movement_speed": 7,
+                      "delay": 1.5,
+                      "affects_allies": true,
+                      "is_magical": true
+                    }
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "def_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/def_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "No Mercy",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Winning melee combat"
+                    ],
+                    "phases": [
+                      {
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "causes_fear",
+                            "description": " Can Cause Fear",
+                            "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
             "auto_unlock_at_rank": 12
           }
         ]
@@ -1215,7 +1798,6 @@
                             {
                               "key": "ogre_charge",
                               "description": "Unstoppable Charge",
-                              "attribute_type": "positive",
                               "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
                             }
                           ]
@@ -4037,6 +4619,589 @@
       }
     ]
   ],
+  "unitStats": {
+    "run_speed": 4.5,
+    "mass": 450,
+    "size": "small",
+    "hit_points": 0,
+    "bonus_hit_points": 4750,
+    "armour": 15,
+    "missile_block_chance": 0,
+    "morale": 85,
+    "damage_mod_flame": 0,
+    "damage_mod_magic": 25,
+    "damage_mod_physical": 0,
+    "damage_mod_missile": 15,
+    "damage_mod_all": 0,
+    "melee_attack": 60,
+    "melee_defense": null,
+    "charge_bonus": 55,
+    "bonus_v_large": 15,
+    "bonus_v_infantry": 0,
+    "damage": 150,
+    "ap_damage": 150,
+    "splash_target_size_limit": "medium",
+    "splash_attack_max_attacks": 4,
+    "melee_attack_interval": 4,
+    "barrier": 0,
+    "fly_speed": 0,
+    "is_flaming": true,
+    "is_magical": true,
+    "contact_phase": {
+      "order": 1,
+      "target_enemies": true,
+      "target_self": false,
+      "target_friends": false,
+      "duration": 10,
+      "effect_type": "negative",
+      "is_hidden_in_ui": false,
+      "stat_effects": [
+        {
+          "value": -15,
+          "stat": "stat_melee_attack",
+          "how": "add",
+          "description": "-15 Melee Attack",
+          "icon": "vanilla3/skins/default/icon_stat_attack"
+        },
+        {
+          "value": -15,
+          "stat": "stat_melee_defence",
+          "how": "add",
+          "description": "-15 Melee Defence",
+          "icon": "vanilla3/skins/default/icon_stat_defence"
+        },
+        {
+          "value": 0.7,
+          "stat": "stat_accuracy",
+          "how": "mult",
+          "description": "x0.7 Accuracy",
+          "icon": "vanilla3/skins/default/icon_stat_range"
+        }
+      ]
+    },
+    "attributes": [
+      {
+        "key": "encourages",
+        "description": "Encourage",
+        "icon": "sfo3/battle_ui/ability_icons/encourages"
+      },
+      {
+        "key": "hide_forest",
+        "description": "Hide (forest)",
+        "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+      }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh2_main_character_passive_grand_arcane_conduit",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Greater Arcane Conduit",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "mana_regen_mod": 0.6,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "scalar_spell_mastery",
+                  "how": "mult",
+                  "description": "x1.1 Spell Mastery",
+                  "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh2_main_faction_abilities_murderous_prowess",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_faction_abilities_murderous_prowess",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Murderous Prowess",
+          "effect_range": 0,
+          "num_uses": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken",
+            "Unit has exceeded the murderous prowess value"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 60,
+              "effect_type": "positive",
+              "onscreen_name": "Stage One ",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.5,
+                  "stat": "scalar_missile_damage_ap",
+                  "how": "mult",
+                  "description": "x1.5 Armour-Piercing Missile Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+10 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 1.5,
+                  "stat": "stat_melee_attack",
+                  "how": "mult",
+                  "description": "x1.5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 1.5,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.5 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                }
+              ]
+            },
+            {
+              "order": 2,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "onscreen_name": "Stage Two ",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.2,
+                  "stat": "scalar_missile_damage_ap",
+                  "how": "mult",
+                  "description": "x1.2 Armour-Piercing Missile Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_attack",
+                  "how": "mult",
+                  "description": "x1.1 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh2_main_faction_abilities_murderous_prowess_indicator",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_faction_abilities_murderous_prowess",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": true,
+          "onscreen_name": "Murderous Prowess Indicator",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            ""
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": true
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh2_main_lord_passive_enchanting_beauty",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_lord_passive_enchanting_beauty",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_hexes",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+            "onscreen_name": "Hex (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Enchanting Beauty",
+          "effect_range": 50,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.9,
+                  "stat": "scalar_spell_mastery",
+                  "how": "mult",
+                  "description": "x0.9 Spell Mastery",
+                  "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                },
+                {
+                  "value": -5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "-5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 0.75,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x0.75 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_character_abilities_deadly_onslaught",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Deadly Onslaught",
+          "active_time": 30,
+          "effect_range": 0,
+          "recharge_time": 120,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.25 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.25 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.5,
+                  "stat": "scalar_splash_attack_power",
+                  "how": "mult",
+                  "description": "x1.5 Splash Attack Power",
+                  "icon": "vanilla3/skins/default/icon_stat_damage"
+                },
+                {
+                  "value": 1.5,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.5 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "ogre_charge",
+                  "description": "Unstoppable Charge",
+                  "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh2_dlc10_item_bound_arnizipals_black_horror",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc10_item_bound_arnizipals_black_horror",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_wind",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+            "onscreen_name": "Wind"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arnzipal's Black Horror",
+          "active_time": 16,
+          "effect_range": 0,
+          "num_uses": 1,
+          "recharge_time": 120,
+          "target_enemies": true,
+          "target_friends": false,
+          "target_ground": true,
+          "target_self": false,
+          "target_intercept_range": 100,
+          "wind_up_time": 5,
+          "target_if": [
+            "Grounded",
+            ""
+          ],
+          "ui_effects": [
+            {
+              "key": "wh2_main_spell_medium_wind",
+              "localised_text": "Medium, forward-moving area of effect",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_strong_against_units",
+              "localised_text": "Strong vs multiple units",
+              "effect_state": "positive"
+            }
+          ],
+          "vortex": {
+            "vortex_key": "wh2_dlc10_item_bound_arnizipals_black_horror",
+            "duration": 20,
+            "damage": 11,
+            "damage_ap": 5,
+            "goal_radius": 10,
+            "movement_speed": 7,
+            "delay": 1.5,
+            "affects_allies": true,
+            "is_magical": true
+          }
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "def_passive_main_1",
+          "icon_name": "sfo3/battle_ui/ability_icons/def_passive_main_1",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "No Mercy",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Winning melee combat"
+          ],
+          "phases": [
+            {
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
   "factionEffects": {
     "key": "wh2_main_lord_trait_def_morathi",
     "localised_description": "Morathi's entire existence has been one of scheming and manipulation. Who knows how many of Aenarion's darker deeds sprang from seeds she planted within his mind, or how the history of the Elves might have been different had he not taken her as wife?",
@@ -4069,7 +5234,7 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
       },
       {
-        "description": "Slaanesh corruption: +1\n\t(all characters factionwide)",
+        "description": "Slaanesh corruption: +2\n\t(all characters factionwide)",
         "key": "wh3_main_effect_corruption_slaanesh_characters_no_tr",
         "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
       },
@@ -4413,6 +5578,11 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "",
+              "key": "def_forge_confederation_morathi_disable",
+              "icon": ""
+            },
             {
               "description": "On turn start, Lords in this character's region have a chance to gain 2 loyalty\n\t(own characters in region)",
               "key": "wh2_main_effect_character_mod_loyalty_regional",
