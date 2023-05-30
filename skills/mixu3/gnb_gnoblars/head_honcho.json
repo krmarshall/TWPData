@@ -3239,9 +3239,63 @@
         {
           "effects": [
             {
-              "description": "Passive ability: \"Regeneration\" when fighting at sea",
-              "key": "wh2_dlc11_effect_ability_enable_regeneration_at_sea",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              "description": "Passive ability: \"Waterbirth\"",
+              "key": "gnob_enable_ability_waterbirth",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+              "related_abilities": [
+                {
+                  "effect": "gnob_enable_ability_waterbirth",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_twa10_unit_passive_waterbirth",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_twa10_unit_passive_waterbirth",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_regeneration",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                      "onscreen_name": "Regeneration"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Waterbirth",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": true,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Unit is in water"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh3_twa10_unit_passive_waterbirth_heal",
+                        "localised_text": "Replenishes hit points of combatants when in water",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_twa10_unit_passive_waterbirth_resurrect",
+                        "localised_text": "New combatants added when in water",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_twa10_unit_passive_waterbirth",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.008,
+                        "hp_change_frequency": 1,
+                        "resurrect": true
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             {
               "description": "Leadership: +2 when fighting at sea\n\t(all units in army)",
