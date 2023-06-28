@@ -103,72 +103,6 @@
           {
             "effects": [
               {
-                "description": "Enables \"Trikstab's Poison Wind Concoction\" contact effect",
-                "key": "str_vrrtkin_lord_contact",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_phases": [
-                  {
-                    "icon": "scm3/battle_ui/ability_icons/trikstab_concoction",
-                    "order": 0,
-                    "target_enemies": true,
-                    "target_self": false,
-                    "target_friends": false,
-                    "duration": 10,
-                    "effect_type": "negative",
-                    "onscreen_name": "Trikstab's Poison Wind Concoction!\n\tDamage over time",
-                    "is_hidden_in_ui": false,
-                    "damage_amount": 1,
-                    "hp_change_frequency": 1,
-                    "imbue_magical": true,
-                    "max_damaged_entities": 25,
-                    "stat_effects": [
-                      {
-                        "value": 0.95,
-                        "stat": "stat_melee_damage_ap",
-                        "how": "mult",
-                        "description": "x0.95 Armour-Piercing Weapon Damage",
-                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                      },
-                      {
-                        "value": 0.95,
-                        "stat": "stat_melee_damage_base",
-                        "how": "mult",
-                        "description": "x0.95 Base Weapon Damage",
-                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                      },
-                      {
-                        "value": -13,
-                        "stat": "stat_morale",
-                        "how": "add",
-                        "description": "-13 Leadership",
-                        "icon": "vanilla3/skins/default/icon_stat_morale"
-                      },
-                      {
-                        "value": 0.95,
-                        "stat": "stat_melee_attack",
-                        "how": "mult",
-                        "description": "x0.95 Melee Attack",
-                        "icon": "vanilla3/skins/default/icon_stat_attack"
-                      },
-                      {
-                        "value": 0.95,
-                        "stat": "stat_melee_defence",
-                        "how": "mult",
-                        "description": "x0.95 Melee Defence",
-                        "icon": "vanilla3/skins/default/icon_stat_defence"
-                      },
-                      {
-                        "value": 0.95,
-                        "stat": "scalar_speed",
-                        "how": "mult",
-                        "description": "x0.95 Speed",
-                        "icon": "vanilla3/skins/default/icon_stat_speed"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
                 "description": "Skaven corruption: +3\n\t(local province)",
                 "key": "wh3_main_effect_corruption_skaven_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_skaven"
@@ -177,6 +111,204 @@
                 "description": "Armour-piercing weapon damage: +40",
                 "key": "wh_main_effect_character_stat_ap_damage",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+              },
+              {
+                "description": "Explosive Missile Damage: +25%",
+                "key": "wh3_dlc23_effect_character_stat_explosive_damage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
+              },
+              {
+                "description": "Ability number of uses: +1 for \"Vrrtkin Rocket\"",
+                "key": "clan_vrr_effect_number_of_uses_gas_rocket",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "clan_vrr_effect_number_of_uses_gas_rocket",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "clan_vrr_hero_abilities_gas_rocket",
+                      "icon_name": "scm3/battle_ui/ability_icons/clan_vrr_hero_abilities_gas_rocket",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_magic_missile",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                        "onscreen_name": "Magic Missile"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Vrrtkin Rocket",
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "recharge_time": 90,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_magical_and_flaming",
+                          "localised_text": "Causes magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_projectile_effective_long_range",
+                          "localised_text": "Effective at long range",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        },
+                        {
+                          "key": "dead_mans_switch",
+                          "localised_text": "Units hit will suffer damage over time",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "activated_projectile": {
+                        "key": "clan_vrr_hero_abilities_gas_rocket_proj",
+                        "damage": 60,
+                        "ap_damage": 32,
+                        "shockwave_radius": 1,
+                        "effective_range": 200,
+                        "base_reload_time": 23,
+                        "is_magical": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "trikstab_death",
+                          "affects_allies": true,
+                          "detonation_damage": 20,
+                          "detonation_damage_ap": 25,
+                          "detonation_radius": 20,
+                          "is_magical": true,
+                          "contact_phase_effect": {
+                            "icon": "scm3/battle_ui/ability_icons/clan_vrr_globe_effect_contact_potent_globes",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Redolent Miasma!\n\tDamage over time",
+                            "is_hidden_in_ui": false,
+                            "damage_amount": 6,
+                            "hp_change_frequency": 1,
+                            "max_damaged_entities": 10,
+                            "stat_effects": [
+                              {
+                                "value": 0.97,
+                                "stat": "stat_melee_damage_ap",
+                                "how": "mult",
+                                "description": "x0.97 Armour-Piercing Weapon Damage",
+                                "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                              },
+                              {
+                                "value": 0.97,
+                                "stat": "stat_melee_damage_base",
+                                "how": "mult",
+                                "description": "x0.97 Base Weapon Damage",
+                                "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                              },
+                              {
+                                "value": -7,
+                                "stat": "stat_morale",
+                                "how": "add",
+                                "description": "-7 Leadership",
+                                "icon": "vanilla3/skins/default/icon_stat_morale"
+                              },
+                              {
+                                "value": 0.97,
+                                "stat": "stat_melee_attack",
+                                "how": "mult",
+                                "description": "x0.97 Melee Attack",
+                                "icon": "vanilla3/skins/default/icon_stat_attack"
+                              },
+                              {
+                                "value": 0.97,
+                                "stat": "stat_melee_defence",
+                                "how": "mult",
+                                "description": "x0.97 Melee Defence",
+                                "icon": "vanilla3/skins/default/icon_stat_defence"
+                              },
+                              {
+                                "value": 0.97,
+                                "stat": "scalar_speed",
+                                "how": "mult",
+                                "description": "x0.97 Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              }
+                            ]
+                          }
+                        },
+                        "contact_stat_effect": {
+                          "icon": "scm3/battle_ui/ability_icons/clan_vrr_globe_effect_contact_potent_globes",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "onscreen_name": "Redolent Miasma!\n\tDamage over time",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 6,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 10,
+                          "stat_effects": [
+                            {
+                              "value": 0.97,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x0.97 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            },
+                            {
+                              "value": 0.97,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x0.97 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": -7,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-7 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 0.97,
+                              "stat": "stat_melee_attack",
+                              "how": "mult",
+                              "description": "x0.97 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 0.97,
+                              "stat": "stat_melee_defence",
+                              "how": "mult",
+                              "description": "x0.97 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 0.97,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.97 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -346,7 +478,7 @@
           {
             "effects": [
               {
-                "description": "Food generated: 4\n\t(all armies)",
+                "description": "Food generated: 4",
                 "key": "wh2_main_pooled_resource_skaven_food_army",
                 "icon": "vanilla3/campaign_ui/effect_bundles/pooled_resource_food"
               },
@@ -3087,6 +3219,65 @@
     "melee_attack_interval": 4.9,
     "barrier": 0,
     "fly_speed": 0,
+    "contact_phase": {
+      "icon": "scm3/battle_ui/ability_icons/trikstab_concoction",
+      "order": 1,
+      "target_enemies": true,
+      "target_self": false,
+      "target_friends": false,
+      "duration": 10,
+      "effect_type": "negative",
+      "onscreen_name": "Trikstab's Poison Wind Concoction!\n\tDamage over time",
+      "is_hidden_in_ui": false,
+      "damage_amount": 1,
+      "hp_change_frequency": 1,
+      "imbue_magical": true,
+      "max_damaged_entities": 25,
+      "stat_effects": [
+        {
+          "value": 0.95,
+          "stat": "stat_melee_damage_ap",
+          "how": "mult",
+          "description": "x0.95 Armour-Piercing Weapon Damage",
+          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+        },
+        {
+          "value": 0.95,
+          "stat": "stat_melee_damage_base",
+          "how": "mult",
+          "description": "x0.95 Base Weapon Damage",
+          "icon": "vanilla3/skins/default/icon_stat_damage_base"
+        },
+        {
+          "value": -13,
+          "stat": "stat_morale",
+          "how": "add",
+          "description": "-13 Leadership",
+          "icon": "vanilla3/skins/default/icon_stat_morale"
+        },
+        {
+          "value": 0.95,
+          "stat": "stat_melee_attack",
+          "how": "mult",
+          "description": "x0.95 Melee Attack",
+          "icon": "vanilla3/skins/default/icon_stat_attack"
+        },
+        {
+          "value": 0.95,
+          "stat": "stat_melee_defence",
+          "how": "mult",
+          "description": "x0.95 Melee Defence",
+          "icon": "vanilla3/skins/default/icon_stat_defence"
+        },
+        {
+          "value": 0.95,
+          "stat": "scalar_speed",
+          "how": "mult",
+          "description": "x0.95 Speed",
+          "icon": "vanilla3/skins/default/icon_stat_speed"
+        }
+      ]
+    },
     "projectile": {
       "key": "trikstab_globe",
       "damage": 21,
@@ -3509,72 +3700,6 @@
       "ui_icon": "skins/default/equipment_items_weapon",
       "effects": [
         {
-          "description": "Enables \"Trikstab's Poison Wind Concoction\" contact effect",
-          "key": "str_vrrtkin_lord_contact",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_phases": [
-            {
-              "icon": "scm3/battle_ui/ability_icons/trikstab_concoction",
-              "order": 0,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 10,
-              "effect_type": "negative",
-              "onscreen_name": "Trikstab's Poison Wind Concoction!\n\tDamage over time",
-              "is_hidden_in_ui": false,
-              "damage_amount": 1,
-              "hp_change_frequency": 1,
-              "imbue_magical": true,
-              "max_damaged_entities": 25,
-              "stat_effects": [
-                {
-                  "value": 0.95,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x0.95 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                },
-                {
-                  "value": 0.95,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x0.95 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": -13,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "-13 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                },
-                {
-                  "value": 0.95,
-                  "stat": "stat_melee_attack",
-                  "how": "mult",
-                  "description": "x0.95 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                },
-                {
-                  "value": 0.95,
-                  "stat": "stat_melee_defence",
-                  "how": "mult",
-                  "description": "x0.95 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
-                },
-                {
-                  "value": 0.95,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x0.95 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                }
-              ]
-            }
-          ]
-        },
-        {
           "description": "Skaven corruption: +3\n\t(local province)",
           "key": "wh3_main_effect_corruption_skaven_characters",
           "icon": "vanilla3/campaign_ui/effect_bundles/corruption_skaven"
@@ -3583,6 +3708,204 @@
           "description": "Armour-piercing weapon damage: +40",
           "key": "wh_main_effect_character_stat_ap_damage",
           "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+        },
+        {
+          "description": "Explosive Missile Damage: +25%",
+          "key": "wh3_dlc23_effect_character_stat_explosive_damage",
+          "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
+        },
+        {
+          "description": "Ability number of uses: +1 for \"Vrrtkin Rocket\"",
+          "key": "clan_vrr_effect_number_of_uses_gas_rocket",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "clan_vrr_effect_number_of_uses_gas_rocket",
+              "bonus_value_id": "uses_mod",
+              "unit_ability": {
+                "key": "clan_vrr_hero_abilities_gas_rocket",
+                "icon_name": "scm3/battle_ui/ability_icons/clan_vrr_hero_abilities_gas_rocket",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_magic_missile",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                  "onscreen_name": "Magic Missile"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Vrrtkin Rocket",
+                "effect_range": 0,
+                "num_uses": 1,
+                "recharge_time": 90,
+                "target_enemies": true,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 200,
+                "wind_up_time": 1,
+                "ui_effects": [
+                  {
+                    "key": "wh_main_all_magical_and_flaming",
+                    "localised_text": "Causes magical & fire damage",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_strong_against_multiple",
+                    "localised_text": "Strong vs multiple combatants",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_projectile_effective_long_range",
+                    "localised_text": "Effective at long range",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_weak_against_single",
+                    "localised_text": "Weak vs a single combatant",
+                    "effect_state": "negative"
+                  },
+                  {
+                    "key": "dead_mans_switch",
+                    "localised_text": "Units hit will suffer damage over time",
+                    "effect_state": "positive"
+                  }
+                ],
+                "activated_projectile": {
+                  "key": "clan_vrr_hero_abilities_gas_rocket_proj",
+                  "damage": 60,
+                  "ap_damage": 32,
+                  "shockwave_radius": 1,
+                  "effective_range": 200,
+                  "base_reload_time": 23,
+                  "is_magical": true,
+                  "can_damage_allies": true,
+                  "explosion_type": {
+                    "key": "trikstab_death",
+                    "affects_allies": true,
+                    "detonation_damage": 20,
+                    "detonation_damage_ap": 25,
+                    "detonation_radius": 20,
+                    "is_magical": true,
+                    "contact_phase_effect": {
+                      "icon": "scm3/battle_ui/ability_icons/clan_vrr_globe_effect_contact_potent_globes",
+                      "order": 1,
+                      "target_enemies": true,
+                      "target_self": false,
+                      "target_friends": true,
+                      "duration": 10,
+                      "effect_type": "negative",
+                      "onscreen_name": "Redolent Miasma!\n\tDamage over time",
+                      "is_hidden_in_ui": false,
+                      "damage_amount": 6,
+                      "hp_change_frequency": 1,
+                      "max_damaged_entities": 10,
+                      "stat_effects": [
+                        {
+                          "value": 0.97,
+                          "stat": "stat_melee_damage_ap",
+                          "how": "mult",
+                          "description": "x0.97 Armour-Piercing Weapon Damage",
+                          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                        },
+                        {
+                          "value": 0.97,
+                          "stat": "stat_melee_damage_base",
+                          "how": "mult",
+                          "description": "x0.97 Base Weapon Damage",
+                          "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                        },
+                        {
+                          "value": -7,
+                          "stat": "stat_morale",
+                          "how": "add",
+                          "description": "-7 Leadership",
+                          "icon": "vanilla3/skins/default/icon_stat_morale"
+                        },
+                        {
+                          "value": 0.97,
+                          "stat": "stat_melee_attack",
+                          "how": "mult",
+                          "description": "x0.97 Melee Attack",
+                          "icon": "vanilla3/skins/default/icon_stat_attack"
+                        },
+                        {
+                          "value": 0.97,
+                          "stat": "stat_melee_defence",
+                          "how": "mult",
+                          "description": "x0.97 Melee Defence",
+                          "icon": "vanilla3/skins/default/icon_stat_defence"
+                        },
+                        {
+                          "value": 0.97,
+                          "stat": "scalar_speed",
+                          "how": "mult",
+                          "description": "x0.97 Speed",
+                          "icon": "vanilla3/skins/default/icon_stat_speed"
+                        }
+                      ]
+                    }
+                  },
+                  "contact_stat_effect": {
+                    "icon": "scm3/battle_ui/ability_icons/clan_vrr_globe_effect_contact_potent_globes",
+                    "order": 1,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": true,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Redolent Miasma!\n\tDamage over time",
+                    "is_hidden_in_ui": false,
+                    "damage_amount": 6,
+                    "hp_change_frequency": 1,
+                    "max_damaged_entities": 10,
+                    "stat_effects": [
+                      {
+                        "value": 0.97,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x0.97 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      },
+                      {
+                        "value": 0.97,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x0.97 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": -7,
+                        "stat": "stat_morale",
+                        "how": "add",
+                        "description": "-7 Leadership",
+                        "icon": "vanilla3/skins/default/icon_stat_morale"
+                      },
+                      {
+                        "value": 0.97,
+                        "stat": "stat_melee_attack",
+                        "how": "mult",
+                        "description": "x0.97 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      },
+                      {
+                        "value": 0.97,
+                        "stat": "stat_melee_defence",
+                        "how": "mult",
+                        "description": "x0.97 Melee Defence",
+                        "icon": "vanilla3/skins/default/icon_stat_defence"
+                      },
+                      {
+                        "value": 0.97,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.97 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
         }
       ]
     }
