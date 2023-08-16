@@ -1334,23 +1334,68 @@
       },
       {
         "key": "ovn_grudge_skill_dwf_master_engineer_barak_varr_handshake_ludwig_uberdorf",
-        "image_path": "vanilla3/campaign_ui/skills/character_bonus_vs_infantry",
-        "character_skill_key": "wh2_dlc17_skill_dwf_master_engineer_barak_varr_handshake",
+        "image_path": "vanilla3/campaign_ui/skills/character_range",
+        "character_skill_key": "wh_main_skill_dwf_engineer_self_ballistics_instructor",
         "tier": 4,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 3,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Barak Varr Handshake",
-        "localised_description": "By which one greets grobi and urk alike.",
+        "localised_name": "Ballistics Instructor",
+        "localised_description": "Those Engineers conversant in ballistics know how best to increase the ranges of their weapons.",
         "levels": [
           {
             "effects": [
               {
-                "description": "\"Sharpshooter\" ammunition (increased range and anti-infantry)",
-                "key": "wh2_dlc17_projectile_replacement_master_engineer_sharpshooter",
-                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+                "description": "Passive ability: \"Ballistics Instructor\"",
+                "key": "wh2_dlc15_effect_ability_enable_ballistics_instructor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc15_effect_ability_enable_ballistics_instructor",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc15_hero_passive_ballistics_instructor",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_abilities_outrider_grenade",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Ballistics Instructor",
+                      "effect_range": -1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "wh2_dlc15_hero_passive_ballistics_instructor",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.1,
+                              "stat": "scalar_missile_range",
+                              "how": "mult",
+                              "description": "x1.1 Range",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
