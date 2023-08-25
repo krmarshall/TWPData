@@ -717,6 +717,72 @@
                 "description": "Leadership: +5\n\t(Hero's army)",
                 "key": "wh_main_effect_force_stat_leadership",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              },
+              {
+                "description": "Passive Ability: \"Inquisitor of Sigmar\"",
+                "key": "rhox_grudge_effect_ability_enable_inquisitor_of_sigmar",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "rhox_grudge_effect_ability_enable_inquisitor_of_sigmar",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc06_quest_passive_inquisitor_of_sigmar",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_hero_abilities_accusation",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Inquisitor of Sigmar",
+                      "active_time": 15,
+                      "effect_range": 0,
+                      "recharge_time": 3,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 45,
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc06_projectile_cause_explosion",
+                          "localised_text": "Shoot explosive rounds",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh_dlc06_quest_passive_inquisitor_of_sigmar",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 15,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 40,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+40 Reload Skill",
+                              "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            },
+                            {
+                              "value": 1.45,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.45 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -1538,7 +1604,7 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 3.4,
+    "run_speed": 3.6,
     "mass": 500,
     "size": "small",
     "hit_points": 8,
@@ -1566,12 +1632,13 @@
     "fly_speed": 0,
     "is_magical": true,
     "projectile": {
-      "key": "wh_emp_witchhunter_pistol",
-      "damage": 33,
-      "ap_damage": 117,
+      "key": "matthias",
+      "damage": 17,
+      "ap_damage": 59,
       "shockwave_radius": -1,
       "effective_range": 90,
       "base_reload_time": 4,
+      "projectile_number": 2,
       "is_magical": true,
       "can_damage_allies": true
     },
@@ -1697,57 +1764,42 @@
     {
       "key": "matthias_campaign_actions_dummy",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh2_main_skill_all_dummy_agent_actions_emp_captain",
+      "character_skill_key": "rhox_dummy_all_action_matthias",
       "tier": 0,
       "indent": 8,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": false,
-      "localised_name": "Actions [HIDDEN]",
+      "localised_name": "",
       "localised_description": "",
       "levels": [
         {
           "effects": [
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_assist_army_training",
+              "key": "wh2_main_effect_agent_action_enable_champion_assist_army_scavenge",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_agent_wound",
+              "key": "wh2_main_effect_agent_action_enable_champion_hinder_agent_assassinate",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_army_assault_units",
+              "key": "wh2_main_effect_agent_action_enable_champion_hinder_army_block_army",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_settlement_assault_garrison",
+              "key": "wh2_main_effect_agent_action_enable_champion_hinder_settlement_damage_walls",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_settlement_scout_settlement",
+              "key": "rhox_grudgebringer_effect_agent_action_enable_champion_passive_spread_corruption",
               "icon": ""
-            },
-            {
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_passive_spread_public_order",
-              "icon": ""
-            },
-            {
-              "description": "Control: -1\n\t(local enemy province)",
-              "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
-              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
-            },
-            {
-              "description": "Control: +1\n\t(local province)",
-              "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
-              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             }
           ]
         }
@@ -1823,8 +1875,8 @@
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": false,
-      "localised_name": "",
-      "localised_description": "",
+      "localised_name": "[HIDDEN]Immortal for AI",
+      "localised_description": "[HIDDEN]Immortal for AI",
       "levels": [
         {
           "effects": [
