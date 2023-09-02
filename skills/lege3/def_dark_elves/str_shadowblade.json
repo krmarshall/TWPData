@@ -109,7 +109,7 @@
       },
       {
         "key": "str_shadowblade_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_hero",
         "tier": 12,
         "indent": 0,
@@ -289,7 +289,7 @@
                       "target_self": true,
                       "target_intercept_range": 50,
                       "target_if": [
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -447,17 +447,17 @@
                           "stat_effects": [
                             {
                               "value": 2,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x2 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            },
-                            {
-                              "value": 2,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
                               "description": "x2 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 2,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x2 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
                         }
@@ -599,7 +599,7 @@
                       "target_self": true,
                       "target_intercept_range": 50,
                       "target_if": [
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -1543,13 +1543,18 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Increase Slave Income",
+        "localised_name": "Enlist Slaves",
         "localised_description": "Civilisation requires slaves. It is upon their toil that the future depends.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Increase Slave Income action: Slaves generated per turn is increased by an additional 5",
+                "description": "Slaves: 5 per turn",
+                "key": "wh3_main_effect_agent_action_passive_def_slaves_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/slaves"
+              },
+              {
+                "description": "Enlist Slaves action: Slaves generated per turn is increased by an additional 5",
                 "key": "wh2_main_effect_agent_action_passive_increase_slave_income_buff",
                 "icon": "vanilla3/campaign_ui/effect_bundles/slaves"
               }
@@ -1558,7 +1563,12 @@
           {
             "effects": [
               {
-                "description": "Increase Slave Income action: Slaves generated per turn is increased by an additional 10",
+                "description": "Slaves: 10 per turn",
+                "key": "wh3_main_effect_agent_action_passive_def_slaves_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/slaves"
+              },
+              {
+                "description": "Enlist Slaves action: Slaves generated per turn is increased by an additional 10",
                 "key": "wh2_main_effect_agent_action_passive_increase_slave_income_buff",
                 "icon": "vanilla3/campaign_ui/effect_bundles/slaves"
               }
@@ -1568,7 +1578,12 @@
           {
             "effects": [
               {
-                "description": "Increase Slave Income action: Slaves generated per turn is increased by an additional 15",
+                "description": "Slaves: 15 per turn",
+                "key": "wh3_main_effect_agent_action_passive_def_slaves_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/slaves"
+              },
+              {
+                "description": "Enlist Slaves action: Slaves generated per turn is increased by an additional 15",
                 "key": "wh2_main_effect_agent_action_passive_increase_slave_income_buff",
                 "icon": "vanilla3/campaign_ui/effect_bundles/slaves"
               }
@@ -1816,20 +1831,6 @@
         },
         {
           "value": 0.85,
-          "stat": "stat_melee_damage_ap",
-          "how": "mult",
-          "description": "x0.85 Armour-Piercing Weapon Damage",
-          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-        },
-        {
-          "value": 0.85,
-          "stat": "stat_melee_damage_base",
-          "how": "mult",
-          "description": "x0.85 Base Weapon Damage",
-          "icon": "vanilla3/skins/default/icon_stat_damage_base"
-        },
-        {
-          "value": 0.85,
           "stat": "scalar_missile_damage_base",
           "how": "mult",
           "description": "x0.85 Base Missile Damage",
@@ -1841,6 +1842,20 @@
           "how": "mult",
           "description": "x0.85 Speed",
           "icon": "vanilla3/skins/default/icon_stat_speed"
+        },
+        {
+          "value": 0.85,
+          "stat": "stat_melee_damage_base",
+          "how": "mult",
+          "description": "x0.85 Base Weapon Damage",
+          "icon": "vanilla3/skins/default/icon_stat_damage_base"
+        },
+        {
+          "value": 0.85,
+          "stat": "stat_melee_damage_ap",
+          "how": "mult",
+          "description": "x0.85 Armour-Piercing Weapon Damage",
+          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
         }
       ]
     },
@@ -1873,20 +1888,6 @@
           },
           {
             "value": 0.85,
-            "stat": "stat_melee_damage_ap",
-            "how": "mult",
-            "description": "x0.85 Armour-Piercing Weapon Damage",
-            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-          },
-          {
-            "value": 0.85,
-            "stat": "stat_melee_damage_base",
-            "how": "mult",
-            "description": "x0.85 Base Weapon Damage",
-            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-          },
-          {
-            "value": 0.85,
             "stat": "scalar_missile_damage_base",
             "how": "mult",
             "description": "x0.85 Base Missile Damage",
@@ -1898,6 +1899,20 @@
             "how": "mult",
             "description": "x0.85 Speed",
             "icon": "vanilla3/skins/default/icon_stat_speed"
+          },
+          {
+            "value": 0.85,
+            "stat": "stat_melee_damage_base",
+            "how": "mult",
+            "description": "x0.85 Base Weapon Damage",
+            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+          },
+          {
+            "value": 0.85,
+            "stat": "stat_melee_damage_ap",
+            "how": "mult",
+            "description": "x0.85 Armour-Piercing Weapon Damage",
+            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
           }
         ]
       }
@@ -1922,7 +1937,7 @@
       {
         "key": "immune_to_psychology",
         "description": " Immune to Psychology",
-        "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
+        "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
         "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
       },
       {
@@ -2080,11 +2095,11 @@
               "is_hidden_in_ui": false,
               "stat_effects": [
                 {
-                  "value": 0.8,
-                  "stat": "stat_melee_damage_ap",
+                  "value": 0.9,
+                  "stat": "scalar_speed",
                   "how": "mult",
-                  "description": "x0.8 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  "description": "x0.9 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
                   "value": 0.8,
@@ -2094,11 +2109,11 @@
                   "icon": "vanilla3/skins/default/icon_stat_damage_base"
                 },
                 {
-                  "value": 0.9,
-                  "stat": "scalar_speed",
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
                   "how": "mult",
-                  "description": "x0.9 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 }
               ]
             }
@@ -2196,6 +2211,11 @@
               "description": "",
               "key": "wh2_main_effect_agent_action_enable_spy_passive_increase_slave_income",
               "icon": ""
+            },
+            {
+              "description": "Slaves: 10 per turn",
+              "key": "wh3_main_effect_agent_action_passive_def_slaves_effect",
+              "icon": "vanilla3/campaign_ui/effect_bundles/slaves"
             }
           ]
         }
