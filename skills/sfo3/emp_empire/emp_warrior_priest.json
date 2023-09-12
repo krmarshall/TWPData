@@ -66,7 +66,7 @@
                 {
                   "key": "immune_to_psychology",
                   "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
                   "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 },
                 {
@@ -109,10 +109,10 @@
                         "stat_effects": [
                           {
                             "value": 0.8,
-                            "stat": "scalar_speed",
+                            "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x0.8 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           },
                           {
                             "value": 0.8,
@@ -122,25 +122,25 @@
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
                           },
                           {
-                            "value": 1.1,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x1.1 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          },
-                          {
-                            "value": 0.8,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x0.8 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
-                          {
                             "value": -20,
                             "stat": "stat_reloading",
                             "how": "add",
                             "description": "-20 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
                           }
                         ]
                       }
@@ -628,7 +628,7 @@
       },
       {
         "key": "wh2_main_skill_node_set_emp_warrior_priest_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/character_experience",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_hero",
         "tier": 12,
         "indent": 0,
@@ -1229,9 +1229,946 @@
         ]
       }
     ],
-    [],
-    [],
-    [],
+    [
+      {
+        "key": "emp_skill_priest_6",
+        "image_path": "vanilla3/campaign_ui/skills/item_talisman",
+        "character_skill_key": "emp_skill_priest_6",
+        "tier": 0,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Divine Power",
+        "localised_description": "Such is the power of faith that blows seem to glance off this warrior even as they fail to parry. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee attack: -4",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ward save: 8%",
+                "key": "wh_main_effect_character_stat_ward_save",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "emp_skill_priest_1"
+            ]
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "emp_skill_priest_7",
+        "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
+        "character_skill_key": "emp_skill_priest_7",
+        "tier": 1,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Immaculate Flesh",
+        "localised_description": "This Warrior Priest denies the power of Chaos with such fiery abandon that his comrades are inspired to resist the flames of evil with equal fervor.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Fire resistance: 2%\n\t(Hero's army)",
+                "key": "wh_main_effect_character_stat_fire_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_fire"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Fire resistance: 4%\n\t(Hero's army)",
+                "key": "wh_main_effect_character_stat_fire_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_fire"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Fire resistance: 8%\n\t(Hero's army)",
+                "key": "wh_main_effect_character_stat_fire_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_fire"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_6"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_priest_8",
+        "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "emp_skill_priest_8",
+        "tier": 2,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Deny the Heretic",
+        "localised_description": "Only the magic of Sigmar's chosen shall flourish here.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy spell resistance: -3%\n\t(enemy armies in province)",
+                "key": "wh_effect_all_res_magic_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy spell resistance: -6%\n\t(enemy armies in province)",
+                "key": "wh_effect_all_res_magic_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy spell resistance: -10%\n\t(enemy armies in province)",
+                "key": "wh_effect_all_res_magic_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_6"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_priest_9",
+        "image_path": "vanilla3/campaign_ui/skills/character_army",
+        "character_skill_key": "emp_skill_priest_9",
+        "tier": 3,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Heart of the Gryphon",
+        "localised_description": "The prayers of the warrior priest selflessly fill those around him with Sigmar's light, blessing them with protection while occupying the priest's own attentions. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee attack: -3",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Physical resistance: 1%\n\t(Hero's army)",
+                "key": "wh_main_effect_character_stat_physical_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee attack: -6",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Physical resistance: 2%\n\t(Hero's army)",
+                "key": "wh_main_effect_character_stat_physical_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee attack: -12",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Physical resistance: 3%\n\t(Hero's army)",
+                "key": "wh_main_effect_character_stat_physical_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_6"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_priest_10",
+        "image_path": "vanilla3/campaign_ui/skills/character_charge",
+        "character_skill_key": "emp_skill_priest_10",
+        "tier": 4,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Beacon of Courage",
+        "localised_description": "The power and majesty of Sigmar pours forth from the Warrior Priest and causes charging enemies to second-guess their every move.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy charge bonus: -3%\n\t(enemy armies in province)",
+                "key": "wh_effect_all_charge_bonus_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy charge bonus: -6%\n\t(enemy armies in province)",
+                "key": "wh_effect_all_charge_bonus_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy charge bonus: -10%\n\t(enemy armies in province)",
+                "key": "wh_effect_all_charge_bonus_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_6"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "wh_passive_aura_buff_leadership_emp_priest",
+        "image_path": "vanilla3/campaign_ui/skills/character_morale",
+        "character_skill_key": "wh_passive_aura_buff_leadership",
+        "tier": 5,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Bolstered Leadership",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Bolstered Leadership\"",
+                "key": "wh_passive_aura_buff_leadership_enable",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee",
+                "related_abilities": [
+                  {
+                    "effect": "wh_passive_aura_buff_leadership_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_passive_aura_buff_leadership",
+                      "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Bolstered Leadership",
+                      "effect_range": 40,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is higher than broken"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 5,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+5 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
+                              "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 15
+          }
+        ],
+        "parent_subset_required": [
+          "emp_skill_priest_7",
+          "emp_skill_priest_8",
+          "emp_skill_priest_9",
+          "emp_skill_priest_10"
+        ]
+      }
+    ],
+    [
+      {
+        "key": "emp_skill_priest_1",
+        "image_path": "vanilla3/campaign_ui/skills/item_weapon",
+        "character_skill_key": "emp_skill_priest_1",
+        "tier": 0,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Armour of Righteousness",
+        "localised_description": "No, leave the pauldron. Sigmar is with me!",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +10%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Armour: -10",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "emp_skill_priest_6"
+            ]
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "emp_skill_priest_2",
+        "image_path": "vanilla3/campaign_ui/skills/character_damage",
+        "character_skill_key": "emp_skill_priest_2",
+        "tier": 1,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Heed Not the Witch",
+        "localised_description": "Let your hammer deliver justice to the foul.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Armour: -3",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Weapon strength: +10%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Armour: -7",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Weapon strength: +20%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Armour: -15",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Weapon strength: +40%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_priest_3",
+        "image_path": "vanilla3/campaign_ui/skills/character_charge",
+        "character_skill_key": "emp_skill_priest_3",
+        "tier": 2,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Glorious Abandon",
+        "localised_description": "CHAAAARRRRRGGGEEE!",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Armour: -3",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Charge bonus: +10",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Armour: -7",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Charge bonus: +20",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Armour: -15",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Charge bonus: +40",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_priest_4",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "emp_skill_priest_4",
+        "tier": 3,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Path of Penance ",
+        "localised_description": "As Sigmar bled, so must I, so must we all. Through pain we find the strength to bring death to those who would threaten the Empire.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee attack: +5",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Melee defence: -1",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee attack: +10",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Melee defence: -3",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee attack: +20",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Melee defence: -5",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_priest_5",
+        "image_path": "vanilla3/campaign_ui/skills/character_morale",
+        "character_skill_key": "emp_skill_priest_5",
+        "tier": 4,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Tunnel Vision",
+        "localised_description": "This one loses himself to bloodlust and becomes a blur of death on the battlefield.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Leadership: +5",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Leadership aura size: -12%",
+                "key": "wh_main_effect_character_stat_leadership_aura_size",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Leadership: +10",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Leadership aura size: -25%",
+                "key": "wh_main_effect_character_stat_leadership_aura_size",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Leadership: +20",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Leadership aura size: -50%",
+                "key": "wh_main_effect_character_stat_leadership_aura_size",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_priest_1"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "wh_passive_aura_buff_attack_emp_priest",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "wh_passive_aura_buff_attack",
+        "tier": 5,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Bolstered Attack",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Bolstered Attack\"",
+                "key": "wh_passive_aura_buff_attack_enable",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee",
+                "related_abilities": [
+                  {
+                    "effect": "wh_passive_aura_buff_attack_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_passive_aura_buff_attack",
+                      "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Bolstered Attack",
+                      "effect_range": 40,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is higher than broken"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.1,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.1 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.1,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.1 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            },
+                            {
+                              "value": 5,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+5 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 15
+          }
+        ],
+        "parent_subset_required": [
+          "emp_skill_priest_2",
+          "emp_skill_priest_3",
+          "emp_skill_priest_4",
+          "emp_skill_priest_5"
+        ]
+      }
+    ],
+    [
+      {
+        "key": "hero_dignitary_1_emp_warrior_priest",
+        "image_path": "vanilla3/campaign_ui/skills/character_construction",
+        "character_skill_key": "hero_engineer_1",
+        "tier": 100,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Organized",
+        "localised_description": "The smiths have already completed their order, the workers are in position and the masons are ready to begin.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Construction time: -20% for all buildings\n\t(local region)",
+                "key": "wh2_main_effect_building_construction_time_mod_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/construction"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "hero_dignitary_2_emp_warrior_priest",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_item",
+        "character_skill_key": "hero_dignitary_2",
+        "tier": 101,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Retinue: Valet",
+        "localised_description": "My lord, I believe I’ve found something of interest...",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Magic item drop chance: +5%\n\t(own characters in region)",
+                "key": "wh_main_effect_character_mod_ancillary_drop",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Magic item drop chance: +10%\n\t(own characters in region)",
+                "key": "wh_main_effect_character_mod_ancillary_drop",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Magic item drop chance: +20%\n\t(own characters in region)",
+                "key": "wh_main_effect_character_mod_ancillary_drop",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_dignitary_1_emp_warrior_priest"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_dignitary_3_emp_warrior_priest",
+        "image_path": "vanilla3/campaign_ui/skills/character_morale",
+        "character_skill_key": "hero_dignitary_3",
+        "tier": 102,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Inspirational",
+        "localised_description": "We all must fight, no matter our station.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Character's aura leadership effect: +2",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Character's aura leadership effect: +4",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Character's aura leadership effect: +6",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_dignitary_1_emp_warrior_priest"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_dignitary_4_emp_warrior_priest",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_wound_time",
+        "character_skill_key": "hero_dignitary_4",
+        "tier": 103,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Retinue: Quartermaster",
+        "localised_description": "I’ve managed to procure some additional supplies for the troops, my lord.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Attrition: -3% casualties suffered from all attrition\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Attrition: -7% casualties suffered from all attrition\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Attrition: -15% casualties suffered from all attrition\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_dignitary_1_emp_warrior_priest"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_dignitary_5_emp_warrior_priest",
+        "image_path": "vanilla3/campaign_ui/skills/battle_morale",
+        "character_skill_key": "hero_dignitary_5",
+        "tier": 104,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Great Orator",
+        "localised_description": "We will not allow them to take our homes, our lands!",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Leadership: +1 when defending\n\t(Hero's army)",
+                "key": "wh_main_effect_force_stat_leadership_defending",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Leadership: +2 when defending\n\t(Hero's army)",
+                "key": "wh_main_effect_force_stat_leadership_defending",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Leadership: +3 when defending\n\t(Hero's army)",
+                "key": "wh_main_effect_force_stat_leadership_defending",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_dignitary_1_emp_warrior_priest"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "hero_dignitary_6_emp_warrior_priest",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_replenishment",
+        "character_skill_key": "hero_dignitary_6",
+        "tier": 105,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Retinue: Physician",
+        "localised_description": "We will establish triage and treatment centers as soon as we make camp, my lord.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +5%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "hero_dignitary_5_emp_warrior_priest",
+          "hero_dignitary_4_emp_warrior_priest",
+          "hero_dignitary_3_emp_warrior_priest",
+          "hero_dignitary_2_emp_warrior_priest"
+        ]
+      }
+    ],
     [
       {
         "key": "wh2_main_skill_node_emp_warrior_priest_campaign_01",
@@ -1585,7 +2522,7 @@
       {
         "key": "immune_to_psychology",
         "description": " Immune to Psychology",
-        "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+        "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
         "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
       },
       {
@@ -1628,10 +2565,10 @@
               "stat_effects": [
                 {
                   "value": 0.8,
-                  "stat": "scalar_speed",
+                  "stat": "stat_melee_damage_ap",
                   "how": "mult",
-                  "description": "x0.8 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 },
                 {
                   "value": 0.8,
@@ -1641,25 +2578,25 @@
                   "icon": "vanilla3/skins/default/icon_stat_damage_base"
                 },
                 {
-                  "value": 1.1,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x1.1 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                },
-                {
-                  "value": 0.8,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x0.8 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                },
-                {
                   "value": -20,
                   "stat": "stat_reloading",
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
                 }
               ]
             }
@@ -2081,6 +3018,20 @@
                     },
                     {
                       "value": 0.8,
+                      "stat": "stat_melee_damage_ap",
+                      "how": "mult",
+                      "description": "x0.8 Armour-Piercing Weapon Damage",
+                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                    },
+                    {
+                      "value": 0.8,
+                      "stat": "stat_melee_damage_base",
+                      "how": "mult",
+                      "description": "x0.8 Base Weapon Damage",
+                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                    },
+                    {
+                      "value": 0.8,
                       "stat": "scalar_missile_damage_base",
                       "how": "mult",
                       "description": "x0.8 Base Missile Damage",
@@ -2092,20 +3043,6 @@
                       "how": "mult",
                       "description": "x0.8 Speed",
                       "icon": "vanilla3/skins/default/icon_stat_speed"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Weapon Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Weapon Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                     }
                   ]
                 }
@@ -2143,7 +3080,7 @@
                 {
                   "key": "immune_to_psychology",
                   "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
                   "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 }
               ]
@@ -2423,6 +3360,307 @@
               "description": "Leadership aura size: +25%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_warrior_priest_innate_18",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_1",
+      "tier": 17,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Kill the Heretics!",
+      "localised_description": "Chaos is nothing against our iron will!",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Character experience gain per turn: +50",
+              "key": "wh3_main_effect_character_experience_per_turn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Corruption: -2\n\t(local province)",
+              "key": "wh3_main_effect_corruption_reduction_characters",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+            },
+            {
+              "description": "Weapon strength: +5% when fighting against Warriors of Chaos and Norsca\n\t(armies in local owned region)",
+              "key": "wh_dlc06_effect_force_stat_weapon_strength_vs_chaos_norsca",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_warrior_priest_innate_19",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_2",
+      "tier": 18,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Burn the Undead!",
+      "localised_description": "Those corpses will burn and only ash will remain.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Character experience gain per turn: +50",
+              "key": "wh3_main_effect_character_experience_per_turn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Corruption: -2\n\t(local province)",
+              "key": "wh3_main_effect_corruption_reduction_characters",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+            },
+            {
+              "description": "Leadership: +2 when fighting against Vampire Counts, Vampire Coast and Tomb Kings\n\t(armies in local owned region)",
+              "key": "wh_main_effect_force_stat_leadership_vs_undead",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_warrior_priest_innate_20",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_3",
+      "tier": 19,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Defender of Men",
+      "localised_description": "Walls can't dodge!",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Ammunition: +10% when under siege\n\t(armies in local owned region)",
+              "key": "wh_siege_defending_ammo",
+              "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+            },
+            {
+              "description": "Passive ability: \"Extra Powder\"",
+              "key": "wh_main_effect_ability_enable_extra_powder",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_extra_powder",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_hero_passive_extra_powder",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_hero_passive_extra_powder",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Extra Powder",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Missile attack possible"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_hero_passive_extra_powder",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "scalar_missile_explosion_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Explosive Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_explosive_armour_piercing_damage"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "scalar_missile_explosion_damage_base",
+                            "how": "mult",
+                            "description": "x1.25 Base Explosive Damage",
+                            "icon": "vanilla3/skins/default/icon_explosive_damage"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_missile_range",
+                            "how": "mult",
+                            "description": "x1.1 Range",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Missile resistance: 10% when laying siege",
+              "key": "wh_siege_attacking_res_missile",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_warrior_priest_innate_21",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_4",
+      "tier": 20,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Basic Training",
+      "localised_description": "The training of even basic troops is important because all hands are needed in these dangerous times.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Experience gain: +10% for characters",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Melee attack: +1 for Wolf-Kin, Spearmen, Swordsmen, Free Company Militia, Halberdiers and Greatswords units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_melee_attack_emp_tier_1",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+            },
+            {
+              "description": "Melee defence: +1 for Wolf-Kin, Spearmen, Swordsmen, Free Company Militia, Halberdiers and Greatswords units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_melee_defence_emp_tier_1",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_warrior_priest_innate_22",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_5",
+      "tier": 21,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Imperial Calibration",
+      "localised_description": "They will not know what hit them!",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Range: +10% for artillery units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_range_artillery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
+            },
+            {
+              "description": "Missile strength: +10% for artillery units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_missile_damage_artillery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_warrior_priest_innate_23",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_6",
+      "tier": 22,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Knight Heritage",
+      "localised_description": "Knights of the Empire have strong bloodlines.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Vigour loss reduction: -10% for cavalry units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_vigour_loss_reduction_cavalry",
+              "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+            },
+            {
+              "description": "Passive ability: \"Battle Banner\"",
+              "key": "wh2_main_effect_ability_enable_battle_banner",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_main_effect_ability_enable_battle_banner",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_main_banner_passive_battle_banner",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_banner_passive_battle_banner",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Battle Banner",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_banner_passive_battle_banner",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -4,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-4 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }

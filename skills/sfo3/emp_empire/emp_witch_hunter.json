@@ -60,13 +60,6 @@
                           "max_damaged_entities": 1,
                           "stat_effects": [
                             {
-                              "value": -10,
-                              "stat": "stat_resistance_all",
-                              "how": "add",
-                              "description": "-10 Damage Resistance ",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                            },
-                            {
                               "value": -5,
                               "stat": "stat_morale",
                               "how": "add",
@@ -100,6 +93,13 @@
                               "how": "add",
                               "description": "-10 Physical Resistance",
                               "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            },
+                            {
+                              "value": -10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "-10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                             }
                           ]
                         }
@@ -299,8 +299,68 @@
         ]
       },
       {
+        "key": "wh2_main_skill_node_emp_witch_hunter_unique_06",
+        "image_path": "sfo3/campaign_ui/skills/wh_main_emp_the_inner_circle",
+        "character_skill_key": "emp_witch_squad_skill",
+        "tier": 6,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Retinue",
+        "localised_description": "There are a wide variety of those - from the Colleges' Magisters Vigilant to local mercenaries, hired to a Witch Hunter's service.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Witch Hunter Retinue\"",
+                "key": "emp_passive_witch_squad_enable",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee",
+                "related_abilities": [
+                  {
+                    "effect": "emp_passive_witch_squad_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "emp_passive_witch_squad",
+                      "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_witch_squad",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_summon_unit",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Summon Unit"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Witch Hunter Retinue",
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Hit Points greater than 50%"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "witch_summon",
+                          "localised_text": "Summons a unit of Witch Hunters",
+                          "effect_state": "positive"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 20
+          }
+        ]
+      },
+      {
         "key": "wh2_main_skill_node_set_emp_witch_hunter_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/character_experience",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_hero",
         "tier": 12,
         "indent": 0,
@@ -825,13 +885,6 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.2,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.2 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
                               "value": 1.4,
                               "stat": "scalar_entity_acceleration_modifier",
                               "how": "mult",
@@ -844,6 +897,13 @@
                               "how": "add",
                               "description": "+20 Melee Defence",
                               "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 1.2,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.2 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
                               "value": 20,
@@ -870,9 +930,1118 @@
         ]
       }
     ],
-    [],
-    [],
-    [],
+    [
+      {
+        "key": "emp_skill_witch_1",
+        "image_path": "sfo3/campaign_ui/skills/icon_stat_morale_vs_undead",
+        "character_skill_key": "emp_skill_witch_1",
+        "tier": 0,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Enemy of the Undead",
+        "localised_description": "This one has a deep-seated hatred for the unliving. They have studied long and hard on how to best strike against them.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee attack: +3 when fighting against Undead",
+                "key": "wh2_dlc13_effect_melee_attack_versus_vmp_cst_tmb",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              },
+              {
+                "description": "Leadership: +3 when fighting against Undead",
+                "key": "wh2_dlc13_effect_morale_versus_vmp_cst_tmb",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "emp_skill_witch_2",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "emp_skill_witch_2",
+        "tier": 1,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Terrifying Presence ",
+        "localised_description": "The mere presence of the Witch Hunter shakes the foul into hesitation.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy melee attack: -1\n\t(enemy characters in region)",
+                "key": "wh_effect_all_attack_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy melee attack: -2\n\t(enemy characters in region)",
+                "key": "wh_effect_all_attack_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy melee attack: -4\n\t(enemy characters in region)",
+                "key": "wh_effect_all_attack_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_witch_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_witch_3",
+        "image_path": "vanilla3/campaign_ui/skills/character_ammo",
+        "character_skill_key": "emp_skill_witch_3",
+        "tier": 2,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Regular Maintenance ",
+        "localised_description": "You cannot pierce the heart of your enemy with a bullet fired from a dirty barrel.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +3%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              },
+              {
+                "description": "Reload time reduction: +3%",
+                "key": "wh_main_effect_character_stat_reload_time_reduction",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +6%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              },
+              {
+                "description": "Reload time reduction: +6%",
+                "key": "wh_main_effect_character_stat_reload_time_reduction",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +10%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              },
+              {
+                "description": "Reload time reduction: +10%",
+                "key": "wh_main_effect_character_stat_reload_time_reduction",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_witch_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_witch_4",
+        "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
+        "character_skill_key": "emp_skill_witch_4",
+        "tier": 3,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Purge the Guilty",
+        "localised_description": "Prepare the firing squad. They have been judged.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy missile resistance: -2%\n\t(enemy characters in region)",
+                "key": "wh_effect_all_res_missile_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy missile resistance: -4%\n\t(enemy characters in region)",
+                "key": "wh_effect_all_res_missile_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy missile resistance: -8%\n\t(enemy characters in region)",
+                "key": "wh_effect_all_res_missile_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_witch_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_witch_5",
+        "image_path": "vanilla3/campaign_ui/skills/item_enchanted_item",
+        "character_skill_key": "emp_skill_witch_5",
+        "tier": 4,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Arrange Favors",
+        "localised_description": "Our underworld contacts have been bribed to supply our troops with the very best, and slip tainted supplies to our enemies.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Spell resistance: 2%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              },
+              {
+                "description": "Enemy vigour loss reduction: +1%\n\t(enemy armies in region)",
+                "key": "wh_effect_all_fatigue_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Spell resistance: 4%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              },
+              {
+                "description": "Enemy vigour loss reduction: +3%\n\t(enemy armies in region)",
+                "key": "wh_effect_all_fatigue_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Spell resistance: 8%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              },
+              {
+                "description": "Enemy vigour loss reduction: +5%\n\t(enemy armies in region)",
+                "key": "wh_effect_all_fatigue_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_witch_1"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_witch_6",
+        "image_path": "vanilla3/campaign_ui/skills/wh2_dlc11_arson",
+        "character_skill_key": "emp_skill_witch_6",
+        "tier": 5,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Judgement",
+        "localised_description": "Once judged guilty of heresy, enemy leaders find even their most loyal subordinates gazing warily upon them.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy leadership aura size: -20%\n\t(enemy characters in region)",
+                "key": "wh_effect_all_aura_size_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "emp_skill_witch_2",
+          "emp_skill_witch_3",
+          "emp_skill_witch_4",
+          "emp_skill_witch_5"
+        ]
+      },
+      {
+        "key": "emp_skill_witch_7",
+        "image_path": "vanilla3/campaign_ui/skills/character_raise_dead",
+        "character_skill_key": "emp_skill_witch_7",
+        "tier": 6,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Devout Hunt: Undeath",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Devout Hunt: Undeath\"",
+                "key": "emp_passive_aura_witch_hunter_enable",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "emp_passive_aura_witch_hunter_enable",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "emp_passive_aura_witch_hunter",
+                      "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_aura_witch_hunter",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_hexes",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                        "onscreen_name": "Hex (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Devout Hunt: Undeath",
+                      "effect_range": 50,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is higher than broken"
+                      ],
+                      "target_if": [
+                        "Undead"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/emp_passive_aura_witch_hunter",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -10,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-10 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "emp_skill_witch_2",
+          "emp_skill_witch_3",
+          "emp_skill_witch_4",
+          "emp_skill_witch_5"
+        ]
+      }
+    ],
+    [
+      {
+        "key": "hero_spy_1_emp_witch_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/character_movement",
+        "character_skill_key": "hero_spy_1",
+        "tier": 100,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Hidden Paths",
+        "localised_description": "There is always another way.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Campaign movement range: +5%\n\t(accompanying Lord)",
+                "key": "wh_main_effect_agent_movement_range_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+              },
+              {
+                "description": "Speed: +10%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "hero_spy_2_emp_witch_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/character_subterfuge",
+        "character_skill_key": "hero_spy_2",
+        "tier": 101,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Retinue: Disciple",
+        "localised_description": "Useful, if a bit impetuous.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Assassinate action: Additional 1% success chance",
+                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
+              },
+              {
+                "description": "Hero self-defence: +1% chance of wounding aggressors",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Assassinate action: Additional 3% success chance",
+                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
+              },
+              {
+                "description": "Hero self-defence: +3% chance of wounding aggressors",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Assassinate action: Additional 6% success chance",
+                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
+              },
+              {
+                "description": "Hero self-defence: +6% chance of wounding aggressors",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_emp_witch_hunter"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_3_emp_witch_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/battle_morale",
+        "character_skill_key": "hero_spy_3",
+        "tier": 102,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Notorious",
+        "localised_description": "It’s difficult to sleep with one eye open and a dagger under your pillow.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy leadership: -1\n\t(enemy characters in region)",
+                "key": "wh_effect_all_morale_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy leadership: -2\n\t(enemy characters in region)",
+                "key": "wh_effect_all_morale_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy leadership: -3\n\t(enemy characters in region)",
+                "key": "wh_effect_all_morale_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_emp_witch_hunter"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_4_emp_witch_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ammo",
+        "character_skill_key": "hero_engineer_4",
+        "tier": 103,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Emergency Stockpiles",
+        "localised_description": "For use only in the most dire of circumstances.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +3% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +6% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +10% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_emp_witch_hunter"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_5_emp_witch_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_ambush",
+        "character_skill_key": "hero_spy_5",
+        "tier": 104,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Shadow",
+        "localised_description": "Always watching.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +2%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +2%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +4%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +4%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +8%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +8%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_emp_witch_hunter"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_6_emp_witch_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
+        "character_skill_key": "hero_spy_6",
+        "tier": 105,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Grandmaster",
+        "localised_description": "They’ve all heard the stories of this one’s accomplishments. The stories, of course, pale in comparison to the truth.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hero action success chance: +1%\n\t(all characters factionwide)",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Hero action cost: -2%\n\t(all characters factionwide)",
+                "key": "wh_main_effect_agent_action_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "hero_spy_5_emp_witch_hunter",
+          "hero_spy_4_emp_witch_hunter",
+          "hero_spy_3_emp_witch_hunter",
+          "hero_spy_2_emp_witch_hunter"
+        ]
+      }
+    ],
+    [
+      {
+        "key": "wh_skill_potion_heal_emp_witch",
+        "image_path": "sfo3/campaign_ui/skills/wh_skill_potion_heal",
+        "character_skill_key": "wh_skill_potion_heal",
+        "tier": 0,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Potion of Healing",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Potion of Healing\"",
+                "key": "wh_main_effect_ability_enable_potion_of_healing",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_potion_of_healing",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_item_abilities_potion_of_healing",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_healing",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Potion of Healing",
+                      "active_time": 60,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_total_30",
+                          "localised_text": "Restores up to 30% Hit Points",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_healing",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 60,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.005,
+                          "hp_change_frequency": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "wh_skill_potion_fool_emp_witch",
+              "wh_skill_potion_speed_emp_witch",
+              "wh_skill_potion_strength_emp_witch",
+              "wh_skill_potion_toughness_emp_witch"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh_skill_potion_fool_emp_witch",
+        "image_path": "sfo3/campaign_ui/skills/wh_skill_potion_fool",
+        "character_skill_key": "wh_skill_potion_fool",
+        "tier": 1,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Potion of Foolhardiness",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Potion of Foolhardiness\"",
+                "key": "wh_main_effect_ability_enable_potion_of_foolhardiness",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_potion_of_foolhardiness",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_item_abilities_potion_of_foolhardiness",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_foolhardiness",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Potion of Foolhardiness",
+                      "active_time": 60,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_foolhardiness",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 60,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 25,
+                              "stat": "stat_charge_bonus",
+                              "how": "add",
+                              "description": "+25 Charge Bonus",
+                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.25 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "unbreakable",
+                              "description": " Unbreakable",
+                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                              "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "wh_skill_potion_heal_emp_witch",
+              "wh_skill_potion_speed_emp_witch",
+              "wh_skill_potion_strength_emp_witch",
+              "wh_skill_potion_toughness_emp_witch"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh_skill_potion_speed_emp_witch",
+        "image_path": "sfo3/campaign_ui/skills/wh_skill_potion_speed",
+        "character_skill_key": "wh_skill_potion_speed",
+        "tier": 2,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Potion of Speed",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Potion of Speed\"",
+                "key": "wh_main_effect_ability_enable_potion_of_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_potion_of_speed",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_item_abilities_potion_of_speed",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_speed",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Potion of Speed",
+                      "active_time": 60,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_speed",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 60,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.5,
+                              "stat": "scalar_entity_acceleration_modifier",
+                              "how": "mult",
+                              "description": "x1.5 Acceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+20 Reload Skill",
+                              "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.25 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.25 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "wh_skill_potion_heal_emp_witch",
+              "wh_skill_potion_fool_emp_witch",
+              "wh_skill_potion_strength_emp_witch",
+              "wh_skill_potion_toughness_emp_witch"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh_skill_potion_strength_emp_witch",
+        "image_path": "sfo3/campaign_ui/skills/wh_skill_potion_strength",
+        "character_skill_key": "wh_skill_potion_strength",
+        "tier": 3,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Potion of Strength",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Potion of Strength\"",
+                "key": "wh_main_effect_ability_enable_potion_of_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_potion_of_strength",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_item_abilities_potion_of_strength",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_strength",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Potion of Strength",
+                      "active_time": 60,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_strength",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 60,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.3 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            },
+                            {
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.3 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+10 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "wh_skill_potion_heal_emp_witch",
+              "wh_skill_potion_fool_emp_witch",
+              "wh_skill_potion_speed_emp_witch",
+              "wh_skill_potion_toughness_emp_witch"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh_skill_potion_toughness_emp_witch",
+        "image_path": "sfo3/campaign_ui/skills/wh_skill_potion_toughness",
+        "character_skill_key": "wh_skill_potion_toughness",
+        "tier": 4,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Potion of Toughness",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Potion of Toughness\"",
+                "key": "wh_main_effect_ability_enable_potion_of_toughness",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_potion_of_toughness",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_item_abilities_potion_of_toughness",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_toughness",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Potion of Toughness",
+                      "active_time": 60,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_total_15",
+                          "localised_text": "Restores up to 15% Hit Points",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_toughness",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 60,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.0025,
+                          "hp_change_frequency": 1,
+                          "stat_effects": [
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+25 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 30,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+30 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+25 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "wh_skill_potion_heal_emp_witch",
+              "wh_skill_potion_fool_emp_witch",
+              "wh_skill_potion_speed_emp_witch",
+              "wh_skill_potion_strength_emp_witch"
+            ]
+          }
+        ]
+      }
+    ],
     [
       {
         "key": "wh2_main_skill_node_emp_witch_hunter_campaign_01",
@@ -1239,7 +2408,7 @@
       {
         "key": "immune_to_psychology",
         "description": " Immune to Psychology",
-        "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+        "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
         "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
       }
     ],
@@ -1276,10 +2445,10 @@
               "stat_effects": [
                 {
                   "value": 0.8,
-                  "stat": "scalar_speed",
+                  "stat": "stat_melee_damage_ap",
                   "how": "mult",
-                  "description": "x0.8 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 },
                 {
                   "value": 0.8,
@@ -1289,25 +2458,25 @@
                   "icon": "vanilla3/skins/default/icon_stat_damage_base"
                 },
                 {
-                  "value": 1.1,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x1.1 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                },
-                {
-                  "value": 0.8,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x0.8 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                },
-                {
                   "value": -20,
                   "stat": "stat_reloading",
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
                 }
               ]
             }
@@ -1720,6 +2889,20 @@
                     },
                     {
                       "value": 0.8,
+                      "stat": "stat_melee_damage_ap",
+                      "how": "mult",
+                      "description": "x0.8 Armour-Piercing Weapon Damage",
+                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                    },
+                    {
+                      "value": 0.8,
+                      "stat": "stat_melee_damage_base",
+                      "how": "mult",
+                      "description": "x0.8 Base Weapon Damage",
+                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                    },
+                    {
+                      "value": 0.8,
                       "stat": "scalar_missile_damage_base",
                       "how": "mult",
                       "description": "x0.8 Base Missile Damage",
@@ -1731,20 +2914,6 @@
                       "how": "mult",
                       "description": "x0.8 Speed",
                       "icon": "vanilla3/skins/default/icon_stat_speed"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Weapon Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Weapon Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                     }
                   ]
                 }
@@ -1782,7 +2951,7 @@
                 {
                   "key": "immune_to_psychology",
                   "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
                   "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 }
               ]
@@ -2062,6 +3231,307 @@
               "description": "Leadership aura size: +25%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_witch_hunter_innate_18",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_1",
+      "tier": 17,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Kill the Heretics!",
+      "localised_description": "Chaos is nothing against our iron will!",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Character experience gain per turn: +50",
+              "key": "wh3_main_effect_character_experience_per_turn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Corruption: -2\n\t(local province)",
+              "key": "wh3_main_effect_corruption_reduction_characters",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+            },
+            {
+              "description": "Weapon strength: +5% when fighting against Warriors of Chaos and Norsca\n\t(armies in local owned region)",
+              "key": "wh_dlc06_effect_force_stat_weapon_strength_vs_chaos_norsca",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_witch_hunter_innate_19",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_2",
+      "tier": 18,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Burn the Undead!",
+      "localised_description": "Those corpses will burn and only ash will remain.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Character experience gain per turn: +50",
+              "key": "wh3_main_effect_character_experience_per_turn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Corruption: -2\n\t(local province)",
+              "key": "wh3_main_effect_corruption_reduction_characters",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+            },
+            {
+              "description": "Leadership: +2 when fighting against Vampire Counts, Vampire Coast and Tomb Kings\n\t(armies in local owned region)",
+              "key": "wh_main_effect_force_stat_leadership_vs_undead",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_witch_hunter_innate_20",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_3",
+      "tier": 19,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Defender of Men",
+      "localised_description": "Walls can't dodge!",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Ammunition: +10% when under siege\n\t(armies in local owned region)",
+              "key": "wh_siege_defending_ammo",
+              "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+            },
+            {
+              "description": "Passive ability: \"Extra Powder\"",
+              "key": "wh_main_effect_ability_enable_extra_powder",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_extra_powder",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_hero_passive_extra_powder",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_hero_passive_extra_powder",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Extra Powder",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Missile attack possible"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_hero_passive_extra_powder",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "scalar_missile_explosion_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Explosive Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_explosive_armour_piercing_damage"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "scalar_missile_explosion_damage_base",
+                            "how": "mult",
+                            "description": "x1.25 Base Explosive Damage",
+                            "icon": "vanilla3/skins/default/icon_explosive_damage"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_missile_range",
+                            "how": "mult",
+                            "description": "x1.1 Range",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Missile resistance: 10% when laying siege",
+              "key": "wh_siege_attacking_res_missile",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_witch_hunter_innate_21",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_4",
+      "tier": 20,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Basic Training",
+      "localised_description": "The training of even basic troops is important because all hands are needed in these dangerous times.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Experience gain: +10% for characters",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Melee attack: +1 for Wolf-Kin, Spearmen, Swordsmen, Free Company Militia, Halberdiers and Greatswords units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_melee_attack_emp_tier_1",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+            },
+            {
+              "description": "Melee defence: +1 for Wolf-Kin, Spearmen, Swordsmen, Free Company Militia, Halberdiers and Greatswords units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_melee_defence_emp_tier_1",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_witch_hunter_innate_22",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_5",
+      "tier": 21,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Imperial Calibration",
+      "localised_description": "They will not know what hit them!",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Range: +10% for artillery units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_range_artillery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
+            },
+            {
+              "description": "Missile strength: +10% for artillery units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_missile_damage_artillery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_main_skill_node_emp_witch_hunter_innate_23",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_trait_6",
+      "tier": 22,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Knight Heritage",
+      "localised_description": "Knights of the Empire have strong bloodlines.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Vigour loss reduction: -10% for cavalry units\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_vigour_loss_reduction_cavalry",
+              "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+            },
+            {
+              "description": "Passive ability: \"Battle Banner\"",
+              "key": "wh2_main_effect_ability_enable_battle_banner",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_main_effect_ability_enable_battle_banner",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_main_banner_passive_battle_banner",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_banner_passive_battle_banner",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Battle Banner",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_banner_passive_battle_banner",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -4,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-4 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }

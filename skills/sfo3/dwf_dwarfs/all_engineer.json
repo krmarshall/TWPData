@@ -81,6 +81,13 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
+                              "value": -25,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-25 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
                               "value": 0.5,
                               "stat": "scalar_charge_speed",
                               "how": "mult",
@@ -93,13 +100,6 @@
                               "how": "mult",
                               "description": "x0.5 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": -25,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-25 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
                             }
                           ]
                         }
@@ -269,8 +269,427 @@
         ]
       },
       {
+        "key": "dwf_skill_engineer_gyro",
+        "image_path": "sfo3/campaign_ui/skills/gyrocopter_talent",
+        "character_skill_key": "dwf_skill_engineer_gyro",
+        "tier": 10,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Gyrocopter",
+        "localised_description": "Gyrocopters are revolutionary flying machines that provides the armies of the Dwarfs with dedicated aerial support or as a form of fast reconnaissance.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Gyrocopter (not visible on campaign map)",
+                "key": "dwf_mount_gyro",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 7,
+              "mass": 1500,
+              "size": "large",
+              "hit_points": 0,
+              "bonus_hit_points": 5750,
+              "armour": 130,
+              "missile_block_chance": 0,
+              "morale": 72,
+              "damage_mod_flame": 25,
+              "damage_mod_magic": 25,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 25,
+              "damage_mod_all": 0,
+              "melee_attack": 40,
+              "melee_defence": 20,
+              "charge_bonus": 40,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 100,
+              "ap_damage": 50,
+              "splash_target_size_limit": "large",
+              "splash_attack_max_attacks": 4,
+              "melee_attack_interval": 4,
+              "barrier": 0,
+              "can_skirmish": true,
+              "fly_speed": 11,
+              "projectile": {
+                "key": "wh_main_dwf_copter_brimstone_gun_hero",
+                "damage": 0,
+                "ap_damage": 100,
+                "shockwave_radius": 0.5,
+                "effective_range": 125,
+                "base_reload_time": 4,
+                "bonus_v_large": 100,
+                "is_flaming": true,
+                "can_damage_allies": true,
+                "explosion_type": {
+                  "key": "wh_main_dwf_copter_brimstone_gun_hero",
+                  "affects_allies": true,
+                  "detonation_damage": 50,
+                  "detonation_damage_ap": 0,
+                  "detonation_radius": 6
+                }
+              },
+              "accuracy": 20,
+              "reload": 0,
+              "primary_ammo": 70,
+              "fire_arc": 80,
+              "attributes": [
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/battle_ui/ability_icons/encourages"
+                },
+                {
+                  "key": "fatigue_res",
+                  "description": "Strong Vigour",
+                  "bullet_text": "This unit's vigour is less affected by fatiguing actions, such as combat.",
+                  "icon": "sfo3/battle_ui/ability_icons/fatigue_res"
+                },
+                {
+                  "key": "flying",
+                  "description": "Can fly",
+                  "bullet_text": "This unit can fly.",
+                  "icon": "sfo3/battle_ui/ability_icons/flying"
+                }
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_main_unit_abilities_gyrocopter_bomb",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_abilities_gyrocopter_grenade",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_bombardment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                      "onscreen_name": "Bombardment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Gyrocopter Bomb",
+                    "active_time": 1,
+                    "effect_range": 0,
+                    "num_uses": 2,
+                    "recharge_time": 0.1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 10,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_bombardment_small_strike_aoe",
+                        "localised_text": "Small strike area",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_projectile_powerful_explosion",
+                        "localised_text": "Powerful explosion",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_multiple",
+                        "localised_text": "Strong vs multiple combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_number_1",
+                        "localised_text": "Projectiles: 1",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_aoe_10",
+                        "localised_text": "Explosion area of effect: 10m",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_weak_against_single",
+                        "localised_text": "Weak vs a single combatant",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "bombardment": {
+                      "bombardment_key": "wh_main_unit_abilities_gyrocopter_grenade",
+                      "arrival_window": 0.5,
+                      "radius_spread": 3,
+                      "start_time": 0.1,
+                      "projectile_type": {
+                        "key": "wh_main_unit_abilities_gyrocopter_grenade",
+                        "damage": 50,
+                        "ap_damage": 25,
+                        "shockwave_radius": 1,
+                        "effective_range": 10,
+                        "base_reload_time": 27,
+                        "is_flaming": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh_main_unit_abilities_gyrocopter_grenade",
+                          "affects_allies": true,
+                          "detonation_damage": 150,
+                          "detonation_damage_ap": 50,
+                          "detonation_radius": 5,
+                          "is_flaming": true
+                        }
+                      },
+                      "num_projectiles": 5
+                    }
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_dlc17_hero_abilities_more_powder_generic",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_hero_abilities_more_powder",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Restock!",
+                    "active_time": 10,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "num_uses": 4,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 100,
+                    "ui_effects": [
+                      {
+                        "key": "wh_ammo_add_30",
+                        "localised_text": "Replenishes 30% ammunition",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh2_dlc11_all_replenish_ammo",
+                        "localised_text": "Replenishes ammunition",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_hero_abilities_more_powder",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 10,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "replenish_ammo": 0.3
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_main_unit_abilities_entrenchment",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_abilities_entrenchment",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Entrenchment",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": true,
+                    "target_intercept_range": 150,
+                    "target_if": [
+                      "",
+                      "Grounded",
+                      ""
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_abilities_entrenchment",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 60,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "cant_move": true,
+                        "stat_effects": [
+                          {
+                            "value": 1.5,
+                            "stat": "scalar_missile_damage_ap",
+                            "how": "mult",
+                            "description": "x1.5 Armour-Piercing Missile Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "scalar_missile_explosion_damage_ap",
+                            "how": "mult",
+                            "description": "x1.5 Armour-Piercing Explosive Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_explosive_armour_piercing_damage"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+20 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "dwf_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/dwf_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Unyielding Oath",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points less than 50%",
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/dwf_passive_main_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x1.25  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+10 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_missile",
+                            "how": "add",
+                            "description": "+10 Missile Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_aura_buff_attack_range",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack_range",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bolstered Marksmanship",
+                    "effect_range": 60,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack_range",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_missile_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Missile Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_accuracy",
+                            "how": "add",
+                            "description": "+10 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 15
+          }
+        ]
+      },
+      {
         "key": "wh_main_skill_node_set_all_engineer_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/character_experience",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_hero",
         "tier": 12,
         "indent": 0,
@@ -628,7 +1047,7 @@
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
                       "target_if": [
-                        "Not on or below a platform"
+                        ""
                       ],
                       "ui_effects": [
                         {
@@ -695,7 +1114,7 @@
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
                       "target_if": [
-                        "Not on or below a platform"
+                        ""
                       ],
                       "ui_effects": [
                         {
@@ -926,18 +1345,18 @@
                               "icon": "vanilla3/skins/default/icon_stat_range"
                             },
                             {
-                              "value": 50,
-                              "stat": "stat_accuracy",
-                              "how": "add",
-                              "description": "+50 Accuracy",
-                              "icon": "vanilla3/skins/default/icon_stat_range"
-                            },
-                            {
                               "value": 25,
                               "stat": "stat_reloading",
                               "how": "add",
                               "description": "+25 Reload Skill",
                               "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            },
+                            {
+                              "value": 50,
+                              "stat": "stat_accuracy",
+                              "how": "add",
+                              "description": "+50 Accuracy",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
                             }
                           ]
                         }
@@ -1265,8 +1684,552 @@
         ]
       }
     ],
-    [],
-    [],
+    [
+      {
+        "key": "dwf_skill_engineer_8",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "dwf_skill_engineer_2",
+        "tier": 0,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Bolt Thrower Mastery",
+        "localised_description": "Alright, ya want me to hit 'em in the eyes... which eye?",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Bolt Thrower: +3% reload time reduction, ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_bolt_reload_ammo_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Bolt Thrower: +6% reload time reduction, ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_bolt_reload_ammo_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Bolt Thrower: +10% reload time reduction, ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_bolt_reload_ammo_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_engineer_9",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "dwf_skill_engineer_3",
+        "tier": 1,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Cannon Mastery",
+        "localised_description": "Aye, I've assembled hundreds in the fires of Zhufbar. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Cannon: +3% range, ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_cannon_range_ammo_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Cannon: +6% range, ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_cannon_range_ammo_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Cannon: +10% range, ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_cannon_range_ammo_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_engineer_10",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "dwf_skill_engineer_4",
+        "tier": 2,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Flame Cannon Mastery",
+        "localised_description": "The most precisely calculated pressure valves allow the crews to fire faster and more efficiently.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Flame Cannon: +4% reload time reduction and ammunition\n\t(Hero's army)",
+                "key": "dwf_flame_reload_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Flame Cannon: +8% reload time reduction and ammunition\n\t(Hero's army)",
+                "key": "dwf_flame_reload_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Flame Cannon: +12% reload time reduction and ammunition\n\t(Hero's army)",
+                "key": "dwf_flame_reload_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_engineer_11",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "dwf_skill_engineer_5",
+        "tier": 3,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Grudge Thrower Mastery",
+        "localised_description": "Having carved the most heinous of grudges into the stones, the crew, seething with anger, redoubles their efforts.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Grudge Thrower: +4% range and ammunition\n\t(Hero's army)",
+                "key": "dwf_grudge_range_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Grudge Thrower: +8% range and ammunition\n\t(Hero's army)",
+                "key": "dwf_grudge_range_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Grudge Thrower: +12% range and ammunition\n\t(Hero's army)",
+                "key": "dwf_grudge_range_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_engineer_12",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "dwf_skill_engineer_6",
+        "tier": 4,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Organ Gun Mastery",
+        "localised_description": "Clean and maintain those barrels, Dawi, and this weapon will slaughter countless Urks.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Organ Gun: +4% ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_organ_missile_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Organ Gun: +8% ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_organ_missile_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Organ Gun: +12% ammunition and missile damage\n\t(Hero's army)",
+                "key": "dwf_organ_missile_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_engineer_13",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "dwf_skill_engineer_7",
+        "tier": 5,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Adamant Plating",
+        "localised_description": "A rare form of Gromril that only the most skilled artisans and engineers can manipulate, providing incredible protection.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Gyrobomber: +4% ward save and ammunition\n\t(Hero's army)",
+                "key": "dwf_bomber_wardsave_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Gyrobomber: +8% ward save and ammunition\n\t(Hero's army)",
+                "key": "dwf_bomber_wardsave_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Gyrobomber: +12% ward save and ammunition\n\t(Hero's army)",
+                "key": "dwf_bomber_wardsave_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_engineer_14",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "dwf_skill_engineer_8",
+        "tier": 6,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Reinforced Rotors",
+        "localised_description": "Only the most mad--or inebriated--Dwarf Engineer would ever consider weaponizing the rotor. Although those blades do spin very fast...",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Gyrocopter: +3% melee and missile damage\n\t(Hero's army)",
+                "key": "dwf_copter_damage_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Gyrocopter: +7% melee and missile damage\n\t(Hero's army)",
+                "key": "dwf_copter_damage_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Gyrocopter: +15% melee and missile damage\n\t(Hero's army)",
+                "key": "dwf_copter_damage_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "key": "hero_engineer_1_dwf_master_engineer",
+        "image_path": "vanilla3/campaign_ui/skills/character_construction",
+        "character_skill_key": "hero_engineer_1",
+        "tier": 100,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Organized",
+        "localised_description": "The smiths have already completed their order, the workers are in position and the masons are ready to begin.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Construction time: -20% for all buildings\n\t(local region)",
+                "key": "wh2_main_effect_building_construction_time_mod_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/construction"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "hero_engineer_2_dwf_master_engineer",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "wh_skill_hero_elite_damage_missile",
+        "tier": 101,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "We are the Elite",
+        "localised_description": "True experience is born only on the battlefield.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Missile damage: +1% for all units (Rank 7 and above)\n\t(Hero's army)",
+                "key": "wh_effect_all_elite_damage_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Missile damage: +3% for all units (Rank 7 and above)\n\t(Hero's army)",
+                "key": "wh_effect_all_elite_damage_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Missile damage: +5% for all units (Rank 7 and above)\n\t(Hero's army)",
+                "key": "wh_effect_all_elite_damage_missile",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_engineer_1_dwf_master_engineer"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_engineer_3_dwf_master_engineer",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_siege_defence",
+        "character_skill_key": "hero_engineer_3",
+        "tier": 102,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Architect",
+        "localised_description": "My lord, we can save time and supplies if we make some slight modifications to this design.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Construction cost: -1% for all buildings\n\t(local region)",
+                "key": "wh_main_effect_building_construction_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Construction cost: -3% for all buildings\n\t(local region)",
+                "key": "wh_main_effect_building_construction_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Construction cost: -5% for all buildings\n\t(local region)",
+                "key": "wh_main_effect_building_construction_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_engineer_1_dwf_master_engineer"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_engineer_4_dwf_master_engineer",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ammo",
+        "character_skill_key": "hero_engineer_4",
+        "tier": 103,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Emergency Stockpiles",
+        "localised_description": "For use only in the most dire of circumstances.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +3% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +6% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +10% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_ammo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_engineer_1_dwf_master_engineer"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_engineer_5_dwf_master_engineer",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
+        "character_skill_key": "hero_engineer_5",
+        "tier": 104,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Apprentice Marksman",
+        "localised_description": "You will fetch ammunition, clean and repair weapons, and do anything else our marksmen require of you",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Reload time reduction: +3% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_reload",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Reload time reduction: +6% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_reload",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Reload time reduction: +10% when under siege\n\t(own armies in region)",
+                "key": "wh_siege_defending_reload",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_engineer_1_dwf_master_engineer"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "hero_engineer_6_dwf_master_engineer",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_technology",
+        "character_skill_key": "hero_engineer_6",
+        "tier": 105,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Laboratory",
+        "localised_description": "No one is allowed in or out without my express permission. This is for their safety, of course.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Research rate: +5%",
+                "key": "wh_main_effect_technology_research_points",
+                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "hero_engineer_2_dwf_master_engineer",
+          "hero_engineer_3_dwf_master_engineer",
+          "hero_engineer_4_dwf_master_engineer",
+          "hero_engineer_5_dwf_master_engineer"
+        ]
+      }
+    ],
     [
       {
         "key": "wh_main_skill_node_dwf_engineer_campaign_01",
@@ -1733,10 +2696,10 @@
               "stat_effects": [
                 {
                   "value": 0.8,
-                  "stat": "scalar_speed",
+                  "stat": "stat_melee_damage_ap",
                   "how": "mult",
-                  "description": "x0.8 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 },
                 {
                   "value": 0.8,
@@ -1746,25 +2709,25 @@
                   "icon": "vanilla3/skins/default/icon_stat_damage_base"
                 },
                 {
-                  "value": 1.1,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x1.1 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                },
-                {
-                  "value": 0.8,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x0.8 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                },
-                {
                   "value": -20,
                   "stat": "stat_reloading",
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
                 }
               ]
             }
@@ -2142,6 +3105,20 @@
                     },
                     {
                       "value": 0.8,
+                      "stat": "stat_melee_damage_ap",
+                      "how": "mult",
+                      "description": "x0.8 Armour-Piercing Weapon Damage",
+                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                    },
+                    {
+                      "value": 0.8,
+                      "stat": "stat_melee_damage_base",
+                      "how": "mult",
+                      "description": "x0.8 Base Weapon Damage",
+                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                    },
+                    {
+                      "value": 0.8,
                       "stat": "scalar_missile_damage_base",
                       "how": "mult",
                       "description": "x0.8 Base Missile Damage",
@@ -2153,20 +3130,6 @@
                       "how": "mult",
                       "description": "x0.8 Speed",
                       "icon": "vanilla3/skins/default/icon_stat_speed"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Weapon Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Weapon Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                     }
                   ]
                 }
@@ -2204,7 +3167,7 @@
                 {
                   "key": "immune_to_psychology",
                   "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
                   "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 }
               ]
@@ -2479,6 +3442,151 @@
               "description": "Leadership aura size: +25%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh_main_skill_node_all_engineer_innate_16",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_trait_gazul",
+      "tier": 15,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Ancestral Blood - Gazul\r",
+      "localised_description": "Even in the time of the Ancestor Gods, Gazul pondered long on the mortality of his race.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Corruption: -2\n\t(local province)",
+              "key": "wh3_main_effect_corruption_reduction_characters",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+            },
+            {
+              "description": "Weapon strength: +5% when fighting against Vampire Counts, Vampire Coast and Tomb Kings\n\t(armies in local owned region)",
+              "key": "wh2_main_effect_character_stat_weapon_strength_vs_undead",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh_main_skill_node_all_engineer_innate_17",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_trait_morgrim",
+      "tier": 16,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Ancestral Blood - Morgrim\r",
+      "localised_description": "Morgrim was the first Dwarf Engineer. He developed and taught his clans the techniques of crafting engines of war and other devices.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Research rate: +5%",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
+              "description": "Ammunition: +15%\n\t(all units in army)",
+              "key": "wh_main_effect_character_stat_ammunition",
+              "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh_main_skill_node_all_engineer_innate_18",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_trait_smednir",
+      "tier": 17,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Ancestral Blood - Smednir\r",
+      "localised_description": "Smednir is a Dwarf deity of some importance, because of his patronage of metalworking and the refining of ore.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Armour: +5\n\t(all units in army)",
+              "key": "wh_main_effect_character_stat_armour",
+              "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+            },
+            {
+              "description": "Recruitment cost: -10% for all units\n\t(own armies in province)",
+              "key": "wh_main_effect_force_all_campaign_recruitment_cost_all",
+              "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh_main_skill_node_all_engineer_innate_19",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_trait_thungni",
+      "tier": 18,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Ancestral Blood - Thungni\r",
+      "localised_description": "The younger son of Grungni and Valaya, Thungni is the god of Runic magic and runesmithing.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Magic item drop chance: +25%\n\t(own characters in region)",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+            },
+            {
+              "description": "Upkeep: -10% for Lords and Heroes\n\t(all units in army)",
+              "key": "wh_character_upkeep",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh_main_skill_node_all_engineer_innate_20",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_trait_1",
+      "tier": 19,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Grobi Slayer",
+      "localised_description": "Greenskins don't deserve to live longer than a fly.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Character experience gain per turn: +50",
+              "key": "wh3_main_effect_character_experience_per_turn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Weapon strength: +5% when fighting against Greenskins\n\t(armies in local owned region)",
+              "key": "wh_main_effect_force_stat_weapon_strength_vs_greenskins",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
             }
           ]
         }
