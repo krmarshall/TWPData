@@ -253,6 +253,13 @@
                           },
                           {
                             "value": 1.2,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x1.2 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": 1.2,
                             "stat": "scalar_missile_explosion_damage_ap",
                             "how": "mult",
                             "description": "x1.2 Armour-Piercing Explosive Damage",
@@ -264,13 +271,6 @@
                             "how": "mult",
                             "description": "x1.2 Base Explosive Damage",
                             "icon": "vanilla3/skins/default/icon_explosive_damage"
-                          },
-                          {
-                            "value": 1.2,
-                            "stat": "scalar_missile_damage_base",
-                            "how": "mult",
-                            "description": "x1.2 Base Missile Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
                           }
                         ]
                       }
@@ -309,10 +309,10 @@
                         "stat_effects": [
                           {
                             "value": 0.9,
-                            "stat": "stat_melee_damage_ap",
+                            "stat": "scalar_speed",
                             "how": "mult",
-                            "description": "x0.9 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            "description": "x0.9 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
                             "value": 0.9,
@@ -323,10 +323,10 @@
                           },
                           {
                             "value": 0.9,
-                            "stat": "scalar_speed",
+                            "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x0.9 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "description": "x0.9 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
                       }
@@ -513,10 +513,10 @@
         ]
       },
       {
-        "key": "wh2_dlc11_skill_node_set_cst_noctilus_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "key": "wh3_dlc24_skill_node_all_mentor",
+        "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_lord",
-        "tier": 11,
+        "tier": 30,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -576,9 +576,83 @@
     [
       {
         "key": "wh2_dlc11_cst_noctilus_unique_00",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_lord_passive_the_hunger",
+        "character_skill_key": "wh_main_skill_vmp_lord_self_the_hunger",
+        "tier": 0,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "The Hunger",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"The Hunger\"",
+                "key": "wh_main_effect_ability_enable_the_hunger",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_the_hunger",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_lord_passive_the_hunger",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lord_passive_the_hunger",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "The Hunger",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is higher than broken",
+                        "In melee"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_lord_passive_the_hunger",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.001,
+                          "hp_change_frequency": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "wh2_dlc11_cst_noctilus_unique_01",
         "image_path": "vanilla3/campaign_ui/skills/character_army",
         "character_skill_key": "wh2_dlc11_skill_cst_noctilus_unique_0",
-        "tier": 0,
+        "tier": 1,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -603,13 +677,16 @@
             "unlocked_at_rank": 12
           }
         ],
-        "right_arrow": true
+        "parent_required": [
+          "wh2_dlc11_cst_noctilus_unique_00"
+        ],
+        "boxed": true
       },
       {
-        "key": "wh2_dlc11_cst_noctilus_unique_01",
+        "key": "wh2_dlc11_cst_noctilus_unique_02",
         "image_path": "vanilla3/campaign_ui/skills/character_replenishment",
         "character_skill_key": "wh2_dlc11_skill_cst_noctilus_unique_1",
-        "tier": 1,
+        "tier": 2,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -639,10 +716,10 @@
         "boxed": true
       },
       {
-        "key": "wh2_dlc11_cst_noctilus_unique_02",
+        "key": "wh2_dlc11_cst_noctilus_unique_03",
         "image_path": "vanilla3/campaign_ui/skills/character_military_spending",
         "character_skill_key": "wh2_dlc11_skill_cst_noctilus_unique_2",
-        "tier": 2,
+        "tier": 3,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -677,10 +754,10 @@
         "boxed": true
       },
       {
-        "key": "wh2_dlc11_cst_noctilus_unique_03",
+        "key": "wh2_dlc11_cst_noctilus_unique_04",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_unit_passive_regeneration",
         "character_skill_key": "wh2_dlc11_skill_cst_noctilus_unique_3",
-        "tier": 3,
+        "tier": 4,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -772,10 +849,10 @@
         "boxed": true
       },
       {
-        "key": "wh2_dlc11_cst_noctilus_unique_04",
+        "key": "wh2_dlc11_cst_noctilus_unique_05",
         "image_path": "vanilla3/campaign_ui/skills/character_defence",
         "character_skill_key": "wh2_dlc11_skill_cst_noctilus_unique_4",
-        "tier": 4,
+        "tier": 5,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -806,13 +883,13 @@
         "boxed": true
       },
       {
-        "key": "wh2_dlc11_cst_noctilus_unique_05",
+        "key": "wh2_dlc11_cst_noctilus_unique_06",
         "image_path": "vanilla3/campaign_ui/skills/character_morale",
         "character_skill_key": "wh2_dlc11_skill_cst_noctilus_unique_5",
-        "tier": 5,
+        "tier": 6,
         "indent": 1,
         "points_on_creation": 0,
-        "required_num_parents": 4,
+        "required_num_parents": 5,
         "visible_in_ui": true,
         "is_background_skill": false,
         "localised_name": "Invincible Fleet",
@@ -845,7 +922,8 @@
           "wh2_dlc11_cst_noctilus_unique_01",
           "wh2_dlc11_cst_noctilus_unique_02",
           "wh2_dlc11_cst_noctilus_unique_03",
-          "wh2_dlc11_cst_noctilus_unique_04"
+          "wh2_dlc11_cst_noctilus_unique_04",
+          "wh2_dlc11_cst_noctilus_unique_05"
         ]
       }
     ],
@@ -1084,6 +1162,13 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
+                              "value": 0.75,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.75 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
                               "value": -20,
                               "stat": "stat_melee_defence",
                               "how": "add",
@@ -1096,13 +1181,6 @@
                               "how": "add",
                               "description": "-20 Armour",
                               "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
-                            {
-                              "value": 0.75,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.75 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
@@ -1331,6 +1409,13 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
+                              "value": 0.75,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.75 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
                               "value": -20,
                               "stat": "stat_melee_defence",
                               "how": "add",
@@ -1343,13 +1428,6 @@
                               "how": "add",
                               "description": "-20 Armour",
                               "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
-                            {
-                              "value": 0.75,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.75 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
@@ -2322,7 +2400,7 @@
                       "target_if": [
                         "Hit point replenishment cap not reached",
                         "Undead",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -2402,7 +2480,7 @@
                       "target_if": [
                         "Hit point replenishment cap not reached",
                         "Undead",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -2505,7 +2583,6 @@
                       "active_time": 3,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 4,
                       "recharge_time": 40,
                       "target_enemies": false,
@@ -2569,7 +2646,6 @@
                       "active_time": 3,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 4,
                       "recharge_time": 40,
                       "target_enemies": false,
@@ -2630,7 +2706,6 @@
                       "effect_range": 0,
                       "mana_cost": 7,
                       "miscast_chance": 0.5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 4,
                       "recharge_time": 45,
                       "target_enemies": false,
@@ -2910,18 +2985,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 5,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+5 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
                               "value": 1.05,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.05 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 5,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+5 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
                             }
                           ]
                         }
@@ -3248,7 +3323,7 @@
                       "wind_up_time": 5,
                       "target_if": [
                         "Grounded",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -3327,7 +3402,7 @@
                       "wind_up_time": 5,
                       "target_if": [
                         "Grounded",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -3969,13 +4044,6 @@
                           "stat_effects": [
                             {
                               "value": 1.2,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.2 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            },
-                            {
-                              "value": 1.2,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
                               "description": "x1.2 Base Weapon Damage",
@@ -3987,6 +4055,13 @@
                               "how": "add",
                               "description": "+8 Leadership",
                               "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 1.2,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.2 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
                         }
@@ -4216,13 +4291,6 @@
                           "stat_effects": [
                             {
                               "value": 1.2,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.2 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            },
-                            {
-                              "value": 1.2,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
                               "description": "x1.2 Base Weapon Damage",
@@ -4234,6 +4302,13 @@
                               "how": "add",
                               "description": "+16 Leadership",
                               "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 1.2,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.2 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
                         }
@@ -4995,10 +5070,10 @@
               "stat_effects": [
                 {
                   "value": 0.9,
-                  "stat": "stat_melee_damage_ap",
+                  "stat": "scalar_speed",
                   "how": "mult",
-                  "description": "x0.9 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  "description": "x0.9 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
                   "value": 0.9,
@@ -5009,10 +5084,10 @@
                 },
                 {
                   "value": 0.9,
-                  "stat": "scalar_speed",
+                  "stat": "stat_melee_damage_ap",
                   "how": "mult",
-                  "description": "x0.9 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                  "description": "x0.9 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 }
               ]
             }
@@ -5231,7 +5306,6 @@
                 "onscreen_name": "Captain Roth's Moondial",
                 "active_time": 3,
                 "effect_range": 0,
-                "num_effected_friendly_units": 1,
                 "num_uses": 2,
                 "recharge_time": 120,
                 "target_enemies": false,
@@ -5241,7 +5315,7 @@
                 "target_intercept_range": 150,
                 "wind_up_time": 3,
                 "target_if": [
-                  ""
+                  "Not on or below a platform"
                 ],
                 "ui_effects": [
                   {
@@ -5391,7 +5465,7 @@
                     "target_if": [
                       "Hit point replenishment cap not reached",
                       "Undead",
-                      ""
+                      "Not on or below a platform"
                     ],
                     "ui_effects": [
                       {
