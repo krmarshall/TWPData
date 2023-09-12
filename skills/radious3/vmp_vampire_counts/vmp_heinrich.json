@@ -60,6 +60,13 @@
                           "stat_effects": [
                             {
                               "value": 1.1,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.1 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.1,
                               "stat": "stat_melee_attack",
                               "how": "mult",
                               "description": "x1.1 Melee Attack",
@@ -71,13 +78,6 @@
                               "how": "add",
                               "description": "+10 Missile Resistance",
                               "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
-                            },
-                            {
-                              "value": 1.1,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.1 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
@@ -173,10 +173,10 @@
                         "stat_effects": [
                           {
                             "value": 0.9,
-                            "stat": "stat_melee_damage_ap",
+                            "stat": "scalar_speed",
                             "how": "mult",
-                            "description": "x0.9 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            "description": "x0.9 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
                             "value": 0.9,
@@ -187,10 +187,10 @@
                           },
                           {
                             "value": 0.9,
-                            "stat": "scalar_speed",
+                            "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x0.9 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "description": "x0.9 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
                       }
@@ -363,7 +363,6 @@
                       "active_time": 1,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 6,
                       "recharge_time": 20,
                       "target_enemies": false,
@@ -412,7 +411,6 @@
                       "effect_range": 0,
                       "mana_cost": 5,
                       "miscast_chance": 0.5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 6,
                       "recharge_time": 30,
                       "target_enemies": false,
@@ -592,7 +590,6 @@
                       "active_time": 1,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 6,
                       "recharge_time": 20,
                       "target_enemies": false,
@@ -641,7 +638,6 @@
                       "effect_range": 0,
                       "mana_cost": 5,
                       "miscast_chance": 0.5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 6,
                       "recharge_time": 30,
                       "target_enemies": false,
@@ -758,10 +754,10 @@
         ]
       },
       {
-        "key": "wh_main_skill_node_set_vmp_heinrich_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "key": "wh3_dlc24_skill_node_all_mentor",
+        "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_lord",
-        "tier": 11,
+        "tier": 30,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -860,7 +856,6 @@
                       "onscreen_name": "Lord of Undeath",
                       "active_time": 1,
                       "effect_range": 0,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 1,
                       "recharge_time": 90,
                       "target_enemies": false,
@@ -1140,7 +1135,7 @@
           {
             "effects": [
               {
-                "description": "Attribute: Devastating Flanker for Cairn Wraith and Hexwraith units\n\t(Lord's army)",
+                "description": "Attribute: Devastating Flanker for Cairn Wraiths, Mournguls and Hexwraiths units\n\t(Lord's army)",
                 "key": "wh3_main_effect_attribute_devastating_flanker_wraiths",
                 "icon": "vanilla3/campaign_ui/effect_bundles/devastating_flanker",
                 "related_attributes": [
@@ -1153,7 +1148,7 @@
                 ]
               },
               {
-                "description": "Bonus vs Infantry: +8 for Cairn Wraith and Hexwraiths units\n\t(Lord's army)",
+                "description": "Bonus vs Infantry: +8 for Cairn Wraiths, Mournguls and Hexwraiths units\n\t(Lord's army)",
                 "key": "wh2_dlc17_effect_bonus_vs_infantry_increase_spooky_units",
                 "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small"
               }
@@ -1421,7 +1416,7 @@
                       "target_if": [
                         "Hit point replenishment cap not reached",
                         "Undead",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -1501,7 +1496,7 @@
                       "target_if": [
                         "Hit point replenishment cap not reached",
                         "Undead",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -1719,18 +1714,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 25,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+25 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
                               "value": 1.2,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.2 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
                           ]
                         }
@@ -1790,18 +1785,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 25,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+25 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
                               "value": 1.2,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.2 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
                           ]
                         }
@@ -2085,7 +2080,6 @@
                       "active_time": 1,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 6,
                       "recharge_time": 20,
                       "target_enemies": false,
@@ -2149,7 +2143,6 @@
                       "active_time": 1,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 6,
                       "recharge_time": 20,
                       "target_enemies": false,
@@ -2210,7 +2203,6 @@
                       "effect_range": 0,
                       "mana_cost": 5,
                       "miscast_chance": 0.5,
-                      "num_effected_friendly_units": 1,
                       "num_uses": 6,
                       "recharge_time": 30,
                       "target_enemies": false,
@@ -2309,18 +2301,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 5,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+5 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
                               "value": 1.05,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.05 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 5,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+5 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
                             }
                           ]
                         }
@@ -2397,18 +2389,18 @@
                           "ability_recharge_change": 15,
                           "stat_effects": [
                             {
-                              "value": -25,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-25 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
                               "value": 0.75,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.75 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": -25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
                           ]
                         }
@@ -2481,7 +2473,7 @@
                       "wind_up_time": 5,
                       "target_if": [
                         "Grounded",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -2560,7 +2552,7 @@
                       "wind_up_time": 5,
                       "target_if": [
                         "Grounded",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -2741,18 +2733,18 @@
                           "ability_recharge_change": 15,
                           "stat_effects": [
                             {
-                              "value": -25,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-25 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
                               "value": 0.75,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x0.75 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": -25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
                           ]
                         }
@@ -4779,10 +4771,10 @@
               "stat_effects": [
                 {
                   "value": 0.9,
-                  "stat": "stat_melee_damage_ap",
+                  "stat": "scalar_speed",
                   "how": "mult",
-                  "description": "x0.9 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  "description": "x0.9 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
                   "value": 0.9,
@@ -4793,10 +4785,10 @@
                 },
                 {
                   "value": 0.9,
-                  "stat": "scalar_speed",
+                  "stat": "stat_melee_damage_ap",
                   "how": "mult",
-                  "description": "x0.9 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                  "description": "x0.9 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 }
               ]
             }
@@ -5281,7 +5273,6 @@
                     "onscreen_name": "Lord of Undeath",
                     "active_time": 1,
                     "effect_range": 0,
-                    "num_effected_friendly_units": 1,
                     "num_uses": 1,
                     "recharge_time": 90,
                     "target_enemies": false,
@@ -5358,7 +5349,6 @@
                     "onscreen_name": "Lord of Undeath",
                     "active_time": 1,
                     "effect_range": 0,
-                    "num_effected_friendly_units": 1,
                     "num_uses": 1,
                     "recharge_time": 90,
                     "target_enemies": false,
@@ -5437,7 +5427,7 @@
                     "target_if": [
                       "Hit point replenishment cap not reached",
                       "Undead",
-                      ""
+                      "Not on or below a platform"
                     ],
                     "ui_effects": [
                       {
@@ -5517,18 +5507,18 @@
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 25,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+25 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          },
-                          {
                             "value": 1.2,
                             "stat": "scalar_speed",
                             "how": "mult",
                             "description": "x1.2 Speed",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 25,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+25 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
                           }
                         ]
                       }
