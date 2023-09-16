@@ -313,6 +313,16 @@
                     }
                   }
                 ]
+              },
+              {
+                "description": "Leadership: +5 for Ravens, Crows and Feral Gryphons\n\t(Lord's army)",
+                "key": "ovn_bird_troops_lead",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              },
+              {
+                "description": "Melee Attack: +5 for Ravens, Crows and Feral Gryphons\n\t(Lord's army)",
+                "key": "ovn_bird_troops_mattk",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
             ],
             "unlocked_at_rank": 10
@@ -402,79 +412,54 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
               },
               {
-                "description": "Ability: \"Murder of Crows\"",
-                "key": "enable_murder_of_crows",
+                "description": "Ability: \"Servants of Mhorr\"",
+                "key": "enable_summon_ravens",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "enable_murder_of_crows",
+                    "effect": "enable_summon_ravens",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "murder_crows",
-                      "icon_name": "ovn3/battle_ui/ability_icons/murder_crow",
+                      "key": "ovn_alb_mor_summon_ravens",
+                      "icon_name": "ovn3/battle_ui/ability_icons/calm_raven_feast",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
+                        "key": "wh_type_summon_unit",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Summon Unit"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Murder of Crows",
-                      "active_time": 15,
-                      "effect_range": 30,
-                      "recharge_time": 45,
-                      "target_enemies": false,
+                      "onscreen_name": "Servants of Mhorr",
+                      "active_time": 10,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "recharge_time": 120,
+                      "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 0,
-                      "enabled_if": [
-                        "In melee"
+                      "target_intercept_range": 50,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh_main_all_direct_damage",
-                          "localised_text": "Causes damage to combatants",
+                          "key": "ovn_alb_mor_summon_ravens",
+                          "localised_text": "Summons a conspiracy of ravens.",
                           "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_high",
-                          "localised_text": "Causes severe damage to combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "localised_text": "Strong vs multiple combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
                         }
                       ],
                       "phases": [
                         {
-                          "icon": "murder_crows",
+                          "icon": "ovn_alb_mor_summon_ravens",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 6,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 8,
-                          "stat_effects": [
-                            {
-                              "value": -5,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-5 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            }
-                          ]
+                          "duration": 10,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false
                         }
                       ]
                     }
@@ -1009,16 +994,6 @@
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_main_spell_upgraded_cooldown",
-                          "localised_text": "Greater effect on ability cooldown",
-                          "effect_state": "magic"
-                        },
-                        {
-                          "key": "wh_main_spell_upgraded_added_effect_range",
-                          "localised_text": "Added effect area",
-                          "effect_state": "magic"
-                        },
-                        {
                           "key": "wh_main_all_direct_damage",
                           "localised_text": "Causes damage to combatants",
                           "effect_state": "positive"
@@ -1066,11 +1041,6 @@
                     }
                   }
                 ]
-              },
-              {
-                "description": "Replaces: \"Murder of Crows\"",
-                "key": "disable_murder_of_crows",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
               },
               {
                 "description": "Cooldown: -20% to spells",
@@ -3703,8 +3673,8 @@
     {
       "key": "anc_morrigan_staff",
       "onscreen_name": "Seann'darach",
-      "colour_text": "Mhorriníon is rarely ever seen without this staff which looks like a mere branch of a random tree. But those who know what to look for easily notice that it brims with magical power.",
-      "ui_icon": "skins/default/equipment_items_weapon",
+      "colour_text": "The Seoda Préacháin, or Crow's Jewels, are an assortment of differen magical jewels said to have been gifted to the Ravenqueen by her father, Mhorr. They enhance Mhorrinion's  powers and grant her the ability to call upon her watchful crow servants.",
+      "ui_icon": "skins/default/equipment_items_talisman",
       "unlocked_at_rank": 11,
       "effects": [
         {
@@ -3713,58 +3683,54 @@
           "icon": ""
         },
         {
-          "description": "Bound Spell: \"Flock of Doom\"",
-          "key": "albion_enable_bound_flock_of_doom",
+          "description": "Ability: \"Watchers of the Ravenqueen\"",
+          "key": "enable_summon_crows",
           "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
           "related_abilities": [
             {
-              "effect": "albion_enable_bound_flock_of_doom",
+              "effect": "enable_summon_crows",
               "bonus_value_id": "enable",
               "unit_ability": {
-                "key": "wh_dlc08_spell_bound_flock_of_doom",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
-                "overpower_option": "wh_dlc03_spell_beasts_flock_of_doom_upgraded",
+                "key": "ovn_alb_mor_summon_crows",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_unit_passive_eyes_of_the_empress",
+                "overpower_option": "",
                 "type": {
-                  "key": "wh_type_direct_damage",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                  "onscreen_name": "Direct Damage"
+                  "key": "wh_type_summon_unit",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Summon Unit"
                 },
                 "is_hidden_in_ui": false,
-                "onscreen_name": "Flock of Doom",
-                "active_time": 7,
-                "effect_range": 35,
-                "num_uses": 4,
-                "recharge_time": 60,
+                "onscreen_name": "Watchers of the Ravenqueen",
+                "active_time": 10,
+                "effect_range": 0,
+                "num_uses": 2,
+                "recharge_time": 120,
                 "target_enemies": true,
                 "target_friends": false,
                 "target_ground": true,
                 "target_self": false,
-                "target_intercept_range": 100,
+                "target_intercept_range": 50,
+                "wind_up_time": 5,
+                "target_if": [
+                  "Not on or below a platform"
+                ],
                 "ui_effects": [
                   {
-                    "key": "wh_main_all_direct_damage",
-                    "localised_text": "Causes damage to combatants",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_dlc08_direct_damage_massive_unit",
-                    "localised_text": "Strong vs 120 men unit or above",
+                    "key": "ovn_alb_mor_summon_ravens",
+                    "localised_text": "Summons a conspiracy of ravens.",
                     "effect_state": "positive"
                   }
                 ],
                 "phases": [
                   {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
+                    "icon": "ovn_alb_mor_summon_crows",
                     "order": 1,
                     "target_enemies": true,
                     "target_self": false,
                     "target_friends": false,
-                    "duration": 7,
-                    "effect_type": "negative",
-                    "is_hidden_in_ui": false,
-                    "damage_amount": 5,
-                    "hp_change_frequency": 1,
-                    "max_damaged_entities": 25
+                    "duration": 10,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false
                   }
                 ]
               }
@@ -4011,58 +3977,54 @@
               "icon": ""
             },
             {
-              "description": "Bound Spell: \"Flock of Doom\"",
-              "key": "albion_enable_bound_flock_of_doom",
+              "description": "Ability: \"Watchers of the Ravenqueen\"",
+              "key": "enable_summon_crows",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
               "related_abilities": [
                 {
-                  "effect": "albion_enable_bound_flock_of_doom",
+                  "effect": "enable_summon_crows",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh_dlc08_spell_bound_flock_of_doom",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
-                    "overpower_option": "wh_dlc03_spell_beasts_flock_of_doom_upgraded",
+                    "key": "ovn_alb_mor_summon_crows",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_unit_passive_eyes_of_the_empress",
+                    "overpower_option": "",
                     "type": {
-                      "key": "wh_type_direct_damage",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                      "onscreen_name": "Direct Damage"
+                      "key": "wh_type_summon_unit",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Summon Unit"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Flock of Doom",
-                    "active_time": 7,
-                    "effect_range": 35,
-                    "num_uses": 4,
-                    "recharge_time": 60,
+                    "onscreen_name": "Watchers of the Ravenqueen",
+                    "active_time": 10,
+                    "effect_range": 0,
+                    "num_uses": 2,
+                    "recharge_time": 120,
                     "target_enemies": true,
                     "target_friends": false,
                     "target_ground": true,
                     "target_self": false,
-                    "target_intercept_range": 100,
+                    "target_intercept_range": 50,
+                    "wind_up_time": 5,
+                    "target_if": [
+                      "Not on or below a platform"
+                    ],
                     "ui_effects": [
                       {
-                        "key": "wh_main_all_direct_damage",
-                        "localised_text": "Causes damage to combatants",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_dlc08_direct_damage_massive_unit",
-                        "localised_text": "Strong vs 120 men unit or above",
+                        "key": "ovn_alb_mor_summon_ravens",
+                        "localised_text": "Summons a conspiracy of ravens.",
                         "effect_state": "positive"
                       }
                     ],
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
+                        "icon": "ovn_alb_mor_summon_crows",
                         "order": 1,
                         "target_enemies": true,
                         "target_self": false,
                         "target_friends": false,
-                        "duration": 7,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "damage_amount": 5,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 25
+                        "duration": 10,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false
                       }
                     ]
                   }
