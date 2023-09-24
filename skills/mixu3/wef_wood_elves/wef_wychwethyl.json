@@ -274,6 +274,19 @@
           {
             "effects": [
               {
+                "description": "Attribute: Perfect Vigour",
+                "key": "mixu_LL_enable_attribute_perfect_vigour",
+                "icon": "mixu3/campaign_ui/effect_bundles/attribute_fatigue_immune",
+                "related_attributes": [
+                  {
+                    "key": "fatigue_immune",
+                    "description": " Perfect Vigour",
+                    "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
+                    "icon": "mixu3/campaign_ui/effect_bundles/attribute_fatigue_immune"
+                  }
+                ]
+              },
+              {
                 "description": "Cooldown: -50% to \"Dance of Doom\"",
                 "key": "mixu_wef_wychwethyl_ability_cooldown_dance_of_doom",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
@@ -371,23 +384,43 @@
           {
             "effects": [
               {
-                "description": "Enables \"Killing Blow\" attacks",
-                "key": "mixu_LL_enable_contact_phase_killing_blow",
-                "icon": "mixu3/campaign_ui/effect_bundles/mixu_phase_killing_blow",
+                "description": "Enables bleeding attacks",
+                "key": "mixu_LL_enable_contact_phase_bleeding",
+                "icon": "mixu3/campaign_ui/effect_bundles/mixu_phase_bleeding",
                 "related_phases": [
                   {
-                    "icon": "mixu3/battle_ui/ability_icons/mixu_ll_unit_contact_killing_blow",
+                    "icon": "mixu3/battle_ui/ability_icons/mixu_ll_unit_contact_bleeding",
                     "order": 0,
                     "target_enemies": true,
                     "target_self": false,
                     "target_friends": false,
-                    "duration": 0,
+                    "duration": 10,
                     "effect_type": "negative",
-                    "onscreen_name": "Killing Blow",
+                    "onscreen_name": "Bleeding!",
                     "is_hidden_in_ui": false,
-                    "damage_amount": 133,
-                    "hp_change_frequency": 1,
-                    "max_damaged_entities": 1
+                    "stat_effects": [
+                      {
+                        "value": 0.8,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x0.8 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.9 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x0.8 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
                   }
                 ]
               },
@@ -556,20 +589,7 @@
           {
             "effects": [
               {
-                "description": "Attribute: Perfect Vigour",
-                "key": "mixu_LL_enable_attribute_perfect_vigour",
-                "icon": "mixu3/campaign_ui/effect_bundles/attribute_fatigue_immune",
-                "related_attributes": [
-                  {
-                    "key": "fatigue_immune",
-                    "description": " Perfect Vigour",
-                    "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
-                    "icon": "mixu3/campaign_ui/effect_bundles/attribute_fatigue_immune"
-                  }
-                ]
-              },
-              {
-                "description": "Attribute: Vanguard Deployment",
+                "description": "Attribute: Vanguard Deployment\n\t(Lord's army)",
                 "key": "wh_main_effect_attribute_enable_vanguard_deployment",
                 "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
                 "related_attributes": [
@@ -2699,7 +2719,7 @@
                 "target_ground": false,
                 "target_self": false,
                 "target_intercept_range": 0,
-                "enabled_if": [
+                "target_if": [
                   "Unit is charging"
                 ],
                 "phases": [
