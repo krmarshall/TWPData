@@ -97,10 +97,10 @@
                         "stat_effects": [
                           {
                             "value": 0.8,
-                            "stat": "stat_melee_damage_ap",
+                            "stat": "scalar_speed",
                             "how": "mult",
-                            "description": "x0.8 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
                             "value": 0.8,
@@ -110,25 +110,25 @@
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
                           },
                           {
-                            "value": -20,
-                            "stat": "stat_reloading",
-                            "how": "add",
-                            "description": "-20 Reload Skill",
-                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          },
-                          {
-                            "value": 0.8,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.8 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
                             "value": 1.1,
                             "stat": "scalar_miscast_chance",
                             "how": "mult",
                             "description": "x1.1 Miscast Chance",
                             "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
                           }
                         ]
                       }
@@ -317,13 +317,6 @@
                         "stat_effects": [
                           {
                             "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
-                          {
-                            "value": 1.1,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
                             "description": "x1.1 Base Weapon Damage",
@@ -342,13 +335,20 @@
                             "how": "add",
                             "description": "+5 Charge Bonus",
                             "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ],
                         "attributes": [
                           {
                             "key": "immune_to_psychology",
                             "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
                             "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                           }
                         ]
@@ -531,10 +531,10 @@
         ]
       },
       {
-        "key": "wh_dlc06_skill_node_set_grn_wurrzag_da_great_prophet_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "key": "wh3_dlc24_skill_node_all_mentor",
+        "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_lord",
-        "tier": 11,
+        "tier": 30,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -618,7 +618,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               },
               {
-                "description": "Recruitment duration: -1 turn for Savage Orcs, Trolls, Rogue Idols, Wyverns and Giants units (minimum 1)\n\t(factionwide)",
+                "description": "Global recruitment duration: -1 turn for Savage Orcs, Trolls, Rogue Idols, Wyverns and Giants units (minimum 1)\n\t(factionwide)",
                 "key": "grn_tech_savage_recruit_global",
                 "icon": "vanilla3/campaign_ui/effect_bundles/turns"
               }
@@ -1428,18 +1428,18 @@
                             "max_damaged_entities": 5,
                             "stat_effects": [
                               {
-                                "value": -5,
-                                "stat": "stat_melee_defence",
-                                "how": "add",
-                                "description": "-5 Melee Defence",
-                                "icon": "vanilla3/skins/default/icon_stat_defence"
-                              },
-                              {
                                 "value": 0.75,
                                 "stat": "scalar_speed",
                                 "how": "mult",
                                 "description": "x0.75 Speed",
                                 "icon": "vanilla3/skins/default/icon_stat_speed"
+                              },
+                              {
+                                "value": -5,
+                                "stat": "stat_melee_defence",
+                                "how": "add",
+                                "description": "-5 Melee Defence",
+                                "icon": "vanilla3/skins/default/icon_stat_defence"
                               }
                             ]
                           },
@@ -1537,7 +1537,7 @@
                       "wind_up_time": 3,
                       "target_if": [
                         "Grounded",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -1617,7 +1617,7 @@
                       "wind_up_time": 3,
                       "target_if": [
                         "Grounded",
-                        ""
+                        "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
@@ -1741,18 +1741,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 50,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+50 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
                               "value": 1.25,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.25 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 50,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+50 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
                           ]
                         }
@@ -2015,7 +2015,7 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic power reserve: +1 per turn\n\t(all units in army)",
+                "description": "Winds of Magic power reserve: +1 per turn",
                 "key": "wh3_main_effect_winds_of_magic_character",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               },
@@ -2036,28 +2036,28 @@
       {
         "key": "wh_dlc06_skill_node_grn_wurrzag_da_great_prophet_magic1_11",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_arcane_conduit",
-        "character_skill_key": "wh_main_skill_all_magic_all_11_arcane_conduit",
+        "character_skill_key": "wh2_dlc14_skilll_all_magic_all_greater_arcane_conduit",
         "tier": 10,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 8,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Arcane Conduit",
+        "localised_name": "Greater Arcane Conduit",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Passive ability: \"Arcane Conduit\"",
-                "key": "wh_main_effect_ability_enable_arcane_conduit",
+                "description": "Passive ability: \"Greater Arcane Conduit\"",
+                "key": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_arcane_conduit",
+                    "effect": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_character_abilities_arcane_conduit",
+                      "key": "wh2_main_character_passive_grand_arcane_conduit",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
                       "overpower_option": "",
                       "type": {
@@ -2066,7 +2066,7 @@
                         "onscreen_name": "Augment of the Winds"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Arcane Conduit",
+                      "onscreen_name": "Greater Arcane Conduit",
                       "effect_range": 0,
                       "target_enemies": false,
                       "target_friends": false,
@@ -2075,22 +2075,22 @@
                       "target_intercept_range": 0,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                          "icon": "wh2_main_character_passive_grand_arcane_conduit",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
-                          "onscreen_name": "Arcane Conduit",
+                          "onscreen_name": "Greater Arcane Conduit",
                           "is_hidden_in_ui": false,
-                          "mana_regen_mod": 0.4,
+                          "mana_regen_mod": 0.6,
                           "stat_effects": [
                             {
-                              "value": 1.05,
+                              "value": 1.1,
                               "stat": "scalar_spell_mastery",
                               "how": "mult",
-                              "description": "x1.05 Spell Mastery",
+                              "description": "x1.1 Spell Mastery",
                               "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
                             }
                           ]
@@ -3673,10 +3673,10 @@
               "stat_effects": [
                 {
                   "value": 0.8,
-                  "stat": "stat_melee_damage_ap",
+                  "stat": "scalar_speed",
                   "how": "mult",
-                  "description": "x0.8 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
                   "value": 0.8,
@@ -3686,25 +3686,25 @@
                   "icon": "vanilla3/skins/default/icon_stat_damage_base"
                 },
                 {
-                  "value": -20,
-                  "stat": "stat_reloading",
-                  "how": "add",
-                  "description": "-20 Reload Skill",
-                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                },
-                {
-                  "value": 0.8,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x0.8 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
                   "value": 1.1,
                   "stat": "scalar_miscast_chance",
                   "how": "mult",
                   "description": "x1.1 Miscast Chance",
                   "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
             }
@@ -3893,13 +3893,6 @@
               "stat_effects": [
                 {
                   "value": 1.1,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.1 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                },
-                {
-                  "value": 1.1,
                   "stat": "stat_melee_damage_base",
                   "how": "mult",
                   "description": "x1.1 Base Weapon Damage",
@@ -3918,13 +3911,20 @@
                   "how": "add",
                   "description": "+5 Charge Bonus",
                   "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 }
               ],
               "attributes": [
                 {
                   "key": "immune_to_psychology",
                   "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
                   "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 }
               ]
@@ -4503,13 +4503,6 @@
                         "stat_effects": [
                           {
                             "value": 1.25,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.25 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
-                          {
-                            "value": 1.25,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
                             "description": "x1.25 Base Weapon Damage",
@@ -4528,13 +4521,20 @@
                             "how": "add",
                             "description": "+20 Physical Resistance",
                             "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ],
                         "attributes": [
                           {
                             "key": "immune_to_psychology",
                             "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
                             "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                           }
                         ]
@@ -4748,7 +4748,7 @@
             {
               "effects": [
                 {
-                  "description": "\n\t(all provinces)",
+                  "description": "Recruitment duration: -1 turn for Savage Orcs, Trolls, Rogue Idols, Wyverns and Giants units (minimum 1)\n\t(all provinces)",
                   "key": "grn_tech_savage_recruit",
                   "icon": "vanilla3/campaign_ui/effect_bundles/turns"
                 },
@@ -5064,7 +5064,7 @@
                   "icon": ""
                 },
                 {
-                  "description": "Recruitment duration: -2 turn for Savage Orcs, Trolls, Rogue Idols, Wyverns and Giants units (minimum 1)\n\t(factionwide)",
+                  "description": "Global recruitment duration: -2 turn for Savage Orcs, Trolls, Rogue Idols, Wyverns and Giants units (minimum 1)\n\t(factionwide)",
                   "key": "grn_tech_savage_recruit_global",
                   "icon": "vanilla3/campaign_ui/effect_bundles/turns"
                 },

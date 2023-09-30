@@ -559,8 +559,13 @@
           "short_description": "At the heart of every camp lies the Mawtooth stone. The Ogres will fight harder, and with every last breath and ounce of strength, to ensure it is protected.",
           "effects": [
             {
-              "description": "Melee defence: +10% for camps",
+              "description": "Melee defence: +4% for camps",
               "key": "wh3_main_effect_force_stat_melee_defence_ogr_camps",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            },
+            {
+              "description": "Melee defence: +15%\n\t(own armies factionwide in enemy territory)",
+              "key": "wh3_main_effect_force_stat_melee_defence_mult",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
             }
           ]
@@ -633,16 +638,16 @@
                         "stat_effects": [
                           {
                             "value": 0.4,
-                            "stat": "scalar_entity_acceleration_modifier",
+                            "stat": "scalar_charge_speed",
                             "how": "mult",
-                            "description": "x0.4 Acceleration",
+                            "description": "x0.4 Charge Speed",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
                             "value": 0.4,
-                            "stat": "scalar_charge_speed",
+                            "stat": "scalar_entity_acceleration_modifier",
                             "how": "mult",
-                            "description": "x0.4 Charge Speed",
+                            "description": "x0.4 Acceleration",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
@@ -850,17 +855,17 @@
                         "stat_effects": [
                           {
                             "value": 1.25,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.25 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
-                          {
-                            "value": 1.25,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
                             "description": "x1.25 Base Weapon Damage",
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ],
                         "attributes": [
@@ -1580,6 +1585,11 @@
           "short_description": "Some hungry Ogre souls were born to serve the Great Maw.",
           "effects": [
             {
+              "description": "Campaign movement range: -10% for enemy armies starting their turn in your regions",
+              "key": "wh2_dlc16_effect_force_enemy_campaign_movement_range_all_regions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            },
+            {
               "description": "Corruption: -2",
               "key": "wh3_main_effect_corruption_reduction_technology",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -1639,6 +1649,87 @@
           "wh3_main_tech_ogr_2_10_0"
         ]
       }
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      {
+        "key": "ogr_tech_camp_1",
+        "tier": 4,
+        "indent": 5,
+        "research_points_required": 1,
+        "technology": {
+          "key": "ogr_tech_camp_1",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_ogr_1_10_1",
+          "onscreen_name": "Tyrant's Horde",
+          "short_description": "The higher the piles of riches around the Mawtooth, the more brutally the ogres are willing to defend it. ",
+          "effects": [
+            {
+              "description": "Leadership: +5 for camps",
+              "key": "ogr_effect_camp_morale",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+            }
+          ]
+        },
+        "cost_per_round": 10000,
+        "required_tech_node_keys": [
+          "wh3_main_tech_ogr_0_2_0"
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "key": "ogr_tech_camp_2",
+        "tier": 8,
+        "indent": 5,
+        "research_points_required": 1,
+        "technology": {
+          "key": "ogr_tech_camp_2",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_ogr_0_4_0",
+          "onscreen_name": "Stew Supplements",
+          "short_description": "Some of the more clever shamans have discovered certain additives that provide the camp's denizens an edge in combat.",
+          "effects": [
+            {
+              "description": "Melee defence: +5 for camps",
+              "key": "ogr_effect_camp_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            }
+          ]
+        },
+        "cost_per_round": 10000,
+        "required_tech_node_keys": [
+          "wh3_main_tech_ogr_0_3_0"
+        ]
+      },
+      null,
+      null,
+      null,
+      {
+        "key": "ogr_tech_camp_3",
+        "tier": 12,
+        "indent": 5,
+        "research_points_required": 1,
+        "technology": {
+          "key": "ogr_tech_camp_3",
+          "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_ogr_2_8_1",
+          "onscreen_name": "Warbeast Tactics",
+          "short_description": "Following the primal instincts of the ferocious beasts they keep in their camps, the Ogres adapt savage combat strategies. ",
+          "effects": [
+            {
+              "description": "Melee attack: +5 for camps",
+              "key": "ogr_effect_camp_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+            }
+          ]
+        },
+        "cost_per_round": 10000,
+        "required_tech_node_keys": [
+          "wh3_main_tech_ogr_0_4_0"
+        ]
+      }
     ]
   ],
   "node_links": [
@@ -1685,6 +1776,13 @@
       "visible_in_ui": true
     },
     {
+      "parent_key": "wh3_main_tech_ogr_0_2_0",
+      "child_key": "ogr_tech_camp_1",
+      "parent_link_position": "bottom",
+      "child_link_position": "top",
+      "visible_in_ui": true
+    },
+    {
       "parent_key": "wh3_main_tech_ogr_0_3_0",
       "child_key": "wh3_main_tech_ogr_1_6_0",
       "parent_link_position": "right",
@@ -1710,6 +1808,13 @@
       "child_key": "ogr_tech_skrag_2",
       "parent_link_position": "top",
       "child_link_position": "bottom",
+      "visible_in_ui": true
+    },
+    {
+      "parent_key": "wh3_main_tech_ogr_0_3_0",
+      "child_key": "ogr_tech_camp_2",
+      "parent_link_position": "bottom",
+      "child_link_position": "top",
       "visible_in_ui": true
     },
     {
@@ -1745,6 +1850,13 @@
       "child_key": "ogr_tech_skrag_3",
       "parent_link_position": "top",
       "child_link_position": "bottom",
+      "visible_in_ui": true
+    },
+    {
+      "parent_key": "wh3_main_tech_ogr_0_4_0",
+      "child_key": "ogr_tech_camp_3",
+      "parent_link_position": "bottom",
+      "child_link_position": "top",
       "visible_in_ui": true
     },
     {

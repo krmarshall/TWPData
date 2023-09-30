@@ -75,9 +75,9 @@
           "short_description": "It is the duty of each province to maintain a provincial army, which together make up the might of the Imperial Army.",
           "effects": [
             {
-              "description": "Upkeep: -10% for Swordmen, Pikemen, Spearmen, Halberdiers, Archers, Huntsmen, Free Company Militia, Crossbowmen and Handgunners units",
-              "key": "emp_state_upkeep",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              "description": "Recruit rank: +2 for infantry units",
+              "key": "wh_main_effect_force_army_campaign_experience_base_infantry",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         },
@@ -88,7 +88,119 @@
         "ui_group_colour": "AF6464",
         "ui_group_position": "topright"
       },
-      null,
+      {
+        "key": "emp_tech_infantry_final_wulf",
+        "tier": 3,
+        "indent": 2,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "emp_tech_infantry_final",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc07_brt_economy_other_2",
+          "onscreen_name": "Infantry State Regulation",
+          "short_description": "The Empire must remain the mainstay of humanity in the Old World regardless of those who do not obey the law.",
+          "effects": [
+            {
+              "description": "",
+              "key": "wh_effect_disable_emp_passive_main_2_infantry",
+              "icon": ""
+            },
+            {
+              "description": "\"Imperial Allegiance\" melee damage reflection for infantry units",
+              "key": "wh_effect_enable_emp_passive_main_2_1_infantry",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale",
+              "related_abilities": [
+                {
+                  "effect": "wh_effect_enable_emp_passive_main_2_1_infantry",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "emp_passive_main_2_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Allegiance",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Losing melee combat",
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "emp_passive_main_2_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_damage_reflection",
+                            "how": "add",
+                            "description": "+5 Melee Damage Reflection",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+5 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "required_tech_keys": [
+          {
+            "key": "emp_tech_infantry_1",
+            "name": "Provincial Subsidies"
+          },
+          {
+            "key": "emp_tech_infantry_2",
+            "name": "Vanguard Armour"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_infantry_1",
+            "name": "State Troop Standards"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_infantry_1_a",
+            "name": "State-Issued Infantry Armour"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_infantry_1_b",
+            "name": "State-Issued Weapons"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_infantry_1_c",
+            "name": "Improved Heavy Weapons"
+          }
+        ]
+      },
       {
         "key": "emp_tech_sigmar_wulf",
         "tier": 4,
@@ -194,7 +306,75 @@
         "ui_group_colour": "0055FF",
         "ui_group_position": "topleftright"
       },
-      null,
+      {
+        "key": "emp_tech_economy_final_wulf",
+        "tier": 6,
+        "indent": 2,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "emp_tech_economy_final",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc07_brt_economy_other_2",
+          "onscreen_name": "Economy State Regulation",
+          "short_description": "The Empire must remain the mainstay of humanity in the Old World regardless of those who do not obey the law.",
+          "effects": [
+            {
+              "description": "Upkeep: -10%\n\t(own armies factionwide in owned territory)",
+              "key": "wh_main_effect_force_all_campaign_upkeep",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+            }
+          ]
+        },
+        "required_tech_keys": [
+          {
+            "key": "emp_tech_economy_1",
+            "name": "Imperial Infrastructure"
+          },
+          {
+            "key": "emp_tech_economy_2",
+            "name": "Utilize Wizard Apprentices"
+          },
+          {
+            "key": "emp_tech_economy_3",
+            "name": "Advanced Cartography"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_1",
+            "name": "Tithe Rebates"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_1_a",
+            "name": "Commodity Trading"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_1_b",
+            "name": "Clergy of Sigmar"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_2",
+            "name": "Grain Silos"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_2_a",
+            "name": "Colonial Factors"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_2_b",
+            "name": "Local Militia"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_3",
+            "name": "Supply Wagons"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_3_a",
+            "name": "Manorialism"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_economy_3_b",
+            "name": "Warhorse Breeding"
+          }
+        ]
+      },
       {
         "key": "wh2_dlc13_tech_emp_wulfhart_economy_1_a",
         "tier": 7,
@@ -267,8 +447,18 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             },
             {
-              "description": "Recruitment cost: -10% for Empire Knights, Knights of the Blazing Sun, and Reiksguard units",
+              "description": "Upkeep: -5% for cavalry units",
+              "key": "wh_main_effect_force_army_campaign_upkeep_cost_cavalry",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+            },
+            {
+              "description": "Recruitment cost: -15% for Empire Knights, Knights of the Blazing Sun, and Reiksguard units",
               "key": "wh_main_effect_tech_recruitment_cost_reduction_emp_knights",
+              "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+            },
+            {
+              "description": "Recruitment cost: -10% for cavalry units",
+              "key": "wh_main_effect_force_army_campaign_recruitment_cost_cavalry",
               "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
             }
           ]
@@ -328,11 +518,6 @@
           "onscreen_name": "Improved Heavy Weapons",
           "short_description": "Refined ore techniques create stronger steel, making for more durable blades and heavier weapon-heads.  ",
           "effects": [
-            {
-              "description": "Recruit rank: +1 for infantry units",
-              "key": "wh_main_effect_force_army_campaign_experience_base_infantry",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
             {
               "description": "Weapon strength: +10% for infantry units",
               "key": "wh2_dlc11_effect_force_stat_weapon_strength_infantry",
@@ -518,7 +703,7 @@
           "short_description": "Advancements in the field of cartography have allowed the Empire to improve the accuracy of their maps, ensuring their troops always know the most efficient way to their destination.",
           "effects": [
             {
-              "description": "Campaign movement range: +5% for armies",
+              "description": "Campaign movement range: +10% for armies",
               "key": "wh_main_effect_force_all_campaign_movement_range",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             },
@@ -576,7 +761,7 @@
                     "effect_range": 0,
                     "num_effected_friendly_units": 1,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": true,
                     "target_ground": false,
@@ -705,7 +890,7 @@
                     "effect_range": 0,
                     "num_effected_friendly_units": 1,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": true,
                     "target_ground": false,
@@ -740,18 +925,18 @@
                         },
                         "stat_effects": [
                           {
+                            "value": 1.25,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.25 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
                             "value": 1.5,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
                             "description": "x1.5 Base Weapon Damage",
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.5,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.5 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           },
                           {
                             "value": 1.5,
@@ -761,11 +946,11 @@
                             "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                           },
                           {
-                            "value": 1.25,
-                            "stat": "scalar_speed",
+                            "value": 1.5,
+                            "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x1.25 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "description": "x1.5 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
                       }
@@ -800,13 +985,13 @@
           "short_description": "The bravest, most-accomplished warriors do not always come from among the nobility, but must get their start somewhere.",
           "effects": [
             {
-              "description": "Recruit rank: +1 for infantry units",
+              "description": "Recruit rank: +2 for infantry units",
               "key": "wh_main_effect_force_army_campaign_experience_base_infantry",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
             {
-              "description": "Upkeep: -5% for Free Company Militia units",
-              "key": "wh2_main_effect_resource_upkeep_cost_reduction_emp_free_company",
+              "description": "Upkeep: -5% for infantry units",
+              "key": "wh_main_effect_force_army_campaign_upkeep_cost_infantry",
               "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             },
             {
@@ -997,7 +1182,119 @@
         "ui_group_colour": "AF6464",
         "ui_group_position": "topright"
       },
-      null,
+      {
+        "key": "emp_tech_cavalry_final_wulf",
+        "tier": 3,
+        "indent": 5,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "emp_tech_cavalry_final",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc07_brt_economy_other_2",
+          "onscreen_name": "Cavalry State Regulation",
+          "short_description": "The Empire must remain the mainstay of humanity in the Old World regardless of those who do not obey the law.",
+          "effects": [
+            {
+              "description": "",
+              "key": "wh_effect_disable_emp_passive_main_2_cavalry",
+              "icon": ""
+            },
+            {
+              "description": "\"Imperial Allegiance\" physical resistance for cavalry units",
+              "key": "wh_effect_enable_emp_passive_main_2_2_cavalry",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale",
+              "related_abilities": [
+                {
+                  "effect": "wh_effect_enable_emp_passive_main_2_2_cavalry",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "emp_passive_main_2_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Allegiance",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Losing melee combat",
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "emp_passive_main_2_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+5 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+5 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "required_tech_keys": [
+          {
+            "key": "emp_tech_cavalry_1",
+            "name": "Scar-Bound"
+          },
+          {
+            "key": "emp_tech_cavalry_2",
+            "name": "Honor the Battlemasters"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_cav_1",
+            "name": "Improved Cavalry Armour"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_cav_1_a",
+            "name": "Blinkers"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_cav_1_b",
+            "name": "Endurance Training"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_cav_1_c",
+            "name": "The Inner Circle"
+          }
+        ]
+      },
       {
         "key": "emp_tech_sigmar_2_wulf",
         "tier": 4,
@@ -1031,7 +1328,7 @@
                     "active_time": 60,
                     "effect_range": 100,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": true,
@@ -1061,18 +1358,18 @@
                           "max_damaged_entities": 5,
                           "stat_effects": [
                             {
-                              "value": -10,
-                              "stat": "stat_resistance_magic",
-                              "how": "add",
-                              "description": "-10 Spell Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                            },
-                            {
                               "value": 1.1,
                               "stat": "scalar_miscast_chance",
                               "how": "mult",
                               "description": "x1.1 Miscast Chance",
                               "icon": "vanilla3/skins/default/icon_stat_miscast"
+                            },
+                            {
+                              "value": -10,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "-10 Spell Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
                             },
                             {
                               "value": -10,
@@ -1096,7 +1393,7 @@
                           {
                             "key": "immune_to_psychology",
                             "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
                             "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                           }
                         ]
@@ -1153,7 +1450,7 @@
                     "effect_range": 0,
                     "num_effected_friendly_units": 1,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": true,
@@ -1223,6 +1520,11 @@
               "description": "Charge bonus: +10% for cavalry units",
               "key": "wh_main_effect_force_stat_charge_bonus_pct_cavalry",
               "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+            },
+            {
+              "description": "Missile resistance: 5% for cavalry units",
+              "key": "wh_effect_cavalry_res_missile",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
             }
           ]
         },
@@ -1245,14 +1547,14 @@
           "short_description": "The Knights of the Inner Circle are the elite of the elite, amongst the best fighting men of the Empire.",
           "effects": [
             {
-              "description": "Melee defence: +4 for cavalry units",
-              "key": "wh_main_effect_force_stat_melee_defence_cavalry",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
-            },
-            {
               "description": "Melee attack: +4 for cavalry units",
               "key": "wh_main_effect_force_stat_melee_attack_cavalry",
               "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+            },
+            {
+              "description": "Melee defence: +4 for cavalry units",
+              "key": "wh_main_effect_force_stat_melee_defence_cavalry",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
             }
           ]
         },
@@ -1328,7 +1630,7 @@
                     "effect_range": 0,
                     "num_effected_friendly_units": 1,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": true,
                     "target_ground": false,
@@ -1374,6 +1676,20 @@
                             "how": "mult",
                             "description": "x0.25 Speed",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_damage_reflection",
+                            "how": "add",
+                            "description": "+10 Melee Damage Reflection",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x1.25  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
                           }
                         ],
                         "attributes": [
@@ -1436,7 +1752,7 @@
                     "active_time": 180,
                     "effect_range": 0,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": true,
@@ -1469,7 +1785,88 @@
         "ui_group_colour": "0055FF",
         "ui_group_position": "leftright"
       },
-      null,
+      {
+        "key": "emp_tech_mil_final_wulf",
+        "tier": 6,
+        "indent": 6,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "emp_tech_mil_final",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc07_brt_economy_other_2",
+          "onscreen_name": "Officer State Regulation",
+          "short_description": "The Empire must remain the mainstay of humanity in the Old World regardless of those who do not obey the law.",
+          "effects": [
+            {
+              "description": "Armour: +10\n\t(all characters factionwide)",
+              "key": "wh_main_effect_character_stat_armour",
+              "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+            },
+            {
+              "description": "Attribute: Immune to Psychology\n\t(all characters factionwide)",
+              "key": "wh_main_effect_attribute_enable_immune_to_psychology",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
+              "related_attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        },
+        "required_tech_keys": [
+          {
+            "key": "emp_tech_mil_1",
+            "name": "Respected Elector Count"
+          },
+          {
+            "key": "emp_tech_mil_2",
+            "name": "Royal Fencing"
+          },
+          {
+            "key": "emp_tech_mil_3",
+            "name": "Drillmasters"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_1",
+            "name": "Assembly Line"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_1_a",
+            "name": "Engineers' Guild"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_1_b",
+            "name": "Imperial University"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_2",
+            "name": "Continuous Production"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_2_a",
+            "name": "Guildmaster Professors"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_2_b",
+            "name": "Combustion Agent"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_3",
+            "name": "Imperial Architects"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_3_a",
+            "name": "Intelligence Sharing"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_academia_3_b",
+            "name": "Improved Piston Technology"
+          }
+        ]
+      },
       {
         "key": "wh2_dlc13_tech_emp_wulfhart_academia_1_a",
         "tier": 7,
@@ -1614,7 +2011,7 @@
                     "active_time": 60,
                     "effect_range": 100,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": true,
@@ -1631,13 +2028,6 @@
                         "effect_type": "negative",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
-                          {
-                            "value": 0.25,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x0.25 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
                           {
                             "value": 0.25,
                             "stat": "scalar_missile_damage_ap",
@@ -1658,6 +2048,13 @@
                             "how": "add",
                             "description": "-10 Leadership",
                             "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 0.25,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.25 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
                       }
@@ -1712,7 +2109,7 @@
                     "active_time": 60,
                     "effect_range": 100,
                     "num_uses": 1,
-                    "recharge_time": 200,
+                    "recharge_time": 120,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": true,
@@ -1731,17 +2128,17 @@
                         "stat_effects": [
                           {
                             "value": 1.1,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.1 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.1,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
                             "description": "x1.1 Base Weapon Damage",
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           },
                           {
                             "value": 10,
@@ -1759,10 +2156,10 @@
                           },
                           {
                             "value": 1.1,
-                            "stat": "scalar_speed",
+                            "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x1.1 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ],
                         "attributes": [
@@ -1869,13 +2266,6 @@
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 1.25,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.25 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
-                          {
                             "value": 10,
                             "stat": "stat_morale",
                             "how": "add",
@@ -1898,17 +2288,24 @@
                           },
                           {
                             "value": 25,
-                            "stat": "stat_reloading",
-                            "how": "add",
-                            "description": "+25 Reload Skill",
-                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          },
-                          {
-                            "value": 25,
                             "stat": "stat_accuracy",
                             "how": "add",
                             "description": "+25 Accuracy",
                             "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 25,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+25 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
                           }
                         ]
                       }
@@ -2040,6 +2437,11 @@
               "description": "Missile strength: +10% for artillery units",
               "key": "wh_main_effect_force_stat_missile_damage_artillery",
               "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+            },
+            {
+              "description": "Explosive missile damage: +10% for artillery units",
+              "key": "wh_effect_artillery_damage_missile_explosive",
+              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
             }
           ]
         },
@@ -2080,7 +2482,56 @@
         "ui_group_colour": "AF6464",
         "ui_group_position": "topright"
       },
-      null,
+      {
+        "key": "emp_tech_artillery_final_wulf",
+        "tier": 3,
+        "indent": 8,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "emp_tech_artillery_final",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc07_brt_economy_other_2",
+          "onscreen_name": "Artillery State Regulation",
+          "short_description": "The Empire must remain the mainstay of humanity in the Old World regardless of those who do not obey the law.",
+          "effects": [
+            {
+              "description": "Missile resistance: 5% when under siege",
+              "key": "wh_siege_defending_res_missile",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+            },
+            {
+              "description": "Speed: +25% for artillery units",
+              "key": "wh_main_effect_force_stat_speed_artillery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+            }
+          ]
+        },
+        "required_tech_keys": [
+          {
+            "key": "emp_tech_artillery_1",
+            "name": "Prefabricated Parts"
+          },
+          {
+            "key": "emp_tech_artillery_2",
+            "name": "Engineering Supervision"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_machine_1",
+            "name": "Firing Drills"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_machine_1_a",
+            "name": "Reinforced Armour Plating"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_machine_1_b",
+            "name": "Ordnance Canisters"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_machine_1_c",
+            "name": "Multiple Artillery Barrels"
+          }
+        ]
+      },
       null,
       null,
       null,
@@ -2288,14 +2739,9 @@
           "short_description": "Though they often annoy the troops, having a master engineer around always keeps the war machines running smoothly.",
           "effects": [
             {
-              "description": "Upkeep: -5% for artillery units",
-              "key": "wh_main_effect_force_army_campaign_upkeep_cost_artillery",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-            },
-            {
-              "description": "Speed: +20% for Steam Tank, War Wagon and Luminark of Hysh units",
-              "key": "emp_machines_speed",
-              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              "description": "Casualty replenishment rate: +20% for artillery units",
+              "key": "wh_main_effect_force_artillery_campaign_replenishment_rate",
+              "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
           ]
         },
@@ -2470,59 +2916,76 @@
         "ui_group_colour": "55557F",
         "ui_group_position": "leftright"
       },
-      null,
       {
-        "key": "wh2_dlc13_tech_emp_wulfhart_1",
-        "tier": 7,
+        "key": "emp_tech_dip_final_wulf",
+        "tier": 6,
         "indent": 10,
         "research_points_required": 1000,
         "technology": {
-          "key": "wh2_dlc13_tech_emp_wulfhart_1",
-          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_wulfhart_1",
-          "onscreen_name": "Hunters' Guild",
-          "short_description": "Such groups are formed so that knowledge and experience can be shared for the betterment of all their members.",
+          "key": "emp_tech_dip_final",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc07_brt_economy_other_2",
+          "onscreen_name": "Diplomacy State Regulation",
+          "short_description": "The Empire must remain the mainstay of humanity in the Old World regardless of those who do not obey the law.",
           "effects": [
             {
-              "description": "Recruit rank: +2 for all Imperial Supplies units",
-              "key": "wh2_dlc13_effect_merc_xp",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            }
-          ]
-        },
-        "ui_group": "emp_unique_wulfhart",
-        "ui_group_colour": "AF5028",
-        "ui_group_position": "topleft"
-      },
-      {
-        "key": "wh2_dlc13_tech_emp_wulfhart_3",
-        "tier": 8,
-        "indent": 10,
-        "research_points_required": 1000,
-        "technology": {
-          "key": "wh2_dlc13_tech_emp_wulfhart_3",
-          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_wulfhart_3",
-          "onscreen_name": "Seaborne Logistics",
-          "short_description": "Fledgling colonists must be supplied from back home in the Old World until the Empire's mark is firmly made upon its new lands.",
-          "effects": [
-            {
-              "description": "Construction cost: -20% for Ports",
-              "key": "wh2_main_effect_building_construction_cost_mod_ports",
-              "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              "description": "Allied recruitment capacity: +1",
+              "key": "wh3_main_effect_allied_recruitment_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/army"
             },
             {
-              "description": "Construction time: -1 for Ports",
-              "key": "wh2_main_effect_building_construction_time_mod_ports",
-              "icon": "vanilla3/campaign_ui/effect_bundles/construction"
+              "description": "Diplomatic relations: +10 with all factions",
+              "key": "wh_main_faction_political_diplomacy_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+            },
+            {
+              "description": "Allied recruitment cost: -25%",
+              "key": "wh3_main_effect_allied_recruitment_global_pool_cost_percentage_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             }
           ]
         },
-        "ui_group": "emp_dip_wulfhart",
-        "ui_group_colour": "AF5028",
-        "ui_group_position": "topleft"
+        "required_tech_keys": [
+          {
+            "key": "wh2_dlc13_tech_emp_purge_1",
+            "name": "Purge of the Foul"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_purge_2",
+            "name": "Purge of the Fell"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_purge_3",
+            "name": "Purge of the Knife-Ears"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_purge_4",
+            "name": "Purge of the Ruinous Breeds"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_diplomacy_1_a",
+            "name": "Emissary to the Prince of Altdorf"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_diplomacy_1_b",
+            "name": "Ambassador to the Phoenix King"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_diplomacy_1_c",
+            "name": "Ambassador to the Karaz Ankor"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_diplomacy_1_d",
+            "name": "Ambassador to the Royarch of Bretonnia"
+          },
+          {
+            "key": "emp_tech_diplomacy_cth",
+            "name": "Ambassador to the Dragon Emperor"
+          }
+        ]
       },
       {
         "key": "wh2_dlc13_tech_emp_wulfhart_diplomacy_1_a",
-        "tier": 9,
+        "tier": 7,
         "indent": 10,
         "research_points_required": 1,
         "technology": {
@@ -2546,11 +3009,11 @@
         "cost_per_round": 10000,
         "ui_group": "emp_dip_wulfhart",
         "ui_group_colour": "AF5028",
-        "ui_group_position": "top"
+        "ui_group_position": "topleft"
       },
       {
         "key": "wh2_dlc13_tech_emp_wulfhart_diplomacy_1_b",
-        "tier": 10,
+        "tier": 8,
         "indent": 10,
         "research_points_required": 1,
         "technology": {
@@ -2574,11 +3037,11 @@
         "cost_per_round": 10000,
         "ui_group": "emp_dip_wulfhart",
         "ui_group_colour": "AF5028",
-        "ui_group_position": "topright"
+        "ui_group_position": "top"
       },
       {
         "key": "wh2_dlc13_tech_emp_wulfhart_diplomacy_1_c",
-        "tier": 11,
+        "tier": 9,
         "indent": 10,
         "research_points_required": 1,
         "technology": {
@@ -2605,7 +3068,58 @@
           ]
         },
         "cost_per_round": 10000,
-        "ui_group": "emp_dip_wulfhart"
+        "ui_group": "emp_dip_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "topright"
+      },
+      {
+        "key": "wh2_dlc13_tech_emp_wulfhart_1",
+        "tier": 10,
+        "indent": 10,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "wh2_dlc13_tech_emp_wulfhart_1",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_wulfhart_1",
+          "onscreen_name": "Hunters' Guild",
+          "short_description": "Such groups are formed so that knowledge and experience can be shared for the betterment of all their members.",
+          "effects": [
+            {
+              "description": "Recruit rank: +2 for all Imperial Supplies units",
+              "key": "wh2_dlc13_effect_merc_xp",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            }
+          ]
+        },
+        "ui_group": "emp_unique_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "topleft"
+      },
+      {
+        "key": "wh2_dlc13_tech_emp_wulfhart_3",
+        "tier": 11,
+        "indent": 10,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "wh2_dlc13_tech_emp_wulfhart_3",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_wulfhart_3",
+          "onscreen_name": "Seaborne Logistics",
+          "short_description": "Fledgling colonists must be supplied from back home in the Old World until the Empire's mark is firmly made upon its new lands.",
+          "effects": [
+            {
+              "description": "Construction cost: -20% for Ports",
+              "key": "wh2_main_effect_building_construction_cost_mod_ports",
+              "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+            },
+            {
+              "description": "Construction time: -1 for Ports",
+              "key": "wh2_main_effect_building_construction_time_mod_ports",
+              "icon": "vanilla3/campaign_ui/effect_bundles/construction"
+            }
+          ]
+        },
+        "ui_group": "emp_unique_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "topright"
       }
     ],
     [
@@ -2686,7 +3200,101 @@
         "ui_group_colour": "AF6464",
         "ui_group_position": "topright"
       },
-      null,
+      {
+        "key": "emp_tech_missle_final_wulf",
+        "tier": 3,
+        "indent": 11,
+        "research_points_required": 1000,
+        "technology": {
+          "key": "emp_tech_missle_final",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc07_brt_economy_other_2",
+          "onscreen_name": "Ammunition State Regulation",
+          "short_description": "The Empire must remain the mainstay of humanity in the Old World regardless of those who do not obey the law.",
+          "effects": [
+            {
+              "description": "",
+              "key": "wh_effect_enable_wh_passive_self_buff_accuracy_1",
+              "icon": "",
+              "related_abilities": [
+                {
+                  "effect": "wh_effect_enable_wh_passive_self_buff_accuracy_1",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_passive_self_buff_accuracy_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/venris",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": true,
+                    "onscreen_name": "",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh_passive_self_buff_accuracy_1",
+                        "order": 0,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "stat_accuracy",
+                            "how": "mult",
+                            "description": "x1.25 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Accuracy: +25% for all units",
+              "key": "cth_miao_campaign_dummy_accuracy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
+            }
+          ]
+        },
+        "required_tech_keys": [
+          {
+            "key": "emp_tech_missle_1",
+            "name": "Target Practice"
+          },
+          {
+            "key": "emp_tech_missle_2",
+            "name": "Ammunition Stockpiles"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_missile_1",
+            "name": "Mass-Produced Small Ammunition"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_missile_1_a",
+            "name": "Mounted Weaponry"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_missile_1_b",
+            "name": "Rifled Barrels"
+          },
+          {
+            "key": "wh2_dlc13_tech_emp_missile_1_c",
+            "name": "Volley Fire"
+          }
+        ]
+      },
       {
         "key": "emp_tech_myrmidia_wulf",
         "tier": 4,
@@ -2761,20 +3369,8 @@
       },
       null,
       {
-        "bgFiller": true,
-        "ui_group": "emp_unique_wulfhart",
-        "ui_group_colour": "AF5028",
-        "ui_group_position": "left"
-      },
-      {
-        "bgFiller": true,
-        "ui_group": "emp_dip_wulfhart",
-        "ui_group_colour": "AF5028",
-        "ui_group_position": "left"
-      },
-      {
         "key": "wh2_dlc13_tech_emp_wulfhart_purge_1",
-        "tier": 9,
+        "tier": 7,
         "indent": 11,
         "research_points_required": 1,
         "technology": {
@@ -2798,11 +3394,11 @@
         "cost_per_round": 10000,
         "ui_group": "emp_dip_wulfhart",
         "ui_group_colour": "AF5028",
-        "ui_group_position": ""
+        "ui_group_position": "left"
       },
       {
         "key": "emp_tech_diplomacy_cth_wulf",
-        "tier": 10,
+        "tier": 8,
         "indent": 11,
         "research_points_required": 1,
         "technology": {
@@ -2812,7 +3408,7 @@
           "short_description": "The lands of the distant East are virtually unknown in the Empire. If the rumors are true this delegation may be the most important group of diplomats in living memory",
           "effects": [
             {
-              "description": "Diplomatic relations: +25 with Cathay",
+              "description": "Diplomatic relations: +25 with Grand Cathay",
               "key": "wh3_main_faction_political_diplomacy_mod_cathay",
               "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             },
@@ -2831,11 +3427,11 @@
         "cost_per_round": 10000,
         "ui_group": "emp_dip_wulfhart",
         "ui_group_colour": "AF5028",
-        "ui_group_position": "right"
+        "ui_group_position": ""
       },
       {
         "key": "wh2_dlc13_tech_emp_wulfhart_diplomacy_1_d",
-        "tier": 11,
+        "tier": 9,
         "indent": 11,
         "research_points_required": 1,
         "technology": {
@@ -2857,7 +3453,21 @@
           ]
         },
         "cost_per_round": 10000,
-        "ui_group": "emp_dip_wulfhart"
+        "ui_group": "emp_dip_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "right"
+      },
+      {
+        "bgFiller": true,
+        "ui_group": "emp_unique_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "left"
+      },
+      {
+        "bgFiller": true,
+        "ui_group": "emp_unique_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "right"
       }
     ],
     [
@@ -3016,8 +3626,92 @@
       },
       null,
       {
-        "key": "wh2_dlc13_tech_emp_wulfhart_2",
+        "key": "wh2_dlc13_tech_emp_wulfhart_purge_2",
         "tier": 7,
+        "indent": 12,
+        "research_points_required": 1,
+        "technology": {
+          "key": "wh2_dlc13_tech_emp_purge_2",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_purge_2",
+          "onscreen_name": "Purge of the Fell",
+          "short_description": "There may be fell Necromancy afoot, for the Undead and Unliving infest Imperial territory in too greater numbers, hastening the need for an immediate purge.",
+          "effects": [
+            {
+              "description": "Melee attack: +4 when fighting against Undead",
+              "key": "wh2_dlc13_effect_melee_attack_versus_vmp_cst_tmb",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+            },
+            {
+              "description": "Leadership: +4 when fighting against Undead",
+              "key": "wh2_dlc13_effect_morale_versus_vmp_cst_tmb",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+            }
+          ]
+        },
+        "cost_per_round": 10000,
+        "ui_group": "emp_dip_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "bottomleft"
+      },
+      {
+        "key": "wh2_dlc13_tech_emp_wulfhart_purge_3",
+        "tier": 8,
+        "indent": 12,
+        "research_points_required": 1,
+        "technology": {
+          "key": "wh2_dlc13_tech_emp_purge_3",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_purge_3",
+          "onscreen_name": "Purge of the Knife-Ears",
+          "short_description": "These lands belong to the Empire – those arrogant, knife-eared Elves must be driven back to their own dominion, and with haste!",
+          "effects": [
+            {
+              "description": "Missile resistance: 10% when fighting against Elves",
+              "key": "wh2_dlc13_effect_missile_resistance_versus_def_hef_wef",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+            },
+            {
+              "description": "Leadership: +4 when fighting against Elves",
+              "key": "wh2_dlc13_effect_morale_versus_def_hef_wef",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+            }
+          ]
+        },
+        "cost_per_round": 10000,
+        "ui_group": "emp_dip_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "bottom"
+      },
+      {
+        "key": "wh2_dlc13_tech_emp_wulfhart_purge_4",
+        "tier": 9,
+        "indent": 12,
+        "research_points_required": 1,
+        "technology": {
+          "key": "wh2_dlc13_tech_emp_purge_4",
+          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_purge_4",
+          "onscreen_name": "Purge of the Ruinous Breeds",
+          "short_description": "The taint of Chaos has been observed here; such things must not be allowed to gain a foothold and be removed without delay!",
+          "effects": [
+            {
+              "description": "Leadership: +4 when fighting against Norsca, Warriors of Chaos, Chaos Dwarfs, Daemons of Chaos and Beastmen",
+              "key": "wh2_dlc13_effect_morale_versus_nor_chs_bst",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+            },
+            {
+              "description": "Weapon strength: +10% for all units when fighting against Norsca, Warriors of Chaos, Chaos Dwarfs, Daemons of Chaos and Beastmen",
+              "key": "wh2_dlc13_effect_force_stat_weapon_strength_vs_nor_chs_bst",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+            }
+          ]
+        },
+        "cost_per_round": 10000,
+        "ui_group": "emp_dip_wulfhart",
+        "ui_group_colour": "AF5028",
+        "ui_group_position": "bottomright"
+      },
+      {
+        "key": "wh2_dlc13_tech_emp_wulfhart_2",
+        "tier": 10,
         "indent": 12,
         "research_points_required": 1000,
         "technology": {
@@ -3047,7 +3741,7 @@
       },
       {
         "key": "wh2_dlc13_tech_emp_wulfhart_4",
-        "tier": 8,
+        "tier": 11,
         "indent": 12,
         "research_points_required": 1000,
         "technology": {
@@ -3063,94 +3757,12 @@
             }
           ]
         },
-        "ui_group": "emp_dip_wulfhart",
+        "ui_group": "emp_unique_wulfhart",
         "required_tech_node_keys": [
           "wh2_dlc13_tech_emp_wulfhart_3"
         ],
         "ui_group_colour": "AF5028",
-        "ui_group_position": "bottomleft"
-      },
-      {
-        "key": "wh2_dlc13_tech_emp_wulfhart_purge_2",
-        "tier": 9,
-        "indent": 12,
-        "research_points_required": 1,
-        "technology": {
-          "key": "wh2_dlc13_tech_emp_purge_2",
-          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_purge_2",
-          "onscreen_name": "Purge of the Fell",
-          "short_description": "There may be fell Necromancy afoot, for the Undead and Unliving infest Imperial territory in too greater numbers, hastening the need for an immediate purge.",
-          "effects": [
-            {
-              "description": "Melee attack: +4 when fighting against Undead",
-              "key": "wh2_dlc13_effect_melee_attack_versus_vmp_cst_tmb",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
-            },
-            {
-              "description": "Leadership: +4 when fighting against Undead",
-              "key": "wh2_dlc13_effect_morale_versus_vmp_cst_tmb",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        },
-        "cost_per_round": 10000,
-        "ui_group": "emp_dip_wulfhart",
-        "ui_group_colour": "AF5028",
-        "ui_group_position": "bottom"
-      },
-      {
-        "key": "wh2_dlc13_tech_emp_wulfhart_purge_3",
-        "tier": 10,
-        "indent": 12,
-        "research_points_required": 1,
-        "technology": {
-          "key": "wh2_dlc13_tech_emp_purge_3",
-          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_purge_3",
-          "onscreen_name": "Purge of the Knife-Ears",
-          "short_description": "These lands belong to the Empire – those arrogant, knife-eared Elves must be driven back to their own dominion, and with haste!",
-          "effects": [
-            {
-              "description": "Missile resistance: 10% when fighting against Elves",
-              "key": "wh2_dlc13_effect_missile_resistance_versus_def_hef_wef",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
-            },
-            {
-              "description": "Leadership: +4 when fighting against Elves",
-              "key": "wh2_dlc13_effect_morale_versus_def_hef_wef",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        },
-        "cost_per_round": 10000,
-        "ui_group": "emp_dip_wulfhart",
-        "ui_group_colour": "AF5028",
         "ui_group_position": "bottomright"
-      },
-      {
-        "key": "wh2_dlc13_tech_emp_wulfhart_purge_4",
-        "tier": 11,
-        "indent": 12,
-        "research_points_required": 1,
-        "technology": {
-          "key": "wh2_dlc13_tech_emp_purge_4",
-          "icon_name": "vanilla3/campaign_ui/technologies/tech_dlc13_emp_purge_4",
-          "onscreen_name": "Purge of the Ruinous Breeds",
-          "short_description": "The taint of Chaos has been observed here; such things must not be allowed to gain a foothold and be removed without delay!",
-          "effects": [
-            {
-              "description": "Leadership: +4 when fighting against Norsca, Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs and Beastmen",
-              "key": "wh2_dlc13_effect_morale_versus_nor_chs_bst",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            },
-            {
-              "description": "Weapon strength: +10% for all units when fighting against Norsca, Warriors of Chaos, Chaos Dwarfs, Daemons of Chaos and Beastmen",
-              "key": "wh2_dlc13_effect_force_stat_weapon_strength_vs_nor_chs_bst",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
-            }
-          ]
-        },
-        "cost_per_round": 10000,
-        "ui_group": "emp_dip_wulfhart"
       }
     ]
   ],

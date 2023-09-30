@@ -241,6 +241,13 @@
                           "stat_effects": [
                             {
                               "value": 10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            },
+                            {
+                              "value": 10,
                               "stat": "stat_morale",
                               "how": "add",
                               "description": "+10 Leadership",
@@ -252,13 +259,6 @@
                               "how": "add",
                               "description": "+10 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 10,
-                              "stat": "stat_resistance_all",
-                              "how": "add",
-                              "description": "+10 Damage Resistance ",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                             }
                           ]
                         }
@@ -274,7 +274,7 @@
       },
       {
         "key": "wh2_main_skill_node_set_dwf_thane_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_hero",
         "tier": 12,
         "indent": 0,
@@ -1677,14 +1677,14 @@
           {
             "effects": [
               {
+                "description": "Experience gain: +5% for characters\n\t(accompanying Lord)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
                 "description": "Hit points: +5%",
                 "key": "wh_main_effect_character_stat_unit_health",
                 "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-              },
-              {
-                "description": "Wound recovery time: -2",
-                "key": "wh_main_effect_character_wound_recovery_time_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
               }
             ],
             "unlocked_at_rank": 10
@@ -2313,10 +2313,10 @@
               "stat_effects": [
                 {
                   "value": 0.8,
-                  "stat": "stat_melee_damage_ap",
+                  "stat": "scalar_speed",
                   "how": "mult",
-                  "description": "x0.8 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
                   "value": 0.8,
@@ -2326,25 +2326,25 @@
                   "icon": "vanilla3/skins/default/icon_stat_damage_base"
                 },
                 {
-                  "value": -20,
-                  "stat": "stat_reloading",
-                  "how": "add",
-                  "description": "-20 Reload Skill",
-                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                },
-                {
-                  "value": 0.8,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x0.8 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
                   "value": 1.1,
                   "stat": "scalar_miscast_chance",
                   "how": "mult",
                   "description": "x1.1 Miscast Chance",
                   "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
             }
@@ -2454,6 +2454,13 @@
               "stat_effects": [
                 {
                   "value": 10,
+                  "stat": "stat_resistance_all",
+                  "how": "add",
+                  "description": "+10 Damage Resistance ",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                },
+                {
+                  "value": 10,
                   "stat": "stat_morale",
                   "how": "add",
                   "description": "+10 Leadership",
@@ -2465,13 +2472,6 @@
                   "how": "add",
                   "description": "+10 Melee Attack",
                   "icon": "vanilla3/skins/default/icon_stat_attack"
-                },
-                {
-                  "value": 10,
-                  "stat": "stat_resistance_all",
-                  "how": "add",
-                  "description": "+10 Damage Resistance ",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                 }
               ]
             }
@@ -2719,20 +2719,6 @@
                     },
                     {
                       "value": 0.8,
-                      "stat": "stat_melee_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Weapon Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Weapon Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                    },
-                    {
-                      "value": 0.8,
                       "stat": "scalar_missile_damage_base",
                       "how": "mult",
                       "description": "x0.8 Base Missile Damage",
@@ -2744,6 +2730,20 @@
                       "how": "mult",
                       "description": "x0.8 Speed",
                       "icon": "vanilla3/skins/default/icon_stat_speed"
+                    },
+                    {
+                      "value": 0.8,
+                      "stat": "stat_melee_damage_base",
+                      "how": "mult",
+                      "description": "x0.8 Base Weapon Damage",
+                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                    },
+                    {
+                      "value": 0.8,
+                      "stat": "stat_melee_damage_ap",
+                      "how": "mult",
+                      "description": "x0.8 Armour-Piercing Weapon Damage",
+                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                     }
                   ]
                 }
@@ -2781,7 +2781,7 @@
                 {
                   "key": "immune_to_psychology",
                   "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (fear and terror).",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
                   "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 }
               ]
@@ -3082,6 +3082,11 @@
         {
           "effects": [
             {
+              "description": "Attrition: -10% casualties suffered from all attrition\n\t(armies in local owned region)",
+              "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+            },
+            {
               "description": "Corruption: -2\n\t(local province)",
               "key": "wh3_main_effect_corruption_reduction_characters",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -3198,7 +3203,7 @@
         {
           "effects": [
             {
-              "description": "Character experience gain per turn: +50",
+              "description": "Character experience gain per turn: +100",
               "key": "wh3_main_effect_character_experience_per_turn",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
@@ -3227,7 +3232,7 @@
         {
           "effects": [
             {
-              "description": "Character experience gain per turn: +50",
+              "description": "Character experience gain per turn: +100",
               "key": "wh3_main_effect_character_experience_per_turn",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
