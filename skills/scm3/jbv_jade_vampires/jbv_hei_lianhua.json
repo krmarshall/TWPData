@@ -28,7 +28,7 @@
               "mass": 100,
               "size": "small",
               "hit_points": 8,
-              "bonus_hit_points": 3890,
+              "bonus_hit_points": 4100,
               "armour": 55,
               "missile_block_chance": 0,
               "morale": 80,
@@ -4475,6 +4475,176 @@
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/nur_cultist",
     "effects": [
       {
+        "description": "Ability: \"Dark Waters of Nongchang\"",
+        "key": "enable_jbv_curse",
+        "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+        "related_abilities": [
+          {
+            "effect": "enable_jbv_curse",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "jbv_darkwater_I",
+              "icon_name": "scm3/battle_ui/ability_icons/jbv_darkwater_i",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_area_of_hexes",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                "onscreen_name": "Hex (Area)"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Dark Waters of Nongchang - \"Sinking\"",
+              "active_time": 90,
+              "effect_range": -1,
+              "recharge_time": 60,
+              "target_enemies": false,
+              "target_friends": false,
+              "target_ground": false,
+              "target_self": false,
+              "target_intercept_range": 0,
+              "phases": [
+                {
+                  "icon": "scm3/battle_ui/ability_icons/jbv_darkwater_i",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 90,
+                  "effect_type": "negative",
+                  "is_hidden_in_ui": false,
+                  "damage_amount": 5,
+                  "fatigue_change_ratio": 0.01,
+                  "hp_change_frequency": 1,
+                  "max_damaged_entities": 2,
+                  "stat_effects": [
+                    {
+                      "value": 0.7,
+                      "stat": "scalar_speed",
+                      "how": "mult",
+                      "description": "x0.7 Speed",
+                      "icon": "vanilla3/skins/default/icon_stat_speed"
+                    },
+                    {
+                      "value": 0.85,
+                      "stat": "stat_melee_defence",
+                      "how": "mult",
+                      "description": "x0.85 Melee Defence",
+                      "icon": "vanilla3/skins/default/icon_stat_defence"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "effect": "enable_jbv_curse",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "jbv_darkwater_II",
+              "icon_name": "scm3/battle_ui/ability_icons/jbv_darkwater_ii",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_area_of_direct_damage",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                "onscreen_name": "Direct Damage (Area)"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Dark Waters of Nongchang - \"Drowning\"",
+              "active_time": 60,
+              "effect_range": -1,
+              "recharge_time": 90,
+              "target_enemies": false,
+              "target_friends": false,
+              "target_ground": false,
+              "target_self": false,
+              "target_intercept_range": 0,
+              "phases": [
+                {
+                  "icon": "scm3/battle_ui/ability_icons/jbv_darkwater_ii",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 60,
+                  "effect_type": "negative",
+                  "is_hidden_in_ui": false,
+                  "damage_amount": 5,
+                  "hp_change_frequency": 1,
+                  "max_damaged_entities": 6,
+                  "stat_effects": [
+                    {
+                      "value": -15,
+                      "stat": "stat_morale",
+                      "how": "add",
+                      "description": "-15 Leadership",
+                      "icon": "vanilla3/skins/default/icon_stat_morale"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "effect": "enable_jbv_curse",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "jbv_darkwater_III",
+              "icon_name": "scm3/battle_ui/ability_icons/jbv_darkwater_iii",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_summon_unit",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                "onscreen_name": "Summon Unit"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Dark Waters of Nongchang - \"Convergence\"",
+              "active_time": 15,
+              "effect_range": 0,
+              "recharge_time": 45,
+              "target_enemies": false,
+              "target_friends": false,
+              "target_ground": true,
+              "target_self": true,
+              "target_intercept_range": -1,
+              "ui_effects": [
+                {
+                  "key": "jbv_darkwater_ghosts_summon",
+                  "localised_text": "Summons Sinful Monks",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "wh_main_all_direct_damage_unbinding",
+                  "localised_text": "Summoned units degrade over time",
+                  "effect_state": "negative"
+                }
+              ],
+              "phases": [
+                {
+                  "icon": "scm3/battle_ui/ability_icons/jbv_darkwater_iii",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 15,
+                  "effect_type": "negative",
+                  "is_hidden_in_ui": false,
+                  "hp_change_frequency": 1,
+                  "remove_magical": true,
+                  "stat_effects": [
+                    {
+                      "value": 0.6,
+                      "stat": "stat_armour",
+                      "how": "mult",
+                      "description": "x0.6 Armour",
+                      "icon": "vanilla3/skins/default/icon_stat_armour"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
         "description": "",
         "key": "wh2_dlc09_effect_increase_army_capacity_hidden",
         "icon": ""
@@ -4495,19 +4665,19 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
       },
       {
+        "description": "Control: +4\n\t(factionwide)",
+        "key": "wh_main_effect_public_order_base",
+        "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+      },
+      {
         "description": "Diplomatic relations: -50 with Grand Cathay",
         "key": "wh3_main_faction_political_diplomacy_mod_cathay",
         "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
       },
       {
-        "description": "Weapon strength: +9% for Jiangshi units",
-        "key": "jbv_jiangshi_ws",
-        "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
-      },
-      {
-        "description": "Unique landmark in Nongchang that provides powerful faction buffs",
-        "key": "jbv_unique_landmark",
-        "icon": "vanilla3/campaign_ui/effect_bundles/construction"
+        "description": "PLACEHOLDER",
+        "key": "jbv_faithful_def",
+        "icon": "vanilla3/campaign_ui/effect_bundles/defence"
       }
     ]
   },
