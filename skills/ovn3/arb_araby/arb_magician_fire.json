@@ -1,25 +1,25 @@
 {
-  "key": "albion_wizard",
+  "key": "arb_magician_fire",
   "skillTree": [
     [
       {
-        "key": "wyrd_mount_01",
-        "image_path": "vanilla3/campaign_ui/skills/mount_warhorse",
-        "character_skill_key": "wyrd_mount_skill",
-        "tier": 0,
+        "key": "ovn_skill_node_arb_magician_fire_unique_04",
+        "image_path": "ovn3/campaign_ui/skills/mount_arb_camel",
+        "character_skill_key": "ovn_skill_arb_magician_unique_magician_fire_djinn_vessel",
+        "tier": 1,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Albion Warhorse",
-        "localised_description": "The tribes of Albion breed a hardy race of horses, surefooted and fast. But only wealthy warriors may be able to afford to ride into battle.",
+        "localised_name": "Camel",
+        "localised_description": "The mount of any self-respecting Arabyan gentleman.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Mount: Warhorse",
-                "key": "wh_main_effect_enable_mount_warhorse",
+                "description": "Follower: Djinn Vessel",
+                "key": "ovn_effect_enable_mount_djinn_vessel",
                 "icon": "vanilla3/campaign_ui/effect_bundles/mount"
               }
             ],
@@ -28,22 +28,22 @@
               "mass": 1000,
               "size": "medium",
               "hit_points": 8,
-              "bonus_hit_points": 3950,
+              "bonus_hit_points": 3900,
               "armour": 15,
               "missile_block_chance": 0,
-              "morale": 60,
+              "morale": 55,
               "damage_mod_flame": 0,
               "damage_mod_magic": 0,
-              "damage_mod_physical": 25,
+              "damage_mod_physical": 0,
               "damage_mod_missile": 15,
               "damage_mod_all": 0,
-              "melee_attack": 34,
-              "melee_defence": 38,
-              "charge_bonus": 30,
+              "melee_attack": 25,
+              "melee_defence": 30,
+              "charge_bonus": 35,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
-              "damage": 200,
-              "ap_damage": 115,
+              "damage": 210,
+              "ap_damage": 90,
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 5,
               "melee_attack_interval": 4,
@@ -66,108 +66,53 @@
               "abilities": [
                 {
                   "unit_ability": {
-                    "key": "war_fury_2",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "War Fury II",
+                    "onscreen_name": "Wounds",
                     "effect_range": 0,
-                    "num_effected_friendly_units": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Losing melee combat"
-                    ],
                     "phases": [
                       {
-                        "icon": "war_fury_2",
-                        "order": 2,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": -5,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "-5 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "war_fury",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_item_abilities_horn_of_the_wild_hunt",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "War Fury I",
-                    "effect_range": 0,
-                    "num_effected_friendly_units": 1,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than 50% of base"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "war_fury",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
                         "duration": -1,
-                        "effect_type": "positive",
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 1.1,
+                            "value": 0.9,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.9 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
+                            "description": "x0.8 Base Weapon Damage",
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
                           },
                           {
-                            "value": 6,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+6 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_charge_bonus",
-                            "how": "mult",
-                            "description": "x1.1 Charge Bonus",
-                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                          },
-                          {
-                            "value": 1.1,
+                            "value": 0.8,
                             "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
@@ -177,8 +122,8 @@
                 },
                 {
                   "unit_ability": {
-                    "key": "woad_paint",
-                    "icon_name": "ovn3/battle_ui/ability_icons/alb_woad_paint",
+                    "key": "ovn_arb_passive_camel",
+                    "icon_name": "ovn3/battle_ui/ability_icons/ovn_sturdy_beasts",
                     "overpower_option": "",
                     "type": {
                       "key": "wh_type_augment",
@@ -186,40 +131,100 @@
                       "onscreen_name": "Augment"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Woad Paint",
+                    "onscreen_name": "Sturdy Beasts",
                     "effect_range": 0,
-                    "num_effected_friendly_units": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "Winds of magic power is 15 or greater"
+                      "Out of melee"
                     ],
                     "phases": [
                       {
-                        "icon": "woad_paint",
+                        "icon": "ovn_arb_passive_camel",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
                         "duration": -1,
                         "effect_type": "positive",
+                        "onscreen_name": "special_ability_phases_onscreen_name_ovn_arb_passive_camel",
                         "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 8,
-                            "stat": "stat_resistance_all",
-                            "how": "add",
-                            "description": "+8 Damage Resistance ",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                          }
-                        ]
+                        "fatigue_change_ratio": -0.01
                       }
                     ]
                   }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 7
+          }
+        ]
+      },
+      {
+        "key": "ovn_skill_node_arb_magician_fire_unique_01",
+        "image_path": "ovn3/campaign_ui/skills/mount_magic_carpet",
+        "character_skill_key": "ovn_skill_arb_magician_unique_magician_fire_magic_carpet",
+        "tier": 2,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Flying Carpet",
+        "localised_description": "A Djinn bound to a piece of furniture to make it fly.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Flying Carpet",
+                "key": "ovn_effect_enable_mount_magic_carpet",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 8,
+              "mass": 1100,
+              "size": "medium",
+              "hit_points": 8,
+              "bonus_hit_points": 3900,
+              "armour": 15,
+              "missile_block_chance": 0,
+              "morale": 55,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 25,
+              "melee_defence": 30,
+              "charge_bonus": 35,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 210,
+              "ap_damage": 90,
+              "splash_target_size_limit": "medium",
+              "splash_attack_max_attacks": 5,
+              "melee_attack_interval": 4,
+              "barrier": 0,
+              "fly_speed": 10.5,
+              "attributes": [
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
                 },
+                {
+                  "key": "flying",
+                  "description": "Can fly",
+                  "bullet_text": "This unit can fly.",
+                  "icon": "vanilla3/battle_ui/ability_icons/flying"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
@@ -278,22 +283,47 @@
                 }
               ]
             },
-            "auto_unlock_at_rank": 5
+            "auto_unlock_at_rank": 16
           }
         ]
       },
       {
-        "key": "wyrd_unique_02",
+        "key": "ovn_skill_node_arb_magician_fire_unique_02",
         "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
-        "character_skill_key": "elo_fast_reflexes",
-        "tier": 2,
+        "character_skill_key": "roy_skill_arb_agent_missile_res",
+        "tier": 3,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Trained Reflexes",
-        "localised_description": "Experienced warriors of Albion sometimes dodge missiles with seemingly unnatural reflexes gained from the experience of countless skirmishes.",
+        "localised_name": "Djinn's Protection",
+        "localised_description": "Even from within their vessels the Djinn will protect their masters.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Spell resistance: 10%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ],
+            "unlocked_at_rank": 8
+          }
+        ]
+      },
+      {
+        "key": "ovn_skill_node_arb_magician_fire_unique_03",
+        "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
+        "character_skill_key": "ovn_skill_arb_all_unique_ward_of_the_one",
+        "tier": 4,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Ward of the Djinn",
+        "localised_description": "The relentless drive and fury of the elemental spirits, harnessed for the protection of this ward’s bearer.",
         "levels": [
           {
             "effects": [
@@ -302,39 +332,16 @@
                 "key": "wh_main_effect_character_stat_missile_resistance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
               }
-            ]
+            ],
+            "unlocked_at_rank": 8
           }
         ]
       },
       {
-        "key": "wyrd_unique_03",
-        "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
-        "character_skill_key": "elo_protective_charms",
-        "tier": 3,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Protective Charms",
-        "localised_description": "The primitive, often savage-looking talismans of the Albionites still seem to have some protective effects.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Spell resistance: 10%",
-                "key": "wh_main_effect_force_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "key": "wyrd_immortality",
+        "key": "ovn_skill_node_arb_magician_fire_immortality",
         "image_path": "vanilla3/campaign_ui/skills/character_wound_time",
         "character_skill_key": "wh2_main_skill_all_immortality_hero",
-        "tier": 4,
+        "tier": 5,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -356,7 +363,7 @@
         ]
       },
       {
-        "key": "wyrd_unique_07",
+        "key": "ovn_skill_node_arb_magician_fire_mentor",
         "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_hero",
         "tier": 12,
@@ -401,154 +408,277 @@
         ]
       }
     ],
+    [],
     [
       {
-        "key": "wyrd_unique_04",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "warrior_shaman",
-        "tier": 1,
-        "indent": 1,
+        "key": "ovn_skill_node_arb_magician_fire_magic1_01",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+        "character_skill_key": "wh_main_skill_all_magic_fire_01_fireball",
+        "tier": 0,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Shamanic Warrior",
-        "localised_description": "Prioritizing the path of the Warrior, this Druidic Priestess is a better fighter than others - but her abilities to weave magic suffered in return.",
+        "localised_name": "Fireball",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Melee attack: +10",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+                "description": "Overcast spell: \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_fireball",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_fireball",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_fire_fireball",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+                      "overpower_option": "wh_main_spell_fire_fireball_upgraded",
+                      "type": {
+                        "key": "wh_type_magic_missile",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                        "onscreen_name": "Magic Missile"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fireball",
+                      "effect_range": 0,
+                      "mana_cost": 5,
+                      "recharge_time": 29,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 300,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_magical_and_flaming_medium",
+                          "localised_text": "Causes moderate magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_projectile_powerful_explosion",
+                          "localised_text": "Powerful explosion",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_projectile_effective_long_range",
+                          "localised_text": "Effective at long range",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "activated_projectile": {
+                        "key": "wh_main_spell_fire_fireball",
+                        "damage": 350,
+                        "ap_damage": 150,
+                        "shockwave_radius": 1,
+                        "effective_range": 300,
+                        "base_reload_time": 1,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh_main_spell_fire_fireball",
+                          "affects_allies": true,
+                          "detonation_damage": 144,
+                          "detonation_damage_ap": 0,
+                          "detonation_radius": 5,
+                          "is_magical": true,
+                          "is_flaming": true
+                        }
+                      }
+                    }
+                  }
+                ]
               },
               {
-                "description": "Melee defence: +10",
-                "key": "wh_main_effect_character_stat_melee_defence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+                "description": "Cooldown: -30% to \"Fireball\"",
+                "key": "wh_main_effect_ability_cooldown_fireball",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_fireball",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_fireball",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_fire_fireball",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+                      "overpower_option": "wh_main_spell_fire_fireball_upgraded",
+                      "type": {
+                        "key": "wh_type_magic_missile",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                        "onscreen_name": "Magic Missile"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fireball",
+                      "effect_range": 0,
+                      "mana_cost": 5,
+                      "recharge_time": 29,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 300,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_magical_and_flaming_medium",
+                          "localised_text": "Causes moderate magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_projectile_powerful_explosion",
+                          "localised_text": "Powerful explosion",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_projectile_effective_long_range",
+                          "localised_text": "Effective at long range",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "activated_projectile": {
+                        "key": "wh_main_spell_fire_fireball",
+                        "damage": 350,
+                        "ap_damage": 150,
+                        "shockwave_radius": 1,
+                        "effective_range": 300,
+                        "base_reload_time": 1,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh_main_spell_fire_fireball",
+                          "affects_allies": true,
+                          "detonation_damage": 144,
+                          "detonation_damage_ap": 0,
+                          "detonation_radius": 5,
+                          "is_magical": true,
+                          "is_flaming": true
+                        }
+                      }
+                    }
+                  }
+                ]
               },
               {
-                "description": "Miscast base chance: +15%",
-                "key": "wh_main_effect_character_stat_miscast",
+                "description": "Cooldown: -50% to \"Fireball\"",
+                "key": "wh_main_effect_ability_cooldown_fireball",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              },
+              {
+                "description": "Winds of Magic cost: -1 for \"Fireball\"",
+                "key": "wh2_main_effect_ability_wom_cost_fireball",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic cost: -2 for \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_fireball_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Miscast base chance: -15% for \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_fireball_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
-            ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "wyrd_unique_05",
-              "wyrd_unique_06"
             ]
           }
-        ]
+        ],
+        "right_arrow": true
       },
       {
-        "key": "wyrd_unique_05",
-        "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "wyrd_spellbinder",
-        "tier": 2,
-        "indent": 1,
+        "key": "ovn_skill_node_arb_magician_fire_magic1_02",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_lore_passive_kindleflame",
+        "character_skill_key": "wh_main_skill_all_magic_fire_04_kindleflame",
+        "tier": 1,
+        "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Spellbinder",
-        "localised_description": "Adorned with similar runes as the famous Ogham stones, the body of this Druid binds magic to protect those around her from the harms it can bring.",
+        "localised_name": "Kindleflame",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Winds of Magic power reserve capacity: -15",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
-                "description": "Enemy Winds of Magic power reserve capacity: -25\n\t(local region)",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap_enemy",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
-                "description": "Spell resistance: 10%\n\t(Hero's army)",
-                "key": "wh_main_effect_force_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-              }
-            ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "wyrd_unique_06",
-              "wyrd_unique_04"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "wyrd_unique_06",
-        "image_path": "vanilla3/campaign_ui/skills/character_health",
-        "character_skill_key": "wyrd_channeler",
-        "tier": 3,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Channeler of the Wyrd",
-        "localised_description": "There is much to be gained by letting the strange power of the Wyrd run free through the Druid's body, but there is also a prize to pay.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Winds of Magic power reserve capacity: +10",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
-                "description": "Hit points: -20%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-              },
-              {
-                "description": "Passive ability: \"Regeneration\"",
-                "key": "wh2_main_effect_ability_enable_regeneration",
+                "description": "Passive ability: \"Kindleflame\"",
+                "key": "wh_main_effect_ability_enable_kindleflame",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_enable_regeneration",
+                    "effect": "wh_main_effect_ability_enable_kindleflame",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_unit_passive_regeneration",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+                      "key": "wh_main_lore_passive_kindleflame",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_kindleflame",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_regeneration",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                        "onscreen_name": "Regeneration"
+                        "key": "wh_type_area_of_ward_save_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves_hex",
+                        "onscreen_name": "Ward Save Hex (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Regeneration",
-                      "effect_range": 0,
+                      "onscreen_name": "Kindleflame",
+                      "active_time": 15,
+                      "effect_range": -1,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Casting"
+                      ],
                       "ui_effects": [
                         {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
+                          "key": "wh_dlc05_spell_trigger_when_casting",
+                          "localised_text": "Triggers when casting spell",
                           "effect_state": "positive"
                         }
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_kindleflame",
                           "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
+                          "target_enemies": true,
+                          "target_self": false,
                           "target_friends": false,
-                          "duration": -1,
-                          "effect_type": "positive",
+                          "duration": 15,
+                          "effect_type": "negative",
+                          "onscreen_name": "Kindleflame",
                           "is_hidden_in_ui": false,
-                          "heal_amount": 0.001,
-                          "hp_change_frequency": 1,
                           "stat_effects": [
                             {
                               "value": -20,
@@ -564,342 +694,85 @@
                   }
                 ]
               }
-            ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "wyrd_unique_05",
-              "wyrd_unique_04"
-            ]
-          }
-        ]
-      }
-    ],
-    [
-      {
-        "key": "wyrd_magic1_01",
-        "image_path": "ovn3/campaign_ui/skills/wings_of_fate",
-        "character_skill_key": "truth_spell_wings_fate_lord",
-        "tier": 0,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Wings of Fate",
-        "localised_description": "The Truthsayer conjures a flock of magic birds which will fly straight into the enemy formations, bringing doom to those they collide with.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Cooldown: -30% to Wings of Fate",
-                "key": "cooldown_truth_wings_fate",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              },
-              {
-                "description": "Overcast Spell: \"Wings of Fate\"",
-                "key": "enable_truth_wings_fate_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "enable_truth_wings_fate_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "spell_truth_wings_fate",
-                      "icon_name": "ovn3/battle_ui/ability_icons/truth_wings_of_fate",
-                      "overpower_option": "spell_truth_wings_fate_upgraded",
-                      "type": {
-                        "key": "wh_type_magic_missiles",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
-                        "onscreen_name": "Magic Missiles"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Wings of Fate",
-                      "effect_range": 0,
-                      "mana_cost": 5,
-                      "recharge_time": 29,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 250,
-                      "wind_up_time": 1,
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "localised_text": "Causes moderate magical damage",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "localised_text": "Strong vs multiple combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "activated_projectile": {
-                        "key": "wings_fate",
-                        "damage": 30,
-                        "ap_damage": 70,
-                        "shockwave_radius": 1,
-                        "effective_range": 250,
-                        "base_reload_time": 1,
-                        "projectile_number": 3,
-                        "is_magical": true,
-                        "can_damage_allies": true,
-                        "explosion_type": {
-                          "key": "ovn_alb_wings_fate_explosion",
-                          "affects_allies": true,
-                          "detonation_damage": 30,
-                          "detonation_damage_ap": 20,
-                          "detonation_radius": 1,
-                          "is_magical": true
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Miscast base chance: -15% for Wings of Fate Upgraded",
-                "key": "miscast_truth_wings_fate_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Cooldown: -50% to Wings of Fate",
-                "key": "cooldown_truth_wings_fate",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              },
-              {
-                "description": "Overcast Spell: \"Wings of Fate\"",
-                "key": "enable_truth_wings_fate_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "enable_truth_wings_fate_upgraded",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "spell_truth_wings_fate",
-                      "icon_name": "ovn3/battle_ui/ability_icons/truth_wings_of_fate",
-                      "overpower_option": "spell_truth_wings_fate_upgraded",
-                      "type": {
-                        "key": "wh_type_magic_missiles",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
-                        "onscreen_name": "Magic Missiles"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Wings of Fate",
-                      "effect_range": 0,
-                      "mana_cost": 5,
-                      "recharge_time": 29,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 250,
-                      "wind_up_time": 1,
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "localised_text": "Causes moderate magical damage",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "localised_text": "Strong vs multiple combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "activated_projectile": {
-                        "key": "wings_fate",
-                        "damage": 30,
-                        "ap_damage": 70,
-                        "shockwave_radius": 1,
-                        "effective_range": 250,
-                        "base_reload_time": 1,
-                        "projectile_number": 3,
-                        "is_magical": true,
-                        "can_damage_allies": true,
-                        "explosion_type": {
-                          "key": "ovn_alb_wings_fate_explosion",
-                          "affects_allies": true,
-                          "detonation_damage": 30,
-                          "detonation_damage_ap": 20,
-                          "detonation_radius": 1,
-                          "is_magical": true
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Winds of Magic cost: -1 for Wings of Fate",
-                "key": "wom_truth_wings_fate",
-                "icon": "spell_ability"
-              },
-              {
-                "description": "Winds of Magic cost: -2 for Wings of Fate Upgraded",
-                "key": "wom_truth_wings_fate_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              }
-            ]
-          }
-        ],
-        "right_arrow": true
-      },
-      {
-        "key": "wyrd_magic1_02",
-        "image_path": "vanilla3/campaign_ui/skills/wh_dlc05_spell_life_life_bloom",
-        "character_skill_key": "wh_dlc05_skill_magic_life_life_bloom",
-        "tier": 1,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Life Bloom",
-        "localised_description": "Even the simplest of spells can bring forth the full bloom of renewal, reinvigorating and healing the broken and bleeding.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Passive ability: \"Life Bloom\"",
-                "key": "wh_dlc05_effect_ability_enable_life_bloom",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc05_effect_ability_enable_life_bloom",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_dlc05_lore_passive_life_bloom",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_life_bloom",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_regeneration",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-                        "onscreen_name": "Regeneration (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Life Bloom",
-                      "active_time": 4,
-                      "effect_range": -1,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Casting"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc05_spell_trigger_when_casting",
-                          "localised_text": "Triggers when casting spell",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "wh_dlc05_lore_passive_life_bloom",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 4,
-                          "effect_type": "positive",
-                          "onscreen_name": "Life Bloom",
-                          "is_hidden_in_ui": false,
-                          "heal_amount": 0.002,
-                          "hp_change_frequency": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
             ]
           }
         ],
         "parent_required": [
-          "wyrd_magic1_01"
+          "ovn_skill_node_arb_magician_fire_magic1_01"
         ],
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_03",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
-        "character_skill_key": "wh_dlc05_skill_magic_life_wizard_earth_blood",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_03",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+        "character_skill_key": "wh_main_skill_all_magic_fire_02_cascading_fire-cloak",
         "tier": 2,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Earth Blood",
-        "localised_description": "The Wizard draws wholesome energies from the soil, imbuing companions with the natural resilience of the earth.",
+        "localised_name": "Cascading Fire-Cloak",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Earth Blood\"",
-                "key": "wh_dlc05_effect_ability_enable_earth_blood",
+                "description": "Spell: \"Cascading Fire Cloak\"",
+                "key": "wh_main_effect_ability_enable_cascading_fire_cloak",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc05_effect_ability_enable_earth_blood",
+                    "effect": "wh_main_effect_ability_enable_cascading_fire_cloak",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc05_spell_life_earth_blood",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
-                      "overpower_option": "wh_dlc05_spell_life_earth_blood_upgraded",
+                      "key": "wh_main_spell_fire_cascading_fire_cloak",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                      "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_regeneration",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-                        "onscreen_name": "Regeneration (Area)"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Earth Blood",
-                      "active_time": 7,
-                      "effect_range": 35,
-                      "mana_cost": 6,
-                      "num_effected_friendly_units": 4,
-                      "recharge_time": 30,
+                      "onscreen_name": "Cascading Fire Cloak",
+                      "active_time": 19,
+                      "effect_range": 0,
+                      "mana_cost": 4,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 28,
                       "target_enemies": false,
                       "target_friends": true,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 1,
-                      "target_if": [
-                        "Hit point replenishment cap not reached"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 7,
+                          "duration": 19,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
-                          "heal_amount": 0.008,
-                          "hp_change_frequency": 1
+                          "stat_effects": [
+                            {
+                              "value": 24,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+24 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -911,57 +784,61 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Earth Blood Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_earth_blood",
+                "description": "Spell: \"Cascading Fire Cloak\"",
+                "key": "wh_main_effect_ability_enable_cascading_fire_cloak",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_earth_blood",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh_main_effect_ability_enable_cascading_fire_cloak",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc05_spell_life_earth_blood",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
-                      "overpower_option": "wh_dlc05_spell_life_earth_blood_upgraded",
+                      "key": "wh_main_spell_fire_cascading_fire_cloak",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                      "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_regeneration",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-                        "onscreen_name": "Regeneration (Area)"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Earth Blood",
-                      "active_time": 7,
-                      "effect_range": 35,
-                      "mana_cost": 6,
-                      "num_effected_friendly_units": 4,
-                      "recharge_time": 30,
+                      "onscreen_name": "Cascading Fire Cloak",
+                      "active_time": 19,
+                      "effect_range": 0,
+                      "mana_cost": 4,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 28,
                       "target_enemies": false,
                       "target_friends": true,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 1,
-                      "target_if": [
-                        "Hit point replenishment cap not reached"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 7,
+                          "duration": 19,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
-                          "heal_amount": 0.008,
-                          "hp_change_frequency": 1
+                          "stat_effects": [
+                            {
+                              "value": 24,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+24 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -969,176 +846,160 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Earth Blood\"",
-                "key": "wh_dlc05_effect_ability_cooldown_earth_blood",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Earth Blood Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_earth_blood",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_earth_blood",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc05_spell_life_earth_blood",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
-                      "overpower_option": "wh_dlc05_spell_life_earth_blood_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_regeneration",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-                        "onscreen_name": "Regeneration (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Earth Blood",
-                      "active_time": 7,
-                      "effect_range": 35,
-                      "mana_cost": 6,
-                      "num_effected_friendly_units": 4,
-                      "recharge_time": 30,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": true,
-                      "target_self": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "target_if": [
-                        "Hit point replenishment cap not reached"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 7,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "heal_amount": 0.008,
-                          "hp_change_frequency": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Cooldown: -50% to \"Earth Blood\"",
-                "key": "wh_dlc05_effect_ability_cooldown_earth_blood",
+                "description": "Cooldown: -50% to \"Cascading Fire Cloak\"",
+                "key": "wh_main_effect_ability_cooldown_cascading_fire_cloak",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Earth Blood\"",
-                "key": "wh2_main_effect_ability_wom_cost_earth_blood",
+                "description": "Winds of Magic cost: -1 for \"Cascading Fire Cloak\"",
+                "key": "wh2_main_effect_ability_wom_cost_cascading_fire_cloak",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Winds of Magic cost: -3 for \"Earth Blood Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_earth_blood_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Miscast base chance: -15% for \"Earth Blood Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_earth_blood_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
         "parent_required": [
-          "wyrd_magic1_01"
+          "ovn_skill_node_arb_magician_fire_magic1_01"
         ],
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_04",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_wyssans_wildform",
-        "character_skill_key": "wh_dlc03_skill_magic_beasts_wyssans_wildform",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_04",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+        "character_skill_key": "wh_main_skill_all_magic_fire_03_flaming_sword_of_rhuin",
         "tier": 3,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Wyssan's Wildform",
-        "localised_description": "The spellcaster unleashes the beast within, using its fury to transform allies into bestial forms.",
+        "localised_name": "Flaming Sword of Rhuin",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Wyssan's Wildform Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_wyssans_wildform",
+                "description": "Spell: \"Flaming Sword of Rhuin\"",
+                "key": "wh_main_effect_ability_enable_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_wyssans_wildform",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh_main_effect_ability_enable_flaming_sword_of_rhuin",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_wyssans_wildform",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_wyssans_wildform",
-                      "overpower_option": "wh_dlc03_spell_beasts_wyssans_wildform_upgraded",
+                      "key": "wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "overpower_option": "wh_main_spell_fire_flaming_sword_of_rhuin_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Wyssan's Wildform",
-                      "active_time": 19,
-                      "effect_range": 0,
-                      "mana_cost": 4,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 28,
+                      "onscreen_name": "Flaming Sword of Rhuin",
+                      "active_time": 28,
+                      "effect_range": 35,
+                      "mana_cost": 8,
+                      "recharge_time": 44,
                       "target_enemies": false,
                       "target_friends": true,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": true,
                       "target_intercept_range": 200,
-                      "wind_up_time": 1,
+                      "wind_up_time": 3,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_wyssans_wildform",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 19,
+                          "duration": 28,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "imbue_magical": true,
+                          "imbue_ignition": true,
                           "stat_effects": [
                             {
                               "value": 1.25,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 1.3,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
+                              "description": "x1.3 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+30 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flaming_sword_of_rhuin",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_flaming_sword_of_rhuin",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "overpower_option": "wh_main_spell_fire_flaming_sword_of_rhuin_upgraded",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Flaming Sword of Rhuin",
+                      "active_time": 28,
+                      "effect_range": 35,
+                      "mana_cost": 8,
+                      "recharge_time": 44,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": true,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 28,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "imbue_magical": true,
+                          "imbue_ignition": true,
+                          "stat_effects": [
                             {
                               "value": 1.25,
-                              "stat": "stat_melee_damage_ap",
+                              "stat": "scalar_missile_damage_base",
                               "how": "mult",
-                              "description": "x1.25 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                              "description": "x1.25 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.3 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             }
                           ]
                         }
@@ -1148,8 +1009,8 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Wyssan's Wildform\"",
-                "key": "wh_dlc03_effect_ability_cooldown_wyssans_wildform",
+                "description": "Cooldown: -30% to \"Flaming Sword of Rhuin\"",
+                "key": "wh_main_effect_ability_cooldown_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1157,66 +1018,60 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Wyssan's Wildform Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_wyssans_wildform",
+                "description": "Overcast spell: \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_wyssans_wildform",
+                    "effect": "wh2_main_effect_ability_overcast_flaming_sword_of_rhuin",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_wyssans_wildform",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_wyssans_wildform",
-                      "overpower_option": "wh_dlc03_spell_beasts_wyssans_wildform_upgraded",
+                      "key": "wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "overpower_option": "wh_main_spell_fire_flaming_sword_of_rhuin_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Wyssan's Wildform",
-                      "active_time": 19,
-                      "effect_range": 0,
-                      "mana_cost": 4,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 28,
+                      "onscreen_name": "Flaming Sword of Rhuin",
+                      "active_time": 28,
+                      "effect_range": 35,
+                      "mana_cost": 8,
+                      "recharge_time": 44,
                       "target_enemies": false,
                       "target_friends": true,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": true,
                       "target_intercept_range": 200,
-                      "wind_up_time": 1,
+                      "wind_up_time": 3,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_wyssans_wildform",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 19,
+                          "duration": 28,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "imbue_magical": true,
+                          "imbue_ignition": true,
                           "stat_effects": [
                             {
                               "value": 1.25,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 1.3,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
+                              "description": "x1.3 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+30 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
-                            {
-                              "value": 1.25,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.25 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
                         }
@@ -1226,120 +1081,135 @@
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Wyssan's Wildform\"",
-                "key": "wh_dlc03_effect_ability_cooldown_wyssans_wildform",
+                "description": "Cooldown: -50% to \"Flaming Sword of Rhuin\"",
+                "key": "wh_main_effect_ability_cooldown_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Wyssan's Wildform\"",
-                "key": "wh2_main_effect_ability_wom_cost_wyssans_wildform",
+                "description": "Winds of Magic cost: -2 for \"Flaming Sword of Rhuin\"",
+                "key": "wh2_main_effect_ability_wom_cost_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Wyssan's Wildform Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_wyssans_wildform_upgraded",
+                "description": "Winds of Magic cost: -2 for \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_flaming_sword_of_rhuin_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Wyssan's Wildform Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_of_wyssans_wildform_upgraded",
+                "description": "Miscast base chance: -15% for \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_flaming_sword_of_rhuin_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
         "parent_required": [
-          "wyrd_magic1_01"
+          "ovn_skill_node_arb_magician_fire_magic1_01"
         ],
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_05",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-        "character_skill_key": "wh_dlc03_skill_magic_beasts_panns_impenetrable_pelt",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_05",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_the_burning_head",
+        "character_skill_key": "wh_main_skill_all_magic_fire_05_the_burning_head",
         "tier": 4,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Pann's Impenetrable Pelt",
-        "localised_description": "Calling upon the beast spirits of the wild, the caster sheathes vulnerable flesh in unyielding fur and hide.",
+        "localised_name": "The Burning Head",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Pann's Impenetrable Pelt\"",
-                "key": "wh_dlc03_effect_ability_enable_panns_impenetrable_pelt",
+                "description": "Spell: \"The Burning Head\"",
+                "key": "wh_main_effect_ability_enable_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc03_effect_ability_enable_panns_impenetrable_pelt",
+                    "effect": "wh_main_effect_ability_enable_the_burning_head",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "overpower_option": "wh_dlc03_spell_beasts_panns_impenetrable_pelt_upgraded",
+                      "key": "wh_main_spell_fire_the_burning_head",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_the_burning_head",
+                      "overpower_option": "wh_main_spell_fire_the_burning_head_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Pann's Impenetrable Pelt",
-                      "active_time": 31,
+                      "onscreen_name": "The Burning Head",
+                      "active_time": 20,
                       "effect_range": 0,
-                      "mana_cost": 7,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
+                      "mana_cost": 10,
+                      "recharge_time": 37,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
                       "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
                       "ui_effects": [
                         {
-                          "key": "wh_dlc07_spell_ignores_ap",
-                          "localised_text": "Good against AP damage",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "localised_text": "Small, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
                           "effect_state": "positive"
                         }
                       ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_the_burning_head",
+                        "duration": 20,
+                        "damage": 20,
+                        "damage_ap": 0,
+                        "goal_radius": 7,
+                        "movement_speed": 9,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "contact_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_morale",
                           "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
+                          "target_enemies": true,
+                          "target_self": false,
                           "target_friends": true,
-                          "duration": 31,
-                          "effect_type": "positive",
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "onscreen_name": "Burnt!",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.25 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
+                              "value": -8,
+                              "stat": "stat_morale",
                               "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                              "description": "-8 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
                             }
                           ]
                         }
-                      ]
+                      }
                     }
                   }
                 ]
@@ -1349,84 +1219,99 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
+                "description": "Overcast spell: \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
+                    "effect": "wh2_main_effect_ability_overcast_the_burning_head",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "overpower_option": "wh_dlc03_spell_beasts_panns_impenetrable_pelt_upgraded",
+                      "key": "wh_main_spell_fire_the_burning_head",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_the_burning_head",
+                      "overpower_option": "wh_main_spell_fire_the_burning_head_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Pann's Impenetrable Pelt",
-                      "active_time": 31,
+                      "onscreen_name": "The Burning Head",
+                      "active_time": 20,
                       "effect_range": 0,
-                      "mana_cost": 7,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
+                      "mana_cost": 10,
+                      "recharge_time": 37,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
                       "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
                       "ui_effects": [
                         {
-                          "key": "wh_dlc07_spell_ignores_ap",
-                          "localised_text": "Good against AP damage",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "localised_text": "Small, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
                           "effect_state": "positive"
                         }
                       ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_the_burning_head",
+                        "duration": 20,
+                        "damage": 20,
+                        "damage_ap": 0,
+                        "goal_radius": 7,
+                        "movement_speed": 9,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "contact_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_morale",
                           "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
+                          "target_enemies": true,
+                          "target_self": false,
                           "target_friends": true,
-                          "duration": 31,
-                          "effect_type": "positive",
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "onscreen_name": "Burnt!",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.25 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
+                              "value": -8,
+                              "stat": "stat_morale",
                               "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                              "description": "-8 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
                             }
                           ]
                         }
-                      ]
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Pann's Impenetrable Pelt\"",
-                "key": "wh_dlc03_effect_ability_cooldown_panns_impenetrable_pelt",
+                "description": "Cooldown: -30% to \"The Burning Head\"",
+                "key": "wh_main_effect_ability_cooldown_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1434,112 +1319,127 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
+                "description": "Overcast spell: \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
+                    "effect": "wh2_main_effect_ability_overcast_the_burning_head",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "overpower_option": "wh_dlc03_spell_beasts_panns_impenetrable_pelt_upgraded",
+                      "key": "wh_main_spell_fire_the_burning_head",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_the_burning_head",
+                      "overpower_option": "wh_main_spell_fire_the_burning_head_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Pann's Impenetrable Pelt",
-                      "active_time": 31,
+                      "onscreen_name": "The Burning Head",
+                      "active_time": 20,
                       "effect_range": 0,
-                      "mana_cost": 7,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
+                      "mana_cost": 10,
+                      "recharge_time": 37,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
                       "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
                       "ui_effects": [
                         {
-                          "key": "wh_dlc07_spell_ignores_ap",
-                          "localised_text": "Good against AP damage",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "localised_text": "Small, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
                           "effect_state": "positive"
                         }
                       ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_the_burning_head",
+                        "duration": 20,
+                        "damage": 20,
+                        "damage_ap": 0,
+                        "goal_radius": 7,
+                        "movement_speed": 9,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "contact_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_morale",
                           "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
+                          "target_enemies": true,
+                          "target_self": false,
                           "target_friends": true,
-                          "duration": 31,
-                          "effect_type": "positive",
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "onscreen_name": "Burnt!",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.25 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
+                              "value": -8,
+                              "stat": "stat_morale",
                               "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                              "description": "-8 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
                             }
                           ]
                         }
-                      ]
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Pann's Impenetrable Pelt\"",
-                "key": "wh_dlc03_effect_ability_cooldown_panns_impenetrable_pelt",
+                "description": "Cooldown: -50% to \"The Burning Head\"",
+                "key": "wh_main_effect_ability_cooldown_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Pann's Impenetrable Pelt\"",
-                "key": "wh2_main_effect_ability_wom_cost_panns_impenetrable_pelt",
+                "description": "Winds of Magic cost: -2 for \"The Burning Head\"",
+                "key": "wh2_main_effect_ability_wom_cost_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_panns_impenetrable_pelt_upgraded",
+                "description": "Winds of Magic cost: -3 for \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_the_burning_head_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_panns_impenetrable_pelt_upgraded",
+                "description": "Miscast base chance: -15% for \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_the_burning_head_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
         "parent_required": [
-          "wyrd_magic1_01"
+          "ovn_skill_node_arb_magician_fire_magic1_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_06",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_06",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_passive_evasion",
         "character_skill_key": "wh_main_skill_all_magic_all_06_evasion",
         "tier": 5,
@@ -1615,76 +1515,105 @@
         ],
         "right_arrow": true,
         "parent_subset_required": [
-          "wyrd_magic1_02",
-          "wyrd_magic1_03",
-          "wyrd_magic1_04",
-          "wyrd_magic1_05"
+          "ovn_skill_node_arb_magician_fire_magic1_02",
+          "ovn_skill_node_arb_magician_fire_magic1_03",
+          "ovn_skill_node_arb_magician_fire_magic1_04",
+          "ovn_skill_node_arb_magician_fire_magic1_05"
         ]
       },
       {
-        "key": "wyrd_magic1_09",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_light_of_battle",
-        "character_skill_key": "wh_main_skill_all_magic_light_04_light_of_battle",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_07",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_spell_fire_piercing_bolts_of_burning",
+        "character_skill_key": "wh_main_skill_all_magic_fire_09_piercing_bolts_of_burning",
         "tier": 6,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Light of Battle",
+        "localised_name": "Piercing Bolts of Burning",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Light of Battle\"",
-                "key": "wh_main_effect_ability_enable_light_of_battle",
+                "description": "Spell: \"Piercing Bolts of Burning\"",
+                "key": "wh_main_effect_ability_enable_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_light_of_battle",
+                    "effect": "wh_main_effect_ability_enable_piercing_bolts_of_burning",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_light_light_of_battle",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_light_of_battle",
-                      "overpower_option": "wh_main_spell_light_light_of_battle_upgraded",
+                      "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_piercing_bolts_of_burning",
+                      "overpower_option": "wh_main_spell_fire_piercing_bolts_of_burning_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Light of Battle",
-                      "active_time": 22,
-                      "effect_range": 35,
-                      "mana_cost": 6,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
+                      "onscreen_name": "Piercing Bolts of Burning",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 11,
+                      "recharge_time": 47,
+                      "target_enemies": true,
+                      "target_friends": false,
                       "target_ground": true,
-                      "target_self": true,
+                      "target_self": false,
                       "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "phases": [
+                      "wind_up_time": 5,
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_light_of_battle",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 22,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "attributes": [
-                            {
-                              "key": "unbreakable",
-                              "description": " Unbreakable",
-                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
-                            }
-                          ]
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
                         }
-                      ]
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                        "arrival_window": 3,
+                        "radius_spread": 8,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                          "damage": 0,
+                          "ap_damage": 48,
+                          "shockwave_radius": 1,
+                          "effective_range": 40,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "is_flaming": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 90,
+                            "detonation_radius": 3,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
+                      }
                     }
                   }
                 ]
@@ -1694,61 +1623,90 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Light of Battle Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_light_of_battle",
+                "description": "Overcast spell: \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_light_of_battle",
+                    "effect": "wh2_main_effect_ability_overcast_piercing_bolts_of_burning",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_light_light_of_battle",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_light_of_battle",
-                      "overpower_option": "wh_main_spell_light_light_of_battle_upgraded",
+                      "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_piercing_bolts_of_burning",
+                      "overpower_option": "wh_main_spell_fire_piercing_bolts_of_burning_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Light of Battle",
-                      "active_time": 22,
-                      "effect_range": 35,
-                      "mana_cost": 6,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
+                      "onscreen_name": "Piercing Bolts of Burning",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 11,
+                      "recharge_time": 47,
+                      "target_enemies": true,
+                      "target_friends": false,
                       "target_ground": true,
-                      "target_self": true,
+                      "target_self": false,
                       "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "phases": [
+                      "wind_up_time": 5,
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_light_of_battle",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 22,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "attributes": [
-                            {
-                              "key": "unbreakable",
-                              "description": " Unbreakable",
-                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
-                            }
-                          ]
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
                         }
-                      ]
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                        "arrival_window": 3,
+                        "radius_spread": 8,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                          "damage": 0,
+                          "ap_damage": 48,
+                          "shockwave_radius": 1,
+                          "effective_range": 40,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "is_flaming": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 90,
+                            "detonation_radius": 3,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Light of Battle\"",
-                "key": "wh_main_effect_ability_cooldown_light_of_battle",
+                "description": "Cooldown: -30% to \"Piercing Bolts of Burning\"",
+                "key": "wh_main_effect_ability_cooldown_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1756,159 +1714,196 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Light of Battle Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_light_of_battle",
+                "description": "Overcast spell: \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_light_of_battle",
+                    "effect": "wh2_main_effect_ability_overcast_piercing_bolts_of_burning",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_light_light_of_battle",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_light_of_battle",
-                      "overpower_option": "wh_main_spell_light_light_of_battle_upgraded",
+                      "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_piercing_bolts_of_burning",
+                      "overpower_option": "wh_main_spell_fire_piercing_bolts_of_burning_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Light of Battle",
-                      "active_time": 22,
-                      "effect_range": 35,
-                      "mana_cost": 6,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
+                      "onscreen_name": "Piercing Bolts of Burning",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 11,
+                      "recharge_time": 47,
+                      "target_enemies": true,
+                      "target_friends": false,
                       "target_ground": true,
-                      "target_self": true,
+                      "target_self": false,
                       "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "phases": [
+                      "wind_up_time": 5,
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_light_of_battle",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 22,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "attributes": [
-                            {
-                              "key": "unbreakable",
-                              "description": " Unbreakable",
-                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
-                            }
-                          ]
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
                         }
-                      ]
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                        "arrival_window": 3,
+                        "radius_spread": 8,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                          "damage": 0,
+                          "ap_damage": 48,
+                          "shockwave_radius": 1,
+                          "effective_range": 40,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "is_flaming": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 90,
+                            "detonation_radius": 3,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Light of Battle\"",
-                "key": "wh_main_effect_ability_cooldown_light_of_battle",
+                "description": "Cooldown: -50% to \"Piercing Bolts of Burning\"",
+                "key": "wh_main_effect_ability_cooldown_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Light of Battle\"",
-                "key": "wh2_main_effect_ability_wom_cost_light_of_battle",
+                "description": "Winds of Magic cost: -2 for \"Piercing Bolts of Burning\"",
+                "key": "wh2_main_effect_ability_wom_cost_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Light of Battle Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_light_of_battle_upgraded",
+                "description": "Winds of Magic cost: -3 for \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_piercing_bolts_of_burning_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Light of Battle Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_light_of_battle_upgraded",
+                "description": "Miscast base chance: -15% for \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_piercing_bolts_of_burning_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
         "parent_required": [
-          "wyrd_magic1_06"
+          "ovn_skill_node_arb_magician_fire_magic1_06"
         ],
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_10",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
-        "character_skill_key": "wh_main_skill_all_magic_light_02_phas_protection",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_08",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+        "character_skill_key": "wh_main_skill_all_magic_fire_10_flame_storm",
         "tier": 7,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Pha's Protection",
+        "localised_name": "Flame Storm",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Pha's Protection\"",
-                "key": "wh_main_effect_ability_enable_phas_protection",
+                "description": "Spell: \"Flame Storm\"",
+                "key": "wh_main_effect_ability_enable_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_phas_protection",
+                    "effect": "wh_main_effect_ability_enable_flame_storm",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_light_phas_protection",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
-                      "overpower_option": "wh_main_spell_light_phas_protection_upgraded",
+                      "key": "wh_main_spell_fire_flame_storm",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+                      "overpower_option": "wh_main_spell_fire_flame_storm_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Pha's Protection",
-                      "active_time": 22,
+                      "onscreen_name": "Flame Storm",
+                      "active_time": 27,
                       "effect_range": 0,
-                      "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 29,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "phases": [
+                      "mana_cost": 13,
+                      "recharge_time": 50,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 22,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+30 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            }
-                          ]
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_vortex",
+                          "localised_text": "Medium, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
                         }
-                      ]
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_flame_storm",
+                        "duration": 27,
+                        "damage": 11,
+                        "damage_ap": 6,
+                        "goal_radius": 10,
+                        "movement_speed": 2,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true
+                      }
                     }
                   }
                 ]
@@ -1918,70 +1913,78 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Pha's Protection Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_phas_protection",
+                "description": "Overcast spell: \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_phas_protection",
+                    "effect": "wh2_main_effect_ability_overcast_flame_storm",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_light_phas_protection",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
-                      "overpower_option": "wh_main_spell_light_phas_protection_upgraded",
+                      "key": "wh_main_spell_fire_flame_storm",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+                      "overpower_option": "wh_main_spell_fire_flame_storm_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Pha's Protection",
-                      "active_time": 22,
+                      "onscreen_name": "Flame Storm",
+                      "active_time": 27,
                       "effect_range": 0,
-                      "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 29,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "phases": [
+                      "mana_cost": 13,
+                      "recharge_time": 50,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 22,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+30 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            }
-                          ]
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_vortex",
+                          "localised_text": "Medium, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
                         }
-                      ]
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_flame_storm",
+                        "duration": 27,
+                        "damage": 11,
+                        "damage_ap": 6,
+                        "goal_radius": 10,
+                        "movement_speed": 2,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Pha's Protection\"",
-                "key": "wh_main_effect_ability_cooldown_phas_protection",
+                "description": "Cooldown: -30% to \"Flame Storm\"",
+                "key": "wh_main_effect_ability_cooldown_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1989,97 +1992,105 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Pha's Protection Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_phas_protection",
+                "description": "Overcast spell: \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_phas_protection",
+                    "effect": "wh2_main_effect_ability_overcast_flame_storm",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_light_phas_protection",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
-                      "overpower_option": "wh_main_spell_light_phas_protection_upgraded",
+                      "key": "wh_main_spell_fire_flame_storm",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+                      "overpower_option": "wh_main_spell_fire_flame_storm_upgraded",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Pha's Protection",
-                      "active_time": 22,
+                      "onscreen_name": "Flame Storm",
+                      "active_time": 27,
                       "effect_range": 0,
-                      "mana_cost": 5,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 29,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "phases": [
+                      "mana_cost": 13,
+                      "recharge_time": 50,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 22,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "+30 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            }
-                          ]
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_vortex",
+                          "localised_text": "Medium, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
                         }
-                      ]
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_flame_storm",
+                        "duration": 27,
+                        "damage": 11,
+                        "damage_ap": 6,
+                        "goal_radius": 10,
+                        "movement_speed": 2,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Pha's Protection\"",
-                "key": "wh_main_effect_ability_cooldown_phas_protection",
+                "description": "Cooldown: -50% to \"Flame Storm\"",
+                "key": "wh_main_effect_ability_cooldown_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Pha's Protection\"",
-                "key": "wh2_main_effect_ability_wom_cost_phas_protection",
+                "description": "Winds of Magic cost: -3 for \"Flame Storm\"",
+                "key": "wh2_main_effect_ability_wom_cost_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Pha's Protection Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_phas_protection_upgraded",
+                "description": "Winds of Magic cost: -3 for \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_flame_storm_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Pha's Protection Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_phas_protection_upgraded",
+                "description": "Miscast base chance: -15% for \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_flame_storm_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
         ],
         "parent_required": [
-          "wyrd_magic1_06"
+          "ovn_skill_node_arb_magician_fire_magic1_06"
         ],
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_07",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_09",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
         "character_skill_key": "wh_main_skill_all_magic_all_07_earthing",
         "tier": 8,
@@ -2102,12 +2113,12 @@
           }
         ],
         "parent_required": [
-          "wyrd_magic1_06"
+          "ovn_skill_node_arb_magician_fire_magic1_06"
         ],
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_08",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_10",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
         "character_skill_key": "wh_main_skill_all_magic_all_08_power_drain",
         "tier": 9,
@@ -2130,13 +2141,13 @@
           }
         ],
         "parent_required": [
-          "wyrd_magic1_06"
+          "ovn_skill_node_arb_magician_fire_magic1_06"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "wyrd_magic1_11",
+        "key": "ovn_skill_node_arb_magician_fire_magic1_11",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_arcane_conduit",
         "character_skill_key": "wh_main_skill_all_magic_all_11_arcane_conduit",
         "tier": 10,
@@ -2197,10 +2208,10 @@
           }
         ],
         "parent_subset_required": [
-          "wyrd_magic1_07",
-          "wyrd_magic1_08",
-          "wyrd_magic1_09",
-          "wyrd_magic1_10"
+          "ovn_skill_node_arb_magician_fire_magic1_07",
+          "ovn_skill_node_arb_magician_fire_magic1_08",
+          "ovn_skill_node_arb_magician_fire_magic1_09",
+          "ovn_skill_node_arb_magician_fire_magic1_10"
         ]
       }
     ],
@@ -2208,7 +2219,7 @@
     [],
     [
       {
-        "key": "wyrd_campaign_01",
+        "key": "ovn_skill_node_arb_magician_fire_campaign_01",
         "image_path": "vanilla3/campaign_ui/skills/campaign_item",
         "character_skill_key": "wh2_main_skill_all_hero_assist_army_scouting",
         "tier": 0,
@@ -2252,7 +2263,7 @@
         ]
       },
       {
-        "key": "wyrd_campaign_02",
+        "key": "ovn_skill_node_arb_magician_fire_campaign_02",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "character_skill_key": "wh2_main_skill_all_hero_passive_boost_income",
         "tier": 1,
@@ -2326,7 +2337,7 @@
         ]
       },
       {
-        "key": "wyrd_campaign_03",
+        "key": "ovn_skill_node_arb_magician_fire_campaign_03",
         "image_path": "vanilla3/campaign_ui/skills/campaign_technology",
         "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_steal_technology",
         "tier": 2,
@@ -2370,7 +2381,7 @@
         ]
       },
       {
-        "key": "wyrd_campaign_04",
+        "key": "ovn_skill_node_arb_magician_fire_campaign_04",
         "image_path": "vanilla3/campaign_ui/skills/campaign_wound_time",
         "character_skill_key": "wh2_main_skill_all_hero_hinder_agent_wound",
         "tier": 3,
@@ -2414,7 +2425,7 @@
         ]
       },
       {
-        "key": "wyrd_campaign_05",
+        "key": "ovn_skill_node_arb_magician_fire_campaign_05",
         "image_path": "vanilla3/campaign_ui/skills/campaign_disaster",
         "character_skill_key": "wh2_main_skill_all_hero_hinder_army_assault_unit",
         "tier": 4,
@@ -2458,7 +2469,7 @@
         ]
       },
       {
-        "key": "wyrd_campaign_06",
+        "key": "ovn_skill_node_arb_magician_fire_campaign_06",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "character_skill_key": "wh2_main_skill_all_hero_reduce_action_cost",
         "tier": 5,
@@ -2517,26 +2528,26 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 3.3,
+    "run_speed": 3.4,
     "mass": 600,
     "size": "small",
     "hit_points": 8,
-    "bonus_hit_points": 3550,
+    "bonus_hit_points": 3412,
     "armour": 15,
     "missile_block_chance": 0,
-    "morale": 60,
+    "morale": 55,
     "damage_mod_flame": 0,
     "damage_mod_magic": 0,
-    "damage_mod_physical": 25,
+    "damage_mod_physical": 0,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
-    "melee_attack": 34,
-    "melee_defence": 38,
+    "melee_attack": 25,
+    "melee_defence": 30,
     "charge_bonus": 15,
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
-    "damage": 200,
-    "ap_damage": 115,
+    "damage": 210,
+    "ap_damage": 90,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 5,
     "melee_attack_interval": 4,
@@ -2557,162 +2568,6 @@
       }
     ],
     "abilities": [
-      {
-        "unit_ability": {
-          "key": "war_fury_2",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "War Fury II",
-          "effect_range": 0,
-          "num_effected_friendly_units": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Losing melee combat"
-          ],
-          "phases": [
-            {
-              "icon": "war_fury_2",
-              "order": 2,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "negative",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": -5,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "-5 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "war_fury",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_item_abilities_horn_of_the_wild_hunt",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "War Fury I",
-          "effect_range": 0,
-          "num_effected_friendly_units": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than 50% of base"
-          ],
-          "phases": [
-            {
-              "icon": "war_fury",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x1.1 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 6,
-                  "stat": "stat_melee_attack",
-                  "how": "add",
-                  "description": "+6 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "stat_charge_bonus",
-                  "how": "mult",
-                  "description": "x1.1 Charge Bonus",
-                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.1 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "woad_paint",
-          "icon_name": "ovn3/battle_ui/ability_icons/alb_woad_paint",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Woad Paint",
-          "effect_range": 0,
-          "num_effected_friendly_units": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Winds of magic power is 15 or greater"
-          ],
-          "phases": [
-            {
-              "icon": "woad_paint",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 8,
-                  "stat": "stat_resistance_all",
-                  "how": "add",
-                  "description": "+8 Damage Resistance ",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                }
-              ]
-            }
-          ]
-        }
-      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
@@ -2773,7 +2628,7 @@
   },
   "backgroundSkills": [
     {
-      "key": "wyrd_campaign_actions_dummy",
+      "key": "ovn_skill_node_arb_magician_fire_campaign_actions_dummy",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
       "character_skill_key": "wh2_main_skill_all_dummy_agent_actions_emp_battle_wizard",
       "tier": 0,
@@ -2832,10 +2687,39 @@
       ]
     },
     {
-      "key": "wyrd_innate_06",
+      "key": "ovn_skill_node_arb_magician_fire_innate_05",
+      "image_path": "ovn3/campaign_ui/skills/trait_araby",
+      "character_skill_key": "ovn_skill_innate_arb_decadent",
+      "tier": 0,
+      "indent": 6,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": true,
+      "localised_name": "Decadent",
+      "localised_description": "With this unrestrained lifestyle, the Prince of Pleasure might one day come to him.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Income from post-battle loot: +25%",
+              "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income"
+            },
+            {
+              "description": "Unit mass: +15%",
+              "key": "wh3_main_effect_character_stat_unit_mass_percentage_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/mass_character"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ovn_skill_node_arb_magician_fire_innate_06",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_fleet_footed",
-      "tier": 5,
+      "tier": 1,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -2869,10 +2753,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_07",
+      "key": "ovn_skill_node_arb_magician_fire_innate_07",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_cunning",
-      "tier": 6,
+      "tier": 2,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -2948,10 +2832,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_08",
+      "key": "ovn_skill_node_arb_magician_fire_innate_08",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_determined",
-      "tier": 7,
+      "tier": 3,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -2985,10 +2869,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_09",
+      "key": "ovn_skill_node_arb_magician_fire_innate_09",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_confident",
-      "tier": 8,
+      "tier": 4,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -3014,10 +2898,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_10",
+      "key": "ovn_skill_node_arb_magician_fire_innate_10",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_disciplined",
-      "tier": 9,
+      "tier": 5,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -3043,10 +2927,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_11",
+      "key": "ovn_skill_node_arb_magician_fire_innate_11",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_perceptive",
-      "tier": 10,
+      "tier": 6,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -3072,10 +2956,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_12",
+      "key": "ovn_skill_node_arb_magician_fire_innate_12",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_aggressive",
-      "tier": 11,
+      "tier": 7,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -3101,10 +2985,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_13",
+      "key": "ovn_skill_node_arb_magician_fire_innate_13",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_tough",
-      "tier": 12,
+      "tier": 8,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -3130,10 +3014,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_14",
+      "key": "ovn_skill_node_arb_magician_fire_innate_14",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_knowledgeable",
-      "tier": 13,
+      "tier": 9,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -3154,10 +3038,10 @@
       ]
     },
     {
-      "key": "wyrd_innate_15",
+      "key": "ovn_skill_node_arb_magician_fire_innate_15",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_intelligent",
-      "tier": 14,
+      "tier": 10,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
@@ -3183,39 +3067,39 @@
       ]
     },
     {
-      "key": "wyrd_magic1_dummy",
-      "image_path": "",
-      "character_skill_key": "wh_main_skill_all_magic_truth_dummy_wings_fate",
+      "key": "ovn_skill_node_arb_magician_fire_magic1_dummy",
+      "image_path": "vanilla3/campaign_ui/skills/battle_attack",
+      "character_skill_key": "wh_main_skill_all_magic_fire_dummy_fireball",
       "tier": 11,
       "indent": 2,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": false,
-      "localised_name": "",
+      "localised_name": "Fireball [HIDDEN]",
       "localised_description": "",
       "levels": [
         {
           "effects": [
             {
-              "description": "Spell: \"Wings of Fate\"",
-              "key": "enable_truth_wings_fate",
-              "icon": "spell_ability",
+              "description": "Spell: \"Fireball\"",
+              "key": "wh_main_effect_ability_enable_fireball",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "enable_truth_wings_fate",
+                  "effect": "wh_main_effect_ability_enable_fireball",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "spell_truth_wings_fate",
-                    "icon_name": "ovn3/battle_ui/ability_icons/truth_wings_of_fate",
-                    "overpower_option": "spell_truth_wings_fate_upgraded",
+                    "key": "wh_main_spell_fire_fireball",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+                    "overpower_option": "wh_main_spell_fire_fireball_upgraded",
                     "type": {
-                      "key": "wh_type_magic_missiles",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
-                      "onscreen_name": "Magic Missiles"
+                      "key": "wh_type_magic_missile",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                      "onscreen_name": "Magic Missile"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Wings of Fate",
+                    "onscreen_name": "Fireball",
                     "effect_range": 0,
                     "mana_cost": 5,
                     "recharge_time": 29,
@@ -3223,37 +3107,53 @@
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
-                    "target_intercept_range": 250,
+                    "target_intercept_range": 300,
                     "wind_up_time": 1,
                     "ui_effects": [
                       {
-                        "key": "wh2_main_all_magical_damage_moderate",
-                        "localised_text": "Causes moderate magical damage",
+                        "key": "wh2_main_all_magical_and_flaming_medium",
+                        "localised_text": "Causes moderate magical & fire damage",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_projectile_powerful_explosion",
+                        "localised_text": "Powerful explosion",
                         "effect_state": "positive"
                       },
                       {
                         "key": "wh_main_all_strong_against_multiple",
                         "localised_text": "Strong vs multiple combatants",
                         "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_projectile_effective_long_range",
+                        "localised_text": "Effective at long range",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_main_projectile_requires_line_of_sight",
+                        "localised_text": "Requires line of sight to the target",
+                        "effect_state": "negative"
                       }
                     ],
                     "activated_projectile": {
-                      "key": "wings_fate",
-                      "damage": 30,
-                      "ap_damage": 70,
+                      "key": "wh_main_spell_fire_fireball",
+                      "damage": 350,
+                      "ap_damage": 150,
                       "shockwave_radius": 1,
-                      "effective_range": 250,
+                      "effective_range": 300,
                       "base_reload_time": 1,
-                      "projectile_number": 3,
                       "is_magical": true,
+                      "is_flaming": true,
                       "can_damage_allies": true,
                       "explosion_type": {
-                        "key": "ovn_alb_wings_fate_explosion",
+                        "key": "wh_main_spell_fire_fireball",
                         "affects_allies": true,
-                        "detonation_damage": 30,
-                        "detonation_damage_ap": 20,
-                        "detonation_radius": 1,
-                        "is_magical": true
+                        "detonation_damage": 144,
+                        "detonation_damage_ap": 0,
+                        "detonation_radius": 5,
+                        "is_magical": true,
+                        "is_flaming": true
                       }
                     }
                   }
