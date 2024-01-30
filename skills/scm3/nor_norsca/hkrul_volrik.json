@@ -1,10 +1,202 @@
 {
-  "key": "hkrul_beorg",
+  "key": "hkrul_volrik",
   "skillTree": [
     [
       {
-        "key": "hkrul_skill_node_beorg_unique_04",
-        "image_path": "vanilla3/campaign_ui/skills/character_damage",
+        "key": "hkrul_skill_node_volrik_unique_01",
+        "image_path": "vanilla3/campaign_ui/skills/mount_chaos_chariot",
+        "character_skill_key": "hkrul_volrik_chariot",
+        "tier": 1,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Tzeentch Chariot",
+        "localised_description": "Marauder mobs are awarded even greater mobility when riding their crude chariots of bone and wood, lashed together with the guts and sinew of the vanquished.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Marauder Chariot",
+                "key": "wh_dlc08_effect_enable_mount_chaos_chariot",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 7,
+              "mass": 1500,
+              "size": "large",
+              "hit_points": 8,
+              "bonus_hit_points": 4948,
+              "armour": 110,
+              "missile_block_chance": 0,
+              "morale": 80,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 57,
+              "melee_defence": 20,
+              "charge_bonus": 90,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 30,
+              "damage": 290,
+              "ap_damage": 150,
+              "splash_target_size_limit": "large",
+              "splash_attack_max_attacks": 8,
+              "melee_attack_interval": 4,
+              "barrier": 800,
+              "can_siege": true,
+              "fly_speed": 0,
+              "attributes": [
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
+                },
+                {
+                  "key": "hide_forest",
+                  "description": "Hide (forest)",
+                  "bullet_text": "This unit can hide in forests until enemy units get too close.",
+                  "icon": "vanilla3/battle_ui/ability_icons/hide_forest"
+                }
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.9 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_dlc08_lord_passive_rage",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_passive_rage",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Rage",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken",
+                      "In melee"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh3_dlc20_ability_intensity_time_in_melee",
+                        "localised_text": "Effect intensity increases with time spent engaged in melee.",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_rage_i",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "onscreen_name": "Stage One",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+10 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 16
+          }
+        ]
+      },
+      {
+        "key": "hkrul_skill_node_volrik_unique_04",
+        "image_path": "scm3/campaign_ui/skills/character_damage",
         "character_skill_key": "wh_dlc08_skill_nor_lords_unique_eye_of_the_gods",
         "tier": 3,
         "indent": 0,
@@ -28,7 +220,7 @@
         ]
       },
       {
-        "key": "hkrul_skill_node_beorg_unique_06",
+        "key": "hkrul_skill_node_volrik_unique_06",
         "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
         "character_skill_key": "wh_main_skill_chs_lord_battle_voice_of_the_dark_gods",
         "tier": 4,
@@ -52,75 +244,59 @@
         ]
       },
       {
-        "key": "hkrul_skill_node_beorg_unique_07",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_0_1",
-        "character_skill_key": "hkrul_beorg_special_0_1",
-        "tier": 5,
+        "key": "hkrul_skill_node_volrik_misc_01",
+        "image_path": "scm3/campaign_ui/skills/hkrul_volrik_special_0_1",
+        "character_skill_key": "hkrul_volrik_special_0_1",
+        "tier": 11,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Rare Descendants",
-        "localised_description": "Unknown to many, yet Beorg Bearstruck shares a blood bond with House Bokha, both descendants of the Great Bear.",
+        "localised_name": "Tokens of the Changer",
+        "localised_description": "Blessed with tokens that signal decades of change, the Ravenblessed marches with far reaching knowledge.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Diplomatic relations: +20 with Kislev",
-                "key": "wh3_main_faction_political_diplomacy_mod_kislev",
-                "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+                "description": "Grimoires: 2 per turn",
+                "key": "wh3_main_effect_character_tze_grimoires",
+                "icon": "vanilla3/campaign_ui/effect_bundles/grimoires"
               },
               {
-                "description": "Local recruitment capacity: +1\n\t(local province)",
-                "key": "wh_main_effect_unit_recruitment_points",
-                "icon": "vanilla3/campaign_ui/effect_bundles/army"
+                "description": "Chance of Winds of Magic changing in strength: +10%\n\t(local province)",
+                "key": "wh3_main_effect_winds_of_magic_change_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               }
             ],
-            "unlocked_at_rank": 11
+            "unlocked_at_rank": 10
           }
         ]
       },
       {
-        "key": "hkrul_skill_node_beorg_unique_08",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_0_2",
-        "character_skill_key": "hkrul_beorg_special_0_2",
-        "tier": 6,
+        "key": "hkrul_skill_node_volrik_misc_08",
+        "image_path": "scm3/campaign_ui/skills/hkrul_volrik_special_0_2",
+        "character_skill_key": "hkrul_volrik_special_0_2",
+        "tier": 12,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Ursfjordings Tribe",
-        "localised_description": "The Legendary Ursfjord tribe is small in numbers yet great in their victories.",
+        "localised_name": "Ravenblessed Tribe",
+        "localised_description": "The Ravenblessed are blessed with visions of insanity and change.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Attribute: Vanguard Deployment for Marauder Hunter units\n\t(Lord's army)",
-                "key": "hkrul_beorg_hunter_vanguard",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
-                "related_attributes": [
-                  {
-                    "key": "guerrilla_deploy",
-                    "description": "Vanguard Deployment",
-                    "bullet_text": "This unit can deploy outside the deployment zone.",
-                    "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy"
-                  }
-                ]
+                "description": "Weapon Strength: +20% for Tzeentch Marauder units\n\t(Lord's army)",
+                "key": "hkrul_volrik_mtze_wd",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Attribute: Devastating Flanker for Bear units\n\t(Lord's army)",
-                "key": "hkrul_beorg_bear_flanker",
-                "icon": "vanilla3/campaign_ui/effect_bundles/devastating_flanker",
-                "related_attributes": [
-                  {
-                    "key": "devastating_flanker",
-                    "description": "Devastating Flanker",
-                    "bullet_text": "Entities with this attribute double their charge bonus when attacking the rear or flank of an entity.",
-                    "icon": "vanilla3/battle_ui/ability_icons/devastating_flanker"
-                  }
-                ]
+                "description": "Income from sacking settlements: +25%",
+                "key": "wh_main_effect_force_all_campaign_sacking_income",
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               }
             ],
             "unlocked_at_rank": 16
@@ -190,290 +366,58 @@
     ],
     [
       {
-        "key": "hkrul_skill_node_beorg_misc_01",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_1_3",
-        "character_skill_key": "hkrul_beorg_special_1_0",
+        "key": "hkrul_skill_node_volrik_misc_02",
+        "image_path": "scm3/campaign_ui/skills/hkrul_volrik_special_1_0",
+        "character_skill_key": "hkrul_volrik_special_1_0",
         "tier": 1,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Path of the Tribe",
-        "localised_description": "He who fights with axe and shield is favoured among the Gods.",
+        "localised_name": "The All-Seeing Eyes",
+        "localised_description": "The eyes of the ultimate schemer show the way for those blessed with their visions.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Missile block chance: +25% for Infantry units\n\t(Lord's army)",
-                "key": "hkrul_beorg_missile_block_inf",
-                "icon": "vanilla3/campaign_ui/effect_bundles/block_character"
+                "description": "Magic item drop chance: +25%",
+                "key": "wh_main_effect_character_mod_ancillary_drop",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
               },
               {
-                "description": "Speed: +10% for Marauder units\n\t(Lord's army)",
-                "key": "wh_main_effect_force_stat_speed_nor_marauders",
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+                "description": "Campaign line of sight: +25%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ],
-            "unlocked_at_rank": 9,
-            "blocks_skill_node_keys": [
-              "hkrul_skill_node_beorg_misc_05"
-            ]
+            "unlocked_at_rank": 10
           }
         ],
         "right_arrow": true
       },
       {
-        "key": "hkrul_skill_node_beorg_misc_02",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_1_1",
-        "character_skill_key": "hkrul_beorg_special_1_1",
+        "key": "hkrul_skill_node_volrik_misc_03",
+        "image_path": "scm3/campaign_ui/skills/hkrul_volrik_special_1_1",
+        "character_skill_key": "hkrul_volrik_special_1_1",
         "tier": 2,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Fjord Beserkers",
-        "localised_description": "Only the very finest beserkers may feast in the Halls of Urslo.",
+        "localised_name": "Clawhand",
+        "localised_description": "Gifted by Tzeentch his Clawhand is as sharp as it is deadly. Mutating continously.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Missile strength: +20%",
-                "key": "wh_main_effect_character_stat_missile_damage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
+                "description": "Melee attack: +20",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
               },
               {
-                "description": "Melee defence: +8 for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_force_stat_melee_defence_nor_marauders_spearmen_berserkers_champions_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "hkrul_skill_node_beorg_misc_01"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_misc_03",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_1_4",
-        "character_skill_key": "hkrul_beorg_special_1_2",
-        "tier": 3,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Totem of Bran",
-        "localised_description": "Bran was the legendary chieftain of Urslo and father of Beorg, who struck him down to claim his title.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Income from sacking settlements: +15%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_all_campaign_sacking_income",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
-              },
-              {
-                "description": "Leadership aura size: +25%",
-                "key": "wh_main_effect_character_stat_leadership_aura_size",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "hkrul_skill_node_beorg_misc_01"
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_misc_04",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_1_1",
-        "character_skill_key": "hkrul_beorg_special_1_3",
-        "tier": 4,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 2,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Beorg's Skewers",
-        "localised_description": "The Beserkers of Ursfjord hurl they're axes as if they were mere pebbles.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Reload time reduction: +10% for Marauder Hunter units\n\t(Lord's army)",
-                "key": "hkrul_beorg_missile_reload",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
-              },
-              {
-                "description": "Ability: \"Beorg's Skewers''",
-                "key": "hkrul_beorg_rally",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "related_abilities": [
-                  {
-                    "effect": "hkrul_beorg_rally",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "hkrul_beorg_rally",
-                      "icon_name": "lege3/battle_ui/ability_icons/hkrul_beorg_axe",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Beorg's Skewers",
-                      "active_time": 30,
-                      "effect_range": 35,
-                      "recharge_time": 90,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "target_if": [
-                        "Missile unit"
-                      ],
-                      "phases": [
-                        {
-                          "icon": "hkrul_beorg_rally",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 30,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.3,
-                              "stat": "scalar_missile_damage_base",
-                              "how": "mult",
-                              "description": "x1.3 Base Missile Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                            },
-                            {
-                              "value": 1.2,
-                              "stat": "scalar_missile_range",
-                              "how": "mult",
-                              "description": "x1.2 Range",
-                              "icon": "vanilla3/skins/default/icon_stat_range"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "hkrul_skill_node_beorg_misc_02",
-          "hkrul_skill_node_beorg_misc_03"
-        ]
-      },
-      {
-        "key": "hkrul_skill_node_beorg_misc_05",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_1_0",
-        "character_skill_key": "hkrul_beorg_special_1_4",
-        "tier": 5,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Path of the Bear",
-        "localised_description": "He who chooses the Bear is worshipped by those not blessed with the feats of being Bearstricken.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Charge bonus: +25 when in Bear form",
-                "key": "hkrul_beorg_bear_charge",
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
-              },
-              {
-                "description": "Campaign movement range: +15% after razing a settlement",
-                "key": "wh3_main_effect_force_all_campaign_movement_range_post_raze_bonus",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-              },
-              {
-                "description": "Chance of ursine creatures joining Beorg after a battle victory: +15%",
-                "key": "rhox_beorg_bear_join_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/merc"
-              }
-            ],
-            "unlocked_at_rank": 9,
-            "blocks_skill_node_keys": [
-              "hkrul_skill_node_beorg_misc_01"
-            ]
-          }
-        ],
-        "right_arrow": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_misc_06",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_1_5",
-        "character_skill_key": "hkrul_beorg_special_1_5",
-        "tier": 6,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Dark God's Blessings",
-        "localised_description": "The Bear Clans of Urslo serve the Dark Gods unconditionally.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Winds of Magic power reserve capacity: +10",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
-                "description": "Melee Defence: +10 for Bear units\n\t(Lord's army)",
-                "key": "hkrul_beorg_bear_defence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "hkrul_skill_node_beorg_misc_05"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_misc_07",
-        "image_path": "lege3/campaign_ui/skills/hkrul_beorg_special_1_6",
-        "character_skill_key": "hkrul_beorg_special_1_6",
-        "tier": 7,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Blessed Canines",
-        "localised_description": "The Beserkers of Urslo present their Gods offerings to they may bless their fangs, axes and claws.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Armour-piercing weapon damage: +20 when in Bear form",
-                "key": "hkrul_beorg_bear_ap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing"
-              },
-              {
-                "description": "Bonus vs Infantry: +15",
+                "description": "Bonus vs Infantry: +20",
                 "key": "wh_main_effect_character_stat_bonus_vs_infantry",
                 "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small_character"
               }
@@ -481,37 +425,141 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_misc_05"
+          "hkrul_skill_node_volrik_misc_02"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hkrul_skill_node_volrik_misc_04",
+        "image_path": "scm3/campaign_ui/skills/hkrul_volrik_special_1_2",
+        "character_skill_key": "hkrul_volrik_special_1_2",
+        "tier": 3,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Influence of Tzeentch",
+        "localised_description": "Tzeentch has his firm grip on the Ravenblessed, indulging him with small secrets - instilling a craving for more knowledge.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy Winds of Magic power reserve capacity: -15\n\t(local region)",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap_enemy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              },
+              {
+                "description": "Tzeentch corruption: +3\n\t(local province)",
+                "key": "wh3_main_effect_corruption_tzeentch_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hkrul_skill_node_volrik_misc_02"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hkrul_skill_node_volrik_misc_05",
+        "image_path": "scm3/campaign_ui/skills/hkrul_volrik_special_1_3",
+        "character_skill_key": "hkrul_volrik_special_1_3",
+        "tier": 4,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Ancient Scriptures",
+        "localised_description": "Scriptures of old are scattered along the Steppes, providing secrets of a time long gone.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Grimoires: 2 per turn",
+                "key": "wh3_main_effect_character_tze_grimoires",
+                "icon": "vanilla3/campaign_ui/effect_bundles/grimoires"
+              },
+              {
+                "description": "Upkeep: -15% for Tzeentch units\n\t(Lord's army)",
+                "key": "wh3_main_effect_upkeep_tze_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hkrul_skill_node_volrik_misc_02"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hkrul_skill_node_volrik_misc_07",
+        "image_path": "scm3/campaign_ui/skills/hkrul_volrik_special_1_4",
+        "character_skill_key": "hkrul_volrik_special_1_5",
+        "tier": 5,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Kurgan Marauders",
+        "localised_description": "Marauders of the Kurgan tribes fight with unmatched dedication.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Armour: +10\n\t(Lord's army)",
+                "key": "wh_main_effect_force_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour"
+              },
+              {
+                "description": "Missile strength: +15% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
+                "key": "wh2_dlc11_effect_force_stat_missile_damage_nor_marauder_hunters_marauder_horsemen",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hkrul_skill_node_volrik_misc_02"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_misc_08",
-        "image_path": "hkrul_beorg_special_1_7",
-        "character_skill_key": "hkrul_beorg_special_1_7",
-        "tier": 8,
+        "key": "hkrul_skill_node_volrik_misc_06",
+        "image_path": "hkrul_volrik_special_1_5",
+        "character_skill_key": "hkrul_volrik_special_1_4",
+        "tier": 6,
         "indent": 1,
         "points_on_creation": 0,
-        "required_num_parents": 2,
+        "required_num_parents": 3,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Bran's Fury",
-        "localised_description": "The very essence of the Great Bear is channeled when the yellow glowing eyes set their sights on any prey.",
+        "localised_name": "The Uncanning Gift",
+        "localised_description": "Boons provided by the Changer proof useful assets when fighting other naive tribes.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Ability: \"Bran's Fury'' when in Bear form",
-                "key": "hkrul_beorg_claw",
+                "description": "Barrier replenishment delay: -25%",
+                "key": "wh3_main_effect_battle_barrier_replenish_delay_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
+              },
+              {
+                "description": "Ability: \"Mutatious Claw''",
+                "key": "hkrul_volrik_claw",
                 "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
                 "related_abilities": [
                   {
-                    "effect": "hkrul_beorg_claw",
+                    "effect": "hkrul_volrik_claw",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "hkrul_beorg_claw",
-                      "icon_name": "lege3/battle_ui/ability_icons/hkrul_beorg_hook",
+                      "key": "hkrul_volrik_claw",
+                      "icon_name": "scm3/battle_ui/ability_icons/hkrul_volrik_clawed",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_augment",
@@ -519,7 +567,7 @@
                         "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Bran's Fury",
+                      "onscreen_name": "Mutatious Claw",
                       "active_time": 35,
                       "effect_range": 0,
                       "recharge_time": 100,
@@ -531,7 +579,7 @@
                       "wind_up_time": 1,
                       "phases": [
                         {
-                          "icon": "hkrul_beorg_claw",
+                          "icon": "hkrul_volrik_claw",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
@@ -541,228 +589,20 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.3,
+                              "value": 1.35,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.3 Base Weapon Damage",
+                              "description": "x1.35 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 30,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+30 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "hkrul_skill_node_beorg_misc_06",
-          "hkrul_skill_node_beorg_misc_07"
-        ]
-      }
-    ],
-    [
-      {
-        "key": "hkrul_skill_node_beorg_self_a_01",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_drinker_of_blood",
-        "tier": 0,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Drinker of Blood",
-        "localised_description": "Dining upon the blood of slaughtered enemies may attract the notice, and maybe the favour, of the Hound.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Melee attack: +6",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Melee attack: +12",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-              },
-              {
-                "description": "Armour-piercing weapon damage: +15",
-                "key": "wh_main_effect_character_stat_ap_damage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
-              }
-            ]
-          }
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_a_02",
-        "image_path": "vanilla3/campaign_ui/skills/character_charge",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_chrons_wrath",
-        "tier": 1,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Chron's Wrath",
-        "localised_description": "The Great Hound of War thirsts eternally for blood and slaughter, its rage manifesting itself in the unstoppable martial spirit of its warriors.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Charge bonus: +12",
-                "key": "wh_main_effect_character_stat_charge_bonus_add",
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Charge bonus: +30",
-                "key": "wh_main_effect_character_stat_charge_bonus_add",
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-              }
-            ]
-          }
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_a_03",
-        "image_path": "vanilla3/campaign_ui/skills/wh_dlc08_berserk",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_fury_of_the_hound",
-        "tier": 2,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Fury of the Hound",
-        "localised_description": "The Hound's unearthly fury is personified by its Champions' thirst for war and hunger for unending blood and violence.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Replaces: \"Rage\"",
-                "key": "wh_dlc08_effect_ability_disable_rage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
-              },
-              {
-                "description": "Passive ability: \"Berserk\"",
-                "key": "wh_dlc08_effect_ability_enable_berserk",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc08_effect_ability_enable_berserk",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_dlc08_unit_passive_berserk",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_passive_berserk",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Berserk",
-                      "effect_range": 0,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Leadership is higher than broken",
-                        "In melee"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh3_dlc20_ability_intensity_time_in_melee",
-                          "localised_text": "Effect intensity increases with time spent engaged in melee.",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_berserk_i",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": false,
-                          "duration": 60,
-                          "effect_type": "positive",
-                          "onscreen_name": "Stage One",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 13,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+13 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 20,
+                              "value": 1.35,
                               "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
+                              "how": "mult",
+                              "description": "x1.35 Physical Resistance",
                               "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                             }
                           ]
-                        },
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_berserk_ii",
-                          "order": 2,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": false,
-                          "duration": 30,
-                          "effect_type": "positive",
-                          "onscreen_name": "Stage Two",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 13,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+13 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                            }
-                          ],
-                          "attributes": [
-                            {
-                              "key": "rampage",
-                              "description": "➖ Rampage!",
-                              "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
-                              "icon": "vanilla3/battle_ui/ability_icons/rampage"
-                            }
-                          ]
                         }
                       ]
                     }
@@ -773,415 +613,17 @@
           }
         ],
         "parent_subset_required": [
-          "hkrul_skill_node_beorg_self_a_01",
-          "hkrul_skill_node_beorg_self_a_02"
-        ]
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_a_04",
-        "image_path": "vanilla3/campaign_ui/skills/character_damage",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_carrier_of_death",
-        "tier": 3,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Noxious Vessel",
-        "localised_description": "Thusly, the virulent maladies of the Crow are borne forth to repulse and infect its mortal foes; there lieth victory eternal.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Missile resistance: 8%",
-                "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Weapon strength: +15%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-              },
-              {
-                "description": "Missile resistance: 15%",
-                "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
-              }
-            ]
-          }
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_a_05",
-        "image_path": "vanilla3/campaign_ui/skills/character_armour",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_putrefying_ooze",
-        "tier": 4,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Putrefying Ooze",
-        "localised_description": "This fetid, disgusting pus is so repulsive to the untainted that it mimics traditional armour of far greater substance.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Armour: +7",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Armour: +15",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-              }
-            ]
-          }
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_a_06",
-        "image_path": "vanilla3/campaign_ui/skills/wh_main_unit_passive_regeneration",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_plague_of_the_crow",
-        "tier": 5,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Plague of the Crow",
-        "localised_description": "Unstable and miscreated, the Crow's strength spreads and grows like the most successful of diseases, consuming all before consuming itself and beginning again.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Enables poison attacks",
-                "key": "wh_main_effect_character_stat_enable_poison_attacks",
-                "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
-                "related_phases": [
-                  {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
-                    "order": 0,
-                    "target_enemies": true,
-                    "target_self": false,
-                    "target_friends": false,
-                    "duration": 10,
-                    "effect_type": "negative",
-                    "onscreen_name": "Poison!",
-                    "is_hidden_in_ui": false,
-                    "stat_effects": [
-                      {
-                        "value": 0.85,
-                        "stat": "scalar_missile_damage_ap",
-                        "how": "mult",
-                        "description": "x0.85 Armour-Piercing Missile Damage",
-                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                      },
-                      {
-                        "value": 0.85,
-                        "stat": "scalar_missile_damage_base",
-                        "how": "mult",
-                        "description": "x0.85 Base Missile Damage",
-                        "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                      },
-                      {
-                        "value": 0.85,
-                        "stat": "scalar_speed",
-                        "how": "mult",
-                        "description": "x0.85 Speed",
-                        "icon": "vanilla3/skins/default/icon_stat_speed"
-                      },
-                      {
-                        "value": 0.85,
-                        "stat": "stat_melee_damage_base",
-                        "how": "mult",
-                        "description": "x0.85 Base Weapon Damage",
-                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                      },
-                      {
-                        "value": 0.85,
-                        "stat": "stat_melee_damage_ap",
-                        "how": "mult",
-                        "description": "x0.85 Armour-Piercing Weapon Damage",
-                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "description": "Passive ability: \"Regeneration\"",
-                "key": "wh2_main_effect_ability_enable_regeneration",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_enable_regeneration",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_unit_passive_regeneration",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_regeneration",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                        "onscreen_name": "Regeneration"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Regeneration",
-                      "effect_range": 0,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": false,
-                          "duration": -1,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "heal_amount": 0.001,
-                          "hp_change_frequency": 1,
-                          "stat_effects": [
-                            {
-                              "value": -20,
-                              "stat": "stat_weakness_flame",
-                              "how": "add",
-                              "description": "-20 Weakness to Fire Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_flaming"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "hkrul_skill_node_beorg_self_a_04",
-          "hkrul_skill_node_beorg_self_a_05"
+          "hkrul_skill_node_volrik_misc_03",
+          "hkrul_skill_node_volrik_misc_04",
+          "hkrul_skill_node_volrik_misc_05",
+          "hkrul_skill_node_volrik_misc_07"
         ]
       }
     ],
+    [],
     [
       {
-        "key": "hkrul_skill_node_beorg_self_b_01",
-        "image_path": "vanilla3/campaign_ui/skills/character_health",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_indulger_of_the_exotic",
-        "tier": 0,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Indulger in the Exotic",
-        "localised_description": "The Serpent's temptations come in many forms, all of them designed to appeal to the twisted desires buried deep within us all.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Hit points: +7%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Hit points: +15%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-              },
-              {
-                "description": "Vigour loss reduction: -15%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_stat_vigour_loss_reduction",
-                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
-              }
-            ]
-          }
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_b_02",
-        "image_path": "vanilla3/campaign_ui/skills/character_morale",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_intoxicating_visions",
-        "tier": 1,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Intoxicating Visions",
-        "localised_description": "Seductive images of sensual luxuries may tempt the enemy from their chosen paths onto roads much, much less travelled and from which there can be no return.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Leadership: +6",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Leadership: +12",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              }
-            ]
-          }
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_b_03",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc08_lord_abilities_seduction_of_the_serpent",
-        "character_skill_key": "wh_dlc08_skill_nor_lord_self_seduction_of_the_serpent",
-        "tier": 2,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Seduction of the Serpent",
-        "localised_description": "Although the youngest of the Dark Gods, the Serpent is no less potent and can bind mortals to eternal service with alluring visions or tantalising temptations.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Seduction of the Serpent\"",
-                "key": "wh_dlc08_effect_ability_enable_seduction_of_the_serpent",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc08_effect_ability_enable_seduction_of_the_serpent",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_dlc08_lord_abilities_seduction_of_the_serpent",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_lord_abilities_seduction_of_the_serpent",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Seduction of the Serpent",
-                      "active_time": 17,
-                      "effect_range": 0,
-                      "recharge_time": 90,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "phases": [
-                        {
-                          "icon": "wh_dlc08_unit_abilities_seduction_of_the_serpent",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": false,
-                          "duration": 17,
-                          "effect_type": "positive",
-                          "onscreen_name": " Discourage Imbuement",
-                          "is_hidden_in_ui": false,
-                          "imbue_contact": {
-                            "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
-                            "order": 1,
-                            "target_enemies": true,
-                            "target_self": false,
-                            "target_friends": false,
-                            "duration": 10,
-                            "effect_type": "negative",
-                            "onscreen_name": "Discouraged!",
-                            "is_hidden_in_ui": false,
-                            "stat_effects": [
-                              {
-                                "value": -16,
-                                "stat": "stat_morale",
-                                "how": "add",
-                                "description": "-16 Leadership",
-                                "icon": "vanilla3/skins/default/icon_stat_morale"
-                              }
-                            ]
-                          },
-                          "stat_effects": [
-                            {
-                              "value": 16,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "+16 Leadership",
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Attribute: Immune to Psychology",
-                "key": "wh_main_effect_attribute_enable_immune_to_psychology",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
-                "related_attributes": [
-                  {
-                    "key": "immune_to_psychology",
-                    "description": " Immune to Psychology",
-                    "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                    "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "hkrul_skill_node_beorg_self_b_01",
-          "hkrul_skill_node_beorg_self_b_02"
-        ]
-      },
-      {
-        "key": "hkrul_skill_node_beorg_self_b_04",
+        "key": "hkrul_skill_node_volrik_self_b_04",
         "image_path": "vanilla3/campaign_ui/skills/character_speed",
         "character_skill_key": "wh_dlc08_skill_nor_lord_self_spirit_wanderer",
         "tier": 3,
@@ -1220,7 +662,7 @@
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_self_b_05",
+        "key": "hkrul_skill_node_volrik_self_b_05",
         "image_path": "vanilla3/campaign_ui/skills/character_defence",
         "character_skill_key": "wh_dlc08_skill_nor_lord_self_dark_deceiver",
         "tier": 4,
@@ -1255,7 +697,7 @@
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_self_b_06",
+        "key": "hkrul_skill_node_volrik_self_b_06",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
         "character_skill_key": "wh_dlc08_skill_nor_lord_self_sorcery_of_the_eagle",
         "tier": 5,
@@ -1356,14 +798,14 @@
           }
         ],
         "parent_subset_required": [
-          "hkrul_skill_node_beorg_self_b_04",
-          "hkrul_skill_node_beorg_self_b_05"
+          "hkrul_skill_node_volrik_self_b_04",
+          "hkrul_skill_node_volrik_self_b_05"
         ]
       }
     ],
     [
       {
-        "key": "hkrul_skill_node_beorg_battle_01",
+        "key": "hkrul_skill_node_volrik_battle_01",
         "image_path": "vanilla3/campaign_ui/skills/battle_morale",
         "character_skill_key": "wh_main_skill_chs_lord_battle_dominating_presence",
         "tier": 0,
@@ -1393,7 +835,7 @@
         "right_arrow": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_02",
+        "key": "hkrul_skill_node_volrik_battle_02",
         "image_path": "vanilla3/campaign_ui/skills/battle_attack",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_fearsome_warriors",
         "tier": 1,
@@ -1408,7 +850,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_marauders_spearmen_berserkers_champions",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -1417,12 +859,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +6 for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
+                "description": "Melee attack: +6 for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_marauders_spearmen_berserkers_champions",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Weapon strength: +6% for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
+                "description": "Weapon strength: +6% for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_weapon_strength_nor_marauders_spearmen_berserkers_champions",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
@@ -1431,12 +873,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +8 for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
+                "description": "Melee attack: +8 for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_marauders_spearmen_berserkers_champions",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Weapon strength: +12% for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
+                "description": "Weapon strength: +12% for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_weapon_strength_nor_marauders_spearmen_berserkers_champions",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
@@ -1444,12 +886,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_01"
+          "hkrul_skill_node_volrik_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_03",
+        "key": "hkrul_skill_node_volrik_battle_03",
         "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_beast_slayers",
         "tier": 2,
@@ -1464,7 +906,7 @@
           {
             "effects": [
               {
-                "description": "Missile strength: +4% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
+                "description": "Missile strength: +4% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_missile_damage_nor_marauder_hunters_marauder_horsemen",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -1473,12 +915,12 @@
           {
             "effects": [
               {
-                "description": "Ammunition: +10% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
+                "description": "Ammunition: +10% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_ammunition_nor_marauder_hunters_marauder_horsemen",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               },
               {
-                "description": "Missile strength: +6% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
+                "description": "Missile strength: +6% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_missile_damage_nor_marauder_hunters_marauder_horsemen",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -1487,12 +929,12 @@
           {
             "effects": [
               {
-                "description": "Ammunition: +20% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
+                "description": "Ammunition: +20% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_ammunition_nor_marauder_hunters_marauder_horsemen",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               },
               {
-                "description": "Missile strength: +8% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
+                "description": "Missile strength: +8% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_missile_damage_nor_marauder_hunters_marauder_horsemen",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -1500,12 +942,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_01"
+          "hkrul_skill_node_volrik_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_04",
+        "key": "hkrul_skill_node_volrik_battle_04",
         "image_path": "vanilla3/campaign_ui/skills/battle_speed",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_unnatural_selection",
         "tier": 3,
@@ -1520,7 +962,7 @@
           {
             "effects": [
               {
-                "description": "Speed: +6% for Norscan Warhounds, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
+                "description": "Speed: +6% for Norscan Warhounds, Rotblood Hounds, Rotblood Chariot, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_speed_nor_warhounds_ice_wolves_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               }
@@ -1529,12 +971,12 @@
           {
             "effects": [
               {
-                "description": "Speed: +9% for Norscan Warhounds, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
+                "description": "Speed: +9% for Norscan Warhounds, Rotblood Hounds, Rotblood Chariot, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_speed_nor_warhounds_ice_wolves_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               },
               {
-                "description": "Charge bonus: +6 for Norscan Warhounds, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
+                "description": "Charge bonus: +6 for Norscan Warhounds, Rotblood Hounds, Rotblood Chariot, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_charge_bonus_add_nor_warhounds_ice_wolves_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
@@ -1543,12 +985,12 @@
           {
             "effects": [
               {
-                "description": "Speed: +12% for Norscan Warhounds, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
+                "description": "Speed: +12% for Norscan Warhounds, Rotblood Hounds, Rotblood Chariot, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_speed_nor_warhounds_ice_wolves_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               },
               {
-                "description": "Charge bonus: +12 for Norscan Warhounds, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
+                "description": "Charge bonus: +12 for Norscan Warhounds, Rotblood Hounds, Rotblood Chariot, Norscan Ice Wolves, and Marauder Chariots units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_charge_bonus_add_nor_warhounds_ice_wolves_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
@@ -1556,12 +998,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_01"
+          "hkrul_skill_node_volrik_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_05",
+        "key": "hkrul_skill_node_volrik_battle_05",
         "image_path": "vanilla3/campaign_ui/skills/battle_attack",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_frostbitten",
         "tier": 4,
@@ -1576,7 +1018,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for Skin Wolves, Norscan Trolls, and Norscan Ice Trolls units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Skin Wolves, Norscan Trolls, Bile Troll, Rotblood Spawn, and Norscan Ice Trolls units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_skin_wolves_trolls",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -1585,12 +1027,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for Skin Wolves, Norscan Trolls, and Norscan Ice Trolls units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Skin Wolves, Norscan Trolls, Bile Troll, Rotblood Spawn, and Norscan Ice Trolls units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_skin_wolves_trolls",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Weapon strength: +6% for Skin Wolves, Norscan Trolls, and Norscan Ice Trolls units\n\t(Lord's army)",
+                "description": "Weapon strength: +6% for Skin Wolves, Norscan Trolls, Bile Troll, Rotblood Spawn, and Norscan Ice Trolls units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_weapon_strength_nor_skin_wolves_trolls",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
@@ -1599,12 +1041,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +6 for Skin Wolves, Norscan Trolls, and Norscan Ice Trolls units\n\t(Lord's army)",
+                "description": "Melee attack: +6 for Skin Wolves, Norscan Trolls, Bile Troll, Rotblood Spawn, and Norscan Ice Trolls units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_skin_wolves_trolls",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Weapon strength: +12% for Skin Wolves, Norscan Trolls, and Norscan Ice Trolls units\n\t(Lord's army)",
+                "description": "Weapon strength: +12% for Skin Wolves, Norscan Trolls, Bile Troll, Rotblood Spawn, and Norscan Ice Trolls units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_weapon_strength_nor_skin_wolves_trolls",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
@@ -1612,12 +1054,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_01"
+          "hkrul_skill_node_volrik_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_06",
+        "key": "hkrul_skill_node_volrik_battle_06",
         "image_path": "vanilla3/campaign_ui/skills/battle_defence",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_hail_of_teeth",
         "tier": 5,
@@ -1632,7 +1074,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for Manticore and Frost Wyrm units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Manticore, Giant Rot Fly, and Frost Wyrm units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_manticore_frost_wyrm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -1641,12 +1083,12 @@
           {
             "effects": [
               {
-                "description": "Armour: +6 for Manticore and Frost Wyrm units\n\t(Lord's army)",
+                "description": "Armour: +6 for Manticore, Giant Rot Fly, and Frost Wyrm units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_armour_manticore_frost_wyrm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Melee attack: +4 for Manticore and Frost Wyrm units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Manticore, Giant Rot Fly, and Frost Wyrm units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_manticore_frost_wyrm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -1655,12 +1097,12 @@
           {
             "effects": [
               {
-                "description": "Armour: +12 for Manticore and Frost Wyrm units\n\t(Lord's army)",
+                "description": "Armour: +12 for Manticore, Giant Rot Fly, and Frost Wyrm units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_armour_manticore_frost_wyrm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Melee attack: +6 for Manticore and Frost Wyrm units\n\t(Lord's army)",
+                "description": "Melee attack: +6 for Manticore, Giant Rot Fly, and Frost Wyrm units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_manticore_frost_wyrm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -1668,12 +1110,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_01"
+          "hkrul_skill_node_volrik_battle_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_07",
+        "key": "hkrul_skill_node_volrik_battle_07",
         "image_path": "vanilla3/campaign_ui/skills/battle_attack",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_monsters_of_the_north",
         "tier": 6,
@@ -1688,7 +1130,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for Fimir Warriors, Norscan Giant, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Fimir Warriors, Norscan Giant, Bile Giants, Toad Kings, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_fimir_giant_mammoth",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -1697,12 +1139,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for Fimir Warriors, Norscan Giant, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Fimir Warriors, Norscan Giant, Bile Giants, Toad Kings, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_fimir_giant_mammoth",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee defence: +4 for Fimir Warriors, Norscan Giant, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
+                "description": "Melee defence: +4 for Fimir Warriors, Norscan Giant, Bile Giants, Toad Kings, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_defence_nor_fimir_giant_mammoth",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -1711,12 +1153,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +6 for Fimir Warriors, Norscan Giant, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
+                "description": "Melee attack: +6 for Fimir Warriors, Norscan Giant, Bile Giants, Toad Kings, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_nor_fimir_giant_mammoth",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee defence: +6 for Fimir Warriors, Norscan Giant, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
+                "description": "Melee defence: +6 for Fimir Warriors, Norscan Giant, Bile Giants, Toad Kings, Feral Mammoth, and War Mammoth units\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_defence_nor_fimir_giant_mammoth",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -1724,13 +1166,13 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_01"
+          "hkrul_skill_node_volrik_battle_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_08",
+        "key": "hkrul_skill_node_volrik_battle_08",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_rally",
         "character_skill_key": "wh_main_skill_all_lord_battle_rally",
         "tier": 7,
@@ -1801,16 +1243,16 @@
         ],
         "right_arrow": true,
         "parent_subset_required": [
-          "hkrul_skill_node_beorg_battle_02",
-          "hkrul_skill_node_beorg_battle_03",
-          "hkrul_skill_node_beorg_battle_04",
-          "hkrul_skill_node_beorg_battle_05",
-          "hkrul_skill_node_beorg_battle_06",
-          "hkrul_skill_node_beorg_battle_07"
+          "hkrul_skill_node_volrik_battle_02",
+          "hkrul_skill_node_volrik_battle_03",
+          "hkrul_skill_node_volrik_battle_04",
+          "hkrul_skill_node_volrik_battle_05",
+          "hkrul_skill_node_volrik_battle_06",
+          "hkrul_skill_node_volrik_battle_07"
         ]
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_09",
+        "key": "hkrul_skill_node_volrik_battle_09",
         "image_path": "vanilla3/campaign_ui/skills/battle_armour",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_champions_of_the_north",
         "tier": 8,
@@ -1825,17 +1267,17 @@
           {
             "effects": [
               {
-                "description": "Armour: +12 for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Armour: +12 for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_armour_marauders_spearmen_berserkers_champions_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Melee defence: +5 for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Melee defence: +5 for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_defence_nor_marauders_spearmen_berserkers_champions_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
               {
-                "description": "Physical resistance: 10% for Marauders, Marauder Spearmen, Marauder Berserkers, and Marauder Champions units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Physical resistance: 10% for Marauders, Marauder Spearmen, Rotblood Martyrs, Rotblood Engorged, Rotblood Plaguespears, Marauder Berserkers, and Marauder Champions units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_physical_resistance_nor_marauders_spearmen_berserkers_champions_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
               }
@@ -1843,12 +1285,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_08"
+          "hkrul_skill_node_volrik_battle_08"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_10",
+        "key": "hkrul_skill_node_volrik_battle_10",
         "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_hardened_hunters",
         "tier": 9,
@@ -1863,17 +1305,17 @@
           {
             "effects": [
               {
-                "description": "Missile strength: +12% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Missile strength: +12% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_missile_damage_nor_marauder_hunters_marauder_horsemen_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               },
               {
-                "description": "Reload time reduction: +10% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Reload time reduction: +10% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_reload_time_reduction_nor_marauder_hunters_marauder_horsemen_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
               },
               {
-                "description": "Missile resistance: 15% for Marauder Hunters, Marauder Horsemen, and Marauder Horsemasters units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Missile resistance: 15% for Marauder Hunters, Rotblood Grenadiers, Rotblood Vomitus, Rotblood Plaguejavelin, Rotblood Horsemen, Marauder Horsemen, and Marauder Horsemasters units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_missile_resistance_nor_marauder_hunters_marauder_horsemen_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
               }
@@ -1881,13 +1323,13 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_08"
+          "hkrul_skill_node_volrik_battle_08"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_11",
-        "image_path": "vanilla3/campaign_ui/skills/battle_damage",
+        "key": "hkrul_skill_node_volrik_battle_11",
+        "image_path": "scm3/campaign_ui/skills/battle_damage",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_icy_wrath",
         "tier": 10,
         "indent": 4,
@@ -1901,17 +1343,17 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +5 for Norscan Warhounds, Norscan Ice Wolves, Manticore, Skin Wolves, and Marauder Chariots units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Melee attack: +5 for Norscan Warhounds, Rotblood Hound, Giant Rot Fly, Rotblood Chariot, Norscan Ice Wolves, Manticore, Skin Wolves, and Marauder Chariots units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_melee_attack_warhounds_ice_wolves_manticore_skin_wolves_chariots_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Weapon strength: +12% for Norscan Warhounds, Norscan Ice Wolves, Manticore, Skin Wolves, and Marauder Chariots units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Weapon strength: +12% for Norscan Warhounds, Rotblood Hound, Giant Rot Fly, Rotblood Chariot, Norscan Ice Wolves, Manticore, Skin Wolves, and Marauder Chariots units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_weapon_strength_nor_warhounds_ice_wolves_manticore_skin_wolves_chariots_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Charge bonus: +12 for Norscan Warhounds, Norscan Ice Wolves, Manticore, Skin Wolves, and Marauder Chariots units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Charge bonus: +12 for Norscan Warhounds, Rotblood Hounds, Rotblood Chariots, Norscan Ice Wolves, Manticore, Skin Wolves, and Marauder Chariots units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_charge_bonus_add_nor_warhounds_ice_wolves_manticore_skin_wolves_chariots_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
@@ -1919,12 +1361,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_08"
+          "hkrul_skill_node_volrik_battle_08"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_12",
+        "key": "hkrul_skill_node_volrik_battle_12",
         "image_path": "vanilla3/campaign_ui/skills/battle_ward_save",
         "character_skill_key": "wh2_dlc11_skill_nor_army_buff_hulks_of_death",
         "tier": 11,
@@ -1939,12 +1381,12 @@
           {
             "effects": [
               {
-                "description": "Armour: +12 for Norscan Trolls, Norscan Ice Trolls, Frost Wyrm, Norscan Giant, Fimir, Feral Mammoth, and War Mammoth units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Armour: +12 for Bile Trolls, Bile Giant, Rotblood Spawn, Toad King, Norscan Trolls, Norscan Ice Trolls, Frost Wyrm, Norscan Giant, Fimir, Feral Mammoth, and War Mammoth units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_armour_trolls_frost_wyrm_giant_mammoth_fimir_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Weapon strength: +12% for Norscan Trolls, Norscan Ice Trolls, Frost Wyrm, Norscan Giant, Fimir, Feral Mammoth, and War Mammoth units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Weapon strength: +12% for Bile Trolls, Bile Giant, Rotblood Spawn, Toad King, Norscan Trolls, Norscan Ice Trolls, Frost Wyrm, Norscan Giant, Fimir, Feral Mammoth, and War Mammoth units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_weapon_strength_nor_trolls_frost_wyrm_giant_mammoth_fimir_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
@@ -1957,13 +1399,13 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_battle_08"
+          "hkrul_skill_node_volrik_battle_08"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_13",
+        "key": "hkrul_skill_node_volrik_battle_13",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_or_die",
         "character_skill_key": "wh_dlc08_skill_nor_lord_battle_stand_or_die",
         "tier": 12,
@@ -2045,14 +1487,14 @@
           }
         ],
         "parent_subset_required": [
-          "hkrul_skill_node_beorg_battle_09",
-          "hkrul_skill_node_beorg_battle_10",
-          "hkrul_skill_node_beorg_battle_11",
-          "hkrul_skill_node_beorg_battle_12"
+          "hkrul_skill_node_volrik_battle_09",
+          "hkrul_skill_node_volrik_battle_10",
+          "hkrul_skill_node_volrik_battle_11",
+          "hkrul_skill_node_volrik_battle_12"
         ]
       },
       {
-        "key": "hkrul_skill_node_beorg_battle_14",
+        "key": "hkrul_skill_node_volrik_battle_14",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc08_lord_abilities_fight_or_die",
         "character_skill_key": "wh_dlc08_skill_nor_lords_battle_fight_or_die",
         "tier": 13,
@@ -2134,16 +1576,16 @@
           }
         ],
         "parent_subset_required": [
-          "hkrul_skill_node_beorg_battle_09",
-          "hkrul_skill_node_beorg_battle_10",
-          "hkrul_skill_node_beorg_battle_11",
-          "hkrul_skill_node_beorg_battle_12"
+          "hkrul_skill_node_volrik_battle_09",
+          "hkrul_skill_node_volrik_battle_10",
+          "hkrul_skill_node_volrik_battle_11",
+          "hkrul_skill_node_volrik_battle_12"
         ]
       }
     ],
     [
       {
-        "key": "hkrul_skill_node_beorg_campaign_01",
+        "key": "hkrul_skill_node_volrik_campaign_01",
         "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
         "character_skill_key": "wh_main_skill_all_lord_campaign_route_marcher",
         "tier": 0,
@@ -2168,7 +1610,7 @@
         "right_arrow": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_02",
+        "key": "hkrul_skill_node_volrik_campaign_02",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "character_skill_key": "wh_dlc08_skill_nor_lord_campaign_takers_of_all",
         "tier": 1,
@@ -2209,12 +1651,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_01"
+          "hkrul_skill_node_volrik_campaign_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_03",
+        "key": "hkrul_skill_node_volrik_campaign_03",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "character_skill_key": "wh_main_skill_chs_lord_campaign_serve_or_die",
         "tier": 2,
@@ -2255,12 +1697,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_01"
+          "hkrul_skill_node_volrik_campaign_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_04",
+        "key": "hkrul_skill_node_volrik_campaign_04",
         "image_path": "vanilla3/campaign_ui/skills/campaign_replenishment",
         "character_skill_key": "wh_dlc08_skill_nor_lords_campaign_norse_resilience",
         "tier": 3,
@@ -2283,12 +1725,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_01"
+          "hkrul_skill_node_volrik_campaign_01"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_05",
+        "key": "hkrul_skill_node_volrik_campaign_05",
         "image_path": "vanilla3/campaign_ui/skills/campaign_growth",
         "character_skill_key": "wh_dlc08_skill_nor_lords_campaign_swelling_of_doom",
         "tier": 4,
@@ -2329,13 +1771,13 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_01"
+          "hkrul_skill_node_volrik_campaign_01"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_06",
+        "key": "hkrul_skill_node_volrik_campaign_06",
         "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
         "character_skill_key": "wh_main_skill_all_lord_campaign_lightning_strike",
         "tier": 5,
@@ -2382,14 +1824,14 @@
         ],
         "right_arrow": true,
         "parent_subset_required": [
-          "hkrul_skill_node_beorg_campaign_02",
-          "hkrul_skill_node_beorg_campaign_03",
-          "hkrul_skill_node_beorg_campaign_04",
-          "hkrul_skill_node_beorg_campaign_05"
+          "hkrul_skill_node_volrik_campaign_02",
+          "hkrul_skill_node_volrik_campaign_03",
+          "hkrul_skill_node_volrik_campaign_04",
+          "hkrul_skill_node_volrik_campaign_05"
         ]
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_07",
+        "key": "hkrul_skill_node_volrik_campaign_07",
         "image_path": "vanilla3/campaign_ui/skills/campaign_siege_attack",
         "character_skill_key": "wh_main_skill_chs_lord_campaign_ruination",
         "tier": 6,
@@ -2440,12 +1882,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_06"
+          "hkrul_skill_node_volrik_campaign_06"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_08",
+        "key": "hkrul_skill_node_volrik_campaign_08",
         "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
         "character_skill_key": "wh_dlc08_skill_nor_lords_campaign_savage_skills",
         "tier": 7,
@@ -2486,12 +1928,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_06"
+          "hkrul_skill_node_volrik_campaign_06"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_09",
+        "key": "hkrul_skill_node_volrik_campaign_09",
         "image_path": "vanilla3/campaign_ui/skills/campaign_replenishment",
         "character_skill_key": "wh_dlc08_skill_nor_lords_campaign_unnatural_healing",
         "tier": 8,
@@ -2514,12 +1956,12 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_06"
+          "hkrul_skill_node_volrik_campaign_06"
         ],
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_10",
+        "key": "hkrul_skill_node_volrik_campaign_10",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "character_skill_key": "wh_dlc08_skill_nor_lords_campaign_fuelled_by_war",
         "tier": 9,
@@ -2560,13 +2002,13 @@
           }
         ],
         "parent_required": [
-          "hkrul_skill_node_beorg_campaign_06"
+          "hkrul_skill_node_volrik_campaign_06"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "hkrul_skill_node_beorg_campaign_11",
+        "key": "hkrul_skill_node_volrik_campaign_11",
         "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
         "character_skill_key": "wh_dlc08_skill_nor_lords_campaign_spawn_of_chaos",
         "tier": 10,
@@ -2589,68 +2031,54 @@
           }
         ],
         "parent_subset_required": [
-          "hkrul_skill_node_beorg_campaign_07",
-          "hkrul_skill_node_beorg_campaign_08",
-          "hkrul_skill_node_beorg_campaign_09",
-          "hkrul_skill_node_beorg_campaign_10"
+          "hkrul_skill_node_volrik_campaign_07",
+          "hkrul_skill_node_volrik_campaign_08",
+          "hkrul_skill_node_volrik_campaign_09",
+          "hkrul_skill_node_volrik_campaign_10"
         ]
       }
     ]
   ],
   "unitStats": {
-    "run_speed": 3.4,
-    "mass": 800,
+    "run_speed": 3.5,
+    "mass": 600,
     "size": "small",
     "hit_points": 8,
-    "bonus_hit_points": 4675,
-    "armour": 55,
-    "missile_block_chance": 55,
-    "morale": 70,
+    "bonus_hit_points": 4660,
+    "armour": 50,
+    "missile_block_chance": 0,
+    "morale": 75,
     "damage_mod_flame": 0,
-    "damage_mod_magic": 0,
+    "damage_mod_magic": 15,
     "damage_mod_physical": 0,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
-    "melee_attack": 62,
-    "melee_defence": 52,
-    "charge_bonus": 35,
-    "bonus_v_large": 25,
-    "bonus_v_infantry": 0,
-    "damage": 315,
-    "ap_damage": 100,
+    "melee_attack": 64,
+    "melee_defence": 41,
+    "charge_bonus": 50,
+    "bonus_v_large": 0,
+    "bonus_v_infantry": 30,
+    "damage": 290,
+    "ap_damage": 150,
     "splash_target_size_limit": "large",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
+    "barrier": 600,
     "can_siege": true,
     "can_skirmish": true,
     "fly_speed": 0,
-    "projectile": {
-      "key": "hkrul_beorg_axe",
-      "damage": 150,
-      "ap_damage": 215,
-      "shockwave_radius": 0.2,
-      "effective_range": 115,
-      "base_reload_time": 7,
-      "bonus_v_large": 25,
-      "can_damage_allies": true
-    },
-    "accuracy": 10,
-    "reload": 0,
-    "primary_ammo": 14,
-    "fire_arc": 60,
     "attributes": [
-      {
-        "key": "stalk",
-        "description": " Stalk",
-        "bullet_text": "This unit can move hidden in any terrain.",
-        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk"
-      },
       {
         "key": "encourages",
         "description": "Encourage",
         "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
         "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
+      },
+      {
+        "key": "hide_forest",
+        "description": "Hide (forest)",
+        "bullet_text": "This unit can hide in forests until enemy units get too close.",
+        "icon": "vanilla3/battle_ui/ability_icons/hide_forest"
       }
     ],
     "abilities": [
@@ -2709,207 +2137,148 @@
             }
           ]
         }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_dlc08_lord_passive_rage",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_passive_rage",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Rage",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken",
+            "In melee"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh3_dlc20_ability_intensity_time_in_melee",
+              "localised_text": "Effect intensity increases with time spent engaged in melee.",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_rage_i",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "onscreen_name": "Stage One",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 8,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+8 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+10 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },
   "factionEffects": {
-    "key": "rhox_beorg_faction_trait",
-    "localised_description": "At the edge of the frozen Fjord's of Urs towers the Halls of Urslo, home of ravaging marauding Bearstrikken norsemen.",
-    "localised_title": "The Ursfjordings",
-    "ui_icon": "lege3/campaign_ui/effect_bundles/effect_bundle_beorg",
+    "key": "rhox_volrik_faction_trait",
+    "localised_description": "Volrik Clawhand, touched by Tzeentch is a Kurgan Warlord dedicated to the ultimate schemer.",
+    "localised_title": "The Ravenblessed",
+    "ui_icon": "scm3/campaign_ui/effect_bundles/effect_bundle_volrik",
     "effects": [
       {
-        "description": "Bearstrikken: Ursine creatures are drawn to the primal essence of Urslo and may be corrupted",
-        "key": "rhox_beorg_dummy_1",
-        "icon": "lege3/campaign_ui/effect_bundles/effect_bundle_beorg1"
+        "description": "Maximum active gifts: +1 for Gifts of Tzeentch",
+        "key": "wh3_dlc20_effect_chs_gift_cap_mod_tze_HIDDEN",
+        "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
       },
       {
-        "description": "Furs resource production: 3 bundles\n\t(all regions)",
-        "key": "wh_main_effect_region_resource_furs_production",
-        "icon": "vanilla3/campaign_ui/effect_bundles/resource_furs"
+        "description": "Ravenblessed: May gather grimoires and use these to recieve boons of Tzeentch and Chaos",
+        "key": "rhox_volrik_chaos_gift_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/tzeentch_points"
       },
       {
-        "description": "Ability: \"Mark of the Bear''\n\t(all characters)",
-        "key": "hkrul_beorg_mark",
-        "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-        "related_abilities": [
-          {
-            "effect": "hkrul_beorg_mark",
-            "bonus_value_id": "enable",
-            "unit_ability": {
-              "key": "hkrul_beorg_mark",
-              "icon_name": "lege3/battle_ui/ability_icons/hkrul_beorg_claw3",
-              "overpower_option": "",
-              "type": {
-                "key": "wh_type_augment",
-                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                "onscreen_name": "Augment"
-              },
-              "is_hidden_in_ui": false,
-              "onscreen_name": "Mark of the Bear",
-              "effect_range": 0,
-              "target_enemies": false,
-              "target_friends": false,
-              "target_ground": false,
-              "target_self": false,
-              "target_intercept_range": 0,
-              "phases": [
-                {
-                  "icon": "hkrul_beorg_mark",
-                  "order": 1,
-                  "target_enemies": false,
-                  "target_self": true,
-                  "target_friends": false,
-                  "duration": -1,
-                  "effect_type": "positive",
-                  "is_hidden_in_ui": false,
-                  "stat_effects": [
-                    {
-                      "value": 1.1,
-                      "stat": "scalar_charge_speed",
-                      "how": "mult",
-                      "description": "x1.1 Charge Speed",
-                      "icon": "vanilla3/skins/default/icon_stat_speed"
-                    },
-                    {
-                      "value": 10,
-                      "stat": "stat_charge_bonus",
-                      "how": "add",
-                      "description": "+10 Charge Bonus",
-                      "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        ]
+        "description": "Tzeentch's Chosen: Volrik will directly face the monsters hidden within the arcanum",
+        "key": "rhox_iee_nor_efficient_hunter_dummy2",
+        "icon": "scm3/campaign_ui/effect_bundles/effect_bundle_volrik_hunter"
       },
       {
-        "description": "Recruit Rank: +3 for Marauder Hunter units",
-        "key": "hkrul_oerl_hunters_recruit",
-        "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+        "description": "Dedicated to Tzeentch: May only devote himself to Tzeentch",
+        "key": "rhox_volrik_dedicated_to_tzeentch_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/corruption_tzeentch"
       },
       {
-        "description": "Upkeep: +15% for Skinwolf units",
-        "key": "hkrul_oerl_wolves_upkeep",
-        "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+        "description": "Has access to Changing of the Ways",
+        "key": "wh3_dlc20_chs_lord_trait_vilitch_cotw_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+      },
+      {
+        "description": "Forces receive benefits for having high Winds of Magic",
+        "key": "wh3_dlc20_effect_forces_receive_bonuses_at_high_wom_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
       }
     ]
   },
   "items": [
     {
-      "key": "hkrul_beorg_banner",
-      "onscreen_name": "The Bear Banner",
-      "colour_text": "Beorg's battle-standard is borne by the hardy warrior, Oerl the Young -- a entire bearskin whose grizzly head leers out from the top. The skin is touched by the power of Chaos, and the blessings of the gods is such that the banner radiates an aura of rage that drives the already fierce Ursfjordings into a terrible battle-fury that is impossible to contain.",
-      "ui_icon": "campaign_ui/ancillaries/wh_dlc08_anc_banner_wolfclaw",
+      "key": "hkrul_volrik_banner",
+      "onscreen_name": "Banner of the Ravenblessed",
+      "colour_text": "Deep within the lands of the Kurgan the mighty warlord Volrik slowly succumbs to the gifts of the ultimate schemer. As he devotes himself to Tzeentch his following grows, all impressed by his grotesque mutations. His banner feared and renowned throughout the vast steppes, only his closest retinue may carry it in to battle.",
+      "ui_icon": "campaign_ui/ancillaries/hkrul_volrik_banner",
       "unlocked_at_rank": 8,
       "effects": [
         {
-          "description": "Missile resistance: 30%\n\t(assigned unit)",
-          "key": "wh_main_effect_character_stat_missile_resistance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+          "description": "Melee defence: +15\n\t(assigned unit)",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
         },
         {
-          "description": "Attribute: Unbreakable\n\t(assigned unit)",
-          "key": "wh_main_effect_attribute_enable_unbreakable",
-          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable",
-          "related_attributes": [
-            {
-              "key": "unbreakable",
-              "description": " Unbreakable",
-              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "hkrul_beorg_sword",
-      "onscreen_name": "The Bear-Fang Talisman",
-      "colour_text": "This massive, yellowed canine is the sacred talisman of lordship amongst Beorg's people. He bears it about his neck. The talisman serves to ward off blows that would otherwise harm its wearer.",
-      "ui_icon": "skins/default/equipment_items_talisman",
-      "unlocked_at_rank": 15,
-      "effects": [
-        {
-          "description": "Ward save: 20%",
-          "key": "wh_main_effect_character_stat_ward_save",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
-        },
-        {
-          "description": "Ability: \"Bear-Fang Talisman''",
-          "key": "hkrul_beorg_fang",
-          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-          "related_abilities": [
-            {
-              "effect": "hkrul_beorg_fang",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "hkrul_beorg_fang",
-                "icon_name": "lege3/battle_ui/ability_icons/hkrul_beorg_claw1",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_regeneration",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                  "onscreen_name": "Regeneration"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "Bear-Fang Talisman",
-                "active_time": 1.1,
-                "effect_range": 0,
-                "recharge_time": 120,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "enabled_if": [
-                  "Hit Points less than 25%",
-                  "More than %d kills"
-                ],
-                "ui_effects": [
-                  {
-                    "key": "wh_main_all_replenish_burst",
-                    "localised_text": "Burst of life-saving hit points",
-                    "effect_state": "positive"
-                  }
-                ],
-                "phases": [
-                  {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh2_main_item_passive_heart_of_averlorn",
-                    "order": 1,
-                    "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": false,
-                    "duration": 1,
-                    "effect_type": "positive",
-                    "onscreen_name": "Heart of Avelorn",
-                    "is_hidden_in_ui": false,
-                    "heal_amount": 0.25,
-                    "hp_change_frequency": 1.1
-                  }
-                ]
-              }
-            }
-          ]
+          "description": "Barrier hit points: +600\n\t(assigned unit)",
+          "key": "wh3_main_effect_battle_barrier_health_add",
+          "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
         }
       ]
     }
   ],
   "backgroundSkills": [
     {
-      "key": "hkrul_skill_node_beorg_innate",
-      "image_path": "lege3/campaign_ui/skills/innate_beorg",
-      "character_skill_key": "innate_hkrul_beorg",
+      "key": "hkrul_skill_node_volrik_innate",
+      "image_path": "scm3/campaign_ui/skills/innate_volrik",
+      "character_skill_key": "innate_hkrul_volrik",
       "tier": 0,
       "indent": 6,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": true,
-      "localised_name": "Bearstricken of Urslo",
-      "localised_description": "The ravaging chieftain of the Ursfjording tribe is blessed by the Dark Gods.",
+      "localised_name": "The Ravenblessed",
+      "localised_description": "The Ravenblessed is Tzeentch's favoured Kurgan, unifying the tribes under the ultimate schemer's watchful gaze.",
       "levels": [
         {
           "effects": [
@@ -2919,59 +2288,72 @@
               "icon": ""
             },
             {
-              "description": "Weapon Strength: +20% for Bear units\n\t(Lord's army)",
-              "key": "hkrul_beorg_bear_ws",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              "description": "Melee Attack: +8 for Tzeentch Marauder units\n\t(Lord's army)",
+              "key": "hkrul_volrik_mtze_ma",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             },
             {
-              "description": "Ability: \"Spirit of the Great Bear''",
-              "key": "hkrul_beorg_bear_form",
+              "description": "Ability: \"Whispers of the Raven''",
+              "key": "hkrul_volrik_blessed",
               "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
               "related_abilities": [
                 {
-                  "effect": "hkrul_beorg_bear_form",
+                  "effect": "hkrul_volrik_blessed",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "hkrul_beorg_bear_form",
-                    "icon_name": "lege3/battle_ui/ability_icons/hkrul_beorg_claw4",
+                    "key": "hkrul_volrik_blessed",
+                    "icon_name": "scm3/battle_ui/ability_icons/hkrul_volrik_blessed",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_transform",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_transform",
-                      "onscreen_name": "Transform"
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Spirit of the Great Bear",
-                    "active_time": 5,
-                    "effect_range": 0,
-                    "num_effected_friendly_units": 1,
-                    "recharge_time": 120,
+                    "onscreen_name": "Whispers of the Raven",
+                    "effect_range": 35,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
-                    "wind_up_time": 5.3,
-                    "ui_effects": [
+                    "phases": [
                       {
-                        "key": "hkrul_beorg_bear_form_transform",
-                        "localised_text": "Shapeshifts into bear form",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "hkrul_beorg_bear_form_advantages",
-                        "localised_text": "Form offers powerful melee attacks, abilities, and armour",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "hkrul_beorg_bear_form_disadvantages",
-                        "localised_text": "Bear form loses stalk, ranged attack, leadership abilities",
-                        "effect_state": "negative"
+                        "icon": "scm3/battle_ui/ability_icons/hkrul_volrik_blessed",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "stat_resistance_magic",
+                            "how": "mult",
+                            "description": "x1.25 Spell Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
                       }
                     ]
                   }
                 }
               ]
+            },
+            {
+              "description": "Physical resistance: 10%\n\t(Lord's army)",
+              "key": "wh_main_effect_force_stat_physical_resistance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
             }
           ]
         }
