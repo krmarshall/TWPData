@@ -197,7 +197,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Hysterical Frenzy Upgraded",
-                    "active_time": 40,
+                    "active_time": 44,
                     "effect_range": 0,
                     "mana_cost": 12,
                     "miscast_chance": 0.5,
@@ -211,8 +211,8 @@
                     "wind_up_time": 3,
                     "ui_effects": [
                       {
-                        "key": "wh_main_spell_upgraded_ap_damage",
-                        "localised_text": "Increased armour-piercing damage",
+                        "key": "wh_main_spell_upgraded_duration",
+                        "localised_text": "Extended effect duration",
                         "effect_state": "magic"
                       }
                     ],
@@ -223,7 +223,7 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": true,
-                        "duration": 40,
+                        "duration": 44,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
@@ -235,19 +235,11 @@
                             "icon": "vanilla3/skins/default/icon_stat_attack"
                           },
                           {
-                            "value": 1.5,
+                            "value": 1.25,
                             "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x1.5 Armour-Piercing Weapon Damage",
+                            "description": "x1.25 Armour-Piercing Weapon Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "rampage",
-                            "description": "➖ Rampage!",
-                            "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
-                            "icon": "vanilla3/battle_ui/ability_icons/rampage"
                           }
                         ]
                       }
@@ -297,16 +289,16 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Narcissism",
-                    "active_time": 13,
+                    "active_time": 16,
                     "effect_range": 0,
                     "num_effected_enemy_units": 1,
-                    "recharge_time": 60,
+                    "recharge_time": 90,
                     "target_enemies": true,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": -1,
-                    "wind_up_time": 1,
+                    "wind_up_time": 3,
                     "phases": [
                       {
                         "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_narcissism",
@@ -314,10 +306,18 @@
                         "target_enemies": true,
                         "target_self": false,
                         "target_friends": false,
-                        "duration": 13,
+                        "duration": 16,
                         "effect_type": "negative",
                         "is_hidden_in_ui": false,
-                        "cant_move": true
+                        "cant_move": true,
+                        "attributes": [
+                          {
+                            "key": "silenced",
+                            "description": "Silenced",
+                            "bullet_text": "This unit is unable to activate abilities or cast spells.",
+                            "icon": "vanilla3/battle_ui/ability_icons/silenced"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -1420,51 +1420,65 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "description": "Army ability: \"Sweet Sorrow\"",
-              "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+              "description": "Army ability: \"Fascination\"",
+              "key": "wh3_main_effect_army_ability_enable_fascination",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
               "related_abilities": [
                 {
-                  "effect": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+                  "effect": "wh3_main_effect_army_ability_enable_fascination",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh3_main_army_abilities_sweet_sorrow",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                    "key": "wh3_main_army_abilities_fascination",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Sweet Sorrow",
-                    "active_time": 20,
-                    "effect_range": -1,
+                    "onscreen_name": "Fascination",
+                    "active_time": 14,
+                    "effect_range": 0,
+                    "num_effected_enemy_units": 1,
                     "recharge_time": 120,
-                    "target_enemies": false,
+                    "target_enemies": true,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": -1,
                     "wind_up_time": 5,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage",
+                        "localised_text": "Causes damage to combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_dlc08_direct_damage_medium_unit",
+                        "localised_text": "Strong vs 25 men unit or above",
+                        "effect_state": "positive"
+                      }
+                    ],
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
                         "order": 1,
-                        "target_enemies": false,
+                        "target_enemies": true,
                         "target_self": false,
-                        "target_friends": true,
-                        "duration": 20,
-                        "effect_type": "positive",
+                        "target_friends": false,
+                        "duration": 14,
+                        "effect_type": "negative",
                         "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.03,
-                        "stat_effects": [
+                        "damage_amount": 10,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 25,
+                        "attributes": [
                           {
-                            "value": 1.25,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x1.25 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                            "icon": "vanilla3/battle_ui/ability_icons/rampage"
                           }
                         ]
                       }

@@ -75,7 +75,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "scm3/campaign_ui/effect_bundles/attribute_undead"
                 },
                 {
@@ -270,7 +270,7 @@
                           {
                             "key": "rampage",
                             "description": "➖ Rampage!",
-                            "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                             "icon": "vanilla3/battle_ui/ability_icons/rampage"
                           }
                         ]
@@ -542,7 +542,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "scm3/campaign_ui/effect_bundles/attribute_undead"
                 },
                 {
@@ -729,7 +729,7 @@
                           {
                             "key": "rampage",
                             "description": "➖ Rampage!",
-                            "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                             "icon": "vanilla3/battle_ui/ability_icons/rampage"
                           }
                         ]
@@ -3951,6 +3951,70 @@
                     }
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Viletide Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_viletide",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_viletide",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_dlc03_spell_wild_viletide",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_wild_viletide",
+                      "overpower_option": "wh_dlc03_spell_wild_viletide_upgraded",
+                      "type": {
+                        "key": "wh_type_explosion",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+                        "onscreen_name": "Explosion"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Viletide",
+                      "active_time": 3,
+                      "effect_range": 0,
+                      "mana_cost": 9,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 31,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_vortex_large_static_aoe",
+                          "localised_text": "Large explosion area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_dlc03_spell_wild_viletide",
+                        "duration": 1,
+                        "damage": 23,
+                        "damage_ap": 0,
+                        "goal_radius": 15,
+                        "movement_speed": 0,
+                        "delay": 0.8,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
               },
               {
                 "description": "Cooldown: -30% to \"Viletide\"",
@@ -4023,75 +4087,6 @@
               },
               {
                 "description": "Cooldown: -50% to \"Viletide\"",
-                "key": "wh_dlc03_effect_ability_cooldown_viletide",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Viletide Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_viletide",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_viletide",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc03_spell_wild_viletide",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_wild_viletide",
-                      "overpower_option": "wh_dlc03_spell_wild_viletide_upgraded",
-                      "type": {
-                        "key": "wh_type_explosion",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
-                        "onscreen_name": "Explosion"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Viletide",
-                      "active_time": 3,
-                      "effect_range": 0,
-                      "mana_cost": 9,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 31,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 100,
-                      "wind_up_time": 3,
-                      "target_if": [
-                        "Grounded"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_vortex_large_static_aoe",
-                          "localised_text": "Large explosion area",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_unit",
-                          "localised_text": "Strong vs a single unit",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "vortex": {
-                        "vortex_key": "wh_dlc03_spell_wild_viletide",
-                        "duration": 1,
-                        "damage": 23,
-                        "damage_ap": 0,
-                        "goal_radius": 15,
-                        "movement_speed": 0,
-                        "delay": 0.8,
-                        "affects_allies": true,
-                        "is_magical": true
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Cooldown: -30% to \"Viletide\"",
                 "key": "wh_dlc03_effect_ability_cooldown_viletide",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
@@ -5786,7 +5781,7 @@
       {
         "key": "undead",
         "description": "Undead",
-        "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+        "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
         "icon": "scm3/campaign_ui/effect_bundles/attribute_undead"
       },
       {
@@ -5961,7 +5956,7 @@
                 {
                   "key": "rampage",
                   "description": "➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "vanilla3/battle_ui/ability_icons/rampage"
                 }
               ]

@@ -4,7 +4,7 @@
     [
       {
         "key": "wh_main_skill_node_chs_sigvald_unique_auth",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_slaanesh_corruption",
+        "image_path": "vanilla3/campaign_ui/skills/character_slaanesh_corruption",
         "character_skill_key": "wh3_dlc20_skill_authority_sla_lord",
         "tier": 1,
         "indent": 0,
@@ -390,16 +390,16 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Narcissism",
-                      "active_time": 13,
+                      "active_time": 16,
                       "effect_range": 0,
                       "num_effected_enemy_units": 1,
-                      "recharge_time": 60,
+                      "recharge_time": 90,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": -1,
-                      "wind_up_time": 1,
+                      "wind_up_time": 3,
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_narcissism",
@@ -407,10 +407,18 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 13,
+                          "duration": 16,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "cant_move": true
+                          "cant_move": true,
+                          "attributes": [
+                            {
+                              "key": "silenced",
+                              "description": "Silenced",
+                              "bullet_text": "This unit is unable to activate abilities or cast spells.",
+                              "icon": "vanilla3/battle_ui/ability_icons/silenced"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -563,51 +571,65 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               },
               {
-                "description": "Army ability: \"Sweet Sorrow\"\n\t(Lord's army)",
-                "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+                "description": "Army ability: \"Fascination\"\n\t(Lord's army)",
+                "key": "wh3_main_effect_army_ability_enable_fascination",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+                    "effect": "wh3_main_effect_army_ability_enable_fascination",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh3_main_army_abilities_sweet_sorrow",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                      "key": "wh3_main_army_abilities_fascination",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
+                        "key": "wh_type_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                        "onscreen_name": "Direct Damage"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Sweet Sorrow",
-                      "active_time": 20,
-                      "effect_range": -1,
+                      "onscreen_name": "Fascination",
+                      "active_time": 14,
+                      "effect_range": 0,
+                      "num_effected_enemy_units": 1,
                       "recharge_time": 120,
-                      "target_enemies": false,
+                      "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_dlc08_direct_damage_medium_unit",
+                          "localised_text": "Strong vs 25 men unit or above",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
                           "order": 1,
-                          "target_enemies": false,
+                          "target_enemies": true,
                           "target_self": false,
-                          "target_friends": true,
-                          "duration": 20,
-                          "effect_type": "positive",
+                          "target_friends": false,
+                          "duration": 14,
+                          "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "fatigue_change_ratio": -0.03,
-                          "stat_effects": [
+                          "damage_amount": 10,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 25,
+                          "attributes": [
                             {
-                              "value": 1.25,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.25 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                              "key": "rampage",
+                              "description": "➖ Rampage!",
+                              "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                              "icon": "vanilla3/battle_ui/ability_icons/rampage"
                             }
                           ]
                         }
@@ -762,7 +784,7 @@
                   {
                     "key": "daemonic",
                     "description": "Daemonic",
-                    "bullet_text": "This unit is Daemonic (has physical resistance, does not rout, is immune to terror, takes damage when Leadership is low)",
+                    "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
                     "icon": "vanilla3/campaign_ui/effect_bundles/attribute_daemonic"
                   }
                 ]
@@ -2985,65 +3007,59 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "description": "Army ability: \"Fascination\"\n\t(Lord's army)",
-              "key": "wh3_main_effect_army_ability_enable_fascination",
+              "description": "Army ability: \"Sweet Sorrow\"\n\t(Lord's army)",
+              "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
               "related_abilities": [
                 {
-                  "effect": "wh3_main_effect_army_ability_enable_fascination",
+                  "effect": "wh3_main_effect_army_ability_enable_sweet_sorrow",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh3_main_army_abilities_fascination",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
+                    "key": "wh3_main_army_abilities_sweet_sorrow",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_direct_damage",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                      "onscreen_name": "Direct Damage"
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Fascination",
-                    "active_time": 23,
+                    "onscreen_name": "Sweet Sorrow",
+                    "active_time": 15,
                     "effect_range": 0,
-                    "num_effected_enemy_units": 1,
-                    "recharge_time": 90,
-                    "target_enemies": true,
-                    "target_friends": false,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 60,
+                    "target_enemies": false,
+                    "target_friends": true,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": -1,
-                    "wind_up_time": 3,
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_all_direct_damage",
-                        "localised_text": "Causes damage to combatants",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_dlc08_direct_damage_medium_unit",
-                        "localised_text": "Strong vs 25 men unit or above",
-                        "effect_state": "positive"
-                      }
-                    ],
+                    "wind_up_time": 1,
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
                         "order": 1,
-                        "target_enemies": true,
+                        "target_enemies": false,
                         "target_self": false,
-                        "target_friends": false,
-                        "duration": 23,
-                        "effect_type": "negative",
+                        "target_friends": true,
+                        "duration": 15,
+                        "effect_type": "positive",
                         "is_hidden_in_ui": false,
-                        "damage_amount": 5,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 25,
-                        "attributes": [
+                        "fatigue_change_ratio": -0.04,
+                        "stat_effects": [
                           {
-                            "key": "rampage",
-                            "description": "➖ Rampage!",
-                            "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
-                            "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                            "value": 1.4,
+                            "stat": "scalar_charge_speed",
+                            "how": "mult",
+                            "description": "x1.4 Charge Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.4,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.4 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
                           }
                         ]
                       }
