@@ -3016,6 +3016,51 @@
     "abilities": [
       {
         "unit_ability": {
+          "key": "wh2_dlc12_lord_abilities_focus_instincts",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_lord_abilities_focus_instincts",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Focus Instincts",
+          "active_time": 50,
+          "effect_range": 35,
+          "recharge_time": 100,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "target_if": [
+            "Lizardmen"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc12_lord_abilities_focus_instincts",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": 50,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "attributes": [
+                {
+                  "key": "rampage",
+                  "description": "Removes ➖ Rampage!",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                  "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
           "key": "wh2_dlc17_lord_abilities_master_predator",
           "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_lord_abilities_master_predator",
           "overpower_option": "",
@@ -3087,8 +3132,8 @@
       },
       {
         "unit_ability": {
-          "key": "wh2_main_character_abilities_cold_blooded",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_character_abilities_cold_blooded",
+          "key": "wh2_main_unit_passive_primal_instincts",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
           "overpower_option": "",
           "type": {
             "key": "wh_type_augment",
@@ -3096,36 +3141,28 @@
             "onscreen_name": "Augment"
           },
           "is_hidden_in_ui": false,
-          "onscreen_name": "Cold-Blooded",
-          "active_time": 30,
+          "onscreen_name": "Primal Instincts",
           "effect_range": 0,
-          "recharge_time": 60,
+          "recharge_time": 30,
           "target_enemies": false,
-          "target_friends": true,
+          "target_friends": false,
           "target_ground": false,
-          "target_self": true,
-          "target_intercept_range": 200,
-          "target_if": [
-            "Lizardmen"
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points less than 50%"
           ],
           "phases": [
             {
-              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_character_abilities_cold_blooded",
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
               "order": 1,
               "target_enemies": false,
               "target_self": true,
-              "target_friends": true,
-              "duration": 30,
+              "target_friends": false,
+              "duration": -1,
               "effect_type": "positive",
               "is_hidden_in_ui": false,
               "stat_effects": [
-                {
-                  "value": 10,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+10 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                },
                 {
                   "value": 5,
                   "stat": "stat_melee_attack",
@@ -3134,19 +3171,18 @@
                   "icon": "vanilla3/skins/default/icon_stat_attack"
                 },
                 {
-                  "value": 5,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "+5 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
-                }
-              ],
-              "attributes": [
+                  "value": 1.15,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.15 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
                 {
-                  "key": "rampage",
-                  "description": "Removes ➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
-                  "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                  "value": 5,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+5 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                 }
               ]
             }

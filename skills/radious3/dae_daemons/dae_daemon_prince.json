@@ -3408,7 +3408,7 @@
           {
             "effects": [
               {
-                "description": "Speed: +5% for Chaos Furies, Screamers of Tzeentch, Tzaangors, Cockatrice, Mutalith Vortex Beast, Forsaken Of Tzeentch, Spawn of Tzeentch and Flamers of Tzeentch units\n\t(Lord's army)",
+                "description": "Speed: +5% for Chaos Furies, Screamers of Tzeentch, Tzaangors, Centigors of Tzeentch, Cockatrice, Mutalith Vortex Beast, Forsaken Of Tzeentch, Spawn of Tzeentch and Flamers of Tzeentch units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_speed_tze_furies_screamers_spawn_flamers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               }
@@ -3417,7 +3417,7 @@
           {
             "effects": [
               {
-                "description": "Speed: +8% for Chaos Furies, Screamers of Tzeentch, Tzaangors, Cockatrice, Mutalith Vortex Beast, Forsaken Of Tzeentch, Spawn of Tzeentch and Flamers of Tzeentch units\n\t(Lord's army)",
+                "description": "Speed: +8% for Chaos Furies, Screamers of Tzeentch, Tzaangors, Centigors of Tzeentch, Cockatrice, Mutalith Vortex Beast, Forsaken Of Tzeentch, Spawn of Tzeentch and Flamers of Tzeentch units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_speed_tze_furies_screamers_spawn_flamers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               },
@@ -3431,7 +3431,7 @@
           {
             "effects": [
               {
-                "description": "Speed: +12% for Chaos Furies, Screamers of Tzeentch, Tzaangors, Cockatrice, Mutalith Vortex Beast, Forsaken Of Tzeentch, Spawn of Tzeentch and Flamers of Tzeentch units\n\t(Lord's army)",
+                "description": "Speed: +12% for Chaos Furies, Screamers of Tzeentch, Tzaangors, Centigors of Tzeentch, Cockatrice, Mutalith Vortex Beast, Forsaken Of Tzeentch, Spawn of Tzeentch and Flamers of Tzeentch units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_speed_tze_furies_screamers_spawn_flamers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               },
@@ -3724,7 +3724,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "This unit is Daemonic (has physical resistance, does not rout, is immune to terror, takes damage when Leadership is low)",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
         "icon": "vanilla3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {
@@ -4612,7 +4612,7 @@
               "target_ground": false,
               "target_self": false,
               "target_intercept_range": -1,
-              "wind_up_time": 3,
+              "wind_up_time": 5,
               "ui_effects": [
                 {
                   "key": "wh_main_all_direct_damage",
@@ -4642,7 +4642,7 @@
                     {
                       "key": "rampage",
                       "description": "➖ Rampage!",
-                      "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                      "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                       "icon": "vanilla3/battle_ui/ability_icons/rampage"
                     }
                   ]
@@ -4798,7 +4798,7 @@
               "target_ground": false,
               "target_self": false,
               "target_intercept_range": -1,
-              "wind_up_time": 1,
+              "wind_up_time": 3,
               "phases": [
                 {
                   "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_narcissism",
@@ -4809,7 +4809,15 @@
                   "duration": 20,
                   "effect_type": "negative",
                   "is_hidden_in_ui": false,
-                  "cant_move": true
+                  "cant_move": true,
+                  "attributes": [
+                    {
+                      "key": "silenced",
+                      "description": "Silenced",
+                      "bullet_text": "This unit is unable to activate abilities or cast spells.",
+                      "icon": "vanilla3/battle_ui/ability_icons/silenced"
+                    }
+                  ]
                 }
               ]
             }
@@ -5031,15 +5039,16 @@
               },
               "is_hidden_in_ui": false,
               "onscreen_name": "Sweet Sorrow",
-              "active_time": 30,
-              "effect_range": -1,
-              "recharge_time": 120,
+              "active_time": 20,
+              "effect_range": 0,
+              "num_effected_friendly_units": 1,
+              "recharge_time": 90,
               "target_enemies": false,
-              "target_friends": false,
+              "target_friends": true,
               "target_ground": false,
               "target_self": false,
               "target_intercept_range": -1,
-              "wind_up_time": 5,
+              "wind_up_time": 1,
               "phases": [
                 {
                   "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
@@ -5047,11 +5056,18 @@
                   "target_enemies": false,
                   "target_self": false,
                   "target_friends": true,
-                  "duration": 30,
+                  "duration": 20,
                   "effect_type": "positive",
                   "is_hidden_in_ui": false,
-                  "fatigue_change_ratio": -0.03,
+                  "fatigue_change_ratio": -0.04,
                   "stat_effects": [
+                    {
+                      "value": 1.25,
+                      "stat": "scalar_charge_speed",
+                      "how": "mult",
+                      "description": "x1.25 Charge Speed",
+                      "icon": "vanilla3/skins/default/icon_stat_speed"
+                    },
                     {
                       "value": 1.25,
                       "stat": "scalar_speed",

@@ -452,81 +452,64 @@
         "required_num_parents": 2,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Horn of Ursfjord",
-        "localised_description": "As he blows his horn the marauders of the tribe chant the name of their great leader. Oblivious and careless to any harm caused to them.",
+        "localised_name": "Huern's Axe",
+        "localised_description": "When Beorg snapped the necks of Uldsdau and Graille, twin sons of Huern the Jarl of the Tribe of the Wolf, he gifted their magical heirloom to Clan Oerl.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Ability: \"Horn of Ursfjord\"",
-                "key": "hkrul_oerl_horn",
+                "description": "Ability: \"Huern's Axe''",
+                "key": "hkrul_oerl_axe",
                 "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
                 "related_abilities": [
                   {
-                    "effect": "hkrul_oerl_horn",
+                    "effect": "hkrul_oerl_axe",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "hkrul_oerl_horn",
-                      "icon_name": "scm3/battle_ui/ability_icons/hkrul_oerl_horn",
+                      "key": "hkrul_oerl_axe",
+                      "icon_name": "scm3/battle_ui/ability_icons/hkrul_oerl_axe",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Horn of Ursfjord",
-                      "active_time": 30,
-                      "effect_range": 40,
-                      "recharge_time": 100,
+                      "onscreen_name": "Huern's Axe",
+                      "active_time": 25,
+                      "effect_range": 0,
+                      "recharge_time": 90,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "wind_up_time": 1,
                       "phases": [
                         {
-                          "icon": "hkrul_oerl_horn_enemy",
-                          "order": 0,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 35,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -10,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-10 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 0.85,
-                              "stat": "stat_resistance_physical",
-                              "how": "mult",
-                              "description": "x0.85 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                            }
-                          ]
-                        },
-                        {
-                          "icon": "scm3/battle_ui/ability_icons/hkrul_oerl_horn",
+                          "icon": "scm3/battle_ui/ability_icons/hkrul_oerl_axe",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
-                          "target_friends": true,
-                          "duration": 35,
+                          "target_friends": false,
+                          "duration": 25,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.2,
-                              "stat": "stat_resistance_all",
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.2 Damage Resistance ",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                              "description": "x1.3 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "causes_fear",
+                              "description": " Can Cause Fear",
+                              "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
                             }
                           ]
                         }
@@ -1524,6 +1507,73 @@
             }
           ]
         }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_dlc08_unit_passive_rage",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_passive_rage",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Rage",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken",
+            "In melee"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh3_dlc20_ability_intensity_time_in_melee",
+              "localised_text": "Effect intensity increases with time spent engaged in melee.",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_rage_i",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "onscreen_name": "Stage One",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 8,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+8 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+10 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },
@@ -1608,58 +1658,76 @@
               "icon": ""
             },
             {
-              "description": "Ability: \"Huern's Axe''",
-              "key": "hkrul_oerl_axe",
+              "description": "Ability: \"Horn of Ursfjord\"",
+              "key": "hkrul_oerl_horn",
               "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
               "related_abilities": [
                 {
-                  "effect": "hkrul_oerl_axe",
+                  "effect": "hkrul_oerl_horn",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "hkrul_oerl_axe",
-                    "icon_name": "scm3/battle_ui/ability_icons/hkrul_oerl_axe",
+                    "key": "hkrul_oerl_horn",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_item_abilities_horn_of_the_first_beast",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Huern's Axe",
-                    "active_time": 25,
-                    "effect_range": 0,
-                    "recharge_time": 90,
+                    "onscreen_name": "Horn of Ursfjord",
+                    "active_time": 30,
+                    "effect_range": 45,
+                    "recharge_time": 80,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
-                    "wind_up_time": 1,
+                    "wind_up_time": 0.1,
                     "phases": [
                       {
-                        "icon": "scm3/battle_ui/ability_icons/hkrul_oerl_axe",
+                        "icon": "hkrul_oerl_horn_enemy",
+                        "order": 0,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": -10,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "-10 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "scm3/battle_ui/ability_icons/hkrul_oerl_horn",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
-                        "target_friends": false,
-                        "duration": 25,
+                        "target_friends": true,
+                        "duration": 30,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 25,
+                            "value": 20,
                             "stat": "stat_melee_attack",
                             "how": "add",
-                            "description": "+25 Melee Attack",
+                            "description": "+20 Melee Attack",
                             "icon": "vanilla3/skins/default/icon_stat_attack"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "causes_fear",
-                            "description": " Can Cause Fear",
-                            "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
                           }
                         ]
                       }
