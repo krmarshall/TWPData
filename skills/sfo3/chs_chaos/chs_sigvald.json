@@ -4,7 +4,7 @@
     [
       {
         "key": "wh_main_skill_node_chs_sigvald_unique_auth",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_slaanesh_corruption",
+        "image_path": "vanilla3/campaign_ui/skills/character_slaanesh_corruption",
         "character_skill_key": "wh3_dlc20_skill_authority_sla_lord",
         "tier": 1,
         "indent": 0,
@@ -467,6 +467,14 @@
                               "description": "x0.5 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "silenced",
+                              "description": "Silenced",
+                              "bullet_text": "This unit is unable to activate abilities or cast spells.",
+                              "icon": "vanilla3/battle_ui/ability_icons/silenced"
+                            }
                           ]
                         }
                       ]
@@ -682,6 +690,84 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               },
               {
+                "description": "Army ability: \"Fascination\"\n\t(Lord's army)",
+                "key": "wh3_main_effect_army_ability_enable_fascination",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_army_ability_enable_fascination",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_army_abilities_fascination",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                        "onscreen_name": "Direct Damage"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fascination",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 90,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_dlc08_direct_damage_medium_unit",
+                          "localised_text": "Strong vs 25 men unit or above",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_damaged_entities_25",
+                          "localised_text": "Affect up to 25 entities",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 5,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 25,
+                          "attributes": [
+                            {
+                              "key": "rampage",
+                              "description": "➖ Rampage!",
+                              "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                              "icon": "sfo3/battle_ui/ability_icons/rampage"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
                 "description": "Army ability: \"Sweet Sorrow\"\n\t(Lord's army if faction leader)",
                 "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
@@ -721,6 +807,13 @@
                           "is_hidden_in_ui": false,
                           "fatigue_change_ratio": -0.02,
                           "stat_effects": [
+                            {
+                              "value": 1.4,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.4 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
                             {
                               "value": 1.25,
                               "stat": "scalar_speed",
@@ -809,6 +902,13 @@
                           "is_hidden_in_ui": false,
                           "fatigue_change_ratio": -0.02,
                           "stat_effects": [
+                            {
+                              "value": 1.4,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.4 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
                             {
                               "value": 1.25,
                               "stat": "scalar_speed",
@@ -1066,7 +1166,7 @@
                   {
                     "key": "daemonic",
                     "description": "Daemonic",
-                    "bullet_text": "This unit is Daemonic (has physical resistance, does not rout, is immune to terror, takes damage when Leadership is low)",
+                    "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
                     "icon": "sfo3/battle_ui/ability_icons/daemonic"
                   }
                 ]
@@ -3247,103 +3347,6 @@
   },
   "items": [
     {
-      "key": "wh_main_anc_armour_auric_armour",
-      "onscreen_name": "Auric Armour",
-      "colour_text": "",
-      "ui_icon": "skins/default/equipment_items_armour",
-      "unlocked_at_rank": 12,
-      "effects": [
-        {
-          "description": "Slaanesh Authority: +1\n\t(Lord's army)",
-          "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_slaanesh_character",
-          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
-        },
-        {
-          "description": "Upkeep: -5%\n\t(Lord's army)",
-          "key": "wh_main_effect_force_all_campaign_upkeep",
-          "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-        },
-        {
-          "description": "Armour: +10",
-          "key": "wh_main_effect_character_stat_armour",
-          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-        },
-        {
-          "description": "Battle healing cap: +50%",
-          "key": "wh3_dlc20_effect_healing_cap_modifier",
-          "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-        },
-        {
-          "description": "Passive ability: \"Auric Armour\"",
-          "key": "wh_main_effect_ability_enable_auric_armour",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh_main_effect_ability_enable_auric_armour",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh_dlc01_weapon_passive_auric_armour",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc01_weapon_passive_auric_armour",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_regeneration",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                  "onscreen_name": "Regeneration"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "Auric Armour",
-                "effect_range": 0,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "enabled_if": [
-                  "Leadership is higher than broken",
-                  "Battle outcome is undecided"
-                ],
-                "ui_effects": [
-                  {
-                    "key": "wh_main_all_replenish",
-                    "localised_text": "Replenishes hit points of combatants",
-                    "effect_state": "positive"
-                  }
-                ],
-                "phases": [
-                  {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc01_weapon_passive_auric_armour",
-                    "order": 1,
-                    "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": false,
-                    "duration": -1,
-                    "effect_type": "positive",
-                    "is_hidden_in_ui": false,
-                    "fatigue_change_ratio": -0.01,
-                    "heal_amount": 0.001,
-                    "hp_change_frequency": 1
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "description": "Attribute: Immune to Contact Effects",
-          "key": "wh3_dlc20_effect_attribute_immune_to_contact_stat_effects",
-          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_contact_immunity",
-          "related_attributes": [
-            {
-              "key": "ignore_imbue_contact_effects_enemy",
-              "description": "Immune to Contact Effects",
-              "bullet_text": "Entities with this attribute ignore the effects of enemy contact effects such as  Poison",
-              "icon": "sfo3/battle_ui/ability_icons/ignore_imbue_contact_effects_enemy"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "key": "wh_main_anc_weapon_sliverslash",
       "onscreen_name": "Sliverslash",
       "colour_text": "It is said Prince Sigvald’s ornate sword is forged from a sliver of Slaanesh’s own blade.",
@@ -3477,7 +3480,162 @@
           "key": "wh_main_effect_character_stat_weapon_strength",
           "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_chs_prince_sigvald",
+        "name": "Trappings of Excess",
+        "description": "Beauty and malice so often go hand in hand.",
+        "contains": [
+          {
+            "name": "Auric Armour",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Sliverslash",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Slaanesh corruption: +5\n\t(local province)",
+            "key": "wh3_main_effect_corruption_slaanesh_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
+            "priority": 104
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
+    },
+    {
+      "key": "wh_main_anc_armour_auric_armour",
+      "onscreen_name": "Auric Armour",
+      "colour_text": "",
+      "ui_icon": "skins/default/equipment_items_armour",
+      "unlocked_at_rank": 12,
+      "effects": [
+        {
+          "description": "Slaanesh Authority: +1\n\t(Lord's army)",
+          "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_slaanesh_character",
+          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
+        },
+        {
+          "description": "Upkeep: -5%\n\t(Lord's army)",
+          "key": "wh_main_effect_force_all_campaign_upkeep",
+          "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+        },
+        {
+          "description": "Armour: +10",
+          "key": "wh_main_effect_character_stat_armour",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+        },
+        {
+          "description": "Battle healing cap: +50%",
+          "key": "wh3_dlc20_effect_healing_cap_modifier",
+          "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+        },
+        {
+          "description": "Passive ability: \"Auric Armour\"",
+          "key": "wh_main_effect_ability_enable_auric_armour",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_main_effect_ability_enable_auric_armour",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_dlc01_weapon_passive_auric_armour",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc01_weapon_passive_auric_armour",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_regeneration",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                  "onscreen_name": "Regeneration"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Auric Armour",
+                "effect_range": 0,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "Leadership is higher than broken",
+                  "Battle outcome is undecided"
+                ],
+                "ui_effects": [
+                  {
+                    "key": "wh_main_all_replenish",
+                    "localised_text": "Replenishes hit points of combatants",
+                    "effect_state": "positive"
+                  }
+                ],
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc01_weapon_passive_auric_armour",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "fatigue_change_ratio": -0.01,
+                    "heal_amount": 0.001,
+                    "hp_change_frequency": 1
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "description": "Attribute: Immune to Contact Effects",
+          "key": "wh3_dlc20_effect_attribute_immune_to_contact_stat_effects",
+          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_contact_immunity",
+          "related_attributes": [
+            {
+              "key": "ignore_imbue_contact_effects_enemy",
+              "description": "Immune to Contact Effects",
+              "bullet_text": "Entities with this attribute ignore the effects of enemy contact effects such as  Poison",
+              "icon": "sfo3/battle_ui/ability_icons/ignore_imbue_contact_effects_enemy"
+            }
+          ]
+        }
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_chs_prince_sigvald",
+        "name": "Trappings of Excess",
+        "description": "Beauty and malice so often go hand in hand.",
+        "contains": [
+          {
+            "name": "Auric Armour",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Sliverslash",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Slaanesh corruption: +5\n\t(local province)",
+            "key": "wh3_main_effect_corruption_slaanesh_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh",
+            "priority": 104
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [
@@ -3505,6 +3663,74 @@
               "description": "Slaanesh corruption: +5\n\t(local province)",
               "key": "wh3_main_effect_corruption_slaanesh_characters_no_tr",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
+            },
+            {
+              "description": "Army ability: \"Sweet Sorrow\"\n\t(Lord's army)",
+              "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_army_abilities_sweet_sorrow",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Sweet Sorrow",
+                    "active_time": 30,
+                    "effect_range": -1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": -1,
+                    "wind_up_time": 5,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.02,
+                        "stat_effects": [
+                          {
+                            "value": 1.4,
+                            "stat": "scalar_charge_speed",
+                            "how": "mult",
+                            "description": "x1.4 Charge Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.25 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 2,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x2 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             {
               "description": "Army ability: \"Fascination\"\n\t(Lord's army if faction leader)",
@@ -3574,7 +3800,7 @@
                           {
                             "key": "rampage",
                             "description": "➖ Rampage!",
-                            "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                             "icon": "sfo3/battle_ui/ability_icons/rampage"
                           }
                         ]

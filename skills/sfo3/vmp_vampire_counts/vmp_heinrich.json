@@ -72,7 +72,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 }
               ],
@@ -4610,7 +4610,7 @@
       {
         "key": "undead",
         "description": "Undead",
-        "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+        "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
         "icon": "sfo3/battle_ui/ability_icons/undead"
       }
     ],
@@ -5018,21 +5018,16 @@
   },
   "items": [
     {
-      "key": "wh_main_anc_arcane_item_skull_staff",
-      "onscreen_name": "Skull Staff",
-      "colour_text": "The jaws of the Skull Staff chatter and gnash, warning Kemmler of baleful magic in his vicinity.",
-      "ui_icon": "skins/default/equipment_items_arcane",
-      "unlocked_at_rank": 17,
+      "key": "wh_main_anc_weapon_chaos_tomb_blade",
+      "onscreen_name": "Chaos Tomb Blade",
+      "colour_text": "",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "unlocked_at_rank": 7,
       "effects": [
         {
-          "description": "Magic item drop chance: +10%",
-          "key": "wh_main_effect_character_mod_ancillary_drop",
-          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-        },
-        {
-          "description": "Vampiric corruption: +5\n\t(local province)",
-          "key": "wh3_main_effect_corruption_vampiric_characters",
-          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
+          "description": "Casualty replenishment rate: +10%\n\t(Lord's army)",
+          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
         },
         {
           "description": "Melee attack: +5",
@@ -5040,31 +5035,130 @@
           "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
         },
         {
-          "description": "Spell resistance: 25%",
-          "key": "wh_main_effect_character_stat_magic_resistance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+          "description": "Enables magical attacks",
+          "key": "wh_main_effect_character_stat_enable_magic_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
         },
         {
-          "description": "Winds of Magic cost: -5 for \"Vanhel's Danse Macabre\"",
-          "key": "wh2_main_effect_ability_wom_cost_vanhels_danse_macabre",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+          "description": "Weapon strength: +10%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
         },
         {
-          "description": "Winds of Magic cost: -5 for \"Vanhel's Danse Macabre Upgraded\"",
-          "key": "wh2_main_effect_ability_wom_cost_vanhels_danse_macabre_upgraded",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-        },
-        {
-          "description": "Miscast base chance: -10%",
-          "key": "wh_main_effect_character_stat_miscast",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+          "description": "Passive ability: \"Chaos Tomb Blade\"",
+          "key": "wh_main_effect_ability_enable_chaos_tomb_blade",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_main_effect_ability_enable_chaos_tomb_blade",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_main_weapon_passive_chaos_tomb_blade",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_chaos_tomb_blade",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_area_of_regeneration",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
+                  "onscreen_name": "Regeneration (Area)"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Chaos Tomb Blade",
+                "effect_range": 30,
+                "num_effected_friendly_units": 3,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "Leadership is higher than broken",
+                  "In melee",
+                  "Battle outcome is undecided"
+                ],
+                "ui_effects": [
+                  {
+                    "key": "wh_main_all_replenish",
+                    "localised_text": "Replenishes hit points of combatants",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_resurrect",
+                    "localised_text": "Resurrects dead combatants",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_resurrect_hp",
+                    "localised_text": "Heals injured before resurrecting",
+                    "effect_state": "positive"
+                  }
+                ],
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_chaos_tomb_blade",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": true,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "heal_amount": 0.002,
+                    "hp_change_frequency": 1,
+                    "resurrect": true,
+                    "stat_effects": [
+                      {
+                        "value": 5,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "+5 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
         },
         {
           "description": "Dark Insight generated: +1 per turn",
           "key": "vmp_resource_kemmler_items",
           "icon": "vanilla3/campaign_ui/effect_bundles/bloodline_necrarch"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_heinrich_kemmler",
+        "name": "Grave Goods",
+        "description": "The veil between life and death is a fragile thing; with the right tools, one might easily break through.",
+        "contains": [
+          {
+            "name": "Skull Staff",
+            "icon": "skins/default/equipment_items_arcane"
+          },
+          {
+            "name": "Cloak of Mists & Shadows",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "Chaos Tomb Blade",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          },
+          {
+            "description": "Raise dead cost: -10%\n\t(Lord's army)",
+            "key": "wh_main_effect_raise_dead_recruitment_cost_mod",
+            "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
+            "priority": 1000
+          }
+        ]
+      }
     },
     {
       "key": "wh_main_anc_enchanted_item_cloak_of_mists_and_shadows",
@@ -5177,19 +5271,57 @@
           "key": "vmp_resource_kemmler_items",
           "icon": "vanilla3/campaign_ui/effect_bundles/bloodline_necrarch"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_heinrich_kemmler",
+        "name": "Grave Goods",
+        "description": "The veil between life and death is a fragile thing; with the right tools, one might easily break through.",
+        "contains": [
+          {
+            "name": "Skull Staff",
+            "icon": "skins/default/equipment_items_arcane"
+          },
+          {
+            "name": "Cloak of Mists & Shadows",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "Chaos Tomb Blade",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          },
+          {
+            "description": "Raise dead cost: -10%\n\t(Lord's army)",
+            "key": "wh_main_effect_raise_dead_recruitment_cost_mod",
+            "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
+            "priority": 1000
+          }
+        ]
+      }
     },
     {
-      "key": "wh_main_anc_weapon_chaos_tomb_blade",
-      "onscreen_name": "Chaos Tomb Blade",
-      "colour_text": "",
-      "ui_icon": "skins/default/equipment_items_weapon",
-      "unlocked_at_rank": 7,
+      "key": "wh_main_anc_arcane_item_skull_staff",
+      "onscreen_name": "Skull Staff",
+      "colour_text": "The jaws of the Skull Staff chatter and gnash, warning Kemmler of baleful magic in his vicinity.",
+      "ui_icon": "skins/default/equipment_items_arcane",
+      "unlocked_at_rank": 17,
       "effects": [
         {
-          "description": "Casualty replenishment rate: +10%\n\t(Lord's army)",
-          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
-          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+          "description": "Magic item drop chance: +10%",
+          "key": "wh_main_effect_character_mod_ancillary_drop",
+          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+        },
+        {
+          "description": "Vampiric corruption: +5\n\t(local province)",
+          "key": "wh3_main_effect_corruption_vampiric_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
         },
         {
           "description": "Melee attack: +5",
@@ -5197,97 +5329,64 @@
           "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
         },
         {
-          "description": "Enables magical attacks",
-          "key": "wh_main_effect_character_stat_enable_magic_attacks",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
+          "description": "Spell resistance: 25%",
+          "key": "wh_main_effect_character_stat_magic_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
         },
         {
-          "description": "Weapon strength: +10%",
-          "key": "wh_main_effect_character_stat_weapon_strength",
-          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+          "description": "Winds of Magic cost: -5 for \"Vanhel's Danse Macabre\"",
+          "key": "wh2_main_effect_ability_wom_cost_vanhels_danse_macabre",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
         },
         {
-          "description": "Passive ability: \"Chaos Tomb Blade\"",
-          "key": "wh_main_effect_ability_enable_chaos_tomb_blade",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh_main_effect_ability_enable_chaos_tomb_blade",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh_main_weapon_passive_chaos_tomb_blade",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_chaos_tomb_blade",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_area_of_regeneration",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-                  "onscreen_name": "Regeneration (Area)"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "Chaos Tomb Blade",
-                "effect_range": 30,
-                "num_effected_friendly_units": 3,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "enabled_if": [
-                  "Leadership is higher than broken",
-                  "In melee",
-                  "Battle outcome is undecided"
-                ],
-                "ui_effects": [
-                  {
-                    "key": "wh_main_all_replenish",
-                    "localised_text": "Replenishes hit points of combatants",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_main_all_resurrect",
-                    "localised_text": "Resurrects dead combatants",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_main_all_resurrect_hp",
-                    "localised_text": "Heals injured before resurrecting",
-                    "effect_state": "positive"
-                  }
-                ],
-                "phases": [
-                  {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_chaos_tomb_blade",
-                    "order": 1,
-                    "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": true,
-                    "duration": -1,
-                    "effect_type": "positive",
-                    "is_hidden_in_ui": false,
-                    "heal_amount": 0.002,
-                    "hp_change_frequency": 1,
-                    "resurrect": true,
-                    "stat_effects": [
-                      {
-                        "value": 5,
-                        "stat": "stat_melee_attack",
-                        "how": "add",
-                        "description": "+5 Melee Attack",
-                        "icon": "vanilla3/skins/default/icon_stat_attack"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          ]
+          "description": "Winds of Magic cost: -5 for \"Vanhel's Danse Macabre Upgraded\"",
+          "key": "wh2_main_effect_ability_wom_cost_vanhels_danse_macabre_upgraded",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+        },
+        {
+          "description": "Miscast base chance: -10%",
+          "key": "wh_main_effect_character_stat_miscast",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
         },
         {
           "description": "Dark Insight generated: +1 per turn",
           "key": "vmp_resource_kemmler_items",
           "icon": "vanilla3/campaign_ui/effect_bundles/bloodline_necrarch"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_heinrich_kemmler",
+        "name": "Grave Goods",
+        "description": "The veil between life and death is a fragile thing; with the right tools, one might easily break through.",
+        "contains": [
+          {
+            "name": "Skull Staff",
+            "icon": "skins/default/equipment_items_arcane"
+          },
+          {
+            "name": "Cloak of Mists & Shadows",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "Chaos Tomb Blade",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          },
+          {
+            "description": "Raise dead cost: -10%\n\t(Lord's army)",
+            "key": "wh_main_effect_raise_dead_recruitment_cost_mod",
+            "icon": "vanilla3/campaign_ui/effect_bundles/treasury",
+            "priority": 1000
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [

@@ -1948,7 +1948,7 @@
                 {
                   "key": "rampage",
                   "description": "Removes ➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "vanilla3/battle_ui/ability_icons/rampage"
                 }
               ]
@@ -2014,6 +2014,166 @@
       }
     ]
   },
+  "items": [
+    {
+      "key": "wh2_dlc12_anc_arcane_item_standard_of_the_sacred_serpent",
+      "onscreen_name": "Standard of the Sacred Serpent",
+      "colour_text": "A huge golden serpent coiled around a standard-pole, which comes to life writhing, hissing and spitting when the bearer's enemies approach.",
+      "ui_icon": "skins/default/equipment_items_arcane",
+      "effects": [
+        {
+          "description": "Control: +3\n\t(local province)",
+          "key": "wh_main_effect_public_order_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+        },
+        {
+          "description": "Casualty replenishment rate: +3%\n\t(Hero's army)",
+          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+        },
+        {
+          "description": "Attribute: Causes Terror when fighting against Warriors of Chaos, Chaos Dwarfs, Daemons of Chaos and Norsca\n\t(accompanying Lord)",
+          "key": "wh2_main_effect_attribute_enable_causes_terror_vs_chs",
+          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+          "related_attributes": [
+            {
+              "key": "causes_terror",
+              "description": " Can Cause Terror",
+              "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_dlc12_anc_armour_glyph_of_potec",
+      "onscreen_name": "Glyph of Potec",
+      "colour_text": "Lord Kroak's spirit is vulnerable to supernatural forces, so his bindings are inscribed with the arcane glyph, increasing damage caused to Undead aggressors.",
+      "ui_icon": "skins/default/equipment_items_armour",
+      "effects": [
+        {
+          "description": "Melee defence: +8",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+        },
+        {
+          "description": "Weapon strength: +18% when fighting against Vampire Counts, Vampire Coast and Tomb Kings",
+          "key": "wh2_main_effect_character_stat_weapon_strength_vs_undead",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Ward save: 5%\n\t(accompanying Lord)",
+          "key": "wh_main_effect_character_stat_ward_save",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+        }
+      ]
+    },
+    {
+      "key": "wh2_dlc12_anc_enchanted_item_golden_death_mask",
+      "onscreen_name": "Golden Death Mask",
+      "colour_text": "Lord Kroak’s death mask protects the mummified head of the venerable Relic Priest. The hypnotic effect of the mask hinders any and all foes trying to attack him.",
+      "ui_icon": "skins/default/equipment_items_enchanted",
+      "effects": [
+        {
+          "description": "Melee defence: +5",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+        },
+        {
+          "description": "Missile resistance: 10%",
+          "key": "wh_main_effect_character_stat_missile_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+        },
+        {
+          "description": "Passive ability: \"Golden Death Mask\"",
+          "key": "wh2_dlc12_effect_ability_enable_golden_death_mask",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh2_dlc12_effect_ability_enable_golden_death_mask",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh2_dlc12_item_passive_golden_death_mask",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_magic_item_passive_armour",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_area_of_hexes",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                  "onscreen_name": "Hex (Area)"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Golden Death Mask",
+                "effect_range": 55,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "phases": [
+                  {
+                    "icon": "wh2_dlc12_item_passive_golden_death_mask",
+                    "order": 1,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "negative",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": -8,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "-8 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh2_dlc12_anc_talisman_amulet_of_itza",
+      "onscreen_name": "Amulet of Itza",
+      "colour_text": "This lizard-shaped crystal amulet protects Lord Kroak's mummified remains from hostile magic spells by dispelling them harmlessly.",
+      "ui_icon": "skins/default/equipment_items_talisman",
+      "effects": [
+        {
+          "description": "Winds of Magic power reserve capacity: +10",
+          "key": "wh3_main_effect_winds_of_magic_pool_cap",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+        },
+        {
+          "description": "Spell resistance: 30%",
+          "key": "wh_main_effect_character_stat_magic_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+        }
+      ]
+    },
+    {
+      "key": "wh2_dlc12_anc_weapon_ceremonial_mace_of_malachite",
+      "onscreen_name": "Ceremonial Mace of Malachite",
+      "colour_text": "Though he cannot swing it as before, the mace's magical power remains just as useful to Lord Kroak now, negating any magical hand-weapon used against him.",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "effects": [
+        {
+          "description": "Weapon strength: +10%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Spell resistance: 15%\n\t(Hero's army)",
+          "key": "wh_main_effect_force_stat_magic_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "wh2_dlc12_skill_node_lzd_lord_kroak_innate",

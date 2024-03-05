@@ -102,7 +102,7 @@
       {
         "key": "wh2_dlc17_skill_node_vmp_vlad_von_carstein_unique_10",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "wh_main_skill_vmp_lord_unique_loremaster_lore_of_vampires",
+        "character_skill_key": "wh_main_skill_vmp_vlad_unique_loremaster_lore_of_vampires",
         "tier": 6,
         "indent": 0,
         "points_on_creation": 0,
@@ -272,8 +272,8 @@
                 ]
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Curse of Years\"",
-                "key": "wh2_main_effect_ability_wom_cost_curse_of_years",
+                "description": "Winds of Magic cost: -2 for \"Transformation of Kadon\"",
+                "key": "wh2_dlc11_effect_ability_wom_cost_transformation_of_kadon_varghulf",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
@@ -4312,7 +4312,7 @@
       {
         "key": "undead",
         "description": "Undead",
-        "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+        "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
         "icon": "sfo3/battle_ui/ability_icons/undead"
       },
       {
@@ -4870,6 +4870,137 @@
   },
   "items": [
     {
+      "key": "wh_dlc04_anc_weapon_blood_drinker",
+      "onscreen_name": "Blood Drinker",
+      "colour_text": "This accursed blade drinks deep of its victim's blood, restoring vigour and strength to the one who brandishes it.",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "unlocked_at_rank": 7,
+      "effects": [
+        {
+          "description": "Income from post-battle loot: +10%",
+          "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/income"
+        },
+        {
+          "description": "Vampiric corruption: +5\n\t(local province)",
+          "key": "wh3_main_effect_corruption_vampiric_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
+        },
+        {
+          "description": "Recruitment cost: -10% for all units\n\t(own army)",
+          "key": "wh_main_effect_force_all_campaign_recruitment_cost_all",
+          "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+        },
+        {
+          "description": "Melee attack: +5",
+          "key": "wh_main_effect_character_stat_melee_attack",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+        },
+        {
+          "description": "Enables magical attacks",
+          "key": "wh_main_effect_character_stat_enable_magic_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
+        },
+        {
+          "description": "Weapon strength: +10%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Passive ability: \"Blood Drinker\"",
+          "key": "wh_dlc04_effect_ability_enable_blood_drinker",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_dlc04_effect_ability_enable_blood_drinker",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_dlc04_weapon_passive_blood_drinker",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_magic_item_passive_weapon",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_regeneration",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                  "onscreen_name": "Regeneration"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Blood Drinker",
+                "effect_range": 0,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "In melee",
+                  "Battle outcome is undecided"
+                ],
+                "ui_effects": [
+                  {
+                    "key": "wh_main_all_replenish",
+                    "localised_text": "Replenishes hit points of combatants",
+                    "effect_state": "positive"
+                  }
+                ],
+                "phases": [
+                  {
+                    "icon": "wh_dlc04_weapon_passive_blood_drinker",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "heal_amount": 0.002,
+                    "hp_change_frequency": 1,
+                    "stat_effects": [
+                      {
+                        "value": 10,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "+10 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_vlad_con_carstein",
+        "name": "Sanguine Sacrifices",
+        "description": "If Undeath is considered a curse, blood is the only thing that can lift it, albeit only temporarily.",
+        "contains": [
+          {
+            "name": "The Carstein Ring",
+            "icon": "skins/default/equipment_items_talisman"
+          },
+          {
+            "name": "Blood Drinker",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Vampiric corruption: +5\n\t(local province)",
+            "key": "wh3_main_effect_corruption_vampiric_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+            "priority": 104
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
+    },
+    {
       "key": "wh_dlc04_anc_talisman_the_carstein_ring",
       "onscreen_name": "The Carstein Ring",
       "colour_text": "An ancestral ring, set with a gem of deep, sanguine claret that has granted the von Carsteins everlasting Undeath.",
@@ -4971,107 +5102,67 @@
             }
           ]
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_vlad_con_carstein",
+        "name": "Sanguine Sacrifices",
+        "description": "If Undeath is considered a curse, blood is the only thing that can lift it, albeit only temporarily.",
+        "contains": [
+          {
+            "name": "The Carstein Ring",
+            "icon": "skins/default/equipment_items_talisman"
+          },
+          {
+            "name": "Blood Drinker",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Vampiric corruption: +5\n\t(local province)",
+            "key": "wh3_main_effect_corruption_vampiric_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+            "priority": 104
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     },
     {
-      "key": "wh_dlc04_anc_weapon_blood_drinker",
-      "onscreen_name": "Blood Drinker",
-      "colour_text": "This accursed blade drinks deep of its victim's blood, restoring vigour and strength to the one who brandishes it.",
-      "ui_icon": "skins/default/equipment_items_weapon",
-      "unlocked_at_rank": 7,
+      "key": "vmp_item_vlad_emperor",
+      "onscreen_name": "Vlad's Emperor Armour",
+      "colour_text": "Elected sovereign, Protector of the Empire, Defiler of the Dark and wielder of Skull Splitter.",
+      "ui_icon": "skins/default/equipment_items_armour",
       "effects": [
         {
-          "description": "Income from post-battle loot: +10%",
-          "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
-          "icon": "vanilla3/campaign_ui/effect_bundles/income"
+          "description": "Control: +5\n\t(own local province)",
+          "key": "wh_main_effect_public_order_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
         },
         {
-          "description": "Vampiric corruption: +5\n\t(local province)",
-          "key": "wh3_main_effect_corruption_vampiric_characters",
-          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
+          "description": "Hit points: +15%",
+          "key": "wh_main_effect_character_stat_unit_health",
+          "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
         },
         {
-          "description": "Recruitment cost: -10% for all units\n\t(own army)",
+          "description": "Recruitment cost: -25% for all units\n\t(Lord's army)",
           "key": "wh_main_effect_force_all_campaign_recruitment_cost_all",
           "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
         },
         {
-          "description": "Melee attack: +5",
-          "key": "wh_main_effect_character_stat_melee_attack",
-          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+          "description": "Leadership aura size: +100%",
+          "key": "wh_main_effect_character_stat_leadership_aura_size",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
         },
         {
-          "description": "Enables magical attacks",
-          "key": "wh_main_effect_character_stat_enable_magic_attacks",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
-        },
-        {
-          "description": "Weapon strength: +10%",
-          "key": "wh_main_effect_character_stat_weapon_strength",
-          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-        },
-        {
-          "description": "Passive ability: \"Blood Drinker\"",
-          "key": "wh_dlc04_effect_ability_enable_blood_drinker",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh_dlc04_effect_ability_enable_blood_drinker",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh_dlc04_weapon_passive_blood_drinker",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_magic_item_passive_weapon",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_regeneration",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                  "onscreen_name": "Regeneration"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "Blood Drinker",
-                "effect_range": 0,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "enabled_if": [
-                  "In melee",
-                  "Battle outcome is undecided"
-                ],
-                "ui_effects": [
-                  {
-                    "key": "wh_main_all_replenish",
-                    "localised_text": "Replenishes hit points of combatants",
-                    "effect_state": "positive"
-                  }
-                ],
-                "phases": [
-                  {
-                    "icon": "wh_dlc04_weapon_passive_blood_drinker",
-                    "order": 1,
-                    "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": false,
-                    "duration": -1,
-                    "effect_type": "positive",
-                    "is_hidden_in_ui": false,
-                    "heal_amount": 0.002,
-                    "hp_change_frequency": 1,
-                    "stat_effects": [
-                      {
-                        "value": 10,
-                        "stat": "stat_melee_attack",
-                        "how": "add",
-                        "description": "+10 Melee Attack",
-                        "icon": "vanilla3/skins/default/icon_stat_attack"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          ]
+          "description": "Physical resistance: 20% for Sylvanian Crossbowmen and Sylvanian Handgunners units\n\t(own armies factionwide)",
+          "key": "vmp_levies_res_physical",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
         }
       ]
     }

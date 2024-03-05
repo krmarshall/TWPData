@@ -72,7 +72,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 }
               ],
@@ -391,7 +391,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 },
                 {
@@ -774,7 +774,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 },
                 {
@@ -7887,7 +7887,7 @@
       {
         "key": "undead",
         "description": "Undead",
-        "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+        "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
         "icon": "sfo3/battle_ui/ability_icons/undead"
       }
     ],
@@ -8208,6 +8208,121 @@
   },
   "items": [
     {
+      "key": "wh_main_anc_weapon_sword_of_unholy_power",
+      "onscreen_name": "Sword of Unholy Power",
+      "colour_text": "",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "unlocked_at_rank": 7,
+      "effects": [
+        {
+          "description": "Income from post-battle loot: +10%",
+          "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/income"
+        },
+        {
+          "description": "Vampiric corruption: +5\n\t(local province)",
+          "key": "wh3_main_effect_corruption_vampiric_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
+        },
+        {
+          "description": "Recruitment cost: -10% for all units\n\t(Lord's army)",
+          "key": "wh_main_effect_force_all_campaign_recruitment_cost_all",
+          "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+        },
+        {
+          "description": "Melee attack: +5",
+          "key": "wh_main_effect_character_stat_melee_attack",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+        },
+        {
+          "description": "Enables magical attacks",
+          "key": "wh_main_effect_character_stat_enable_magic_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
+        },
+        {
+          "description": "Weapon strength: +10%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Passive ability: \"Sword of Unholy Power\"",
+          "key": "wh_main_effect_ability_enable_sword_of_unholy_power",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_main_effect_ability_enable_sword_of_unholy_power",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_main_weapon_passive_sword_of_unholy_power",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_sword_of_unholy_power",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment_of_the_winds",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                  "onscreen_name": "Augment of the Winds"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Sword of Unholy Power",
+                "effect_range": 0,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "In melee"
+                ],
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_sword_of_unholy_power",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "onscreen_name": "Sword of Unholy Power",
+                    "is_hidden_in_ui": false,
+                    "mana_max_depletion_mod": 0.1,
+                    "mana_regen_mod": 0.6
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_mannfred_von_carstein",
+        "name": "Sorceries of Sylvania",
+        "description": "In Sylvania, magic and blood are weaved together as one.",
+        "contains": [
+          {
+            "name": "Armour of Templehof",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Sword of Unholy Power",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Winds of Magic power reserve capacity: +10\n\t(Lord's army)",
+            "key": "wh3_main_effect_winds_of_magic_pool_cap",
+            "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign",
+            "priority": 3
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
+    },
+    {
       "key": "wh_main_anc_armour_armour_of_templehof",
       "onscreen_name": "Armour of Templehof",
       "colour_text": "A product of twisted sorcery, this construct fuses with the wearer, giving him tremendous endurance.",
@@ -8301,93 +8416,36 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "key": "wh_main_anc_weapon_sword_of_unholy_power",
-      "onscreen_name": "Sword of Unholy Power",
-      "colour_text": "",
-      "ui_icon": "skins/default/equipment_items_weapon",
-      "unlocked_at_rank": 7,
-      "effects": [
-        {
-          "description": "Income from post-battle loot: +10%",
-          "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
-          "icon": "vanilla3/campaign_ui/effect_bundles/income"
-        },
-        {
-          "description": "Vampiric corruption: +5\n\t(local province)",
-          "key": "wh3_main_effect_corruption_vampiric_characters",
-          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
-        },
-        {
-          "description": "Recruitment cost: -10% for all units\n\t(Lord's army)",
-          "key": "wh_main_effect_force_all_campaign_recruitment_cost_all",
-          "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
-        },
-        {
-          "description": "Melee attack: +5",
-          "key": "wh_main_effect_character_stat_melee_attack",
-          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-        },
-        {
-          "description": "Enables magical attacks",
-          "key": "wh_main_effect_character_stat_enable_magic_attacks",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
-        },
-        {
-          "description": "Weapon strength: +10%",
-          "key": "wh_main_effect_character_stat_weapon_strength",
-          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-        },
-        {
-          "description": "Passive ability: \"Sword of Unholy Power\"",
-          "key": "wh_main_effect_ability_enable_sword_of_unholy_power",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh_main_effect_ability_enable_sword_of_unholy_power",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh_main_weapon_passive_sword_of_unholy_power",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_sword_of_unholy_power",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_augment_of_the_winds",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                  "onscreen_name": "Augment of the Winds"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "Sword of Unholy Power",
-                "effect_range": 0,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "enabled_if": [
-                  "In melee"
-                ],
-                "phases": [
-                  {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_sword_of_unholy_power",
-                    "order": 1,
-                    "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": false,
-                    "duration": -1,
-                    "effect_type": "positive",
-                    "onscreen_name": "Sword of Unholy Power",
-                    "is_hidden_in_ui": false,
-                    "mana_max_depletion_mod": 0.1,
-                    "mana_regen_mod": 0.6
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_mannfred_von_carstein",
+        "name": "Sorceries of Sylvania",
+        "description": "In Sylvania, magic and blood are weaved together as one.",
+        "contains": [
+          {
+            "name": "Armour of Templehof",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Sword of Unholy Power",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Winds of Magic power reserve capacity: +10\n\t(Lord's army)",
+            "key": "wh3_main_effect_winds_of_magic_pool_cap",
+            "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign",
+            "priority": 3
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [

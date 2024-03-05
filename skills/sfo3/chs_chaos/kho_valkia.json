@@ -4,7 +4,7 @@
     [
       {
         "key": "wh3_dlc20_skill_node_valkia_authority",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_khorne_corruption",
+        "image_path": "vanilla3/campaign_ui/skills/character_khorne_corruption",
         "character_skill_key": "wh3_dlc20_skill_authority_kho_lord",
         "tier": 1,
         "indent": 0,
@@ -837,7 +837,7 @@
                   {
                     "key": "daemonic",
                     "description": "Daemonic",
-                    "bullet_text": "This unit is Daemonic (has physical resistance, does not rout, is immune to terror, takes damage when Leadership is low)",
+                    "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
                     "icon": "sfo3/battle_ui/ability_icons/daemonic"
                   }
                 ]
@@ -1324,30 +1324,30 @@
       },
       {
         "key": "wh3_dlc20_skill_node_kho_valkia_self_11",
-        "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_deadly_onslaught",
-        "character_skill_key": "wh_main_skill_all_all_self_deadly_onslaught",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
+        "character_skill_key": "wh3_dlc24_skill_all_all_self_colossal_strike",
         "tier": 10,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Deadly Onslaught",
-        "localised_description": "The war is endless. The cycle of charging, clashing, and bloody hand-to-hand fighting is without end. It will never stop.",
+        "localised_name": "Colossal Strike",
+        "localised_description": "The bigger they are, the harder they fall.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Ability: \"Deadly Onslaught\"",
-                "key": "wh_main_effect_ability_enable_deadly_onslaught",
+                "description": "Ability: \"Colossal Strike\"",
+                "key": "wh3_dlc24_effect_ability_enable_colossal_strike",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_deadly_onslaught",
+                    "effect": "wh3_dlc24_effect_ability_enable_colossal_strike",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_character_abilities_deadly_onslaught",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+                      "key": "wh3_dlc24_character_abilities_colossal_strike",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_augment",
@@ -1355,10 +1355,10 @@
                         "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Deadly Onslaught",
-                      "active_time": 30,
+                      "onscreen_name": "Colossal Strike",
+                      "active_time": 32,
                       "effect_range": 0,
-                      "recharge_time": 120,
+                      "recharge_time": 90,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -1366,12 +1366,12 @@
                       "target_intercept_range": 0,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
-                          "duration": 30,
+                          "duration": 32,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
@@ -1383,18 +1383,11 @@
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 1.5,
-                              "stat": "scalar_splash_attack_power",
-                              "how": "mult",
-                              "description": "x1.5 Splash Attack Power",
-                              "icon": "vanilla3/skins/default/icon_stat_damage"
-                            },
-                            {
-                              "value": 1.5,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x1.5 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                              "value": 16,
+                              "stat": "stat_bonus_vs_large",
+                              "how": "add",
+                              "description": "+16 Bonus vs. Large",
+                              "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
                             },
                             {
                               "value": 1.25,
@@ -1406,10 +1399,10 @@
                           ],
                           "attributes": [
                             {
-                              "key": "ogre_charge",
-                              "description": "Unstoppable Charge",
-                              "bullet_text": "When attacking braced charge defenders, this unit only loses half of its charge bonus.",
-                              "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                              "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                             }
                           ]
                         }
@@ -3174,7 +3167,46 @@
           "key": "wh_main_effect_character_stat_ward_save",
           "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_dlc20_ancillary_set_chs_valkia",
+        "name": "The Fellsteel of Gore",
+        "description": "Just like her own diabolic form, the Gorequeen’s assemblage of armaments were reforged in Khorne’s realm.",
+        "contains": [
+          {
+            "name": "The Scarlet Armour",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Daemonshield",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "The Spear Slaupnir",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Speed: +10%",
+            "key": "wh_main_effect_character_stat_speed",
+            "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character",
+            "priority": 120
+          },
+          {
+            "description": "Control: -5\n\t(enemy local province)",
+            "key": "wh_main_effect_public_order_characters_negative",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 101
+          },
+          {
+            "description": "Upkeep: -5% for Khorne Daemon units\n\t(all armies factionwide)",
+            "key": "wh3_dlc20_effect_upkeep_kho_daemons",
+            "icon": "vanilla3/campaign_ui/effect_bundles/military_spending",
+            "priority": 105
+          }
+        ]
+      }
     },
     {
       "key": "wh3_dlc20_anc_enchanted_item_daemonshield",
@@ -3287,7 +3319,46 @@
           "key": "wh_main_effect_character_stat_leadership_aura_size",
           "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_dlc20_ancillary_set_chs_valkia",
+        "name": "The Fellsteel of Gore",
+        "description": "Just like her own diabolic form, the Gorequeen’s assemblage of armaments were reforged in Khorne’s realm.",
+        "contains": [
+          {
+            "name": "The Scarlet Armour",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Daemonshield",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "The Spear Slaupnir",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Speed: +10%",
+            "key": "wh_main_effect_character_stat_speed",
+            "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character",
+            "priority": 120
+          },
+          {
+            "description": "Control: -5\n\t(enemy local province)",
+            "key": "wh_main_effect_public_order_characters_negative",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 101
+          },
+          {
+            "description": "Upkeep: -5% for Khorne Daemon units\n\t(all armies factionwide)",
+            "key": "wh3_dlc20_effect_upkeep_kho_daemons",
+            "icon": "vanilla3/campaign_ui/effect_bundles/military_spending",
+            "priority": 105
+          }
+        ]
+      }
     },
     {
       "key": "wh3_dlc20_anc_weapon_the_spear_slaupnir",
@@ -3381,7 +3452,46 @@
           "key": "wh_main_effect_character_stat_bonus_vs_large",
           "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_dlc20_ancillary_set_chs_valkia",
+        "name": "The Fellsteel of Gore",
+        "description": "Just like her own diabolic form, the Gorequeen’s assemblage of armaments were reforged in Khorne’s realm.",
+        "contains": [
+          {
+            "name": "The Scarlet Armour",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Daemonshield",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "The Spear Slaupnir",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Speed: +10%",
+            "key": "wh_main_effect_character_stat_speed",
+            "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character",
+            "priority": 120
+          },
+          {
+            "description": "Control: -5\n\t(enemy local province)",
+            "key": "wh_main_effect_public_order_characters_negative",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 101
+          },
+          {
+            "description": "Upkeep: -5% for Khorne Daemon units\n\t(all armies factionwide)",
+            "key": "wh3_dlc20_effect_upkeep_kho_daemons",
+            "icon": "vanilla3/campaign_ui/effect_bundles/military_spending",
+            "priority": 105
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [

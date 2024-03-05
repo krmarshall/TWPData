@@ -689,10 +689,641 @@
         ]
       },
       {
+        "key": "wh3_main_skill_node_ksl_katarin_generic_09",
+        "image_path": "vanilla3/campaign_ui/skills/mount_frost_wyrm",
+        "character_skill_key": "wh3_dlc24_skill_ksl_katarin_unique_frost_wyrm",
+        "tier": 2,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Frost Wyrm",
+        "localised_description": "To bring fear and panic to a battlefield, few other than the Ice Court’s most accomplished can wrangle a deadly ice drake into their service.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Frost Wyrm",
+                "key": "wh3_dlc24_effect_enable_mount_frost_wyrm",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 7,
+              "mass": 3500,
+              "size": "very_large",
+              "hit_points": 8,
+              "bonus_hit_points": 8346,
+              "armour": 80,
+              "missile_block_chance": 0,
+              "morale": 80,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 25,
+              "damage_mod_all": 0,
+              "melee_attack": 48,
+              "melee_defence": 35,
+              "charge_bonus": 50,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 135,
+              "ap_damage": 310,
+              "splash_target_size_limit": "large",
+              "splash_attack_max_attacks": 6,
+              "melee_attack_interval": 3.6,
+              "barrier": 0,
+              "can_siege": true,
+              "fly_speed": 0,
+              "contact_phase": {
+                "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_contact_frostbite",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 10,
+                "effect_type": "negative",
+                "onscreen_name": "Frostbite!",
+                "is_hidden_in_ui": false,
+                "stat_effects": [
+                  {
+                    "value": 0.6,
+                    "stat": "scalar_speed",
+                    "how": "mult",
+                    "description": "x0.6 Speed",
+                    "icon": "vanilla3/skins/default/icon_stat_speed"
+                  }
+                ]
+              },
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                },
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/battle_ui/ability_icons/encourages"
+                }
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_by_our_blood",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_by_our_blood",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "By Our Blood",
+                    "active_time": 30,
+                    "effect_range": 50,
+                    "num_effected_enemy_units": 1,
+                    "num_effected_friendly_units": 1,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is wavering or lower"
+                    ],
+                    "target_if": [
+                      "Unit is not Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_by_our_blood",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "attributes": [
+                          {
+                            "key": "unbreakable",
+                            "description": " Unbreakable",
+                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                            "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "wh3_main_unit_passive_by_our_blood_ally",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+5 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "wh3_main_unit_passive_by_our_blood_enemy",
+                        "order": 3,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.9,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": -5,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "-5 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 18
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_ksl_katarin_generic_08",
+        "image_path": "vanilla3/campaign_ui/skills/mount_sled",
+        "character_skill_key": "wh3_dlc24_skill_ksl_katarin_unique_ice_court_sled",
+        "tier": 3,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Ice Court Sled",
+        "localised_description": "The Ice Court’s reinforced sled is drawn by mighty steeds with breath like the winter wind, and whose flanks shimmer with glittering ice crystals.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Ice Court Sled",
+                "key": "wh3_dlc24_effect_enable_mount_ice_court_sled",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 9,
+              "mass": 2200,
+              "size": "very_large",
+              "hit_points": 8,
+              "bonus_hit_points": 7260,
+              "armour": 110,
+              "missile_block_chance": 0,
+              "morale": 80,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 50,
+              "melee_defence": 25,
+              "charge_bonus": 80,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 30,
+              "damage": 130,
+              "ap_damage": 320,
+              "splash_target_size_limit": "very_large",
+              "splash_attack_max_attacks": 4,
+              "melee_attack_interval": 4,
+              "barrier": 0,
+              "can_siege": true,
+              "fly_speed": 0,
+              "is_magical": true,
+              "contact_phase": {
+                "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_contact_frostbite",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 10,
+                "effect_type": "negative",
+                "onscreen_name": "Frostbite!",
+                "is_hidden_in_ui": false,
+                "stat_effects": [
+                  {
+                    "value": 0.6,
+                    "stat": "scalar_speed",
+                    "how": "mult",
+                    "description": "x0.6 Speed",
+                    "icon": "vanilla3/skins/default/icon_stat_speed"
+                  }
+                ]
+              },
+              "projectile": {
+                "key": "wh3_dlc24_ksl_bow_katarin_sled",
+                "damage": 25,
+                "ap_damage": 75,
+                "shockwave_radius": -1,
+                "effective_range": 160,
+                "base_reload_time": 10,
+                "is_magical": true,
+                "can_damage_allies": true,
+                "explosion_type": {
+                  "key": "wh3_dlc24_ksl_bow_katarin_sled_ice_shard",
+                  "affects_allies": true,
+                  "detonation_damage": 0,
+                  "detonation_damage_ap": 30,
+                  "detonation_radius": 3,
+                  "is_magical": true,
+                  "contact_phase_effect": {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_contact_frostbite",
+                    "order": 1,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": true,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Frostbite!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 0.6,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.6 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      }
+                    ]
+                  }
+                },
+                "contact_stat_effect": {
+                  "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_contact_frostbite",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": true,
+                  "duration": 10,
+                  "effect_type": "negative",
+                  "onscreen_name": "Frostbite!",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": 0.6,
+                      "stat": "scalar_speed",
+                      "how": "mult",
+                      "description": "x0.6 Speed",
+                      "icon": "vanilla3/skins/default/icon_stat_speed"
+                    }
+                  ]
+                }
+              },
+              "accuracy": 10,
+              "reload": 0,
+              "primary_ammo": 40,
+              "fire_arc": 360,
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/battle_ui/ability_icons/encourages"
+                },
+                {
+                  "key": "hide_forest",
+                  "description": "Hide (forest)",
+                  "bullet_text": "This unit can hide in forests until enemy units get too close.",
+                  "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+                },
+                {
+                  "key": "strider",
+                  "description": " Strider",
+                  "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                  "icon": "sfo3/battle_ui/ability_icons/strider"
+                }
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_by_our_blood",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_by_our_blood",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "By Our Blood",
+                    "active_time": 30,
+                    "effect_range": 50,
+                    "num_effected_enemy_units": 1,
+                    "num_effected_friendly_units": 1,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is wavering or lower"
+                    ],
+                    "target_if": [
+                      "Unit is not Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_by_our_blood",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "attributes": [
+                          {
+                            "key": "unbreakable",
+                            "description": " Unbreakable",
+                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                            "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "wh3_main_unit_passive_by_our_blood_ally",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+5 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "wh3_main_unit_passive_by_our_blood_enemy",
+                        "order": 3,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.9,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": -5,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "-5 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 23
+          }
+        ]
+      },
+      {
         "key": "wh3_main_skill_node_ksl_katarin_generic_05",
         "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
         "character_skill_key": "wh3_main_skill_ksl_all_unique_missile_resist",
-        "tier": 2,
+        "tier": 4,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -717,7 +1348,7 @@
         "key": "wh3_main_skill_node_ksl_katarin_generic_06",
         "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_guardian_call",
         "character_skill_key": "wh3_main_skill_ksl_wizard_unique_guardian_call",
-        "tier": 3,
+        "tier": 5,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -897,7 +1528,7 @@
         "key": "wh3_main_skill_node_ksl_katarin_generic_07",
         "image_path": "sfo3/battle_ui/ability_icons/stalk",
         "character_skill_key": "wh3_main_skill_ksl_katarin_unique_snow_leopard_buffs",
-        "tier": 4,
+        "tier": 6,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -2436,6 +3067,13 @@
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
+                              "value": 0.75,
+                              "stat": "scalar_entity_acceleration_modifier",
+                              "how": "mult",
+                              "description": "x0.75 Acceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
                               "value": 0.7,
                               "stat": "scalar_speed",
                               "how": "mult",
@@ -2507,6 +3145,13 @@
                               "stat": "scalar_charge_speed",
                               "how": "mult",
                               "description": "x0.7 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 0.75,
+                              "stat": "scalar_entity_acceleration_modifier",
+                              "how": "mult",
+                              "description": "x0.75 Acceleration",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
@@ -3964,7 +4609,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for War Bear Riders, Elemental Bear, Snow Leopard, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Snow Leopard, War Bear Riders, Elemental Bear, Spider, Fell Bats, Feral Bears, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_attack_ksl_war_bear_elemental_bear_leopard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -3973,12 +4618,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +6 for War Bear Riders, Elemental Bear, Snow Leopard, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
+                "description": "Melee attack: +6 for Snow Leopard, War Bear Riders, Elemental Bear, Spider, Fell Bats, Feral Bears, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_attack_ksl_war_bear_elemental_bear_leopard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Weapon strength: +8% for War Bear Riders, Elemental Bear, Snow Leopard, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
+                "description": "Weapon strength: +8% for War Bear Riders, Elemental Bear, Spider, Fell Bats, Feral Bears, Snow Leopard, Things in the Woods, Frost Wyrm and Incarnate Elemental of Beasts units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_weapon_strength_ksl_monsters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
@@ -3987,12 +4632,12 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +8 for War Bear Riders, Elemental Bear, Snow Leopard, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
+                "description": "Melee attack: +8 for Snow Leopard, War Bear Riders, Elemental Bear, Spider, Fell Bats, Feral Bears, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_attack_ksl_war_bear_elemental_bear_leopard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Weapon strength: +12% for War Bear Riders, Elemental Bear, Snow Leopard, Things in the Woods and Incarnate Elemental of Beasts units\n\t(Lord's army)",
+                "description": "Weapon strength: +12% for War Bear Riders, Elemental Bear, Spider, Fell Bats, Feral Bears, Snow Leopard, Things in the Woods, Frost Wyrm and Incarnate Elemental of Beasts units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_weapon_strength_ksl_monsters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
@@ -5238,94 +5883,6 @@
   },
   "items": [
     {
-      "key": "wh3_main_anc_armour_the_crystal_cloak",
-      "onscreen_name": "The Crystal Cloak",
-      "colour_text": "Made for the Khan-Queens in ages past, this swirling mist of ice and crystals surrounds the Tzarina, protecting her from harm.",
-      "ui_icon": "skins/default/equipment_items_armour",
-      "unlocked_at_rank": 10,
-      "effects": [
-        {
-          "description": "Armour: +10",
-          "key": "wh_main_effect_character_stat_armour",
-          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-        },
-        {
-          "description": "Enemy Hero action success chance: -10%",
-          "key": "wh_main_effect_agent_action_success_chance_enemy",
-          "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-        },
-        {
-          "description": "Wound recovery time: -2",
-          "key": "wh_main_effect_character_wound_recovery_time_mod",
-          "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
-        },
-        {
-          "description": "Melee defence: +10",
-          "key": "wh_main_effect_character_stat_melee_defence",
-          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-        },
-        {
-          "description": "Ward save: 10%",
-          "key": "wh_main_effect_character_stat_ward_save",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
-        },
-        {
-          "description": "Passive ability: \"The Crystal Cloak\"",
-          "key": "wh3_main_effect_ability_enable_the_crystal_cloak",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh3_main_effect_ability_enable_the_crystal_cloak",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh3_main_item_passive_crystal_cloak",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_magic_item_passive_enchanted",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_augment",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                  "onscreen_name": "Augment"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "The Crystal Cloak",
-                "active_time": 30,
-                "effect_range": 0,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "enabled_if": [
-                  "Casting"
-                ],
-                "phases": [
-                  {
-                    "icon": "wh3_main_item_passive_crystal_cloak",
-                    "order": 1,
-                    "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": false,
-                    "duration": 30,
-                    "effect_type": "positive",
-                    "is_hidden_in_ui": false,
-                    "stat_effects": [
-                      {
-                        "value": 20,
-                        "stat": "stat_resistance_all",
-                        "how": "add",
-                        "description": "+20 Damage Resistance ",
-                        "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "key": "wh3_main_anc_weapon_frost_fang",
       "onscreen_name": "Frost Fang",
       "colour_text": "A single blow landed with this truly deadly magic sword is enough to fell even mighty beasts.",
@@ -5426,7 +5983,153 @@
             }
           ]
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_ksl_raiment_of_office",
+        "name": "Raiment of Office",
+        "description": "The Tzarina's royal articles – worn for ceremonial duties and for war.",
+        "contains": [
+          {
+            "name": "The Crystal Cloak",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Frost Fang",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Allegiance points gained: +50% for alliances with Kislev",
+            "key": "wh3_main_effect_allegiance_points_mod_kislev",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
+    },
+    {
+      "key": "wh3_main_anc_armour_the_crystal_cloak",
+      "onscreen_name": "The Crystal Cloak",
+      "colour_text": "Made for the Khan-Queens in ages past, this swirling mist of ice and crystals surrounds the Tzarina, protecting her from harm.",
+      "ui_icon": "skins/default/equipment_items_armour",
+      "unlocked_at_rank": 10,
+      "effects": [
+        {
+          "description": "Armour: +10",
+          "key": "wh_main_effect_character_stat_armour",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+        },
+        {
+          "description": "Enemy Hero action success chance: -10%",
+          "key": "wh_main_effect_agent_action_success_chance_enemy",
+          "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+        },
+        {
+          "description": "Wound recovery time: -2",
+          "key": "wh_main_effect_character_wound_recovery_time_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+        },
+        {
+          "description": "Melee defence: +10",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+        },
+        {
+          "description": "Ward save: 10%",
+          "key": "wh_main_effect_character_stat_ward_save",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+        },
+        {
+          "description": "Passive ability: \"The Crystal Cloak\"",
+          "key": "wh3_main_effect_ability_enable_the_crystal_cloak",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh3_main_effect_ability_enable_the_crystal_cloak",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh3_main_item_passive_crystal_cloak",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_magic_item_passive_enchanted",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Augment"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "The Crystal Cloak",
+                "active_time": 30,
+                "effect_range": 0,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "Casting"
+                ],
+                "phases": [
+                  {
+                    "icon": "wh3_main_item_passive_crystal_cloak",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": 30,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 20,
+                        "stat": "stat_resistance_all",
+                        "how": "add",
+                        "description": "+20 Damage Resistance ",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_ksl_raiment_of_office",
+        "name": "Raiment of Office",
+        "description": "The Tzarina's royal articles – worn for ceremonial duties and for war.",
+        "contains": [
+          {
+            "name": "The Crystal Cloak",
+            "icon": "skins/default/equipment_items_armour"
+          },
+          {
+            "name": "Frost Fang",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Allegiance points gained: +50% for alliances with Kislev",
+            "key": "wh3_main_effect_allegiance_points_mod_kislev",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [
@@ -5616,6 +6319,13 @@
                             "stat": "scalar_charge_speed",
                             "how": "mult",
                             "description": "x0.7 Charge Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x0.75 Acceleration",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {

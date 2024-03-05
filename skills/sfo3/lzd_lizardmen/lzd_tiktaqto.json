@@ -3003,7 +3003,81 @@
                 {
                   "key": "rampage",
                   "description": "Removes ➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                  "icon": "sfo3/battle_ui/ability_icons/rampage"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh2_main_unit_passive_primal_instincts",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Primal Instincts",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points less than 50%",
+            "Hit Points less than 50% base"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.1 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.1 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+5 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "rampage",
+                  "description": "➖ Rampage!",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "sfo3/battle_ui/ability_icons/rampage"
                 }
               ]
@@ -3126,7 +3200,7 @@
                 {
                   "key": "rampage",
                   "description": "Removes ➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "sfo3/battle_ui/ability_icons/rampage"
                 }
               ]
@@ -3704,7 +3778,150 @@
             }
           ]
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_lzd_tiktaqto",
+        "name": "Terror of the Sky",
+        "description": "The skies above Lustria are home to a number of ferocious beasts — the Cold Ones make use of them all. ",
+        "contains": [
+          {
+            "name": "Mask of Heavens",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "Blade of the Ancient Skies",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Speed: +10% for Terradon Riders, Ripperdactyl Riders and Coatl units\n\t(all armies factionwide)",
+            "key": "wh2_main_effect_force_stat_speed_lzd_terradon",
+            "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement",
+            "priority": 421
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
+    },
+    {
+      "key": "wh2_dlc12_anc_weapon_the_blade_of_ancient_skies",
+      "onscreen_name": "Blade of the Ancient Skies",
+      "colour_text": "Carved from the dense, fossilised jawbone of a monstrous, sky-borne predator that became extinct during ages long past.",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "effects": [
+        {
+          "description": "Control: +2\n\t(all provinces)",
+          "key": "wh_main_effect_public_order_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+        },
+        {
+          "description": "Passive ability: \"Blade of Ancient Skies\"",
+          "key": "wh2_dlc12_effect_ability_enable_blade_of_ancient_skies",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh2_dlc12_effect_ability_enable_blade_of_ancient_skies",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh2_dlc12_weapon_passive_blade_of_the_ancient_skies",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_magic_item_passive_weapon",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Augment"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Blade of the Ancient Skies",
+                "effect_range": 0,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "Flying"
+                ],
+                "phases": [
+                  {
+                    "icon": "wh2_dlc12_weapon_passive_blade_of_the_ancient_skies",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 1.15,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x1.15 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 15,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "+15 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      },
+                      {
+                        "value": 1.15,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x1.15 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "description": "Leadership: +10\n\t(Lord's army)",
+          "key": "wh_main_effect_force_stat_leadership",
+          "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+        }
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_lzd_tiktaqto",
+        "name": "Terror of the Sky",
+        "description": "The skies above Lustria are home to a number of ferocious beasts — the Cold Ones make use of them all. ",
+        "contains": [
+          {
+            "name": "Mask of Heavens",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "Blade of the Ancient Skies",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Speed: +10% for Terradon Riders, Ripperdactyl Riders and Coatl units\n\t(all armies factionwide)",
+            "key": "wh2_main_effect_force_stat_speed_lzd_terradon",
+            "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement",
+            "priority": 421
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [

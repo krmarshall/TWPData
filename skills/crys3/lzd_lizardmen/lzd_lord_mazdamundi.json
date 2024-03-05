@@ -123,8 +123,67 @@
                           {
                             "key": "rampage",
                             "description": "Removes ➖ Rampage!",
-                            "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                             "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_main_unit_passive_primal_instincts",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Primal Instincts",
+                    "effect_range": 0,
+                    "recharge_time": 30,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points less than 50%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 1.15,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.15 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+5 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                           }
                         ]
                       }
@@ -2462,6 +2521,11 @@
                 "description": "Winds of Magic cost: -3 for \"Pit of Shades Upgraded\"",
                 "key": "wh2_main_effect_ability_wom_cost_pit_of_shades_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Miscast base chance: -15% for \"Pit of Shades Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_pit_of_shades_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -6334,7 +6398,7 @@
                 {
                   "key": "rampage",
                   "description": "Removes ➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "vanilla3/battle_ui/ability_icons/rampage"
                 }
               ]
@@ -6498,7 +6562,36 @@
             }
           ]
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_lzd_lord_mazdamundi",
+        "name": "Gifts of the Sun",
+        "description": "The Solar-City is home to many relics and curiosities, each of great use in battle.",
+        "contains": [
+          {
+            "name": "Sunburst Standard of Hexoatl",
+            "icon": "campaign_ui/ancillaries/wh2_main_anc_magic_standard_sunburst_standard_of_hexoatl"
+          },
+          {
+            "name": "Cobra Mace of Mazdamundi",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Allegiance points gained: +50% for alliances with Lizardmen",
+            "key": "wh3_main_effect_allegiance_points_mod_lizardmen",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     },
     {
       "key": "wh2_main_anc_weapon_cobra_mace_of_mazdamundi",
@@ -6582,7 +6675,36 @@
           "key": "wh_main_effect_character_stat_weapon_strength",
           "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_lzd_lord_mazdamundi",
+        "name": "Gifts of the Sun",
+        "description": "The Solar-City is home to many relics and curiosities, each of great use in battle.",
+        "contains": [
+          {
+            "name": "Sunburst Standard of Hexoatl",
+            "icon": "campaign_ui/ancillaries/wh2_main_anc_magic_standard_sunburst_standard_of_hexoatl"
+          },
+          {
+            "name": "Cobra Mace of Mazdamundi",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Allegiance points gained: +50% for alliances with Lizardmen",
+            "key": "wh3_main_effect_allegiance_points_mod_lizardmen",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [

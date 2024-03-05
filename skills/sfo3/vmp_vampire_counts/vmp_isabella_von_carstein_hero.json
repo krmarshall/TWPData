@@ -92,7 +92,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 }
               ],
@@ -547,7 +547,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 },
                 {
@@ -4555,7 +4555,7 @@
       {
         "key": "undead",
         "description": "Undead",
-        "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+        "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
         "icon": "sfo3/battle_ui/ability_icons/undead"
       }
     ],
@@ -4922,6 +4922,98 @@
       }
     ]
   },
+  "items": [
+    {
+      "key": "wh_pro02_anc_enchanted_item_blood_chalice_of_bathori",
+      "onscreen_name": "Blood Chalice of Bathori",
+      "colour_text": "The life essence of many wretched, innocent smallfolk ensures that those who drink from this cursed cup thrive with newfound power.",
+      "ui_icon": "skins/default/equipment_items_enchanted",
+      "effects": [
+        {
+          "description": "Enemy Hero action success chance: -10%",
+          "key": "wh_main_effect_agent_action_success_chance_enemy",
+          "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+        },
+        {
+          "description": "Wound recovery time: -2\n\t(all characters factionwide)",
+          "key": "wh_main_effect_character_wound_recovery_time_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+        },
+        {
+          "description": "Casualty replenishment rate: +10%\n\t(all units in army)",
+          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+        },
+        {
+          "description": "Ward save: 5%",
+          "key": "wh_main_effect_character_stat_ward_save",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+        },
+        {
+          "description": "Ability: \"Blood Chalice of Bathori\"",
+          "key": "wh_pro02_effect_ability_enable_blood_chalice_of_bathori",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_pro02_effect_ability_enable_blood_chalice_of_bathori",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_pro02_item_abilities_blood_chalice_of_bathori",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_pro02_item_blood_chalice_of_bathori",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_regeneration",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                  "onscreen_name": "Regeneration"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Blood Chalice of Bathori",
+                "active_time": 60,
+                "effect_range": 0,
+                "num_effected_friendly_units": 1,
+                "recharge_time": 150,
+                "target_enemies": false,
+                "target_friends": true,
+                "target_ground": false,
+                "target_self": true,
+                "target_intercept_range": 60,
+                "target_if": [
+                  "Unit is a Lord or Hero"
+                ],
+                "ui_effects": [
+                  {
+                    "key": "wh_heal_total_60",
+                    "localised_text": "Restores up to 60% Hit Points",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_replenish_high",
+                    "localised_text": "Replenishes hit points of combatants",
+                    "effect_state": "positive"
+                  }
+                ],
+                "phases": [
+                  {
+                    "icon": "wh_pro02_item_abilities_blood_chalice_of_bathori",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": true,
+                    "duration": 60,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "fatigue_change_ratio": -0.05,
+                    "heal_amount": 0.01,
+                    "hp_change_frequency": 1
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "wh_pro02_skill_node_vmp_isabella_von_carstein_hero_campaign_actions_dummy",

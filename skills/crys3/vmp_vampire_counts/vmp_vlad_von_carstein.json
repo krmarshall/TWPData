@@ -102,7 +102,7 @@
       {
         "key": "wh2_dlc17_skill_node_vmp_vlad_von_carstein_unique_10",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "wh_main_skill_vmp_lord_unique_loremaster_lore_of_vampires",
+        "character_skill_key": "wh_main_skill_vmp_vlad_unique_loremaster_lore_of_vampires",
         "tier": 6,
         "indent": 0,
         "points_on_creation": 0,
@@ -255,8 +255,8 @@
                 ]
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Curse of Years\"",
-                "key": "wh2_main_effect_ability_wom_cost_curse_of_years",
+                "description": "Winds of Magic cost: -2 for \"Transformation of Kadon\"",
+                "key": "wh2_dlc11_effect_ability_wom_cost_transformation_of_kadon_varghulf",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
@@ -7075,7 +7075,7 @@
       {
         "key": "undead",
         "description": "Undead",
-        "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+        "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
         "icon": "vanilla3/campaign_ui/effect_bundles/attribute_undead"
       }
     ],
@@ -7348,92 +7348,6 @@
   },
   "items": [
     {
-      "key": "wh_dlc04_anc_talisman_the_carstein_ring",
-      "onscreen_name": "The Carstein Ring",
-      "colour_text": "An ancestral ring, set with a gem of deep, sanguine claret that has granted the von Carsteins everlasting Undeath.",
-      "ui_icon": "skins/default/equipment_items_talisman",
-      "unlocked_at_rank": 12,
-      "effects": [
-        {
-          "description": "Enemy Hero action success chance: -10%",
-          "key": "wh_main_effect_agent_action_success_chance_enemy",
-          "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-        },
-        {
-          "description": "Wound recovery time: -3",
-          "key": "wh_main_effect_character_wound_recovery_time_mod",
-          "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
-        },
-        {
-          "description": "Casualty replenishment rate: +3%\n\t(all units in army)",
-          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
-          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
-        },
-        {
-          "description": "Melee defence: +5",
-          "key": "wh_main_effect_character_stat_melee_defence",
-          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-        },
-        {
-          "description": "Ward save: 20%",
-          "key": "wh_main_effect_character_stat_ward_save",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
-        },
-        {
-          "description": "Ability: \"The Carstein Ring\"",
-          "key": "wh_dlc04_effect_ability_enable_the_carstein_ring",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh_dlc04_effect_ability_enable_the_carstein_ring",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh_dlc04_item_abilities_the_carstein_ring",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc04_item_abilities_the_carstein_ring",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_ward_save",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_ward_save",
-                  "onscreen_name": "Ward Save"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "The Carstein Ring",
-                "active_time": 22,
-                "effect_range": 0,
-                "recharge_time": 120,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "phases": [
-                  {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc04_item_abilities_the_carstein_ring",
-                    "order": 1,
-                    "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": false,
-                    "duration": 22,
-                    "effect_type": "positive",
-                    "is_hidden_in_ui": false,
-                    "stat_effects": [
-                      {
-                        "value": 60,
-                        "stat": "stat_resistance_all",
-                        "how": "add",
-                        "description": "+60 Damage Resistance ",
-                        "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "key": "wh_dlc04_anc_weapon_blood_drinker",
       "onscreen_name": "Blood Drinker",
       "colour_text": "This accursed blade drinks deep of its victim's blood, restoring vigour and strength to the one who brandishes it.",
@@ -7520,7 +7434,151 @@
             }
           ]
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_vlad_con_carstein",
+        "name": "Sanguine Sacrifices",
+        "description": "If Undeath is considered a curse, blood is the only thing that can lift it, albeit only temporarily.",
+        "contains": [
+          {
+            "name": "The Carstein Ring",
+            "icon": "skins/default/equipment_items_talisman"
+          },
+          {
+            "name": "Blood Drinker",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Vampiric corruption: +3\n\t(local province)",
+            "key": "wh3_main_effect_corruption_vampiric_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+            "priority": 104
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
+    },
+    {
+      "key": "wh_dlc04_anc_talisman_the_carstein_ring",
+      "onscreen_name": "The Carstein Ring",
+      "colour_text": "An ancestral ring, set with a gem of deep, sanguine claret that has granted the von Carsteins everlasting Undeath.",
+      "ui_icon": "skins/default/equipment_items_talisman",
+      "unlocked_at_rank": 12,
+      "effects": [
+        {
+          "description": "Enemy Hero action success chance: -10%",
+          "key": "wh_main_effect_agent_action_success_chance_enemy",
+          "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+        },
+        {
+          "description": "Wound recovery time: -3",
+          "key": "wh_main_effect_character_wound_recovery_time_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+        },
+        {
+          "description": "Casualty replenishment rate: +3%\n\t(all units in army)",
+          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+        },
+        {
+          "description": "Melee defence: +5",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+        },
+        {
+          "description": "Ward save: 20%",
+          "key": "wh_main_effect_character_stat_ward_save",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+        },
+        {
+          "description": "Ability: \"The Carstein Ring\"",
+          "key": "wh_dlc04_effect_ability_enable_the_carstein_ring",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_dlc04_effect_ability_enable_the_carstein_ring",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_dlc04_item_abilities_the_carstein_ring",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc04_item_abilities_the_carstein_ring",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_ward_save",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_ward_save",
+                  "onscreen_name": "Ward Save"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "The Carstein Ring",
+                "active_time": 22,
+                "effect_range": 0,
+                "recharge_time": 120,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc04_item_abilities_the_carstein_ring",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": 22,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 60,
+                        "stat": "stat_resistance_all",
+                        "how": "add",
+                        "description": "+60 Damage Resistance ",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_vmp_vlad_con_carstein",
+        "name": "Sanguine Sacrifices",
+        "description": "If Undeath is considered a curse, blood is the only thing that can lift it, albeit only temporarily.",
+        "contains": [
+          {
+            "name": "The Carstein Ring",
+            "icon": "skins/default/equipment_items_talisman"
+          },
+          {
+            "name": "Blood Drinker",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Vampiric corruption: +3\n\t(local province)",
+            "key": "wh3_main_effect_corruption_vampiric_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+            "priority": 104
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [

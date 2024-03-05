@@ -1176,7 +1176,7 @@
       },
       {
         "key": "wh3_pro11_skill_node_chs_harald_hammerstorm_shared_05",
-        "image_path": "vanilla3/campaign_ui/skills/battle_morale",
+        "image_path": "vanilla3/campaign_ui/skills/character_morale",
         "character_skill_key": "wh3_dlc20_skills_shared_undivided_leadership",
         "tier": 5,
         "indent": 3,
@@ -1244,7 +1244,7 @@
       },
       {
         "key": "wh3_pro11_skill_node_chs_harald_hammerstorm_shared_04",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "image_path": "vanilla3/campaign_ui/skills/character_damage",
         "character_skill_key": "wh3_dlc20_skills_shared_undivided_wrath",
         "tier": 7,
         "indent": 3,
@@ -2032,7 +2032,7 @@
                 {
                   "key": "undead",
                   "description": "Removes Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 }
               ]
@@ -2042,6 +2042,202 @@
       }
     ]
   },
+  "items": [
+    {
+      "key": "wh3_pro11_anc_enchanted_item_bane_shield",
+      "onscreen_name": "The Bane Shield",
+      "colour_text": "Discharging a magical blast every time it is struck, Harry’s Bane Shield rebounds his enemies blows back from whence they came. ",
+      "ui_icon": "skins/default/equipment_items_enchanted",
+      "effects": [
+        {
+          "description": "Character's aura leadership effect: +2",
+          "key": "wh_main_effect_character_stat_aura_leadership_effect",
+          "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+        },
+        {
+          "description": "Leadership aura size: +25%",
+          "key": "wh_main_effect_character_stat_leadership_aura_size",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+        },
+        {
+          "description": "Physical resistance: 10%",
+          "key": "wh_main_effect_character_stat_physical_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+        },
+        {
+          "description": "Passive ability: \"The Bane Shield\"",
+          "key": "wh3_pro11_effect_passive_enable_bane_shield",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh3_pro11_effect_passive_enable_bane_shield",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh3_pro11_item_passive_bane_shield",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh3_pro11_item_passive_bane_shield",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_area_of_hexes",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                  "onscreen_name": "Hex (Area)"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "The Bane Shield",
+                "effect_range": 40,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "phases": [
+                  {
+                    "icon": "wh3_pro11_item_passive_bane_shield_enemy",
+                    "order": 1,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "negative",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 0.9,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x0.9 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x0.9 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
+                  },
+                  {
+                    "icon": "wh3_pro11_item_passive_bane_shield_self",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 10,
+                        "stat": "stat_melee_defence",
+                        "how": "add",
+                        "description": "+10 Melee Defence",
+                        "icon": "vanilla3/skins/default/icon_stat_defence"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh3_pro11_anc_weapon_hammer_of_harry",
+      "onscreen_name": "The Hammer of Harry",
+      "colour_text": "As if driven by an unstoppable force, Harry’s hammer is blessed by the gods to hurl back the bodies and souls of those he strikes.",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "effects": [
+        {
+          "description": "Undivided Authority: +2\n\t(Lord's army)",
+          "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_undivided_character",
+          "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
+        },
+        {
+          "description": "Melee attack: +5",
+          "key": "wh_main_effect_character_stat_melee_attack",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+        },
+        {
+          "description": "Armour-piercing weapon damage: +50",
+          "key": "wh_main_effect_character_stat_ap_damage",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+        },
+        {
+          "description": "Ability: \"The Hammer of Harry\"",
+          "key": "wh3_pro11_effect_ability_enable_hammer_of_harry",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh3_pro11_effect_ability_enable_hammer_of_harry",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh3_pro11_weapon_abilities_the_hammer_of_harry",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh3_pro11_weapon_abilities_the_hammer_of_harry",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_explosion",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+                  "onscreen_name": "Explosion"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "The Hammer of Harry",
+                "active_time": 5,
+                "effect_range": 0,
+                "recharge_time": 120,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "ui_effects": [
+                  {
+                    "key": "wh2_main_all_magical_damage_moderate",
+                    "localised_text": "Causes moderate magical damage",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh3_main_abilities_sonic_boom_disruption",
+                    "localised_text": "Causes severe disruption to enemy formations",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_strong_against_multiple",
+                    "localised_text": "Strong vs multiple combatants",
+                    "effect_state": "positive"
+                  }
+                ],
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh3_pro11_weapon_abilities_the_hammer_of_harry",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": 5,
+                    "effect_type": "negative",
+                    "is_hidden_in_ui": false,
+                    "cant_move": true
+                  }
+                ],
+                "vortex": {
+                  "vortex_key": "wh3_pro11_weapon_abilities_the_hammer_of_harry",
+                  "duration": 1,
+                  "damage": 20,
+                  "damage_ap": 40,
+                  "goal_radius": 15,
+                  "movement_speed": 0,
+                  "delay": 2.9,
+                  "affects_allies": false,
+                  "is_magical": true
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "wh3_pro11_skill_node_chs_harald_hammerstorm_campaign_actions_dummy",

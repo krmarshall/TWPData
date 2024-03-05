@@ -71,7 +71,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 }
               ],
@@ -507,7 +507,7 @@
                 {
                   "key": "undead",
                   "description": "Undead",
-                  "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+                  "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
                   "icon": "sfo3/battle_ui/ability_icons/undead"
                 },
                 {
@@ -6270,7 +6270,7 @@
       {
         "key": "undead",
         "description": "Undead",
-        "bullet_text": "This unit is Undead (does not rout, immune to terror, becomes unstable when Leadership is low).",
+        "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
         "icon": "sfo3/battle_ui/ability_icons/undead"
       }
     ],
@@ -6684,6 +6684,117 @@
   },
   "items": [
     {
+      "key": "wh2_dlc09_anc_weapon_the_tomb_blade_of_arkhan",
+      "onscreen_name": "The Tomb Blade of Arkhan",
+      "colour_text": "The sword burns away the flesh of Arkhan's victims, leaving nothing but a charred skeleton, bound to the Liche King's dark will for all eternity.",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "unlocked_at_rank": 7,
+      "effects": [
+        {
+          "description": "Control: +5\n\t(own local province)",
+          "key": "wh_main_effect_public_order_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+        },
+        {
+          "description": "Income from post-battle loot: +10%",
+          "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/income"
+        },
+        {
+          "description": "Enables magical attacks",
+          "key": "wh_main_effect_character_stat_enable_magic_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
+        },
+        {
+          "description": "Weapon strength: +20%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Ability: \"The Tomb Blade of Arkhan\"",
+          "key": "wh2_dlc09_effect_ability_enable_the_tomb_blade_of_arkhan",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh2_dlc09_effect_ability_enable_the_tomb_blade_of_arkhan",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh2_dlc09_weapon_abilities_tomb_blade_of_arkhan",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_weapon_abilities_tomb_blade_of_arkhan",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_summon_unit",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Summon Unit"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "The Tomb Blade of Arkhan",
+                "active_time": 1,
+                "effect_range": 0,
+                "num_effected_friendly_units": 1,
+                "num_uses": 5,
+                "recharge_time": 120,
+                "target_enemies": false,
+                "target_friends": true,
+                "target_ground": true,
+                "target_self": true,
+                "target_intercept_range": 50,
+                "target_if": [
+                  ""
+                ],
+                "ui_effects": [
+                  {
+                    "key": "wh_dlc09_all_summon_skeleton_warriors",
+                    "localised_text": "Summons a larger unit of Skeleton Warriors",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_defend_vs_charge",
+                    "localised_text": "Good at defending spellcaster",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_direct_damage_unbinding",
+                    "localised_text": "Summoned units degrade over time",
+                    "effect_state": "negative"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_tmb_arkhan",
+        "name": "Tools of Necromancy",
+        "description": "Death is merely the beginning.",
+        "contains": [
+          {
+            "name": "Staff of Nagash",
+            "icon": "skins/default/equipment_items_arcane"
+          },
+          {
+            "name": "The Tomb Blade of Arkhan",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Allegiance points gained: +50% for alliances with Vampire Counts",
+            "key": "wh3_main_effect_allegiance_points_mod_vampire_counts",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
+    },
+    {
       "key": "wh2_dlc09_anc_arcane_item_staff_of_nagash",
       "onscreen_name": "Staff of Nagash",
       "colour_text": "Created by the Arch-Necromancer, the staff harnesses Dark Magic from deep within the accursed Black Pyramid.",
@@ -6787,89 +6898,36 @@
             }
           ]
         }
-      ]
-    },
-    {
-      "key": "wh2_dlc09_anc_weapon_the_tomb_blade_of_arkhan",
-      "onscreen_name": "The Tomb Blade of Arkhan",
-      "colour_text": "The sword burns away the flesh of Arkhan's victims, leaving nothing but a charred skeleton, bound to the Liche King's dark will for all eternity.",
-      "ui_icon": "skins/default/equipment_items_weapon",
-      "unlocked_at_rank": 7,
-      "effects": [
-        {
-          "description": "Control: +5\n\t(own local province)",
-          "key": "wh_main_effect_public_order_characters",
-          "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
-        },
-        {
-          "description": "Income from post-battle loot: +10%",
-          "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
-          "icon": "vanilla3/campaign_ui/effect_bundles/income"
-        },
-        {
-          "description": "Enables magical attacks",
-          "key": "wh_main_effect_character_stat_enable_magic_attacks",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
-        },
-        {
-          "description": "Weapon strength: +20%",
-          "key": "wh_main_effect_character_stat_weapon_strength",
-          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-        },
-        {
-          "description": "Ability: \"The Tomb Blade of Arkhan\"",
-          "key": "wh2_dlc09_effect_ability_enable_the_tomb_blade_of_arkhan",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh2_dlc09_effect_ability_enable_the_tomb_blade_of_arkhan",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh2_dlc09_weapon_abilities_tomb_blade_of_arkhan",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_weapon_abilities_tomb_blade_of_arkhan",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_summon_unit",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                  "onscreen_name": "Summon Unit"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "The Tomb Blade of Arkhan",
-                "active_time": 1,
-                "effect_range": 0,
-                "num_effected_friendly_units": 1,
-                "num_uses": 5,
-                "recharge_time": 120,
-                "target_enemies": false,
-                "target_friends": true,
-                "target_ground": true,
-                "target_self": true,
-                "target_intercept_range": 50,
-                "target_if": [
-                  ""
-                ],
-                "ui_effects": [
-                  {
-                    "key": "wh_dlc09_all_summon_skeleton_warriors",
-                    "localised_text": "Summons a larger unit of Skeleton Warriors",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_main_all_defend_vs_charge",
-                    "localised_text": "Good at defending spellcaster",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_main_all_direct_damage_unbinding",
-                    "localised_text": "Summoned units degrade over time",
-                    "effect_state": "negative"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_tmb_arkhan",
+        "name": "Tools of Necromancy",
+        "description": "Death is merely the beginning.",
+        "contains": [
+          {
+            "name": "Staff of Nagash",
+            "icon": "skins/default/equipment_items_arcane"
+          },
+          {
+            "name": "The Tomb Blade of Arkhan",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Allegiance points gained: +50% for alliances with Vampire Counts",
+            "key": "wh3_main_effect_allegiance_points_mod_vampire_counts",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [

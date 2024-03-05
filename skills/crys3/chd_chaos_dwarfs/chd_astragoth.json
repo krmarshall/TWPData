@@ -6469,7 +6469,162 @@
           "key": "wh_main_effect_character_stat_miscast",
           "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_dlc24_ancillary_set_chd_astragoth",
+        "name": "Might & Magic",
+        "description": "Clad in full panoply and mounted on his mechanized assembly, Astragoth combines augmented martial might with potent sorcery",
+        "contains": [
+          {
+            "name": "Stone Mantle",
+            "icon": "skins/default/equipment_items_talisman"
+          },
+          {
+            "name": "The Black Hammer of Hashut",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "adds the ability that grants the spell intensity",
+            "key": "wh3_dlc24_effect_5_spell_mastery_hidden",
+            "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
+            "priority": 0,
+            "related_abilities": [
+              {
+                "effect": "wh3_dlc24_effect_5_spell_mastery_hidden",
+                "bonus_value_id": "enable",
+                "unit_ability": {
+                  "key": "wh3_dlc24_effect_5_spell_mastery_hidden",
+                  "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                  "overpower_option": "",
+                  "type": {
+                    "key": "wh_type_augment_of_the_winds",
+                    "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                    "onscreen_name": "Augment of the Winds"
+                  },
+                  "is_hidden_in_ui": true,
+                  "onscreen_name": "Quite Limited power!",
+                  "effect_range": 0,
+                  "target_enemies": false,
+                  "target_friends": false,
+                  "target_ground": false,
+                  "target_self": false,
+                  "target_intercept_range": 0,
+                  "phases": [
+                    {
+                      "icon": "wh3_dlc24_effect_5_spell_mastery_hidden",
+                      "order": 1,
+                      "target_enemies": false,
+                      "target_self": true,
+                      "target_friends": false,
+                      "duration": -1,
+                      "effect_type": "positive",
+                      "onscreen_name": "Unlimited Power!",
+                      "is_hidden_in_ui": false,
+                      "stat_effects": [
+                        {
+                          "value": 0.05,
+                          "stat": "scalar_spell_mastery",
+                          "how": "add",
+                          "description": "+0.05 Spell Mastery",
+                          "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "description": "Cooldown: -40% to \"Black Hammer of Hashut\"",
+            "key": "wh3_dlc24_effect_ability_cooldown_black_hammer_of_hashut",
+            "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+            "priority": 1,
+            "related_abilities": [
+              {
+                "effect": "wh3_dlc24_effect_ability_cooldown_black_hammer_of_hashut",
+                "bonus_value_id": "recharge_mod",
+                "unit_ability": {
+                  "key": "wh3_dlc23_weapon_abilities_black_hammer_of_hashut",
+                  "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc23_weapon_abilities_black_hammer of_hashut",
+                  "overpower_option": "",
+                  "type": {
+                    "key": "wh_type_augment",
+                    "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                    "onscreen_name": "Augment"
+                  },
+                  "is_hidden_in_ui": false,
+                  "onscreen_name": "Black Hammer of Hashut",
+                  "active_time": 32,
+                  "effect_range": 0,
+                  "recharge_time": 120,
+                  "target_enemies": false,
+                  "target_friends": false,
+                  "target_ground": false,
+                  "target_self": false,
+                  "target_intercept_range": 0,
+                  "phases": [
+                    {
+                      "icon": "wh3_dlc23_weapon_abilities_black_hammer_of_hashut",
+                      "order": 1,
+                      "target_enemies": false,
+                      "target_self": true,
+                      "target_friends": false,
+                      "duration": 32,
+                      "effect_type": "positive",
+                      "is_hidden_in_ui": false,
+                      "imbue_contact": {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc12_unit_contact_flammable",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 20,
+                        "effect_type": "negative",
+                        "onscreen_name": "Flammable!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -20,
+                            "stat": "stat_weakness_flame",
+                            "how": "add",
+                            "description": "-20 Weakness to Fire Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                          }
+                        ]
+                      },
+                      "stat_effects": [
+                        {
+                          "value": 1.5,
+                          "stat": "stat_melee_damage_base",
+                          "how": "mult",
+                          "description": "x1.5 Base Weapon Damage",
+                          "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                        },
+                        {
+                          "value": 1.5,
+                          "stat": "stat_melee_damage_ap",
+                          "how": "mult",
+                          "description": "x1.5 Armour-Piercing Weapon Damage",
+                          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "description": "Armour: +20",
+            "key": "wh_main_effect_character_stat_armour",
+            "icon": "vanilla3/campaign_ui/effect_bundles/armour_character",
+            "priority": 100
+          }
+        ]
+      }
     },
     {
       "key": "wh3_dlc23_anc_weapon_black_hammer_of_hashut",
@@ -6567,7 +6722,162 @@
           "key": "wh_main_effect_character_stat_weapon_strength",
           "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_dlc24_ancillary_set_chd_astragoth",
+        "name": "Might & Magic",
+        "description": "Clad in full panoply and mounted on his mechanized assembly, Astragoth combines augmented martial might with potent sorcery",
+        "contains": [
+          {
+            "name": "Stone Mantle",
+            "icon": "skins/default/equipment_items_talisman"
+          },
+          {
+            "name": "The Black Hammer of Hashut",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "adds the ability that grants the spell intensity",
+            "key": "wh3_dlc24_effect_5_spell_mastery_hidden",
+            "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
+            "priority": 0,
+            "related_abilities": [
+              {
+                "effect": "wh3_dlc24_effect_5_spell_mastery_hidden",
+                "bonus_value_id": "enable",
+                "unit_ability": {
+                  "key": "wh3_dlc24_effect_5_spell_mastery_hidden",
+                  "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                  "overpower_option": "",
+                  "type": {
+                    "key": "wh_type_augment_of_the_winds",
+                    "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                    "onscreen_name": "Augment of the Winds"
+                  },
+                  "is_hidden_in_ui": true,
+                  "onscreen_name": "Quite Limited power!",
+                  "effect_range": 0,
+                  "target_enemies": false,
+                  "target_friends": false,
+                  "target_ground": false,
+                  "target_self": false,
+                  "target_intercept_range": 0,
+                  "phases": [
+                    {
+                      "icon": "wh3_dlc24_effect_5_spell_mastery_hidden",
+                      "order": 1,
+                      "target_enemies": false,
+                      "target_self": true,
+                      "target_friends": false,
+                      "duration": -1,
+                      "effect_type": "positive",
+                      "onscreen_name": "Unlimited Power!",
+                      "is_hidden_in_ui": false,
+                      "stat_effects": [
+                        {
+                          "value": 0.05,
+                          "stat": "scalar_spell_mastery",
+                          "how": "add",
+                          "description": "+0.05 Spell Mastery",
+                          "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "description": "Cooldown: -40% to \"Black Hammer of Hashut\"",
+            "key": "wh3_dlc24_effect_ability_cooldown_black_hammer_of_hashut",
+            "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+            "priority": 1,
+            "related_abilities": [
+              {
+                "effect": "wh3_dlc24_effect_ability_cooldown_black_hammer_of_hashut",
+                "bonus_value_id": "recharge_mod",
+                "unit_ability": {
+                  "key": "wh3_dlc23_weapon_abilities_black_hammer_of_hashut",
+                  "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc23_weapon_abilities_black_hammer of_hashut",
+                  "overpower_option": "",
+                  "type": {
+                    "key": "wh_type_augment",
+                    "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                    "onscreen_name": "Augment"
+                  },
+                  "is_hidden_in_ui": false,
+                  "onscreen_name": "Black Hammer of Hashut",
+                  "active_time": 32,
+                  "effect_range": 0,
+                  "recharge_time": 120,
+                  "target_enemies": false,
+                  "target_friends": false,
+                  "target_ground": false,
+                  "target_self": false,
+                  "target_intercept_range": 0,
+                  "phases": [
+                    {
+                      "icon": "wh3_dlc23_weapon_abilities_black_hammer_of_hashut",
+                      "order": 1,
+                      "target_enemies": false,
+                      "target_self": true,
+                      "target_friends": false,
+                      "duration": 32,
+                      "effect_type": "positive",
+                      "is_hidden_in_ui": false,
+                      "imbue_contact": {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc12_unit_contact_flammable",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 20,
+                        "effect_type": "negative",
+                        "onscreen_name": "Flammable!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -20,
+                            "stat": "stat_weakness_flame",
+                            "how": "add",
+                            "description": "-20 Weakness to Fire Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                          }
+                        ]
+                      },
+                      "stat_effects": [
+                        {
+                          "value": 1.5,
+                          "stat": "stat_melee_damage_base",
+                          "how": "mult",
+                          "description": "x1.5 Base Weapon Damage",
+                          "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                        },
+                        {
+                          "value": 1.5,
+                          "stat": "stat_melee_damage_ap",
+                          "how": "mult",
+                          "description": "x1.5 Armour-Piercing Weapon Damage",
+                          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "description": "Armour: +20",
+            "key": "wh_main_effect_character_stat_armour",
+            "icon": "vanilla3/campaign_ui/effect_bundles/armour_character",
+            "priority": 100
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [
@@ -6607,11 +6917,11 @@
             },
             {
               "description": "Passive ability: \"Mechanical Overdrive\"",
-              "key": "wh2_dlc23_effect_ability_enable_mechanical_overdrive",
+              "key": "wh3_dlc23_effect_ability_enable_mechanical_overdrive",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
               "related_abilities": [
                 {
-                  "effect": "wh2_dlc23_effect_ability_enable_mechanical_overdrive",
+                  "effect": "wh3_dlc23_effect_ability_enable_mechanical_overdrive",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh3_dlc23_lord_passive_mechanical_overdrive",

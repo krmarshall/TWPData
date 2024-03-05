@@ -4756,6 +4756,51 @@
     "abilities": [
       {
         "unit_ability": {
+          "key": "wh2_dlc12_lord_abilities_focus_instincts",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_lord_abilities_focus_instincts",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Focus Instincts",
+          "active_time": 40,
+          "effect_range": 35,
+          "recharge_time": 90,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "target_if": [
+            "Lizardmen"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc12_lord_abilities_focus_instincts",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": 40,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "attributes": [
+                {
+                  "key": "rampage",
+                  "description": "Removes ➖ Rampage!",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                  "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
           "key": "wh2_dlc17_lord_abilities_master_predator",
           "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_lord_abilities_master_predator",
           "overpower_option": "",
@@ -4827,8 +4872,8 @@
       },
       {
         "unit_ability": {
-          "key": "wh2_main_character_abilities_cold_blooded",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_character_abilities_cold_blooded",
+          "key": "wh2_main_unit_passive_primal_instincts",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
           "overpower_option": "",
           "type": {
             "key": "wh_type_augment",
@@ -4836,43 +4881,48 @@
             "onscreen_name": "Augment"
           },
           "is_hidden_in_ui": false,
-          "onscreen_name": "Cold-Blooded",
-          "active_time": 40,
+          "onscreen_name": "Primal Instincts",
           "effect_range": 0,
-          "recharge_time": 60,
+          "recharge_time": 30,
           "target_enemies": false,
-          "target_friends": true,
+          "target_friends": false,
           "target_ground": false,
-          "target_self": true,
-          "target_intercept_range": 200,
-          "target_if": [
-            "Lizardmen"
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points less than 50%"
           ],
           "phases": [
             {
-              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_character_abilities_cold_blooded",
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
               "order": 1,
               "target_enemies": false,
               "target_self": true,
-              "target_friends": true,
-              "duration": 40,
+              "target_friends": false,
+              "duration": -1,
               "effect_type": "positive",
               "is_hidden_in_ui": false,
               "stat_effects": [
                 {
-                  "value": 16,
-                  "stat": "stat_morale",
+                  "value": 5,
+                  "stat": "stat_melee_attack",
                   "how": "add",
-                  "description": "+16 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                }
-              ],
-              "attributes": [
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
                 {
-                  "key": "rampage",
-                  "description": "Removes ➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
-                  "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                  "value": 1.15,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.15 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+5 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                 }
               ]
             }
@@ -5128,6 +5178,51 @@
       ]
     },
     {
+      "key": "wh2_dlc17_anc_banner_lzd_poison_fireblood_toxin",
+      "onscreen_name": "Fireblood Toxin",
+      "colour_text": "Imbued with a Bloodthirster's crushed horn, the already-explosive blood of a Fireleech gains horrifying sentience, clinging to armour until it burns the flesh beneath.",
+      "ui_icon": "campaign_ui/ancillaries/wh2_dlc17_ancillary_poison_fireblood",
+      "effects": [
+        {
+          "description": "Enables sundering attacks",
+          "key": "wh2_dlc10_effect_character_stat_enable_sundering_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/phase_sunder_armour",
+          "related_phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
+              "order": 0,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "negative",
+              "onscreen_name": "Sundered Armour",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": -30,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "-30 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Enables flaming attacks",
+          "key": "wh2_main_effect_character_stat_enable_flaming_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/modifier_icon_flaming"
+        },
+        {
+          "description": "\"Fireblood Toxin\" ammunition\n\t(assigned Skink blowpipe or javelin unit)",
+          "key": "wh2_dlc17_effect_projectile_poison_fireblood",
+          "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+        }
+      ]
+    },
+    {
       "key": "wh2_dlc17_anc_banner_lzd_poison_slow_death",
       "onscreen_name": "Slow Death",
       "colour_text": "Harvested from a rare flower found only in the most toxic corners of Nurgle's gardens, this poison ensures a long and painful death.",
@@ -5157,6 +5252,46 @@
         {
           "description": "\"Slow Death\" ammunition\n\t(assigned Skink blowpipe or javelin unit)",
           "key": "wh2_dlc17_effect_projectile_poison_slow_death",
+          "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+        }
+      ]
+    },
+    {
+      "key": "wh2_dlc17_anc_banner_lzd_poison_toadskin_essence",
+      "onscreen_name": "Toadskin Essence",
+      "colour_text": "Slaaneshi daemons are masters of illusion – a combination of their blood with the toxins of rare toads produces a debilitating hallucinogen.",
+      "ui_icon": "campaign_ui/ancillaries/wh2_dlc17_ancillary_poison_toadskin",
+      "effects": [
+        {
+          "description": "Attacks cause \"Discouraged\" effect, reducing leadership",
+          "key": "wh2_main_effect_character_stat_enable_discourage_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/discouraged",
+          "related_phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
+              "order": 0,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "negative",
+              "onscreen_name": "Discouraged!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": -16,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "-16 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "\"Toadskin Essence\" ammunition\n\t(assigned Skink blowpipe or javelin unit)",
+          "key": "wh2_dlc17_effect_projectile_poison_toadskin",
           "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
         }
       ]

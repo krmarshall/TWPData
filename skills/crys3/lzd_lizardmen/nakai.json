@@ -4684,7 +4684,7 @@
                 {
                   "key": "rampage",
                   "description": "➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "vanilla3/battle_ui/ability_icons/rampage"
                 }
               ]
@@ -4738,8 +4738,120 @@
                 {
                   "key": "rampage",
                   "description": "Removes ➖ Rampage!",
-                  "bullet_text": "When this unit gets hurt it may go on a rampage against nearby enemy units, attacking the closest one and ignoring any orders given.",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh2_main_unit_passive_primal_instincts",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Primal Instincts",
+          "effect_range": 0,
+          "recharge_time": 30,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points less than 50%"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_primal_instincts",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 1.15,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.15 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+5 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_dlc24_unit_passive_predatory_fighter",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_unit_passive_predatory_fighter",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Predatory Fighter",
+          "active_time": 10,
+          "effect_range": 0,
+          "recharge_time": 60,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 20,
+          "enabled_if": [
+            "Recently fought enemies are routing"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_unit_passive_predatory_fighter",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.25,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.25 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
                 }
               ]
             }
@@ -4903,7 +5015,36 @@
             }
           ]
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_lzd_nakai",
+        "name": "Jungle Trinkets",
+        "description": "When wandering the jungles of Lustria, one is bound to discover a variety of interesting baubles.",
+        "contains": [
+          {
+            "name": "Golden Tributes",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "The Ogham Shard",
+            "icon": "skins/default/equipment_items_talisman"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Magic item drop chance: +10%\n\t(factionwide)",
+            "key": "wh_main_effect_character_mod_ancillary_drop",
+            "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+            "priority": 8
+          },
+          {
+            "description": "Horde growth: +5\n\t(Lord's army)",
+            "key": "wh_main_effect_hordebuilding_growth_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+            "priority": 141
+          }
+        ]
+      }
     },
     {
       "key": "wh2_dlc13_talisman_the_ogham_shard",
@@ -4927,7 +5068,36 @@
           "key": "wh_main_effect_character_stat_magic_resistance",
           "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "wh3_main_ancillary_set_lzd_nakai",
+        "name": "Jungle Trinkets",
+        "description": "When wandering the jungles of Lustria, one is bound to discover a variety of interesting baubles.",
+        "contains": [
+          {
+            "name": "Golden Tributes",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "The Ogham Shard",
+            "icon": "skins/default/equipment_items_talisman"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Magic item drop chance: +10%\n\t(factionwide)",
+            "key": "wh_main_effect_character_mod_ancillary_drop",
+            "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+            "priority": 8
+          },
+          {
+            "description": "Horde growth: +5\n\t(Lord's army)",
+            "key": "wh_main_effect_hordebuilding_growth_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+            "priority": 141
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [
