@@ -4077,66 +4077,106 @@
   },
   "items": [
     {
-      "key": "anc_armour_wakhaf",
-      "onscreen_name": "Shield of Shifting Sands",
-      "colour_text": "This enchanted shield swirls and moves on the arm of the holder. It moves to pluck arrows from the very sky, shifts to confuse and misdirect, and allows the holder to control the very vortex of the sand in their defence. Holding such power, some think themselves invincible.",
-      "ui_icon": "skins/default/equipment_items_armour",
-      "unlocked_at_rank": 18,
+      "key": "anc_weapon_wakhaf",
+      "onscreen_name": "Wakhaf's Blade of Dust",
+      "colour_text": "With a flash of his sword King Wakhaf bids his troops to re-awaken from their hiding positions and leap to action.",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "unlocked_at_rank": 5,
       "effects": [
         {
-          "description": "Armour: +10",
-          "key": "wh_main_effect_character_stat_armour",
-          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+          "description": "Speed: +20%",
+          "key": "wh_main_effect_character_stat_speed",
+          "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
         },
         {
-          "description": "Attacks cause \"Discouraged\" effect, reducing leadership",
-          "key": "wh2_main_effect_character_stat_enable_discourage_attacks",
-          "icon": "vanilla3/campaign_ui/effect_bundles/discouraged",
-          "related_phases": [
+          "description": "Melee attack: +8",
+          "key": "wh_main_effect_character_stat_melee_attack",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+        },
+        {
+          "description": "Weapon strength: +10%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Item ability: \"Awaken Horsemen\"",
+          "key": "wakhaf_effect_enable_ability_weapon_summonhorsemen",
+          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+          "related_abilities": [
             {
-              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
-              "order": 0,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 10,
-              "effect_type": "negative",
-              "onscreen_name": "Discouraged!",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": -16,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "-16 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                }
-              ]
+              "effect": "wakhaf_effect_enable_ability_weapon_summonhorsemen",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "ability_weapon_summonhorsemen",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Augment"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Awaken Horsemen",
+                "active_time": 1,
+                "effect_range": 0,
+                "num_effected_friendly_units": 1,
+                "num_uses": 3,
+                "recharge_time": 120,
+                "target_enemies": false,
+                "target_friends": true,
+                "target_ground": true,
+                "target_self": false,
+                "target_intercept_range": 60,
+                "target_if": [
+                  ""
+                ],
+                "ui_effects": [
+                  {
+                    "key": "wh_main_all_summoned_unit",
+                    "localised_text": "Powerful unit ideal for combat",
+                    "effect_state": "positive"
+                  }
+                ]
+              }
             }
           ]
+        }
+      ]
+    },
+    {
+      "key": "anc_talisman_wakhaf",
+      "onscreen_name": "Heart of Khsar",
+      "colour_text": "This still throbbing and oozing organ was said to be given as a present from a Khsar High Priest. A Kingly gift, it guides its owner to safety or their opponents, obfuscating the presence of even the mightest of hosts under a veil of sand.",
+      "ui_icon": "skins/default/equipment_items_talisman",
+      "unlocked_at_rank": 14,
+      "effects": [
+        {
+          "description": "Casualty replenishment rate: +15%\n\t(Lord's army)",
+          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
         },
         {
-          "description": "Ward save: 15%",
-          "key": "wh_main_effect_character_stat_ward_save",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+          "description": "Ambush success chance: +35%\n\t(Lord's army)",
+          "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
         },
         {
-          "description": "Attribute: Unbreakable",
-          "key": "wh_main_effect_attribute_enable_unbreakable",
-          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable",
+          "description": "Ambush defence chance: +50%\n\t(Lord's army)",
+          "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+        },
+        {
+          "description": "Attribute: Strider",
+          "key": "wh_main_effect_attribute_enable_strider",
+          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
           "related_attributes": [
             {
-              "key": "unbreakable",
-              "description": " Unbreakable",
-              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+              "key": "strider",
+              "description": " Strider",
+              "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+              "icon": "vanilla3/battle_ui/ability_icons/strider"
             }
           ]
-        },
-        {
-          "description": "Missile resistance: 40%",
-          "key": "wh_main_effect_force_stat_missile_resistance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
         }
       ]
     },
@@ -4225,106 +4265,66 @@
       ]
     },
     {
-      "key": "anc_talisman_wakhaf",
-      "onscreen_name": "Heart of Khsar",
-      "colour_text": "This still throbbing and oozing organ was said to be given as a present from a Khsar High Priest. A Kingly gift, it guides its owner to safety or their opponents, obfuscating the presence of even the mightest of hosts under a veil of sand.",
-      "ui_icon": "skins/default/equipment_items_talisman",
-      "unlocked_at_rank": 14,
+      "key": "anc_armour_wakhaf",
+      "onscreen_name": "Shield of Shifting Sands",
+      "colour_text": "This enchanted shield swirls and moves on the arm of the holder. It moves to pluck arrows from the very sky, shifts to confuse and misdirect, and allows the holder to control the very vortex of the sand in their defence. Holding such power, some think themselves invincible.",
+      "ui_icon": "skins/default/equipment_items_armour",
+      "unlocked_at_rank": 18,
       "effects": [
         {
-          "description": "Casualty replenishment rate: +15%\n\t(Lord's army)",
-          "key": "wh_main_effect_force_all_campaign_replenishment_rate",
-          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+          "description": "Armour: +10",
+          "key": "wh_main_effect_character_stat_armour",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
         },
         {
-          "description": "Ambush success chance: +35%\n\t(Lord's army)",
-          "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+          "description": "Attacks cause \"Discouraged\" effect, reducing leadership",
+          "key": "wh2_main_effect_character_stat_enable_discourage_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/discouraged",
+          "related_phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
+              "order": 0,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "negative",
+              "onscreen_name": "Discouraged!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": -16,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "-16 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ]
+            }
+          ]
         },
         {
-          "description": "Ambush defence chance: +50%\n\t(Lord's army)",
-          "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+          "description": "Ward save: 15%",
+          "key": "wh_main_effect_character_stat_ward_save",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
         },
         {
-          "description": "Attribute: Strider",
-          "key": "wh_main_effect_attribute_enable_strider",
-          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
+          "description": "Attribute: Unbreakable",
+          "key": "wh_main_effect_attribute_enable_unbreakable",
+          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable",
           "related_attributes": [
             {
-              "key": "strider",
-              "description": " Strider",
-              "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
-              "icon": "vanilla3/battle_ui/ability_icons/strider"
+              "key": "unbreakable",
+              "description": " Unbreakable",
+              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
             }
           ]
-        }
-      ]
-    },
-    {
-      "key": "anc_weapon_wakhaf",
-      "onscreen_name": "Wakhaf's Blade of Dust",
-      "colour_text": "With a flash of his sword King Wakhaf bids his troops to re-awaken from their hiding positions and leap to action.",
-      "ui_icon": "skins/default/equipment_items_weapon",
-      "unlocked_at_rank": 5,
-      "effects": [
-        {
-          "description": "Speed: +20%",
-          "key": "wh_main_effect_character_stat_speed",
-          "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
         },
         {
-          "description": "Melee attack: +8",
-          "key": "wh_main_effect_character_stat_melee_attack",
-          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-        },
-        {
-          "description": "Weapon strength: +10%",
-          "key": "wh_main_effect_character_stat_weapon_strength",
-          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-        },
-        {
-          "description": "Item ability: \"Awaken Horsemen\"",
-          "key": "wakhaf_effect_enable_ability_weapon_summonhorsemen",
-          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-          "related_abilities": [
-            {
-              "effect": "wakhaf_effect_enable_ability_weapon_summonhorsemen",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "ability_weapon_summonhorsemen",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_augment",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                  "onscreen_name": "Augment"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "Awaken Horsemen",
-                "active_time": 1,
-                "effect_range": 0,
-                "num_effected_friendly_units": 1,
-                "num_uses": 3,
-                "recharge_time": 120,
-                "target_enemies": false,
-                "target_friends": true,
-                "target_ground": true,
-                "target_self": false,
-                "target_intercept_range": 60,
-                "target_if": [
-                  ""
-                ],
-                "ui_effects": [
-                  {
-                    "key": "wh_main_all_summoned_unit",
-                    "localised_text": "Powerful unit ideal for combat",
-                    "effect_state": "positive"
-                  }
-                ]
-              }
-            }
-          ]
+          "description": "Missile resistance: 40%",
+          "key": "wh_main_effect_force_stat_missile_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
         }
       ]
     }

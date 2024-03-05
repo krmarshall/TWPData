@@ -4599,6 +4599,35 @@
   },
   "items": [
     {
+      "key": "wh2_main_anc_armour_armour_of_midnight",
+      "onscreen_name": "Armour of Midnight",
+      "colour_text": "Malekith's rune-armour is forged from the hardest meteoric iron and protects against any mortal weapon.",
+      "ui_icon": "skins/default/equipment_items_armour",
+      "unlocked_at_rank": 4,
+      "effects": [
+        {
+          "description": "Armour: +12",
+          "key": "wh_main_effect_character_stat_armour",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+        },
+        {
+          "description": "Wound recovery time: -2",
+          "key": "wh_main_effect_character_wound_recovery_time_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+        },
+        {
+          "description": "Melee defence: +6",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+        },
+        {
+          "description": "Physical resistance: 20%",
+          "key": "wh_main_effect_character_stat_physical_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+        }
+      ]
+    },
+    {
       "key": "wh2_main_anc_arcane_item_circlet_of_iron",
       "onscreen_name": "Circlet of Iron",
       "colour_text": "",
@@ -4740,31 +4769,107 @@
       ]
     },
     {
-      "key": "wh2_main_anc_armour_armour_of_midnight",
-      "onscreen_name": "Armour of Midnight",
-      "colour_text": "Malekith's rune-armour is forged from the hardest meteoric iron and protects against any mortal weapon.",
-      "ui_icon": "skins/default/equipment_items_armour",
-      "unlocked_at_rank": 4,
+      "key": "wh2_main_anc_weapon_destroyer",
+      "onscreen_name": "Destroyer",
+      "colour_text": "",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "unlocked_at_rank": 12,
       "effects": [
         {
-          "description": "Armour: +12",
-          "key": "wh_main_effect_character_stat_armour",
-          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+          "description": "Post battle chance of stealing a magic item: +50%",
+          "key": "wh_main_effect_character_mod_ancillary_steal",
+          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
         },
         {
-          "description": "Wound recovery time: -2",
-          "key": "wh_main_effect_character_wound_recovery_time_mod",
-          "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+          "description": "Melee attack: +12",
+          "key": "wh_main_effect_character_stat_melee_attack",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
         },
         {
-          "description": "Melee defence: +6",
-          "key": "wh_main_effect_character_stat_melee_defence",
-          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+          "description": "Attacks cause \"Discouraged\" effect, reducing leadership",
+          "key": "wh2_main_effect_character_stat_enable_discourage_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/discouraged",
+          "related_phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
+              "order": 0,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "negative",
+              "onscreen_name": "Discouraged!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": -16,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "-16 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ]
+            }
+          ]
         },
         {
-          "description": "Physical resistance: 20%",
-          "key": "wh_main_effect_character_stat_physical_resistance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+          "description": "Weapon strength: +12%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Passive ability: \"Destroyer\"",
+          "key": "wh2_main_effect_ability_enable_destroyer",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh2_main_effect_ability_enable_destroyer",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh2_main_weapon_passive_destroyer",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_weapon_passive_destroyer",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_area_of_hexes",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                  "onscreen_name": "Hex (Area)"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Destroyer",
+                "active_time": 15,
+                "effect_range": 35,
+                "recharge_time": 45,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh2_main_weapon_passive_destroyer",
+                    "order": 1,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 15,
+                    "effect_type": "negative",
+                    "onscreen_name": "Destroyer",
+                    "is_hidden_in_ui": false,
+                    "ability_recharge_change": 15,
+                    "stat_effects": [
+                      {
+                        "value": -20,
+                        "stat": "stat_resistance_magic",
+                        "how": "add",
+                        "description": "-20 Spell Resistance",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -4865,111 +4970,6 @@
                         "stat": "stat_resistance_magic",
                         "how": "add",
                         "description": "+20 Spell Resistance",
-                        "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                      }
-                    ]
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_main_anc_weapon_destroyer",
-      "onscreen_name": "Destroyer",
-      "colour_text": "",
-      "ui_icon": "skins/default/equipment_items_weapon",
-      "unlocked_at_rank": 12,
-      "effects": [
-        {
-          "description": "Post battle chance of stealing a magic item: +50%",
-          "key": "wh_main_effect_character_mod_ancillary_steal",
-          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-        },
-        {
-          "description": "Melee attack: +12",
-          "key": "wh_main_effect_character_stat_melee_attack",
-          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-        },
-        {
-          "description": "Attacks cause \"Discouraged\" effect, reducing leadership",
-          "key": "wh2_main_effect_character_stat_enable_discourage_attacks",
-          "icon": "vanilla3/campaign_ui/effect_bundles/discouraged",
-          "related_phases": [
-            {
-              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
-              "order": 0,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 10,
-              "effect_type": "negative",
-              "onscreen_name": "Discouraged!",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": -16,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "-16 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "description": "Weapon strength: +12%",
-          "key": "wh_main_effect_character_stat_weapon_strength",
-          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-        },
-        {
-          "description": "Passive ability: \"Destroyer\"",
-          "key": "wh2_main_effect_ability_enable_destroyer",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-          "related_abilities": [
-            {
-              "effect": "wh2_main_effect_ability_enable_destroyer",
-              "bonus_value_id": "enable",
-              "unit_ability": {
-                "key": "wh2_main_weapon_passive_destroyer",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_weapon_passive_destroyer",
-                "overpower_option": "",
-                "type": {
-                  "key": "wh_type_area_of_hexes",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                  "onscreen_name": "Hex (Area)"
-                },
-                "is_hidden_in_ui": false,
-                "onscreen_name": "Destroyer",
-                "active_time": 15,
-                "effect_range": 35,
-                "recharge_time": 45,
-                "target_enemies": false,
-                "target_friends": false,
-                "target_ground": false,
-                "target_self": false,
-                "target_intercept_range": 0,
-                "phases": [
-                  {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh2_main_weapon_passive_destroyer",
-                    "order": 1,
-                    "target_enemies": true,
-                    "target_self": false,
-                    "target_friends": false,
-                    "duration": 15,
-                    "effect_type": "negative",
-                    "onscreen_name": "Destroyer",
-                    "is_hidden_in_ui": false,
-                    "ability_recharge_change": 15,
-                    "stat_effects": [
-                      {
-                        "value": -20,
-                        "stat": "stat_resistance_magic",
-                        "how": "add",
-                        "description": "-20 Spell Resistance",
                         "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
                       }
                     ]
