@@ -77,6 +77,12 @@
                   "icon": "sfo3/battle_ui/ability_icons/encourages"
                 },
                 {
+                  "key": "flanking_immune",
+                  "description": "Immune to Flanking",
+                  "bullet_text": "This unit takes no penalties when flanked.",
+                  "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
+                },
+                {
                   "key": "flying",
                   "description": "Can fly",
                   "bullet_text": "This unit can fly.",
@@ -305,6 +311,14 @@
                     "description": "-10 Physical Resistance",
                     "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                   }
+                ],
+                "attributes": [
+                  {
+                    "key": "revealed",
+                    "description": "Reveals Unit",
+                    "bullet_text": "This unit is permanently visible to the enemy, regardless of line of sight.\n\t\n\tRevealed units are not affected by the following attributes:\n\t Hide Forest\n\t Stalk\n\t Unspottable",
+                    "icon": "sfo3/battle_ui/ability_icons/revealed"
+                  }
                 ]
               },
               "attributes": [
@@ -331,6 +345,12 @@
                   "description": "Encourage",
                   "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
                   "icon": "sfo3/battle_ui/ability_icons/encourages"
+                },
+                {
+                  "key": "flanking_immune",
+                  "description": "Immune to Flanking",
+                  "bullet_text": "This unit takes no penalties when flanked.",
+                  "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
                 },
                 {
                   "key": "flying",
@@ -789,7 +809,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Lords",
+                "description": "Character will share +10% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Lords",
                 "key": "wh3_main_effect_character_xp_share_generic_lordtext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -799,7 +834,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -809,27 +844,12 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +35% for characters\n\t(Heroes in Lord's army)",
+                "description": "Experience gain: +30% for characters\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              },
-              {
-                "description": "Experience gain: +50% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -968,9 +988,6 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Battle outcome is undecided"
-                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -1044,9 +1061,6 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Battle outcome is undecided"
-                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -2612,6 +2626,11 @@
                 "description": "Control: +1\n\t(own local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Chaos Undivided corruption: +2\n\t(local province)",
+                "key": "wh3_main_effect_corruption_chaos_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
             ]
           },
@@ -2623,7 +2642,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Chaos Undivided corruption: +1\n\t(local province)",
+                "description": "Chaos Undivided corruption: +4\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
@@ -2637,7 +2656,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Chaos Undivided corruption: +2\n\t(local province)",
+                "description": "Chaos Undivided corruption: +6\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
@@ -2988,7 +3007,7 @@
           {
             "effects": [
               {
-                "description": "Upkeep: -10%\n\t(Lord's army)",
+                "description": "Upkeep: -8%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_all_campaign_upkeep",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               },
@@ -3003,7 +3022,12 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               },
               {
-                "description": "Chaos Undivided corruption: +1\n\t(local province)",
+                "description": "Enemy Hero action success chance: -10%",
+                "key": "wh_main_effect_agent_action_success_chance_enemy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Chaos Undivided corruption: +2\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
@@ -3075,6 +3099,12 @@
         "description": " Immune to Psychology",
         "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
         "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+      },
+      {
+        "key": "flanking_immune",
+        "description": "Immune to Flanking",
+        "bullet_text": "This unit takes no penalties when flanked.",
+        "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
       },
       {
         "key": "causes_fear",

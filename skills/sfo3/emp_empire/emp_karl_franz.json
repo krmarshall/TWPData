@@ -42,7 +42,7 @@
               "charge_bonus": 70,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
-              "damage": 200,
+              "damage": 250,
               "ap_damage": 300,
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
@@ -328,7 +328,7 @@
               "charge_bonus": 85,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
-              "damage": 200,
+              "damage": 250,
               "ap_damage": 300,
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 8,
@@ -614,8 +614,8 @@
               "charge_bonus": 90,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
-              "damage": 275,
-              "ap_damage": 300,
+              "damage": 250,
+              "ap_damage": 400,
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 10,
               "melee_attack_interval": 4,
@@ -623,15 +623,17 @@
               "can_siege": true,
               "fly_speed": 9,
               "contact_phase": {
-                "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_crush",
+                "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_maim",
                 "order": 1,
                 "target_enemies": true,
                 "target_self": false,
                 "target_friends": false,
-                "duration": 10,
+                "duration": 45,
                 "effect_type": "negative",
-                "onscreen_name": "Bonecrusher",
+                "onscreen_name": "Maim - 4 damage, 5 entities",
                 "is_hidden_in_ui": false,
+                "damage_amount": 4,
+                "hp_change_frequency": 1,
                 "max_damaged_entities": 5,
                 "stat_effects": [
                   {
@@ -642,11 +644,11 @@
                     "icon": "vanilla3/skins/default/icon_stat_speed"
                   },
                   {
-                    "value": -5,
-                    "stat": "stat_melee_defence",
-                    "how": "add",
-                    "description": "-5 Melee Defence",
-                    "icon": "vanilla3/skins/default/icon_stat_defence"
+                    "value": 0.75,
+                    "stat": "stat_healing_power",
+                    "how": "mult",
+                    "description": "x0.75 All Healing Received",
+                    "icon": "vanilla3/skins/default/stat_healing_received"
                   }
                 ]
               },
@@ -1091,7 +1093,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Lords",
+                "description": "Character will share +10% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Lords",
                 "key": "wh3_main_effect_character_xp_share_generic_lordtext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -1101,7 +1118,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -1111,27 +1128,12 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +35% for characters\n\t(Heroes in Lord's army)",
+                "description": "Experience gain: +30% for characters\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              },
-              {
-                "description": "Experience gain: +50% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -1440,11 +1442,11 @@
               },
               {
                 "description": "Passive ability: \"Dauntless Fury\"",
-                "key": "wh_passive_scaling_attack_enable",
+                "key": "wh_effect_enable_wh_passive_scaling_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_passive_scaling_attack_enable",
+                    "effect": "wh_effect_enable_wh_passive_scaling_attack",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_passive_scaling_attack",
@@ -3272,15 +3274,6 @@
           {
             "effects": [
               {
-                "description": "Corruption: -1\n\t(local province)",
-                "key": "wh3_main_effect_corruption_reduction_characters",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
                 "description": "Corruption: -2\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -3290,7 +3283,16 @@
           {
             "effects": [
               {
-                "description": "Corruption: -3\n\t(local province)",
+                "description": "Corruption: -4\n\t(local province)",
+                "key": "wh3_main_effect_corruption_reduction_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Corruption: -6\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
               }
@@ -3620,7 +3622,7 @@
     "charge_bonus": 60,
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
-    "damage": 200,
+    "damage": 250,
     "ap_damage": 300,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
@@ -4242,7 +4244,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             },
             {
-              "description": "Character experience gain per turn: +100\n\t(own characters in province)",
+              "description": "Character experience gain per turn: +100\n\t(all characters factionwide)",
               "key": "wh3_main_effect_character_experience_per_turn",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },

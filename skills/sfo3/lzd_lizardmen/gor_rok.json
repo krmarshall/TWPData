@@ -186,7 +186,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Lords",
+                "description": "Character will share +10% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Lords",
                 "key": "wh3_main_effect_character_xp_share_generic_lordtext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -196,7 +211,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -206,27 +221,12 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +35% for characters\n\t(Heroes in Lord's army)",
+                "description": "Experience gain: +30% for characters\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              },
-              {
-                "description": "Experience gain: +50% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -680,9 +680,6 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Battle outcome is undecided"
-                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -2367,15 +2364,6 @@
           {
             "effects": [
               {
-                "description": "Corruption: -1\n\t(local province)",
-                "key": "wh3_main_effect_corruption_reduction_characters",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
                 "description": "Corruption: -2\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -2385,7 +2373,16 @@
           {
             "effects": [
               {
-                "description": "Corruption: -3\n\t(local province)",
+                "description": "Corruption: -4\n\t(local province)",
+                "key": "wh3_main_effect_corruption_reduction_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Corruption: -6\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
               }
@@ -2964,7 +2961,9 @@
           },
           "is_hidden_in_ui": false,
           "onscreen_name": "Primal Instincts",
+          "active_time": 60,
           "effect_range": 0,
+          "num_uses": 1,
           "target_enemies": false,
           "target_friends": false,
           "target_ground": false,
@@ -2981,15 +2980,22 @@
               "target_enemies": false,
               "target_self": true,
               "target_friends": false,
-              "duration": -1,
+              "duration": 60,
               "effect_type": "negative",
               "is_hidden_in_ui": false,
               "stat_effects": [
                 {
-                  "value": 1.1,
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.25 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.25,
                   "stat": "scalar_speed",
                   "how": "mult",
-                  "description": "x1.1 Speed",
+                  "description": "x1.25 Speed",
                   "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
@@ -3000,10 +3006,10 @@
                   "icon": "vanilla3/skins/default/icon_stat_attack"
                 },
                 {
-                  "value": 1.1,
+                  "value": 1.15,
                   "stat": "stat_charge_bonus",
                   "how": "mult",
-                  "description": "x1.1 Charge Bonus",
+                  "description": "x1.15 Charge Bonus",
                   "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                 },
                 {
@@ -3012,6 +3018,13 @@
                   "how": "add",
                   "description": "+5 Physical Resistance",
                   "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                },
+                {
+                  "value": 1.25,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.25 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 }
               ],
               "attributes": [
@@ -3068,10 +3081,10 @@
                   "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
-                  "value": 5,
+                  "value": 2,
                   "stat": "stat_melee_attack",
-                  "how": "add",
-                  "description": "+5 Melee Attack",
+                  "how": "mult",
+                  "description": "x2 Melee Attack",
                   "icon": "vanilla3/skins/default/icon_stat_attack"
                 }
               ]
@@ -3145,45 +3158,6 @@
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "lzd_passive_saurus_vigour",
-          "icon_name": "sfo3/battle_ui/ability_icons/lzd_passive_saurus_vigour",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Spawning Vigour",
-          "active_time": 10,
-          "effect_range": 0,
-          "recharge_time": 50,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "In melee"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/lzd_passive_saurus_vigour",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 10,
-              "effect_type": "positive",
-              "onscreen_name": "Stage One",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.01
             }
           ]
         }
@@ -3498,10 +3472,10 @@
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 5,
+                            "value": 10,
                             "stat": "stat_morale",
                             "how": "add",
-                            "description": "+5 Leadership",
+                            "description": "+10 Leadership",
                             "icon": "vanilla3/skins/default/icon_stat_morale"
                           },
                           {
@@ -3549,7 +3523,7 @@
             },
             {
               "description": "Physical resistance: 10% when defending\n\t(Lord's army)",
-              "key": "wh_defending_res_physical",
+              "key": "wh_effect_defending_res_physical",
               "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
             }
           ]

@@ -430,9 +430,6 @@
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Battle outcome is undecided"
-                    ],
                     "phases": [
                       {
                         "icon": "wh2_dlc17_unit_passive_bloodgreed_upgraded",
@@ -997,6 +994,11 @@
               "description": "+5% chance to automatically colonise ruined regions in province at turn start",
               "key": "wh3_main_effect_region_chance_to_spread_to_ruin_source",
               "icon": "vanilla3/campaign_ui/effect_bundles/khorne_skulls_bundle"
+            },
+            {
+              "description": "All other types of corruption: -2",
+              "key": "wh3_main_effect_corruption_khorne_high_reduction",
+              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
             }
           ]
         },
@@ -1173,11 +1175,11 @@
               },
               {
                 "description": "Passive ability: \"Dauntless Fury\"\n\t(assigned unit)",
-                "key": "wh_passive_scaling_attack_enable",
+                "key": "wh_effect_enable_wh_passive_scaling_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_passive_scaling_attack_enable",
+                    "effect": "wh_effect_enable_wh_passive_scaling_attack",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_passive_scaling_attack",
@@ -1618,7 +1620,7 @@
           "short_description": "As we gaze upon lands riven by bloodshed and hatred, our hearts swell with pride, knowing that we have served the Hunter of Souls well.",
           "effects": [
             {
-              "description": "Control: +1 for every concurrent war with a neighbouring faction",
+              "description": "Control: +2 for every concurrent war with a neighbouring faction",
               "key": "wh_main_effect_public_order_neighbouring_wars",
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
@@ -2111,7 +2113,7 @@
           "effects": [
             {
               "description": "Vigour loss reduction: -25% when under siege",
-              "key": "wh_siege_defending_fatigue",
+              "key": "wh_effect_siege_defending_fatigue",
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
@@ -2121,7 +2123,7 @@
             },
             {
               "description": "Armour: +10 when under siege",
-              "key": "wh_siege_defending_armour",
+              "key": "wh_effect_siege_defending_armour",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour"
             }
           ]
@@ -2419,8 +2421,7 @@
                       "target_self": false,
                       "target_intercept_range": 0,
                       "enabled_if": [
-                        "In melee",
-                        "Battle outcome is undecided"
+                        "In melee"
                       ],
                       "phases": [
                         {
@@ -3256,11 +3257,11 @@
             },
             {
               "description": "Passive ability: \"Dauntless Fury\"\n\t(all characters factionwide)",
-              "key": "wh_passive_scaling_attack_enable",
+              "key": "wh_effect_enable_wh_passive_scaling_attack",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh_passive_scaling_attack_enable",
+                  "effect": "wh_effect_enable_wh_passive_scaling_attack",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh_passive_scaling_attack",
@@ -3426,7 +3427,16 @@
                           "is_hidden_in_ui": false,
                           "damage_amount": 4,
                           "hp_change_frequency": 1,
-                          "max_damaged_entities": 5
+                          "max_damaged_entities": 5,
+                          "stat_effects": [
+                            {
+                              "value": 0.75,
+                              "stat": "stat_healing_power",
+                              "how": "mult",
+                              "description": "x0.75 All Healing Received",
+                              "icon": "vanilla3/skins/default/stat_healing_received"
+                            }
+                          ]
                         },
                         "stat_effects": [
                           {

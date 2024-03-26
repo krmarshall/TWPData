@@ -28,7 +28,7 @@
               "mass": 2000,
               "size": "medium",
               "hit_points": 0,
-              "bonus_hit_points": 4660,
+              "bonus_hit_points": 5750,
               "armour": 65,
               "missile_block_chance": 0,
               "morale": 70,
@@ -42,8 +42,8 @@
               "charge_bonus": 45,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
-              "damage": 110,
-              "ap_damage": 335,
+              "damage": 125,
+              "ap_damage": 325,
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 5,
               "melee_attack_interval": 4,
@@ -51,8 +51,8 @@
               "fly_speed": 0,
               "projectile": {
                 "key": "wh3_dlc24_ksl_druzhina_arrow",
-                "damage": 240,
-                "ap_damage": 160,
+                "damage": 300,
+                "ap_damage": 150,
                 "shockwave_radius": -1,
                 "effective_range": 180,
                 "base_reload_time": 8,
@@ -75,6 +75,12 @@
                   "description": "Hide (forest)",
                   "bullet_text": "This unit can hide in forests until enemy units get too close.",
                   "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+                },
+                {
+                  "key": "executor",
+                  "description": "Executioner",
+                  "bullet_text": "A unit with Executioner will execute units in combat below a 20% hit points threshold.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_executor"
                 },
                 {
                   "key": "ignore_trees",
@@ -444,7 +450,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Lords",
+                "description": "Character will share +10% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Lords",
                 "key": "wh3_main_effect_character_xp_share_generic_lordtext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -454,7 +475,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -464,27 +485,12 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +35% for characters\n\t(Heroes in Lord's army)",
+                "description": "Experience gain: +30% for characters\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              },
-              {
-                "description": "Experience gain: +50% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -652,9 +658,6 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Battle outcome is undecided"
-                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -756,9 +759,26 @@
                       "target_self": false,
                       "target_intercept_range": 200,
                       "wind_up_time": 4.5,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_aoe_4",
+                          "localised_text": "Explosion area of effect: 4m",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "activated_projectile": {
                         "key": "wh3_dlc24_lord_abilities_taals_judgement",
-                        "damage": 285,
+                        "damage": 300,
                         "ap_damage": 150,
                         "shockwave_radius": 3,
                         "effective_range": 200,
@@ -939,9 +959,26 @@
                       "target_self": false,
                       "target_intercept_range": 200,
                       "wind_up_time": 4.5,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_aoe_4",
+                          "localised_text": "Explosion area of effect: 4m",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "activated_projectile": {
                         "key": "wh3_dlc24_lord_abilities_taals_judgement",
-                        "damage": 285,
+                        "damage": 300,
                         "ap_damage": 150,
                         "shockwave_radius": 3,
                         "effective_range": 200,
@@ -1198,7 +1235,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Cursed Frontier",
-                      "effect_range": 35,
+                      "effect_range": 40,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -1557,7 +1594,7 @@
           {
             "effects": [
               {
-                "description": "Melee defence: +4 for Kossars, Armoured Kossars, Yepiskop Battalion and Streltsi units\n\t(Lord's army)",
+                "description": "Melee defence: +4 for Kossars, Armoured Kossars, Kislevite Warriors, Yepiskop Battalion and Streltsi units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_defence_ksl_kossars_streltsi",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
@@ -1571,7 +1608,7 @@
           {
             "effects": [
               {
-                "description": "Melee defence: +6 for Kossars, Armoured Kossars, Yepiskop Battalion and Streltsi units\n\t(Lord's army)",
+                "description": "Melee defence: +6 for Kossars, Armoured Kossars, Kislevite Warriors, Yepiskop Battalion and Streltsi units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_defence_ksl_kossars_streltsi",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
@@ -1938,7 +1975,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               },
               {
-                "description": "Missile resistance: 15% for Kossars, Armoured Kossars, Yepiskop Battalion, Streltsi and Ice Guard units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Missile resistance: 15% for Kossars, Armoured Kossars, Kislevite Warriors, Yepiskop Battalion, Streltsi and Ice Guard units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_missile_resistance_ksl_kossars_streltsi_ice_guard_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
               }
@@ -2004,17 +2041,17 @@
           {
             "effects": [
               {
-                "description": "Armour: +10 for War Bear Riders, Elemental Bear, Snow Leopard, Acolytes of Ursun, Tzar Guard units, Things in the Woods and Incarnate Elemental of Beasts (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Armour: +10 for War Bear Riders, Elemental Bear, Snow Leopard, Acolytes of Ursun, Tzar Guard units, Things in the Woods, Frost Wyrm  and Incarnate Elemental of Beasts (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_armour_ksl_bears_leopards_tsar_guard_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Melee defence: +5 for War Bear Riders, Elemental Bears, Snow Leopard, Tzar Guard, Acolytes of Ursun, Things in the Woods and Incarnate Elemental of Beasts units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Melee defence: +5 for War Bear Riders, Elemental Bears, Snow Leopard, Tzar Guard, Acolytes of Ursun, Things in the Woods, Frost Wyrm  and Incarnate Elemental of Beasts units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_defence_ksl_bears_leopards_tsar_guard_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
               {
-                "description": "Spell resistance: 15% for War Bear Riders, Elemental Bears, Snow Leopard, Acolytes of Ursun, Tzar Guard, Things in the Woods and Incarnate Elemental of Beasts units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Spell resistance: 15% for War Bear Riders, Elemental Bears, Snow Leopard, Acolytes of Ursun, Tzar Guard, Things in the Woods, Frost Wyrm  and Incarnate Elemental of Beasts units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_magic_resistance_ksl_bears_leopards_tsar_guard_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
               }
@@ -2335,15 +2372,6 @@
           {
             "effects": [
               {
-                "description": "Corruption: -1\n\t(local province)",
-                "key": "wh3_main_effect_corruption_reduction_characters",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
                 "description": "Corruption: -2\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -2353,7 +2381,16 @@
           {
             "effects": [
               {
-                "description": "Corruption: -3\n\t(local province)",
+                "description": "Corruption: -4\n\t(local province)",
+                "key": "wh3_main_effect_corruption_reduction_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Corruption: -6\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
               }
@@ -2660,11 +2697,11 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 3.4,
-    "mass": 800,
+    "run_speed": 3.5,
+    "mass": 1000,
     "size": "small",
-    "hit_points": 8,
-    "bonus_hit_points": 4260,
+    "hit_points": 0,
+    "bonus_hit_points": 5250,
     "armour": 65,
     "missile_block_chance": 0,
     "morale": 70,
@@ -2678,8 +2715,8 @@
     "charge_bonus": 30,
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
-    "damage": 110,
-    "ap_damage": 335,
+    "damage": 125,
+    "ap_damage": 325,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 5,
     "melee_attack_interval": 4,
@@ -2687,8 +2724,8 @@
     "fly_speed": 0,
     "projectile": {
       "key": "wh3_dlc24_ksl_druzhina_arrow",
-      "damage": 240,
-      "ap_damage": 160,
+      "damage": 300,
+      "ap_damage": 150,
       "shockwave_radius": -1,
       "effective_range": 180,
       "base_reload_time": 8,
@@ -2711,6 +2748,12 @@
         "description": "Hide (forest)",
         "bullet_text": "This unit can hide in forests until enemy units get too close.",
         "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+      },
+      {
+        "key": "executor",
+        "description": "Executioner",
+        "bullet_text": "A unit with Executioner will execute units in combat below a 20% hit points threshold.",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_executor"
       },
       {
         "key": "ignore_trees",
@@ -3607,11 +3650,11 @@
             },
             {
               "description": "Passive ability: \"Coordinated Carnage\"",
-              "key": "wh_passive_aura_guardian_attack_enable",
+              "key": "wh_effect_enable_wh_passive_aura_guardian_attack",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh_passive_aura_guardian_attack_enable",
+                  "effect": "wh_effect_enable_wh_passive_aura_guardian_attack",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh_passive_aura_guardian_attack",

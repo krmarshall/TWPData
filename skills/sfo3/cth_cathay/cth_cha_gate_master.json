@@ -30,7 +30,7 @@
               "hit_points": 0,
               "bonus_hit_points": 5750,
               "armour": 100,
-              "missile_block_chance": 60,
+              "missile_block_chance": 0,
               "morale": 70,
               "damage_mod_flame": 0,
               "damage_mod_magic": 0,
@@ -40,8 +40,8 @@
               "melee_attack": 40,
               "melee_defence": 50,
               "charge_bonus": 50,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 15,
+              "bonus_v_large": 20,
+              "bonus_v_infantry": 0,
               "damage": 250,
               "ap_damage": 150,
               "splash_target_size_limit": "medium",
@@ -64,10 +64,10 @@
                   "icon": "sfo3/battle_ui/ability_icons/hide_forest"
                 },
                 {
-                  "key": "can_block_missiles_360",
-                  "description": " 360 Missile Block",
-                  "bullet_text": "This unit can block projectiles regardless of its facing.",
-                  "icon": "sfo3/battle_ui/ability_icons/can_block_missiles_360"
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 }
               ],
               "abilities": [
@@ -173,9 +173,9 @@
               "mass": 1500,
               "size": "medium",
               "hit_points": 0,
-              "bonus_hit_points": 7000,
+              "bonus_hit_points": 6000,
               "armour": 100,
-              "missile_block_chance": 60,
+              "missile_block_chance": 0,
               "morale": 70,
               "damage_mod_flame": 0,
               "damage_mod_magic": 0,
@@ -185,8 +185,8 @@
               "melee_attack": 40,
               "melee_defence": 50,
               "charge_bonus": 70,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 15,
+              "bonus_v_large": 20,
+              "bonus_v_infantry": 0,
               "damage": 250,
               "ap_damage": 150,
               "splash_target_size_limit": "medium",
@@ -215,10 +215,10 @@
                   "icon": "sfo3/battle_ui/ability_icons/flying"
                 },
                 {
-                  "key": "can_block_missiles_360",
-                  "description": " 360 Missile Block",
-                  "bullet_text": "This unit can block projectiles regardless of its facing.",
-                  "icon": "sfo3/battle_ui/ability_icons/can_block_missiles_360"
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
                 }
               ],
               "abilities": [
@@ -364,12 +364,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Heroes of the same type",
+                "description": "Character will share +10% of experience earned between all other active Heroes of the same type",
                 "key": "wh3_main_effect_character_xp_share_generic_herotext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Heroes of the same type",
+                "key": "wh3_main_effect_character_xp_share_generic_herotext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -379,17 +389,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       },
@@ -1018,6 +1018,68 @@
           {
             "effects": [
               {
+                "description": "Ability: \"Restore\"",
+                "key": "wh2_dlc09_effect_ability_enable_restore",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc09_effect_ability_enable_restore",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc09_character_abilities_restore",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Restore",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "target_if": [
+                        "Unit is construct"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_total_15",
+                          "localised_text": "Restores up to 15% Hit Points",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.005,
+                          "hp_change_frequency": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
                 "description": "Melee attack: +2 for Yang units\n\t(Hero's army)",
                 "key": "wh3_main_effect_cth_force_subtype_melee_attack_yang",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
@@ -1232,6 +1294,9 @@
                       "enabled_if": [
                         "Leadership is higher than broken"
                       ],
+                      "target_if": [
+                        "Unit is construct"
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh_self_not",
@@ -1251,19 +1316,19 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 5,
+                              "value": 8,
                               "stat": "stat_melee_attack",
                               "how": "add",
-                              "description": "+5 Melee Attack",
+                              "description": "+8 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
                           ],
                           "attributes": [
                             {
-                              "key": "causes_fear",
-                              "description": " Can Cause Fear",
-                              "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                              "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                              "key": "causes_terror",
+                              "description": " Can Cause Terror",
+                              "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                              "icon": "sfo3/battle_ui/ability_icons/causes_terror"
                             }
                           ]
                         }
@@ -1298,6 +1363,68 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Ability: \"Restore\"",
+                "key": "wh2_dlc09_effect_ability_enable_restore",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc09_effect_ability_enable_restore",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc09_character_abilities_restore",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Restore",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "target_if": [
+                        "Unit is construct"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_total_15",
+                          "localised_text": "Restores up to 15% Hit Points",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.005,
+                          "hp_change_frequency": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
               {
                 "description": "Melee defence: +2 for Yin units\n\t(Hero's army)",
                 "key": "wh3_main_effect_cth_force_subtype_melee_defence_yin",
@@ -1528,6 +1655,9 @@
                       "enabled_if": [
                         "Leadership is higher than broken"
                       ],
+                      "target_if": [
+                        "Unit is construct"
+                      ],
                       "ui_effects": [
                         {
                           "key": "wh_self_not",
@@ -1547,19 +1677,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 5,
+                              "value": 1.25,
+                              "stat": "stat_mass",
+                              "how": "mult",
+                              "description": "x1.25  Mass",
+                              "icon": "vanilla3/skins/default/icon_stat_mass"
+                            },
+                            {
+                              "value": 8,
                               "stat": "stat_melee_defence",
                               "how": "add",
-                              "description": "+5 Melee Defence",
+                              "description": "+8 Melee Defence",
                               "icon": "vanilla3/skins/default/icon_stat_defence"
-                            }
-                          ],
-                          "attributes": [
-                            {
-                              "key": "can_block_missiles_360",
-                              "description": " 360 Missile Block",
-                              "bullet_text": "This unit can block projectiles regardless of its facing.",
-                              "icon": "sfo3/battle_ui/ability_icons/can_block_missiles_360"
                             }
                           ]
                         }
@@ -1844,32 +1973,32 @@
     [
       {
         "key": "cth_cha_gate_master_campaign_01",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
-        "character_skill_key": "wh2_main_skill_all_hero_assist_army_increase_mobility",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "character_skill_key": "wh2_main_skill_all_hero_assist_army_training",
         "tier": 0,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Increase Mobility",
-        "localised_description": "Whether it be training harder, travelling lighter, eating less or sleeping better, there's always a way to draw more from the day.",
+        "localised_name": "Training",
+        "localised_description": "This champion extols discipline and fear away from the battlefield as much as on it.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Increase Mobility action: Movement range is increased by an additional 5%",
-                "key": "wh2_main_effect_agent_action_assist_army_increase_mobility_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+                "description": "Training action: Unit experience gain is increased by an additional 5%",
+                "key": "wh2_main_effect_agent_action_assist_army_training_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Increase Mobility action: Movement range is increased by an additional 10%",
-                "key": "wh2_main_effect_agent_action_assist_army_increase_mobility_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+                "description": "Training action: Unit experience gain is increased by an additional 10%",
+                "key": "wh2_main_effect_agent_action_assist_army_training_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
             "unlocked_at_rank": 5
@@ -1877,9 +2006,9 @@
           {
             "effects": [
               {
-                "description": "Increase Mobility action: Movement range is increased by an additional 15%",
-                "key": "wh2_main_effect_agent_action_assist_army_increase_mobility_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+                "description": "Training action: Unit experience gain is increased by an additional 15%",
+                "key": "wh2_main_effect_agent_action_assist_army_training_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
             "unlocked_at_rank": 10
@@ -1888,52 +2017,52 @@
       },
       {
         "key": "cth_cha_gate_master_campaign_02",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
-        "character_skill_key": "wh2_main_skill_all_hero_passive_boost_income",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_public_order",
+        "character_skill_key": "wh2_main_skill_all_hero_passive_spread_public_order",
         "tier": 1,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Boost Income",
-        "localised_description": "Such magic-users may be wise and able to offer sage advice, especially if they have scried the region.",
+        "localised_name": "Spread Control",
+        "localised_description": "The sight of this warrior, their stature, import or infamy, can have a calming effect.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Income from all buildings: -2%\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Control: -1\n\t(enemy local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Income from all buildings: +2%\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Control: +1\n\t(own local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Boost Income action: Income is modified by an additional 2%",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Spread Control action: Control is modified by an additional 1",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Income from all buildings: -4%\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Control: -2\n\t(enemy local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Income from all buildings: +4%\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Control: +2\n\t(own local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Boost Income action: Income is modified by an additional 4%",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Spread Control action: Control is modified by an additional 2",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               }
             ],
             "unlocked_at_rank": 5
@@ -1941,19 +2070,19 @@
           {
             "effects": [
               {
-                "description": "Income from all buildings: -6%\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Control: -3\n\t(enemy local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Income from all buildings: +6%\n\t(local province)",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Control: +3\n\t(own local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Boost Income action: Income is modified by an additional 6%",
-                "key": "wh2_main_effect_agent_action_passive_boost_income_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Spread Control action: Control is modified by an additional 3",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               }
             ],
             "unlocked_at_rank": 10
@@ -1962,32 +2091,32 @@
       },
       {
         "key": "cth_cha_gate_master_campaign_03",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_technology",
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_steal_technology",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_disaster",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_assault_units",
         "tier": 2,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Steal Technology",
-        "localised_description": "Oft-times, though you may have much, what you want the most is what your rivals have; such envy focuses the mind and creativity.",
+        "localised_name": "Assault Units",
+        "localised_description": "Lying in wait, experienced and patient, striking when the foe least expects.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Steal Technology action: Research rate is increased by an additional 3%",
-                "key": "wh2_main_effect_agent_action_hinder_settlement_steal_technology_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+                "description": "Assault Units action: Additional 3% casualties inflicted",
+                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Steal Technology action: Research rate is increased by an additional 6%",
-                "key": "wh2_main_effect_agent_action_hinder_settlement_steal_technology_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+                "description": "Assault Units action: Additional 8% casualties inflicted",
+                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
             ],
             "unlocked_at_rank": 5
@@ -1995,9 +2124,9 @@
           {
             "effects": [
               {
-                "description": "Steal Technology action: Research rate is increased by an additional 10%",
-                "key": "wh2_main_effect_agent_action_hinder_settlement_steal_technology_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+                "description": "Assault Units action: Additional 15% casualties inflicted",
+                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
             ],
             "unlocked_at_rank": 10
@@ -2029,7 +2158,7 @@
           {
             "effects": [
               {
-                "description": "Wound action: Additional 12% chance of wounding target",
+                "description": "Wound action: Additional 15% chance of wounding target",
                 "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
                 "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
               }
@@ -2039,7 +2168,7 @@
           {
             "effects": [
               {
-                "description": "Wound action: Additional 21% chance of wounding target",
+                "description": "Wound action: Additional 30% chance of wounding target",
                 "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
                 "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
               }
@@ -2050,32 +2179,32 @@
       },
       {
         "key": "cth_cha_gate_master_campaign_05",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_block_army",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_siege_defence",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_assault_garrison",
         "tier": 4,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Block Army",
-        "localised_description": "To sow discord and confuse the enemy, sending them down the wrong route or befuddling their senses.",
+        "localised_name": "Assault Garrison",
+        "localised_description": "\"If they know I'm coming then more's the better!\"",
         "levels": [
           {
             "effects": [
               {
-                "description": "Block Army action: Movement range is modified by an additional -3%",
-                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+                "description": "Assault Garrison action: Additional 5% casualties inflicted",
+                "key": "wh2_main_effect_agent_action_hinder_settlement_assault_garrison_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/siege_defence"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Block Army action: Movement range is modified by an additional -8%",
-                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+                "description": "Assault Garrison action: Additional 15% casualties inflicted",
+                "key": "wh2_main_effect_agent_action_hinder_settlement_assault_garrison_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/siege_defence"
               }
             ],
             "unlocked_at_rank": 5
@@ -2083,9 +2212,9 @@
           {
             "effects": [
               {
-                "description": "Block Army action: Movement range is modified by an additional -15%",
-                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+                "description": "Assault Garrison action: Additional 30% casualties inflicted",
+                "key": "wh2_main_effect_agent_action_hinder_settlement_assault_garrison_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/siege_defence"
               }
             ],
             "unlocked_at_rank": 10
@@ -2158,7 +2287,7 @@
     "hit_points": 0,
     "bonus_hit_points": 5000,
     "armour": 80,
-    "missile_block_chance": 60,
+    "missile_block_chance": 0,
     "morale": 70,
     "damage_mod_flame": 0,
     "damage_mod_magic": 0,
@@ -2168,8 +2297,8 @@
     "melee_attack": 50,
     "melee_defence": 50,
     "charge_bonus": 30,
-    "bonus_v_large": 0,
-    "bonus_v_infantry": 15,
+    "bonus_v_large": 20,
+    "bonus_v_infantry": 0,
     "damage": 250,
     "ap_damage": 150,
     "splash_target_size_limit": "medium",
@@ -2192,10 +2321,10 @@
         "icon": "sfo3/battle_ui/ability_icons/hide_forest"
       },
       {
-        "key": "can_block_missiles_360",
-        "description": " 360 Missile Block",
-        "bullet_text": "This unit can block projectiles regardless of its facing.",
-        "icon": "sfo3/battle_ui/ability_icons/can_block_missiles_360"
+        "key": "immune_to_psychology",
+        "description": " Immune to Psychology",
+        "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+        "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
       }
     ],
     "abilities": [
@@ -2275,7 +2404,7 @@
     {
       "key": "skill_all_dummy_agent_actions_cth_cha_gate_master",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh2_main_skill_all_dummy_agent_actions_dwf_master_engineer",
+      "character_skill_key": "wh2_main_skill_all_dummy_agent_actions_emp_captain",
       "tier": 0,
       "indent": 10,
       "points_on_creation": 1,
@@ -2289,101 +2418,43 @@
           "effects": [
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_engineer_assist_army_enhance_mobility",
+              "key": "wh2_main_effect_agent_action_enable_champion_assist_army_training",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_engineer_hinder_agent_wound",
+              "key": "wh2_main_effect_agent_action_enable_champion_hinder_agent_wound",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_engineer_hinder_army_block_army",
+              "key": "wh2_main_effect_agent_action_enable_champion_hinder_army_assault_units",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_engineer_hinder_settlement_scout_settlement",
+              "key": "wh2_main_effect_agent_action_enable_champion_hinder_settlement_assault_garrison",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_engineer_hinder_settlement_steal_technology",
+              "key": "wh2_main_effect_agent_action_enable_champion_hinder_settlement_scout_settlement",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_engineer_passive_boost_income",
+              "key": "wh2_main_effect_agent_action_enable_champion_passive_spread_public_order",
               "icon": ""
             },
             {
-              "description": "Income from all buildings: -5%\n\t(local province)",
-              "key": "wh2_main_effect_agent_action_passive_boost_income_effect_negative",
-              "icon": "vanilla3/campaign_ui/effect_bundles/income"
+              "description": "Control: -1\n\t(enemy local province)",
+              "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
+              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
             {
-              "description": "Income from all buildings: +5%\n\t(local province)",
-              "key": "wh2_main_effect_agent_action_passive_boost_income_effect_positive",
-              "icon": "vanilla3/campaign_ui/effect_bundles/income"
-            },
-            {
-              "description": "Ability \"Restock!\"",
-              "key": "wh2_dlc17_effect_ability_enable_restock",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "related_abilities": [
-                {
-                  "effect": "wh2_dlc17_effect_ability_enable_restock",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh2_dlc17_hero_abilities_more_powder_generic",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_hero_abilities_more_powder",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Restock!",
-                    "active_time": 10,
-                    "effect_range": 0,
-                    "num_effected_friendly_units": 1,
-                    "num_uses": 4,
-                    "recharge_time": 90,
-                    "target_enemies": false,
-                    "target_friends": true,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 100,
-                    "ui_effects": [
-                      {
-                        "key": "wh_ammo_add_30",
-                        "localised_text": "Replenishes 30% ammunition",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh2_dlc11_all_replenish_ammo",
-                        "localised_text": "Replenishes ammunition",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_hero_abilities_more_powder",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": false,
-                        "target_friends": true,
-                        "duration": 10,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "replenish_ammo": 0.3
-                      }
-                    ]
-                  }
-                }
-              ]
+              "description": "Control: +1\n\t(own local province)",
+              "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
+              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             }
           ]
         }

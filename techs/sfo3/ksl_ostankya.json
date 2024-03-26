@@ -51,7 +51,7 @@
           "short_description": "This ingenious design not only enables efficient deflection of blows, but can also be hooked around an opponent's shield or haul a rider from their mount.",
           "effects": [
             {
-              "description": "Melee defence: +4 for Kossars, Armoured Kossars, Yepiskop Battalion and Streltsi units",
+              "description": "Melee defence: +4 for Kossars, Armoured Kossars, Kislevite Warriors, Yepiskop Battalion and Streltsi units",
               "key": "wh3_main_effect_force_stat_melee_defence_ksl_kossars_streltsi",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
             }
@@ -132,11 +132,6 @@
               "description": "Speed: +10%",
               "key": "wh_main_effect_force_stat_speed",
               "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
-            },
-            {
-              "key": "invalid_effect",
-              "description": "Invalid Effect",
-              "icon": "vanilla3/campaign_ui/effect_bundles/0_placeholder_effect_bundle"
             }
           ]
         },
@@ -537,11 +532,27 @@
                   "target_friends": false,
                   "duration": 15,
                   "effect_type": "negative",
-                  "onscreen_name": "Slow Death!\n\t  - 25 damage, 1 entities",
+                  "onscreen_name": "Slow Death!\n\t  - 15 damage, 3 entities",
                   "is_hidden_in_ui": false,
-                  "damage_amount": 20,
+                  "damage_amount": 15,
                   "hp_change_frequency": 1,
-                  "max_damaged_entities": 1
+                  "max_damaged_entities": 3,
+                  "stat_effects": [
+                    {
+                      "value": 0.9,
+                      "stat": "scalar_speed",
+                      "how": "mult",
+                      "description": "x0.9 Speed",
+                      "icon": "vanilla3/skins/default/icon_stat_speed"
+                    },
+                    {
+                      "value": 0.9,
+                      "stat": "stat_melee_defence",
+                      "how": "mult",
+                      "description": "x0.9 Melee Defence",
+                      "icon": "vanilla3/skins/default/icon_stat_defence"
+                    }
+                  ]
                 }
               ]
             },
@@ -555,6 +566,59 @@
                   "description": " Can Cause Terror",
                   "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
                   "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                }
+              ]
+            },
+            {
+              "description": "Ability: \"Bloodroar\" for Spider units",
+              "key": "wh_effect_enable_wh_main_mount_passive_bloodroar_wh3_dlc24_ostankya_spiders",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh_effect_enable_wh_main_mount_passive_bloodroar_wh3_dlc24_ostankya_spiders",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_mount_passive_bloodroar",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_mount_passive_bloodroar",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bloodroar",
+                    "effect_range": 30,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_mount_passive_bloodroar",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -1553,7 +1617,7 @@
           "short_description": "Several layers of finely-wrought, ultra-thin metal skin, bound together, provide the strength to withstand axe or hammer blows, and deflect arrow or spear points when launched acutely.",
           "effects": [
             {
-              "description": "Missile resistance: 10% for Kossars, Armoured Kossars, Yepiskop Battalion, Streltsi and Ice Guard units",
+              "description": "Missile resistance: 10% for Kossars, Armoured Kossars, Kislevite Warriors, Yepiskop Battalion, Streltsi and Ice Guard units",
               "key": "wh3_main_effect_force_stat_missile_resistance_ksl_kossars_streltsi_ice_guard",
               "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
             }
@@ -1720,12 +1784,12 @@
           "effects": [
             {
               "description": "Reload time reduction: +10% when under siege",
-              "key": "wh_siege_defending_reload",
+              "key": "wh_effect_siege_defending_reload",
               "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
             },
             {
               "description": "Ammunition: +10% when under siege",
-              "key": "wh_siege_defending_ammo",
+              "key": "wh_effect_siege_defending_ammo",
               "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
             },
             {
@@ -1993,8 +2057,13 @@
           "short_description": "Men able to accumulate ducats are truly the major players among the city's burgeoning merchant class.",
           "effects": [
             {
-              "description": "Income from Settlement buildings: +20%",
+              "description": "Income from Settlement buildings: +10%",
               "key": "wh_main_effect_technology_economy_gdp_mod_subsistence_dwarfs",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income"
+            },
+            {
+              "description": "Income from trade-good producing buildings: +100%",
+              "key": "wh2_main_effect_technology_economy_gdp_mod_culture_mining_empire",
               "icon": "vanilla3/campaign_ui/effect_bundles/income"
             }
           ]
@@ -2022,7 +2091,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/construction"
             },
             {
-              "description": "Income from all buildings: +5%",
+              "description": "Income from all buildings: +10%",
               "key": "wh_main_effect_economy_gdp_mod_all",
               "icon": "vanilla3/campaign_ui/effect_bundles/income"
             }
@@ -2230,11 +2299,11 @@
               },
               {
                 "description": "Passive ability: \"Bolstered Command\"\n\t(assigned unit)",
-                "key": "wh_passive_aura_buff_command_enable",
+                "key": "wh_effect_enable_wh_passive_aura_buff_command",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee",
                 "related_abilities": [
                   {
-                    "effect": "wh_passive_aura_buff_command_enable",
+                    "effect": "wh_effect_enable_wh_passive_aura_buff_command",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_passive_aura_buff_command",
@@ -2453,7 +2522,7 @@
           "short_description": "Of all cities, Erengrad is the most likely to be visited by those from outside the heartlands as the beating heart of the Kislevite economy.",
           "effects": [
             {
-              "description": "Diplomatic relations: +35 with Kislev",
+              "description": "Diplomatic relations: +50 with Kislev",
               "key": "wh3_main_faction_political_diplomacy_mod_kislev",
               "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             },

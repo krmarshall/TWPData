@@ -2573,6 +2573,52 @@
       }
     ]
   },
+  "factionEffects": {
+    "key": "teb_faction_trait_teb_lorenzo_lupo",
+    "localised_description": "Luccini may be traditionally led by eccentric and slightly-inbred Princes, but it prides itself with what is likely the best army of Tilea, a famed fleet and a luxurious lifestyle.",
+    "localised_title": "Legacy of the Twins",
+    "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
+    "effects": [
+      {
+        "description": "All units (Rank 7 and above):\n\tAttribute: Strong Vigour\n\tArmour: +5 \n\tall Damage: +8%% ",
+        "key": "teb_buff_xp7+_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+      },
+      {
+        "description": "Diplomatic relations: -30 with Vampire Coast",
+        "key": "wh2_dlc11_faction_political_diplomacy_mod_vampire_coast",
+        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+      },
+      {
+        "description": "Melee defence: +5 for Pikemen and Half-Pikes (Rank 7 and above)",
+        "key": "teb_lord_tileaguy_pike_MD",
+        "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+      },
+      {
+        "description": "Recruitment and Upkeep costs: +10% for all Regiments of Renown",
+        "key": "teb_costs_ror_all",
+        "icon": "vanilla3/campaign_ui/effect_bundles/variable_upkeep"
+      },
+      {
+        "description": "Recruit rank: +1",
+        "key": "wh_main_effect_force_all_campaign_experience_base_all",
+        "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+      },
+      {
+        "description": "Attribute: Encourage for Pikemen",
+        "key": "teb_tercio_encou",
+        "icon": "cat3/campaign_ui/effect_bundles/attribute_encourages",
+        "related_attributes": [
+          {
+            "key": "encourages",
+            "description": "Encourage",
+            "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+            "icon": "cat3/campaign_ui/effect_bundles/attribute_encourages"
+          }
+        ]
+      }
+    ]
+  },
   "items": [
     {
       "key": "teb_lorenzo_lupo_shield",
@@ -3265,6 +3311,126 @@
               "description": "Local recruitment capacity: +1\n\t(local province)",
               "key": "wh_main_effect_unit_recruitment_points",
               "icon": "vanilla3/campaign_ui/effect_bundles/army"
+            },
+            {
+              "description": "Passive ability: \"Mighty Athlete\"",
+              "key": "teb_lorenzo_lupo_runner",
+              "icon": "spell_ability",
+              "related_abilities": [
+                {
+                  "effect": "teb_lorenzo_lupo_runner",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "teb_lorenzo_lupo_runner",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc20_item_passive_bronze_armour_of_zhrakk",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Mighty Athlete",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "random_phases": true,
+                    "ui_effects": [
+                      {
+                        "key": "wh3_dlc23_crooked_dice",
+                        "localised_text": "Grants one of the listed effects at random",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "teb_lorenzo_lupo_runner",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 900,
+                        "effect_type": "positive",
+                        "onscreen_name": "Running Practice",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 15,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+15 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "teb_lorenzo_lupo_wrestler",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 900,
+                        "effect_type": "positive",
+                        "onscreen_name": "Wrestling Practice",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x1.2  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_bonus_vs_infantry",
+                            "how": "add",
+                            "description": "+10 Bonus vs. Infantry",
+                            "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_infantry"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "teb_lorenzo_lupo_strongman",
+                        "order": 3,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 900,
+                        "effect_type": "positive",
+                        "onscreen_name": "Rowing Practice",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.15 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.15 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             },
             {
               "description": "Weapon strength: +20% for Knights of Morr and pike units\n\t(Lord's army)",

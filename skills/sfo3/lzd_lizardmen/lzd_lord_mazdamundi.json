@@ -156,7 +156,9 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Primal Instincts",
+                    "active_time": 60,
                     "effect_range": 0,
+                    "num_uses": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
@@ -173,15 +175,22 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
-                        "duration": -1,
+                        "duration": 60,
                         "effect_type": "negative",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 1.1,
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.25 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.25,
                             "stat": "scalar_speed",
                             "how": "mult",
-                            "description": "x1.1 Speed",
+                            "description": "x1.25 Speed",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
@@ -192,10 +201,10 @@
                             "icon": "vanilla3/skins/default/icon_stat_attack"
                           },
                           {
-                            "value": 1.1,
+                            "value": 1.15,
                             "stat": "stat_charge_bonus",
                             "how": "mult",
-                            "description": "x1.1 Charge Bonus",
+                            "description": "x1.15 Charge Bonus",
                             "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                           },
                           {
@@ -204,6 +213,13 @@
                             "how": "add",
                             "description": "+5 Physical Resistance",
                             "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          },
+                          {
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ],
                         "attributes": [
@@ -395,8 +411,8 @@
                 },
                 {
                   "unit_ability": {
-                    "key": "lzd_passive_calm",
-                    "icon_name": "sfo3/battle_ui/ability_icons/lzd_passive_calm",
+                    "key": "lzd_passive_aura_calm",
+                    "icon_name": "sfo3/battle_ui/ability_icons/lzd_passive_aura_calm",
                     "overpower_option": "",
                     "type": {
                       "key": "wh_type_area_of_augments",
@@ -406,6 +422,7 @@
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Calm Presence",
                     "effect_range": 40,
+                    "num_effected_friendly_units": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
@@ -426,7 +443,7 @@
                     ],
                     "phases": [
                       {
-                        "icon": "sfo3/battle_ui/ability_icons/lzd_passive_calm",
+                        "icon": "sfo3/battle_ui/ability_icons/lzd_passive_aura_calm",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": false,
@@ -453,9 +470,9 @@
         ]
       },
       {
-        "key": "wh2_main_skill_node_lzd_lord_mazdamundi_generic_1",
+        "key": "lzd_skill_slann_generic_1",
         "image_path": "sfo3/campaign_ui/skills/wh2_liz_tech_verse_of_star_chambers",
-        "character_skill_key": "lzd_skill_slann_9",
+        "character_skill_key": "lzd_skill_slann_5",
         "tier": 3,
         "indent": 0,
         "points_on_creation": 0,
@@ -586,80 +603,10 @@
         ]
       },
       {
-        "key": "wh2_main_skill_node_lzd_lord_mazdamundi_generic_2",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
-        "character_skill_key": "lzd_skill_slann_7",
-        "tier": 4,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Slann's Mandate",
-        "localised_description": "The orders will be carried out with exacting precision.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "[HIDDEN]Hero recruit rank: +1\n\t(own armies factionwide)",
-                "key": "wh2_dlc11_agent_recruit_xp_tech_coast",
-                "icon": ""
-              },
-              {
-                "description": "Winds of Magic power reserve capacity: +2\n\t(own armies factionwide)",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
-                "description": "Hero recruit rank: +1\n\t(all provinces)",
-                "key": "wh_main_effect_agent_recruitment_xp_all_agents",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ],
-            "unlocked_at_rank": 12
-          }
-        ]
-      },
-      {
-        "key": "wh2_main_skill_node_lzd_lord_mazdamundi_generic_4",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
-        "character_skill_key": "lzd_skill_slann_8",
-        "tier": 5,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Commanding Visage",
-        "localised_description": "Those who do not obey will know fear.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Unit experience gain per turn: +50\n\t(Lord's army)",
-                "key": "wh_main_effect_agent_action_outcome_parent_army_xp_gain",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              },
-              {
-                "description": "Campaign movement range: -10% for enemy armies starting their turn in this province\n\t(enemy armies in province)",
-                "key": "wh2_main_effect_force_enemy_campaign_movement_range",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-              },
-              {
-                "description": "Enemy Hero action success chance: -10%\n\t(own characters in province)",
-                "key": "wh_main_effect_agent_action_success_chance_enemy",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ],
-            "unlocked_at_rank": 12
-          }
-        ]
-      },
-      {
-        "key": "wh2_main_skill_node_lzd_lord_mazdamundi_generic_5",
+        "key": "lzd_skill_slann_generic_2",
         "image_path": "vanilla3/campaign_ui/skills/campaign_growth",
         "character_skill_key": "lzd_skill_slann_1",
-        "tier": 6,
+        "tier": 4,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -696,10 +643,10 @@
         ]
       },
       {
-        "key": "wh2_main_skill_node_lzd_lord_mazdamundi_generic_6",
+        "key": "lzd_skill_slann_generic_3",
         "image_path": "vanilla3/campaign_ui/skills/campaign_technology",
         "character_skill_key": "lzd_skill_slann_2",
-        "tier": 7,
+        "tier": 5,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -711,14 +658,19 @@
           {
             "effects": [
               {
+                "description": "Character will share +10% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
                 "description": "Research rate: +5%",
                 "key": "wh_main_effect_technology_research_points",
                 "icon": "vanilla3/campaign_ui/effect_bundles/technology"
-              },
-              {
-                "description": "Attrition: -5% casualties suffered from all attrition\n\t(own armies factionwide)",
-                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               },
               {
                 "description": "Corruption: -1\n\t(all provinces)",
@@ -731,62 +683,72 @@
         ]
       },
       {
-        "key": "wh3_dlc24_skill_node_all_mentor",
-        "image_path": "vanilla3/campaign_ui/skills/character_experience",
-        "character_skill_key": "wh3_main_skill_all_mentor_lord",
-        "tier": 30,
+        "key": "lzd_skill_slann_generic_4",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
+        "character_skill_key": "lzd_skill_slann_3",
+        "tier": 6,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Mentor",
-        "localised_description": "Having learned much in their long years of service, this character now turns their attention to training others.",
+        "localised_name": "Slann's Mandate",
+        "localised_description": "The orders will be carried out with exacting precision.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "[HIDDEN]Hero recruit rank: +1\n\t(own armies factionwide)",
+                "key": "wh2_dlc11_agent_recruit_xp_tech_coast",
+                "icon": ""
               },
               {
-                "description": "Experience gain: +20% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "Winds of Magic power reserve capacity: +2\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              },
+              {
+                "description": "Hero recruit rank: +1\n\t(all provinces)",
+                "key": "wh_main_effect_agent_recruitment_xp_all_agents",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ],
-            "unlocked_at_rank": 30
-          },
+            "unlocked_at_rank": 12
+          }
+        ]
+      },
+      {
+        "key": "lzd_skill_slann_generic_5",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+        "character_skill_key": "lzd_skill_slann_4",
+        "tier": 7,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Commanding Visage",
+        "localised_description": "Those who do not obey will know fear.",
+        "levels": [
           {
             "effects": [
               {
-                "description": "Character will share +30% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "description": "Unit experience gain per turn: +50\n\t(Lord's army)",
+                "key": "wh_main_effect_agent_action_outcome_parent_army_xp_gain",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +35% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "Campaign movement range: -10% for enemy armies starting their turn in this province\n\t(enemy armies in province)",
+                "key": "wh2_main_effect_force_enemy_campaign_movement_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Experience gain: +50% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "Enemy Hero action success chance: -10%\n\t(own characters in province)",
+                "key": "wh_main_effect_agent_action_success_chance_enemy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ],
-            "unlocked_at_rank": 50
+            "unlocked_at_rank": 12
           }
         ]
       }
@@ -809,7 +771,7 @@
             "effects": [
               {
                 "description": "Ward save: 5% when defending\n\t(own armies in province)",
-                "key": "wh_defending_wardsave",
+                "key": "wh_effect_defending_wardsave",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
               },
               {
@@ -948,7 +910,7 @@
             "effects": [
               {
                 "description": "Ward save: 5% when defending\n\t(all characters factionwide)",
-                "key": "wh_defending_wardsave",
+                "key": "wh_effect_defending_wardsave",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
               },
               {
@@ -1452,7 +1414,7 @@
     ],
     [
       {
-        "key": "lzd_skill_slann_self_1_mazda",
+        "key": "lzd_skill_slann_self_1",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_rally",
         "character_skill_key": "wh_main_skill_all_lord_battle_rally",
         "tier": 15,
@@ -1524,7 +1486,7 @@
         "right_arrow": true
       },
       {
-        "key": "lzd_skill_slann_self_2_mazda",
+        "key": "lzd_skill_slann_self_2",
         "image_path": "sfo3/battle_ui/ability_icons/causes_terror",
         "character_skill_key": "wh2_main_skill_lzd_disciplines_harrowing_scruteny",
         "tier": 16,
@@ -1561,12 +1523,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_self_1_mazda"
+          "lzd_skill_slann_self_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_self_3_mazda",
+        "key": "lzd_skill_slann_self_3",
         "image_path": "vanilla3/campaign_ui/skills/tzeench_barrier_skill_char",
         "character_skill_key": "wh2_main_skill_lzd_disciplines_higher_state_of_consciousness",
         "tier": 17,
@@ -1590,12 +1552,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_self_1_mazda"
+          "lzd_skill_slann_self_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_self_4_mazda",
+        "key": "lzd_skill_slann_self_4",
         "image_path": "vanilla3/campaign_ui/skills/tzeench_barrier_skill_char",
         "character_skill_key": "wh2_main_skill_lzd_disciplines_unfathomable_presence",
         "tier": 18,
@@ -1619,12 +1581,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_self_1_mazda"
+          "lzd_skill_slann_self_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_self_5_mazda",
+        "key": "lzd_skill_slann_self_5",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_unit_passive_regeneration",
         "character_skill_key": "wh2_main_skill_lzd_disciplines_transcendent_healing",
         "tier": 19,
@@ -1663,9 +1625,6 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Battle outcome is undecided"
-                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -1705,13 +1664,13 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_self_1_mazda"
+          "lzd_skill_slann_self_1"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_self_6_mazda",
+        "key": "lzd_skill_slann_self_6",
         "image_path": "wh2_main_character_abilities_slann_forcefield",
         "character_skill_key": "wh2_main_skill_lzd_slann_forcefield",
         "tier": 20,
@@ -1800,10 +1759,10 @@
           }
         ],
         "parent_subset_required": [
-          "lzd_skill_slann_self_2_mazda",
-          "lzd_skill_slann_self_3_mazda",
-          "lzd_skill_slann_self_4_mazda",
-          "lzd_skill_slann_self_5_mazda"
+          "lzd_skill_slann_self_2",
+          "lzd_skill_slann_self_3",
+          "lzd_skill_slann_self_4",
+          "lzd_skill_slann_self_5"
         ]
       },
       {
@@ -1848,7 +1807,7 @@
           {
             "effects": [
               {
-                "description": "Enemy Winds of Magic power reserve capacity: -15\n\t(enemy armies in region)",
+                "description": "Enemy Winds of Magic power reserve capacity: -20\n\t(enemy armies in region)",
                 "key": "wh3_main_effect_winds_of_magic_pool_cap_enemy",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               }
@@ -3664,7 +3623,7 @@
     ],
     [
       {
-        "key": "lzd_skill_slann_units_1_1_mazda",
+        "key": "lzd_skill_slann_units_1_1",
         "image_path": "vanilla3/campaign_ui/skills/battle_charge",
         "character_skill_key": "lzd_skill_slann_units_1_1",
         "tier": 15,
@@ -3689,7 +3648,7 @@
         "right_arrow": true
       },
       {
-        "key": "lzd_skill_slann_units_1_2_mazda",
+        "key": "lzd_skill_slann_units_1_2",
         "image_path": "vanilla3/campaign_ui/skills/battle_attack",
         "character_skill_key": "lzd_skill_slann_units_1_2",
         "tier": 16,
@@ -3775,12 +3734,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_1_1_mazda"
+          "lzd_skill_slann_units_1_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_1_3_mazda",
+        "key": "lzd_skill_slann_units_1_3",
         "image_path": "vanilla3/campaign_ui/skills/battle_ammo",
         "character_skill_key": "lzd_skill_slann_units_1_3",
         "tier": 17,
@@ -3896,12 +3855,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_1_1_mazda"
+          "lzd_skill_slann_units_1_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_1_4_mazda",
+        "key": "lzd_skill_slann_units_1_4",
         "image_path": "vanilla3/campaign_ui/skills/battle_speed",
         "character_skill_key": "lzd_skill_slann_units_1_4",
         "tier": 18,
@@ -3987,12 +3946,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_1_1_mazda"
+          "lzd_skill_slann_units_1_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_1_5_mazda",
+        "key": "lzd_skill_slann_units_1_5",
         "image_path": "vanilla3/campaign_ui/skills/battle_ranged_damage",
         "character_skill_key": "lzd_skill_slann_units_1_5",
         "tier": 19,
@@ -4008,12 +3967,12 @@
             "effects": [
               {
                 "description": "Weapon strength: +2% when attacking\n\t(Lord's army)",
-                "key": "wh_attacking_damage_melee",
+                "key": "wh_effect_attacking_damage_melee",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
                 "description": "Missile damage: +2% when attacking\n\t(Lord's army)",
-                "key": "wh_attacking_damage_missile",
+                "key": "wh_effect_attacking_damage_missile",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
             ]
@@ -4022,12 +3981,12 @@
             "effects": [
               {
                 "description": "Weapon strength: +4% when attacking\n\t(Lord's army)",
-                "key": "wh_attacking_damage_melee",
+                "key": "wh_effect_attacking_damage_melee",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
                 "description": "Missile damage: +4% when attacking\n\t(Lord's army)",
-                "key": "wh_attacking_damage_missile",
+                "key": "wh_effect_attacking_damage_missile",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
             ]
@@ -4036,25 +3995,25 @@
             "effects": [
               {
                 "description": "Weapon strength: +8% when attacking\n\t(Lord's army)",
-                "key": "wh_attacking_damage_melee",
+                "key": "wh_effect_attacking_damage_melee",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
                 "description": "Missile damage: +8% when attacking\n\t(Lord's army)",
-                "key": "wh_attacking_damage_missile",
+                "key": "wh_effect_attacking_damage_missile",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
             ]
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_1_1_mazda"
+          "lzd_skill_slann_units_1_1"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_1_6_mazda",
+        "key": "lzd_skill_slann_units_1_6",
         "image_path": "vanilla3/campaign_ui/skills/battle_damage",
         "character_skill_key": "lzd_skill_slann_units_1_6",
         "tier": 20,
@@ -4077,14 +4036,14 @@
           }
         ],
         "parent_subset_required": [
-          "lzd_skill_slann_units_1_2_mazda",
-          "lzd_skill_slann_units_1_3_mazda",
-          "lzd_skill_slann_units_1_4_mazda",
-          "lzd_skill_slann_units_1_5_mazda"
+          "lzd_skill_slann_units_1_2",
+          "lzd_skill_slann_units_1_3",
+          "lzd_skill_slann_units_1_4",
+          "lzd_skill_slann_units_1_5"
         ]
       },
       {
-        "key": "lzd_skill_slann_units_2_1_mazda",
+        "key": "lzd_skill_slann_units_2_1",
         "image_path": "vanilla3/campaign_ui/skills/battle_magic",
         "character_skill_key": "lzd_skill_slann_units_2_1",
         "tier": 21,
@@ -4109,7 +4068,7 @@
         "right_arrow": true
       },
       {
-        "key": "lzd_skill_slann_units_2_2_mazda",
+        "key": "lzd_skill_slann_units_2_2",
         "image_path": "vanilla3/campaign_ui/skills/battle_defence",
         "character_skill_key": "lzd_skill_slann_units_2_2",
         "tier": 22,
@@ -4195,12 +4154,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_2_1_mazda"
+          "lzd_skill_slann_units_2_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_2_3_mazda",
+        "key": "lzd_skill_slann_units_2_3",
         "image_path": "vanilla3/campaign_ui/skills/battle_morale",
         "character_skill_key": "lzd_skill_slann_units_2_3",
         "tier": 23,
@@ -4286,12 +4245,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_2_1_mazda"
+          "lzd_skill_slann_units_2_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_2_4_mazda",
+        "key": "lzd_skill_slann_units_2_4",
         "image_path": "vanilla3/campaign_ui/skills/battle_armour",
         "character_skill_key": "lzd_skill_slann_units_2_4",
         "tier": 24,
@@ -4377,12 +4336,12 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_2_1_mazda"
+          "lzd_skill_slann_units_2_1"
         ],
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_2_5_mazda",
+        "key": "lzd_skill_slann_units_2_5",
         "image_path": "vanilla3/campaign_ui/skills/battle_general_ability",
         "character_skill_key": "lzd_skill_slann_units_2_5",
         "tier": 25,
@@ -4438,13 +4397,13 @@
           }
         ],
         "parent_required": [
-          "lzd_skill_slann_units_2_1_mazda"
+          "lzd_skill_slann_units_2_1"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "lzd_skill_slann_units_2_6_mazda",
+        "key": "lzd_skill_slann_units_2_6",
         "image_path": "vanilla3/campaign_ui/skills/battle_ward_save",
         "character_skill_key": "lzd_skill_slann_units_2_6",
         "tier": 26,
@@ -4472,10 +4431,10 @@
           }
         ],
         "parent_subset_required": [
-          "lzd_skill_slann_units_2_2_mazda",
-          "lzd_skill_slann_units_2_3_mazda",
-          "lzd_skill_slann_units_2_4_mazda",
-          "lzd_skill_slann_units_2_5_mazda"
+          "lzd_skill_slann_units_2_2",
+          "lzd_skill_slann_units_2_3",
+          "lzd_skill_slann_units_2_4",
+          "lzd_skill_slann_units_2_5"
         ]
       }
     ],
@@ -4567,15 +4526,6 @@
           {
             "effects": [
               {
-                "description": "Corruption: -1\n\t(local province)",
-                "key": "wh3_main_effect_corruption_reduction_characters",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
                 "description": "Corruption: -2\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -4585,7 +4535,16 @@
           {
             "effects": [
               {
-                "description": "Corruption: -3\n\t(local province)",
+                "description": "Corruption: -4\n\t(local province)",
+                "key": "wh3_main_effect_corruption_reduction_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Corruption: -6\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
               }
@@ -5280,8 +5239,8 @@
       },
       {
         "unit_ability": {
-          "key": "lzd_passive_calm",
-          "icon_name": "sfo3/battle_ui/ability_icons/lzd_passive_calm",
+          "key": "lzd_passive_aura_calm",
+          "icon_name": "sfo3/battle_ui/ability_icons/lzd_passive_aura_calm",
           "overpower_option": "",
           "type": {
             "key": "wh_type_area_of_augments",
@@ -5291,6 +5250,7 @@
           "is_hidden_in_ui": false,
           "onscreen_name": "Calm Presence",
           "effect_range": 40,
+          "num_effected_friendly_units": 1,
           "target_enemies": false,
           "target_friends": false,
           "target_ground": false,
@@ -5311,7 +5271,7 @@
           ],
           "phases": [
             {
-              "icon": "sfo3/battle_ui/ability_icons/lzd_passive_calm",
+              "icon": "sfo3/battle_ui/ability_icons/lzd_passive_aura_calm",
               "order": 1,
               "target_enemies": false,
               "target_self": false,
@@ -5343,11 +5303,6 @@
         "description": "Alignments bolster Mazdamundi magic and unlocks Star Reading with various powerful rewards",
         "key": "lzd_mazda_campaign_dummy_1",
         "icon": "vanilla3/campaign_ui/effect_bundles/vortex_lzd_5"
-      },
-      {
-        "description": "Alignments has unique effects and every Slann has extended skill tree",
-        "key": "lzd_mazda_campaign_dummy_2",
-        "icon": "vanilla3/campaign_ui/effect_bundles/spawning"
       },
       {
         "description": "Diplomatic relations: -25 with most factions",
@@ -5797,7 +5752,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
             },
             {
-              "description": "Unit experience gain per turn: +50\n\t(Lord's army)",
+              "description": "Unit experience gain per turn: +100\n\t(Lord's army)",
               "key": "wh_dlc05_effect_building_army_xp_gain",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
@@ -5913,10 +5868,10 @@
                             "icon": "vanilla3/skins/default/icon_stat_defence"
                           },
                           {
-                            "value": 0.7,
+                            "value": -15,
                             "stat": "stat_accuracy",
-                            "how": "mult",
-                            "description": "x0.7 Accuracy",
+                            "how": "add",
+                            "description": "-15 Accuracy",
                             "icon": "vanilla3/skins/default/icon_stat_range"
                           }
                         ]

@@ -228,7 +228,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Lords",
+                "description": "Character will share +10% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Lords",
                 "key": "wh3_main_effect_character_xp_share_generic_lordtext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -238,7 +253,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -248,27 +263,12 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +35% for characters\n\t(Heroes in Lord's army)",
+                "description": "Experience gain: +30% for characters\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              },
-              {
-                "description": "Experience gain: +50% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -763,7 +763,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Chaos Undivided corruption in adjacent provinces: +4",
+                "description": "Chaos Undivided corruption in adjacent provinces: +4\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_adjacent_provinces",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
@@ -777,7 +777,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Chaos Undivided corruption in adjacent provinces: +8",
+                "description": "Chaos Undivided corruption in adjacent provinces: +8\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_adjacent_provinces",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
@@ -2653,8 +2653,13 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
               },
               {
-                "description": "Chaos Undivided corruption: +1\n\t(local province)",
+                "description": "Chaos Undivided corruption: +2\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
+              },
+              {
+                "description": "All other types of corruption: -1\n\t(local province)",
+                "key": "wh3_main_effect_corruption_chaos_high_reduction",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
             ]
@@ -2667,8 +2672,13 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
               },
               {
-                "description": "Chaos Undivided corruption: +2\n\t(local province)",
+                "description": "Chaos Undivided corruption: +4\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
+              },
+              {
+                "description": "All other types of corruption: -2\n\t(local province)",
+                "key": "wh3_main_effect_corruption_chaos_high_reduction",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
             ]
@@ -2681,8 +2691,13 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
               },
               {
-                "description": "Chaos Undivided corruption: +4\n\t(local province)",
+                "description": "Chaos Undivided corruption: +6\n\t(local province)",
                 "key": "wh3_main_effect_corruption_chaos_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
+              },
+              {
+                "description": "All other types of corruption: -3\n\t(local province)",
+                "key": "wh3_main_effect_corruption_chaos_high_reduction",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
               }
             ]
@@ -3063,6 +3078,11 @@
               "effect_state": "positive"
             },
             {
+              "key": "wh_main_all_direct_damage",
+              "localised_text": "Causes damage to combatants",
+              "effect_state": "positive"
+            },
+            {
               "key": "wh_dlc06_automatic",
               "localised_text": "Activates automatically when conditions are met",
               "effect_state": "positive"
@@ -3113,9 +3133,6 @@
           "target_ground": false,
           "target_self": false,
           "target_intercept_range": 0,
-          "enabled_if": [
-            "Battle outcome is undecided"
-          ],
           "ui_effects": [
             {
               "key": "wh_main_all_replenish",
@@ -3645,7 +3662,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Feral Rage I",
-                "active_time": 40,
+                "active_time": 45,
                 "effect_range": 0,
                 "num_uses": 1,
                 "target_enemies": false,
@@ -3663,7 +3680,7 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 40,
+                    "duration": 45,
                     "effect_type": "negative",
                     "is_hidden_in_ui": false,
                     "attributes": [
@@ -3692,7 +3709,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Feral Rage II",
-                "active_time": 40,
+                "active_time": 45,
                 "effect_range": 0,
                 "num_uses": 1,
                 "target_enemies": false,
@@ -3710,7 +3727,7 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 40,
+                    "duration": 45,
                     "effect_type": "negative",
                     "is_hidden_in_ui": false,
                     "attributes": [
@@ -3724,25 +3741,6 @@
                   }
                 ]
               }
-            }
-          ]
-        },
-        {
-          "description": "Attribute: Rampage\n\t(assigned non-character unit)",
-          "key": "wh2_dlc10_effect_attribute_enable_rampage",
-          "icon": "sfo3/battle_ui/ability_icons/run_amok",
-          "related_attributes": [
-            {
-              "key": "rampage",
-              "description": "➖ Rampage!",
-              "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
-              "icon": "sfo3/battle_ui/ability_icons/rampage"
-            },
-            {
-              "key": "rampage",
-              "description": "➖ Rampage!",
-              "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
-              "icon": "sfo3/battle_ui/ability_icons/rampage"
             }
           ]
         }

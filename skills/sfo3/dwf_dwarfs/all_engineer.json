@@ -368,7 +368,7 @@
                     "active_time": 1,
                     "effect_range": 0,
                     "num_uses": 2,
-                    "recharge_time": 0.1,
+                    "recharge_time": 10,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
@@ -625,6 +625,76 @@
                       }
                     ]
                   }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -648,12 +718,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Heroes of the same type",
+                "description": "Character will share +10% of experience earned between all other active Heroes of the same type",
                 "key": "wh3_main_effect_character_xp_share_generic_herotext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Heroes of the same type",
+                "key": "wh3_main_effect_character_xp_share_generic_herotext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -663,17 +743,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -2068,7 +2138,7 @@
             "effects": [
               {
                 "description": "Ammunition: +3% when under siege\n\t(own armies in region)",
-                "key": "wh_siege_defending_ammo",
+                "key": "wh_effect_siege_defending_ammo",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
             ]
@@ -2077,7 +2147,7 @@
             "effects": [
               {
                 "description": "Ammunition: +6% when under siege\n\t(own armies in region)",
-                "key": "wh_siege_defending_ammo",
+                "key": "wh_effect_siege_defending_ammo",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
             ]
@@ -2086,7 +2156,7 @@
             "effects": [
               {
                 "description": "Ammunition: +10% when under siege\n\t(own armies in region)",
-                "key": "wh_siege_defending_ammo",
+                "key": "wh_effect_siege_defending_ammo",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
             ]
@@ -2114,7 +2184,7 @@
             "effects": [
               {
                 "description": "Reload time reduction: +3% when under siege\n\t(own armies in region)",
-                "key": "wh_siege_defending_reload",
+                "key": "wh_effect_siege_defending_reload",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
             ]
@@ -2123,7 +2193,7 @@
             "effects": [
               {
                 "description": "Reload time reduction: +6% when under siege\n\t(own armies in region)",
-                "key": "wh_siege_defending_reload",
+                "key": "wh_effect_siege_defending_reload",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
             ]
@@ -2132,7 +2202,7 @@
             "effects": [
               {
                 "description": "Reload time reduction: +10% when under siege\n\t(own armies in region)",
-                "key": "wh_siege_defending_reload",
+                "key": "wh_effect_siege_defending_reload",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
             ]
@@ -2363,7 +2433,7 @@
           {
             "effects": [
               {
-                "description": "Wound action: Additional 12% chance of wounding target",
+                "description": "Wound action: Additional 15% chance of wounding target",
                 "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
                 "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
               }
@@ -2373,7 +2443,7 @@
           {
             "effects": [
               {
-                "description": "Wound action: Additional 21% chance of wounding target",
+                "description": "Wound action: Additional 30% chance of wounding target",
                 "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
                 "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
               }
@@ -3232,8 +3302,8 @@
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": true,
-      "localised_name": "Thaggoraki Slayer",
-      "localised_description": "Skaven will die for our brothers lost in the deep tunnels!",
+      "localised_name": "",
+      "localised_description": "",
       "levels": [
         {
           "effects": [
@@ -3396,156 +3466,6 @@
               "description": "Leadership aura size: +25%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh_main_skill_node_all_engineer_innate_16",
-      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "dwf_trait_gazul",
-      "tier": 15,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Ancestral Blood - Gazul\r",
-      "localised_description": "Even in the time of the Ancestor Gods, Gazul pondered long on the mortality of his race.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Attrition: -10% casualties suffered from all attrition\n\t(armies in local owned region)",
-              "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
-            },
-            {
-              "description": "Corruption: -2\n\t(local province)",
-              "key": "wh3_main_effect_corruption_reduction_characters",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
-            },
-            {
-              "description": "Weapon strength: +5% when fighting against Vampire Counts, Vampire Coast and Tomb Kings\n\t(armies in local owned region)",
-              "key": "wh2_main_effect_character_stat_weapon_strength_vs_undead",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh_main_skill_node_all_engineer_innate_17",
-      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "dwf_trait_morgrim",
-      "tier": 16,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Ancestral Blood - Morgrim\r",
-      "localised_description": "Morgrim was the first Dwarf Engineer. He developed and taught his clans the techniques of crafting engines of war and other devices.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Research rate: +5%",
-              "key": "wh_main_effect_technology_research_points",
-              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
-            },
-            {
-              "description": "Ammunition: +15%\n\t(all units in army)",
-              "key": "wh_main_effect_character_stat_ammunition",
-              "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh_main_skill_node_all_engineer_innate_18",
-      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "dwf_trait_smednir",
-      "tier": 17,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Ancestral Blood - Smednir\r",
-      "localised_description": "Smednir is a Dwarf deity of some importance, because of his patronage of metalworking and the refining of ore.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Armour: +5\n\t(all units in army)",
-              "key": "wh_main_effect_character_stat_armour",
-              "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-            },
-            {
-              "description": "Recruitment cost: -10% for all units\n\t(own armies in province)",
-              "key": "wh_main_effect_force_all_campaign_recruitment_cost_all",
-              "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh_main_skill_node_all_engineer_innate_19",
-      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "dwf_trait_thungni",
-      "tier": 18,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Ancestral Blood - Thungni\r",
-      "localised_description": "The younger son of Grungni and Valaya, Thungni is the god of Runic magic and runesmithing.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Magic item drop chance: +25%\n\t(own characters in region)",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
-              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-            },
-            {
-              "description": "Upkeep: -10% for Lords and Heroes\n\t(all units in army)",
-              "key": "wh_character_upkeep",
-              "icon": "vanilla3/campaign_ui/effect_bundles/income"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh_main_skill_node_all_engineer_innate_20",
-      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "dwf_trait_1",
-      "tier": 19,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Grobi Slayer",
-      "localised_description": "Greenskins don't deserve to live longer than a fly.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Character experience gain per turn: +100",
-              "key": "wh3_main_effect_character_experience_per_turn",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Weapon strength: +5% when fighting against Greenskins\n\t(armies in local owned region)",
-              "key": "wh_main_effect_force_stat_weapon_strength_vs_greenskins",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
             }
           ]
         }

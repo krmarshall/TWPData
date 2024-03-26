@@ -338,7 +338,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Lords",
+                "description": "Character will share +10% of experience earned between all other active Lords",
+                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Lords",
                 "key": "wh3_main_effect_character_xp_share_generic_lordtext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -348,7 +363,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -358,27 +373,12 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +35% for characters\n\t(Heroes in Lord's army)",
+                "description": "Experience gain: +30% for characters\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Lords",
-                "key": "wh3_main_effect_character_xp_share_generic_lordtext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              },
-              {
-                "description": "Experience gain: +50% for characters\n\t(Heroes in Lord's army)",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -426,7 +426,8 @@
                       "target_intercept_range": 0,
                       "enabled_if": [
                         "Flying",
-                        "Winds of magic power is 15 or greater"
+                        "Winds of magic power is 15 or greater",
+                        "Winds of magic power greater than 50%"
                       ],
                       "phases": [
                         {
@@ -3579,30 +3580,30 @@
       },
       {
         "key": "wh3_dlc20_chs_daemon_prince_tzeentch_battle_13",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_or_die",
-        "character_skill_key": "wh_main_skill_chs_lord_battle_stand_or_die",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_change_or_die",
+        "character_skill_key": "wh3_dlc24_skill_chs_lord_mtze_battle_change_or_die",
         "tier": 12,
         "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 1,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Stand or Die!",
-        "localised_description": "",
+        "localised_name": "Change or Die!",
+        "localised_description": "Tzeentchian tyrants and Lords, whose word is law, ensure their troops will not run by issuing this dread order.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Ability: \"Stand or Die!\"",
-                "key": "wh_main_effect_ability_enable_stand_or_die",
+                "description": "Ability: \"Change or Die!\"",
+                "key": "wh3_dlc24_effect_ability_enable_change_or_die",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_stand_or_die",
+                    "effect": "wh3_dlc24_effect_ability_enable_change_or_die",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_character_abilities_stand_or_die",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_or_die",
+                      "key": "wh3_dlc24_character_abilities_change_or_die",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_change_or_die",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_area_of_augments",
@@ -3610,9 +3611,9 @@
                         "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Stand or Die!",
+                      "onscreen_name": "Change or Die!",
                       "active_time": 30,
-                      "effect_range": 50,
+                      "effect_range": 40,
                       "recharge_time": 120,
                       "target_enemies": false,
                       "target_friends": false,
@@ -3621,7 +3622,7 @@
                       "target_intercept_range": 0,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_or_die",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_change_or_die",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
@@ -3631,25 +3632,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
+                              "value": 20,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+20 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            },
+                            {
                               "value": 15,
                               "stat": "stat_morale",
                               "how": "add",
                               "description": "+15 Leadership",
                               "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 15,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+15 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 15,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+15 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
                             }
                           ]
                         }
@@ -4390,24 +4384,24 @@
               "stat_effects": [
                 {
                   "value": 0.75,
-                  "stat": "stat_melee_damage_base",
+                  "stat": "scalar_speed",
                   "how": "mult",
-                  "description": "x0.75 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 0.75,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x0.75 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  "description": "x0.75 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
                 },
                 {
                   "value": -25,
-                  "stat": "stat_reloading",
+                  "stat": "stat_melee_defence",
                   "how": "add",
-                  "description": "-25 Reload Skill",
-                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                  "description": "-25 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": -25,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "-25 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
                 }
               ]
             }
@@ -4438,6 +4432,11 @@
           "ui_effects": [
             {
               "key": "wh_main_all_direct_damage_self_high",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            },
+            {
+              "key": "wh_main_all_direct_damage_self",
               "localised_text": "Causes damage to self",
               "effect_state": "negative"
             }

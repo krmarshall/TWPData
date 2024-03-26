@@ -93,7 +93,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +1 for Mournguls Hexwraiths, Cairn Wraiths and Spirit Hosts units\n\t(Hero's army)",
+                "description": "Melee attack: +1 for Mournguls, Hexwraiths, Cairn Wraiths and Spirit Hosts units\n\t(Hero's army)",
                 "key": "vmp_ghost_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -103,7 +103,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +2 for Mournguls Hexwraiths, Cairn Wraiths and Spirit Hosts units\n\t(Hero's army)",
+                "description": "Melee attack: +2 for Mournguls, Hexwraiths, Cairn Wraiths and Spirit Hosts units\n\t(Hero's army)",
                 "key": "vmp_ghost_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -112,7 +112,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +4 for Mournguls Hexwraiths, Cairn Wraiths and Spirit Hosts units\n\t(Hero's army)",
+                "description": "Melee attack: +4 for Mournguls, Hexwraiths, Cairn Wraiths and Spirit Hosts units\n\t(Hero's army)",
                 "key": "vmp_ghost_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               }
@@ -137,11 +137,11 @@
             "effects": [
               {
                 "description": "Passive ability: \"Recovery\"",
-                "key": "wh_passive_recovery_enable",
+                "key": "wh_effect_enable_wh_passive_recovery",
                 "icon": "vanilla3/campaign_ui/effect_bundles/branchwraith",
                 "related_abilities": [
                   {
-                    "effect": "wh_passive_recovery_enable",
+                    "effect": "wh_effect_enable_wh_passive_recovery",
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "wh_passive_recovery",
@@ -160,9 +160,6 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Battle outcome is undecided"
-                      ],
                       "ui_effects": [
                         {
                           "key": "wh_main_all_replenish",
@@ -209,12 +206,22 @@
           {
             "effects": [
               {
-                "description": "Character will share +15% of experience earned between all other active Heroes of the same type",
+                "description": "Character will share +10% of experience earned between all other active Heroes of the same type",
                 "key": "wh3_main_effect_character_xp_share_generic_herotext",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 30
+            "auto_unlock_at_rank": 40
+          },
+          {
+            "effects": [
+              {
+                "description": "Character will share +20% of experience earned between all other active Heroes of the same type",
+                "key": "wh3_main_effect_character_xp_share_generic_herotext",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              }
+            ],
+            "auto_unlock_at_rank": 45
           },
           {
             "effects": [
@@ -224,17 +231,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
             ],
-            "unlocked_at_rank": 40
-          },
-          {
-            "effects": [
-              {
-                "description": "Character will share +50% of experience earned between all other active Heroes of the same type",
-                "key": "wh3_main_effect_character_xp_share_generic_herotext",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 50
+            "auto_unlock_at_rank": 50
           }
         ]
       }
@@ -987,7 +984,7 @@
                       "vortex": {
                         "vortex_key": "vmp_active_banshee_scream",
                         "duration": 1,
-                        "damage": 25,
+                        "damage": 30,
                         "damage_ap": 0,
                         "goal_radius": 20,
                         "movement_speed": 24,
@@ -1007,10 +1004,10 @@
                           "max_damaged_entities": 5,
                           "stat_effects": [
                             {
-                              "value": -5,
+                              "value": -10,
                               "stat": "stat_morale",
                               "how": "add",
-                              "description": "-5 Leadership",
+                              "description": "-10 Leadership",
                               "icon": "vanilla3/skins/default/icon_stat_morale"
                             },
                             {
@@ -1839,6 +1836,12 @@
     },
     "attributes": [
       {
+        "key": "unspottable",
+        "description": " Unspottable",
+        "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
+        "icon": "sfo3/battle_ui/ability_icons/unspottable"
+      },
+      {
         "key": "stalk",
         "description": " Stalk",
         "bullet_text": "This unit can move hidden in any terrain.",
@@ -2006,6 +2009,20 @@
                   "how": "mult",
                   "description": "x0.75 Speed",
                   "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": -25,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-25 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": -25,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "-25 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
                 }
               ]
             }
@@ -2036,6 +2053,11 @@
           "ui_effects": [
             {
               "key": "wh_main_all_direct_damage_self_high",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            },
+            {
+              "key": "wh_main_all_direct_damage_self",
               "localised_text": "Causes damage to self",
               "effect_state": "negative"
             }
@@ -2092,7 +2114,7 @@
           "vortex": {
             "vortex_key": "vmp_active_banshee_scream",
             "duration": 1,
-            "damage": 25,
+            "damage": 30,
             "damage_ap": 0,
             "goal_radius": 20,
             "movement_speed": 24,
@@ -2112,10 +2134,10 @@
               "max_damaged_entities": 5,
               "stat_effects": [
                 {
-                  "value": -5,
+                  "value": -10,
                   "stat": "stat_morale",
                   "how": "add",
-                  "description": "-5 Leadership",
+                  "description": "-10 Leadership",
                   "icon": "vanilla3/skins/default/icon_stat_morale"
                 },
                 {
