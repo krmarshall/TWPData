@@ -286,24 +286,78 @@
         ]
       },
       {
-        "key": "lorenzo_unique_01",
+        "key": "lorenzo_unique_04",
         "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
-        "character_skill_key": "verena's_ward",
+        "character_skill_key": "luccini_assassin_myrmidia_protection",
         "tier": 6,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Verena's Ward",
-        "localised_description": "Those who deliver justice are granted the divine protection of Verena, the goddess of justice and learning.",
+        "localised_name": "Myrmidia's Guidance",
+        "localised_description": "The Goddess of War has blessed this one for his combat prowess.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Missile resistance: 10%",
-                "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "description": "Enables \"Myrmidia's Blessing\"",
+                "key": "enable_luccini_assassin_myrmidia_blessings",
+                "icon": "",
+                "related_abilities": [
+                  {
+                    "effect": "enable_luccini_assassin_myrmidia_blessings",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "teb_luccini_myrmidia_blessings",
+                      "icon_name": "hol3/battle_ui/ability_icons/teb_luccini_myrmidia_blessings",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Myrmidia's Blessing",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is wavering or lower"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "hol3/battle_ui/ability_icons/teb_luccini_myrmidia_blessings",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "attributes": [
+                            {
+                              "key": "unbreakable",
+                              "description": " Unbreakable",
+                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Physical resistance: 10%",
+                "key": "wh_main_effect_character_stat_physical_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
               }
             ],
             "unlocked_at_rank": 7
@@ -574,7 +628,7 @@
           {
             "effects": [
               {
-                "description": "Control: +5\n\t(local province)",
+                "description": "Control: +2\n\t(local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
@@ -594,7 +648,7 @@
           {
             "effects": [
               {
-                "description": "Control: +10\n\t(local province)",
+                "description": "Control: +5\n\t(local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
@@ -658,6 +712,11 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
+                "description": "Bribe Units budget: +20%\n\t(Lord's army)",
+                "key": "luccini_bribe_budget",
+                "icon": "hol3/campaign_ui/effect_bundles/teb_luccini_bribe"
+              },
+              {
                 "description": "Growth: -50\n\t(local province)",
                 "key": "wh_main_effect_province_growth_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/growth"
@@ -685,7 +744,7 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "\"Unmatched Tactician\"",
+        "localised_name": "Unmatched Tactician",
         "localised_description": "Lorenzo is a firm believer that every man in Luccini's army should be ready to fight hand-to-hand if the circumstances require.",
         "levels": [
           {
@@ -694,6 +753,11 @@
                 "description": "Charge Bonus: +5 for all artillery\n\t(Lord's army)",
                 "key": "artillery_charge",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              },
+              {
+                "description": "Melee Attack: +4 for Tanks and Artillery Crews\n\t(Lord's army)",
+                "key": "melee_attack_artillery",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
                 "description": "Ammunition: +5%\n\t(Lord's army)",
@@ -715,6 +779,11 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               },
               {
+                "description": "Melee Attack: +8 for Tanks and Artillery Crews\n\t(Lord's army)",
+                "key": "melee_attack_artillery",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              },
+              {
                 "description": "Ammunition: +15%\n\t(Lord's army)",
                 "key": "wh_main_effect_character_stat_ammunition",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
@@ -732,6 +801,11 @@
                 "description": "Charge Bonus: +35 for all artillery\n\t(Lord's army)",
                 "key": "artillery_charge",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              },
+              {
+                "description": "Melee Attack: +12 for Tanks and Artillery Crews\n\t(Lord's army)",
+                "key": "melee_attack_artillery",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
                 "description": "Ammunition: +35%\n\t(Lord's army)",
@@ -953,19 +1027,6 @@
                 "description": "Leadership: +8\n\t(Lord's army)",
                 "key": "wh_main_effect_force_stat_leadership",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-              },
-              {
-                "description": "Attribute: Encourage",
-                "key": "wh_main_effect_attribute_enable_encourage",
-                "icon": "encourage",
-                "related_attributes": [
-                  {
-                    "key": "encourages",
-                    "description": "Encourage",
-                    "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                    "icon": "hol3/campaign_ui/effect_bundles/attribute_encourages"
-                  }
-                ]
               }
             ]
           }
@@ -1068,12 +1129,22 @@
           {
             "effects": [
               {
-                "description": "Control: +10\n\t(local province)",
+                "description": "Control: +5\n\t(local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Growth: +65\n\t(local province)",
+                "description": "Bribe Units budget: +12%\n\t(Lord's army)",
+                "key": "luccini_bribe_budget",
+                "icon": "hol3/campaign_ui/effect_bundles/teb_luccini_bribe"
+              },
+              {
+                "description": "Bribe Units cost: -15%",
+                "key": "luccini_bribe_cost",
+                "icon": "vanilla3/campaign_ui/effect_bundles/daemon/military_spending"
+              },
+              {
+                "description": "Growth: +40\n\t(local province)",
                 "key": "wh_main_effect_province_growth_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/growth"
               },
@@ -1083,7 +1154,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               },
               {
-                "description": "Leadership: -35 when fighting against Humans\n\t(Lord's army)",
+                "description": "Leadership: +10 when fighting against Humans\n\t(Lord's army)",
                 "key": "wh_main_effect_force_stat_leadership_vs_men",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale"
               }
@@ -1552,7 +1623,7 @@
           {
             "effects": [
               {
-                "description": "Missile strength: +15%",
+                "description": "Missile strength: +12%",
                 "key": "wh_main_effect_character_stat_missile_damage",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
               },
@@ -1562,7 +1633,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
               },
               {
-                "description": "Missile strength: +10%\n\t(Lord's army)",
+                "description": "Missile strength: +6%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_stat_missile_damage",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -1572,7 +1643,7 @@
           {
             "effects": [
               {
-                "description": "Missile strength: +25%",
+                "description": "Missile strength: +20%",
                 "key": "wh_main_effect_character_stat_missile_damage",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
               },
@@ -1582,7 +1653,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
               },
               {
-                "description": "Missile strength: +20%\n\t(Lord's army)",
+                "description": "Missile strength: +12%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_stat_missile_damage",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -1636,12 +1707,7 @@
           {
             "effects": [
               {
-                "description": "Missile strength: +15%\n\t(Lord's army)",
-                "key": "wh_main_effect_character_stat_missile_damage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
-              },
-              {
-                "description": "Missile strength: +12%\n\t(Lord's army)",
+                "description": "Missile strength: +10%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_stat_missile_damage",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               },
@@ -1704,20 +1770,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
               },
               {
-                "description": "Attribute: Stalk",
-                "key": "wh_main_effect_attribute_enable_stalk",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk",
-                "related_attributes": [
-                  {
-                    "key": "stalk",
-                    "description": " Stalk",
-                    "bullet_text": "This unit can move hidden in any terrain.",
-                    "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk"
-                  }
-                ]
-              },
-              {
-                "description": "Range: +45% for missile infantry units",
+                "description": "Range: +22% for missile infantry units",
                 "key": "wh_main_effect_force_stat_range_missile_infantry",
                 "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
               }
@@ -1818,6 +1871,11 @@
           },
           {
             "effects": [
+              {
+                "description": "\"Explosive Bullets\" ammunition (projectiles will cause explosive damage)",
+                "key": "wh3_dlc23_effect_character_ammunition_type_castellan_explosive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              },
               {
                 "description": "Enables Restock Ammo ability",
                 "key": "restock_ammunition",
@@ -1941,7 +1999,7 @@
         "visible_in_ui": true,
         "is_background_skill": false,
         "localised_name": "Luccini's Finest",
-        "localised_description": "“We march to war for our Prince, and the two-headed Leopard”",
+        "localised_description": "“We march to war for our Prince, and the two-headed Leopard.”",
         "levels": [
           {
             "effects": [
@@ -2221,7 +2279,7 @@
         "visible_in_ui": true,
         "is_background_skill": false,
         "localised_name": "Superior Artillery Barrages",
-        "localised_description": "Lorenzo has destroyed thousands upon thousands of troops with his devastating barrages. His artillery tactics are considered some of the greatest in the Old World though the Dwarves disagree.",
+        "localised_description": "Lorenzo has destroyed thousands upon thousands of troops with his devastating barrages. His artillery tactics are considered some of the greatest in the Old World, though the Dwarves disagree.",
         "levels": [
           {
             "effects": [
@@ -2240,6 +2298,11 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               },
               {
+                "description": "Range: +6% for artillery units\n\t(Lord's army)",
+                "key": "wh_main_effect_force_stat_range_artillery",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
+              },
+              {
                 "description": "Missile strength: +9% for artillery units\n\t(Lord's army)",
                 "key": "wh_main_effect_force_stat_missile_damage_artillery",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
@@ -2252,6 +2315,11 @@
                 "description": "Ammunition: +20% for artillery units\n\t(Lord's army)",
                 "key": "wh_main_effect_force_stat_ammunition_artillery",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+              },
+              {
+                "description": "Range: +12% for artillery units\n\t(Lord's army)",
+                "key": "wh_main_effect_force_stat_range_artillery",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
               },
               {
                 "description": "Missile strength: +12% for artillery units\n\t(Lord's army)",
@@ -3196,6 +3264,26 @@
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
       {
+        "description": "Can Bribe Units",
+        "key": "teb_luccini_bribe_dummy",
+        "icon": "hol3/campaign_ui/effect_bundles/teb_luccini_bribe"
+      },
+      {
+        "description": "Has access to a unique tech tree",
+        "key": "lorenzo_luccini_unique_tech_tree_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+      },
+      {
+        "description": "",
+        "key": "south_tilea_coalition_diplo_negative_unseen",
+        "icon": ""
+      },
+      {
+        "description": "Luccini's trade routes are assailed by pirates!\n\t(Negative province effect. Luccini must invest in their tech tree to deal with this threat.)",
+        "key": "luccini_pirate_raids_frontend_dummy",
+        "icon": "hol3/campaign_ui/effect_bundles/pirate_raids"
+      },
+      {
         "description": "Tradable resources produced: +10%\n\t(factionwide)",
         "key": "wh_main_effect_economy_trade_good_commodity_mod",
         "icon": "vanilla3/campaign_ui/effect_bundles/trade_agreement"
@@ -3209,11 +3297,6 @@
         "description": "Melee defence: +8\n\t(all armies)",
         "key": "wh_main_effect_force_stat_melee_defence",
         "icon": "vanilla3/campaign_ui/effect_bundles/defence"
-      },
-      {
-        "description": "Ward save: 10%\n\t(all armies)",
-        "key": "wh_main_effect_force_stat_ward_save",
-        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
       }
     ]
   },
@@ -3226,11 +3309,6 @@
       "unlocked_at_rank": 5,
       "effects": [
         {
-          "description": "Armour-piercing weapon damage: +25 for infantry units",
-          "key": "wh2_dlc14_effect_armour_piercing_damage_infantry",
-          "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing"
-        },
-        {
           "description": "Melee attack: +10",
           "key": "wh_main_effect_character_stat_melee_attack",
           "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
@@ -3239,6 +3317,11 @@
           "description": "Weapon strength: +30%",
           "key": "wh_main_effect_character_stat_weapon_strength",
           "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+        },
+        {
+          "description": "Armour-piercing weapon damage: +60",
+          "key": "wh_main_effect_character_stat_ap_damage",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
         }
       ],
       "item_set": {
@@ -3295,75 +3378,66 @@
       "unlocked_at_rank": 12,
       "effects": [
         {
-          "description": "Bound Spell: \"Fireball\"",
-          "key": "enable_lorenzo_fireball_bound",
-          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+          "description": "Bribe Units budget: +10%\n\t(Lord's army)",
+          "key": "luccini_bribe_budget",
+          "icon": "hol3/campaign_ui/effect_bundles/teb_luccini_bribe"
+        },
+        {
+          "description": "Enables ability: \"Ring of Luccina\"",
+          "key": "enable_ability_ring_of_luccina",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
           "related_abilities": [
             {
-              "effect": "enable_lorenzo_fireball_bound",
+              "effect": "enable_ability_ring_of_luccina",
               "bonus_value_id": "enable",
               "unit_ability": {
-                "key": "lorenzo_fireball_bound",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+                "key": "ring_of_luccina",
+                "icon_name": "hol3/battle_ui/ability_icons/ring_of_luccina",
                 "overpower_option": "",
                 "type": {
-                  "key": "wh_type_magic_missile",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
-                  "onscreen_name": "Magic Missile"
+                  "key": "wh_type_area_of_augments",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                  "onscreen_name": "Augment (Area)"
                 },
                 "is_hidden_in_ui": false,
-                "onscreen_name": "Fireball",
-                "effect_range": 0,
-                "num_uses": 4,
-                "recharge_time": 29,
-                "target_enemies": true,
+                "onscreen_name": "Ring of Luccina",
+                "active_time": 20,
+                "effect_range": -1,
+                "recharge_time": 60,
+                "target_enemies": false,
                 "target_friends": false,
                 "target_ground": false,
                 "target_self": false,
-                "target_intercept_range": 300,
-                "wind_up_time": 1,
-                "ui_effects": [
+                "target_intercept_range": 0,
+                "phases": [
                   {
-                    "key": "wh2_main_all_magical_and_flaming_medium",
-                    "localised_text": "Causes moderate magical & fire damage",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_main_projectile_powerful_explosion",
-                    "localised_text": "Powerful explosion",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_main_all_strong_against_multiple",
-                    "localised_text": "Strong vs multiple combatants",
-                    "effect_state": "positive"
-                  },
-                  {
-                    "key": "wh_main_projectile_effective_long_range",
-                    "localised_text": "Effective at long range",
-                    "effect_state": "positive"
+                    "icon": "hol3/battle_ui/ability_icons/ring_of_luccina",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": true,
+                    "duration": 20,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 20,
+                        "stat": "stat_morale",
+                        "how": "add",
+                        "description": "+20 Leadership",
+                        "icon": "vanilla3/skins/default/icon_stat_morale"
+                      }
+                    ],
+                    "attributes": [
+                      {
+                        "key": "unbreakable",
+                        "description": " Unbreakable",
+                        "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+                      }
+                    ]
                   }
-                ],
-                "activated_projectile": {
-                  "key": "wh_main_spell_fire_fireball",
-                  "damage": 350,
-                  "ap_damage": 150,
-                  "shockwave_radius": 1,
-                  "effective_range": 300,
-                  "base_reload_time": 1,
-                  "is_magical": true,
-                  "is_flaming": true,
-                  "can_damage_allies": true,
-                  "explosion_type": {
-                    "key": "wh_main_spell_fire_fireball",
-                    "affects_allies": true,
-                    "detonation_damage": 144,
-                    "detonation_damage_ap": 0,
-                    "detonation_radius": 5,
-                    "is_magical": true,
-                    "is_flaming": true
-                  }
-                }
+                ]
               }
             }
           ]
@@ -3613,6 +3687,24 @@
           ]
         }
       ]
+    },
+    {
+      "key": "marco_maldini",
+      "onscreen_name": "Marco Maldini",
+      "colour_text": "Every good leader needs a loyal right-hand man. Marco is an elegant man who has been trusted with managing and arranging contracts for Lorenzo’s mercenaries. However, he does not just allow any fools calling themselves mercenaries to join the Prince’s ranks, as he carefully vets every gang before they are sent to Lorenzo.",
+      "ui_icon": "campaign_ui/skills/marco_maldini",
+      "effects": [
+        {
+          "description": "Bribe Units cost: -25%\n\t(Lord's army)",
+          "key": "luccini_bribe_cost",
+          "icon": "vanilla3/campaign_ui/effect_bundles/daemon/military_spending"
+        },
+        {
+          "description": "Bribe Units budget: +50%\n\t(Lord's army)",
+          "key": "luccini_bribe_budget",
+          "icon": "hol3/campaign_ui/effect_bundles/teb_luccini_bribe"
+        }
+      ]
     }
   ],
   "backgroundSkills": [
@@ -3632,9 +3724,9 @@
         {
           "effects": [
             {
-              "description": "This Lord will be wounded instead of killed in battle",
-              "key": "wh2_main_effect_grant_immortality_lord",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+              "description": "[HIDDEN] adds immortal",
+              "key": "wh2_dlc11_enable_immortal_hidden",
+              "icon": ""
             },
             {
               "description": "Control: -5\n\t(factionwide)",
