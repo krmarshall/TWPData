@@ -433,14 +433,14 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic power reserve capacity: +10\n\t(own army)",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
                 "description": "Miscast base chance: -15%",
                 "key": "wh_main_effect_character_stat_miscast",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +10\n\t(own army)",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               }
             ],
             "unlocked_at_rank": 8
@@ -804,7 +804,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
               },
               {
-                "description": "Recruitment duration: -1 turn for Sisters of Avelorn units (minimum 1)\n\t(all provinces)",
+                "description": "Local Recruitment duration: -1 turn for Sisters of Avelorn units (minimum 1)\n\t(all provinces)",
                 "key": "wh2_dlc10_effect_skills_unit_recruitment_duration_hef_sisters_of_avelorn",
                 "icon": "vanilla3/campaign_ui/effect_bundles/turns"
               },
@@ -2673,9 +2673,9 @@
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_the_dwellers_below",
                       "overpower_option": "wh_dlc05_spell_life_the_dwellers_below_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "onscreen_name": "Direct Damage"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Dwellers Below",
@@ -2700,13 +2700,8 @@
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh2_main_spell_stationary_aoe",
-                          "localised_text": "Huge, stationary area of effect",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "localised_text": "Strong vs character",
+                          "key": "wh3_dlc25_spell_multiple_vortex",
+                          "localised_text": "Multiple, expanding areas of effect",
                           "effect_state": "positive"
                         },
                         {
@@ -2720,12 +2715,61 @@
                           "effect_state": "negative"
                         }
                       ],
+                      "bombardment": {
+                        "bombardment_key": "wh_dlc05_spell_life_the_dwellers_below",
+                        "arrival_window": 5,
+                        "radius_spread": 20,
+                        "start_time": 0.1,
+                        "projectile_type": {
+                          "key": "wh_dlc05_spell_life_the_dwellers_below",
+                          "damage": 0,
+                          "ap_damage": 0,
+                          "shockwave_radius": -1,
+                          "effective_range": 40,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "spawned_vortex": {
+                            "vortex_key": "wh_dlc05_spell_life_the_dwellers_below_small",
+                            "duration": 8,
+                            "damage": 0,
+                            "damage_ap": 3,
+                            "goal_radius": 6,
+                            "movement_speed": 0,
+                            "delay": 0,
+                            "affects_allies": true,
+                            "is_magical": true,
+                            "contact_effect": {
+                              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_the_dwellers_below",
+                              "order": 1,
+                              "target_enemies": true,
+                              "target_self": false,
+                              "target_friends": true,
+                              "duration": 1,
+                              "effect_type": "negative",
+                              "onscreen_name": "Dwellers Below",
+                              "is_hidden_in_ui": false,
+                              "hp_change_frequency": 1,
+                              "stat_effects": [
+                                {
+                                  "value": 0.75,
+                                  "stat": "scalar_speed",
+                                  "how": "mult",
+                                  "description": "x0.75 Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "num_projectiles": 30
+                      },
                       "vortex": {
                         "vortex_key": "wh_dlc05_spell_life_the_dwellers_below",
                         "duration": 15,
                         "damage": 0,
-                        "damage_ap": 4,
-                        "goal_radius": 15,
+                        "damage_ap": 1,
+                        "goal_radius": 20,
                         "movement_speed": 0,
                         "delay": 0,
                         "affects_allies": true,
@@ -2740,9 +2784,7 @@
                           "effect_type": "negative",
                           "onscreen_name": "Dwellers Below",
                           "is_hidden_in_ui": false,
-                          "damage_amount": 33,
                           "hp_change_frequency": 1,
-                          "max_damaged_entities": 1,
                           "stat_effects": [
                             {
                               "value": 0.75,
@@ -2785,9 +2827,9 @@
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_the_dwellers_below",
                       "overpower_option": "wh_dlc05_spell_life_the_dwellers_below_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "onscreen_name": "Direct Damage"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Dwellers Below",
@@ -2812,13 +2854,8 @@
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh2_main_spell_stationary_aoe",
-                          "localised_text": "Huge, stationary area of effect",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "localised_text": "Strong vs character",
+                          "key": "wh3_dlc25_spell_multiple_vortex",
+                          "localised_text": "Multiple, expanding areas of effect",
                           "effect_state": "positive"
                         },
                         {
@@ -2832,12 +2869,61 @@
                           "effect_state": "negative"
                         }
                       ],
+                      "bombardment": {
+                        "bombardment_key": "wh_dlc05_spell_life_the_dwellers_below",
+                        "arrival_window": 5,
+                        "radius_spread": 20,
+                        "start_time": 0.1,
+                        "projectile_type": {
+                          "key": "wh_dlc05_spell_life_the_dwellers_below",
+                          "damage": 0,
+                          "ap_damage": 0,
+                          "shockwave_radius": -1,
+                          "effective_range": 40,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "spawned_vortex": {
+                            "vortex_key": "wh_dlc05_spell_life_the_dwellers_below_small",
+                            "duration": 8,
+                            "damage": 0,
+                            "damage_ap": 3,
+                            "goal_radius": 6,
+                            "movement_speed": 0,
+                            "delay": 0,
+                            "affects_allies": true,
+                            "is_magical": true,
+                            "contact_effect": {
+                              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_the_dwellers_below",
+                              "order": 1,
+                              "target_enemies": true,
+                              "target_self": false,
+                              "target_friends": true,
+                              "duration": 1,
+                              "effect_type": "negative",
+                              "onscreen_name": "Dwellers Below",
+                              "is_hidden_in_ui": false,
+                              "hp_change_frequency": 1,
+                              "stat_effects": [
+                                {
+                                  "value": 0.75,
+                                  "stat": "scalar_speed",
+                                  "how": "mult",
+                                  "description": "x0.75 Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "num_projectiles": 30
+                      },
                       "vortex": {
                         "vortex_key": "wh_dlc05_spell_life_the_dwellers_below",
                         "duration": 15,
                         "damage": 0,
-                        "damage_ap": 4,
-                        "goal_radius": 15,
+                        "damage_ap": 1,
+                        "goal_radius": 20,
                         "movement_speed": 0,
                         "delay": 0,
                         "affects_allies": true,
@@ -2852,9 +2938,7 @@
                           "effect_type": "negative",
                           "onscreen_name": "Dwellers Below",
                           "is_hidden_in_ui": false,
-                          "damage_amount": 33,
                           "hp_change_frequency": 1,
-                          "max_damaged_entities": 1,
                           "stat_effects": [
                             {
                               "value": 0.75,
@@ -2953,10 +3037,10 @@
                           "mana_regen_mod": 0.6,
                           "stat_effects": [
                             {
-                              "value": 1.1,
+                              "value": 1.15,
                               "stat": "scalar_spell_mastery",
                               "how": "mult",
-                              "description": "x1.1 Spell Mastery",
+                              "description": "x1.15 Spell Mastery",
                               "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
                             }
                           ]
@@ -6323,14 +6407,14 @@
       "unlocked_at_rank": 7,
       "effects": [
         {
-          "description": "Melee defence: +10",
-          "key": "wh_main_effect_character_stat_melee_defence",
-          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-        },
-        {
           "description": "Ward save: 5%",
           "key": "wh_main_effect_character_stat_ward_save",
           "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+        },
+        {
+          "description": "Melee defence: +10",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
         },
         {
           "description": "Passive ability: \"Shieldstone of Isha\"",
@@ -6406,7 +6490,7 @@
             "description": "Ward save: 5%",
             "key": "wh_main_effect_character_stat_ward_save",
             "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save",
-            "priority": 280
+            "priority": 100
           },
           {
             "description": "Control: +1\n\t(all provinces)",
@@ -6520,7 +6604,7 @@
             "description": "Ward save: 5%",
             "key": "wh_main_effect_character_stat_ward_save",
             "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save",
-            "priority": 280
+            "priority": 100
           },
           {
             "description": "Control: +1\n\t(all provinces)",
@@ -6617,7 +6701,7 @@
             "description": "Ward save: 5%",
             "key": "wh_main_effect_character_stat_ward_save",
             "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save",
-            "priority": 280
+            "priority": 100
           },
           {
             "description": "Control: +1\n\t(all provinces)",

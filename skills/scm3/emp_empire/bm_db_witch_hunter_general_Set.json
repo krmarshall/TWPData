@@ -29,7 +29,7 @@
       },
       {
         "key": "witch_rework_unique_1",
-        "image_path": "vanilla3/campaign_ui/skills/character_morale",
+        "image_path": "vanilla3/campaign_ui/skills/immune_to_psychology",
         "character_skill_key": "wh_main_skill_emp_spy_unique_witch_hunter_grim_resolve",
         "tier": 1,
         "indent": 0,
@@ -43,21 +43,68 @@
           {
             "effects": [
               {
-                "description": "Leadership: +2",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+                "description": "Passive Ability: \"Grim Resolve\"",
+                "key": "wh3_dlc25_effect_ability_enable_grim_resolve",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_grim_resolve",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc25_hero_passive_grim_resolve",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc13_unit_passive_grim_resolve",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Grim Resolve",
+                      "effect_range": 55,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "In melee"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc25_hero_passive_grim_resolve",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 4,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+4 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ],
             "unlocked_at_rank": 7
-          },
-          {
-            "effects": [
-              {
-                "description": "Leadership: +5",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              }
-            ]
           }
         ]
       },
@@ -71,8 +118,8 @@
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Magic Resistance",
-        "localised_description": "The Witch Hunter keeps many blessed relics on his person to protect him against arcane attack.",
+        "localised_name": "Arcane Safeguards",
+        "localised_description": "The Witch Hunter keeps many blessed relics on his person to protect him from magical attack.",
         "levels": [
           {
             "effects": [
@@ -97,7 +144,7 @@
       },
       {
         "key": "witch_rework_unique_3",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
         "character_skill_key": "wh_main_skill_emp_spy_unique_witch_hunter_tools_of_judgement",
         "tier": 3,
         "indent": 0,
@@ -111,21 +158,67 @@
           {
             "effects": [
               {
-                "description": "Bonus vs Large: +6",
-                "key": "wh_main_effect_character_stat_bonus_vs_large",
-                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+                "description": "Passive Ability: \"Tools of Judgement\"",
+                "key": "wh3_dlc25_effect_ability_enable_tools_of_judgement",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_tools_of_judgement",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc25_hero_passive_tools_of_judgement",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_weapon_passive_chillblade",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Tools of Judgement",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 15,
+                      "enabled_if": [
+                        "Terror causing unit in range"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc25_hero_passive_tools_of_judgement",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 12,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+12 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 12,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+12 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ],
             "unlocked_at_rank": 15
-          },
-          {
-            "effects": [
-              {
-                "description": "Bonus vs Large: +15",
-                "key": "wh_main_effect_character_stat_bonus_vs_large",
-                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
-              }
-            ]
           }
         ]
       },
@@ -3428,9 +3521,9 @@
           {
             "effects": [
               {
-                "description": "Armour: +6 for Reiksguard, Sons of Manann and all Knights units\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_force_stat_armour_empire_knights_reiksguard_knights_of_the_blazing_sun",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour"
+                "description": "Speed: +5% for Empire Knights, Reiksguard, Knights of the Black Rose and Knights of the Blazing Sun units\n\t(Lord's army)",
+                "key": "wh3_dlc25_effect_force_stat_speed_empire_knights_reiksguard_knights_of_the_blazing_sun",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               },
               {
                 "description": "Charge bonus: +6 Reiksguard, Sons of Manann and all Knights units\n\t(Lord's army)",
@@ -3442,9 +3535,9 @@
           {
             "effects": [
               {
-                "description": "Armour: +9 for Reiksguard, Sons of Manann and all Knights units\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_force_stat_armour_empire_knights_reiksguard_knights_of_the_blazing_sun",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour"
+                "description": "Speed: +10% for Empire Knights, Reiksguard, Knights of the Black Rose and Knights of the Blazing Sun units\n\t(Lord's army)",
+                "key": "wh3_dlc25_effect_force_stat_speed_empire_knights_reiksguard_knights_of_the_blazing_sun",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
               },
               {
                 "description": "Charge bonus: +9 Reiksguard, Sons of Manann and all Knights units\n\t(Lord's army)",
@@ -3780,19 +3873,19 @@
           {
             "effects": [
               {
-                "description": "Leadership: +5 for Spearmen, Swordsmen, Flagellants, Goedendagers, Riverwardens, Sartosa Free company, Huntsmen and Empire Knights units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_skill_morale_increase_emp_spearmen_swordsmen_flagellants_huntsmen_empire_knights_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-              },
-              {
-                "description": "Melee defence: +5 for Spearmen, Swordsmen, Flagellants, Goedendagers, Riverwardens, Sartosa Free company, Huntsmen and Empire Knights units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_skill_melee_defence_increase_emp_spearmen_swordsmen_flagellants_huntsmen_empire_knights_rank7",
+                "description": "Melee defence: +5 for Spearmen, Swordsmen, Halberdiers, Greatswords and Flagellants(Rank 7 and above)\n\t(Lord's army)",
+                "key": "wh2_dlc11_effect_skill_melee_defence_increase_emp_greatswords_spearmen_swordsmen_flagellants_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
               {
-                "description": "Spell resistance: 15% for Spearmen, Swordsmen, Flagellants, Goedendagers, Riverwardens, Huntsmen and Empire Knights units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_force_stat_magic_resistance_spearmen__huntsmen_swordsmen_flagellants_empire_knights_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+                "description": "Armour: 10 for Spearmen, Swordsmen, Halberdiers, Greatswords and Flagellants(Rank 7 and above)\n\t(Lord's army)",
+                "key": "wh2_dlc11_effect_force_stat_armour_emp_greatswords_spearmen_swordsmen_flagellants_rank7",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour"
+              },
+              {
+                "description": "Physical resistance: 10% for Spearmen, Swordsmen, Halberdiers, Greatswords and Flagellants(Rank 7 and above)\n\t(Lord's army)",
+                "key": "wh2_dlc11_effect_force_stat_physical_resistance_increase_emp_greatswords_spearmen_swordsmen_flagellants_rank7",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -3856,19 +3949,19 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +5 for Greatswords, Halberdiers, Reiksguard, Sons of Manann, Knights of the Blazing Sun, Knights Mariner, Knights of the Cleansing Flame, and Demigryph Knights units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_force_stat_melee_attack_greatswords_halberds_reiksguard_knights_of_the_blazing_sun_demigryphs_rank7",
+                "description": "Leadership: +5 for Empire Knight and Demigryph units (Rank 7 and above)\n\t(Lord's army)",
+                "key": "wh2_dlc11_effect_skill_morale_increase_emp_knights_demigryphs_rank7",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              },
+              {
+                "description": "Melee attack: +5 for Empire Knight and Demigryph units (Rank 7 and above)\n\t(Lord's army)",
+                "key": "wh2_dlc11_effect_force_stat_melee_attack_emp_knights_demigryphs_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee defence: +5 for Greatswords, Halberdiers, Reiksguard, Sons of Manann, Knights of the Blazing Sun, Knights Mariner, Knights of the Cleansing Flame, and Demigryph Knights units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_force_stat_melee_defence_emp_greatswords_halberds_reiksguard_knights_of_the_blazing_sun_demigryphs_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
-              },
-              {
-                "description": "Physical resistance: 10% for Greatswords, Halberdiers, Reiksguard, Sons of Manann, Knights of the Blazing Sun, Knights Mariner, Knights of the Cleansing Flame, and Demigryph Knights units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "wh2_dlc11_effect_force_stat_physical_resistance_increase_emp_greatswords_halberds_reiksguard_knights_of_the_blazing_sun_demigryphs_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "description": "Charge bonus: +12 for Empire Knight and Demigryph units (Rank 7 and above)\n\t(Lord's army)",
+                "key": "wh3_dlc25_effect_skill_charge_bonus_emp_knights_demigryphs_rank7",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
             ]
           }
@@ -4427,7 +4520,7 @@
           {
             "effects": [
               {
-                "description": "Chance of intercepting an army using the Underway, beast-paths or Worldroots: +5%",
+                "description": "Chance of intercepting an army using Tunnelling, beast-paths or Worldroots: +5%",
                 "key": "wh_main_effect_general_mod_tunnel_interception_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/subterranean"
               },
@@ -4441,7 +4534,7 @@
           {
             "effects": [
               {
-                "description": "Chance of intercepting an army using the Underway, beast-paths or Worldroots: +10%",
+                "description": "Chance of intercepting an army using Tunnelling, beast-paths or Worldroots: +10%",
                 "key": "wh_main_effect_general_mod_tunnel_interception_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/subterranean"
               },
