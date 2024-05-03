@@ -179,6 +179,51 @@
                       }
                     ]
                   }
+                },
+                {
+                  "unit_ability": {
+                    "key": "teb_lucy_hex_boost",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_contact_soulblight",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment_of_the_winds",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                      "onscreen_name": "Augment of the Winds"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Femme Fatale",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 70,
+                    "enabled_if": [
+                      "Enemy unit debilitated within range"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "teb_lucy_hex_boost",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 10,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "ability_recharge_change": -5,
+                        "stat_effects": [
+                          {
+                            "value": 1.15,
+                            "stat": "scalar_spell_mastery",
+                            "how": "mult",
+                            "description": "x1.15 Spell Mastery",
+                            "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -224,11 +269,11 @@
                       "effect_range": -1,
                       "num_effected_enemy_units": 2,
                       "num_uses": 1,
-                      "target_enemies": false,
+                      "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
-                      "target_intercept_range": 0,
+                      "target_intercept_range": -1,
                       "target_if": [
                         "Unit is a Lord or Hero"
                       ],
@@ -245,7 +290,8 @@
                           "ability_recharge_change": 60,
                           "damage_amount": 1000,
                           "fatigue_change_ratio": 3,
-                          "hp_change_frequency": 2
+                          "hp_change_frequency": 2,
+                          "max_damaged_entities": 2
                         }
                       ]
                     }
@@ -296,40 +342,29 @@
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": false,
-                      "target_self": true,
+                      "target_self": false,
                       "target_intercept_range": 100,
                       "target_if": [
                         "Unit is a Lord or Hero"
                       ],
                       "ui_effects": [
                         {
-                          "key": "self_damage_chance_start",
-                          "localised_text": "Causes minor damage to target",
-                          "effect_state": "positive"
+                          "key": "teb_lucrezzia_potion",
+                          "localised_text": "Will execute the recipient below a 10% hit points threshold.",
+                          "effect_state": "negative"
                         }
                       ],
                       "phases": [
                         {
-                          "icon": "teb_lucrezzia_potion",
+                          "icon": "teb_lucrezzia_potion2",
                           "order": 1,
                           "target_enemies": false,
-                          "target_self": false,
-                          "target_friends": true,
-                          "duration": 2,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 180,
-                          "hp_change_frequency": 1
-                        },
-                        {
-                          "icon": "teb_lucrezzia_potion2",
-                          "order": 2,
-                          "target_enemies": false,
-                          "target_self": false,
+                          "target_self": true,
                           "target_friends": true,
                           "duration": -1,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "execute_ratio": 0.1,
                           "stat_effects": [
                             {
                               "value": 1.15,
@@ -4303,6 +4338,51 @@
                   "description": " Immune to Psychology",
                   "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
                   "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "teb_lucy_hex_boost",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_contact_soulblight",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Femme Fatale",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 70,
+          "enabled_if": [
+            "Enemy unit debilitated within range"
+          ],
+          "phases": [
+            {
+              "icon": "teb_lucy_hex_boost",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "ability_recharge_change": -5,
+              "stat_effects": [
+                {
+                  "value": 1.15,
+                  "stat": "scalar_spell_mastery",
+                  "how": "mult",
+                  "description": "x1.15 Spell Mastery",
+                  "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
                 }
               ]
             }

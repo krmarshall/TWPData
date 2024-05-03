@@ -48,6 +48,7 @@
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
               "barrier": 0,
+              "can_siege": true,
               "fly_speed": 0,
               "attributes": [
                 {
@@ -172,6 +173,7 @@
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
               "barrier": 0,
+              "can_siege": true,
               "fly_speed": 10.5,
               "attributes": [
                 {
@@ -558,10 +560,10 @@
         ]
       },
       {
-        "key": "mixu_skill_node_stupid_mentor_emp_wolfram_hertwig",
+        "key": "mixu_LL_all_mentor_lord",
         "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_lord",
-        "tier": 66,
+        "tier": 30,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -2331,19 +2333,9 @@
           {
             "effects": [
               {
-                "description": "Imperial Authority: +1",
-                "key": "mixu_LL_increase_imperial_authority_dummy",
-                "icon": "vanilla3/campaign_ui/effect_bundles/hunter_effect_icons_imperial_authority"
-              },
-              {
-                "description": "Prestige: +500",
-                "key": "mixu_LL_increase_prestige_dummy",
-                "icon": "mixu3/campaign_ui/effect_bundles/mixu_icon_prestige"
-              },
-              {
-                "description": "Grants Banner: \"Elector Count's Bodyguard\"",
-                "key": "mixu_LL_enable_banner_elector_count_bodyguard_dummy",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+                "description": "",
+                "key": "wh3_dlc25_effect_hidden_empty_dummy",
+                "icon": ""
               }
             ]
           }
@@ -2628,6 +2620,7 @@
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
     "barrier": 0,
+    "can_siege": true,
     "fly_speed": 0,
     "attributes": [
       {
@@ -2708,11 +2701,6 @@
     "localised_title": "The League of Ostermark",
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
-      {
-        "description": "",
-        "key": "wh2_dlc13_effect_upkeep_elector_count_units_hidden",
-        "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-      },
       {
         "description": "Ward save: +10% for embedded Witch Hunter Heroes",
         "key": "mixu_LL_ward_save_emp_witch_hunters",
@@ -2831,57 +2819,50 @@
       "ui_icon": "campaign_ui/mounts/mixu_LL_banner_personal_bodyguard",
       "effects": [
         {
-          "description": "Passive ability: \"Deathblow\"\n\t(assigned unit)",
-          "key": "wh_main_effect_ability_enable_deathblow",
-          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "description": "Passive ability: \"Guardian\"\n\t(assigned unit)",
+          "key": "mixu_LL_enable_ability_guardian",
+          "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
           "related_abilities": [
             {
-              "effect": "wh_main_effect_ability_enable_deathblow",
+              "effect": "mixu_LL_enable_ability_guardian",
               "bonus_value_id": "enable",
               "unit_ability": {
-                "key": "wh_main_lord_passive_deathblow",
-                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lord_passive_deathblow",
+                "key": "wh2_dlc09_unit_passive_guardian",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_passive_guardian",
                 "overpower_option": "",
                 "type": {
-                  "key": "wh_type_augment",
-                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                  "onscreen_name": "Augment"
+                  "key": "wh_type_area_of_ward_save",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                  "onscreen_name": "Ward Save (Area)"
                 },
                 "is_hidden_in_ui": false,
-                "onscreen_name": "Deathblow",
-                "effect_range": 0,
+                "onscreen_name": "Guardian",
+                "effect_range": 35,
                 "target_enemies": false,
                 "target_friends": false,
                 "target_ground": false,
                 "target_self": false,
                 "target_intercept_range": 0,
-                "enabled_if": [
-                  "Hit Points less than 20%"
+                "target_if": [
+                  "Unit is a Lord or Hero"
                 ],
                 "phases": [
                   {
-                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_lord_passive_deathblow",
+                    "icon": "wh_pro04_unit_passive_guardian",
                     "order": 1,
                     "target_enemies": false,
-                    "target_self": true,
-                    "target_friends": false,
+                    "target_self": false,
+                    "target_friends": true,
                     "duration": -1,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "stat_effects": [
                       {
-                        "value": 1.2,
-                        "stat": "stat_melee_damage_base",
-                        "how": "mult",
-                        "description": "x1.2 Base Weapon Damage",
-                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                      },
-                      {
-                        "value": 1.2,
-                        "stat": "stat_melee_damage_ap",
-                        "how": "mult",
-                        "description": "x1.2 Armour-Piercing Weapon Damage",
-                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                        "value": 15,
+                        "stat": "stat_resistance_physical",
+                        "how": "add",
+                        "description": "+15 Physical Resistance",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                       }
                     ]
                   }

@@ -129,10 +129,10 @@
         ]
       },
       {
-        "key": "mixu_skill_node_stupid_mentor_emp_alberich_von_korden",
+        "key": "mixu_LL_all_mentor_lord",
         "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_lord",
-        "tier": 66,
+        "tier": 30,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -192,7 +192,7 @@
     [
       {
         "key": "mixu_skill_node_emp_alberich_von_korden_special_0",
-        "image_path": "vanilla3/campaign_ui/skills/character_bonus_vs_large",
+        "image_path": "vanilla3/campaign_ui/skills/immune_to_psychology",
         "character_skill_key": "mixu_emp_alberich_von_korden_unique_grim_resolve",
         "tier": 1,
         "indent": 1,
@@ -206,14 +206,65 @@
           {
             "effects": [
               {
-                "description": "Bonus vs Large: +15",
-                "key": "wh_main_effect_character_stat_bonus_vs_large",
-                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
-              },
-              {
-                "description": "Leadership: +4\n\t(all units in army)",
-                "key": "wh_main_effect_force_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+                "description": "Passive Ability: \"Grim Resolve\"",
+                "key": "wh3_dlc25_effect_ability_enable_grim_resolve",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_grim_resolve",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc25_hero_passive_grim_resolve",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc13_unit_passive_grim_resolve",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Grim Resolve",
+                      "effect_range": 55,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "In melee"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc25_hero_passive_grim_resolve",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 4,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+4 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ],
             "unlocked_at_rank": 6
@@ -276,13 +327,21 @@
                           "duration": 35,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
+                          "remove_magical": true,
                           "stat_effects": [
                             {
-                              "value": 0.6,
+                              "value": 0.5,
                               "stat": "scalar_spell_mastery",
                               "how": "mult",
-                              "description": "x0.6 Spell Mastery",
+                              "description": "x0.5 Spell Mastery",
                               "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                            },
+                            {
+                              "value": 0,
+                              "stat": "stat_healing_power",
+                              "how": "mult",
+                              "description": "x0 Healing power",
+                              "icon": "vanilla3/skins/default/stat_healing_received"
                             },
                             {
                               "value": -24,
@@ -292,18 +351,11 @@
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": -48,
+                              "value": -24,
                               "stat": "stat_melee_defence",
                               "how": "add",
-                              "description": "-48 Melee Defence",
+                              "description": "-24 Melee Defence",
                               "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": -30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-30 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
                             }
                           ]
                         }
@@ -342,16 +394,16 @@
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "mixu_emp_alberich_von_korden_ability_watchful_eye",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_unit_abilities_demagoguery",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc13_lord_passive_merely_a_fleshwound",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
+                        "key": "wh_type_area_of_hexes",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                        "onscreen_name": "Hex (Area)"
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Watchful Eye",
-                      "effect_range": 35,
+                      "effect_range": 100,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -361,27 +413,27 @@
                         {
                           "icon": "mixu_emp_alberich_von_korden_ability_watchful_eye",
                           "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 8,
-                              "stat": "stat_morale",
+                              "value": -10,
+                              "stat": "stat_resistance_missile",
                               "how": "add",
-                              "description": "+8 Leadership",
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                              "description": "-10 Missile Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
                             }
                           ],
                           "attributes": [
                             {
-                              "key": "immune_to_psychology",
-                              "description": " Immune to Psychology",
-                              "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                              "key": "revealed",
+                              "description": "Reveals Unit",
+                              "bullet_text": "This unit is permanently visible to the enemy, regardless of line of sight.\n\t\n\tRevealed units are not affected by the following attributes:\n\t Hide Forest\n\t Stalk\n\t Unspottable",
+                              "icon": "vanilla3/battle_ui/ability_icons/revealed"
                             }
                           ]
                         }
@@ -416,7 +468,67 @@
           {
             "effects": [
               {
-                "description": "Corruption: -10\n\t(when in own province)",
+                "description": "Passive Ability: \"Tools of Judgement\"",
+                "key": "wh3_dlc25_effect_ability_enable_tools_of_judgement",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_tools_of_judgement",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc25_hero_passive_tools_of_judgement",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_weapon_passive_chillblade",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Tools of Judgement",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 15,
+                      "enabled_if": [
+                        "Terror causing unit in range"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc25_hero_passive_tools_of_judgement",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 12,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+12 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 12,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+12 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Corruption: -5\n\t(when in own province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
               },
@@ -454,7 +566,7 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic cost: +2% for all enemy spells\n\t(enemy armies in local province)",
+                "description": "Winds of Magic cost: +25% for all enemy spells\n\t(enemy armies in local province)",
                 "key": "wh2_dlc16_effect_magic_cost_all_lores_enemy",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
@@ -465,6 +577,36 @@
               }
             ],
             "unlocked_at_rank": 14
+          }
+        ]
+      },
+      {
+        "key": "mixu_skill_node_emp_alberich_von_korden_special_5",
+        "image_path": "mixu3/campaign_ui/skills/mixu_character_cst_cutlass",
+        "character_skill_key": "mixu_emp_von_korden_special_monster_tracker",
+        "tier": 6,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Monster Tracker",
+        "localised_description": "\"Oh, I'm sure it's this way. I can smell it.\"",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Missile resistance: -10% for enemy monstrous units\n\t(enemy armies in local region)",
+                "key": "mixu_LL_missile_resistance_enemy_monsters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              },
+              {
+                "description": "Bonus vs Large: +15",
+                "key": "wh_main_effect_character_stat_bonus_vs_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              }
+            ],
+            "unlocked_at_rank": 16
           }
         ]
       }
@@ -2475,6 +2617,7 @@
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
     "barrier": 0,
+    "can_siege": true,
     "can_skirmish": true,
     "fly_speed": 0,
     "projectile": {
@@ -2691,13 +2834,21 @@
                     "duration": 35,
                     "effect_type": "negative",
                     "is_hidden_in_ui": false,
+                    "remove_magical": true,
                     "stat_effects": [
                       {
-                        "value": 0.6,
+                        "value": 0.5,
                         "stat": "scalar_spell_mastery",
                         "how": "mult",
-                        "description": "x0.6 Spell Mastery",
+                        "description": "x0.5 Spell Mastery",
                         "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                      },
+                      {
+                        "value": 0,
+                        "stat": "stat_healing_power",
+                        "how": "mult",
+                        "description": "x0 Healing power",
+                        "icon": "vanilla3/skins/default/stat_healing_received"
                       },
                       {
                         "value": -24,
@@ -2707,18 +2858,11 @@
                         "icon": "vanilla3/skins/default/icon_stat_attack"
                       },
                       {
-                        "value": -48,
+                        "value": -24,
                         "stat": "stat_melee_defence",
                         "how": "add",
-                        "description": "-48 Melee Defence",
+                        "description": "-24 Melee Defence",
                         "icon": "vanilla3/skins/default/icon_stat_defence"
-                      },
-                      {
-                        "value": -30,
-                        "stat": "stat_armour",
-                        "how": "add",
-                        "description": "-30 Armour",
-                        "icon": "vanilla3/skins/default/icon_stat_armour"
                       }
                     ]
                   }
