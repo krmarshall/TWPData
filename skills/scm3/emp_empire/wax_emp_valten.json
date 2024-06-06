@@ -125,9 +125,9 @@
           {
             "effects": [
               {
-                "description": "Mount: Althandin",
-                "key": "wh_effect_emp_valten_elv_steed_dummy",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+                "description": "Turns Valten into a Legendary Lord.",
+                "key": "wh_effect_emp_valten_lord",
+                "icon": "vanilla3/campaign_ui/effect_bundles/hunter_effect_icons_imperial_authority"
               }
             ],
             "auto_unlock_at_rank": 20
@@ -652,7 +652,6 @@
                           "target_friends": true,
                           "duration": 32,
                           "effect_type": "positive",
-                          "onscreen_name": "PLACEHOLDER",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
@@ -708,6 +707,11 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Upkeep: -20% for Flagellant units\n\t(all units in army)",
+                "key": "wh_dlc04_effect_tech_upkeep_reduction_flagellants",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
               {
                 "description": "Battle prayer: \"Grand Soulfire\"",
                 "key": "wh_main_effect_ability_enable_grand_souldfire",
@@ -1887,7 +1891,6 @@
       "onscreen_name": "Armour of the Heldenhammer",
       "colour_text": "Forged over two and a half thousand years ago for the Warrior-King Sigmar, this ancient gromril armour was never claimed by the founder of the Empire. Its many runes provide protection against attack and malign magic.",
       "ui_icon": "campaign_ui/mounts/valten_armour",
-      "unlocked_at_rank": 20,
       "effects": [
         {
           "description": "Ward save: 10%",
@@ -1914,7 +1917,42 @@
           "key": "wh_main_effect_character_stat_magic_resistance",
           "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "valten_set",
+        "name": "Set of the Heldenhammer",
+        "description": "Valten was one of the mightiest warriors alive. Imbued with part of Sigmar's divine essence, it granted him strength beyond any normal man and allowed him to shrug off the most grievous of wounds. He was capable of matching the Everchosen himself in single combat, dominating the fight before Archaon called upon the assistance of U'Zhul.",
+        "contains": [
+          {
+            "name": "Armour of the Heldenhammer",
+            "icon": "campaign_ui/mounts/valten_armour"
+          },
+          {
+            "name": "Ghal Maraz",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Physical resistance: 15% for Flagellants units\n\t(Lord's army)",
+            "key": "wh2_dlc11_effect_force_stat_physical_resistance_flagellants",
+            "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical",
+            "priority": 581
+          },
+          {
+            "description": "Charge bonus: +10% for Flagellants units\n\t(Lord's army)",
+            "key": "wh_dlc04_effect_force_stat_charge_bonus_pct_flagellants",
+            "icon": "vanilla3/campaign_ui/effect_bundles/charge",
+            "priority": 501
+          },
+          {
+            "description": "Weapon strength: +10% for Flagellants units\n\t(Lord's army)",
+            "key": "wh_dlc04_effect_force_stat_weapon_strength_flagellants",
+            "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage",
+            "priority": 461
+          }
+        ]
+      }
     },
     {
       "key": "wh_main_anc_weapon_ghal_maraz",
@@ -2035,10 +2073,6 @@
         "description": "The heirs of Sigmar lead the Empire through the ages, bearing articles of their Imperial glory.",
         "contains": [
           {
-            "name": "The Silver Seal",
-            "icon": "skins/default/equipment_items_talisman"
-          },
-          {
             "name": "Ghal Maraz",
             "icon": "skins/default/equipment_items_weapon"
           }
@@ -2055,6 +2089,155 @@
             "key": "wh_main_faction_political_diplomacy_mod_empire",
             "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
             "priority": 5
+          }
+        ]
+      }
+    },
+    {
+      "key": "wh_main_anc_weapon_ghal_maraz_valten",
+      "onscreen_name": "Ghal Maraz",
+      "colour_text": "",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "effects": [
+        {
+          "description": "Control: +1\n\t(all provinces)",
+          "key": "wh_main_effect_public_order_characters",
+          "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+        },
+        {
+          "description": "Melee attack: +8",
+          "key": "wh_main_effect_character_stat_melee_attack",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+        },
+        {
+          "description": "Enables sundering attacks",
+          "key": "wh2_dlc10_effect_character_stat_enable_sundering_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/phase_sunder_armour",
+          "related_phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
+              "order": 0,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "negative",
+              "onscreen_name": "Sundered Armour",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": -30,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "-30 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Armour-piercing weapon damage: +75",
+          "key": "wh_main_effect_character_stat_ap_damage",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+        },
+        {
+          "description": "Ability: \"Ghal Maraz\"",
+          "key": "wh_main_effect_ability_enable_ghal_maraz",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_main_effect_ability_enable_ghal_maraz",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_main_weapon_abilities_ghal_maraz",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_weapon_abilities_ghal_maraz",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Augment"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Ghal Maraz",
+                "active_time": 39,
+                "effect_range": 0,
+                "recharge_time": 120,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_weapon_abilities_ghal_maraz",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": 39,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 16,
+                        "stat": "stat_bonus_vs_large",
+                        "how": "add",
+                        "description": "+16 Bonus vs. Large",
+                        "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
+                      },
+                      {
+                        "value": 1.5,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x1.5 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "description": "Weapon strength: +15% when fighting against Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs and Norsca",
+          "key": "wh2_main_effect_force_stat_weapon_strength_vs_chaos_norsca",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+        }
+      ],
+      "item_set": {
+        "key": "valten_set",
+        "name": "Set of the Heldenhammer",
+        "description": "Valten was one of the mightiest warriors alive. Imbued with part of Sigmar's divine essence, it granted him strength beyond any normal man and allowed him to shrug off the most grievous of wounds. He was capable of matching the Everchosen himself in single combat, dominating the fight before Archaon called upon the assistance of U'Zhul.",
+        "contains": [
+          {
+            "name": "Armour of the Heldenhammer",
+            "icon": "campaign_ui/mounts/valten_armour"
+          },
+          {
+            "name": "Ghal Maraz",
+            "icon": "skins/default/equipment_items_weapon"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Physical resistance: 15% for Flagellants units\n\t(Lord's army)",
+            "key": "wh2_dlc11_effect_force_stat_physical_resistance_flagellants",
+            "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical",
+            "priority": 581
+          },
+          {
+            "description": "Charge bonus: +10% for Flagellants units\n\t(Lord's army)",
+            "key": "wh_dlc04_effect_force_stat_charge_bonus_pct_flagellants",
+            "icon": "vanilla3/campaign_ui/effect_bundles/charge",
+            "priority": 501
+          },
+          {
+            "description": "Weapon strength: +10% for Flagellants units\n\t(Lord's army)",
+            "key": "wh_dlc04_effect_force_stat_weapon_strength_flagellants",
+            "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage",
+            "priority": 461
           }
         ]
       }
@@ -2077,7 +2260,7 @@
         {
           "effects": [
             {
-              "description": "PLACEHOLDER",
+              "description": "",
               "key": "wax_valten_name",
               "icon": ""
             },
