@@ -61,25 +61,26 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.5,
+                              "value": 2,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.5 Base Weapon Damage",
+                              "description": "x2 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 20,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+20 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 1.5,
+                              "value": 2,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "description": "x2 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "cannot_die",
+                              "description": "Cannot Die",
+                              "bullet_text": "Entities in this unit take damage, but cannot die.",
+                              "icon": "sfo3/battle_ui/ability_icons/cannot_die"
                             }
                           ]
                         }
@@ -154,10 +155,10 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
+                              "value": 1.5,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
+                              "description": "x1.5 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
@@ -168,10 +169,10 @@
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": 1.25,
+                              "value": 1.5,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
@@ -236,7 +237,8 @@
                       "target_self": false,
                       "target_intercept_range": 0,
                       "enabled_if": [
-                        "Hit Points less than 25%"
+                        "Hit Points less than 25%",
+                        "Hit Points less than 50%"
                       ],
                       "phases": [
                         {
@@ -333,7 +335,7 @@
           {
             "effects": [
               {
-                "description": "Oathgold from buildings: +10%\n\t(local province)",
+                "description": "Oathgold from buildings: +20%\n\t(local province)",
                 "key": "wh2_dlc17_pooled_resource_oathgold_buildings_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/oathgold"
               }
@@ -445,7 +447,7 @@
               {
                 "description": "Missile resistance: 5%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 8
@@ -460,7 +462,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -580,17 +582,36 @@
           {
             "effects": [
               {
+                "description": "Upkeep: -5% for Slayers, Giant Slayers, Slayer Pirates, Goblin Hewer and Doomseekers units\n\t(all armies factionwide)",
+                "key": "wh_main_effect_tech_upkeep_cost_reduction_slayers",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Weapon strength: +10% for all Slayer units\n\t(Lord's army)",
+                "key": "wh3_dlc25_effect_force_stat_weapon_strength_all_slayers",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Missile strength: +10% for all Slayer units\n\t(Lord's army)",
+                "key": "wh3_dlc25_effect_force_stat_missile_strength_all_slayers",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
                 "description": "Upkeep: -10% for Slayers, Giant Slayers, Slayer Pirates, Goblin Hewer and Doomseekers units\n\t(all armies factionwide)",
                 "key": "wh_main_effect_tech_upkeep_cost_reduction_slayers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               },
               {
-                "description": "Weapon strength: +10% for all Slayer units\n\t(all armies factionwide)",
+                "description": "Weapon strength: +20% for all Slayer units\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_weapon_strength_all_slayers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Missile strength: +10% for all Slayer units\n\t(all armies factionwide)",
+                "description": "Missile strength: +20% for all Slayer units\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_missile_strength_all_slayers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -628,6 +649,20 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
               }
             ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +20% for Artillery and War Machine units\n\t(Lord's army)",
+                "key": "wh3_dlc25_effect_force_replenishment_rate_dwf_arty_warmachines",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Reload time reduction: +20% for Artillery and Flying War Machine units\n\t(Lord's army)",
+                "key": "wh3_dlc25_effect_force_stat_reload_time_dwf_arty_warmachines",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
+              }
+            ]
           }
         ],
         "parent_required": [
@@ -651,7 +686,7 @@
           {
             "effects": [
               {
-                "description": "Ammunition: +20%",
+                "description": "Ammunition: +10%",
                 "key": "wh_main_effect_character_stat_ammunition",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
               },
@@ -679,7 +714,81 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Artillery Master",
-                      "effect_range": 55,
+                      "effect_range": 60,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "target_if": [
+                        "Unit is Artillery or a War Machine"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_artillery_master",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 30,
+                              "stat": "stat_accuracy",
+                              "how": "add",
+                              "description": "+30 Accuracy",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+10 Reload Skill",
+                              "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ammunition: +25%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              },
+              {
+                "description": "Reload time reduction: +25%",
+                "key": "wh_main_effect_character_stat_reload_time_reduction",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
+              },
+              {
+                "description": "Passive ability: \"Artillery Master\"",
+                "key": "wh3_dlc25_effect_ability_enable_artillery_master",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_artillery_master",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc25_character_passive_artillery_master",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_artillery_master",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Artillery Master",
+                      "effect_range": 60,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -744,12 +853,31 @@
           {
             "effects": [
               {
-                "description": "Construction cost: -20% for Military Support buildings\n\t(all provinces)",
+                "description": "Construction cost: -20% for Military Support buildings\n\t(local province)",
                 "key": "wh3_dlc25_effect_building_construction_cost_mod_military_support",
                 "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "description": "Construction time: -1 for Military Support buildings\n\t(all provinces)",
+                "description": "Construction time: -1 for Military Support buildings\n\t(local province)",
+                "key": "wh3_dlc25_effect_construction_time_mod_military_support",
+                "icon": "vanilla3/campaign_ui/effect_bundles/construction"
+              },
+              {
+                "description": "Horde building construction cost: -10%",
+                "key": "wh_main_effect_force_building_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Construction cost: -40% for Military Support buildings\n\t(local province)",
+                "key": "wh3_dlc25_effect_building_construction_cost_mod_military_support",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              },
+              {
+                "description": "Construction time: -2 for Military Support buildings\n\t(local province)",
                 "key": "wh3_dlc25_effect_construction_time_mod_military_support",
                 "icon": "vanilla3/campaign_ui/effect_bundles/construction"
               },
@@ -783,12 +911,12 @@
           {
             "effects": [
               {
-                "description": "Range: +15%",
+                "description": "Range: +25%",
                 "key": "wh_main_effect_character_stat_range",
                 "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
               },
               {
-                "description": "Armour-piercing missile damage: +20",
+                "description": "Armour-piercing missile damage: +25",
                 "key": "wh3_dlc25_effect_character_stat_ap_missile_damage_flat",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
               },
@@ -812,7 +940,7 @@
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Deranged Munitions Upgraded",
                       "active_time": 30,
-                      "effect_range": 35,
+                      "effect_range": 40,
                       "recharge_time": 90,
                       "target_enemies": false,
                       "target_friends": false,
@@ -868,6 +996,270 @@
           "wh3_dlc25_skill_node_dwf_malakai_makaisson_unique_3",
           "wh3_dlc25_skill_node_dwf_malakai_makaisson_unique_4",
           "wh3_dlc25_skill_node_dwf_malakai_makaisson_unique_5"
+        ]
+      },
+      {
+        "key": "dwf_skill_dwf_rune_fury",
+        "image_path": "sfo3/campaign_ui/skills/dwf_skill_rune",
+        "character_skill_key": "dwf_skill_dwf_rune_fury",
+        "tier": 21,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Rune of Fury",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Rune of Fury\"\n\t(Lord's army)",
+                "key": "wh_effect_enable_dwf_rune_fury",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_effect_enable_dwf_rune_fury",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "dwf_rune_fury",
+                      "icon_name": "sfo3/battle_ui/ability_icons/dwf_rune_fury",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Rune of Fury",
+                      "active_time": 300,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/dwf_rune_fury",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 300,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 2,
+                              "stat": "scalar_entity_acceleration_modifier",
+                              "how": "mult",
+                              "description": "x2 Acceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 2,
+                              "stat": "scalar_entity_deceleration_modifier",
+                              "how": "mult",
+                              "description": "x2 Deceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_charge_bonus",
+                              "how": "add",
+                              "description": "+25 Charge Bonus",
+                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "ogre_charge",
+                              "description": "Unstoppable Charge",
+                              "bullet_text": "When attacking braced charge defenders, this unit only loses half of its charge bonus.",
+                              "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 30,
+            "blocks_skill_node_keys": [
+              "dwf_skill_dwf_rune_reloading",
+              "dwf_skill_dwf_rune_resistance"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_dwf_rune_reloading",
+        "image_path": "sfo3/campaign_ui/skills/dwf_skill_rune",
+        "character_skill_key": "dwf_skill_dwf_rune_reloading",
+        "tier": 25,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Rune of Reloading",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Rune of Reloading\"\n\t(Lord's army)",
+                "key": "wh_effect_enable_dwf_rune_reloading",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_effect_enable_dwf_rune_reloading",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "dwf_rune_reloading",
+                      "icon_name": "sfo3/battle_ui/ability_icons/dwf_rune_reloading",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Rune of Reloading",
+                      "active_time": 300,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/dwf_rune_reloading",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 300,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "add",
+                              "description": "+5 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+25 Reload Skill",
+                              "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 30,
+            "blocks_skill_node_keys": [
+              "dwf_skill_dwf_rune_fury",
+              "dwf_skill_dwf_rune_resistance"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "dwf_skill_dwf_rune_resistance",
+        "image_path": "sfo3/campaign_ui/skills/dwf_skill_rune",
+        "character_skill_key": "dwf_skill_dwf_rune_resistance",
+        "tier": 30,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Rune of Sanctuary",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Rune of Sanctuary\"\n\t(Lord's army)",
+                "key": "wh_effect_enable_dwf_rune_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_effect_enable_dwf_rune_resistance",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "dwf_rune_resistance",
+                      "icon_name": "sfo3/battle_ui/ability_icons/dwf_rune_resistance",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Rune of Sanctuary",
+                      "active_time": 300,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/dwf_rune_resistance",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 300,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_flame",
+                              "how": "add",
+                              "description": "+25 Flame Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "+25 Spell Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 30,
+            "blocks_skill_node_keys": [
+              "dwf_skill_dwf_rune_fury",
+              "dwf_skill_dwf_rune_reloading"
+            ]
+          }
         ]
       }
     ],
@@ -1105,7 +1497,7 @@
                       "recharge_time": 120,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": false,
                       "target_intercept_range": 75,
                       "wind_up_time": 3,
@@ -1124,11 +1516,26 @@
                           "key": "wh_main_all_strong_against_multiple",
                           "localised_text": "Strong vs multiple combatants",
                           "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_number_10",
+                          "localised_text": "Projectiles: 10",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_aoe_8",
+                          "localised_text": "Explosion area of effect: 8m",
+                          "effect_state": "positive"
                         }
                       ],
                       "activated_projectile": {
                         "key": "wh3_dlc25_lord_abilities_cinderblast_cluster_bomb",
-                        "damage": 10,
+                        "damage": 25,
                         "ap_damage": 25,
                         "shockwave_radius": -1,
                         "effective_range": 75,
@@ -1139,8 +1546,8 @@
                           "key": "wh3_dlc25_lord_abilities_cinderblast_cluster_bomb",
                           "affects_allies": true,
                           "detonation_damage": 50,
-                          "detonation_damage_ap": 125,
-                          "detonation_radius": 3,
+                          "detonation_damage_ap": 150,
+                          "detonation_radius": 4,
                           "is_flaming": true
                         }
                       }
@@ -1466,7 +1873,7 @@
               {
                 "description": "Missile resistance: 15% for Slayers, Giant Slayers, Slayer Pirates, Goblin Hewer and Doomseekers units\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_missile_resistance_slayers",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 10
@@ -1498,9 +1905,14 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               },
               {
-                "description": "Upkeep: -10% for Slayers, Giant Slayers, Slayer Pirates, Goblin Hewer and Doomseekers units\n\t(Lord's army)",
+                "description": "Upkeep: -5% for Slayers, Giant Slayers, Slayer Pirates, Goblin Hewer and Doomseekers units\n\t(Lord's army)",
                 "key": "wh_main_effect_tech_upkeep_cost_reduction_slayers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Local recruitment duration: -1 turn for Slayers units (minimum 1)\n\t(Lord's army)",
+                "key": "dwf_slayer_recruit_local",
+                "icon": "vanilla3/campaign_ui/effect_bundles/turns"
               }
             ],
             "unlocked_at_rank": 14
@@ -1987,7 +2399,7 @@
               {
                 "description": "Spell resistance: 15% for Miners, Dwarf Warriors, and Longbeards units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_magic_resistance_miners_warriors_longbeards_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
               }
             ]
           }
@@ -2013,19 +2425,19 @@
           {
             "effects": [
               {
-                "description": "Missile strength: +12% for Dwarf Engineers, Quarrellers, Thunderers, Rangers, Irondrakes, Gyrocopter, and Gyrobomber units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Missile strength: +12% for Dwarf Engineers, Quarrellers, Thunderers, Rangers, Irondrakes, Gyrocopters, Gyrobombers and Thunderbarge units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_missile_damage_dwf_rangers_quarrellers_thunderers_irondrakes_gyrocopters_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               },
               {
-                "description": "Reload time reduction: +10% for Dwarf Engineers, Quarrellers, Thunderers, Rangers, Irondrakes, Gyrocopter, and Gyrobomber units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Reload time reduction: +10% for Dwarf Engineers, Quarrellers, Thunderers, Rangers, Irondrakes, Gyrocopters, Gyrobombers and Thunderbarge units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_reload_time_reduction_dwf_rangers_quarrellers_thunderers_irondrakes_gyrocopters_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
               },
               {
-                "description": "Missile resistance: 15% for Dwarf Engineers, Quarrellers, Thunderers, Rangers, Irondrakes, Gyrocopter, and Gyrobomber units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Missile resistance: 15% for Dwarf Engineers, Quarrellers, Thunderers, Rangers, Irondrakes, Gyrocopters, Gyrobombers and Thunderbarge units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_missile_resistance_dwf_rangers_quarrellers_thunderers_irondrakes_gyrocopters_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -2063,7 +2475,7 @@
               {
                 "description": "Physical resistance: 10% for Slayers, Giant Slayers, Doomseekers, Slayer Pirates, Hammerers and Ironbreakers units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc11_effect_force_stat_physical_resistance_dwf_slayers_hammerers_ironbreakers_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -2717,17 +3129,17 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 4.2,
-    "mass": 1200,
+    "run_speed": 4.5,
+    "mass": 1250,
     "size": "small",
-    "hit_points": 8,
-    "bonus_hit_points": 4612,
+    "hit_points": 0,
+    "bonus_hit_points": 6000,
     "armour": 0,
     "missile_block_chance": 0,
     "morale": 100,
     "damage_mod_flame": 0,
-    "damage_mod_magic": 35,
-    "damage_mod_physical": 0,
+    "damage_mod_magic": 40,
+    "damage_mod_physical": 25,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
     "melee_attack": 55,
@@ -2735,18 +3147,45 @@
     "charge_bonus": 30,
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
-    "damage": 280,
-    "ap_damage": 120,
+    "damage": 300,
+    "ap_damage": 150,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 5,
     "melee_attack_interval": 4,
     "barrier": 0,
     "can_siege": true,
     "fly_speed": 0,
+    "contact_phase": {
+      "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_contact_dazed",
+      "order": 1,
+      "target_enemies": true,
+      "target_self": false,
+      "target_friends": false,
+      "duration": 10,
+      "effect_type": "negative",
+      "onscreen_name": "Dazed!",
+      "is_hidden_in_ui": false,
+      "stat_effects": [
+        {
+          "value": 0.75,
+          "stat": "scalar_speed",
+          "how": "mult",
+          "description": "x0.75 Speed",
+          "icon": "vanilla3/skins/default/icon_stat_speed"
+        },
+        {
+          "value": -10,
+          "stat": "stat_melee_defence",
+          "how": "add",
+          "description": "-10 Melee Defence",
+          "icon": "vanilla3/skins/default/icon_stat_defence"
+        }
+      ]
+    },
     "projectile": {
       "key": "wh3_dlc25_dwf_malakai_rifle_bullet",
-      "damage": 50,
-      "ap_damage": 100,
+      "damage": 100,
+      "ap_damage": 150,
       "shockwave_radius": -1,
       "effective_range": 180,
       "base_reload_time": 10,
@@ -2755,14 +3194,14 @@
     },
     "accuracy": 10,
     "reload": 0,
-    "primary_ammo": 90,
-    "fire_arc": 60,
+    "primary_ammo": 120,
+    "fire_arc": 80,
     "attributes": [
       {
         "key": "encourages",
         "description": "Encourage",
         "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-        "icon": "sfo3/battle_ui/ability_icons/encourages"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
       },
       {
         "key": "hide_forest",
@@ -2774,13 +3213,13 @@
         "key": "slayer",
         "description": "Slayer",
         "bullet_text": "This unit is a Slayer. Slayers can never have their Weapon Strength reduced during a battle.",
-        "icon": "vanilla3/battle_ui/ability_icons/slayer"
+        "icon": "sfo3/battle_ui/ability_icons/slayer"
       },
       {
         "key": "unbreakable",
         "description": " Unbreakable",
         "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-        "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
       }
     ],
     "abilities": [
@@ -2873,12 +3312,12 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/hunter_effect_icons_gotrek_felix"
       },
       {
-        "description": "Upkeep: -15% for Artillery and Flying War Machine units\n\t(own armies factionwide)",
+        "description": "Upkeep: -20% for Artillery and Flying War Machine units",
         "key": "wh3_dlc25_effect_resource_upkeep_cost_reduction_dwf_arty_warmachines",
         "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
       },
       {
-        "description": "Recruit rank: +3 for Artillery and Flying War Machine units\n\t(own armies factionwide)",
+        "description": "Recruit rank: +2 for Artillery and Flying War Machine units",
         "key": "wh3_dlc25_effect_force_recruit_rank_dwf_arty_warmachines",
         "icon": "vanilla3/campaign_ui/effect_bundles/experience"
       }
@@ -2926,7 +3365,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Makaisson's Persuader",
-                "active_time": 17,
+                "active_time": 20,
                 "effect_range": 0,
                 "num_uses": 3,
                 "recharge_time": 120,
@@ -2938,6 +3377,18 @@
                 "target_if": [
                   "Unit is Artillery or a War Machine"
                 ],
+                "ui_effects": [
+                  {
+                    "key": "wh_ammo_add_30",
+                    "localised_text": "Replenishes 30% ammunition",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_heal_total_20",
+                    "localised_text": "Restores up to 20% Hit Points",
+                    "effect_state": "positive"
+                  }
+                ],
                 "phases": [
                   {
                     "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_weapon_abilities_makaissons_persuader",
@@ -2945,7 +3396,7 @@
                     "target_enemies": false,
                     "target_self": false,
                     "target_friends": true,
-                    "duration": 17,
+                    "duration": 20,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "heal_amount": 0.01,
@@ -2974,7 +3425,7 @@
         ],
         "effects": [
           {
-            "description": "Upkeep: -5% for Artillery and Flying War Machine units",
+            "description": "Upkeep: -5% for Artillery and Flying War Machine units\n\t(all units in army)",
             "key": "wh3_dlc25_effect_resource_upkeep_cost_reduction_dwf_arty_warmachines",
             "icon": "vanilla3/campaign_ui/effect_bundles/military_spending",
             "priority": 105
@@ -3035,7 +3486,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "The Eyes of Grungni",
-                "effect_range": 55,
+                "effect_range": 60,
                 "target_enemies": false,
                 "target_friends": false,
                 "target_ground": false,
@@ -3067,10 +3518,10 @@
                         "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
                       },
                       {
-                        "value": 1.1,
+                        "value": 1.25,
                         "stat": "scalar_missile_range",
                         "how": "mult",
-                        "description": "x1.1 Range",
+                        "description": "x1.25 Range",
                         "icon": "vanilla3/skins/default/icon_stat_range"
                       }
                     ]
@@ -3097,7 +3548,7 @@
         ],
         "effects": [
           {
-            "description": "Upkeep: -5% for Artillery and Flying War Machine units",
+            "description": "Upkeep: -5% for Artillery and Flying War Machine units\n\t(all units in army)",
             "key": "wh3_dlc25_effect_resource_upkeep_cost_reduction_dwf_arty_warmachines",
             "icon": "vanilla3/campaign_ui/effect_bundles/military_spending",
             "priority": 105
@@ -3204,7 +3655,12 @@
               ]
             },
             {
-              "description": "Missile strength: +20% for Artillery and Flying War Machine units",
+              "description": "Charge bonus: +25% for all units (Rank 7 and above)\n\t(Lord's army)",
+              "key": "wh_effect_all_elite_charge_bonus",
+              "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+            },
+            {
+              "description": "Missile strength: +20% for Artillery and Flying War Machine units\n\t(Lord's army)",
               "key": "wh3_dlc25_effect_force_stat_missile_strength_dwf_artillery_flying_war_machines",
               "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
             }

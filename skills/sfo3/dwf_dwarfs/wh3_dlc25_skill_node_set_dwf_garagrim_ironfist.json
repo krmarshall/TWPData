@@ -61,25 +61,26 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.5,
+                              "value": 2,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.5 Base Weapon Damage",
+                              "description": "x2 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 20,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+20 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 1.5,
+                              "value": 2,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "description": "x2 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "cannot_die",
+                              "description": "Cannot Die",
+                              "bullet_text": "Entities in this unit take damage, but cannot die.",
+                              "icon": "sfo3/battle_ui/ability_icons/cannot_die"
                             }
                           ]
                         }
@@ -154,10 +155,10 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
+                              "value": 1.5,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
+                              "description": "x1.5 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
@@ -168,10 +169,10 @@
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": 1.25,
+                              "value": 1.5,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
@@ -236,7 +237,8 @@
                       "target_self": false,
                       "target_intercept_range": 0,
                       "enabled_if": [
-                        "Hit Points less than 25%"
+                        "Hit Points less than 25%",
+                        "Hit Points less than 50%"
                       ],
                       "phases": [
                         {
@@ -383,7 +385,7 @@
               {
                 "description": "Missile resistance: 5%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 8
@@ -398,7 +400,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -543,24 +545,24 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.2,
+                              "value": 1.25,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.2 Base Weapon Damage",
+                              "description": "x1.25 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 12,
+                              "value": 10,
                               "stat": "stat_melee_attack",
                               "how": "add",
-                              "description": "+12 Melee Attack",
+                              "description": "+10 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": 1.2,
+                              "value": 1.25,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.2 Armour-Piercing Weapon Damage",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
@@ -573,28 +575,136 @@
               {
                 "description": "Attribute: Causes Fear",
                 "key": "wh_main_effect_attribute_enable_causes_fear",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear",
                 "related_attributes": [
                   {
                     "key": "causes_fear",
                     "description": " Can Cause Fear",
                     "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                    "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                   }
                 ]
               },
               {
                 "description": "Attribute: Causes Terror",
                 "key": "wh_main_effect_attribute_enable_causes_terror",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror",
                 "related_attributes": [
                   {
                     "key": "causes_terror",
                     "description": " Can Cause Terror",
                     "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                    "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Worthy Foe\"",
+                "key": "wh3_dlc25_effect_ability_enable_worthy_foe",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_worthy_foe",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc25_character_passive_worthy_foe",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_worthy_foe",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Worthy Foe",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 15,
+                      "enabled_if": [
+                        "Terror causing unit in range"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_worthy_foe",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "onscreen_name": "[PH] Worthy Foe!",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+10 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Attribute: Causes Fear",
+                "key": "wh_main_effect_attribute_enable_causes_fear",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear",
+                "related_attributes": [
+                  {
+                    "key": "causes_fear",
+                    "description": " Can Cause Fear",
+                    "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                  }
+                ]
+              },
+              {
+                "description": "Attribute: Causes Terror",
+                "key": "wh_main_effect_attribute_enable_causes_terror",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror",
+                "related_attributes": [
+                  {
+                    "key": "causes_terror",
+                    "description": " Can Cause Terror",
+                    "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                  }
+                ]
+              },
+              {
+                "description": "Enemy ward save: -10%\n\t(enemy armies in region)",
+                "key": "wh_effect_all_wardsave_enemies",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_ward_save"
+              },
+              {
+                "description": "Enemy leadership aura size: -25%\n\t(enemy characters in region)",
+                "key": "wh_effect_all_aura_size_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
               }
             ]
           }
@@ -671,7 +781,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The War-Mourner",
-                      "effect_range": 55,
+                      "effect_range": 75,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -807,6 +917,11 @@
                           "key": "wh3_main_ability_intensity_kills",
                           "localised_text": "Effect intensity increases with each kill made by the unit.",
                           "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_intensity_time_melee_300",
+                          "localised_text": "Effect intensity increases with time spent engaged in melee (300s)",
+                          "effect_state": "positive"
                         }
                       ],
                       "phases": [
@@ -821,24 +936,24 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.2,
+                              "value": 1.4,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.2 Base Weapon Damage",
+                              "description": "x1.4 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 10,
+                              "value": 20,
                               "stat": "stat_melee_attack",
                               "how": "add",
-                              "description": "+10 Melee Attack",
+                              "description": "+20 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": 1.2,
+                              "value": 1.4,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.2 Armour-Piercing Weapon Damage",
+                              "description": "x1.4 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
@@ -903,7 +1018,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 8
@@ -933,7 +1048,7 @@
               {
                 "description": "Attribute: Strider",
                 "key": "wh_main_effect_attribute_enable_strider",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
                 "related_attributes": [
                   {
                     "key": "strider",
@@ -1085,7 +1200,7 @@
               {
                 "description": "Physical resistance: 5%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           },
@@ -1094,7 +1209,7 @@
               {
                 "description": "Physical resistance: 7%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           },
@@ -1103,7 +1218,7 @@
               {
                 "description": "Physical resistance: 10%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -1848,25 +1963,25 @@
     "mass": 2000,
     "size": "small",
     "hit_points": 0,
-    "bonus_hit_points": 5076,
+    "bonus_hit_points": 6500,
     "armour": 0,
     "missile_block_chance": 0,
     "morale": 100,
     "damage_mod_flame": 0,
-    "damage_mod_magic": 35,
-    "damage_mod_physical": 0,
+    "damage_mod_magic": 40,
+    "damage_mod_physical": 25,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
     "melee_attack": 60,
     "melee_defence": 50,
     "charge_bonus": 50,
     "bonus_v_large": 0,
-    "bonus_v_infantry": 15,
-    "damage": 120,
-    "ap_damage": 300,
+    "bonus_v_infantry": 20,
+    "damage": 100,
+    "ap_damage": 400,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 7,
-    "melee_attack_interval": 4,
+    "melee_attack_interval": 3.5,
     "barrier": 0,
     "fly_speed": 0,
     "is_magical": true,
@@ -1875,7 +1990,7 @@
         "key": "encourages",
         "description": "Encourage",
         "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-        "icon": "sfo3/battle_ui/ability_icons/encourages"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
       },
       {
         "key": "hide_forest",
@@ -1887,13 +2002,13 @@
         "key": "slayer",
         "description": "Slayer",
         "bullet_text": "This unit is a Slayer. Slayers can never have their Weapon Strength reduced during a battle.",
-        "icon": "vanilla3/battle_ui/ability_icons/slayer"
+        "icon": "sfo3/battle_ui/ability_icons/slayer"
       },
       {
         "key": "unbreakable",
         "description": " Unbreakable",
         "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-        "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
       }
     ],
     "abilities": [
@@ -1919,6 +2034,11 @@
             {
               "key": "wh3_main_ability_intensity_kills",
               "localised_text": "Effect intensity increases with each kill made by the unit.",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_intensity_kills_200",
+              "localised_text": "Effect intensity increases with each kill made by the unit (200)",
               "effect_state": "positive"
             }
           ],
@@ -2058,7 +2178,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Axes of Kadrin",
-                "active_time": 21,
+                "active_time": 30,
                 "effect_range": 0,
                 "recharge_time": 120,
                 "target_enemies": false,
@@ -2073,29 +2193,36 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 21,
+                    "duration": 30,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "stat_effects": [
                       {
-                        "value": 1.75,
+                        "value": 1.5,
                         "stat": "stat_melee_damage_base",
                         "how": "mult",
-                        "description": "x1.75 Base Weapon Damage",
+                        "description": "x1.5 Base Weapon Damage",
                         "icon": "vanilla3/skins/default/icon_stat_damage_base"
                       },
                       {
-                        "value": 16,
+                        "value": 1.25,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x1.25 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      },
+                      {
+                        "value": 25,
                         "stat": "stat_bonus_vs_infantry",
                         "how": "add",
-                        "description": "+16 Bonus vs. Infantry",
+                        "description": "+25 Bonus vs. Infantry",
                         "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_infantry"
                       },
                       {
-                        "value": 1.75,
+                        "value": 1.5,
                         "stat": "stat_melee_damage_ap",
                         "how": "mult",
-                        "description": "x1.75 Armour-Piercing Weapon Damage",
+                        "description": "x1.5 Armour-Piercing Weapon Damage",
                         "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                       }
                     ]
@@ -2204,7 +2331,7 @@
                     "onscreen_name": "Hurricane of Death",
                     "active_time": 6,
                     "effect_range": 0,
-                    "recharge_time": 120,
+                    "recharge_time": 60,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
@@ -2244,10 +2371,10 @@
                       "vortex_key": "wh3_dlc25_character_abilities_hurricane_of_death_axes",
                       "duration": 6,
                       "damage": 0,
-                      "damage_ap": 80,
-                      "goal_radius": 5,
+                      "damage_ap": 120,
+                      "goal_radius": 6,
                       "movement_speed": 0,
-                      "delay": 1,
+                      "delay": 0,
                       "affects_allies": false,
                       "is_magical": true
                     }

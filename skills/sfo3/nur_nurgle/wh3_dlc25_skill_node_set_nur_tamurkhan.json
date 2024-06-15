@@ -25,21 +25,21 @@
             ],
             "mount_unit_stats": {
               "run_speed": 6,
-              "mass": 9000,
+              "mass": 10000,
               "size": "very_large",
-              "hit_points": 8,
-              "bonus_hit_points": 11954,
+              "hit_points": 0,
+              "bonus_hit_points": 16500,
               "armour": 60,
               "missile_block_chance": 0,
               "morale": 85,
               "damage_mod_flame": 0,
               "damage_mod_magic": 0,
               "damage_mod_physical": 0,
-              "damage_mod_missile": 25,
+              "damage_mod_missile": 40,
               "damage_mod_all": 0,
-              "melee_attack": 62,
-              "melee_defence": 36,
-              "charge_bonus": 42,
+              "melee_attack": 60,
+              "melee_defence": 35,
+              "charge_bonus": 40,
               "bonus_v_large": 0,
               "bonus_v_infantry": 25,
               "damage": 300,
@@ -103,25 +103,25 @@
                   "key": "causes_fear",
                   "description": " Can Cause Fear",
                   "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
                 {
                   "key": "causes_terror",
                   "description": " Can Cause Terror",
                   "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                  "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
                 },
                 {
                   "key": "encourages",
                   "description": "Encourage",
                   "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/battle_ui/ability_icons/encourages"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
                 },
                 {
                   "key": "mark_nurgle",
                   "description": "Mark of Nurgle",
                   "bullet_text": "This unit is branded with the Mark of Nurgle, and is affected by Nurgle Authority.",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_mark_nurgle"
+                  "icon": "sfo3/battle_ui/ability_icons/mark_nurgle"
                 },
                 {
                   "key": "strider",
@@ -133,13 +133,19 @@
                   "key": "unbreakable",
                   "description": " Unbreakable",
                   "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                  "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
                 },
                 {
                   "key": "wallbreaker",
                   "description": " Wallbreaker",
                   "bullet_text": "Allows the unit to attack and destroy walls in melee. This attribute also adds a  +50% damage multiplier against buildings.",
                   "icon": "sfo3/battle_ui/ability_icons/wallbreaker"
+                },
+                {
+                  "key": "glorious_charge",
+                  "description": "Glorious Charge",
+                  "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
+                  "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
                 }
               ],
               "abilities": [
@@ -155,7 +161,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Feast of the Maggot Lord",
-                    "active_time": 7,
+                    "active_time": 10,
                     "effect_range": 0,
                     "num_effected_enemy_units": 1,
                     "num_uses": 1,
@@ -164,7 +170,7 @@
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": true,
-                    "target_intercept_range": 30,
+                    "target_intercept_range": 50,
                     "enabled_if": [
                       "Enemy Lord or Hero presence in ability range. "
                     ],
@@ -172,6 +178,11 @@
                       {
                         "key": "wh3_dlc25_tamurkhan_delay_death",
                         "localised_text": "Activates automatically when hitpoints have reached 0",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_heal_total_15",
+                        "localised_text": "Restores up to 15% Hit Points",
                         "effect_state": "positive"
                       },
                       {
@@ -187,17 +198,17 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
-                        "duration": 7,
+                        "duration": 10,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
-                        "heal_amount": 0.024,
+                        "heal_amount": 0.015,
                         "hp_change_frequency": 1,
                         "attributes": [
                           {
                             "key": "cannot_die",
                             "description": "Cannot Die",
                             "bullet_text": "Entities in this unit take damage, but cannot die.",
-                            "icon": "vanilla3/battle_ui/ability_icons/cannot_die"
+                            "icon": "sfo3/battle_ui/ability_icons/cannot_die"
                           }
                         ]
                       },
@@ -207,11 +218,11 @@
                         "target_enemies": true,
                         "target_self": false,
                         "target_friends": false,
-                        "duration": 7,
+                        "duration": 10,
                         "effect_type": "negative",
                         "onscreen_name": "Feast of the Maggot Lord!",
                         "is_hidden_in_ui": false,
-                        "damage_amount": 424,
+                        "damage_amount": 500,
                         "hp_change_frequency": 1,
                         "max_damaged_entities": 1
                       }
@@ -230,7 +241,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Rotting Host",
-                    "effect_range": 35,
+                    "effect_range": 40,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
@@ -255,11 +266,32 @@
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
                           },
                           {
-                            "value": -4,
+                            "value": 0.75,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x0.75 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.75 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": -5,
                             "stat": "stat_morale",
                             "how": "add",
-                            "description": "-4 Leadership",
+                            "description": "-5 Leadership",
                             "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 0.75,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x0.75 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                           },
                           {
                             "value": 0.95,
@@ -287,17 +319,39 @@
                     "onscreen_name": "Unspeakable Foulness",
                     "effect_range": 0,
                     "num_uses": 3,
-                    "recharge_time": 60,
+                    "recharge_time": 120,
                     "target_enemies": true,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 60,
                     "wind_up_time": 1.3,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_number_15",
+                        "localised_text": "Projectiles: 15",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_aoe_5",
+                        "localised_text": "Explosion area of effect: 5m",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_main_projectile_requires_line_of_sight",
+                        "localised_text": "Requires line of sight to the target",
+                        "effect_state": "negative"
+                      }
+                    ],
                     "activated_projectile": {
                       "key": "wh3_dlc25_unit_abilities_unspeakable_foulness",
-                      "damage": 77,
-                      "ap_damage": 32,
+                      "damage": 100,
+                      "ap_damage": 50,
                       "shockwave_radius": 1,
                       "effective_range": 90,
                       "base_reload_time": 6,
@@ -306,8 +360,8 @@
                       "explosion_type": {
                         "key": "wh3_dlc25_unit_abilities_unspeakable_foulness_explosion",
                         "affects_allies": true,
-                        "detonation_damage": 36,
-                        "detonation_damage_ap": 15,
+                        "detonation_damage": 50,
+                        "detonation_damage_ap": 25,
                         "detonation_radius": 5
                       },
                       "contact_stat_effect": {
@@ -320,13 +374,13 @@
                         "effect_type": "negative",
                         "onscreen_name": "Suffocating!",
                         "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": 0.01,
+                        "fatigue_change_ratio": 0.02,
                         "stat_effects": [
                           {
-                            "value": -10,
+                            "value": 0.8,
                             "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "-10 Melee Attack",
+                            "how": "mult",
+                            "description": "x0.8 Melee Attack",
                             "icon": "vanilla3/skins/default/icon_stat_attack"
                           },
                           {
@@ -410,6 +464,125 @@
                       }
                     ]
                   }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_dlc17_unit_passive_spurting_bile_blood",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_passive_spurting_bile_blood",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_vortex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                      "onscreen_name": "Vortex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Spurting Bile-Blood",
+                    "active_time": 2,
+                    "effect_range": 0,
+                    "recharge_time": 30,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "ui_effects": [
+                      {
+                        "key": "wh2_dlc16_vortex_passive_melee",
+                        "localised_text": "Enemies hit by vortex in melee combat",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_multiple",
+                        "localised_text": "Strong vs multiple combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_passive_spurting_bile_blood",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 2,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false
+                      }
+                    ],
+                    "vortex": {
+                      "vortex_key": "wh2_dlc17_unit_passive_spurting_bile_blood",
+                      "duration": 5,
+                      "damage": 10,
+                      "damage_ap": 0,
+                      "goal_radius": 30,
+                      "movement_speed": 0,
+                      "delay": 0,
+                      "affects_allies": false,
+                      "contact_effect": {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_poison_lethal",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 15,
+                        "effect_type": "negative",
+                        "onscreen_name": "Lethal Poison - 2 damage, 5 entities",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 2,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 5,
+                        "stat_effects": [
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_missile_damage_ap",
+                            "how": "mult",
+                            "description": "x0.9 Armour-Piercing Missile Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.9 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "stat_healing_power",
+                            "how": "mult",
+                            "description": "x0.9 Healing power",
+                            "icon": "vanilla3/skins/default/stat_healing_received"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.9 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    }
+                  }
                 }
               ]
             },
@@ -465,7 +638,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 7
@@ -480,7 +653,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           },
@@ -499,7 +672,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -637,7 +810,7 @@
           {
             "effects": [
               {
-                "description": "Casualty replenishment rate: +20% for non-Daemonic units\n\t(own army)",
+                "description": "Casualty replenishment rate: +10% for non-Daemonic units\n\t(own army)",
                 "key": "wh3_dlc25_effect_force_nur_mortal_campaign_replenishment_rate",
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               },
@@ -671,6 +844,79 @@
                 "description": "Armour-piercing weapon damage: +50",
                 "key": "wh_main_effect_character_stat_ap_damage",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+              },
+              {
+                "description": "Ability: \"Heroic Killing Blow\"",
+                "key": "wh_main_effect_ability_enable_heroic_killing_blow",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_heroic_killing_blow",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_character_abilities_heroic_killing_blow",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Heroic Killing Blow",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "recharge_time": 120,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.6,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.6 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.6,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.6 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Armour-piercing weapon damage: +100",
+                "key": "wh_main_effect_character_stat_ap_damage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+              },
+              {
+                "description": "Charge bonus: +25%",
+                "key": "wh_main_effect_character_stat_charge_bonus_pct",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               },
               {
                 "description": "Ability: \"Heroic Killing Blow\"",
@@ -819,6 +1065,79 @@
                 ]
               }
             ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +10%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Unit mass: +100%",
+                "key": "wh3_main_effect_character_stat_unit_mass_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mass_character"
+              },
+              {
+                "description": "Passive ability: \"Regeneration\"",
+                "key": "wh2_main_effect_ability_enable_regeneration",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_enable_regeneration",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_unit_passive_regeneration",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Regeneration",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.001,
+                          "hp_change_frequency": 1,
+                          "stat_effects": [
+                            {
+                              "value": -25,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-25 Weakness to Fire Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
           }
         ],
         "parent_required": [
@@ -842,25 +1161,52 @@
           {
             "effects": [
               {
-                "description": "Melee defence: +5 for Plague Ogres\n\t(own army)",
+                "description": "Melee defence: +4 for Plague Ogres\n\t(own army)",
                 "key": "wh3_dlc25_effect_force_stat_melee_defence_plague_ogre",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee attack: +5 for Plague Ogres\n\t(own army)",
+                "description": "Melee attack: +4 for Plague Ogres\n\t(own army)",
                 "key": "wh3_dlc25_effect_force_stat_melee_attack_plague_ogre",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
               {
                 "description": "Attribute: Causes Terror for Plague Ogres\n\t(own army)",
                 "key": "wh3_dlc25_effect_attribute_enable_causes_terror_plague_ogre",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror",
                 "related_attributes": [
                   {
                     "key": "causes_terror",
                     "description": " Can Cause Terror",
                     "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                    "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +8 for Plague Ogres\n\t(own army)",
+                "key": "wh3_dlc25_effect_force_stat_melee_defence_plague_ogre",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              },
+              {
+                "description": "Melee attack: +8 for Plague Ogres\n\t(own army)",
+                "key": "wh3_dlc25_effect_force_stat_melee_attack_plague_ogre",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+              },
+              {
+                "description": "Attribute: Causes Terror for Plague Ogres\n\t(own army)",
+                "key": "wh3_dlc25_effect_attribute_enable_causes_terror_plague_ogre",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror",
+                "related_attributes": [
+                  {
+                    "key": "causes_terror",
+                    "description": " Can Cause Terror",
+                    "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
                   }
                 ]
               }
@@ -908,17 +1254,39 @@
                       "onscreen_name": "Unspeakable Foulness",
                       "effect_range": 0,
                       "num_uses": 3,
-                      "recharge_time": 60,
+                      "recharge_time": 120,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 60,
                       "wind_up_time": 1.3,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_number_15",
+                          "localised_text": "Projectiles: 15",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_aoe_5",
+                          "localised_text": "Explosion area of effect: 5m",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "activated_projectile": {
                         "key": "wh3_dlc25_unit_abilities_unspeakable_foulness",
-                        "damage": 77,
-                        "ap_damage": 32,
+                        "damage": 100,
+                        "ap_damage": 50,
                         "shockwave_radius": 1,
                         "effective_range": 90,
                         "base_reload_time": 6,
@@ -927,8 +1295,8 @@
                         "explosion_type": {
                           "key": "wh3_dlc25_unit_abilities_unspeakable_foulness_explosion",
                           "affects_allies": true,
-                          "detonation_damage": 36,
-                          "detonation_damage_ap": 15,
+                          "detonation_damage": 50,
+                          "detonation_damage_ap": 25,
                           "detonation_radius": 5
                         },
                         "contact_stat_effect": {
@@ -941,13 +1309,13 @@
                           "effect_type": "negative",
                           "onscreen_name": "Suffocating!",
                           "is_hidden_in_ui": false,
-                          "fatigue_change_ratio": 0.01,
+                          "fatigue_change_ratio": 0.02,
                           "stat_effects": [
                             {
-                              "value": -10,
+                              "value": 0.8,
                               "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-10 Melee Attack",
+                              "how": "mult",
+                              "description": "x0.8 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
@@ -967,13 +1335,134 @@
               {
                 "description": "Attribute: Unbreakable for Toad Dragon units\n\t(all armies factionwide)",
                 "key": "wh3_dlc25_effect_attribute_enable_unbreakable_nur_toad_dragon",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable",
                 "related_attributes": [
                   {
                     "key": "unbreakable",
                     "description": " Unbreakable",
                     "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                    "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hero self-defence: +25% chance of wounding aggressors",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Ability number of uses: +2 for \"Unspeakable Foulness\" for Toad Dragon units\n\t(all armies factionwide)",
+                "key": "wh3_dlc25_effect_ability_mod_amount_of_uses_unspeakable_foulness_road_dragons",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_mod_amount_of_uses_unspeakable_foulness_road_dragons",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc25_unit_abilities_unspeakable_foulness",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_abilities_unspeakable_foulness",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_magic_missiles",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
+                        "onscreen_name": "Magic Missiles"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Unspeakable Foulness",
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 120,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 60,
+                      "wind_up_time": 1.3,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_number_15",
+                          "localised_text": "Projectiles: 15",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_aoe_5",
+                          "localised_text": "Explosion area of effect: 5m",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "activated_projectile": {
+                        "key": "wh3_dlc25_unit_abilities_unspeakable_foulness",
+                        "damage": 100,
+                        "ap_damage": 50,
+                        "shockwave_radius": 1,
+                        "effective_range": 90,
+                        "base_reload_time": 6,
+                        "shots_per_volley": 15,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh3_dlc25_unit_abilities_unspeakable_foulness_explosion",
+                          "affects_allies": true,
+                          "detonation_damage": 50,
+                          "detonation_damage_ap": 25,
+                          "detonation_radius": 5
+                        },
+                        "contact_stat_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_contact_suffocating",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 20,
+                          "effect_type": "negative",
+                          "onscreen_name": "Suffocating!",
+                          "is_hidden_in_ui": false,
+                          "fatigue_change_ratio": 0.02,
+                          "stat_effects": [
+                            {
+                              "value": 0.8,
+                              "stat": "stat_melee_attack",
+                              "how": "mult",
+                              "description": "x0.8 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": -20,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "-20 Reload Skill",
+                              "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Attribute: Unbreakable for Toad Dragon units\n\t(all armies factionwide)",
+                "key": "wh3_dlc25_effect_attribute_enable_unbreakable_nur_toad_dragon",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable",
+                "related_attributes": [
+                  {
+                    "key": "unbreakable",
+                    "description": " Unbreakable",
+                    "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
                   }
                 ]
               }
@@ -1699,7 +2188,7 @@
               {
                 "description": "Physical resistance: 5% for Chaos Warhounds, Chaos Spawn of Nurgle, Plague Toads and Plague Ogre units\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_physical_resistance_nur_warhounds_plague_toads_monstrous_infantry",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           },
@@ -1713,7 +2202,7 @@
               {
                 "description": "Physical resistance: 10% for Chaos Warhounds, Chaos Spawn of Nurgle, Plague Toads and Plague Ogre units\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_physical_resistance_nur_warhounds_plague_toads_monstrous_infantry",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -1969,7 +2458,7 @@
               {
                 "description": "Missile resistance: 15% for Plaguebearers of Nurgle, Nurglings, Marauders of Nurgle, Pestigors, Chaos Warriors, Chosen and Forsaken of Nurgle units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_missile_resistance_nur_infantry_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -2007,7 +2496,7 @@
               {
                 "description": "Physical resistance: 10% Marauder Horsemen of Nurgle (Throwing Axes), Chaos Knights of Nurgle, Rot Knights, Chaos Chariots of Nurgle and Pox Rider units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_physical_resistance_nur_cavalry_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -2045,7 +2534,7 @@
               {
                 "description": "Missile resistance: 15% for Chaos Furies, Rot Flies, Plague Drones of Nurgle, Chaos Warhounds, Chaos Spawn of Nurgle, Plague Toads and Plague Ogres (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_missile_resistance_nur_flying_warhounds_plague_toads_monstrous_infantry_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -2083,7 +2572,7 @@
               {
                 "description": "Ward save: 5% for Great Unclean One, Chaos Warshrine of Nurgle, Beast of Nurgle, Bile Trolls, Toad Dragon and Soul Grinder of Nurgle units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh3_dlc25_effect_force_stat_ward_save_nur_monsters_rank7",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_ward_save"
               }
             ]
           }
@@ -2729,10 +3218,10 @@
   ],
   "unitStats": {
     "run_speed": 4.5,
-    "mass": 1900,
+    "mass": 3500,
     "size": "large",
-    "hit_points": 8,
-    "bonus_hit_points": 8492,
+    "hit_points": 0,
+    "bonus_hit_points": 11000,
     "armour": 60,
     "missile_block_chance": 0,
     "morale": 85,
@@ -2741,16 +3230,16 @@
     "damage_mod_physical": 0,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
-    "melee_attack": 56,
-    "melee_defence": 42,
+    "melee_attack": 55,
+    "melee_defence": 45,
     "charge_bonus": 50,
     "bonus_v_large": 20,
     "bonus_v_infantry": 0,
-    "damage": 125,
-    "ap_damage": 375,
+    "damage": 100,
+    "ap_damage": 400,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 3,
-    "melee_attack_interval": 3.8,
+    "melee_attack_interval": 4,
     "barrier": 0,
     "can_siege": true,
     "fly_speed": 0,
@@ -2807,13 +3296,13 @@
         "key": "causes_fear",
         "description": " Can Cause Fear",
         "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-        "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
       },
       {
         "key": "encourages",
         "description": "Encourage",
         "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-        "icon": "sfo3/battle_ui/ability_icons/encourages"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
       },
       {
         "key": "hide_forest",
@@ -2825,7 +3314,7 @@
         "key": "mark_nurgle",
         "description": "Mark of Nurgle",
         "bullet_text": "This unit is branded with the Mark of Nurgle, and is affected by Nurgle Authority.",
-        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_mark_nurgle"
+        "icon": "sfo3/battle_ui/ability_icons/mark_nurgle"
       },
       {
         "key": "ogre_charge",
@@ -2837,7 +3326,7 @@
         "key": "unbreakable",
         "description": " Unbreakable",
         "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-        "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
       },
       {
         "key": "wallbreaker",
@@ -2859,7 +3348,7 @@
           },
           "is_hidden_in_ui": false,
           "onscreen_name": "Feast of the Maggot Lord",
-          "active_time": 7,
+          "active_time": 10,
           "effect_range": 0,
           "num_effected_enemy_units": 1,
           "num_uses": 1,
@@ -2868,7 +3357,7 @@
           "target_friends": false,
           "target_ground": false,
           "target_self": true,
-          "target_intercept_range": 30,
+          "target_intercept_range": 50,
           "enabled_if": [
             "Enemy Lord or Hero presence in ability range. "
           ],
@@ -2876,6 +3365,11 @@
             {
               "key": "wh3_dlc25_tamurkhan_delay_death",
               "localised_text": "Activates automatically when hitpoints have reached 0",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_heal_total_15",
+              "localised_text": "Restores up to 15% Hit Points",
               "effect_state": "positive"
             },
             {
@@ -2891,17 +3385,17 @@
               "target_enemies": false,
               "target_self": true,
               "target_friends": false,
-              "duration": 7,
+              "duration": 10,
               "effect_type": "positive",
               "is_hidden_in_ui": false,
-              "heal_amount": 0.024,
+              "heal_amount": 0.015,
               "hp_change_frequency": 1,
               "attributes": [
                 {
                   "key": "cannot_die",
                   "description": "Cannot Die",
                   "bullet_text": "Entities in this unit take damage, but cannot die.",
-                  "icon": "vanilla3/battle_ui/ability_icons/cannot_die"
+                  "icon": "sfo3/battle_ui/ability_icons/cannot_die"
                 }
               ]
             },
@@ -2911,11 +3405,11 @@
               "target_enemies": true,
               "target_self": false,
               "target_friends": false,
-              "duration": 7,
+              "duration": 10,
               "effect_type": "negative",
               "onscreen_name": "Feast of the Maggot Lord!",
               "is_hidden_in_ui": false,
-              "damage_amount": 424,
+              "damage_amount": 500,
               "hp_change_frequency": 1,
               "max_damaged_entities": 1
             }
@@ -2934,7 +3428,7 @@
           },
           "is_hidden_in_ui": false,
           "onscreen_name": "Rotting Host",
-          "effect_range": 35,
+          "effect_range": 40,
           "target_enemies": false,
           "target_friends": false,
           "target_ground": false,
@@ -2959,11 +3453,32 @@
                   "icon": "vanilla3/skins/default/icon_stat_damage_base"
                 },
                 {
-                  "value": -4,
+                  "value": 0.75,
+                  "stat": "scalar_entity_acceleration_modifier",
+                  "how": "mult",
+                  "description": "x0.75 Acceleration",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.75,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.75 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": -5,
                   "stat": "stat_morale",
                   "how": "add",
-                  "description": "-4 Leadership",
+                  "description": "-5 Leadership",
                   "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 0.75,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x0.75 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                 },
                 {
                   "value": 0.95,
@@ -3061,6 +3576,11 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/trait_deference_4"
       },
       {
+        "description": "Campaign movement range: +25% for armies\n\t(own armies factionwide in enemy territory)",
+        "key": "wh_main_effect_force_all_campaign_movement_range",
+        "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+      },
+      {
         "description": "Campaign movement range: +10%\n\t(all armies)",
         "key": "wh_main_effect_agent_movement_range_mod",
         "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
@@ -3081,7 +3601,7 @@
       "unlocked_at_rank": 17,
       "effects": [
         {
-          "description": "Nurgle corruption: +6\n\t(local province)",
+          "description": "Nurgle corruption: +8\n\t(local province)",
           "key": "wh3_main_effect_corruption_nurgle_characters",
           "icon": "vanilla3/campaign_ui/effect_bundles/corruption_nurgle"
         },
@@ -3091,7 +3611,7 @@
           "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
         },
         {
-          "description": "Armour-piercing weapon damage: +40",
+          "description": "Armour-piercing weapon damage: +100",
           "key": "wh_main_effect_character_stat_ap_damage",
           "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
         },
@@ -3114,8 +3634,8 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "The Black Cleaver",
-                "active_time": 36,
-                "effect_range": 35,
+                "active_time": 30,
+                "effect_range": 40,
                 "recharge_time": 120,
                 "target_enemies": false,
                 "target_friends": false,
@@ -3129,7 +3649,7 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": true,
-                    "duration": 36,
+                    "duration": 30,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "imbue_magical": true,
@@ -3142,10 +3662,10 @@
                         "icon": "vanilla3/skins/default/icon_stat_damage_base"
                       },
                       {
-                        "value": 24,
+                        "value": 25,
                         "stat": "stat_melee_attack",
                         "how": "add",
-                        "description": "+24 Melee Attack",
+                        "description": "+25 Melee Attack",
                         "icon": "vanilla3/skins/default/icon_stat_attack"
                       },
                       {
@@ -3165,7 +3685,7 @@
         {
           "description": "Attribute: Immune to Contact Effects",
           "key": "wh3_dlc20_effect_attribute_immune_to_contact_stat_effects",
-          "icon": "vanilla3/campaign_ui/effect_bundles/attribute_contact_immunity",
+          "icon": "sfo3/campaign_ui/effect_bundles/attribute_contact_immunity",
           "related_attributes": [
             {
               "key": "ignore_imbue_contact_effects_enemy",
@@ -3195,7 +3715,7 @@
         {
           "effects": [
             {
-              "description": "Wound recovery time: -3",
+              "description": "Wound recovery time: -4\n\t(Heroes in Lord's army)",
               "key": "wh_main_effect_character_wound_recovery_time_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
             },
@@ -3218,7 +3738,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Nurgle's Favoured Son",
-                    "active_time": 40,
+                    "active_time": 45,
                     "effect_range": 0,
                     "recharge_time": 120,
                     "target_enemies": false,
@@ -3233,15 +3753,15 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
-                        "duration": 40,
+                        "duration": 45,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 20,
+                            "value": 25,
                             "stat": "stat_resistance_all",
                             "how": "add",
-                            "description": "+20 Damage Resistance ",
+                            "description": "+25 Damage Resistance ",
                             "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                           },
                           {
@@ -3250,6 +3770,20 @@
                             "how": "add",
                             "description": "+24 Melee Defence",
                             "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "ignore_imbue_contact_effects_enemy",
+                            "description": "Immune to Contact Effects",
+                            "bullet_text": "Entities with this attribute ignore the effects of enemy contact effects such as  Poison",
+                            "icon": "sfo3/battle_ui/ability_icons/ignore_imbue_contact_effects_enemy"
+                          },
+                          {
+                            "key": "flanking_immune",
+                            "description": "Immune to Flanking",
+                            "bullet_text": "This unit takes no penalties when flanked.",
+                            "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
                           }
                         ]
                       }
@@ -3266,13 +3800,13 @@
             {
               "description": "Attribute: Immune to Psychology for non-Daemonic units\n\t(Lord's army)",
               "key": "wh3_dlc25_effect_enable_attribute_immpsy_mortals",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
               "related_attributes": [
                 {
                   "key": "immune_to_psychology",
                   "description": " Immune to Psychology",
                   "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
                 }
               ]
             }

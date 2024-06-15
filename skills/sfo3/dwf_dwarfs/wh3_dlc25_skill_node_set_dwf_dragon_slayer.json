@@ -61,25 +61,26 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.5,
+                              "value": 2,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.5 Base Weapon Damage",
+                              "description": "x2 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 20,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+20 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 1.5,
+                              "value": 2,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "description": "x2 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "cannot_die",
+                              "description": "Cannot Die",
+                              "bullet_text": "Entities in this unit take damage, but cannot die.",
+                              "icon": "sfo3/battle_ui/ability_icons/cannot_die"
                             }
                           ]
                         }
@@ -154,10 +155,10 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
+                              "value": 1.5,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
+                              "description": "x1.5 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
@@ -168,10 +169,10 @@
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": 1.25,
+                              "value": 1.5,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
@@ -236,7 +237,8 @@
                       "target_self": false,
                       "target_intercept_range": 0,
                       "enabled_if": [
-                        "Hit Points less than 25%"
+                        "Hit Points less than 25%",
+                        "Hit Points less than 50%"
                       ],
                       "phases": [
                         {
@@ -370,7 +372,7 @@
               {
                 "description": "Missile resistance: 5%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 8
@@ -385,7 +387,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -481,7 +483,7 @@
               {
                 "description": "Ward save: 5%",
                 "key": "wh_main_effect_character_stat_ward_save",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_ward_save"
               },
               {
                 "description": "Melee defence: +5",
@@ -550,24 +552,24 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.2,
+                              "value": 1.25,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x1.2 Base Weapon Damage",
+                              "description": "x1.25 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 12,
+                              "value": 10,
                               "stat": "stat_melee_attack",
                               "how": "add",
-                              "description": "+12 Melee Attack",
+                              "description": "+10 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
-                              "value": 1.2,
+                              "value": 1.25,
                               "stat": "stat_melee_damage_ap",
                               "how": "mult",
-                              "description": "x1.2 Armour-Piercing Weapon Damage",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
@@ -580,13 +582,193 @@
               {
                 "description": "Attribute: Causes Fear",
                 "key": "wh_main_effect_attribute_enable_causes_fear",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear",
                 "related_attributes": [
                   {
                     "key": "causes_fear",
                     "description": " Can Cause Fear",
                     "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                    "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Worthy Foe\"",
+                "key": "wh3_dlc25_effect_ability_enable_worthy_foe",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_worthy_foe",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc25_character_passive_worthy_foe",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_worthy_foe",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Worthy Foe",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 15,
+                      "enabled_if": [
+                        "Terror causing unit in range"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_worthy_foe",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "onscreen_name": "[PH] Worthy Foe!",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+10 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Hero self-defence: +5% chance of wounding aggressors\n\t(own characters in province)",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Attribute: Causes Fear",
+                "key": "wh_main_effect_attribute_enable_causes_fear",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear",
+                "related_attributes": [
+                  {
+                    "key": "causes_fear",
+                    "description": " Can Cause Fear",
+                    "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Worthy Foe\"",
+                "key": "wh3_dlc25_effect_ability_enable_worthy_foe",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc25_effect_ability_enable_worthy_foe",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc25_character_passive_worthy_foe",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_worthy_foe",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Worthy Foe",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 15,
+                      "enabled_if": [
+                        "Terror causing unit in range"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_worthy_foe",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "onscreen_name": "[PH] Worthy Foe!",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+10 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Hero self-defence: +10% chance of wounding aggressors\n\t(own characters in province)",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Attribute: Causes Fear",
+                "key": "wh_main_effect_attribute_enable_causes_fear",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear",
+                "related_attributes": [
+                  {
+                    "key": "causes_fear",
+                    "description": " Can Cause Fear",
+                    "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                   }
                 ]
               }
@@ -614,12 +796,55 @@
           {
             "effects": [
               {
+                "description": "Attrition: -5% casualties suffered from all attrition\n\t(Hero's army)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              },
+              {
+                "description": "Corruption: -1\n\t(local province)",
+                "key": "wh3_main_effect_corruption_reduction_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+              },
+              {
+                "description": "Weapon strength: +10% when fighting against Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs and Norsca",
+                "key": "wh2_main_effect_character_stat_weapon_strength_vs_chaos_norsca",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Attrition: -10% casualties suffered from all attrition\n\t(Hero's army)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              },
+              {
                 "description": "Corruption: -2\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
               },
               {
-                "description": "Weapon strength: +15% when fighting against Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs and Norsca",
+                "description": "Weapon strength: +20% when fighting against Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs and Norsca",
+                "key": "wh2_main_effect_character_stat_weapon_strength_vs_chaos_norsca",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Attrition: -15% casualties suffered from all attrition\n\t(Hero's army)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              },
+              {
+                "description": "Corruption: -3\n\t(local province)",
+                "key": "wh3_main_effect_corruption_reduction_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+              },
+              {
+                "description": "Weapon strength: +30% when fighting against Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs and Norsca",
                 "key": "wh2_main_effect_character_stat_weapon_strength_vs_chaos_norsca",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               }
@@ -647,9 +872,52 @@
           {
             "effects": [
               {
+                "description": "Bonus vs Large: +5",
+                "key": "wh_main_effect_character_stat_mod_bonus_v_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              },
+              {
+                "description": "Melee attack: +2",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Charge bonus: +10",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Bonus vs Large: +10",
+                "key": "wh_main_effect_character_stat_mod_bonus_v_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              },
+              {
+                "description": "Melee attack: +4",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Charge bonus: +20",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
                 "description": "Bonus vs Large: +15",
                 "key": "wh_main_effect_character_stat_mod_bonus_v_large",
                 "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              },
+              {
+                "description": "Melee attack: +6",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
               },
               {
                 "description": "Charge bonus: +30",
@@ -672,7 +940,7 @@
         "tier": 4,
         "indent": 1,
         "points_on_creation": 0,
-        "required_num_parents": 2,
+        "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
         "localised_name": "Dragonsbane",
@@ -750,7 +1018,7 @@
                               "key": "immune_to_psychology",
                               "description": " Immune to Psychology",
                               "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                              "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
                             }
                           ]
                         }
@@ -817,7 +1085,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 8,
@@ -851,7 +1119,7 @@
               {
                 "description": "Attribute: Strider",
                 "key": "wh_main_effect_attribute_enable_strider",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
                 "related_attributes": [
                   {
                     "key": "strider",
@@ -1007,7 +1275,7 @@
               {
                 "description": "Physical resistance: 5%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           },
@@ -1016,7 +1284,7 @@
               {
                 "description": "Physical resistance: 7%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           },
@@ -1025,7 +1293,7 @@
               {
                 "description": "Physical resistance: 10%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -1444,7 +1712,289 @@
         ]
       }
     ],
-    [],
+    [
+      {
+        "key": "hero_spy_1_skv_assassin",
+        "image_path": "vanilla3/campaign_ui/skills/character_movement",
+        "character_skill_key": "hero_spy_1",
+        "tier": 10,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Hidden Paths",
+        "localised_description": "There is always another way.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Campaign movement range: +10%\n\t(When this Hero is not embedded)",
+                "key": "wh_main_effect_agent_movement_range_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+              },
+              {
+                "description": "Speed: +10%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "hero_spy_2_skv_assassin",
+        "image_path": "vanilla3/campaign_ui/skills/battle_speed",
+        "character_skill_key": "wh_skill_hero_elite_speed",
+        "tier": 11,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "We are the Elite",
+        "localised_description": "True experience is born only on the battlefield.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Speed: +3% for all units (Rank 7 and above)\n\t(Hero's army)",
+                "key": "wh_effect_all_elite_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Speed: +6% for all units (Rank 7 and above)\n\t(Hero's army)",
+                "key": "wh_effect_all_elite_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Speed: +10% for all units (Rank 7 and above)\n\t(Hero's army)",
+                "key": "wh_effect_all_elite_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_skv_assassin"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_3_skv_assassin",
+        "image_path": "vanilla3/campaign_ui/skills/battle_morale",
+        "character_skill_key": "hero_spy_3",
+        "tier": 12,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Notorious",
+        "localised_description": "It’s difficult to sleep with one eye open and a dagger under your pillow.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy leadership: -1\n\t(enemy characters in region)",
+                "key": "wh_effect_all_morale_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy leadership: -2\n\t(enemy characters in region)",
+                "key": "wh_effect_all_morale_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy leadership: -3\n\t(enemy characters in region)",
+                "key": "wh_effect_all_morale_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_skv_assassin"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_4_skv_assassin",
+        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
+        "character_skill_key": "hero_spy_4",
+        "tier": 13,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Contacts",
+        "localised_description": "Sometimes it’s best to have friends in low places.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy battle reinforcement time: +10%\n\t(Hero's army)",
+                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
+              },
+              {
+                "description": "Campaign line of sight: +10%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy battle reinforcement time: +20%\n\t(Hero's army)",
+                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
+              },
+              {
+                "description": "Campaign line of sight: +20%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy battle reinforcement time: +40%\n\t(Hero's army)",
+                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
+              },
+              {
+                "description": "Campaign line of sight: +40%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_skv_assassin"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_5_skv_assassin",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_ambush",
+        "character_skill_key": "hero_spy_5",
+        "tier": 14,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Shadow",
+        "localised_description": "Always watching.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +2%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +2%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +4%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +4%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +8%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +8%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_skv_assassin"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_6_skv_assassin",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
+        "character_skill_key": "hero_spy_6",
+        "tier": 15,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Grandmaster",
+        "localised_description": "They’ve all heard the stories of this one’s accomplishments. The stories, of course, pale in comparison to the truth.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hero action cost: -10%\n\t(own characters in region)",
+                "key": "wh_main_effect_agent_action_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              },
+              {
+                "description": "Enemy Hero action success chance: -5%\n\t(own characters in region)",
+                "key": "wh_main_effect_agent_action_success_chance_enemy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "hero_spy_5_skv_assassin",
+          "hero_spy_4_skv_assassin",
+          "hero_spy_3_skv_assassin",
+          "hero_spy_2_skv_assassin"
+        ]
+      }
+    ],
     [
       {
         "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_campaign_01",
@@ -1756,26 +2306,26 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 4.2,
-    "mass": 1100,
+    "run_speed": 4,
+    "mass": 1250,
     "size": "small",
-    "hit_points": 8,
-    "bonus_hit_points": 4494,
+    "hit_points": 0,
+    "bonus_hit_points": 6500,
     "armour": 0,
     "missile_block_chance": 0,
     "morale": 100,
-    "damage_mod_flame": 35,
-    "damage_mod_magic": 35,
-    "damage_mod_physical": 0,
+    "damage_mod_flame": 40,
+    "damage_mod_magic": 40,
+    "damage_mod_physical": 25,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
     "melee_attack": 60,
     "melee_defence": 50,
     "charge_bonus": 40,
-    "bonus_v_large": 35,
+    "bonus_v_large": 30,
     "bonus_v_infantry": 0,
-    "damage": 110,
-    "ap_damage": 300,
+    "damage": 100,
+    "ap_damage": 400,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
@@ -1792,7 +2342,7 @@
         "key": "encourages",
         "description": "Encourage",
         "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-        "icon": "sfo3/battle_ui/ability_icons/encourages"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
       },
       {
         "key": "hide_forest",
@@ -1804,13 +2354,13 @@
         "key": "slayer",
         "description": "Slayer",
         "bullet_text": "This unit is a Slayer. Slayers can never have their Weapon Strength reduced during a battle.",
-        "icon": "vanilla3/battle_ui/ability_icons/slayer"
+        "icon": "sfo3/battle_ui/ability_icons/slayer"
       },
       {
         "key": "unbreakable",
         "description": " Unbreakable",
         "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-        "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
       }
     ],
     "abilities": [
@@ -1937,126 +2487,63 @@
       ]
     },
     {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_01",
+      "key": "dwf_skill_trait_slayer_hero_1",
       "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "wh2_main_skill_innate_dwf_ancestral_blood_grimnir",
-      "tier": 0,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Ancestral Blood - Grimnir",
-      "localised_description": "This brave Dawi can trace his lineage back to Grimnir, the Warrior-God.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Leadership: +5",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
-              "description": "Melee attack: +5",
-              "key": "wh_main_effect_character_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-            },
-            {
-              "description": "Melee defence: +5",
-              "key": "wh_main_effect_character_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-            },
-            {
-              "description": "Physical resistance: 5%",
-              "key": "wh_main_effect_character_stat_physical_resistance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_02",
-      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "wh2_main_skill_innate_dwf_ancestral_blood_grungni",
+      "character_skill_key": "dwf_skill_trait_slayer_hero_1",
       "tier": 1,
-      "indent": 6,
+      "indent": 25,
       "points_on_creation": 0,
       "required_num_parents": 0,
-      "visible_in_ui": false,
+      "visible_in_ui": true,
       "is_background_skill": true,
-      "localised_name": "Ancestral Blood - Grungni",
-      "localised_description": "This industrious Dawi can trace his lineage back to Grungni, God of Mines and Smiths.",
+      "localised_name": "Gorogaz",
+      "localised_description": "Countless deadly combats fought, and yet none of them have fulfilled the sworn oath of this Drengi.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Research rate: +5%",
-              "key": "wh_main_effect_technology_research_points",
-              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
-            },
-            {
-              "description": "Construction cost: -10% for all buildings\n\t(local province)",
-              "key": "wh_main_effect_building_construction_cost_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_03",
-      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "wh2_main_skill_innate_dwf_ancestral_blood_valaya",
-      "tier": 2,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Ancestral Blood - Valaya",
-      "localised_description": "This loyal Dawi can trace his lineage back to Valaya, Goddess of Healing and Protection.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Ward save: 10%",
-              "key": "wh_main_effect_character_stat_ward_save",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
-            },
-            {
-              "description": "Enemy Hero action success chance: -25%",
-              "key": "wh_main_effect_agent_action_success_chance_enemy",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_04",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_fleet_footed",
-      "tier": 3,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Fleet-Footed",
-      "localised_description": "Being fleet of foot is useful in a fight… or when trying to get away afterwards!",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Speed: +40%",
+              "description": "Speed: -10%",
               "key": "wh_main_effect_character_stat_speed",
               "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
             },
             {
+              "description": "Unit mass: +100%",
+              "key": "wh3_main_effect_character_stat_unit_mass_percentage_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/mass_character"
+            },
+            {
+              "description": "Physical resistance: 10%",
+              "key": "wh_main_effect_character_stat_physical_resistance",
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dwf_skill_trait_slayer_hero_2",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_skill_trait_slayer_hero_2",
+      "tier": 2,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Goraki",
+      "localised_description": "Countless deadly combats fought, and yet none of them have fulfilled the sworn oath of this Drengi.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +25%\n\t(When this Hero is not embedded)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            },
+            {
               "description": "Attribute: Strider",
               "key": "wh_main_effect_attribute_enable_strider",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
               "related_attributes": [
                 {
                   "key": "strider",
@@ -2065,83 +2552,69 @@
                   "icon": "sfo3/battle_ui/ability_icons/strider"
                 }
               ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_05",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_cunning",
-      "tier": 4,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Cunning",
-      "localised_description": "Deceit is a perfectly acceptable means of attack.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Ambush success chance: +20%\n\t(armies in local owned region)",
-              "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
             },
             {
-              "description": "Enables poison attacks",
-              "key": "wh_main_effect_character_stat_enable_poison_attacks",
-              "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
-              "related_phases": [
+              "description": "Passive ability: \"Wayfarer\"",
+              "key": "wh2_dlc17_effect_ability_enable_wayfarer",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
                 {
-                  "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
-                  "order": 0,
-                  "target_enemies": true,
-                  "target_self": false,
-                  "target_friends": false,
-                  "duration": 10,
-                  "effect_type": "negative",
-                  "onscreen_name": "Poison!",
-                  "is_hidden_in_ui": false,
-                  "stat_effects": [
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_missile_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Missile Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                  "effect": "wh2_dlc17_effect_ability_enable_wayfarer",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc17_unit_passive_wayfarer",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_passive_fast_mover",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
                     },
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_missile_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Missile Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_speed",
-                      "how": "mult",
-                      "description": "x0.8 Speed",
-                      "icon": "vanilla3/skins/default/icon_stat_speed"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Weapon Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Weapon Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                    }
-                  ]
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wayfarer",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh2_dlc17_unit_passive_wayfarer",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_deceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Deceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "strider",
+                            "description": " Strider",
+                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                            "icon": "sfo3/battle_ui/ability_icons/strider"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -2150,153 +2623,249 @@
       ]
     },
     {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_06",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_determined",
-      "tier": 5,
-      "indent": 6,
+      "key": "dwf_skill_trait_slayer_hero_3",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_skill_trait_slayer_hero_3",
+      "tier": 3,
+      "indent": 25,
       "points_on_creation": 0,
       "required_num_parents": 0,
-      "visible_in_ui": false,
+      "visible_in_ui": true,
       "is_background_skill": true,
-      "localised_name": "Determined",
-      "localised_description": "Having a modicum of resolve is useful in a world that continually tests it.",
+      "localised_name": "Hazkal",
+      "localised_description": "Countless deadly combats fought, and yet none of them have fulfilled the sworn oath of this Drengi.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              "description": "Weapon strength: +10%",
+              "key": "wh_main_effect_character_stat_weapon_strength",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
             },
             {
-              "description": "Attribute: Immune to Psychology",
-              "key": "wh_main_effect_attribute_enable_immune_to_psychology",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
+              "description": "Ability: \"Slippery\"",
+              "key": "wh_main_effect_ability_enable_slippery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_slippery",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_hero_abilities_slippery",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_hero_abilities_slippery",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Slippery",
+                    "active_time": 30,
+                    "effect_range": 0,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_hero_abilities_slippery",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.4,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x1.4 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+20 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_missile",
+                            "how": "add",
+                            "description": "+20 Missile Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Cooldown: -25% to \"Slippery\"",
+              "key": "wh_main_hero_abilities_slippery_recharge",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dwf_skill_trait_slayer_hero_4",
+      "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
+      "character_skill_key": "dwf_skill_trait_slayer_hero_4",
+      "tier": 4,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Azkul",
+      "localised_description": "Countless deadly combats fought, and yet none of them have fulfilled the sworn oath of this Drengi.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Attribute: Executor",
+              "key": "wh3_dlc24_effect_attribute_enable_executor",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_executor",
               "related_attributes": [
                 {
-                  "key": "immune_to_psychology",
-                  "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                  "key": "executor",
+                  "description": "Executioner",
+                  "bullet_text": "A unit with Executioner will execute units in combat below a 20% hit points threshold.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_executor"
                 }
               ]
+            },
+            {
+              "description": "Vigour loss reduction: -50% when attacking",
+              "key": "wh_effect_attacking_fatigue",
+              "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             }
           ]
         }
       ]
     },
     {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_07",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_confident",
-      "tier": 6,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Confident",
-      "localised_description": "Self-belief is a fine thing when not misplaced.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Experience gain: +5% for units\n\t(all units in army)",
-              "key": "wh_effect_all_exp_gain",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
-              "description": "Leadership: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_08",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_disciplined",
-      "tier": 7,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Disciplined",
-      "localised_description": "Always in control, this one leaves no stone unturned and nothing to chance.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Leadership: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            },
-            {
-              "description": "Melee attack: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_09",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_perceptive",
-      "tier": 8,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Perceptive",
-      "localised_description": "Although actually reading minds is not in their skillset, this one has extraordinary insight into the motives of others.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Magic item drop chance: +25%",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
-              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-            },
-            {
-              "description": "Campaign line of sight: +25%",
-              "key": "wh_main_effect_agent_field_line_of_sight_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc25_skill_node_dwf_dragon_slayer_innate_10",
+      "key": "dwf_skill_trait_slayer_hero_5",
       "image_path": "vanilla3/campaign_ui/skills/trait_dwarf",
-      "character_skill_key": "wh3_dlc25_skill_innate_dwf_generic_3",
-      "tier": 9,
-      "indent": 6,
+      "character_skill_key": "dwf_skill_trait_slayer_hero_5",
+      "tier": 5,
+      "indent": 25,
       "points_on_creation": 0,
       "required_num_parents": 0,
-      "visible_in_ui": false,
+      "visible_in_ui": true,
       "is_background_skill": true,
-      "localised_name": "Hardy",
-      "localised_description": "Stout and sturdy, as every good Dawi should be.",
+      "localised_name": "Azuli",
+      "localised_description": "Countless deadly combats fought, and yet none of them have fulfilled the sworn oath of this Drengi.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Physical resistance: 15%",
-              "key": "wh_main_effect_character_stat_physical_resistance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              "description": "Enemy Hero action success chance: -10%",
+              "key": "wh_main_effect_agent_action_success_chance_enemy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+            },
+            {
+              "description": "Hero action success chance: +10%",
+              "key": "wh_main_effect_agent_action_success_chance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+            },
+            {
+              "description": "Passive ability: \"Coordinated Carnage\"",
+              "key": "wh_effect_enable_wh_passive_aura_guardian_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh_effect_enable_wh_passive_aura_guardian_attack",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_passive_aura_guardian_attack",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_guardian_attack",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Coordinated Carnage",
+                    "effect_range": 30,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Unit is a Lord or Hero"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_self_not",
+                        "localised_text": "Does not affect self",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_guardian_attack",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.15 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.15,
+                            "stat": "scalar_missile_damage_ap",
+                            "how": "mult",
+                            "description": "x1.15 Armour-Piercing Missile Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                          },
+                          {
+                            "value": 1.15,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x1.15 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.15 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }

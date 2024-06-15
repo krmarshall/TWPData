@@ -68,7 +68,7 @@
                   "key": "causes_fear",
                   "description": " Can Cause Fear",
                   "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
                 {
                   "key": "hide_forest",
@@ -86,7 +86,7 @@
                   "key": "undead",
                   "description": "Undead",
                   "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
-                  "icon": "sfo3/battle_ui/ability_icons/undead"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_undead"
                 }
               ],
               "abilities": [
@@ -385,7 +385,9 @@
                       "is_hidden_in_ui": false,
                       "onscreen_name": "By Our Blood",
                       "active_time": 30,
-                      "effect_range": 0,
+                      "effect_range": 50,
+                      "num_effected_enemy_units": 1,
+                      "num_effected_friendly_units": 1,
                       "num_uses": 1,
                       "target_enemies": false,
                       "target_friends": false,
@@ -410,7 +412,73 @@
                               "key": "unbreakable",
                               "description": " Unbreakable",
                               "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                              "icon": "sfo3/battle_ui/ability_icons/unbreakable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                            }
+                          ]
+                        },
+                        {
+                          "icon": "wh3_main_unit_passive_by_our_blood_ally",
+                          "order": 2,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.1,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.1 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.1,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x1.1 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 5,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+5 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ]
+                        },
+                        {
+                          "icon": "wh3_main_unit_passive_by_our_blood_enemy",
+                          "order": 3,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 0.9,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x0.9 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 0.9,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x0.9 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": -5,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "-5 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                             }
                           ]
                         }
@@ -442,7 +510,7 @@
               {
                 "description": "Missile resistance: 15%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -466,7 +534,7 @@
               {
                 "description": "Spell resistance: 15%",
                 "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
               }
             ]
           }
@@ -656,7 +724,7 @@
               {
                 "description": "Fire resistance: 15%\n\t(Hero's army)",
                 "key": "wh_main_effect_force_stat_fire_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_fire"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_fire"
               },
               {
                 "description": "Ability: \"Skjalandir's Fall\"",
@@ -800,7 +868,7 @@
               {
                 "description": "Spell resistance: 15%\n\t(Hero's army)",
                 "key": "wh_main_effect_force_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
               }
             ]
           }
@@ -828,18 +896,18 @@
               {
                 "description": "Ward save: 10%",
                 "key": "wh_main_effect_character_stat_ward_save",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_ward_save"
               },
               {
                 "description": "Attribute: Immune to Psychology\n\t(Hero's army)",
                 "key": "wh_main_effect_attribute_enable_immune_to_psychology",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
                 "related_attributes": [
                   {
                     "key": "immune_to_psychology",
                     "description": " Immune to Psychology",
                     "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                    "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
                   }
                 ]
               }
@@ -879,13 +947,13 @@
               {
                 "description": "Attribute: Causes Terror",
                 "key": "wh_main_effect_attribute_enable_causes_terror",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror",
                 "related_attributes": [
                   {
                     "key": "causes_terror",
                     "description": " Can Cause Terror",
                     "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                    "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
                   }
                 ]
               }
@@ -990,297 +1058,6 @@
           "wh3_dlc23_skill_ksl_ulrika_unique_1_2",
           "wh3_dlc23_skill_ksl_ulrika_unique_1_3",
           "wh3_dlc23_skill_ksl_ulrika_unique_1_4"
-        ]
-      },
-      {
-        "key": "hero_spy_1_ksl_ulrika",
-        "image_path": "vanilla3/campaign_ui/skills/character_movement",
-        "character_skill_key": "hero_spy_1",
-        "tier": 100,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Hidden Paths",
-        "localised_description": "There is always another way.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Campaign movement range: +10%\n\t(When this Hero is not embedded)",
-                "key": "wh_main_effect_agent_movement_range_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-              },
-              {
-                "description": "Speed: +10%",
-                "key": "wh_main_effect_character_stat_speed",
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-              }
-            ],
-            "unlocked_at_rank": 10
-          }
-        ],
-        "right_arrow": true
-      },
-      {
-        "key": "hero_spy_2_ksl_ulrika",
-        "image_path": "vanilla3/campaign_ui/skills/character_subterfuge",
-        "character_skill_key": "hero_spy_2",
-        "tier": 101,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Retinue: Disciple",
-        "localised_description": "Useful, if a bit impetuous.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Assassinate action: Additional 1% success chance",
-                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
-              },
-              {
-                "description": "Hero self-defence: +1% chance of wounding aggressors",
-                "key": "wh_main_effect_agent_defence_wound_chance_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Assassinate action: Additional 3% success chance",
-                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
-              },
-              {
-                "description": "Hero self-defence: +3% chance of wounding aggressors",
-                "key": "wh_main_effect_agent_defence_wound_chance_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Assassinate action: Additional 6% success chance",
-                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
-              },
-              {
-                "description": "Hero self-defence: +6% chance of wounding aggressors",
-                "key": "wh_main_effect_agent_defence_wound_chance_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "hero_spy_1_ksl_ulrika"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hero_spy_3_ksl_ulrika",
-        "image_path": "vanilla3/campaign_ui/skills/battle_morale",
-        "character_skill_key": "hero_spy_3",
-        "tier": 102,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Notorious",
-        "localised_description": "It’s difficult to sleep with one eye open and a dagger under your pillow.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Enemy leadership: -1\n\t(enemy characters in region)",
-                "key": "wh_effect_all_morale_enemies",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Enemy leadership: -2\n\t(enemy characters in region)",
-                "key": "wh_effect_all_morale_enemies",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Enemy leadership: -3\n\t(enemy characters in region)",
-                "key": "wh_effect_all_morale_enemies",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "hero_spy_1_ksl_ulrika"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hero_spy_4_ksl_ulrika",
-        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
-        "character_skill_key": "hero_spy_4",
-        "tier": 103,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Contacts",
-        "localised_description": "Sometimes it’s best to have friends in low places.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Enemy battle reinforcement time: +10%\n\t(Hero's army)",
-                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/military"
-              },
-              {
-                "description": "Campaign line of sight: +10%",
-                "key": "wh_main_effect_agent_field_line_of_sight_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Enemy battle reinforcement time: +20%\n\t(Hero's army)",
-                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/military"
-              },
-              {
-                "description": "Campaign line of sight: +20%",
-                "key": "wh_main_effect_agent_field_line_of_sight_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Enemy battle reinforcement time: +40%\n\t(Hero's army)",
-                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/military"
-              },
-              {
-                "description": "Campaign line of sight: +40%",
-                "key": "wh_main_effect_agent_field_line_of_sight_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "hero_spy_1_ksl_ulrika"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "hero_spy_5_ksl_ulrika",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_ambush",
-        "character_skill_key": "hero_spy_5",
-        "tier": 104,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Shadow",
-        "localised_description": "Always watching.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ambush success chance: +2%\n\t(own armies in region)",
-                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-              },
-              {
-                "description": "Ambush defence chance: +2%\n\t(own armies in region)",
-                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Ambush success chance: +4%\n\t(own armies in region)",
-                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-              },
-              {
-                "description": "Ambush defence chance: +4%\n\t(own armies in region)",
-                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Ambush success chance: +8%\n\t(own armies in region)",
-                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-              },
-              {
-                "description": "Ambush defence chance: +8%\n\t(own armies in region)",
-                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "hero_spy_1_ksl_ulrika"
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "hero_spy_6_ksl_ulrika",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
-        "character_skill_key": "hero_champion_6",
-        "tier": 105,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Retinue: Trainer",
-        "localised_description": "This is no time for rest and games; up, on your feet! We have work to do.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Unit experience gain per turn: +200\n\t(own armies in region)",
-                "key": "wh_main_effect_agent_action_outcome_parent_army_xp_gain_factionwide",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "hero_spy_2_ksl_ulrika",
-          "hero_spy_3_ksl_ulrika",
-          "hero_spy_4_ksl_ulrika",
-          "hero_spy_5_ksl_ulrika"
         ]
       }
     ],
@@ -1679,7 +1456,7 @@
               {
                 "description": "Physical resistance: 5%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -1730,7 +1507,7 @@
               {
                 "description": "Attribute: Snipe",
                 "key": "wh2_dlc10_effect_attribute_enable_snipe",
-                "icon": "sfo3/battle_ui/ability_icons/snipe",
+                "icon": "sfo3/campaign_ui/effect_bundles/snipe",
                 "related_attributes": [
                   {
                     "key": "snipe",
@@ -4374,7 +4151,7 @@
         "key": "causes_fear",
         "description": " Can Cause Fear",
         "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-        "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
       },
       {
         "key": "hide_forest",
@@ -4392,7 +4169,7 @@
         "key": "undead",
         "description": "Undead",
         "bullet_text": "Undead units cannot be routed, but take damage when their Leadership is broken.\n\t\n\tUndead units also have:\n\t Fear and Terror Immunity\n\t\n\tUndead units may also have their hit points restored by special characters such as the Vampire Counts Necromancer.",
-        "icon": "sfo3/battle_ui/ability_icons/undead"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_undead"
       }
     ],
     "abilities": [

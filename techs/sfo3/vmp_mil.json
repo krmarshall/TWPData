@@ -225,7 +225,7 @@
           "short_description": "At last, the Von Carsteins reign over an Empire of darkness, as is their birthright.",
           "effects": [
             {
-              "description": "Diplomatic relations: +25 with Empire",
+              "description": "Diplomatic relations: +100 with Empire",
               "key": "wh_main_faction_political_diplomacy_mod_empire",
               "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             },
@@ -335,9 +335,9 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Hit points: +15%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+                "description": "Ward save: 10%",
+                "key": "wh_main_effect_character_stat_ward_save",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_ward_save"
               },
               {
                 "description": "Recruitment cost: -25% for all units\n\t(Lord's army)",
@@ -345,14 +345,68 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "description": "Leadership aura size: +100%",
-                "key": "wh_main_effect_character_stat_leadership_aura_size",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+                "description": "Ability: \"The Reikland Runefang\"",
+                "key": "wh_main_effect_ability_enable_the_reikland_runefang",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_the_reikland_runefang",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_weapon_abilities_the_reikland_runefang",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_weapon_abilities_the_reikland_runefang",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "The Reikland Runefang",
+                      "active_time": 30,
+                      "effect_range": 40,
+                      "recharge_time": 150,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_weapon_abilities_the_reikland_runefang",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+10 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               },
               {
                 "description": "Physical resistance: 20% for Sylvanian Crossbowmen and Sylvanian Handgunners units\n\t(own armies factionwide)",
                 "key": "vmp_levies_res_physical",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               }
             ]
           }
@@ -481,12 +535,12 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             },
             {
-              "description": "Double experience gain for units when fighting against Vampire Counts",
+              "description": "Unit experience gain: +100% for units when fighting against Vampire Counts",
               "key": "wh_dlc08_effect_tech_xp_gain_increase_vampires",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
             {
-              "description": "Double experience gain for units when fighting against Vampire Coast",
+              "description": "Unit experience gain: +100% for units when fighting against Vampire Coast",
               "key": "wh2_dlc11_effect_tech_xp_gain_increase_vampire_coast",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
@@ -1180,7 +1234,7 @@
             {
               "description": "Physical resistance: 20% for Zombies units",
               "key": "wh3_main_effect_physical_resistance_zombies",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
             }
           ]
         },
@@ -1202,25 +1256,25 @@
             {
               "description": "Attribute: Perfect Vigour for Skeleton Warriors and Skeleton Spearmen units",
               "key": "wh3_main_effect_attribute_perfect_vigour_skeletons",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_fatigue_immune",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune",
               "related_attributes": [
                 {
                   "key": "fatigue_immune",
                   "description": " Perfect Vigour",
                   "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
-                  "icon": "sfo3/battle_ui/ability_icons/fatigue_immune"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune"
                 },
                 {
                   "key": "fatigue_immune",
                   "description": " Perfect Vigour",
                   "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
-                  "icon": "sfo3/battle_ui/ability_icons/fatigue_immune"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune"
                 },
                 {
                   "key": "fatigue_immune",
                   "description": " Perfect Vigour",
                   "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
-                  "icon": "sfo3/battle_ui/ability_icons/fatigue_immune"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune"
                 }
               ]
             },
@@ -1428,7 +1482,7 @@
             {
               "description": "Missile resistance: 10% for Dire Wolves units",
               "key": "wh2_dlc11_effect_force_stat_missile_resistance_dire_wolves",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
             }
           ]
         },
@@ -1450,7 +1504,7 @@
             {
               "description": "Physical resistance: 5% during forest battles",
               "key": "wh2_dlc16_effect_bonus_physical_resistance_when_in_forest",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
             },
             {
               "description": "Upkeep: -5% for Varghulf and Vargheists units",
@@ -1697,13 +1751,13 @@
             {
               "description": "Attribute: Vanguard Deployment for Zombies units",
               "key": "wh3_main_effect_vanguard_deployment_zombies",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
               "related_attributes": [
                 {
                   "key": "guerrilla_deploy",
                   "description": "Vanguard Deployment",
                   "bullet_text": "This unit can deploy outside the deployment zone.",
-                  "icon": "sfo3/battle_ui/ability_icons/guerrilla_deploy"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_guerrilla_deploy"
                 }
               ]
             }
@@ -1894,7 +1948,7 @@
             {
               "description": "Spell resistance: 25% for Master Necromancer and Necromancers",
               "key": "vmp_necromancers_res_magic",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
             }
           ]
         },
@@ -2109,26 +2163,12 @@
             {
               "description": "Missile resistance: 20% for Crypt Ghouls and Crypt Horrors units",
               "key": "vmp_ghoul_horror_res_missile",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
             },
             {
               "description": "Attribute: Expert Charge Defence for Crypt Ghouls and Crypt Horrors units",
               "key": "vmp_ghoul_horror_charge_reflector",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_reflector",
-              "related_attributes": [
-                {
-                  "key": "charge_defense",
-                  "description": " Expert Charge Defence",
-                  "bullet_text": "When bracing, this unit negates the charge bonus of any attacker.",
-                  "icon": "sfo3/battle_ui/ability_icons/charge_defense"
-                },
-                {
-                  "key": "charge_defense",
-                  "description": " Expert Charge Defence",
-                  "bullet_text": "When bracing, this unit negates the charge bonus of any attacker.",
-                  "icon": "sfo3/battle_ui/ability_icons/charge_defense"
-                }
-              ]
+              "icon": "sfo3/campaign_ui/effect_bundles/charge_reflector"
             }
           ]
         },
@@ -2197,7 +2237,7 @@
             {
               "description": "Physical resistance: 5% for Crypt Ghouls and Crypt Horrors units",
               "key": "wh2_dlc11_effect_force_stat_physical_resistance_crypt_ghouls_horrors",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
             }
           ]
         },
@@ -2506,7 +2546,7 @@
             {
               "description": "Attribute: Immune to Contact Effects\n\t(all characters factionwide)",
               "key": "wh3_dlc20_effect_attribute_immune_to_contact_stat_effects",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_contact_immunity",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_contact_immunity",
               "related_attributes": [
                 {
                   "key": "ignore_imbue_contact_effects_enemy",
@@ -2830,7 +2870,7 @@
             {
               "description": "Missile resistance: 10% during siege battles",
               "key": "wh2_dlc17_effect_missile_resist_during_sieges",
-              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
             }
           ]
         },
@@ -3031,12 +3071,12 @@
           "short_description": "Once taken, a Vampire will not relinquish its territory until every inhabitant and resources has been expended in defense.",
           "effects": [
             {
-              "description": "Leadership: +4 when under siege",
+              "description": "Leadership: +5 when under siege",
               "key": "wh_effect_siege_defending_morale",
               "icon": "vanilla3/campaign_ui/effect_bundles/morale"
             },
             {
-              "description": "Melee defence: +4 when under siege",
+              "description": "Melee defence: +5 when under siege",
               "key": "wh_effect_siege_defending_defence",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
             },
@@ -3070,7 +3110,7 @@
           "short_description": "Aristocratic customs and etiquette conceal a Vampire's true emotions: arrogance, cruelty, and greed above all.",
           "effects": [
             {
-              "description": "Diplomatic relations: +10 with all factions",
+              "description": "Diplomatic relations: +25 with all factions",
               "key": "wh_main_faction_political_diplomacy_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             },
@@ -3114,8 +3154,13 @@
           "short_description": "Vampires are highly intelligent, and able to use modern roadways and vehicles to move their unthinking armies.",
           "effects": [
             {
-              "description": "Campaign movement range: +20% for armies",
+              "description": "Campaign movement range: +10% for armies",
               "key": "wh_main_effect_force_all_campaign_movement_range",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            },
+            {
+              "description": "Campaign movement range: +10% after winning a battle",
+              "key": "wh3_main_effect_force_all_campaign_movement_range_post_battle_win",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             },
             {

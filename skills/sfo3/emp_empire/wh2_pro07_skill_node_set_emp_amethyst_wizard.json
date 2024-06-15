@@ -55,7 +55,7 @@
                   "key": "encourages",
                   "description": "Encourage",
                   "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/battle_ui/ability_icons/encourages"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
                 },
                 {
                   "key": "hide_forest",
@@ -246,7 +246,7 @@
                   "key": "encourages",
                   "description": "Encourage",
                   "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/battle_ui/ability_icons/encourages"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
                 },
                 {
                   "key": "flying",
@@ -402,7 +402,7 @@
               {
                 "description": "Spell resistance: 10%",
                 "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
               }
             ],
             "unlocked_at_rank": 8
@@ -427,7 +427,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 8
@@ -442,7 +442,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           },
@@ -461,7 +461,7 @@
               {
                 "description": "Missile resistance: 10%",
                 "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
               }
             ]
           }
@@ -540,425 +540,312 @@
     ],
     [
       {
-        "key": "emp_skill_wizard_1_amethyst",
-        "image_path": "vanilla3/campaign_ui/skills/character_cooldown",
-        "character_skill_key": "emp_skill_wizard_1",
+        "key": "wh3_dlc25_skill_node_emp_hero_wizard_unique_01_amethyst",
+        "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "wh3_dlc25_skill_emp_hero_battle_wizard_unique_01_amethyst",
         "tier": 0,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Studious Pupil",
-        "localised_description": "With years of experience, the wizard refines their craft and casts more efficiently. ",
+        "localised_name": "Star Student",
+        "localised_description": "After myriad hours of study, poring over arcane manuals and ancient, dusty tomes, mastery of spells now comes naturally.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Cooldown: -5% to all spells",
-                "key": "wh2_dlc12_effect_magic_cooldown_all_lores",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+                "description": "Cooldown: -10% to Lore of Death spells",
+                "key": "wh_main_effect_ability_cooldown_lore_of_death",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_cooldown_lore_of_death",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh_main_spell_death_aspect_of_the_dreadknight_upgraded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Aspect of the Dread Knight Upgraded",
+                      "active_time": 30,
+                      "effect_range": 40,
+                      "mana_cost": 9,
+                      "miscast_chance": 0.5,
+                      "recharge_time": 30,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": true,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_spell_upgraded_added_effect_range",
+                          "localised_text": "Added effect area",
+                          "effect_state": "magic"
+                        },
+                        {
+                          "key": "wh_main_spell_upgraded_duration",
+                          "localised_text": "Extended effect duration",
+                          "effect_state": "magic"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh_main_spell_death_aspect_of_the_dreadknight_upgraded",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 16,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+16 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "causes_fear",
+                              "description": " Can Cause Fear",
+                              "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                            },
+                            {
+                              "key": "causes_terror",
+                              "description": " Can Cause Terror",
+                              "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "effect": "wh_main_effect_ability_cooldown_lore_of_death",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh_main_spell_death_doom_and_darkness_upgraded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Doom & Darkness Upgraded",
+                      "active_time": 45,
+                      "effect_range": 40,
+                      "mana_cost": 14,
+                      "miscast_chance": 0.5,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_spell_upgraded_added_effect_range",
+                          "localised_text": "Added effect area",
+                          "effect_state": "magic"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh_main_spell_death_doom_and_darkness_upgraded",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 45,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -20,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-20 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Miscast base chance: -10%",
+                "key": "wh_main_effect_character_stat_miscast",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               }
             ],
-            "unlocked_at_rank": 10
+            "unlocked_at_rank": 12
           }
         ],
         "right_arrow": true
       },
       {
-        "key": "emp_skill_wizard_2_amethyst",
-        "image_path": "vanilla3/campaign_ui/skills/character_morale",
-        "character_skill_key": "emp_skill_wizard_2",
+        "key": "wh3_dlc25_skill_node_emp_hero_wizard_unique_02_amethyst",
+        "image_path": "vanilla3/campaign_ui/skills/character_agent",
+        "character_skill_key": "wh3_dlc25_skill_emp_hero_battle_wizard_unique_02",
         "tier": 1,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Untapped Potential",
-        "localised_description": "Throwing caution to the winds, the wizard digs deep, leaving themselves empowered but mentally frayed. ",
+        "localised_name": "Lord's Councillor ",
+        "localised_description": "Knowledge of ancient wisdoms often places Wizards into positions of great importance, enabling them to make connections across the Empire and foreign lands too.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Winds of Magic power reserve minimum: +1\n\t(own armies in province)",
-                "key": "wh3_main_effect_winds_of_magic_pool_min",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+                "description": "Boost Income action: Income is modified by an additional 5%",
+                "key": "wh2_main_effect_agent_action_passive_boost_income_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "description": "Leadership: -2",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+                "description": "Hero action cost: -25%",
+                "key": "wh_main_effect_agent_action_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "description": "Winds of Magic power reserve capacity: +3",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              }
-            ],
-            "unlocked_at_rank": 10
-          },
-          {
-            "effects": [
-              {
-                "description": "Winds of Magic power reserve minimum: +3\n\t(own armies in province)",
-                "key": "wh3_main_effect_winds_of_magic_pool_min",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
-                "description": "Leadership: -4",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              },
-              {
-                "description": "Winds of Magic power reserve capacity: +7",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Winds of Magic power reserve minimum: +5\n\t(own armies in province)",
-                "key": "wh3_main_effect_winds_of_magic_pool_min",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              },
-              {
-                "description": "Leadership: -8",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              },
-              {
-                "description": "Winds of Magic power reserve capacity: +15",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+                "description": "Hero action success chance: +15%",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ]
           }
         ],
         "parent_required": [
-          "emp_skill_wizard_1_amethyst"
+          "wh3_dlc25_skill_node_emp_hero_wizard_unique_01_amethyst"
         ],
         "boxed": true
       },
       {
-        "key": "emp_skill_wizard_3_amethyst",
-        "image_path": "vanilla3/campaign_ui/skills/character_morale",
-        "character_skill_key": "emp_skill_wizard_3",
+        "key": "wh3_dlc25_skill_node_emp_hero_wizard_unique_03_amethyst",
+        "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "wh3_dlc25_skill_emp_hero_battle_wizard_unique_03_amethyst",
         "tier": 2,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Arcane Focus",
-        "localised_description": "A bauble, talisman, or relic, growing in power with the experience of its attuner. ",
+        "localised_name": "Amethyst Scholar",
+        "localised_description": "This Wizard has undoubtedly studied for many years to hone their craft, but there's always more to learn.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Leadership: -2",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+                "description": "Winds of Magic cost: -10% for Lore of Death spells",
+                "key": "wh3_main_effect_ability_wom_cost_pct_death_spells",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -3%",
-                "key": "wh_main_effect_character_stat_miscast",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              }
-            ],
-            "unlocked_at_rank": 10
-          },
-          {
-            "effects": [
-              {
-                "description": "Leadership: -4",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              },
-              {
-                "description": "Miscast base chance: -7%",
-                "key": "wh_main_effect_character_stat_miscast",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Leadership: -8",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              },
-              {
-                "description": "Miscast base chance: -15%",
-                "key": "wh_main_effect_character_stat_miscast",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+                "description": "Winds of Magic power reserve capacity: +5",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               }
             ]
           }
         ],
         "parent_required": [
-          "emp_skill_wizard_1_amethyst"
+          "wh3_dlc25_skill_node_emp_hero_wizard_unique_01_amethyst"
         ],
         "boxed": true
       },
       {
-        "key": "emp_skill_wizard_4_amethyst",
-        "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "emp_skill_wizard_4",
+        "key": "wh3_dlc25_skill_node_emp_hero_wizard_unique_04_amethyst",
+        "image_path": "vanilla3/campaign_ui/skills/character_armour",
+        "character_skill_key": "wh3_dlc25_skill_emp_hero_battle_wizard_unique_04",
         "tier": 3,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Further Study",
-        "localised_description": "The most formidable Imperial wizards have an unquenchable thirst for knowledge and a consuming need to constantly expand their magical repertoire.",
+        "localised_name": "Battle Hardened",
+        "localised_description": "Far from the frail and willowy image of decrepit old men secreted away in crumbling towers, Battle Wizards must be exemplars of well-honed athleticism and strength.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Winds of Magic cost: -2% for all spells",
-                "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+                "description": "Armour: +20",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
               },
               {
-                "description": "Spell resistance: 3%",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-              }
-            ],
-            "unlocked_at_rank": 10
-          },
-          {
-            "effects": [
-              {
-                "description": "Winds of Magic cost: -4% for all spells",
-                "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Spell resistance: 6%",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Winds of Magic cost: -8% for all spells",
-                "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Spell resistance: 10%",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+                "description": "Speed: +10%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
               }
             ]
           }
         ],
         "parent_required": [
-          "emp_skill_wizard_1_amethyst"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "emp_skill_wizard_5_amethyst",
-        "image_path": "vanilla3/campaign_ui/skills/character_defence",
-        "character_skill_key": "emp_skill_wizard_5",
-        "tier": 4,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Sorcerous Shielding",
-        "localised_description": "Carefully preparing a series of overlapping deflection spells before engaging in combat can mean the difference between life and death.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Melee defence: +2",
-                "key": "wh_main_effect_character_stat_melee_defence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-              },
-              {
-                "description": "Spell resistance: 3%",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-              }
-            ],
-            "unlocked_at_rank": 10
-          },
-          {
-            "effects": [
-              {
-                "description": "Melee defence: +4",
-                "key": "wh_main_effect_character_stat_melee_defence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-              },
-              {
-                "description": "Spell resistance: 6%",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Melee defence: +6",
-                "key": "wh_main_effect_character_stat_melee_defence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-              },
-              {
-                "description": "Spell resistance: 10%",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "emp_skill_wizard_1_amethyst"
+          "wh3_dlc25_skill_node_emp_hero_wizard_unique_01_amethyst"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "emp_skill_wizard_6_amethyst",
-        "image_path": "item_arcane_item",
-        "character_skill_key": "emp_skill_wizard_6",
-        "tier": 5,
+        "key": "wh3_dlc25_skill_node_emp_hero_wizard_unique_05_amethyst",
+        "image_path": "vanilla3/campaign_ui/skills/character_health",
+        "character_skill_key": "wh3_dlc25_skill_emp_hero_battle_wizard_death_unique",
+        "tier": 4,
         "indent": 1,
         "points_on_creation": 0,
-        "required_num_parents": 4,
+        "required_num_parents": 2,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Machinations of the College",
-        "localised_description": "Plans upon plans passed down from the Imperial college in Altdorf unite the wizards in purpose and give them laser focus in their tasks. ",
+        "localised_name": "Unsettling Radiance",
+        "localised_description": "\"Tell me dying one… are you afraid? I can assure you, you should be.\"",
         "levels": [
           {
             "effects": [
               {
-                "description": "Hero action success chance: +1% for Wizards\n\t(all characters factionwide)",
-                "key": "wh_main_effect_agent_action_success_chance_wizard_empire",
-                "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
-              }
-            ],
-            "unlocked_at_rank": 10
-          },
-          {
-            "effects": [
+                "description": "Battle healing cap: -10%\n\t(enemy armies in local region)",
+                "key": "wh3_dlc25_effect_enemy_healing_cap_modifier",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
               {
-                "description": "Hero action success chance: +2% for Wizards\n\t(all characters factionwide)",
-                "key": "wh_main_effect_agent_action_success_chance_wizard_empire",
-                "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Hero action success chance: +3% for Wizards\n\t(all characters factionwide)",
-                "key": "wh_main_effect_agent_action_success_chance_wizard_empire",
-                "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+                "description": "Attribute: Causes Fear",
+                "key": "wh_main_effect_attribute_enable_causes_fear",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear",
+                "related_attributes": [
+                  {
+                    "key": "causes_fear",
+                    "description": " Can Cause Fear",
+                    "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                  }
+                ]
               }
             ]
           }
         ],
         "parent_subset_required": [
-          "emp_skill_wizard_2_amethyst",
-          "emp_skill_wizard_3_amethyst",
-          "emp_skill_wizard_4_amethyst",
-          "emp_skill_wizard_5_amethyst"
-        ]
-      },
-      {
-        "key": "emp_skill_wizard_7_amethyst",
-        "image_path": "vanilla3/campaign_ui/skills/item_talisman",
-        "character_skill_key": "emp_skill_wizard_7",
-        "tier": 6,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Improved Scrying Techniques",
-        "localised_description": "By sharing their knowledge of scrying with the younger wizards, their keen senses are amplified to a whole new level.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Magic item drop chance: +1%\n\t(all characters factionwide)",
-                "key": "wh_main_effect_character_mod_ancillary_drop",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-              }
-            ],
-            "unlocked_at_rank": 10
-          },
-          {
-            "effects": [
-              {
-                "description": "Magic item drop chance: +3%\n\t(all characters factionwide)",
-                "key": "wh_main_effect_character_mod_ancillary_drop",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Magic item drop chance: +5%\n\t(all characters factionwide)",
-                "key": "wh_main_effect_character_mod_ancillary_drop",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "emp_skill_wizard_2_amethyst",
-          "emp_skill_wizard_3_amethyst",
-          "emp_skill_wizard_4_amethyst",
-          "emp_skill_wizard_5_amethyst"
-        ]
-      },
-      {
-        "key": "emp_skill_wizard_8_amethyst",
-        "image_path": "vanilla3/campaign_ui/skills/battle_military_spending",
-        "character_skill_key": "emp_skill_wizard_8",
-        "tier": 7,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Magister",
-        "localised_description": "The ability to convince other wizards to follow your lead is a rare and exceptionally valuable gift.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Upkeep: -4% for all spellcasters\n\t(Hero's army)",
-                "key": "wh_mages_upkeep",
-                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-              }
-            ],
-            "unlocked_at_rank": 15
-          },
-          {
-            "effects": [
-              {
-                "description": "Upkeep: -8% for all spellcasters\n\t(Hero's army)",
-                "key": "wh_mages_upkeep",
-                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-              }
-            ]
-          }
+          "wh3_dlc25_skill_node_emp_hero_wizard_unique_02_amethyst",
+          "wh3_dlc25_skill_node_emp_hero_wizard_unique_03_amethyst",
+          "wh3_dlc25_skill_node_emp_hero_wizard_unique_04_amethyst"
         ]
       }
     ],
@@ -1326,13 +1213,13 @@
                               "key": "causes_fear",
                               "description": " Can Cause Fear",
                               "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                              "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                             },
                             {
                               "key": "causes_terror",
                               "description": " Can Cause Terror",
                               "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                              "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
                             }
                           ]
                         }
@@ -1400,13 +1287,13 @@
                               "key": "causes_fear",
                               "description": " Can Cause Fear",
                               "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                              "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                             },
                             {
                               "key": "causes_terror",
                               "description": " Can Cause Terror",
                               "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                              "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
                             }
                           ]
                         }
@@ -1479,13 +1366,13 @@
                               "key": "causes_fear",
                               "description": " Can Cause Fear",
                               "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                              "icon": "sfo3/battle_ui/ability_icons/causes_fear"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                             },
                             {
                               "key": "causes_terror",
                               "description": " Can Cause Terror",
                               "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                              "icon": "sfo3/battle_ui/ability_icons/causes_terror"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
                             }
                           ]
                         }
@@ -2996,13 +2883,360 @@
         ]
       }
     ],
-    [],
+    [
+      {
+        "key": "emp_skill_wizard_1",
+        "image_path": "vanilla3/campaign_ui/skills/character_cooldown",
+        "character_skill_key": "emp_skill_wizard_1",
+        "tier": 0,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Studious Pupil",
+        "localised_description": "With years of experience, the wizard refines their craft and casts more efficiently. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Cooldown: -5% to all spells",
+                "key": "wh2_dlc12_effect_magic_cooldown_all_lores",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "emp_skill_wizard_2",
+        "image_path": "vanilla3/campaign_ui/skills/character_morale",
+        "character_skill_key": "emp_skill_wizard_2",
+        "tier": 1,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Untapped Potential",
+        "localised_description": "Throwing caution to the winds, the wizard digs deep, leaving themselves empowered but mentally frayed. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic power reserve minimum: +1\n\t(own armies in province)",
+                "key": "wh3_main_effect_winds_of_magic_pool_min",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              },
+              {
+                "description": "Leadership: -2",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +3",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic power reserve minimum: +3\n\t(own armies in province)",
+                "key": "wh3_main_effect_winds_of_magic_pool_min",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              },
+              {
+                "description": "Leadership: -4",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +7",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic power reserve minimum: +5\n\t(own armies in province)",
+                "key": "wh3_main_effect_winds_of_magic_pool_min",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              },
+              {
+                "description": "Leadership: -8",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +15",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_wizard_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_wizard_3",
+        "image_path": "vanilla3/campaign_ui/skills/character_morale",
+        "character_skill_key": "emp_skill_wizard_3",
+        "tier": 2,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Arcane Focus",
+        "localised_description": "A bauble, talisman, or relic, growing in power with the experience of its attuner. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Leadership: -2",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Miscast base chance: -3%",
+                "key": "wh_main_effect_character_stat_miscast",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Leadership: -4",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Miscast base chance: -7%",
+                "key": "wh_main_effect_character_stat_miscast",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Leadership: -8",
+                "key": "wh_main_effect_character_stat_leadership",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Miscast base chance: -15%",
+                "key": "wh_main_effect_character_stat_miscast",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_wizard_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_wizard_4",
+        "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "emp_skill_wizard_4",
+        "tier": 3,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Further Study",
+        "localised_description": "The most formidable Imperial wizards have an unquenchable thirst for knowledge and a consuming need to constantly expand their magical repertoire.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic cost: -2% for all spells",
+                "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Spell resistance: 3%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic cost: -4% for all spells",
+                "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Spell resistance: 6%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic cost: -8% for all spells",
+                "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Spell resistance: 10%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_wizard_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_wizard_5",
+        "image_path": "vanilla3/campaign_ui/skills/character_defence",
+        "character_skill_key": "emp_skill_wizard_5",
+        "tier": 4,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Sorcerous Shielding",
+        "localised_description": "Carefully preparing a series of overlapping deflection spells before engaging in combat can mean the difference between life and death.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +2",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Spell resistance: 3%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +4",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Spell resistance: 6%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +6",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Spell resistance: 10%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "emp_skill_wizard_1"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "emp_skill_wizard_6",
+        "image_path": "vanilla3/campaign_ui/skills/item_enchanted_item",
+        "character_skill_key": "emp_skill_wizard_6",
+        "tier": 5,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Machinations of the College",
+        "localised_description": "Plans upon plans passed down from the Imperial college in Altdorf unite the wizards in purpose and give them laser focus in their tasks. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hero action success chance: +2% for Wizards\n\t(all characters factionwide)",
+                "key": "wh_main_effect_agent_action_success_chance_wizard_empire",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "emp_skill_wizard_2",
+          "emp_skill_wizard_3",
+          "emp_skill_wizard_4",
+          "emp_skill_wizard_5"
+        ]
+      },
+      {
+        "key": "emp_skill_wizard_7",
+        "image_path": "vanilla3/campaign_ui/skills/item_talisman",
+        "character_skill_key": "emp_skill_wizard_7",
+        "tier": 6,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Improved Scrying Techniques",
+        "localised_description": "By sharing their knowledge of scrying with the younger wizards, their keen senses are amplified to a whole new level.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Magic item drop chance: +5%\n\t(all characters factionwide)",
+                "key": "wh_main_effect_character_mod_ancillary_drop",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "emp_skill_wizard_2",
+          "emp_skill_wizard_3",
+          "emp_skill_wizard_4",
+          "emp_skill_wizard_5"
+        ]
+      }
+    ],
     [
       {
         "key": "hero_wizard_1_emp_amethyst_wizard",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
         "character_skill_key": "hero_wizard_1",
-        "tier": 100,
+        "tier": 10,
         "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -3033,7 +3267,7 @@
         "key": "hero_wizard_2_emp_amethyst_wizard",
         "image_path": "vanilla3/campaign_ui/skills/character_cooldown",
         "character_skill_key": "hero_wizard_2",
-        "tier": 101,
+        "tier": 11,
         "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -3079,7 +3313,7 @@
         "key": "hero_wizard_3_emp_amethyst_wizard",
         "image_path": "vanilla3/campaign_ui/skills/battle_general_ability",
         "character_skill_key": "hero_wizard_3",
-        "tier": 102,
+        "tier": 12,
         "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -3125,7 +3359,7 @@
         "key": "hero_wizard_4_emp_amethyst_wizard",
         "image_path": "vanilla3/campaign_ui/skills/campaign_item",
         "character_skill_key": "hero_wizard_4",
-        "tier": 103,
+        "tier": 13,
         "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -3171,7 +3405,7 @@
         "key": "hero_wizard_5_emp_amethyst_wizard",
         "image_path": "vanilla3/campaign_ui/skills/battle_damage",
         "character_skill_key": "hero_wizard_5",
-        "tier": 104,
+        "tier": 14,
         "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -3218,7 +3452,7 @@
         "key": "hero_wizard_6_emp_amethyst_wizard",
         "image_path": "vanilla3/campaign_ui/skills/campaign_magic",
         "character_skill_key": "hero_wizard_6",
-        "tier": 105,
+        "tier": 15,
         "indent": 4,
         "points_on_creation": 0,
         "required_num_parents": 4,
@@ -3587,7 +3821,7 @@
         "key": "encourages",
         "description": "Encourage",
         "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-        "icon": "sfo3/battle_ui/ability_icons/encourages"
+        "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
       },
       {
         "key": "hide_forest",
@@ -3768,6 +4002,11 @@
                     "key": "wh3_main_ability_intensity_kills",
                     "localised_text": "Effect intensity increases with each kill made by the unit.",
                     "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_intensity_kills_500",
+                    "localised_text": "Effect intensity increases with each kill made by the unit (500)",
+                    "effect_state": "positive"
                   }
                 ],
                 "phases": [
@@ -3846,550 +4085,6 @@
               "description": "",
               "key": "wh3_main_effect_agent_action_enable_wizard_hinder_army_assault_units",
               "icon": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_01",
-      "image_path": "vanilla3/campaign_ui/skills/trait_human",
-      "character_skill_key": "wh2_main_skill_innate_emp_regal",
-      "tier": 0,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Regal ",
-      "localised_description": "A regal air? Let's see how long that lasts.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Control: +4\n\t(own local province)",
-              "key": "wh_main_effect_public_order_characters",
-              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
-            },
-            {
-              "description": "Experience gain: +5% for units\n\t(all units in army)",
-              "key": "wh_effect_all_exp_gain",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Leadership aura size: +25%",
-              "key": "wh_main_effect_character_stat_leadership_aura_size",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_02",
-      "image_path": "vanilla3/campaign_ui/skills/trait_human",
-      "character_skill_key": "wh2_main_skill_innate_emp_noble",
-      "tier": 1,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Noble ",
-      "localised_description": "\"The smallfolk should be thankful - without us, who would they work for?\"",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Control: +2\n\t(own local province)",
-              "key": "wh_main_effect_public_order_characters",
-              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
-            },
-            {
-              "description": "Construction time: -20% for all buildings\n\t(local region)",
-              "key": "wh2_main_effect_building_construction_time_mod_all",
-              "icon": "vanilla3/campaign_ui/effect_bundles/construction"
-            },
-            {
-              "description": "Income from all buildings: +10%\n\t(local region)",
-              "key": "wh_main_effect_economy_gdp_mod_all",
-              "icon": "vanilla3/campaign_ui/effect_bundles/income"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_03",
-      "image_path": "vanilla3/campaign_ui/skills/trait_human",
-      "character_skill_key": "wh2_main_skill_innate_emp_imperious",
-      "tier": 2,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Imperious",
-      "localised_description": "Franz has put his trust in this man; pray he does not let him down!",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Leadership: +5",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
-              "description": "Charge bonus: +25%",
-              "key": "wh_main_effect_character_stat_charge_bonus_pct",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-            },
-            {
-              "description": "Leadership: +10 when in own territory",
-              "key": "wh3_main_effect_force_stat_leadership_own_territory",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_04",
-      "image_path": "vanilla3/campaign_ui/skills/trait_human",
-      "character_skill_key": "wh2_main_skill_innate_emp_monster_tracker",
-      "tier": 3,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Monster Tracker ",
-      "localised_description": "\"If it's got a scent and footprints, I'll find it. Also, it helps if it's absolutely huge and can be spotted a league away.\"",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +10%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            },
-            {
-              "description": "Campaign line of sight: +10%",
-              "key": "wh_main_effect_agent_field_line_of_sight_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            },
-            {
-              "description": "Chance of intercepting an army using Tunnelling, beast-paths or Worldroots: +10%",
-              "key": "wh_main_effect_general_mod_tunnel_interception_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/subterranean"
-            },
-            {
-              "description": "Attribute: Charge Defence vs Large",
-              "key": "wh2_dlc15_effect_unit_enable_attribute_charge_defence_against_large",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_reflector",
-              "related_attributes": [
-                {
-                  "key": "charge_defense_vs_large",
-                  "description": " Charge Defence vs. Large",
-                  "bullet_text": "When bracing, this unit negates the charge bonus of any large attacker.",
-                  "icon": "sfo3/battle_ui/ability_icons/charge_defense_vs_large"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_05",
-      "image_path": "vanilla3/campaign_ui/skills/trait_human",
-      "character_skill_key": "wh2_main_skill_innate_emp_monster_hunter",
-      "tier": 4,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Monster Hunter",
-      "localised_description": "The thrill of the chase, the tremor as the quarry is cornered, the ecstasy of the kill. These are the things that matter.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Bonus vs Large: +25",
-              "key": "wh_main_effect_character_stat_bonus_vs_large",
-              "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
-            },
-            {
-              "description": "Leadership: +10 when fighting against Beastmen",
-              "key": "wh_main_effect_force_stat_leadership_vs_beastmen",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_06",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_fleet_footed",
-      "tier": 5,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Fleet-Footed",
-      "localised_description": "Being fleet of foot is useful in a fight… or when trying to get away afterwards!",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Speed: +40%",
-              "key": "wh_main_effect_character_stat_speed",
-              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-            },
-            {
-              "description": "Attribute: Strider",
-              "key": "wh_main_effect_attribute_enable_strider",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
-              "related_attributes": [
-                {
-                  "key": "strider",
-                  "description": " Strider",
-                  "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
-                  "icon": "sfo3/battle_ui/ability_icons/strider"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_07",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_cunning",
-      "tier": 6,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Cunning",
-      "localised_description": "Deceit is a perfectly acceptable means of attack.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Ambush success chance: +20%\n\t(armies in local owned region)",
-              "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-            },
-            {
-              "description": "Enables poison attacks",
-              "key": "wh_main_effect_character_stat_enable_poison_attacks",
-              "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
-              "related_phases": [
-                {
-                  "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
-                  "order": 0,
-                  "target_enemies": true,
-                  "target_self": false,
-                  "target_friends": false,
-                  "duration": 10,
-                  "effect_type": "negative",
-                  "onscreen_name": "Poison!",
-                  "is_hidden_in_ui": false,
-                  "stat_effects": [
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_missile_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Missile Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_missile_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Missile Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_speed",
-                      "how": "mult",
-                      "description": "x0.8 Speed",
-                      "icon": "vanilla3/skins/default/icon_stat_speed"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Weapon Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Weapon Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_08",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_determined",
-      "tier": 7,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Determined",
-      "localised_description": "Having a modicum of resolve is useful in a world that continually tests it.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
-              "description": "Attribute: Immune to Psychology",
-              "key": "wh_main_effect_attribute_enable_immune_to_psychology",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
-              "related_attributes": [
-                {
-                  "key": "immune_to_psychology",
-                  "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                  "icon": "sfo3/battle_ui/ability_icons/immune_to_psychology"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_09",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_confident",
-      "tier": 8,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Confident",
-      "localised_description": "Self-belief is a fine thing when not misplaced.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Experience gain: +5% for units\n\t(all units in army)",
-              "key": "wh_effect_all_exp_gain",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
-              "description": "Leadership: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_10",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_disciplined",
-      "tier": 9,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Disciplined",
-      "localised_description": "Always in control, this one leaves no stone unturned and nothing to chance.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Leadership: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            },
-            {
-              "description": "Melee attack: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_11",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_perceptive",
-      "tier": 10,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Perceptive",
-      "localised_description": "Although actually reading minds is not in their skillset, this one has extraordinary insight into the motives of others.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Magic item drop chance: +25%",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
-              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-            },
-            {
-              "description": "Campaign line of sight: +25%",
-              "key": "wh_main_effect_agent_field_line_of_sight_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_12",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_aggressive",
-      "tier": 11,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Aggressive",
-      "localised_description": "If you're gonna die, you may as well die with your boots on.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Melee defence: -5",
-              "key": "wh_main_effect_character_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-            },
-            {
-              "description": "Weapon strength: +10%",
-              "key": "wh_main_effect_character_stat_weapon_strength",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-            },
-            {
-              "description": "Charge bonus: +25",
-              "key": "wh_main_effect_character_stat_charge_bonus_add",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_13",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_tough",
-      "tier": 12,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Tough",
-      "localised_description": "Rugged, resistant, and almost unbreakable, this being can and will take on all comers.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Armour: +25",
-              "key": "wh_main_effect_character_stat_armour",
-              "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-            },
-            {
-              "description": "Melee defence: +5",
-              "key": "wh_main_effect_character_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_14",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_knowledgeable",
-      "tier": 13,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Knowledgeable",
-      "localised_description": "What this being doesn't know probably isn't worth knowing, so deep is their interest in the world and its ways.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Experience gain: +25% for characters",
-              "key": "wh3_main_effect_character_campaign_experience_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh2_pro07_skill_node_amethyst_wizard_innate_15",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_intelligent",
-      "tier": 14,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Intelligent",
-      "localised_description": "Sharp minds make sharp blades sharper still.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Upkeep: -2%\n\t(all units in army)",
-              "key": "wh_main_effect_force_all_campaign_upkeep",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-            },
-            {
-              "description": "Hero self-defence: +10% chance of wounding aggressors",
-              "key": "wh_main_effect_agent_defence_wound_chance_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            },
-            {
-              "description": "Ambush defence chance: +10%\n\t(all units in army)",
-              "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
             }
           ]
         }
@@ -4528,6 +4223,868 @@
               "description": "",
               "key": "wh3_main_effect_winds_of_magic_pool_cap_hidden",
               "icon": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_1",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_1",
+      "tier": 1,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Apt",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Hero action success chance: +10%",
+              "key": "wh_main_effect_agent_action_success_chance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+            },
+            {
+              "description": "Passive ability: \"Apex Magic\"",
+              "key": "nor_passive_apex_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "nor_passive_apex_enable",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "nor_passive_apex",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc15_unit_passive_sorcery_weapon",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_explosion",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+                      "onscreen_name": "Explosion"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Apex Magic",
+                    "active_time": 5,
+                    "effect_range": 0,
+                    "recharge_time": 60,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee",
+                      "Winds of magic power is 15 or greater"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_explosion_large",
+                        "localised_text": "Large explosion with knockback effect",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "vortex": {
+                      "vortex_key": "nor_passive_apex",
+                      "duration": 2,
+                      "damage": 4,
+                      "damage_ap": 4,
+                      "goal_radius": 30,
+                      "movement_speed": 0,
+                      "delay": 0,
+                      "affects_allies": false,
+                      "contact_effect": {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_pro08_unit_contact_dampen",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 10,
+                        "effect_type": "negative",
+                        "onscreen_name": "Dampen!\n\t Removes Magical Attacks",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -10,
+                            "stat": "stat_armour",
+                            "how": "add",
+                            "description": "-10 Armour",
+                            "icon": "vanilla3/skins/default/icon_stat_armour"
+                          },
+                          {
+                            "value": -25,
+                            "stat": "stat_resistance_magic",
+                            "how": "add",
+                            "description": "-25 Spell Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_2",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_2",
+      "tier": 2,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Sorcerer",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Winds of Magic cost: -10% for all spells",
+              "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            },
+            {
+              "description": "Bound spell: \"Blast\"",
+              "key": "wh2_dlc10_effect_ability_enable_bound_blast",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc10_effect_ability_enable_bound_blast",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc10_item_bound_blast",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc10_item_bound_blast",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_magic_missile",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                      "onscreen_name": "Magic Missile"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Blast",
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "recharge_time": 60,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 100,
+                    "ui_effects": [
+                      {
+                        "key": "wh2_main_all_magical_and_flaming_medium",
+                        "localised_text": "Causes moderate magical & fire damage",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh2_main_all_good_against_armour",
+                        "localised_text": "Good against armour",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_projectile_effective_close_range",
+                        "localised_text": "Effective at close range",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_projectile_high_penetration",
+                        "localised_text": "Good penetration",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_all",
+                        "localised_text": "Strong vs single and multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_aoe_5",
+                        "localised_text": "Explosion area of effect: 5m",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_main_projectile_requires_line_of_sight",
+                        "localised_text": "Requires line of sight to the target",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "activated_projectile": {
+                      "key": "wh2_dlc10_item_bound_blast",
+                      "damage": 250,
+                      "ap_damage": 350,
+                      "shockwave_radius": 1.3,
+                      "effective_range": 100,
+                      "base_reload_time": 15,
+                      "is_magical": true,
+                      "is_flaming": true,
+                      "can_damage_allies": true
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Winds of Magic power reserve: +2 per turn",
+              "key": "wh3_main_effect_winds_of_magic_other",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_3",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_3",
+      "tier": 3,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Cryomancer",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Diplomatic relations: +5 with Kislev",
+              "key": "wh3_main_faction_political_diplomacy_mod_kislev",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+            },
+            {
+              "description": "Melee defence: +10",
+              "key": "wh_main_effect_character_stat_melee_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+            },
+            {
+              "description": "Ability: \"Glacial Blast\"",
+              "key": "wh3_main_effect_ability_enable_glacial_blast",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_glacial_blast",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_character_abilities_glacial_blast",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_glacial_blast",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_explosion",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+                      "onscreen_name": "Explosion"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Glacial Blast",
+                    "active_time": 4,
+                    "effect_range": 0,
+                    "num_uses": 3,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "wind_up_time": 3,
+                    "vortex": {
+                      "vortex_key": "wh3_main_character_abilities_glacial_blast",
+                      "duration": 1,
+                      "damage": 20,
+                      "damage_ap": 10,
+                      "goal_radius": 15,
+                      "movement_speed": 0,
+                      "delay": 2,
+                      "affects_allies": true,
+                      "is_magical": true,
+                      "contact_effect": {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_contact_frostbite",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 10,
+                        "effect_type": "negative",
+                        "onscreen_name": "Frostbite!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.6,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.6 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_4",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_4",
+      "tier": 4,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Assuasive",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Enemy Winds of Magic power reserve capacity: -10\n\t(enemy armies in province)",
+              "key": "wh3_main_effect_winds_of_magic_pool_cap_enemy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            },
+            {
+              "description": "Character experience gain per turn: +100",
+              "key": "wh3_main_effect_character_experience_per_turn",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Passive ability: \"Blessed Tome\"",
+              "key": "wh2_main_effect_ability_enable_blessed_tome",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_main_effect_ability_enable_blessed_tome",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_main_item_passive_blessed_tome",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_item_passive_blessed_tome",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Blessed Tome",
+                    "effect_range": 30,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_item_passive_blessed_tome",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_5",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_5",
+      "tier": 5,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Serene",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Experience gain: +10% for characters",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Bound spell: \"Fear of Aramar\"",
+              "key": "wh2_dlc10_effect_ability_enable_bound_fear_of_aramar",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc10_effect_ability_enable_bound_fear_of_aramar",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc10_item_abilities_fear_of_aramar",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc10_item_abilities_fear_of_aramar",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Fear of Aramar",
+                    "active_time": 45,
+                    "effect_range": 0,
+                    "num_effected_enemy_units": 1,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 200,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc10_item_abilities_fear_of_aramar",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 45,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": 0.01,
+                        "stat_effects": [
+                          {
+                            "value": -25,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-25 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Miscast base chance: -10%",
+              "key": "wh_main_effect_character_stat_miscast",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_6",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_6",
+      "tier": 6,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Resourceful",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Miscast base chance: -10%",
+              "key": "wh_main_effect_character_stat_miscast",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            },
+            {
+              "description": "Ability: \"Scroll of Shielding\"",
+              "key": "wh_main_effect_ability_enable_scroll_of_shielding",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_scroll_of_shielding",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_item_abilities_scroll_of_shielding",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_scroll_of_shielding",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_ward_save",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_ward_save",
+                      "onscreen_name": "Ward Save"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Scroll of Shielding",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": true,
+                    "target_intercept_range": 100,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_scroll_of_shielding",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 60,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 25,
+                            "stat": "stat_resistance_all",
+                            "how": "add",
+                            "description": "+25 Damage Resistance ",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Winds of Magic power reserve capacity: +10",
+              "key": "wh3_main_effect_winds_of_magic_pool_cap",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_7",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_7",
+      "tier": 7,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Spirited",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "",
+              "key": "wh3_dlc24_effect_25_spell_mastery_hidden",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
+              "related_abilities": [
+                {
+                  "effect": "wh3_dlc24_effect_25_spell_mastery_hidden",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_passive_spell_mastery_25_hidden",
+                    "icon_name": "sfo3/battle_ui/ability_icons/venris",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": true,
+                    "onscreen_name": "placeholder",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh_passive_spell_mastery_25_hidden",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "scalar_spell_mastery",
+                            "how": "mult",
+                            "description": "x1.25 Spell Mastery",
+                            "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Spell intensity: +25%",
+              "key": "wh3_dlc24_effect_spell_mastery_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+            },
+            {
+              "description": "Casualty replenishment rate: +10%",
+              "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+              "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+            },
+            {
+              "description": "Miscast base chance: +25%",
+              "key": "wh_main_effect_character_stat_miscast",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_8",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_8",
+      "tier": 8,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Fixated",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Targeting range: +25% for spells",
+              "key": "wh3_main_effect_spell_targeting_range_all",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            },
+            {
+              "description": "Campaign line of sight: -50%",
+              "key": "wh_main_effect_agent_field_line_of_sight_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+            },
+            {
+              "description": "Spell resistance: 10%",
+              "key": "wh_main_effect_character_stat_magic_resistance",
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+            },
+            {
+              "description": "Attribute: Perfect Vigour",
+              "key": "wh2_dlc10_effect_attribute_enable_perfect_vigour",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune",
+              "related_attributes": [
+                {
+                  "key": "fatigue_immune",
+                  "description": " Perfect Vigour",
+                  "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_9",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_9",
+      "tier": 9,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Hasty",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Speed: +25%",
+              "key": "wh_main_effect_character_stat_speed",
+              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+            },
+            {
+              "description": "Ability: \"Potion of Healing\"",
+              "key": "wh_main_effect_ability_enable_potion_of_healing",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_potion_of_healing",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_item_abilities_potion_of_healing",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_healing",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_regeneration",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                      "onscreen_name": "Regeneration"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Potion of Healing",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "ui_effects": [
+                      {
+                        "key": "wh_heal_total_30",
+                        "localised_text": "Restores up to 30% Hit Points",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_replenish",
+                        "localised_text": "Replenishes hit points of combatants",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_item_abilities_potion_of_healing",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 60,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.005,
+                        "hp_change_frequency": 1
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "emp_skill_trait_wizard_10",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "emp_skill_trait_wizard_10",
+      "tier": 10,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Hard-Headed",
+      "localised_description": "Channelers of potent spells, wielders of formidable sorceries, and scholarly students of the arcane, wizards are a boon to any imperial force.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Base weapon damage: +150",
+              "key": "wh2_main_effect_character_stat_weapon_strength_base",
+              "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_damage_base_character"
+            },
+            {
+              "description": "Bound spell: \"The Amber Trance\"",
+              "key": "wh2_dlc10_effect_ability_enable_bound_the_amber_trance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc10_effect_ability_enable_bound_the_amber_trance",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc10_item_abilities_the_amber_trance",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc10_item_abilities_the_amber_trance",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "The Amber Trance",
+                    "active_time": 30,
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "recharge_time": 60,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 100,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc10_item_abilities_the_amber_trance",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "wh2_dlc10_item_abilities_the_amber_trance_self",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 20,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+20 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Winds of Magic power reserve capacity: -10",
+              "key": "wh3_main_effect_winds_of_magic_pool_cap",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
             }
           ]
         }
