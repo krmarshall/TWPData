@@ -578,8 +578,8 @@
                 },
                 {
                   "key": "armoured_vehicle",
-                  "description": "Directional Missile Block",
-                  "bullet_text": "This unit has variable  Missile Block Chance depending on which side of the unit is hit by a projectile.\n\t\n\tThe missile block chance of each direction is:\n\t 100% from the front\n\t 50% from the sides\n\t 10% from the rear",
+                  "description": "Directional Shield",
+                  "bullet_text": "This unit has variable  Missile Block Chance depending on which side of the unit is hit by a projectile.\n\t\n\tThe missile block chance multiplier of each direction is:\n\t 1.0x at the front\n\t 0.5x at the sides\n\t 0.1x at the rear",
                   "icon": "sfo3/battle_ui/ability_icons/armoured_vehicle"
                 },
                 {
@@ -4180,6 +4180,143 @@
     }
   ],
   "backgroundSkills": [
+    {
+      "key": "wh3_dlc25_skill_node_emp_master_engineer_innate",
+      "image_path": "vanilla3/campaign_ui/skills/wh3_dlc25_hero_abilities_master_of_ballistics",
+      "character_skill_key": "wh3_dlc25_skill_emp_master_engineer_self_master_of_ballistics_innate",
+      "tier": 99,
+      "indent": 9,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": false,
+      "localised_name": "HIDDEN",
+      "localised_description": "HIDDEN",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Ability \"Restock!\"",
+              "key": "wh2_dlc17_effect_ability_enable_restock",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc17_effect_ability_enable_restock",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc17_hero_abilities_more_powder_generic",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_hero_abilities_more_powder",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Restock!",
+                    "active_time": 10,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "num_uses": 4,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 100,
+                    "ui_effects": [
+                      {
+                        "key": "wh_ammo_add_30",
+                        "localised_text": "Replenishes 30% ammunition",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh2_dlc11_all_replenish_ammo",
+                        "localised_text": "Replenishes ammunition",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_hero_abilities_more_powder",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 10,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "replenish_ammo": 0.3
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Passive ability: \"Master of Ballistics\"",
+              "key": "wh3_dlc25_effect_ability_enable_master_of_ballistics",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_dlc25_effect_ability_enable_master_of_ballistics",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_dlc25_character_passive_master_of_ballistics",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_master_of_ballistics",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Master of Ballistics",
+                    "effect_range": 60,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 40,
+                    "target_if": [
+                      "Unit is Artillery or a War Machine"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_character_passive_master_of_ballistics",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 15,
+                            "stat": "stat_accuracy",
+                            "how": "add",
+                            "description": "+15 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+10 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
       "key": "emp_skill_trait_engineer_lord_1",
       "image_path": "vanilla3/campaign_ui/skills/trait_human",
