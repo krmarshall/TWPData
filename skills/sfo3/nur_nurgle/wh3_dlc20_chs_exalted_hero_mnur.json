@@ -137,7 +137,6 @@
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "In melee",
                       "Out of melee",
                       "Leadership is higher than broken"
                     ],
@@ -167,13 +166,6 @@
                             "how": "add",
                             "description": "-10 Weakness to Fire Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_flaming"
-                          },
-                          {
-                            "value": 9,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+9 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
                           },
                           {
                             "value": 20,
@@ -463,7 +455,6 @@
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "In melee",
                       "Out of melee",
                       "Leadership is higher than broken"
                     ],
@@ -493,13 +484,6 @@
                             "how": "add",
                             "description": "-10 Weakness to Fire Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_flaming"
-                          },
-                          {
-                            "value": 9,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+9 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
                           },
                           {
                             "value": 20,
@@ -795,7 +779,6 @@
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "In melee",
                       "Out of melee",
                       "Leadership is higher than broken"
                     ],
@@ -825,13 +808,6 @@
                             "how": "add",
                             "description": "-10 Weakness to Fire Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_flaming"
-                          },
-                          {
-                            "value": 9,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+9 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
                           },
                           {
                             "value": 20,
@@ -909,6 +885,71 @@
                             "how": "add",
                             "description": "-20 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "chs_active_chosen_nurgle_lord",
+                    "icon_name": "sfo3/battle_ui/ability_icons/chs_chosen_nurgle",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chosen of Nurgle",
+                    "active_time": 30,
+                    "effect_range": 0,
+                    "recharge_time": 150,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "chs_active_chosen_nurgle_lord",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "imbue_contact": {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_nurgle",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 20,
+                          "effect_type": "negative",
+                          "onscreen_name": "Plague of Nurgle - 8 damage, 3 entities",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 8,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 3,
+                          "stat_effects": [
+                            {
+                              "value": -10,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "-10 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        },
+                        "attributes": [
+                          {
+                            "key": "invulnerable",
+                            "description": "Invulnerable",
+                            "bullet_text": "This unit cannot take damage.",
+                            "icon": "sfo3/battle_ui/ability_icons/invulnerable"
                           }
                         ]
                       }
@@ -1614,18 +1655,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
                               "value": 1.5,
                               "stat": "scalar_splash_attack_power",
                               "how": "mult",
                               "description": "x1.5 Splash Attack Power",
                               "icon": "vanilla3/skins/default/icon_stat_damage"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
                               "value": 1.5,
@@ -1947,11 +1988,6 @@
                         {
                           "key": "wh_heal_total_15",
                           "localised_text": "Restores up to 15% Hit Points",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
                           "effect_state": "positive"
                         }
                       ],
@@ -2849,7 +2885,6 @@
           "target_self": false,
           "target_intercept_range": 0,
           "enabled_if": [
-            "In melee",
             "Out of melee",
             "Leadership is higher than broken"
           ],
@@ -2879,13 +2914,6 @@
                   "how": "add",
                   "description": "-10 Weakness to Fire Damage",
                   "icon": "vanilla3/skins/default/modifier_icon_flaming"
-                },
-                {
-                  "value": 9,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "+9 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
                 },
                 {
                   "value": 20,

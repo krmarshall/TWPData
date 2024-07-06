@@ -45,7 +45,6 @@
                       "target_self": false,
                       "target_intercept_range": 0,
                       "enabled_if": [
-                        "Hit Points less than 20%",
                         "Hit Points less than 25%",
                         "In melee"
                       ],
@@ -140,7 +139,6 @@
                       "target_self": false,
                       "target_intercept_range": 0,
                       "enabled_if": [
-                        "Hit Points less than 20%",
                         "Hit Points less than 50%"
                       ],
                       "phases": [
@@ -160,13 +158,6 @@
                               "how": "mult",
                               "description": "x1.5 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 10,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+10 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
                               "value": 1.5,
@@ -237,7 +228,6 @@
                       "target_self": false,
                       "target_intercept_range": 0,
                       "enabled_if": [
-                        "Hit Points less than 25%",
                         "Hit Points less than 50%"
                       ],
                       "phases": [
@@ -257,13 +247,6 @@
                               "how": "mult",
                               "description": "x1.5 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 10,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+10 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             },
                             {
                               "value": 25,
@@ -1536,18 +1519,18 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.25,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
                               "value": 1.5,
                               "stat": "scalar_splash_attack_power",
                               "how": "mult",
                               "description": "x1.5 Splash Attack Power",
                               "icon": "vanilla3/skins/default/icon_stat_damage"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
                               "value": 1.5,
@@ -2851,59 +2834,6 @@
     "abilities": [
       {
         "unit_ability": {
-          "key": "wh3_dlc25_unit_passive_wards_of_grimnir",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_passive_wards_of_grimnir",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Wards of Grimnir",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "ui_effects": [
-            {
-              "key": "wh3_main_ability_intensity_kills",
-              "localised_text": "Effect intensity increases with each kill made by the unit.",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_intensity_kills_200",
-              "localised_text": "Effect intensity increases with each kill made by the unit (200)",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_passive_wards_of_grimnir",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 20,
-                  "stat": "stat_resistance_all",
-                  "how": "add",
-                  "description": "+20 Damage Resistance ",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
           "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
           "overpower_option": "",
@@ -2966,6 +2896,54 @@
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_dlc25_unit_passive_wards_of_grimnir",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_passive_wards_of_grimnir",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wards of Grimnir",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "ui_effects": [
+            {
+              "key": "wh_intensity_kills_200",
+              "localised_text": "Effect intensity increases with each kill made by the unit (200)",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_passive_wards_of_grimnir",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 20,
+                  "stat": "stat_resistance_all",
+                  "how": "add",
+                  "description": "+20 Damage Resistance ",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
                 }
               ]
             }

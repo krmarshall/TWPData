@@ -1627,7 +1627,7 @@
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_1_2",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_wind_blast",
-        "character_skill_key": "wh2_main_skill_all_magic_heavens_02_wind_blast_lord",
+        "character_skill_key": "wh_main_skill_all_magic_heavens_02_wind_blast",
         "tier": 2,
         "indent": 3,
         "points_on_creation": 0,
@@ -1637,6 +1637,70 @@
         "localised_name": "Wind Blast",
         "localised_description": "",
         "levels": [
+          {
+            "effects": [
+              {
+                "description": "Spell: \"Wind Blast\"",
+                "key": "wh_main_effect_ability_enable_wind_blast",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_wind_blast",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_spell_heavens_wind_blast",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_wind_blast",
+                      "overpower_option": "wh_main_spell_heavens_wind_blast_upgraded",
+                      "type": {
+                        "key": "wh_type_breath",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_breath",
+                        "onscreen_name": "Breath"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Wind Blast",
+                      "active_time": 2,
+                      "effect_range": 0,
+                      "mana_cost": 7,
+                      "recharge_time": 40,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "wind_up_time": 1,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_vortex_large_breath",
+                          "localised_text": "Expanding tear-shaped attack",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_heavens_wind_blast",
+                        "duration": 2,
+                        "damage": 55,
+                        "damage_ap": 0,
+                        "goal_radius": 12,
+                        "movement_speed": 24,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           {
             "effects": [
               {
@@ -1799,7 +1863,7 @@
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_1_3",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_curse_of_the_midnight_wind",
-        "character_skill_key": "wh2_main_skill_all_magic_heavens_04_curse_of_the_midnight_wind_lord",
+        "character_skill_key": "wh_main_skill_all_magic_heavens_04_curse_of_the_midnight_wind",
         "tier": 3,
         "indent": 3,
         "points_on_creation": 0,
@@ -1871,11 +1935,71 @@
                     }
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "effects": [
               {
                 "description": "Overcast spell: \"Curse of the Midnight Wind Upgraded\"",
                 "key": "wh2_main_effect_ability_overcast_curse_of_the_midnight_wind",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_curse_of_the_midnight_wind",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_heavens_curse_of_the_midnight_wind",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_curse_of_the_midnight_wind",
+                      "overpower_option": "wh_main_spell_heavens_curse_of_the_midnight_wind_upgraded",
+                      "type": {
+                        "key": "wh_type_area_of_hexes",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                        "onscreen_name": "Hex (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Curse of the Midnight Wind",
+                      "active_time": 30,
+                      "effect_range": 35,
+                      "mana_cost": 8,
+                      "recharge_time": 20,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_curse_of_the_midnight_wind",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": -10,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "-10 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               },
               {
                 "description": "Cooldown: -30% to \"Curse of the Midnight Wind\"",
@@ -1978,7 +2102,7 @@
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_1_4",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_spell_heavens_urannons_thunderbolt",
-        "character_skill_key": "wh2_main_skill_all_magic_heavens_05_urannons_thunderbolt_lord",
+        "character_skill_key": "wh_main_skill_all_magic_heavens_05_urannons_thunderbolt",
         "tier": 4,
         "indent": 3,
         "points_on_creation": 0,
@@ -2073,11 +2197,94 @@
                     }
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "effects": [
               {
                 "description": "Overcast spell: \"Urannon's Thunderbolt Upgraded\"",
                 "key": "wh2_main_effect_ability_overcast_urannons_thunderbolt",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_urannons_thunderbolt",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_heavens_urannons_thunderbolt",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_urannons_thunderbolt",
+                      "overpower_option": "wh_main_spell_heavens_urannons_thunderbolt_upgraded",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Urannon's Thunderbolt",
+                      "active_time": 4,
+                      "effect_range": 0,
+                      "mana_cost": 7,
+                      "recharge_time": 30,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 300,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_magical_damage_major",
+                          "localised_text": "Causes major magical damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_bombardment_small_strike_aoe",
+                          "localised_text": "Small strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_good_vs_artillery",
+                          "localised_text": "Good against artillery pieces",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_heavens_urannons_thunderbolt",
+                        "arrival_window": 0.1,
+                        "radius_spread": 1,
+                        "start_time": 3,
+                        "projectile_type": {
+                          "key": "wh_main_spell_heavens_urannons_thunderbolt",
+                          "damage": 0,
+                          "ap_damage": 700,
+                          "shockwave_radius": 2,
+                          "effective_range": 200,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_heavens_urannons_thunderbolt",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 96,
+                            "detonation_radius": 8,
+                            "is_magical": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
               },
               {
                 "description": "Cooldown: -30% to \"Urannon's Thunderbolt\"",
@@ -2203,28 +2410,23 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_2",
-        "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "wh2_dlc15_skill_hef_archmage_potential_energy",
+        "image_path": "vanilla3/campaign_ui/skills/character_bonus_vs_infantry",
+        "character_skill_key": "wh3_main_skill_ogr_magic_meat_cleaver",
         "tier": 5,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Potential Energy",
-        "localised_description": "The Archmage crackles and flows with energies that would unmake any mortal practitioner.",
+        "localised_name": "Meat Cleaver",
+        "localised_description": "Once the slaughter begins, every foe is but meat yet to be carved.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Speed: +10%",
-                "key": "wh_main_effect_character_stat_speed",
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-              },
-              {
-                "description": "Winds of Magic power reserve capacity: +10",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+                "description": "Bonus vs Infantry: +8",
+                "key": "wh_main_effect_character_stat_bonus_vs_infantry",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small_character"
               }
             ]
           }
@@ -2268,20 +2470,20 @@
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_3_2",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "wh_main_skill_all_magic_all_08_power_drain",
+        "character_skill_key": "wh3_main_skill_ogr_magic_meat_reserves",
         "tier": 7,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Magical Reserves",
-        "localised_description": "A few magic-users have the ability to store the Winds of Magic for later use, increasing their spellcasting power when it really counts.",
+        "localised_name": "Meat Reserves",
+        "localised_description": "Where this one goes, his meat-pot goes too, as a bounteous reserve for his spells.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Winds of Magic power reserve capacity: +5",
+                "description": "Winds of Magic power reserve capacity: +8\n\t(own army)",
                 "key": "wh3_main_effect_winds_of_magic_pool_cap",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               }
@@ -2296,7 +2498,7 @@
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_3_3",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_spell_heavens_comet_of_casandora",
-        "character_skill_key": "wh2_main_skill_all_magic_heavens_09_comet_of_casandora_lord",
+        "character_skill_key": "wh_main_skill_all_magic_heavens_09_comet_of_casandora",
         "tier": 8,
         "indent": 3,
         "points_on_creation": 0,
@@ -2391,11 +2593,94 @@
                     }
                   }
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "effects": [
               {
                 "description": "Overcast spell: \"Comet of Casandora Upgraded\"",
                 "key": "wh2_main_effect_ability_overcast_comet_of_casandora",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_comet_of_casandora",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_heavens_comet_of_casandora",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_comet_of_casandora",
+                      "overpower_option": "wh_main_spell_heavens_comet_of_casandora_upgraded",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Comet of Casandora",
+                      "active_time": 7,
+                      "effect_range": 0,
+                      "mana_cost": 11,
+                      "recharge_time": 45,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_magical_damage_massive",
+                          "localised_text": "Causes massive magical damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_huge_static_aoe",
+                          "localised_text": "Huge explosion area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_bombardment_large_strike_aoe",
+                          "localised_text": "Large strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_heavens_comet_of_casandora",
+                        "arrival_window": 1,
+                        "radius_spread": 8,
+                        "start_time": 4,
+                        "projectile_type": {
+                          "key": "wh_main_spell_heavens_comet_of_casandora",
+                          "damage": 1200,
+                          "ap_damage": 350,
+                          "shockwave_radius": 3.5,
+                          "effective_range": 200,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_heavens_comet_of_casandora",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 80,
+                            "detonation_radius": 20,
+                            "is_magical": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
               },
               {
                 "description": "Cooldown: -30% to \"Comet of Casandora\"",
@@ -2521,7 +2806,7 @@
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_3_4",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_chain_lightning",
-        "character_skill_key": "wh2_main_skill_all_magic_heavens_10_chain_lightning_lord",
+        "character_skill_key": "wh_main_skill_all_magic_heavens_10_chain_lightning",
         "tier": 9,
         "indent": 3,
         "points_on_creation": 0,
@@ -2531,6 +2816,79 @@
         "localised_name": "Chain Lightning",
         "localised_description": "",
         "levels": [
+          {
+            "effects": [
+              {
+                "description": "Spell: \"Chain Lightning\"",
+                "key": "wh_main_effect_ability_enable_chain_lightning",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_chain_lightning",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_spell_heavens_chain_lightning",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_chain_lightning",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Chain Lightning",
+                      "active_time": 20,
+                      "effect_range": 0,
+                      "mana_cost": 13,
+                      "recharge_time": 90,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_large_vortex",
+                          "localised_text": "Large, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_heavens_chain_lightning",
+                        "duration": 20,
+                        "damage": 0,
+                        "damage_ap": 15,
+                        "goal_radius": 10,
+                        "movement_speed": 2,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           {
             "effects": [
               {
@@ -2623,30 +2981,30 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_4",
-        "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_arcane_conduit",
-        "character_skill_key": "wh2_dlc14_skilll_all_magic_all_greater_arcane_conduit",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_extra_ingredients",
+        "character_skill_key": "wh3_main_skill_ogr_magic_all_11_extra_ingredients",
         "tier": 10,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Greater Arcane Conduit",
+        "localised_name": "Extra Ingredients",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Passive ability: \"Greater Arcane Conduit\"",
-                "key": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
+                "description": "Ability: \"Extra Ingredients\"",
+                "key": "wh3_main_effect_ability_enable_extra_ingredients",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
+                    "effect": "wh3_main_effect_ability_enable_extra_ingredients",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh2_main_character_passive_grand_arcane_conduit",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                      "key": "wh3_main_character_abilities_extra_ingredients",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_extra_ingredients",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_augment_of_the_winds",
@@ -2654,8 +3012,10 @@
                         "onscreen_name": "Augment of the Winds"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Greater Arcane Conduit",
+                      "onscreen_name": "Extra Ingredients",
+                      "active_time": 40,
                       "effect_range": 0,
+                      "recharge_time": 90,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -2663,25 +3023,17 @@
                       "target_intercept_range": 0,
                       "phases": [
                         {
-                          "icon": "wh2_main_character_passive_grand_arcane_conduit",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_extra_ingredients",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
-                          "duration": -1,
+                          "duration": 40,
                           "effect_type": "positive",
-                          "onscreen_name": "Greater Arcane Conduit",
+                          "onscreen_name": "Extra Ingredients",
                           "is_hidden_in_ui": false,
-                          "mana_regen_mod": 0.6,
-                          "stat_effects": [
-                            {
-                              "value": 1.15,
-                              "stat": "scalar_spell_mastery",
-                              "how": "mult",
-                              "description": "x1.15 Spell Mastery",
-                              "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
-                            }
-                          ]
+                          "mana_max_depletion_mod": 0.2,
+                          "mana_regen_mod": 1.6
                         }
                       ]
                     }
@@ -4047,7 +4399,7 @@
     {
       "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_heavens_magic_dummy",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh2_main_skill_all_magic_heavens_dummy_harmonic_convergence_wind_blast",
+      "character_skill_key": "wh_main_skill_all_magic_heavens_dummy_harmonic_convergence",
       "tier": 11,
       "indent": 3,
       "points_on_creation": 1,
@@ -4117,66 +4469,6 @@
                         ]
                       }
                     ]
-                  }
-                }
-              ]
-            },
-            {
-              "description": "Spell: \"Wind Blast\"",
-              "key": "wh_main_effect_ability_enable_wind_blast",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "related_abilities": [
-                {
-                  "effect": "wh_main_effect_ability_enable_wind_blast",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh_main_spell_heavens_wind_blast",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_wind_blast",
-                    "overpower_option": "wh_main_spell_heavens_wind_blast_upgraded",
-                    "type": {
-                      "key": "wh_type_breath",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_breath",
-                      "onscreen_name": "Breath"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Wind Blast",
-                    "active_time": 2,
-                    "effect_range": 0,
-                    "mana_cost": 7,
-                    "recharge_time": 40,
-                    "target_enemies": true,
-                    "target_friends": false,
-                    "target_ground": true,
-                    "target_self": false,
-                    "target_intercept_range": 100,
-                    "wind_up_time": 1,
-                    "target_if": [
-                      "Grounded",
-                      "Not on or below a platform"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_vortex_large_breath",
-                        "localised_text": "Expanding tear-shaped attack",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_main_all_strong_against_units",
-                        "localised_text": "Strong vs multiple units",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "vortex": {
-                      "vortex_key": "wh_main_spell_heavens_wind_blast",
-                      "duration": 2,
-                      "damage": 55,
-                      "damage_ap": 0,
-                      "goal_radius": 12,
-                      "movement_speed": 24,
-                      "delay": 0,
-                      "affects_allies": true,
-                      "is_magical": true
-                    }
                   }
                 }
               ]

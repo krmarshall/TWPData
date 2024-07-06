@@ -45,7 +45,7 @@
               "damage": 270,
               "ap_damage": 325,
               "splash_target_size_limit": "large",
-              "splash_attack_max_attacks": 8,
+              "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
               "barrier": 0,
               "can_siege": true,
@@ -2104,7 +2104,7 @@
       {
         "key": "sm_rws_skill_magic_vpr_strigoi_tier_0",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
-        "character_skill_key": "wh_dlc04_skill_vmp_magic_strigoi_01_invocation_of_nehek",
+        "character_skill_key": "wh_main_skill_vmp_magic_vampires_01_invocation_of_nehek",
         "tier": 0,
         "indent": 3,
         "points_on_creation": 0,
@@ -2117,9 +2117,175 @@
           {
             "effects": [
               {
-                "description": "Cooldown: -50% to \"Invocation of Nehek\"",
-                "key": "wh_dlc04_effect_ability_cooldown_invocation_of_nehek_strigoi",
+                "description": "Overcast spell: \"Invocation of Nehek Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_invocation_of_nehek",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_invocation_of_nehek",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_invocation_of_nehek",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
+                      "overpower_option": "wh_main_spell_vampires_invocation_of_nehek_upgraded",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Invocation of Nehek",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "mana_cost": 8,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "target_if": [
+                        "Hit point replenishment cap not reached",
+                        "Undead",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_resurrect",
+                          "localised_text": "Resurrects dead combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_resurrect_hp",
+                          "localised_text": "Heals injured before resurrecting",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.008,
+                          "hp_change_frequency": 1,
+                          "resurrect": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -30% to \"Invocation of Nehek\"",
+                "key": "wh_main_effect_ability_cooldown_invocation_of_nehek",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Invocation of Nehek Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_invocation_of_nehek",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_invocation_of_nehek",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_invocation_of_nehek",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
+                      "overpower_option": "wh_main_spell_vampires_invocation_of_nehek_upgraded",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Invocation of Nehek",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "mana_cost": 8,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "target_if": [
+                        "Hit point replenishment cap not reached",
+                        "Undead",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_resurrect",
+                          "localised_text": "Resurrects dead combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_resurrect_hp",
+                          "localised_text": "Heals injured before resurrecting",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_invocation_of_nehek",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.008,
+                          "hp_change_frequency": 1,
+                          "resurrect": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -50% to \"Invocation of Nehek\"",
+                "key": "wh_main_effect_ability_cooldown_invocation_of_nehek",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              },
+              {
+                "description": "Winds of Magic cost: -1 for \"Invocation of Nehek\"",
+                "key": "wh2_main_effect_ability_wom_cost_invocation_of_nehek",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic cost: -2 for \"Invocation of Nehek Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_invocation_of_nehek_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Miscast base chance: -15% for \"Invocation of Nehek Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_invocation_of_nehek_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -2402,185 +2568,184 @@
       },
       {
         "key": "sm_rws_skill_magic_vpr_strigoi_tier_1_3",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_gaze_of_nagash",
-        "character_skill_key": "wh_dlc04_skill_vmp_magic_strigoi_04_gaze_of_nagash",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_penumbral_pendulum",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_penumbral_pendulum",
         "tier": 3,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Gaze of Nagash",
-        "localised_description": "",
+        "localised_name": "The Penumbral Pendulum",
+        "localised_description": "A spectral pendulum is summoned by the Wizard. On command, it swings, razor sharp and with lethal speed, through the foe.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Gaze of Nagash\"",
-                "key": "wh_dlc04_effect_ability_enable_gaze_of_nagash_strigoi",
+                "description": "Spell: \"The Penumbral Pendulum\"",
+                "key": "wh_dlc05_effect_ability_enable_penumbral_pendulum",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc04_effect_ability_enable_gaze_of_nagash_strigoi",
+                    "effect": "wh_dlc05_effect_ability_enable_penumbral_pendulum",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_vampires_gaze_of_nagash",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_gaze_of_nagash",
-                      "overpower_option": "wh_main_spell_vampires_gaze_of_nagash_upgraded",
+                      "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "overpower_option": "wh_dlc05_spell_shadow_the_penumbral_pendulum_upgraded",
                       "type": {
-                        "key": "wh_type_magic_missiles",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
-                        "onscreen_name": "Magic Missiles"
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Gaze of Nagash",
+                      "onscreen_name": "The Penumbral Pendulum",
+                      "active_time": 2,
                       "effect_range": 0,
-                      "mana_cost": 5,
-                      "recharge_time": 30,
+                      "mana_cost": 14,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 70,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 250,
+                      "target_intercept_range": 200,
                       "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
                       "ui_effects": [
                         {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "localised_text": "Causes moderate magical damage",
+                          "key": "wh2_main_spell_small_wind",
+                          "localised_text": "Small, forward-moving area of effect",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh2_main_all_good_against_armour",
-                          "localised_text": "Good against armour",
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_good_vs_large",
-                          "localised_text": "Good against large combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "localised_text": "Strong vs a single combatant",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh3_main_projectile_requires_line_of_sight",
-                          "localised_text": "Requires line of sight to the target",
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
                           "effect_state": "negative"
                         }
                       ],
-                      "activated_projectile": {
-                        "key": "wh_main_spell_vampires_gaze_of_nagash",
-                        "damage": 30,
-                        "ap_damage": 150,
-                        "shockwave_radius": 0.25,
-                        "effective_range": 250,
-                        "base_reload_time": 1,
-                        "bonus_v_large": 15,
-                        "projectile_number": 5,
-                        "is_magical": true,
-                        "can_damage_allies": true,
-                        "explosion_type": {
-                          "key": "wh_main_spell_vampires_gaze_of_nagash",
-                          "affects_allies": true,
-                          "detonation_damage": 30,
-                          "detonation_damage_ap": 65,
-                          "detonation_radius": 1,
-                          "is_magical": true
-                        }
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Spell: \"Gaze of Nagash\"",
-                "key": "wh_dlc04_effect_ability_enable_gaze_of_nagash_strigoi",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc04_effect_ability_enable_gaze_of_nagash_strigoi",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_vampires_gaze_of_nagash",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_gaze_of_nagash",
-                      "overpower_option": "wh_main_spell_vampires_gaze_of_nagash_upgraded",
-                      "type": {
-                        "key": "wh_type_magic_missiles",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
-                        "onscreen_name": "Magic Missiles"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Gaze of Nagash",
-                      "effect_range": 0,
-                      "mana_cost": 5,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 250,
-                      "wind_up_time": 3,
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "localised_text": "Causes moderate magical damage",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "localised_text": "Good against armour",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_good_vs_large",
-                          "localised_text": "Good against large combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_single",
-                          "localised_text": "Strong vs a single combatant",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh3_main_projectile_requires_line_of_sight",
-                          "localised_text": "Requires line of sight to the target",
-                          "effect_state": "negative"
-                        }
-                      ],
-                      "activated_projectile": {
-                        "key": "wh_main_spell_vampires_gaze_of_nagash",
-                        "damage": 30,
-                        "ap_damage": 150,
-                        "shockwave_radius": 0.25,
-                        "effective_range": 250,
-                        "base_reload_time": 1,
-                        "bonus_v_large": 15,
-                        "projectile_number": 5,
-                        "is_magical": true,
-                        "can_damage_allies": true,
-                        "explosion_type": {
-                          "key": "wh_main_spell_vampires_gaze_of_nagash",
-                          "affects_allies": true,
-                          "detonation_damage": 30,
-                          "detonation_damage_ap": 65,
-                          "detonation_radius": 1,
-                          "is_magical": true
-                        }
+                      "vortex": {
+                        "vortex_key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                        "duration": 2,
+                        "damage": 80,
+                        "damage_ap": 40,
+                        "goal_radius": 4,
+                        "movement_speed": 40,
+                        "delay": 1,
+                        "affects_allies": true,
+                        "is_magical": true
                       }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Gaze of Nagash\"",
-                "key": "wh_dlc04_effect_ability_cooldown_gaze_of_nagash_strigoi",
+                "description": "Overcast spell: \"The Penumbral Pendulum Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_penumbral_pendulum",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"The Penumbral Pendulum\"",
+                "key": "wh_dlc05_effect_ability_cooldown_penumbral_pendulum",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"The Penumbral Pendulum Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_penumbral_pendulum",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_penumbral_pendulum",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                      "overpower_option": "wh_dlc05_spell_shadow_the_penumbral_pendulum_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "The Penumbral Pendulum",
+                      "active_time": 2,
+                      "effect_range": 0,
+                      "mana_cost": 14,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 70,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "localised_text": "Small, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_dlc05_spell_shadow_the_penumbral_pendulum",
+                        "duration": 2,
+                        "damage": 80,
+                        "damage_ap": 40,
+                        "goal_radius": 4,
+                        "movement_speed": 40,
+                        "delay": 1,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -50% to \"The Penumbral Pendulum\"",
+                "key": "wh_dlc05_effect_ability_cooldown_penumbral_pendulum",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              },
+              {
+                "description": "Winds of Magic cost: -2 for \"The Penumbral Pendulum\"",
+                "key": "wh2_main_effect_ability_wom_cost_penumbral_pendulum",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic cost: -3 for \"The Penumbral Pendulum Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_penumbral_pendulum_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Miscast base chance: -15% for \"The Penumbral Pendulum Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_penumbral_pendulum_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -2592,43 +2757,43 @@
       },
       {
         "key": "sm_rws_skill_magic_vpr_strigoi_tier_1_4",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_vampires_drowned_dead",
-        "character_skill_key": "wh2_dlc11_skill_cst_magic_vampires_05_drowned_dead_lord",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+        "character_skill_key": "wh2_main_skill_vmp_magic_vampires_05_raise_dead_lord",
         "tier": 4,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Drowned Dead",
+        "localised_name": "Raise Dead",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Drowned Dead Upgraded\"",
-                "key": "wh2_dlc11_effect_ability_overcast_drowned_dead",
+                "description": "Overcast spell: \"Raise Dead Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_raise_dead",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_dlc11_effect_ability_overcast_drowned_dead",
+                    "effect": "wh2_main_effect_ability_overcast_raise_dead",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh2_dlc11_spell_vampires_drowned_dead",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_vampires_drowned_dead",
-                      "overpower_option": "wh2_dlc11_spell_vampires_drowned_dead_upgraded",
+                      "key": "wh_main_spell_vampires_raise_dead",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+                      "overpower_option": "wh_main_spell_vampires_raise_dead_upgraded",
                       "type": {
                         "key": "wh_type_summon_unit",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
                         "onscreen_name": "Summon Unit"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Drowned Dead",
-                      "active_time": 3,
+                      "onscreen_name": "Raise Dead",
+                      "active_time": 1,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_uses": 4,
-                      "recharge_time": 40,
+                      "num_uses": 6,
+                      "recharge_time": 20,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": true,
@@ -2640,8 +2805,8 @@
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_dlc11_all_summon_deckhands_mob",
-                          "localised_text": "Summons a unit of Zombie Pirate Deckhands Mob",
+                          "key": "wh_main_all_summon_zombies",
+                          "localised_text": "Summons a unit of Zombies",
                           "effect_state": "positive"
                         },
                         {
@@ -2660,8 +2825,8 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Drowned Dead\"",
-                "key": "wh2_dlc11_effect_ability_cooldown_drowned_dead",
+                "description": "Cooldown: -30% to \"Raise Dead\"",
+                "key": "wh_main_effect_ability_cooldown_raise_dead",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -2669,29 +2834,29 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Drowned Dead Upgraded\"",
-                "key": "wh2_dlc11_effect_ability_overcast_drowned_dead",
+                "description": "Overcast spell: \"Raise Dead Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_raise_dead",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_dlc11_effect_ability_overcast_drowned_dead",
+                    "effect": "wh2_main_effect_ability_overcast_raise_dead",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh2_dlc11_spell_vampires_drowned_dead",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_vampires_drowned_dead",
-                      "overpower_option": "wh2_dlc11_spell_vampires_drowned_dead_upgraded",
+                      "key": "wh_main_spell_vampires_raise_dead",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+                      "overpower_option": "wh_main_spell_vampires_raise_dead_upgraded",
                       "type": {
                         "key": "wh_type_summon_unit",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
                         "onscreen_name": "Summon Unit"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Drowned Dead",
-                      "active_time": 3,
+                      "onscreen_name": "Raise Dead",
+                      "active_time": 1,
                       "effect_range": 0,
                       "mana_cost": 5,
-                      "num_uses": 4,
-                      "recharge_time": 40,
+                      "num_uses": 6,
+                      "recharge_time": 20,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": true,
@@ -2703,8 +2868,8 @@
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_dlc11_all_summon_deckhands_mob",
-                          "localised_text": "Summons a unit of Zombie Pirate Deckhands Mob",
+                          "key": "wh_main_all_summon_zombies",
+                          "localised_text": "Summons a unit of Zombies",
                           "effect_state": "positive"
                         },
                         {
@@ -2723,21 +2888,21 @@
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Drowned Dead\"",
-                "key": "wh2_dlc11_effect_ability_cooldown_drowned_dead",
+                "description": "Cooldown: -50% to \"Raise Dead\"",
+                "key": "wh_main_effect_ability_cooldown_raise_dead",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Spell number of uses: +1 for \"Drowned Dead\"",
-                "key": "wh2_dlc11_effect_ability_uses_drowned_dead",
+                "description": "Spell number of uses: +1 for \"Raise Dead\" and \"Raise Dead Upgraded\"",
+                "key": "wh2_main_effect_ability_uses_raise_dead_raise_dead_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_dlc11_effect_ability_uses_drowned_dead",
+                    "effect": "wh2_main_effect_ability_uses_raise_dead_raise_dead_upgraded",
                     "bonus_value_id": "uses_mod",
                     "unit_ability": {
-                      "key": "wh2_dlc11_spell_vampires_drowned_dead_upgraded",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_vampires_drowned_dead",
+                      "key": "wh_main_spell_vampires_raise_dead_upgraded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_summon_unit",
@@ -2745,13 +2910,13 @@
                         "onscreen_name": "Summon Unit"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Drowned Dead Upgraded",
-                      "active_time": 3,
+                      "onscreen_name": "Raise Dead Upgraded",
+                      "active_time": 1,
                       "effect_range": 0,
-                      "mana_cost": 7,
+                      "mana_cost": 5,
                       "miscast_chance": 0.5,
-                      "num_uses": 4,
-                      "recharge_time": 45,
+                      "num_uses": 6,
+                      "recharge_time": 30,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": true,
@@ -2763,13 +2928,13 @@
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_dlc11_all_summon_gunnery_mob",
-                          "localised_text": "Summons a unit of Zombie Pirate Gunnery Mob",
+                          "key": "wh_main_spell_upgraded_summon_skeletons",
+                          "localised_text": "Summons a unit of Skeleton Warriors",
                           "effect_state": "magic"
                         },
                         {
-                          "key": "wh_dlc04_all_summon_flanker",
-                          "localised_text": "Good at flanking enemies",
+                          "key": "wh_main_all_defend_vs_charge",
+                          "localised_text": "Good at defending spellcaster",
                           "effect_state": "positive"
                         },
                         {
@@ -2783,8 +2948,8 @@
                 ]
               },
               {
-                "description": "Miscast base chance: -15% for \"Drowned Dead Upgraded\"",
-                "key": "wh2_dlc11_effect_ability_miscast_drowned_dead",
+                "description": "Miscast base chance: -15% for \"Raise Dead Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_raise_dead_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
@@ -2881,375 +3046,9 @@
       },
       {
         "key": "sm_rws_skill_magic_vpr_strigoi_tier_3_3",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-        "character_skill_key": "wh_dlc04_skill_vmp_magic_strigoi_04_soulblight",
-        "tier": 6,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Soulblight",
-        "localised_description": "",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Spell: \"Soulblight\"",
-                "key": "wh_dlc04_effect_ability_enable_soulblight_strigoi",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc04_effect_ability_enable_soulblight_strigoi",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_death_soulblight",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-                      "overpower_option": "wh_main_spell_death_soulblight_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Soulblight",
-                      "active_time": 20,
-                      "effect_range": 35,
-                      "mana_cost": 8,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": -20,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-20 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Spell: \"Soulblight\"",
-                "key": "wh_dlc04_effect_ability_enable_soulblight_strigoi",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc04_effect_ability_enable_soulblight_strigoi",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_death_soulblight",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-                      "overpower_option": "wh_main_spell_death_soulblight_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Soulblight",
-                      "active_time": 20,
-                      "effect_range": 35,
-                      "mana_cost": 8,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": -20,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-20 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Cooldown: -50% to \"Soulblight\"",
-                "key": "wh_dlc04_effect_ability_cooldown_soulblight_strigoi",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "sm_rws_skill_magic_vpr_strigoi_tier_2"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "sm_rws_skill_magic_vpr_strigoi_tier_3_4",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-        "character_skill_key": "wh_dlc04_skill_vmp_magic_strigoi_05_doom_and_darkness",
-        "tier": 7,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Doom & Darkness",
-        "localised_description": "",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Spell: \"Doom & Darkness\"",
-                "key": "wh_dlc04_effect_ability_enable_doom_and_darkness_strigoi",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc04_effect_ability_enable_doom_and_darkness_strigoi",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_death_doom_and_darkness",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-                      "overpower_option": "wh_main_spell_death_doom_and_darkness_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Doom & Darkness",
-                      "active_time": 40,
-                      "effect_range": 0,
-                      "mana_cost": 8,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 40,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.95 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_charge_speed",
-                              "how": "mult",
-                              "description": "x0.95 Charge Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": -15,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-15 Leadership",
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x0.95 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Spell: \"Doom & Darkness\"",
-                "key": "wh_dlc04_effect_ability_enable_doom_and_darkness_strigoi",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh_dlc04_effect_ability_enable_doom_and_darkness_strigoi",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_spell_death_doom_and_darkness",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-                      "overpower_option": "wh_main_spell_death_doom_and_darkness_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Doom & Darkness",
-                      "active_time": 40,
-                      "effect_range": 0,
-                      "mana_cost": 8,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 40,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.95 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_charge_speed",
-                              "how": "mult",
-                              "description": "x0.95 Charge Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": -15,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "-15 Leadership",
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x0.95 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Cooldown: -50% to \"Doom & Darkness\"",
-                "key": "wh_dlc04_effect_ability_cooldown_doom_and_darknes_strigoi",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "sm_rws_skill_magic_vpr_strigoi_tier_2"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "sm_rws_skill_magic_vpr_strigoi_tier_3_1",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
         "character_skill_key": "wh_main_skill_all_magic_all_07_earthing",
-        "tier": 8,
+        "tier": 6,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -3274,10 +3073,10 @@
         "boxed": true
       },
       {
-        "key": "sm_rws_skill_magic_vpr_strigoi_tier_3_2",
+        "key": "sm_rws_skill_magic_vpr_strigoi_tier_3_4",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
         "character_skill_key": "wh_main_skill_all_magic_all_08_power_drain",
-        "tier": 9,
+        "tier": 7,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -3299,38 +3098,441 @@
         "parent_required": [
           "sm_rws_skill_magic_vpr_strigoi_tier_2"
         ],
+        "boxed": true
+      },
+      {
+        "key": "sm_rws_skill_magic_vpr_strigoi_tier_3_1",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
+        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_lahmian_magic_okkams_mindrazor",
+        "tier": 8,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Okkam's Mindrazor",
+        "localised_description": "The supernatural solution is often the best; weapons materialise before the caster's allies, allowing them to slice through flesh, soul, and consciousness.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Spell: \"Okkam's Mindrazor\"",
+                "key": "wh_dlc05_effect_ability_enable_okkams_mindrazor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc05_effect_ability_enable_okkams_mindrazor",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "overpower_option": "wh_dlc05_spell_shadow_okkams_mindrazor_upgraded",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Okkam's Mindrazor",
+                      "active_time": 35,
+                      "effect_range": 0,
+                      "mana_cost": 15,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 35,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "imbue_magical": true,
+                          "stat_effects": [
+                            {
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.3 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.3 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Overcast spell: \"Okkam's Mindrazor Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_okkams_mindrazor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Okkam's Mindrazor\"",
+                "key": "wh_dlc05_effect_ability_cooldown_okkams_mindrazor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Okkam's Mindrazor Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_okkams_mindrazor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_okkams_mindrazor",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
+                      "overpower_option": "wh_dlc05_spell_shadow_okkams_mindrazor_upgraded",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Okkam's Mindrazor",
+                      "active_time": 35,
+                      "effect_range": 0,
+                      "mana_cost": 15,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_okkams_mindrazor",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 35,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "imbue_magical": true,
+                          "stat_effects": [
+                            {
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.3 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.3,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.3 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -50% to \"Okkam's Mindrazor\"",
+                "key": "wh_dlc05_effect_ability_cooldown_okkams_mindrazor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              },
+              {
+                "description": "Winds of Magic cost: -2 for \"Okkam's Mindrazor\"",
+                "key": "wh2_main_effect_ability_wom_cost_okkams_mindrazor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic cost: -3 for \"Okkam's Mindrazor Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_okkams_mindrazor_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Miscast base chance: -15% for \"Okkam's Mindrazor Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_okkams_mindrazor_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "sm_rws_skill_magic_vpr_strigoi_tier_2"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "sm_rws_skill_magic_vpr_strigoi_tier_3_2",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_wind_of_death",
+        "character_skill_key": "wh2_main_skill_vmp_magic_vampires_10_wind_of_death_lord",
+        "tier": 9,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Wind of Death",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Wind of Death Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_wind_of_death",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_wind_of_death",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_wind_of_death",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_wind_of_death",
+                      "overpower_option": "wh_main_spell_vampires_wind_of_death_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Wind of Death",
+                      "active_time": 8,
+                      "effect_range": 0,
+                      "mana_cost": 20,
+                      "recharge_time": 120,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_vampires_wind_of_death",
+                        "duration": 5,
+                        "damage": 27,
+                        "damage_ap": 27,
+                        "goal_radius": 6,
+                        "movement_speed": 20,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -30% to \"Wind of Death\"",
+                "key": "wh_main_effect_ability_cooldown_wind_of_death",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Wind of Death Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_wind_of_death",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_wind_of_death",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_vampires_wind_of_death",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_wind_of_death",
+                      "overpower_option": "wh_main_spell_vampires_wind_of_death_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Wind of Death",
+                      "active_time": 8,
+                      "effect_range": 0,
+                      "mana_cost": 20,
+                      "recharge_time": 120,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_vampires_wind_of_death",
+                        "duration": 5,
+                        "damage": 27,
+                        "damage_ap": 27,
+                        "goal_radius": 6,
+                        "movement_speed": 20,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -50% to \"Wind of Death\"",
+                "key": "wh_main_effect_ability_cooldown_wind_of_death",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              },
+              {
+                "description": "Winds of Magic cost: -3 for \"Wind of Death\"",
+                "key": "wh2_main_effect_ability_wom_cost_wind_of_death",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic cost: -4 for \"Wind of Death Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_wind_of_death_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Miscast base chance: -15% for \"Wind of Death Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_wind_of_death_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "sm_rws_skill_magic_vpr_strigoi_tier_2"
+        ],
         "right_arrow": true,
         "boxed": true
       },
       {
         "key": "sm_rws_skill_magic_vpr_strigoi_tier_4",
-        "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "wh_main_skill_all_magic_all_11_diviner",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_arcane_conduit",
+        "character_skill_key": "wh_main_skill_all_magic_all_11_arcane_conduit",
         "tier": 10,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Diviner",
-        "localised_description": "This adept uses the Winds of Magic to seek out arcane artefacts.",
+        "localised_name": "Arcane Conduit",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Magic item drop chance: +50%",
-                "key": "wh_main_effect_character_mod_ancillary_drop",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-              },
-              {
-                "description": "Post battle chance of stealing a magic item: +30%",
-                "key": "wh_main_effect_character_mod_ancillary_steal",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-              },
-              {
-                "description": "Campaign line of sight: +25%",
-                "key": "wh_main_effect_agent_field_line_of_sight_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+                "description": "Passive ability: \"Arcane Conduit\"",
+                "key": "wh_main_effect_ability_enable_arcane_conduit",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_arcane_conduit",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_character_abilities_arcane_conduit",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment_of_the_winds",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                        "onscreen_name": "Augment of the Winds"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Arcane Conduit",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "onscreen_name": "Arcane Conduit",
+                          "is_hidden_in_ui": false,
+                          "mana_regen_mod": 0.4
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -4975,7 +5177,7 @@
     {
       "key": "sm_rws_skill_magic_vpr_strigoi_tier_5",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh_dlc04_skill_vmp_magic_strigoi_dummy_invocation_of_nehek",
+      "character_skill_key": "wh2_main_skill_vmp_magic_vampires_dummy_invocation_of_nehek_danse_macabre",
       "tier": 11,
       "indent": 3,
       "points_on_creation": 1,
@@ -4989,11 +5191,11 @@
           "effects": [
             {
               "description": "Spell: \"Invocation of Nehek\"",
-              "key": "wh_dlc04_effect_ability_enable_invocation_of_nehek_strigoi",
+              "key": "wh_main_effect_ability_enable_invocation_of_nehek",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh_dlc04_effect_ability_enable_invocation_of_nehek_strigoi",
+                  "effect": "wh_main_effect_ability_enable_invocation_of_nehek",
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "wh_main_spell_vampires_invocation_of_nehek",
@@ -5052,6 +5254,68 @@
                         "heal_amount": 0.008,
                         "hp_change_frequency": 1,
                         "resurrect": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Spell: \"Vanhel's Danse Macabre\"",
+              "key": "wh_main_effect_ability_enable_vanhels_danse_macabre",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_vanhels_danse_macabre",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_spell_vampires_vanhels_danse_macabre",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_vanhels_danse_macabre",
+                    "overpower_option": "wh_main_spell_vampires_vanhels_danse_macabre_upgraded",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Vanhel's Danse Macabre",
+                    "active_time": 30,
+                    "effect_range": 0,
+                    "mana_cost": 5,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 30,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": true,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 1,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_vanhels_danse_macabre",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 25,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+25 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          }
+                        ]
                       }
                     ]
                   }
