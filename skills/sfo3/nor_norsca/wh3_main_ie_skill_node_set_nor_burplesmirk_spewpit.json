@@ -136,7 +136,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +10% for characters\n\t(Heroes in Lord's army)",
+                "description": "Character experience gain: +10%\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
@@ -151,7 +151,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +20% for characters\n\t(Heroes in Lord's army)",
+                "description": "Character experience gain: +20%\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
@@ -166,7 +166,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Experience gain: +30% for characters\n\t(Heroes in Lord's army)",
+                "description": "Character experience gain: +30%\n\t(Heroes in Lord's army)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               }
@@ -712,7 +712,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Miasma of Pestilence",
-                      "active_time": 30,
+                      "active_time": 45,
                       "effect_range": 0,
                       "mana_cost": 4,
                       "miscast_chance": 0.25,
@@ -731,10 +731,17 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 30,
+                          "duration": 45,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "stat_mass",
+                              "how": "mult",
+                              "description": "x0.5  Mass",
+                              "icon": "vanilla3/skins/default/icon_stat_mass"
+                            },
                             {
                               "value": -30,
                               "stat": "stat_melee_attack",
@@ -784,7 +791,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Miasma of Pestilence",
-                      "active_time": 30,
+                      "active_time": 45,
                       "effect_range": 0,
                       "mana_cost": 4,
                       "miscast_chance": 0.25,
@@ -803,10 +810,17 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 30,
+                          "duration": 45,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "stat_mass",
+                              "how": "mult",
+                              "description": "x0.5  Mass",
+                              "icon": "vanilla3/skins/default/icon_stat_mass"
+                            },
                             {
                               "value": -30,
                               "stat": "stat_melee_attack",
@@ -887,7 +901,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Children of Nurgle",
-                      "active_time": 10,
+                      "active_time": 20,
                       "effect_range": 150,
                       "target_enemies": false,
                       "target_friends": false,
@@ -916,11 +930,11 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 10,
+                          "duration": 20,
                           "effect_type": "positive",
                           "onscreen_name": "Children of Nurgle",
                           "is_hidden_in_ui": false,
-                          "heal_amount": 0.002,
+                          "heal_amount": 0.001,
                           "hp_change_frequency": 1,
                           "stat_effects": [
                             {
@@ -2385,7 +2399,7 @@
           {
             "effects": [
               {
-                "description": "Experience gain: +10% for characters\n\t(own characters in region)",
+                "description": "Character experience gain: +10%\n\t(own characters in region)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -2399,7 +2413,7 @@
           {
             "effects": [
               {
-                "description": "Experience gain: +20% for characters\n\t(own characters in region)",
+                "description": "Character experience gain: +20%\n\t(own characters in region)",
                 "key": "wh3_main_effect_character_campaign_experience_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -3952,6 +3966,119 @@
     "abilities": [
       {
         "unit_ability": {
+          "key": "wh3_main_unit_passive_daemonic_instability_nurgle",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Daemonic Instability",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is broken"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "wh3_main_unit_passive_daemonic_instability_nurgle_1",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 20,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 2,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.75 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": -25,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-25 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": -25,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "-25 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_daemonic_instability_nurgle_ii",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability_ii",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Banished!",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is shattered"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "wh3_main_unit_passive_daemonic_instability_nurgle_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 200,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 2
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
           "key": "nur_passive_unclean_1",
           "icon_name": "sfo3/battle_ui/ability_icons/nur_passive_unclean_1",
           "overpower_option": "",
@@ -4146,7 +4273,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Miasma of Pestilence",
-                    "active_time": 30,
+                    "active_time": 45,
                     "effect_range": 0,
                     "mana_cost": 4,
                     "miscast_chance": 0.25,
@@ -4165,10 +4292,17 @@
                         "target_enemies": true,
                         "target_self": false,
                         "target_friends": false,
-                        "duration": 30,
+                        "duration": 45,
                         "effect_type": "negative",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
+                          {
+                            "value": 0.5,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x0.5  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
+                          },
                           {
                             "value": -30,
                             "stat": "stat_melee_attack",
@@ -4387,7 +4521,7 @@
               ]
             },
             {
-              "description": "Experience gain: +25% for characters",
+              "description": "Character experience gain: +25%",
               "key": "wh3_main_effect_character_campaign_experience_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
