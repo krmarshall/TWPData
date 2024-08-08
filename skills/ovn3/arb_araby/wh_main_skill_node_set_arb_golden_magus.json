@@ -275,6 +275,9 @@
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Casting"
+                    ],
                     "phases": [
                       {
                         "icon": "arb_golden_magus_wrath_djinn_passive",
@@ -445,7 +448,7 @@
               "melee_attack_interval": 6,
               "barrier": 0,
               "can_siege": true,
-              "fly_speed": 3,
+              "fly_speed": 3.6,
               "projectile": {
                 "key": "arb_djinn_skiff_cannon_ball",
                 "damage": 88,
@@ -457,8 +460,8 @@
               },
               "accuracy": 10,
               "reload": 0,
-              "primary_ammo": 60,
-              "secondary_ammo": 50,
+              "primary_ammo": 80,
+              "secondary_ammo": 260,
               "fire_arc": 270,
               "attributes": [
                 {
@@ -583,6 +586,9 @@
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Casting"
+                    ],
                     "phases": [
                       {
                         "icon": "arb_golden_magus_wrath_djinn_passive",
@@ -1088,6 +1094,62 @@
           {
             "effects": [
               {
+                "description": "adds the ability that grants the spell intensity",
+                "key": "wh3_dlc24_effect_10_spell_mastery_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc24_effect_10_spell_mastery_hidden",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc24_effect_10_spell_mastery_hidden",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment_of_the_winds",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                        "onscreen_name": "Augment of the Winds"
+                      },
+                      "is_hidden_in_ui": true,
+                      "onscreen_name": "Somewhat Limited Power!",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "wh3_dlc24_effect_10_spell_mastery_hidden",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "onscreen_name": "Unlimited Power!",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 0.1,
+                              "stat": "scalar_spell_mastery",
+                              "how": "add",
+                              "description": "+0.1 Spell Mastery",
+                              "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Spell intensity: +10%",
+                "key": "wh3_dlc24_effect_spell_mastery_dummy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+              },
+              {
                 "description": "Cooldown: -20% to all spells",
                 "key": "wh2_dlc12_effect_magic_cooldown_all_lores",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
@@ -1130,6 +1192,68 @@
                 "description": "Hero recruit rank: +4 for Magicians\n\t(local province)",
                 "key": "wh_main_effect_agent_recruitment_xp_wizard_arb_2",
                 "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+              },
+              {
+                "description": "Passive ability: \"Fires of Change\"",
+                "key": "wh3_main_effect_ability_enable_fires_of_change",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_fires_of_change",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_lore_passive_fires_of_change",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lore_passive_fires_of_change",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_ward_save",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                        "onscreen_name": "Ward Save (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fires of Change",
+                      "active_time": 9,
+                      "effect_range": -1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Casting"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc05_spell_trigger_when_casting",
+                          "localised_text": "Triggers when casting spell",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lore_passive_fires_of_change",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 9,
+                          "effect_type": "positive",
+                          "onscreen_name": "Fires of Change",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -4582,6 +4706,9 @@
           "target_ground": false,
           "target_self": false,
           "target_intercept_range": 0,
+          "enabled_if": [
+            "Casting"
+          ],
           "phases": [
             {
               "icon": "arb_golden_magus_wrath_djinn_passive",
