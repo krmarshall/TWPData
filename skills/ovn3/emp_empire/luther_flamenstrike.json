@@ -31,9 +31,9 @@
               "damage_mod_physical": 0,
               "damage_mod_missile": 15,
               "damage_mod_all": 0,
-              "melee_attack": 25,
+              "melee_attack": 35,
               "melee_defence": 30,
-              "charge_bonus": 35,
+              "charge_bonus": 45,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
               "damage": 210,
@@ -191,6 +191,11 @@
                 "description": "Speed: +10%",
                 "key": "wh_main_effect_character_stat_speed",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              },
+              {
+                "description": "Charge bonus: +15",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
             ],
             "unlocked_at_rank": 13
@@ -214,12 +219,12 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic cost: -3 for \"Flame Storm\"",
-                "key": "wh2_main_effect_ability_wom_cost_flame_storm",
+                "description": "Winds of Magic cost: -2 for \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_piercing_bolts_of_burning_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -3 for \"Flame Storm Upgraded\"",
+                "description": "Winds of Magic cost: -2 for \"Flame Storm Upgraded\"",
                 "key": "wh2_main_effect_ability_wom_cost_flame_storm_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               }
@@ -388,16 +393,16 @@
           {
             "effects": [
               {
-                "description": "Bound spell: \"Bound Fiery Convocation\"",
-                "key": "wh2_main_effect_ability_enable_bound_khaines_ring_of_fury",
+                "description": "Bound spell: \"Wall of Fire\"",
+                "key": "enable_ovn_bound_wall_of_wind_and_fire",
                 "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_enable_bound_khaines_ring_of_fury",
+                    "effect": "enable_ovn_bound_wall_of_wind_and_fire",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh2_main_spell_bound_khaines_ring_of_fury",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_high_magic_fiery_convocation",
+                      "key": "ovn_luthor_wall_of_fire",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_yang_wall_of_wind_and_fire",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_wind",
@@ -405,60 +410,93 @@
                         "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Bound Fiery Convocation",
-                      "active_time": 10,
+                      "onscreen_name": "Wall of Fire",
+                      "active_time": 25,
                       "effect_range": 0,
+                      "miscast_chance": 0.25,
                       "num_uses": 2,
-                      "recharge_time": 120,
+                      "recharge_time": 90,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
                       "target_self": false,
                       "target_intercept_range": 150,
-                      "wind_up_time": 5,
-                      "target_if": [
-                        "",
-                        "Not on or below a platform"
-                      ],
+                      "wind_up_time": 3,
                       "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_and_flaming_major",
-                          "localised_text": "Causes major magical & fire damage",
-                          "effect_state": "positive"
-                        },
                         {
                           "key": "wh2_main_spell_medium_wind",
                           "localised_text": "Medium, forward-moving area of effect",
                           "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh2_main_all_good_against_armour",
-                          "localised_text": "Good against armour",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "localised_text": "Strong vs multiple units",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
                         }
                       ],
                       "vortex": {
-                        "vortex_key": "wh2_main_bound_fiery_convocation",
-                        "duration": 3,
-                        "damage": 0,
-                        "damage_ap": 35,
-                        "goal_radius": 7,
-                        "movement_speed": 44,
-                        "delay": 4.6,
+                        "vortex_key": "ovn_bound_wall_of_wind_and_fire",
+                        "duration": 23,
+                        "damage": 12,
+                        "damage_ap": 3,
+                        "goal_radius": 3,
+                        "movement_speed": 3,
+                        "delay": 2,
                         "affects_allies": true,
                         "is_magical": true,
                         "is_flaming": true
                       }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Passive ability: \"Raging Flames\"",
+                "key": "enable_ovn_luthor_raging_flames",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "enable_ovn_luthor_raging_flames",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "ovn_luthor_raging_flames",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc13_lord_abilities_funnel_of_flame",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                        "onscreen_name": "Direct Damage (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Raging Flames",
+                      "active_time": 9,
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Casting"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc05_spell_trigger_when_casting",
+                          "localised_text": "Triggers when casting spell",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "ovn_luthor_raging_flames",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "onscreen_name": "Raging Flames",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 10,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 3
+                        }
+                      ]
                     }
                   }
                 ]
@@ -2592,9 +2630,9 @@
     "damage_mod_physical": 0,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
-    "melee_attack": 25,
+    "melee_attack": 35,
     "melee_defence": 30,
-    "charge_bonus": 15,
+    "charge_bonus": 25,
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
     "damage": 210,
@@ -2681,10 +2719,10 @@
     {
       "key": "wh_main_skill_node_emp_luther_flamenstrike_innate_01",
       "image_path": "vanilla3/campaign_ui/skills/trait_high_elves",
-      "character_skill_key": "wh2_dlc15_skill_innate_hef_archmage_army_7_incendiary",
+      "character_skill_key": "ovn_luthor_innate",
       "tier": 0,
       "indent": 6,
-      "points_on_creation": 0,
+      "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": true,
@@ -2694,19 +2732,46 @@
         {
           "effects": [
             {
+              "description": "Enables \"Burnt\" contact effect (reduced leadership)",
+              "key": "wh3_dlc25_effect_contact_phase_burnt_character",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wh_main_unit_contact_overhead_morale",
+              "related_phases": [
+                {
+                  "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_morale",
+                  "order": 0,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 10,
+                  "effect_type": "negative",
+                  "onscreen_name": "Burnt!",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": -8,
+                      "stat": "stat_morale",
+                      "how": "add",
+                      "description": "-8 Leadership",
+                      "icon": "vanilla3/skins/default/icon_stat_morale"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "description": "Enables flaming attacks",
               "key": "wh2_main_effect_character_stat_enable_flaming_attacks",
               "icon": "vanilla3/campaign_ui/effect_bundles/modifier_icon_flaming"
             },
             {
-              "description": "Weapon strength: +75%",
-              "key": "wh_main_effect_character_stat_weapon_strength",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              "description": "Miscast base chance: +10%",
+              "key": "wh_main_effect_character_stat_miscast",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             },
             {
-              "description": "Charge bonus: +75",
-              "key": "wh_main_effect_character_stat_charge_bonus_add",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
+              "description": "Base weapon damage: +120",
+              "key": "wh2_main_effect_force_stat_weapon_strength_base",
+              "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_damage_base_force"
             }
           ]
         }
