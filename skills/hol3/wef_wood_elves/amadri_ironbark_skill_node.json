@@ -603,11 +603,6 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/growth"
               },
               {
-                "description": "Casualty replenishment rate: +6%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
-                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
-              },
-              {
                 "description": "Corruption: -5\n\t(local province)",
                 "key": "wh3_main_effect_corruption_reduction_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -625,11 +620,6 @@
                 "description": "Growth: +20\n\t(local province)",
                 "key": "wh_main_effect_province_growth_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/growth"
-              },
-              {
-                "description": "Casualty replenishment rate: +12%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
-                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               },
               {
                 "description": "Corruption: -10\n\t(local province)",
@@ -806,9 +796,9 @@
                 ]
               },
               {
-                "description": "Melee attack: +16",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+                "description": "Bonus vs Large: +10",
+                "key": "wh_main_effect_character_stat_mod_bonus_v_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
               }
             ]
           }
@@ -901,7 +891,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               },
               {
-                "description": "Research rate: +15%",
+                "description": "Research rate: +15",
                 "key": "wh_main_effect_technology_research_rate_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/technology"
               },
@@ -1266,7 +1256,7 @@
           {
             "effects": [
               {
-                "description": "Unit experience gain per turn: +75\n\t(Lord's army)",
+                "description": "Unit experience gain per turn: +75\n\t(Hero's army)",
                 "key": "wh_main_effect_agent_action_outcome_parent_army_xp_gain",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -2515,7 +2505,7 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 3.4,
+    "run_speed": 4.2,
     "mass": 1500,
     "size": "large",
     "hit_points": 8,
@@ -2699,6 +2689,79 @@
             }
           }
         }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_unit_passive_frenzy",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Frenzy",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than 50% of base"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+10 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.1 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },
@@ -2767,6 +2830,96 @@
                       "how": "mult",
                       "description": "x1.12 Base Missile Damage",
                       "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "description": "Enables ability: \"Murderous Insanity\" for Treemen, Treemen Ancients and Tree Kin units",
+        "key": "enable_hol_treemen_roused_to_wrath",
+        "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+        "related_abilities": [
+          {
+            "effect": "enable_hol_treemen_roused_to_wrath",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "hol_treemen_roused_to_wrath",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc16_lord_passive_fanatical_resolve",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_augment",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                "onscreen_name": "Augment"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Murderous Insanity",
+              "effect_range": 0,
+              "target_enemies": false,
+              "target_friends": false,
+              "target_ground": false,
+              "target_self": false,
+              "target_intercept_range": 0,
+              "ui_effects": [
+                {
+                  "key": "wh3_dlc23_ability_intensity_damage_taken",
+                  "localised_text": "Effect intensity increases as the unit takes damage",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "hol_treeman_intensity_decay",
+                  "localised_text": "Effect intensity slowly decreases if unit stops taking damage",
+                  "effect_state": "positive"
+                }
+              ],
+              "phases": [
+                {
+                  "icon": "hol_treemen_roused_to_wrath",
+                  "order": 1,
+                  "target_enemies": false,
+                  "target_self": true,
+                  "target_friends": false,
+                  "duration": -1,
+                  "effect_type": "positive",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": 1.5,
+                      "stat": "stat_melee_damage_base",
+                      "how": "mult",
+                      "description": "x1.5 Base Weapon Damage",
+                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                    },
+                    {
+                      "value": 20,
+                      "stat": "stat_melee_attack",
+                      "how": "add",
+                      "description": "+20 Melee Attack",
+                      "icon": "vanilla3/skins/default/icon_stat_attack"
+                    },
+                    {
+                      "value": -20,
+                      "stat": "stat_melee_defence",
+                      "how": "add",
+                      "description": "-20 Melee Defence",
+                      "icon": "vanilla3/skins/default/icon_stat_defence"
+                    },
+                    {
+                      "value": -30,
+                      "stat": "stat_armour",
+                      "how": "add",
+                      "description": "-30 Armour",
+                      "icon": "vanilla3/skins/default/icon_stat_armour"
+                    },
+                    {
+                      "value": 1.5,
+                      "stat": "stat_melee_damage_ap",
+                      "how": "mult",
+                      "description": "x1.5 Armour-Piercing Weapon Damage",
+                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                     }
                   ]
                 }
@@ -3007,7 +3160,7 @@
       "unlocked_at_rank": 20,
       "effects": [
         {
-          "description": "Ward Save: +10% for all Trees\n\t(Lord's army)",
+          "description": "Ward Save: +10% for all Dryads, Treekin & Treemen\n\t(Lord's army)",
           "key": "trees_ward_save",
           "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
         },
@@ -3237,11 +3390,6 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "description": "Speed: +25%",
-              "key": "wh_main_effect_character_stat_speed",
-              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-            },
-            {
               "description": "Leadership aura size: -10%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
@@ -3250,88 +3398,6 @@
               "description": "Local recruitment capacity: +3\n\t(local province)",
               "key": "wh_main_effect_unit_recruitment_points",
               "icon": "vanilla3/campaign_ui/effect_bundles/army"
-            },
-            {
-              "description": "Passive ability: \"Frenzy\"",
-              "key": "wh_dlc08_effect_ability_enable_frenzy",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "related_abilities": [
-                {
-                  "effect": "wh_dlc08_effect_ability_enable_frenzy",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh_main_unit_passive_frenzy",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Frenzy",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than 50% of base"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 10,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+10 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_charge_bonus",
-                            "how": "mult",
-                            "description": "x1.1 Charge Bonus",
-                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "immune_to_psychology",
-                            "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                }
-              ]
             }
           ]
         }

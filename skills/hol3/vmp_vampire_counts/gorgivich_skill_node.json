@@ -390,7 +390,7 @@
       {
         "key": "gorgivich_self_02",
         "image_path": "vanilla3/campaign_ui/skills/character_military_spending",
-        "character_skill_key": "wh2_dlc11_skill_vmp_bloodline_blood_dragon_unique_the_ordo_draconis",
+        "character_skill_key": "vmp_gorgivich_ordo_draconis",
         "tier": 3,
         "indent": 0,
         "points_on_creation": 0,
@@ -408,17 +408,17 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/income"
               },
               {
-                "description": "Upkeep: -40% for Blood Knight units\n\t(Lord's army)",
+                "description": "Upkeep: -40% for Blood Knight units\n\t(Hero's army)",
                 "key": "wh2_main_effect_tech_recruitment_cost_reduction_blood_knights",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               },
               {
-                "description": "Recruitment cost: -40% for Blood Knight units\n\t(Lord's army)",
+                "description": "Recruitment cost: -40% for Blood Knight units\n\t(Hero's army)",
                 "key": "wh2_main_effect_tech_upkeep_reduction_blood_knights",
                 "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "description": "Local Recruitment duration: -1 turn for Blood Knights units (minimum 1)\n\t(Lord's army)",
+                "description": "Local Recruitment duration: -1 turn for Blood Knights units (minimum 1)\n\t(Hero's army)",
                 "key": "wh2_dlc11_vmp_skill_unique_blood_dragon_recruitment_time_blood_knight",
                 "icon": "vanilla3/campaign_ui/effect_bundles/turns"
               }
@@ -792,6 +792,66 @@
                 "description": "Hero action cost: -30%",
                 "key": "wh_main_effect_agent_action_cost_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              },
+              {
+                "description": "Passive ability: \"Honour or Death\"",
+                "key": "wh2_dlc11_effect_ability_enable_honour_or_death",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc11_effect_ability_enable_honour_or_death",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc11_lord_passive_honour_or_death",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_passive_honour_or_death",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Honour or Death",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "In melee"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_passive_honour_or_death",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            },
+                            {
+                              "value": 8,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+8 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -888,6 +948,66 @@
                     "description": " Unbreakable",
                     "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
                     "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+                  }
+                ]
+              },
+              {
+                "description": "Enables passive ability: \"Iron Resolve\" for Knights of the Red Death\n\t(all units in army)",
+                "key": "vmp_enable_krakvald_red_death_knights_iron_resolve",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "vmp_enable_krakvald_red_death_knights_iron_resolve",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc25_unit_passive_iron_resolve",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_passive_iron_resolve",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Iron Resolve",
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Hit Points greater than 50%"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc12_refuse_to_die",
+                          "localised_text": "Entities cannot die while ability is active",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc25_unit_passive_iron_resolve",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "attributes": [
+                            {
+                              "key": "cannot_die",
+                              "description": "Cannot Die",
+                              "bullet_text": "Entities in this unit take damage, but cannot die.",
+                              "icon": "vanilla3/battle_ui/ability_icons/cannot_die"
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   }
                 ]
               }
@@ -1985,79 +2105,6 @@
           "icon": "hol3/campaign_ui/effect_bundles/modifier_icon_flaming"
         },
         {
-          "description": "Fire resistance: 20%",
-          "key": "wh_main_effect_character_stat_fire_resistance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_fire"
-        }
-      ],
-      "item_set": {
-        "key": "ancillary_set_gorgivich_krakvald",
-        "name": "Butcher of Ostwald",
-        "description": "",
-        "contains": [
-          {
-            "name": "Slaughter Blades of Modruin",
-            "icon": "skins/default/equipment_items_weapon"
-          },
-          {
-            "name": "Laminar Blood Armour",
-            "icon": "skins/default/equipment_items_armour"
-          }
-        ],
-        "effects": [
-          {
-            "description": "Vampiric corruption: +3\n\t(local province)",
-            "key": "wh3_main_effect_corruption_vampiric_characters",
-            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
-            "priority": 104
-          },
-          {
-            "description": "Control: +1\n\t(all provinces)",
-            "key": "wh_main_effect_public_order_characters",
-            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
-            "priority": 6
-          },
-          {
-            "description": "Attribute: Devastating Flanker",
-            "key": "wh3_main_effect_attribute_enable_devestating_flanker",
-            "icon": "vanilla3/campaign_ui/effect_bundles/devastating_flanker",
-            "priority": 320,
-            "related_attributes": [
-              {
-                "key": "devastating_flanker",
-                "description": "Devastating Flanker",
-                "bullet_text": "Entities with this attribute double their charge bonus when attacking the rear or flank of an entity.",
-                "icon": "vanilla3/battle_ui/ability_icons/devastating_flanker"
-              }
-            ]
-          },
-          {
-            "description": "Charge bonus: +5",
-            "key": "wh_main_effect_character_stat_charge_bonus_add",
-            "icon": "vanilla3/campaign_ui/effect_bundles/charge_character",
-            "priority": 200
-          }
-        ]
-      }
-    },
-    {
-      "key": "blood_armour",
-      "onscreen_name": "Laminar Blood Armour",
-      "colour_text": "A lighter version of the Blood Knight’s armour, designed for more agility and flexibility.",
-      "ui_icon": "skins/default/equipment_items_armour",
-      "unlocked_at_rank": 18,
-      "effects": [
-        {
-          "description": "Armour: +10",
-          "key": "wh_main_effect_character_stat_armour",
-          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-        },
-        {
-          "description": "Ward save: 6%",
-          "key": "wh_main_effect_character_stat_ward_save",
-          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
-        },
-        {
           "description": "Ability: \"Heart Piercing\"",
           "key": "wh2_dlc11_effect_ability_enable_heart_piercing",
           "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
@@ -2136,6 +2183,79 @@
               }
             }
           ]
+        }
+      ],
+      "item_set": {
+        "key": "ancillary_set_gorgivich_krakvald",
+        "name": "Butcher of Ostwald",
+        "description": "",
+        "contains": [
+          {
+            "name": "Slaughter Blades of Modruin",
+            "icon": "skins/default/equipment_items_weapon"
+          },
+          {
+            "name": "Laminar Blood Armour",
+            "icon": "skins/default/equipment_items_armour"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Vampiric corruption: +3\n\t(local province)",
+            "key": "wh3_main_effect_corruption_vampiric_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric",
+            "priority": 104
+          },
+          {
+            "description": "Control: +1\n\t(all provinces)",
+            "key": "wh_main_effect_public_order_characters",
+            "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
+            "priority": 6
+          },
+          {
+            "description": "Attribute: Devastating Flanker",
+            "key": "wh3_main_effect_attribute_enable_devestating_flanker",
+            "icon": "vanilla3/campaign_ui/effect_bundles/devastating_flanker",
+            "priority": 320,
+            "related_attributes": [
+              {
+                "key": "devastating_flanker",
+                "description": "Devastating Flanker",
+                "bullet_text": "Entities with this attribute double their charge bonus when attacking the rear or flank of an entity.",
+                "icon": "vanilla3/battle_ui/ability_icons/devastating_flanker"
+              }
+            ]
+          },
+          {
+            "description": "Charge bonus: +5",
+            "key": "wh_main_effect_character_stat_charge_bonus_add",
+            "icon": "vanilla3/campaign_ui/effect_bundles/charge_character",
+            "priority": 200
+          }
+        ]
+      }
+    },
+    {
+      "key": "blood_armour",
+      "onscreen_name": "Laminar Blood Armour",
+      "colour_text": "A lighter version of the Blood Knight’s armour, designed for more agility and flexibility.",
+      "ui_icon": "skins/default/equipment_items_armour",
+      "unlocked_at_rank": 18,
+      "effects": [
+        {
+          "description": "Armour: +10",
+          "key": "wh_main_effect_character_stat_armour",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+        },
+        {
+          "description": "Ward save: 6%",
+          "key": "wh_main_effect_character_stat_ward_save",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+        },
+        {
+          "description": "Fire resistance: 20%",
+          "key": "wh_main_effect_character_stat_fire_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_fire"
         }
       ],
       "item_set": {
