@@ -278,6 +278,11 @@
           {
             "effects": [
               {
+                "description": "Melee attack and Melee defence: +5 for Ogre Mercenary units\n\t(Lord's army)",
+                "key": "wh3_main_effect_melee_attack_melee_defence_ogre_mercenaries",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              },
+              {
                 "description": "Cooldown: -25% to Lore of Metal spells",
                 "key": "wh_main_effect_ability_cooldown_lore_of_metal",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character",
@@ -525,12 +530,12 @@
                 ]
               },
               {
-                "description": "Winds of Magic cost: -4 for \"Final Transmutation Upgraded\"",
+                "description": "Winds of Magic cost: -2 for \"Final Transmutation Upgraded\"",
                 "key": "wh2_main_effect_ability_wom_cost_final_transmutation_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -4 for \"Plague of Rust Upgraded\"",
+                "description": "Winds of Magic cost: -2 for \"Plague of Rust Upgraded\"",
                 "key": "wh2_main_effect_ability_wom_cost_plague_of_rust_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               }
@@ -556,6 +561,64 @@
           {
             "effects": [
               {
+                "description": "Weapon Strength and Missile Strength: +10% for Ogre Mercenary units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_weapon_strength_missile_strength_ogre_mercenaries",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Passive ability: \"Guardian\" for Ogre Mercenary units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_ability_guardian_ogre_mercenaries",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_guardian_ogre_mercenaries",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc10_unit_passive_guardian",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_passive_guardian",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_ward_save",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                        "onscreen_name": "Ward Save (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Guardian",
+                      "effect_range": 30,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "target_if": [
+                        "Unit is a Lord or Hero"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh_pro04_unit_passive_guardian",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+15 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
                 "description": "Diplomatic relations: +10 with Grand Cathay",
                 "key": "wh3_main_faction_political_diplomacy_mod_cathay",
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
@@ -566,19 +629,72 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
               },
               {
-                "description": "Upkeep: -10% for Ogre mercenary units\n\t(Lord's army)",
+                "description": "Upkeep: -5% for Ogre mercenary units\n\t(Lord's army)",
                 "key": "wh3_main_effect_upkeep_ogre_mercenaries",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-              },
-              {
-                "description": "Recruitment cost: -10% for Ogre mercenary units\n\t(Lord's army)",
-                "key": "wh3_main_effect_recruitment_cost_ogre_mercenaries",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               }
             ]
           },
           {
             "effects": [
+              {
+                "description": "Weapon Strength and Missile Strength: +20% for Ogre Mercenary units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_weapon_strength_missile_strength_ogre_mercenaries",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Passive ability: \"Guardian\" for Ogre Mercenary units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_ability_guardian_ogre_mercenaries",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_guardian_ogre_mercenaries",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc10_unit_passive_guardian",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_passive_guardian",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_ward_save",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                        "onscreen_name": "Ward Save (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Guardian",
+                      "effect_range": 30,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "target_if": [
+                        "Unit is a Lord or Hero"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh_pro04_unit_passive_guardian",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+15 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
               {
                 "description": "Diplomatic relations: +20 with Grand Cathay",
                 "key": "wh3_main_faction_political_diplomacy_mod_cathay",
@@ -590,14 +706,9 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
               },
               {
-                "description": "Upkeep: -20% for Ogre mercenary units\n\t(Lord's army)",
+                "description": "Upkeep: -10% for Ogre mercenary units\n\t(Lord's army)",
                 "key": "wh3_main_effect_upkeep_ogre_mercenaries",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-              },
-              {
-                "description": "Recruitment cost: -20% for Ogre mercenary units\n\t(Lord's army)",
-                "key": "wh3_main_effect_recruitment_cost_ogre_mercenaries",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               }
             ]
           }
@@ -638,7 +749,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "description": "Hero recruit rank: +2 for Alchemists\n\t(factionwide)",
+                "description": "Hero recruit rank: +1 for Alchemists\n\t(factionwide)",
                 "key": "cth_effect_alchemist_exp",
                 "icon": "vanilla3/campaign_ui/effect_bundles/alchemist"
               }
@@ -662,7 +773,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               },
               {
-                "description": "Hero recruit rank: +1 for Alchemists\n\t(factionwide)",
+                "description": "Hero recruit rank: +2 for Alchemists\n\t(factionwide)",
                 "key": "cth_effect_alchemist_exp",
                 "icon": "vanilla3/campaign_ui/effect_bundles/alchemist"
               }
