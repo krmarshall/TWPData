@@ -13,7 +13,7 @@
         "visible_in_ui": true,
         "is_background_skill": false,
         "localised_name": "War Boar",
-        "localised_description": "An Orc Shaman will ride a hog if he has to, but not because he finks it's a particularly good idea.",
+        "localised_description": "The war boar is a stubborn and vicious animal - an extremely tough beast that is notoriously bad tempered, loudly flatulent, unpredictable, and wholly dangerous.",
         "levels": [
           {
             "effects": [
@@ -122,7 +122,7 @@
                 }
               ]
             },
-            "auto_unlock_at_rank": 11
+            "auto_unlock_at_rank": 6
           }
         ]
       },
@@ -130,7 +130,7 @@
         "key": "wh_main_skill_node_grn_orc_shaman_unique_02",
         "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
         "character_skill_key": "wh_main_skill_grn_all_unique_dodgy_geezer",
-        "tier": 1,
+        "tier": 11,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -222,7 +222,158 @@
         ]
       }
     ],
-    [],
+    [
+      {
+        "key": "wh3_dlc26_skill_node_grn_orc_shaman_character_01",
+        "image_path": "vanilla3/campaign_ui/skills/character_damage",
+        "character_skill_key": "wh3_dlc26_skill_grn_orc_shaman_one_of_da_boyz",
+        "tier": 0,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "One of da Boyz",
+        "localised_description": "While an Orc Shaman will primarily dance around chanting their magic, never forget that they are Greenskins, and Orcs at that. Get too close and they'll still rip your arms off!",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee attack: +5",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Weapon strength: +10%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ],
+            "unlocked_at_rank": 12
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "wh3_dlc26_skill_node_grn_orc_shaman_character_02",
+        "image_path": "vanilla3/campaign_ui/skills/character_agent",
+        "character_skill_key": "wh3_dlc26_skill_grn_orc_shaman_dont_look_em_in_da_eye",
+        "tier": 1,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Don't Look 'Em in da Eye",
+        "localised_description": "The ability to create discomfort among friend or foe through their gaze can be quite disarming, allowing for the Orc Shamans to act freely and manipulate events as they unfold.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hero action cost: -10%",
+                "key": "wh_main_effect_agent_action_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              },
+              {
+                "description": "Hero action success chance: +5%",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          }
+        ],
+        "right_arrow": true,
+        "parent_required": [
+          "wh3_dlc26_skill_node_grn_orc_shaman_character_01"
+        ]
+      },
+      {
+        "key": "wh3_dlc26_skill_node_grn_orc_shaman_character_03",
+        "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "wh3_dlc26_skill_grn_orc_shaman_da_great_green",
+        "tier": 2,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Da Great Green",
+        "localised_description": "The bigger the Waaagh!, the bigger the spells, and the greater the Shaman's power.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic cost: -10% for Big Waaagh! spells",
+                "key": "wh3_dlc26_effect_ability_cost_big_waaagh",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Ability: \"Mumbo-Jumbo Chant\" ",
+                "key": "wh3_dlc26_effect_ability_enable_mumbo_jumbo",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc26_effect_ability_enable_mumbo_jumbo",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc26_character_abilities_mumbo_jumbo_chant",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc26_character_abilities_mumbo_jumbo_chant",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Mumbo-Jumbo Chant",
+                      "active_time": 30,
+                      "effect_range": 55,
+                      "recharge_time": 120,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "wh3_dlc26_character_abilities_mumbo_jumbo_chant_allies",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false
+                        },
+                        {
+                          "icon": "wh3_dlc26_character_abilities_mumbo_jumbo_chant_self",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "cant_move": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +5",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "wh3_dlc26_skill_node_grn_orc_shaman_character_02"
+        ]
+      }
+    ],
     [
       {
         "key": "wh_main_skill_node_grn_orc_shaman_magic1_01",
@@ -3369,11 +3520,6 @@
         {
           "effects": [
             {
-              "description": "Leadership: +3",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
               "description": "Attribute: Immune to Psychology",
               "key": "wh_main_effect_attribute_enable_immune_to_psychology",
               "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
@@ -3385,6 +3531,11 @@
                   "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
                 }
               ]
+            },
+            {
+              "description": "Leadership: +3",
+              "key": "wh_main_effect_character_stat_leadership",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
             }
           ]
         }
@@ -3464,14 +3615,14 @@
         {
           "effects": [
             {
-              "description": "Magic item drop chance from battle: +15%",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
-              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-            },
-            {
               "description": "Campaign line of sight: +10%",
               "key": "wh_main_effect_agent_field_line_of_sight_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+            },
+            {
+              "description": "Magic item drop chance from battle: +15%",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             }
           ]
         }
