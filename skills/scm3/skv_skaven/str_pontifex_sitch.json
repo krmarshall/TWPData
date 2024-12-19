@@ -226,6 +226,7 @@
                         "target_friends": true,
                         "duration": -1,
                         "effect_type": "positive",
+                        "onscreen_name": "PLACEHOLDER",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
@@ -749,23 +750,96 @@
           {
             "effects": [
               {
-                "description": "Diplomatic relations: +40 with the faction of Clan Moulder",
-                "key": "wh2_dlc14_diplomatic_relations_moulder",
-                "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+                "description": "Battle healing cap: +50%\n\t(Lord's army)",
+                "key": "wh3_dlc20_effect_healing_cap_modifier",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
               {
-                "description": "Morbidus aligns itself with Clan Moulder, declaring war on the rest of the Pestilent Brotherhood in return for a Military Alliance and Trade Agreement.",
-                "key": "str_sitch_moulder",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              },
-              {
-                "description": "Recruitment cost: -50% for Mad Rat Ogre, Great Pox Rat, and Frothing Wolf Rats units\n\t(all units in army)",
-                "key": "str_pestilent_morb_moulder_recruit",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+                "description": "Passive ability: \"Corrupted Tumor\" for Mad Rat Ogre, Great Pox Rat, and Frothing Wolf Rats units\n\t(Lord's army)",
+                "key": "str_sitch_corrupted_tumor",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "str_sitch_corrupted_tumor",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "str_sitch_corrupted_tumor",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_unit_passive_thunderous_charge",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Corrupted Tumor",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh3_main_ability_intensity_kills",
+                          "localised_text": "Effect intensity increases with each kill made by the unit.",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "str_sitch_corrupted_tumor",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "onscreen_name": "PLACEHOLDER",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.5,
+                              "stat": "stat_mass",
+                              "how": "mult",
+                              "description": "x1.5  Mass",
+                              "icon": "vanilla3/skins/default/icon_stat_mass"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_damage_reflection",
+                              "how": "add",
+                              "description": "+20 Melee Damage Reflection",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                            },
+                            {
+                              "value": 3,
+                              "stat": "scalar_entity_acceleration_modifier",
+                              "how": "mult",
+                              "description": "x3 Acceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 3,
+                              "stat": "scalar_entity_deceleration_modifier",
+                              "how": "mult",
+                              "description": "x3 Deceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.5 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
-            ],
-            "blocks_skill_node_keys": [
-              "str_pontifex_sitch_custom_5"
             ]
           }
         ],
@@ -790,23 +864,75 @@
           {
             "effects": [
               {
-                "description": "Morbidus aligns itself with the Pestilent Brotherhood, declaring war on Clan Moulder in return for Defensive Alliances and Trade Agreements with all Brotherhood members.",
-                "key": "str_sitch_pestilent",
-                "icon": "vanilla3/campaign_ui/effect_bundles/plague"
+                "description": "Ability: \"Malodorous Ascendancy\"\n\t(Lord's army)",
+                "key": "str_sitch_malodorous_ascendancy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "str_sitch_malodorous_ascendancy",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "str_sitch_malodorous_ascendancy",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_plague_plague",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Malodorous Ascendancy",
+                      "active_time": 24,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "target_if": [
+                        "Unit is not Lord or Hero"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "str_sitch_malodorous_ascendancy",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 24,
+                          "effect_type": "positive",
+                          "onscreen_name": "PLACEHOLDER",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 30,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+30 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "unbreakable",
+                              "description": " Unbreakable",
+                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               },
               {
-                "description": "Diplomatic relations: +10 with the factions of the Pestilent Brotherhood",
-                "key": "bc_diplomacy_pestilent_brotherhood",
-                "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
-              },
-              {
-                "description": "Recruitment cost: +50% for Mad Rat Ogre, Great Pox Rat, and Frothing Wolf Rats units\n\t(all units in army)",
-                "key": "str_pestilent_morb_moulder_recruit",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+                "description": "Weapon strength: -10%\n\t(enemy armies in local province)",
+                "key": "wh_main_effect_force_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
-            ],
-            "blocks_skill_node_keys": [
-              "str_pontifex_sitch_custom_4"
             ]
           }
         ],
@@ -871,6 +997,7 @@
                           "target_friends": true,
                           "duration": 22,
                           "effect_type": "positive",
+                          "onscreen_name": "PLACEHOLDER",
                           "is_hidden_in_ui": false,
                           "imbue_contact": {
                             "icon": "scm3/battle_ui/ability_icons/bc_decaying_touch",
@@ -3902,8 +4029,8 @@
   },
   "factionEffects": {
     "key": "str_pestilent_morbidus_faction",
-    "localised_description": "",
-    "localised_title": "",
+    "localised_description": "PLACEHOLDER",
+    "localised_title": "PLACEHOLDER",
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
       {
@@ -3919,6 +4046,11 @@
       {
         "description": "Chance of a plague spreading: +100%",
         "key": "wh2_dlc14_effect_plague_infectivity_mod_skrolk",
+        "icon": "vanilla3/campaign_ui/effect_bundles/plague"
+      },
+      {
+        "description": "Monsters and Maladies: Pontifex Sitch must balance his alliances with the Pestilent Brotherhood and Clan Moulder. Too far one way, and the other side will make his life a living hell. But if he keeps both happy, he reaps the benefits.",
+        "key": "str_morbidus_alliance_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/plague"
       },
       {
@@ -3987,6 +4119,7 @@
                   "target_friends": false,
                   "duration": -1,
                   "effect_type": "negative",
+                  "onscreen_name": "PLACEHOLDER",
                   "is_hidden_in_ui": false,
                   "damage_amount": 3,
                   "hp_change_frequency": 0.5,

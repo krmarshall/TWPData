@@ -479,19 +479,88 @@
           {
             "effects": [
               {
-                "description": "Melee defence: +6",
+                "description": "Leadership: +10 when fighting against Greenskins",
+                "key": "mixu_LL_army_leadership_vs_greenskins",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              },
+              {
+                "description": "Melee defence: +8",
                 "key": "wh_main_effect_character_stat_melee_defence",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
               },
               {
-                "description": "Weapon strength: +15%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-              },
-              {
-                "description": "Missile strength: +15%",
-                "key": "wh_main_effect_character_stat_missile_damage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
+                "description": "Ability: \"Colossal Strike\"",
+                "key": "wh3_dlc24_effect_ability_enable_colossal_strike",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc24_effect_ability_enable_colossal_strike",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc24_character_abilities_colossal_strike",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Colossal Strike",
+                      "active_time": 32,
+                      "effect_range": 0,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 32,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 16,
+                              "stat": "stat_bonus_vs_large",
+                              "how": "add",
+                              "description": "+16 Bonus vs. Large",
+                              "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -2892,6 +2961,11 @@
               "description": "Immortal",
               "key": "mixu_LL_enable_immortality",
               "icon": ""
+            },
+            {
+              "description": "Replenishes 50% campaign movement range after winning a battle against Greenskins",
+              "key": "mixu_ll_movement_range_post_battle_win_against_greenskins",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             },
             {
               "description": "Leadership: +8 for Ironbreakers and Miners units\n\t(Lord's army)",
