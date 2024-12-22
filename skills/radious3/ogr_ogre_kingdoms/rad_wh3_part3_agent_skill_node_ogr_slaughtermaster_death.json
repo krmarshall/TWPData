@@ -23,7 +23,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/military"
               },
               {
-                "description": "Meat gained from battles: +15%\n\t(Lord's army)",
+                "description": "Meat gained from battles: +20%\n\t(Lord's army)",
                 "key": "wh3_main_tech_ogr_postbattle_meat",
                 "icon": "vanilla3/campaign_ui/effect_bundles/meat_bundle"
               }
@@ -546,7 +546,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
               },
               {
-                "description": "Weapon strength: +15%",
+                "description": "Weapon strength: +12%",
                 "key": "wh_main_effect_character_stat_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               }
@@ -1353,94 +1353,101 @@
     [
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_0",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-        "character_skill_key": "wh_main_skill_all_magic_death_01_spirit_leech",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+        "character_skill_key": "wh_main_skill_all_magic_fire_01_fireball",
         "tier": 0,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Spirit Leech",
+        "localised_name": "Fireball",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Spirit Leech Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_spirit_leech",
+                "description": "Overcast spell: \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_fireball",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_spirit_leech",
+                    "effect": "wh2_main_effect_ability_overcast_fireball",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_spirit_leech",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                      "overpower_option": "wh_main_spell_death_spirit_leech_upgraded",
+                      "key": "wh_main_spell_fire_fireball",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+                      "overpower_option": "wh_main_spell_fire_fireball_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "onscreen_name": "Direct Damage"
+                        "key": "wh_type_magic_missile",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                        "onscreen_name": "Magic Missile"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Spirit Leech",
-                      "active_time": 15,
+                      "onscreen_name": "Fireball",
                       "effect_range": 0,
-                      "mana_cost": 6,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 30,
+                      "mana_cost": 5,
+                      "recharge_time": 20,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
-                      "target_intercept_range": 100,
+                      "target_intercept_range": 300,
                       "wind_up_time": 1,
                       "ui_effects": [
                         {
-                          "key": "wh_main_all_direct_damage",
-                          "localised_text": "Causes damage to combatants",
+                          "key": "wh2_main_all_magical_and_flaming_medium",
+                          "localised_text": "Causes moderate magical & fire damage",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "localised_text": "Strong vs characters",
+                          "key": "wh_main_projectile_powerful_explosion",
+                          "localised_text": "Powerful explosion",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_strong_against_single",
-                          "localised_text": "Strong vs a single combatant",
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_weak_against_multiple",
-                          "localised_text": "Weak vs multiple combatants",
+                          "key": "wh_main_projectile_effective_long_range",
+                          "localised_text": "Effective at long range",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
                           "effect_state": "negative"
                         }
                       ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "onscreen_name": "Spirit Leech!",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 67,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 1
+                      "activated_projectile": {
+                        "key": "wh_main_spell_fire_fireball",
+                        "damage": 800,
+                        "ap_damage": 0,
+                        "shockwave_radius": 1,
+                        "effective_range": 300,
+                        "base_reload_time": 1,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh_main_spell_fire_fireball",
+                          "affects_allies": true,
+                          "detonation_damage": 150,
+                          "detonation_damage_ap": 0,
+                          "detonation_radius": 5,
+                          "is_magical": true,
+                          "is_flaming": true
                         }
-                      ]
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Spirit Leech\"",
-                "key": "wh_main_effect_ability_cooldown_spirit_leech",
+                "description": "Cooldown: -30% to \"Fireball\"",
+                "key": "wh_main_effect_ability_cooldown_fireball",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1448,95 +1455,102 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Spirit Leech Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_spirit_leech",
+                "description": "Overcast spell: \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_fireball",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_spirit_leech",
+                    "effect": "wh2_main_effect_ability_overcast_fireball",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_spirit_leech",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                      "overpower_option": "wh_main_spell_death_spirit_leech_upgraded",
+                      "key": "wh_main_spell_fire_fireball",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+                      "overpower_option": "wh_main_spell_fire_fireball_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "onscreen_name": "Direct Damage"
+                        "key": "wh_type_magic_missile",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                        "onscreen_name": "Magic Missile"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Spirit Leech",
-                      "active_time": 15,
+                      "onscreen_name": "Fireball",
                       "effect_range": 0,
-                      "mana_cost": 6,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 30,
+                      "mana_cost": 5,
+                      "recharge_time": 20,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
-                      "target_intercept_range": 100,
+                      "target_intercept_range": 300,
                       "wind_up_time": 1,
                       "ui_effects": [
                         {
-                          "key": "wh_main_all_direct_damage",
-                          "localised_text": "Causes damage to combatants",
+                          "key": "wh2_main_all_magical_and_flaming_medium",
+                          "localised_text": "Causes moderate magical & fire damage",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_dlc08_direct_damage_character_unit",
-                          "localised_text": "Strong vs characters",
+                          "key": "wh_main_projectile_powerful_explosion",
+                          "localised_text": "Powerful explosion",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_strong_against_single",
-                          "localised_text": "Strong vs a single combatant",
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_weak_against_multiple",
-                          "localised_text": "Weak vs multiple combatants",
+                          "key": "wh_main_projectile_effective_long_range",
+                          "localised_text": "Effective at long range",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
                           "effect_state": "negative"
                         }
                       ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "onscreen_name": "Spirit Leech!",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 67,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 1
+                      "activated_projectile": {
+                        "key": "wh_main_spell_fire_fireball",
+                        "damage": 800,
+                        "ap_damage": 0,
+                        "shockwave_radius": 1,
+                        "effective_range": 300,
+                        "base_reload_time": 1,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh_main_spell_fire_fireball",
+                          "affects_allies": true,
+                          "detonation_damage": 150,
+                          "detonation_damage_ap": 0,
+                          "detonation_radius": 5,
+                          "is_magical": true,
+                          "is_flaming": true
                         }
-                      ]
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Spirit Leech\"",
-                "key": "wh_main_effect_ability_cooldown_spirit_leech",
+                "description": "Cooldown: -50% to \"Fireball\"",
+                "key": "wh_main_effect_ability_cooldown_fireball",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Spirit Leech\"",
-                "key": "wh2_main_effect_ability_wom_cost_spirit_leech",
+                "description": "Winds of Magic cost: -1 for \"Fireball\"",
+                "key": "wh2_main_effect_ability_wom_cost_fireball",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Spirit Leech Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_spirit_leech_upgraded",
+                "description": "Winds of Magic cost: -2 for \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_fireball_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Spirit Leech Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_spirit_leech_upgraded",
+                "description": "Miscast base chance: -15% for \"Fireball Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_fireball_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
@@ -1546,40 +1560,40 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_1_1",
-        "image_path": "vanilla3/campaign_ui/skills/wh_main_lore_passive_life_leeching",
-        "character_skill_key": "wh_main_skill_all_magic_death_03_life_leeching",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_lore_passive_kindleflame",
+        "character_skill_key": "wh_main_skill_all_magic_fire_04_kindleflame",
         "tier": 1,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Life-Leeching",
+        "localised_name": "Kindleflame",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Passive ability: \"Life Leeching\"",
-                "key": "wh_main_effect_ability_enable_life-leeching",
+                "description": "Passive ability: \"Kindleflame\"",
+                "key": "wh_main_effect_ability_enable_kindleflame",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_life-leeching",
+                    "effect": "wh_main_effect_ability_enable_kindleflame",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_lore_passive_life_leeching",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_life_leeching",
+                      "key": "wh_main_lore_passive_kindleflame",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_kindleflame",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_augment_of_the_winds",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                        "onscreen_name": "Augment of the Winds"
+                        "key": "wh_type_area_of_ward_save_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves_hex",
+                        "onscreen_name": "Ward Save Hex (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Life Leeching",
-                      "active_time": 25,
-                      "effect_range": 0,
+                      "onscreen_name": "Kindleflame",
+                      "active_time": 15,
+                      "effect_range": -1,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -1597,16 +1611,24 @@
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_life_leeching",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_kindleflame",
                           "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
+                          "target_enemies": true,
+                          "target_self": false,
                           "target_friends": false,
-                          "duration": 25,
-                          "effect_type": "positive",
-                          "onscreen_name": "Life Leeching",
+                          "duration": 20,
+                          "effect_type": "negative",
+                          "onscreen_name": "Kindleflame",
                           "is_hidden_in_ui": false,
-                          "mana_max_depletion_mod": 0.1
+                          "stat_effects": [
+                            {
+                              "value": -10,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-10 Weakness to Fire Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -1623,41 +1645,41 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_1_2",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
-        "character_skill_key": "wh2_main_skill_all_magic_death_02_aspect_of_the_dreadknight_lord",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+        "character_skill_key": "wh2_main_skill_all_magic_fire_02_cascading_fire-cloak_lord",
         "tier": 2,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Aspect of the Dread Knight",
+        "localised_name": "Cascading Fire-Cloak",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Aspect of the Dread Knight Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_aspect_of_the_dreadknight",
+                "description": "Spell: \"Cascading Fire Cloak\"",
+                "key": "wh_main_effect_ability_enable_cascading_fire_cloak",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_aspect_of_the_dreadknight",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh_main_effect_ability_enable_cascading_fire_cloak",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_aspect_of_the_dreadknight",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
-                      "overpower_option": "wh_main_spell_death_aspect_of_the_dreadknight_upgraded",
+                      "key": "wh_main_spell_fire_cascading_fire_cloak",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                      "overpower_option": "",
                       "type": {
                         "key": "wh_type_augment",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
                         "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Aspect of the Dread Knight",
-                      "active_time": 20,
+                      "onscreen_name": "Cascading Fire Cloak",
+                      "active_time": 30,
                       "effect_range": 0,
-                      "mana_cost": 4,
+                      "mana_cost": 5,
                       "num_effected_friendly_units": 1,
                       "recharge_time": 30,
                       "target_enemies": false,
@@ -1668,43 +1690,28 @@
                       "wind_up_time": 1,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 20,
+                          "duration": 30,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
-                          "imbue_magical": true,
                           "stat_effects": [
                             {
-                              "value": 6,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "+6 Leadership",
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
                               "value": 25,
-                              "stat": "stat_resistance_magic",
+                              "stat": "stat_melee_defence",
                               "how": "add",
-                              "description": "+25 Spell Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                            }
-                          ],
-                          "attributes": [
-                            {
-                              "key": "causes_fear",
-                              "description": " Can Cause Fear",
-                              "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+                              "description": "+25 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
                             },
                             {
-                              "key": "causes_terror",
-                              "description": " Can Cause Terror",
-                              "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
                         }
@@ -1714,110 +1721,14 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Aspect of the Dread Knight\"",
-                "key": "wh_main_effect_ability_cooldown_aspect_of_the_dreadknight",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Aspect of the Dread Knight Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_aspect_of_the_dreadknight",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_aspect_of_the_dreadknight",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_death_aspect_of_the_dreadknight",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
-                      "overpower_option": "wh_main_spell_death_aspect_of_the_dreadknight_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Aspect of the Dread Knight",
-                      "active_time": 20,
-                      "effect_range": 0,
-                      "mana_cost": 4,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 30,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 20,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "imbue_magical": true,
-                          "stat_effects": [
-                            {
-                              "value": 6,
-                              "stat": "stat_morale",
-                              "how": "add",
-                              "description": "+6 Leadership",
-                              "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 25,
-                              "stat": "stat_resistance_magic",
-                              "how": "add",
-                              "description": "+25 Spell Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                            }
-                          ],
-                          "attributes": [
-                            {
-                              "key": "causes_fear",
-                              "description": " Can Cause Fear",
-                              "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
-                            },
-                            {
-                              "key": "causes_terror",
-                              "description": " Can Cause Terror",
-                              "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Cooldown: -50% to \"Aspect of the Dread Knight\"",
-                "key": "wh_main_effect_ability_cooldown_aspect_of_the_dreadknight",
+                "description": "Cooldown: -50% to \"Cascading Fire Cloak\"",
+                "key": "wh_main_effect_ability_cooldown_cascading_fire_cloak",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Aspect of the Dread Knight\"",
-                "key": "wh2_main_effect_ability_wom_cost_aspect_of_the_dreadknight",
+                "description": "Winds of Magic cost: -1 for \"Cascading Fire Cloak\"",
+                "key": "wh2_main_effect_ability_wom_cost_cascading_fire_cloak",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Winds of Magic cost: -2 for \"Aspect of the Dread Knight Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_aspect_of_the_dreadknight_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Miscast base chance: -15% for \"Aspect of the Dread Knight Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_aspect_of_the_dreadknight_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -1829,79 +1740,74 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_1_3",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-        "character_skill_key": "wh2_main_skill_all_magic_death_04_soulblight_lord",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+        "character_skill_key": "wh2_main_skill_all_magic_fire_03_flaming_sword_of_rhuin_lord",
         "tier": 3,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Soulblight",
+        "localised_name": "Flaming Sword of Rhuin",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Soulblight\"",
-                "key": "wh_main_effect_ability_enable_soulblight",
+                "description": "Spell: \"Flaming Sword of Rhuin\"",
+                "key": "wh_main_effect_ability_enable_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_soulblight",
+                    "effect": "wh_main_effect_ability_enable_flaming_sword_of_rhuin",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_soulblight",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-                      "overpower_option": "wh_main_spell_death_soulblight_upgraded",
+                      "key": "wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "overpower_option": "wh_main_spell_fire_flaming_sword_of_rhuin_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Soulblight",
+                      "onscreen_name": "Flaming Sword of Rhuin",
                       "active_time": 20,
                       "effect_range": 35,
-                      "mana_cost": 8,
+                      "mana_cost": 6,
                       "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
-                      "target_self": false,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 3,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
                           "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 20,
-                          "effect_type": "negative",
+                          "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "imbue_magical": true,
+                          "imbue_ignition": true,
                           "stat_effects": [
                             {
-                              "value": 0.8,
+                              "value": 1.15,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x1.15 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 1.15,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
+                              "description": "x1.15 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": -20,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-20 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
                         }
@@ -1911,13 +1817,13 @@
                 ]
               },
               {
-                "description": "Overcast spell: \"Soulblight Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_soulblight",
+                "description": "Overcast spell: \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Cooldown: -30% to \"Soulblight\"",
-                "key": "wh_main_effect_ability_cooldown_soulblight",
+                "description": "Cooldown: -30% to \"Flaming Sword of Rhuin\"",
+                "key": "wh_main_effect_ability_cooldown_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1925,65 +1831,60 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Soulblight Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_soulblight",
+                "description": "Overcast spell: \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_soulblight",
+                    "effect": "wh2_main_effect_ability_overcast_flaming_sword_of_rhuin",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_soulblight",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
-                      "overpower_option": "wh_main_spell_death_soulblight_upgraded",
+                      "key": "wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
+                      "overpower_option": "wh_main_spell_fire_flaming_sword_of_rhuin_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Soulblight",
+                      "onscreen_name": "Flaming Sword of Rhuin",
                       "active_time": 20,
                       "effect_range": 35,
-                      "mana_cost": 8,
+                      "mana_cost": 6,
                       "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
+                      "target_enemies": false,
+                      "target_friends": true,
                       "target_ground": true,
-                      "target_self": false,
+                      "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 3,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_soulblight",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flaming_sword_of_rhuin",
                           "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
                           "duration": 20,
-                          "effect_type": "negative",
+                          "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "imbue_magical": true,
+                          "imbue_ignition": true,
                           "stat_effects": [
                             {
-                              "value": 0.8,
+                              "value": 1.15,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x1.15 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 1.15,
                               "stat": "stat_melee_damage_base",
                               "how": "mult",
-                              "description": "x0.8 Base Weapon Damage",
+                              "description": "x1.15 Base Weapon Damage",
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": -20,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-20 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            },
-                            {
-                              "value": 0.8,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x0.8 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                             }
                           ]
                         }
@@ -1993,23 +1894,23 @@
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Soulblight\"",
-                "key": "wh_main_effect_ability_cooldown_soulblight",
+                "description": "Cooldown: -50% to \"Flaming Sword of Rhuin\"",
+                "key": "wh_main_effect_ability_cooldown_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Soulblight\"",
-                "key": "wh2_main_effect_ability_wom_cost_soulblight",
+                "description": "Winds of Magic cost: -2 for \"Flaming Sword of Rhuin\"",
+                "key": "wh2_main_effect_ability_wom_cost_flaming_sword_of_rhuin",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -3 for \"Soulblight Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_soulblight_upgraded",
+                "description": "Winds of Magic cost: -2 for \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_flaming_sword_of_rhuin_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Soulblight Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_soulblight_upgraded",
+                "description": "Miscast base chance: -15% for \"Flaming Sword of Rhuin Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_flaming_sword_of_rhuin_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
@@ -2022,110 +1923,125 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_1_4",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-        "character_skill_key": "wh2_main_skill_all_magic_death_05_doom_and_darkness_lord",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_the_burning_head",
+        "character_skill_key": "wh2_main_skill_all_magic_fire_05_the_burning_head_lord",
         "tier": 4,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Doom & Darkness",
+        "localised_name": "The Burning Head",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Doom & Darkness\"",
-                "key": "wh_main_effect_ability_enable_doom_and_darkness",
+                "description": "Spell: \"The Burning Head\"",
+                "key": "wh_main_effect_ability_enable_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_doom_and_darkness",
+                    "effect": "wh_main_effect_ability_enable_the_burning_head",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_doom_and_darkness",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-                      "overpower_option": "wh_main_spell_death_doom_and_darkness_upgraded",
+                      "key": "wh_main_spell_fire_the_burning_head",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_the_burning_head",
+                      "overpower_option": "wh_main_spell_fire_the_burning_head_upgraded",
                       "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Doom & Darkness",
-                      "active_time": 40,
+                      "onscreen_name": "The Burning Head",
+                      "active_time": 20,
                       "effect_range": 0,
-                      "mana_cost": 8,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 30,
+                      "mana_cost": 14,
+                      "recharge_time": 75,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 200,
+                      "target_intercept_range": 150,
                       "wind_up_time": 3,
-                      "phases": [
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "localised_text": "Small, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_the_burning_head",
+                        "duration": 20,
+                        "damage": 30,
+                        "damage_ap": 0,
+                        "goal_radius": 7,
+                        "movement_speed": 9,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "contact_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_morale",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
-                          "target_friends": false,
-                          "duration": 40,
+                          "target_friends": true,
+                          "duration": 5,
                           "effect_type": "negative",
+                          "onscreen_name": "Burnt!",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.95 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_charge_speed",
-                              "how": "mult",
-                              "description": "x0.95 Charge Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
                               "value": -15,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-15 Weakness to Fire Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                            },
+                            {
+                              "value": -7,
                               "stat": "stat_morale",
                               "how": "add",
-                              "description": "-15 Leadership",
+                              "description": "-7 Leadership",
                               "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x0.95 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                             }
                           ]
                         }
-                      ]
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Overcast spell: \"Doom & Darkness Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_doom_and_darkness",
+                "description": "Overcast spell: \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Cooldown: -30% to \"Doom & Darkness\"",
-                "key": "wh_main_effect_ability_cooldown_doom_and_darkness",
+                "description": "Cooldown: -30% to \"The Burning Head\"",
+                "key": "wh_main_effect_ability_cooldown_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -2133,106 +2049,121 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Doom & Darkness Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_doom_and_darkness",
+                "description": "Overcast spell: \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_doom_and_darkness",
+                    "effect": "wh2_main_effect_ability_overcast_the_burning_head",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_doom_and_darkness",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
-                      "overpower_option": "wh_main_spell_death_doom_and_darkness_upgraded",
+                      "key": "wh_main_spell_fire_the_burning_head",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_the_burning_head",
+                      "overpower_option": "wh_main_spell_fire_the_burning_head_upgraded",
                       "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Doom & Darkness",
-                      "active_time": 40,
+                      "onscreen_name": "The Burning Head",
+                      "active_time": 20,
                       "effect_range": 0,
-                      "mana_cost": 8,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 30,
+                      "mana_cost": 14,
+                      "recharge_time": 75,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 200,
+                      "target_intercept_range": 150,
                       "wind_up_time": 3,
-                      "phases": [
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_doom_and_darkness",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_small_wind",
+                          "localised_text": "Small, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_the_burning_head",
+                        "duration": 20,
+                        "damage": 30,
+                        "damage_ap": 0,
+                        "goal_radius": 7,
+                        "movement_speed": 9,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "contact_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_morale",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
-                          "target_friends": false,
-                          "duration": 40,
+                          "target_friends": true,
+                          "duration": 5,
                           "effect_type": "negative",
+                          "onscreen_name": "Burnt!",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 0.9,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.9 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x0.95 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "scalar_charge_speed",
-                              "how": "mult",
-                              "description": "x0.95 Charge Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
                               "value": -15,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-15 Weakness to Fire Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                            },
+                            {
+                              "value": -7,
                               "stat": "stat_morale",
                               "how": "add",
-                              "description": "-15 Leadership",
+                              "description": "-7 Leadership",
                               "icon": "vanilla3/skins/default/icon_stat_morale"
-                            },
-                            {
-                              "value": 0.95,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x0.95 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                             }
                           ]
                         }
-                      ]
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Doom & Darkness\"",
-                "key": "wh_main_effect_ability_cooldown_doom_and_darkness",
+                "description": "Cooldown: -50% to \"The Burning Head\"",
+                "key": "wh_main_effect_ability_cooldown_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Doom & Darkness\"",
-                "key": "wh2_main_effect_ability_wom_cost_doom_and_darkness",
+                "description": "Winds of Magic cost: -2 for \"The Burning Head\"",
+                "key": "wh2_main_effect_ability_wom_cost_the_burning_head",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Doom & Darkness Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_doom_and_darkness_upgraded",
+                "description": "Winds of Magic cost: -3 for \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_the_burning_head_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Doom & Darkness Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_doom_and_darkness_upgraded",
+                "description": "Miscast base chance: -15% for \"The Burning Head Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_the_burning_head_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
@@ -2333,99 +2264,216 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_3_3",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_the_fate_of_bjuna",
-        "character_skill_key": "wh2_main_skill_all_magic_death_09_the_fate_of_bjuna_lord",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_spell_fire_piercing_bolts_of_burning",
+        "character_skill_key": "wh2_main_skill_all_magic_fire_09_piercing_bolts_of_burning_lord",
         "tier": 8,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "The Fate of Bjuna",
+        "localised_name": "Piercing Bolts of Burning",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"The Fate of Bjuna\"",
-                "key": "wh_main_effect_ability_enable_the_fate_of_bjuna",
+                "description": "Spell: \"Piercing Bolts of Burning\"",
+                "key": "wh_main_effect_ability_enable_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_the_fate_of_bjuna",
+                    "effect": "wh_main_effect_ability_enable_piercing_bolts_of_burning",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_the_fate_of_bjuna",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_the_fate_of_bjuna",
-                      "overpower_option": "",
+                      "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_piercing_bolts_of_burning",
+                      "overpower_option": "wh_main_spell_fire_piercing_bolts_of_burning_upgraded",
                       "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "onscreen_name": "Direct Damage"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "The Fate of Bjuna",
-                      "active_time": 20,
+                      "onscreen_name": "Piercing Bolts of Burning",
+                      "active_time": 9,
                       "effect_range": 0,
-                      "mana_cost": 11,
-                      "num_effected_enemy_units": 1,
+                      "mana_cost": 9,
                       "recharge_time": 45,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": false,
+                      "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 100,
+                      "target_intercept_range": 200,
                       "wind_up_time": 5,
                       "ui_effects": [
                         {
-                          "key": "wh_main_all_direct_damage",
-                          "localised_text": "Causes damage to combatants",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_dlc08_direct_damage_medium_unit",
-                          "localised_text": "Strong vs units with 25 or more entities",
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "localised_text": "Strong vs multiple combatants",
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
                         }
                       ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_the_fate_of_bjuna",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 20,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 10,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 25
-                        }
-                      ]
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                        "arrival_window": 3,
+                        "radius_spread": 8,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                          "damage": 85,
+                          "ap_damage": 36,
+                          "shockwave_radius": 1,
+                          "effective_range": 40,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "is_flaming": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 90,
+                            "detonation_radius": 3,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
+                      }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"The Fate of Bjuna\"",
-                "key": "wh_main_effect_ability_cooldown_the_fate_of_bjuna",
+                "description": "Overcast spell: \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_piercing_bolts_of_burning",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Piercing Bolts of Burning\"",
+                "key": "wh_main_effect_ability_cooldown_piercing_bolts_of_burning",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Overcast spell: \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_piercing_bolts_of_burning",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_overcast_piercing_bolts_of_burning",
+                    "bonus_value_id": "enable_overchage",
+                    "unit_ability": {
+                      "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_piercing_bolts_of_burning",
+                      "overpower_option": "wh_main_spell_fire_piercing_bolts_of_burning_upgraded",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Piercing Bolts of Burning",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 9,
+                      "recharge_time": 45,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                        "arrival_window": 3,
+                        "radius_spread": 8,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                          "damage": 85,
+                          "ap_damage": 36,
+                          "shockwave_radius": 1,
+                          "effective_range": 40,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "is_flaming": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_fire_piercing_bolts_of_burning",
+                            "affects_allies": true,
+                            "detonation_damage": 0,
+                            "detonation_damage_ap": 90,
+                            "detonation_radius": 3,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -50% to \"Piercing Bolts of Burning\"",
+                "key": "wh_main_effect_ability_cooldown_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -3 for \"The Fate of Bjuna\"",
-                "key": "wh2_main_effect_ability_wom_cost_the_fate_of_bjuna",
+                "description": "Winds of Magic cost: -2 for \"Piercing Bolts of Burning\"",
+                "key": "wh2_main_effect_ability_wom_cost_piercing_bolts_of_burning",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic cost: -3 for \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_piercing_bolts_of_burning_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Miscast base chance: -15% for \"Piercing Bolts of Burning Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_piercing_bolts_of_burning_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -2437,42 +2485,42 @@
       },
       {
         "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_3_4",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_the_purple_sun_of_xereus",
-        "character_skill_key": "wh2_main_skill_all_magic_death_10_the_purple_sun_of_xereus_lord",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+        "character_skill_key": "wh2_main_skill_all_magic_fire_10_flame_storm_lord",
         "tier": 9,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "The Purple Sun of Xereus",
+        "localised_name": "Flame Storm",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Overcast spell: \"The Purple Sun of Xereus Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_the_purple_sun_of_xereus",
+                "description": "Spell: \"Flame Storm\"",
+                "key": "wh_main_effect_ability_enable_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_the_purple_sun_of_xereus",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh_main_effect_ability_enable_flame_storm",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_the_purple_sun_of_xereus",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_the_purple_sun_of_xereus",
-                      "overpower_option": "wh_main_spell_death_the_purple_sun_of_xereus_upgraded",
+                      "key": "wh_main_spell_fire_flame_storm",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+                      "overpower_option": "wh_main_spell_fire_flame_storm_upgraded",
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
                         "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "The Purple Sun of Xereus",
-                      "active_time": 12,
+                      "onscreen_name": "Flame Storm",
+                      "active_time": 30,
                       "effect_range": 0,
-                      "mana_cost": 18,
-                      "recharge_time": 90,
+                      "mana_cost": 13,
+                      "recharge_time": 75,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
@@ -2484,39 +2532,50 @@
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_main_spell_huge_vortex",
-                          "localised_text": "Huge, randomly-moving area of effect",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh2_main_all_good_against_armour",
-                          "localised_text": "Good against armour",
+                          "key": "wh2_main_spell_medium_vortex",
+                          "localised_text": "Medium, randomly-moving area of effect",
                           "effect_state": "positive"
                         },
                         {
                           "key": "wh_main_all_strong_against_units",
                           "localised_text": "Strong vs multiple units",
                           "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
                         }
                       ],
                       "vortex": {
-                        "vortex_key": "wh_main_spell_death_the_purple_sun_of_xereus",
-                        "duration": 12,
-                        "damage": 9,
-                        "damage_ap": 14,
-                        "goal_radius": 12,
+                        "vortex_key": "wh_main_spell_fire_flame_storm",
+                        "duration": 30,
+                        "damage": 16,
+                        "damage_ap": 8,
+                        "goal_radius": 10,
                         "movement_speed": 2,
                         "delay": 0,
                         "affects_allies": true,
-                        "is_magical": true
+                        "is_magical": true,
+                        "is_flaming": true
                       }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"The Purple Sun of Xereus\"",
-                "key": "wh_main_effect_ability_cooldown_the_purple_sun_of_xereus",
+                "description": "Overcast spell: \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flame_storm",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Flame Storm\"",
+                "key": "wh_main_effect_ability_cooldown_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -2524,28 +2583,28 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"The Purple Sun of Xereus Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_the_purple_sun_of_xereus",
+                "description": "Overcast spell: \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_the_purple_sun_of_xereus",
+                    "effect": "wh2_main_effect_ability_overcast_flame_storm",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_death_the_purple_sun_of_xereus",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_the_purple_sun_of_xereus",
-                      "overpower_option": "wh_main_spell_death_the_purple_sun_of_xereus_upgraded",
+                      "key": "wh_main_spell_fire_flame_storm",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+                      "overpower_option": "wh_main_spell_fire_flame_storm_upgraded",
                       "type": {
                         "key": "wh_type_vortex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
                         "onscreen_name": "Vortex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "The Purple Sun of Xereus",
-                      "active_time": 12,
+                      "onscreen_name": "Flame Storm",
+                      "active_time": 30,
                       "effect_range": 0,
-                      "mana_cost": 18,
-                      "recharge_time": 90,
+                      "mana_cost": 13,
+                      "recharge_time": 75,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
@@ -2557,54 +2616,60 @@
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_main_spell_huge_vortex",
-                          "localised_text": "Huge, randomly-moving area of effect",
+                          "key": "wh2_main_all_magical_and_flaming_major",
+                          "localised_text": "Causes major magical & fire damage",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh2_main_all_good_against_armour",
-                          "localised_text": "Good against armour",
+                          "key": "wh2_main_spell_medium_vortex",
+                          "localised_text": "Medium, randomly-moving area of effect",
                           "effect_state": "positive"
                         },
                         {
                           "key": "wh_main_all_strong_against_units",
                           "localised_text": "Strong vs multiple units",
                           "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
                         }
                       ],
                       "vortex": {
-                        "vortex_key": "wh_main_spell_death_the_purple_sun_of_xereus",
-                        "duration": 12,
-                        "damage": 9,
-                        "damage_ap": 14,
-                        "goal_radius": 12,
+                        "vortex_key": "wh_main_spell_fire_flame_storm",
+                        "duration": 30,
+                        "damage": 16,
+                        "damage_ap": 8,
+                        "goal_radius": 10,
                         "movement_speed": 2,
                         "delay": 0,
                         "affects_allies": true,
-                        "is_magical": true
+                        "is_magical": true,
+                        "is_flaming": true
                       }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"The Purple Sun of Xereus\"",
-                "key": "wh_main_effect_ability_cooldown_the_purple_sun_of_xereus",
+                "description": "Cooldown: -50% to \"Flame Storm\"",
+                "key": "wh_main_effect_ability_cooldown_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"The Purple Sun of Xereus\"",
-                "key": "wh2_main_effect_ability_wom_cost_the_purple_sun_of_xereus",
+                "description": "Winds of Magic cost: -3 for \"Flame Storm\"",
+                "key": "wh2_main_effect_ability_wom_cost_flame_storm",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -3 for \"The Purple Sun of Xereus Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_the_purple_sun_of_xereus_upgraded",
+                "description": "Winds of Magic cost: -3 for \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_flame_storm_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"The Purple Sun of Xereus Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_the_purple_sun_of_xereus_upgraded",
+                "description": "Miscast base chance: -15% for \"Flame Storm Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_flame_storm_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
@@ -2735,17 +2800,17 @@
           {
             "effects": [
               {
-                "description": "Weapon Strength: +4% for Gnoblars, Lucky Gits, Blood Gnoblars (Spears) units\n\t(Lord's army)",
+                "description": "Weapon Strength: +4% for Gnoblar, Pigback Rider, Lucky Git, Blood Gnoblar (Spears) units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Armour: +3 for Gnoblars, Lucky Gits, Blood Gnoblars, and Gnoblar Trappers units\n\t(Lord's army)",
+                "description": "Armour: +3 for Gnoblar, Lucky Git, Pigback Rider, Blood Gnoblar, and Gnoblar Trapper units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Missile Strength: +4% for Gnoblar Trappers, Scraplaunchers, and Blood Gnoblars (Dual Weapons) units\n\t(Lord's army)",
+                "description": "Missile Strength: +4% for Gnoblar Trapper, Scraplauncher, and Blood Gnoblar (Dual Weapons) units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_missile_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -2754,17 +2819,17 @@
           {
             "effects": [
               {
-                "description": "Weapon Strength: +6% for Gnoblars, Lucky Gits, Blood Gnoblars (Spears) units\n\t(Lord's army)",
+                "description": "Weapon Strength: +6% for Gnoblar, Pigback Rider, Lucky Git, Blood Gnoblar (Spears) units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Armour: +4 for Gnoblars, Lucky Gits, Blood Gnoblars, and Gnoblar Trappers units\n\t(Lord's army)",
+                "description": "Armour: +4 for Gnoblar, Lucky Git, Pigback Rider, Blood Gnoblar, and Gnoblar Trapper units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Missile Strength: +6% for Gnoblar Trappers, Scraplaunchers, and Blood Gnoblars (Dual Weapons) units\n\t(Lord's army)",
+                "description": "Missile Strength: +6% for Gnoblar Trapper, Scraplauncher, and Blood Gnoblar (Dual Weapons) units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_missile_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -2773,17 +2838,17 @@
           {
             "effects": [
               {
-                "description": "Weapon Strength: +8% for Gnoblars, Lucky Gits, Blood Gnoblars (Spears) units\n\t(Lord's army)",
+                "description": "Weapon Strength: +8% for Gnoblar, Pigback Rider, Lucky Git, Blood Gnoblar (Spears) units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Armour: +5 for Gnoblars, Lucky Gits, Blood Gnoblars, and Gnoblar Trappers units\n\t(Lord's army)",
+                "description": "Armour: +5 for Gnoblar, Lucky Git, Pigback Rider, Blood Gnoblar, and Gnoblar Trapper units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
-                "description": "Missile Strength: +8% for Gnoblar Trappers, Scraplaunchers, and Blood Gnoblars (Dual Weapons) units\n\t(Lord's army)",
+                "description": "Missile Strength: +8% for Gnoblar Trapper, Scraplauncher, and Blood Gnoblar (Dual Weapons) units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_quick_snack_missile_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
@@ -2933,12 +2998,12 @@
           {
             "effects": [
               {
-                "description": "Melee Attack +2 for All Maneaters, and All Manbiters units\n\t(Lord's army)",
+                "description": "Melee Attack +2 for Maneater and Manbiter units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_gastronomic_tour_melee_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee Defence +3 for All Maneaters, and All Manbiters units\n\t(Lord's army)",
+                "description": "Melee Defence +3 for Maneater and Manbiter units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_gastronomic_tour_melee_defence",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -2947,12 +3012,12 @@
           {
             "effects": [
               {
-                "description": "Melee Attack +4 for All Maneaters, and All Manbiters units\n\t(Lord's army)",
+                "description": "Melee Attack +4 for Maneater and Manbiter units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_gastronomic_tour_melee_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee Defence +6 for All Maneaters, and All Manbiters units\n\t(Lord's army)",
+                "description": "Melee Defence +6 for Maneater and Manbiter units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_gastronomic_tour_melee_defence",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -2961,12 +3026,12 @@
           {
             "effects": [
               {
-                "description": "Melee Attack +6 for All Maneaters, and All Manbiters units\n\t(Lord's army)",
+                "description": "Melee Attack +6 for Maneater and Manbiter units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_gastronomic_tour_melee_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee Defence +8 for All Maneaters, and All Manbiters units\n\t(Lord's army)",
+                "description": "Melee Defence +8 for Maneater and Manbiter units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_a_gastronomic_tour_melee_defence",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -2994,12 +3059,12 @@
           {
             "effects": [
               {
-                "description": "Weapon Strength: +4% for Sons of the Mountain, Sabretusks, Stonehorns, and Giants units\n\t(Lord's army)",
+                "description": "Weapon Strength: +4% for Sons of the Mountain, Sabretusks, Thundertusks, Yhetees, Blood Vultures, Stonehorns, and Giants units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_the_big_hunters_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Melee Defence +4 for Sons of the Mountain, Sabretusks, Stonehorns, and Giants units\n\t(Lord's army)",
+                "description": "Melee Defence +4 for Sons of the Mountain, Sabretusks, Thundertusks, Yhetees, Blood Vultures, Stonehorns, Stonehorns, and Giants units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_the_big_hunters_melee_defence",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -3008,12 +3073,12 @@
           {
             "effects": [
               {
-                "description": "Weapon Strength: +6% for Sons of the Mountain, Sabretusks, Stonehorns, and Giants units\n\t(Lord's army)",
+                "description": "Weapon Strength: +6% for Sons of the Mountain, Sabretusks, Thundertusks, Yhetees, Blood Vultures, Stonehorns, and Giants units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_the_big_hunters_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Melee Defence +6 for Sons of the Mountain, Sabretusks, Stonehorns, and Giants units\n\t(Lord's army)",
+                "description": "Melee Defence +6 for Sons of the Mountain, Sabretusks, Thundertusks, Yhetees, Blood Vultures, Stonehorns, Stonehorns, and Giants units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_the_big_hunters_melee_defence",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -3022,12 +3087,12 @@
           {
             "effects": [
               {
-                "description": "Weapon Strength: +8% for Sons of the Mountain, Sabretusks, Stonehorns, and Giants units\n\t(Lord's army)",
+                "description": "Weapon Strength: +8% for Sons of the Mountain, Sabretusks, Thundertusks, Yhetees, Blood Vultures, Stonehorns, and Giants units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_the_big_hunters_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               },
               {
-                "description": "Melee Defence +8 for Sons of the Mountain, Sabretusks, Stonehorns, and Giants units\n\t(Lord's army)",
+                "description": "Melee Defence +8 for Sons of the Mountain, Sabretusks, Thundertusks, Yhetees, Blood Vultures, Stonehorns, Stonehorns, and Giants units\n\t(Lord's army)",
                 "key": "rad_wh3_part3_effect_ogr_the_big_hunters_melee_defence",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -3506,7 +3571,7 @@
           {
             "effects": [
               {
-                "description": "Growth: +25\n\t(local province)",
+                "description": "Growth: +20\n\t(local province)",
                 "key": "wh_main_effect_province_growth_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/growth"
               }
@@ -3515,7 +3580,7 @@
           {
             "effects": [
               {
-                "description": "Growth: +40\n\t(local province)",
+                "description": "Growth: +35\n\t(local province)",
                 "key": "wh_main_effect_province_growth_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/growth"
               }
@@ -3742,7 +3807,7 @@
           {
             "effects": [
               {
-                "description": "Upkeep: -6%\n\t(Lord's army)",
+                "description": "Upkeep: -5%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_all_campaign_upkeep",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               }
@@ -3751,7 +3816,7 @@
           {
             "effects": [
               {
-                "description": "Upkeep: -10%\n\t(Lord's army)",
+                "description": "Upkeep: -7%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_all_campaign_upkeep",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               }
@@ -4658,40 +4723,40 @@
     {
       "key": "rad_wh3_part3_skill_node_ogr_slaughtermaster_death_magic_dummy",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh2_main_skill_all_magic_death_dummy_spirit_leech_aspect_of_the_dreadknight",
+      "character_skill_key": "wh2_main_skill_all_magic_fire_dummy_fireball_cascading_fire_cloak",
       "tier": 11,
       "indent": 3,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": false,
-      "localised_name": "Spirit Leech [HIDDEN]",
+      "localised_name": "Fireball [HIDDEN]",
       "localised_description": "",
       "levels": [
         {
           "effects": [
             {
-              "description": "Spell: \"Aspect of the Dread Knight\"",
-              "key": "wh_main_effect_ability_enable_aspect_of_the_dreadknight",
+              "description": "Spell: \"Cascading Fire Cloak\"",
+              "key": "wh_main_effect_ability_enable_cascading_fire_cloak",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh_main_effect_ability_enable_aspect_of_the_dreadknight",
+                  "effect": "wh_main_effect_ability_enable_cascading_fire_cloak",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh_main_spell_death_aspect_of_the_dreadknight",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
-                    "overpower_option": "wh_main_spell_death_aspect_of_the_dreadknight_upgraded",
+                    "key": "wh_main_spell_fire_cascading_fire_cloak",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                    "overpower_option": "",
                     "type": {
                       "key": "wh_type_augment",
                       "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
                       "onscreen_name": "Augment"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Aspect of the Dread Knight",
-                    "active_time": 20,
+                    "onscreen_name": "Cascading Fire Cloak",
+                    "active_time": 30,
                     "effect_range": 0,
-                    "mana_cost": 4,
+                    "mana_cost": 5,
                     "num_effected_friendly_units": 1,
                     "recharge_time": 30,
                     "target_enemies": false,
@@ -4702,43 +4767,28 @@
                     "wind_up_time": 1,
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_aspect_of_the_dreadknight",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": true,
-                        "duration": 20,
+                        "duration": 30,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
-                        "imbue_magical": true,
                         "stat_effects": [
                           {
-                            "value": 6,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+6 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          },
-                          {
                             "value": 25,
-                            "stat": "stat_resistance_magic",
+                            "stat": "stat_melee_defence",
                             "how": "add",
-                            "description": "+25 Spell Resistance",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "causes_fear",
-                            "description": " Can Cause Fear",
-                            "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+                            "description": "+25 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
                           },
                           {
-                            "key": "causes_terror",
-                            "description": " Can Cause Terror",
-                            "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                            "value": 1.25,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.25 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
                       }
@@ -4748,73 +4798,80 @@
               ]
             },
             {
-              "description": "Spell: \"Spirit Leech\"",
-              "key": "wh_main_effect_ability_enable_spirit_leech",
+              "description": "Spell: \"Fireball\"",
+              "key": "wh_main_effect_ability_enable_fireball",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh_main_effect_ability_enable_spirit_leech",
+                  "effect": "wh_main_effect_ability_enable_fireball",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh_main_spell_death_spirit_leech",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                    "overpower_option": "wh_main_spell_death_spirit_leech_upgraded",
+                    "key": "wh_main_spell_fire_fireball",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_fireball",
+                    "overpower_option": "wh_main_spell_fire_fireball_upgraded",
                     "type": {
-                      "key": "wh_type_direct_damage",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                      "onscreen_name": "Direct Damage"
+                      "key": "wh_type_magic_missile",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                      "onscreen_name": "Magic Missile"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Spirit Leech",
-                    "active_time": 15,
+                    "onscreen_name": "Fireball",
                     "effect_range": 0,
-                    "mana_cost": 6,
-                    "num_effected_enemy_units": 1,
-                    "recharge_time": 30,
+                    "mana_cost": 5,
+                    "recharge_time": 20,
                     "target_enemies": true,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
-                    "target_intercept_range": 100,
+                    "target_intercept_range": 300,
                     "wind_up_time": 1,
                     "ui_effects": [
                       {
-                        "key": "wh_main_all_direct_damage",
-                        "localised_text": "Causes damage to combatants",
+                        "key": "wh2_main_all_magical_and_flaming_medium",
+                        "localised_text": "Causes moderate magical & fire damage",
                         "effect_state": "positive"
                       },
                       {
-                        "key": "wh_dlc08_direct_damage_character_unit",
-                        "localised_text": "Strong vs characters",
+                        "key": "wh_main_projectile_powerful_explosion",
+                        "localised_text": "Powerful explosion",
                         "effect_state": "positive"
                       },
                       {
-                        "key": "wh_main_all_strong_against_single",
-                        "localised_text": "Strong vs a single combatant",
+                        "key": "wh_main_all_strong_against_multiple",
+                        "localised_text": "Strong vs multiple combatants",
                         "effect_state": "positive"
                       },
                       {
-                        "key": "wh_main_all_weak_against_multiple",
-                        "localised_text": "Weak vs multiple combatants",
+                        "key": "wh_main_projectile_effective_long_range",
+                        "localised_text": "Effective at long range",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_main_projectile_requires_line_of_sight",
+                        "localised_text": "Requires line of sight to the target",
                         "effect_state": "negative"
                       }
                     ],
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": 15,
-                        "effect_type": "negative",
-                        "onscreen_name": "Spirit Leech!",
-                        "is_hidden_in_ui": false,
-                        "damage_amount": 67,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 1
+                    "activated_projectile": {
+                      "key": "wh_main_spell_fire_fireball",
+                      "damage": 800,
+                      "ap_damage": 0,
+                      "shockwave_radius": 1,
+                      "effective_range": 300,
+                      "base_reload_time": 1,
+                      "is_magical": true,
+                      "is_flaming": true,
+                      "can_damage_allies": true,
+                      "explosion_type": {
+                        "key": "wh_main_spell_fire_fireball",
+                        "affects_allies": true,
+                        "detonation_damage": 150,
+                        "detonation_damage_ap": 0,
+                        "detonation_radius": 5,
+                        "is_magical": true,
+                        "is_flaming": true
                       }
-                    ]
+                    }
                   }
                 }
               ]
