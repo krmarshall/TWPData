@@ -1543,7 +1543,7 @@
           {
             "effects": [
               {
-                "description": "Campaign movement range: +10%\n\t(When this Hero is not embedded)",
+                "description": "Campaign movement range: +10%\n\t(when not embedded)",
                 "key": "wh_main_effect_agent_movement_range_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
@@ -1666,7 +1666,7 @@
           {
             "effects": [
               {
-                "description": "Enemy battle reinforcement time: +10%\n\t(Hero's army)",
+                "description": "Enemy battle reinforcement time: +5%\n\t(Hero's army)",
                 "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military"
               },
@@ -1680,7 +1680,7 @@
           {
             "effects": [
               {
-                "description": "Enemy battle reinforcement time: +20%\n\t(Hero's army)",
+                "description": "Enemy battle reinforcement time: +10%\n\t(Hero's army)",
                 "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military"
               },
@@ -1694,7 +1694,7 @@
           {
             "effects": [
               {
-                "description": "Enemy battle reinforcement time: +40%\n\t(Hero's army)",
+                "description": "Enemy battle reinforcement time: +20%\n\t(Hero's army)",
                 "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military"
               },
@@ -2238,6 +2238,67 @@
       },
       {
         "unit_ability": {
+          "key": "wh2_main_character_abilities_concealment_bombs",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_abilities_concealment_bombs",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hiding",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hiding",
+            "onscreen_name": "Hiding"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Concealment Bombs",
+          "active_time": 70,
+          "effect_range": 0,
+          "num_uses": 3,
+          "recharge_time": 90,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "ui_effects": [
+            {
+              "key": "wh2_main_all_hiding",
+              "localised_text": "Target is hidden",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh2_main_all_flanking",
+              "localised_text": "Effective when flanking",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_abilities_concealment_bombs",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "attributes": [
+                {
+                  "key": "stalk",
+                  "description": " Stalk",
+                  "bullet_text": "This unit can move hidden in any terrain.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
+                },
+                {
+                  "key": "unspottable",
+                  "description": " Unspottable",
+                  "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
+                  "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
           "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
           "overpower_option": "",
@@ -2707,11 +2768,6 @@
         {
           "effects": [
             {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
               "description": "Attribute: Immune to Psychology",
               "key": "wh_main_effect_attribute_enable_immune_to_psychology",
               "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
@@ -2723,6 +2779,11 @@
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
                 }
               ]
+            },
+            {
+              "description": "Leadership: +10",
+              "key": "wh_main_effect_character_stat_leadership",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
             }
           ]
         }
@@ -2807,14 +2868,14 @@
         {
           "effects": [
             {
-              "description": "Magic item drop chance from battle: +25%",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
-              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-            },
-            {
               "description": "Campaign line of sight: +25%",
               "key": "wh_main_effect_agent_field_line_of_sight_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+            },
+            {
+              "description": "Magic item drop chance from battle: +25%",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             }
           ]
         }
