@@ -694,33 +694,77 @@
       },
       {
         "key": "wh3_main_skill_node_ksl_boris_unique_08",
-        "image_path": "vanilla3/campaign_ui/skills/character_morale",
-        "character_skill_key": "wh3_main_skill_ksl_boris_unique_devotion",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_unit_passive_regeneration",
+        "character_skill_key": "wh3_main_skill_ksl_boris_unique_elemental_bear_regen",
         "tier": 5,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "As One with Ursun",
-        "localised_description": "\"You've got to lose yourself before you find yourself, back in exile…\"",
+        "localised_name": "Elemental Regeneration",
+        "localised_description": "The Great Bear shall be reborn, and the Motherland with him.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Leadership: -8",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              },
-              {
-                "description": "Character's aura leadership effect: +5",
-                "key": "wh_main_effect_character_stat_aura_leadership_effect",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-              },
-              {
-                "description": "Enemy leadership: -8\n\t(local region)",
-                "key": "wh_main_effect_force_stat_leadership_enemy_unit",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+                "description": "Passive ability: \"Regeneration\" for Elemental Bear units\n\t(Lord's army)",
+                "key": "wh3_main_effect_ability_enable_regeneration_ksl_elemental_bears",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_regeneration_ksl_elemental_bears",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_unit_passive_regeneration",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Regeneration",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.001,
+                          "hp_change_frequency": 1,
+                          "stat_effects": [
+                            {
+                              "value": -15,
+                              "stat": "stat_weakness_flame",
+                              "how": "add",
+                              "description": "-15 Weakness to Fire Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ],
             "unlocked_at_rank": 10
@@ -773,14 +817,29 @@
           {
             "effects": [
               {
-                "description": "Motherland invocation cost: -10%",
-                "key": "wh3_main_effect_ksl_motherland_cost_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/devotion_bundle"
+                "description": "Allegiance points gained: +100% for alliances with Kislev",
+                "key": "wh3_main_effect_allegiance_points_mod_kislev",
+                "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
               },
               {
-                "description": "Diplomatic relations: +30 with Kislev",
+                "description": "Allowed +1 greater Tier difference in Support for the Orthodoxy before penalties are applied",
+                "key": "wh3_main_effect_ksl_orthodoxy_levels_allowed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/kislev_acolyte"
+              },
+              {
+                "description": "Diplomatic relations: +30 with all Kislev factions",
                 "key": "wh3_main_faction_political_diplomacy_mod_kislev",
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+              },
+              {
+                "description": "Control: +8\n\t(local province)",
+                "key": "wh_main_effect_public_order_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Enemy leadership: -7\n\t(enemy armies in local province)",
+                "key": "wh_main_effect_force_stat_leadership_enemy_unit",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
               }
             ],
             "unlocked_at_rank": 20
@@ -1000,14 +1059,14 @@
           {
             "effects": [
               {
-                "description": "Hit points: +10%",
+                "description": "Hit points: +15%",
                 "key": "wh_main_effect_character_stat_unit_health",
                 "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
               {
-                "description": "Leadership: +5",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+                "description": "Battle healing cap: +50%",
+                "key": "wh3_dlc20_effect_healing_cap_modifier",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               }
             ],
             "unlocked_at_rank": 12
@@ -1072,9 +1131,19 @@
           {
             "effects": [
               {
+                "description": "Recruit rank: +3 for War Bear Riders units\n\t(all armies factionwide)",
+                "key": "wh3_main_effect_force_recruit_rank_ksl_war_bears",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
                 "description": "Weapon strength: +8% for War Bear Riders and Elemental Bear units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_weapon_strength_ksl_war_bears_elemental_bears",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Bonus vs Large: +12 for War Bear Riders and Elemental Bear units\n\t(Lord's army)",
+                "key": "wh3_main_effect_force_stat_bonus_vs_large_ksl_war_bears_elemental_bears",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large"
               }
             ]
           }
@@ -1100,14 +1169,19 @@
           {
             "effects": [
               {
-                "description": "Leadership: +6 for Tzar Guard units\n\t(Lord's army)",
-                "key": "wh3_main_effect_force_stat_leadership_ksl_tsar_guard",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+                "description": "Armour: +20 for Tzar Guard units\n\t(Lord's army)",
+                "key": "wh3_dlc24_effect_force_stat_armour_ksl_tsar_guard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
               {
                 "description": "Weapon strength: +7% for Tzar Guard units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_weapon_strength_ksl_tsar_guard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Bonus vs Infantry: +8 for Tzar Guard units\n\t(Lord's army)",
+                "key": "wh3_main_effect_force_stat_bonus_vs_infantry_ksl_tzar_guard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small"
               }
             ]
           }
@@ -1133,6 +1207,11 @@
           {
             "effects": [
               {
+                "description": "Population surplus: +2 for newly-captured settlements\n\t(Lord's army)",
+                "key": "wh3_main_tech_nur_capture_bonus_dev_point",
+                "icon": "vanilla3/campaign_ui/effect_bundles/growth"
+              },
+              {
                 "description": "Campaign movement range: +10%",
                 "key": "wh_main_effect_agent_movement_range_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
@@ -1148,77 +1227,36 @@
       },
       {
         "key": "wh3_main_skill_node_ksl_boris_unique_09",
-        "image_path": "vanilla3/campaign_ui/skills/wh_main_unit_passive_regeneration",
-        "character_skill_key": "wh3_main_skill_ksl_boris_unique_elemental_bear_regen",
+        "image_path": "vanilla3/campaign_ui/skills/battle_damage",
+        "character_skill_key": "wh3_main_skill_ksl_boris_unique_devotion",
         "tier": 5,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Elemental Regeneration",
-        "localised_description": "The Great Bear shall be reborn, and the Motherland with him.",
+        "localised_name": "As One with Ursun",
+        "localised_description": "\"You've got to lose yourself before you find yourself, back in exile…\"",
         "levels": [
           {
             "effects": [
               {
-                "description": "Passive ability: \"Regeneration\" for Elemental Bear units\n\t(Lord's army)",
-                "key": "wh3_main_effect_ability_enable_regeneration_ksl_elemental_bears",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
+                "description": "Attribute: Glorious Charge\n\t(Lord's army)",
+                "key": "wh3_dlc26_effect_attribute_enable_glorious_charge",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_glorious_charge",
+                "related_attributes": [
                   {
-                    "effect": "wh3_main_effect_ability_enable_regeneration_ksl_elemental_bears",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_main_unit_passive_regeneration",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_regeneration",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                        "onscreen_name": "Regeneration"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Regeneration",
-                      "effect_range": 0,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_replenish",
-                          "localised_text": "Replenishes hit points of combatants",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": false,
-                          "duration": -1,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "heal_amount": 0.001,
-                          "hp_change_frequency": 1,
-                          "stat_effects": [
-                            {
-                              "value": -15,
-                              "stat": "stat_weakness_flame",
-                              "how": "add",
-                              "description": "-15 Weakness to Fire Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_flaming"
-                            }
-                          ]
-                        }
-                      ]
-                    }
+                    "key": "glorious_charge",
+                    "description": "Glorious Charge",
+                    "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
+                    "icon": "vanilla3/campaign_ui/effect_bundles/attribute_glorious_charge"
                   }
                 ]
+              },
+              {
+                "description": "Base weapon damage: +4\n\t(Lord's army)",
+                "key": "wh2_main_effect_force_stat_weapon_strength_base",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_damage_base_force"
               }
             ]
           }
@@ -3958,14 +3996,19 @@
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
       {
+        "description": "Settlements in Chaos Wasteland climates gain additional Devotion",
+        "key": "wh3_main_effect_boris_devotion_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/devotion"
+      },
+      {
         "description": "Diplomatic relations: +30 with the faction of the Ice Court",
         "key": "wh3_main_diplomatic_relations_ice_court",
         "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
       },
       {
-        "description": "Settlements in Chaos Wasteland climates receive reduced climate penalties and generate Devotion",
-        "key": "wh3_main_effect_boris_devotion_dummy",
-        "icon": "vanilla3/campaign_ui/effect_bundles/devotion"
+        "description": "Campaign movement range: +5%\n\t(all armies)",
+        "key": "wh_main_effect_agent_movement_range_mod",
+        "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
       },
       {
         "description": "Construction cost: -30% for Garrison and Religion buildings",
