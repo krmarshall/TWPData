@@ -835,8 +835,8 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic cost: -15% for Lores of Life, Heavens, Fire, Light, Beasts, Death, Shadows, Metal and High Magic",
-                "key": "wh2_dlc13_effect_lzd_xholankha_wom_costs_lore_life_high_light_fire_heavens_beasts",
+                "description": "Winds of Magic cost: -15% for Lores of Life, Metal, Light and Heavens spells",
+                "key": "wh3_main_effect_ability_wom_cost_pct_lore_of_life_metal_light_heavens",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               }
             ]
@@ -844,8 +844,8 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic cost: -25% for Lores of Life, Heavens, Fire, Light, Beasts, Death, Shadows, Metal and High Magic",
-                "key": "wh2_dlc13_effect_lzd_xholankha_wom_costs_lore_life_high_light_fire_heavens_beasts",
+                "description": "Winds of Magic cost: -25% for Lores of Life, Metal, Light and Heavens spells",
+                "key": "wh3_main_effect_ability_wom_cost_pct_lore_of_life_metal_light_heavens",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
@@ -1151,6 +1151,68 @@
                 "description": "Miscast base chance: -20%",
                 "key": "wh_main_effect_character_stat_miscast",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Passive ability: \"Fires of Change\"",
+                "key": "wh3_main_effect_ability_enable_fires_of_change",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_fires_of_change",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_lore_passive_fires_of_change",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lore_passive_fires_of_change",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_ward_save",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                        "onscreen_name": "Ward Save (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fires of Change",
+                      "active_time": 9,
+                      "effect_range": -1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Casting"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc05_spell_trigger_when_casting",
+                          "localised_text": "Triggers when casting spell",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lore_passive_fires_of_change",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 9,
+                          "effect_type": "positive",
+                          "onscreen_name": "Fires of Change",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               },
               {
                 "description": "Passive ability: \"Prismatic Plurality\"",
@@ -1547,6 +1609,11 @@
                 "description": "Spell intensity: +20%",
                 "key": "wh3_dlc24_effect_spell_mastery_dummy",
                 "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+              },
+              {
+                "description": "Cooldown: -25% to all spells",
+                "key": "wh2_dlc12_effect_magic_cooldown_all_lores",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
           }

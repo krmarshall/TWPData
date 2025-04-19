@@ -13,7 +13,7 @@
         "visible_in_ui": true,
         "is_background_skill": false,
         "localised_name": "Ataman",
-        "localised_description": "!Missing!",
+        "localised_description": "Leaders who fight shoulder-to-shoulder with their soldiers must be the first to break the enemy upon their shields.",
         "levels": [
           {
             "effects": [
@@ -1224,7 +1224,7 @@
           {
             "effects": [
               {
-                "description": "Unit experience gain per turn: +75 (including garrisons)\n\t(Lord's army)",
+                "description": "Unit experience gain per turn: +100 (including garrisons)\n\t(Lord's army)",
                 "key": "wh3_main_effect_army_xp_gain_including_garrisons",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
@@ -2345,8 +2345,8 @@
     "mass": 1000,
     "size": "small",
     "hit_points": 0,
-    "bonus_hit_points": 4060,
-    "armour": 95,
+    "bonus_hit_points": 5000,
+    "armour": 100,
     "missile_block_chance": 55,
     "morale": 70,
     "damage_mod_flame": 0,
@@ -2360,7 +2360,7 @@
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
     "damage": 250,
-    "ap_damage": 130,
+    "ap_damage": 150,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
@@ -2368,8 +2368,8 @@
     "fly_speed": 0,
     "projectile": {
       "key": "wh3_main_ksl_ataman_pistol",
-      "damage": 33,
-      "ap_damage": 117,
+      "damage": 50,
+      "ap_damage": 150,
       "shockwave_radius": -1,
       "effective_range": 90,
       "base_reload_time": 4,
@@ -2377,7 +2377,7 @@
     },
     "accuracy": 10,
     "reload": 0,
-    "primary_ammo": 20,
+    "primary_ammo": 30,
     "fire_arc": 80,
     "attributes": [
       {
@@ -2391,6 +2391,194 @@
         "description": "Hide (forest)",
         "bullet_text": "This unit can hide in forests until enemy units get too close.",
         "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+      }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_by_our_blood",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_by_our_blood",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "By Our Blood",
+          "active_time": 30,
+          "effect_range": 50,
+          "num_effected_enemy_units": 1,
+          "num_effected_friendly_units": 1,
+          "num_uses": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is wavering or lower"
+          ],
+          "target_if": [
+            "Unit is not Lord or Hero"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_by_our_blood",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "attributes": [
+                {
+                  "key": "unbreakable",
+                  "description": " Unbreakable",
+                  "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                }
+              ]
+            },
+            {
+              "icon": "wh3_main_unit_passive_by_our_blood_ally",
+              "order": 2,
+              "target_enemies": false,
+              "target_self": false,
+              "target_friends": true,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_missile_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Missile Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+5 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ]
+            },
+            {
+              "icon": "wh3_main_unit_passive_by_our_blood_enemy",
+              "order": 3,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.9,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.9 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 0.9,
+                  "stat": "scalar_missile_damage_base",
+                  "how": "mult",
+                  "description": "x0.9 Base Missile Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                },
+                {
+                  "value": -5,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "-5 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "onscreen_name": "Wounded!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },

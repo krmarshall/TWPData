@@ -233,12 +233,25 @@
           {
             "effects": [
               {
-                "description": "Character's aura leadership effect: +5\n\t(Lord's army)",
+                "description": "Attribute: Stalk during ambushes",
+                "key": "wh2_dlc16_effect_attribute_stalk_during_ambushes",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk",
+                "related_attributes": [
+                  {
+                    "key": "stalk",
+                    "description": " Stalk",
+                    "bullet_text": "This unit can move hidden in any terrain.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
+                  }
+                ]
+              },
+              {
+                "description": "Character's aura leadership effect: +5",
                 "key": "wh_main_effect_character_stat_aura_leadership_effect",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
               },
               {
-                "description": "Leadership aura size: +25%\n\t(Lord's army)",
+                "description": "Leadership aura size: +25%",
                 "key": "wh_main_effect_character_stat_leadership_aura_size",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
               }
@@ -367,14 +380,9 @@
           {
             "effects": [
               {
-                "description": "Ambush success chance: +20%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-              },
-              {
-                "description": "Ambush defence chance: +20%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+                "description": "Hit points: +5%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
               {
                 "description": "Melee attack: +5",
@@ -423,6 +431,60 @@
                     "description": " Can Cause Terror",
                     "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
                     "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                  }
+                ]
+              },
+              {
+                "description": "Passive ability: \"Exceptional Offensive\"",
+                "key": "wh_effect_enable_wh_passive_wounded_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_effect_enable_wh_passive_wounded_attack",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_passive_wounded_attack",
+                      "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_wounded_attack",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Exceptional Offensive",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Hit Points less than 50%",
+                        "Leadership is higher than broken"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_passive_wounded_attack",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+15 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   }
                 ]
               }
@@ -542,9 +604,9 @@
           {
             "effects": [
               {
-                "description": "Vigour loss reduction: -20%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_stat_vigour_loss_reduction",
-                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+                "description": "Ambush success chance: +25%\n\t(Lord's army)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
               },
               {
                 "description": "Passive ability: \"Frenzy\" for Kroxigor and Sacred Kroxigor units\n\t(Lord's army)",
@@ -756,19 +818,6 @@
                 ]
               },
               {
-                "description": "Attribute: Stalk during ambushes\n\t(Lord's army)",
-                "key": "wh2_dlc16_effect_attribute_stalk_during_ambushes",
-                "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk",
-                "related_attributes": [
-                  {
-                    "key": "stalk",
-                    "description": " Stalk",
-                    "bullet_text": "This unit can move hidden in any terrain.",
-                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
-                  }
-                ]
-              },
-              {
                 "description": "Attribute: Unbreakable",
                 "key": "wh_main_effect_attribute_enable_unbreakable",
                 "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable",
@@ -795,56 +844,15 @@
                 ]
               },
               {
-                "description": "Passive ability: \"Exceptional Offensive\"",
-                "key": "wh_effect_enable_wh_passive_wounded_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
+                "description": "Attribute: Devastating Flanker\n\t(Lord's army)",
+                "key": "wh3_main_effect_attribute_enable_devestating_flanker",
+                "icon": "sfo3/campaign_ui/effect_bundles/devastating_flanker",
+                "related_attributes": [
                   {
-                    "effect": "wh_effect_enable_wh_passive_wounded_attack",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh_passive_wounded_attack",
-                      "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_wounded_attack",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Exceptional Offensive",
-                      "effect_range": 0,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Hit Points less than 50%",
-                        "Leadership is higher than broken"
-                      ],
-                      "phases": [
-                        {
-                          "icon": "sfo3/battle_ui/ability_icons/wh_passive_wounded_attack",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": false,
-                          "duration": -1,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 15,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+15 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            }
-                          ]
-                        }
-                      ]
-                    }
+                    "key": "devastating_flanker",
+                    "description": "Devastating Flanker",
+                    "bullet_text": "Entities with this attribute double their charge bonus when attacking the rear or flank of an entity.",
+                    "icon": "sfo3/battle_ui/ability_icons/devastating_flanker"
                   }
                 ]
               }
@@ -3032,6 +3040,11 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/effect_rite"
       },
       {
+        "description": "Immune to diplomatic penalties from trespassing",
+        "key": "wh3_dlc25_effect_trespass_immunity_for_army",
+        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy_trespass"
+      },
+      {
         "description": "Nakai's faction has different technology tree than other Lizardmen and Alignments effects",
         "key": "lzd_nakai_campaign_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/technology"
@@ -3231,19 +3244,6 @@
               "description": "Recruitment cost: -40% for Kroxigor and Sacred Kroxigor units\n\t(Lord's army)",
               "key": "wh2_dlc13_faction_trait_nakai_recruit_cost",
               "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
-            },
-            {
-              "description": "Attribute: Devastating Flanker\n\t(Lord's army)",
-              "key": "wh3_main_effect_attribute_enable_devestating_flanker",
-              "icon": "sfo3/campaign_ui/effect_bundles/devastating_flanker",
-              "related_attributes": [
-                {
-                  "key": "devastating_flanker",
-                  "description": "Devastating Flanker",
-                  "bullet_text": "Entities with this attribute double their charge bonus when attacking the rear or flank of an entity.",
-                  "icon": "sfo3/battle_ui/ability_icons/devastating_flanker"
-                }
-              ]
             },
             {
               "description": "Melee defence: +10 for Kroxigor and Sacred Kroxigor units\n\t(Lord's army)",

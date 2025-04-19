@@ -1627,8 +1627,8 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic cost: -15% for Lores of Life, Heavens, Fire, Light, Beasts, Death, Shadows, Metal and High Magic",
-                "key": "wh2_dlc13_effect_lzd_xholankha_wom_costs_lore_life_high_light_fire_heavens_beasts",
+                "description": "Winds of Magic cost: -15% for Lores of Life, Metal, Light and Heavens spells",
+                "key": "wh3_main_effect_ability_wom_cost_pct_lore_of_life_metal_light_heavens",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               }
             ]
@@ -1636,8 +1636,8 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic cost: -25% for Lores of Life, Heavens, Fire, Light, Beasts, Death, Shadows, Metal and High Magic",
-                "key": "wh2_dlc13_effect_lzd_xholankha_wom_costs_lore_life_high_light_fire_heavens_beasts",
+                "description": "Winds of Magic cost: -25% for Lores of Life, Metal, Light and Heavens spells",
+                "key": "wh3_main_effect_ability_wom_cost_pct_lore_of_life_metal_light_heavens",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
@@ -1943,6 +1943,68 @@
                 "description": "Miscast base chance: -20%",
                 "key": "wh_main_effect_character_stat_miscast",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Passive ability: \"Fires of Change\"",
+                "key": "wh3_main_effect_ability_enable_fires_of_change",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_fires_of_change",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_lore_passive_fires_of_change",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lore_passive_fires_of_change",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_ward_save",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                        "onscreen_name": "Ward Save (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fires of Change",
+                      "active_time": 10,
+                      "effect_range": -1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Casting"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc05_spell_trigger_when_casting",
+                          "localised_text": "Triggers when casting spell",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lore_passive_fires_of_change",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 10,
+                          "effect_type": "positive",
+                          "onscreen_name": "Fires of Change",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               },
               {
                 "description": "Passive ability: \"Prismatic Plurality\"",
@@ -2339,6 +2401,111 @@
                 "description": "Spell intensity: +20%",
                 "key": "wh3_dlc24_effect_spell_mastery_dummy",
                 "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+              },
+              {
+                "description": "Cooldown: -25% to all spells",
+                "key": "wh2_dlc12_effect_magic_cooldown_all_lores",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc12_effect_magic_cooldown_all_lores",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "sm_rso_spell_high_soul_quench_new_bonded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_high_magic_soul_quench",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_magic_missile",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                        "onscreen_name": "Magic Missile"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Teclis' Soul Quench (Bound)",
+                      "effect_range": 0,
+                      "num_uses": 4,
+                      "recharge_time": 45,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 250,
+                      "wind_up_time": 3,
+                      "activated_projectile": {
+                        "key": "wh2_main_spell_high_magic_soul_quench_upgraded",
+                        "damage": 1200,
+                        "ap_damage": 0,
+                        "shockwave_radius": 1.5,
+                        "effective_range": 325,
+                        "base_reload_time": 1,
+                        "is_magical": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh2_main_spell_high_magic_soul_quench_upgraded",
+                          "affects_allies": true,
+                          "detonation_damage": 306,
+                          "detonation_damage_ap": 0,
+                          "detonation_radius": 8,
+                          "is_magical": true
+                        },
+                        "contact_stat_effect": {
+                          "icon": "wh2_main_unit_contact_souls",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 3,
+                          "effect_type": "negative",
+                          "onscreen_name": "Quenched!",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 4,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 25
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh2_dlc12_effect_magic_cooldown_all_lores",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "sm_rso_spell_beasts_flock_of_doom_new_upgraded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                        "onscreen_name": "Direct Damage (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Teclis' Flock of Doom (Overcast)",
+                      "active_time": 14,
+                      "effect_range": 30,
+                      "mana_cost": 12,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 300,
+                      "wind_up_time": 1,
+                      "phases": [
+                        {
+                          "icon": "sm_rso_ability_phase_beasts_flock_of_doom_new_upgraded",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 14,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 6,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 18
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
@@ -3553,7 +3720,7 @@
     "melee_attack_interval": 4,
     "barrier": 1400,
     "can_siege": true,
-    "fly_speed": 9.5,
+    "fly_speed": 9,
     "is_magical": true,
     "attributes": [
       {
@@ -3786,7 +3953,7 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
       },
       {
-        "description": "Construction time: -33% for all buildings\n\t(factionwide)",
+        "description": "Construction time: -20% for all buildings\n\t(factionwide)",
         "key": "wh2_main_effect_building_construction_time_mod_all",
         "icon": "vanilla3/campaign_ui/effect_bundles/construction"
       },

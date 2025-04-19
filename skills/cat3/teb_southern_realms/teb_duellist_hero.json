@@ -735,6 +735,11 @@
           {
             "effects": [
               {
+                "description": "Assassinate action: Additional 1% success chance",
+                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
+              },
+              {
                 "description": "Ability: \"Feint & Riposte\" for Duellists and Montante Swordsmen\n\t(all units in army)",
                 "key": "teb_feint_riposte_duellists_montante",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
@@ -802,6 +807,97 @@
               }
             ],
             "unlocked_at_rank": 15
+          }
+        ]
+      },
+      {
+        "key": "teb_duellist_hero_montante",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "teb_duellist_hero_montante",
+        "tier": 6,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "The Challenge",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Assassinate action: Additional 1% success chance",
+                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
+              },
+              {
+                "description": "Armour-piercing weapon damage: +20",
+                "key": "wh_main_effect_character_stat_ap_damage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+              },
+              {
+                "description": "Passive ability: \"The Challenge\"",
+                "key": "teb_montante_passive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "teb_montante_passive",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "teb_montante_passive",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc23_item_abilities_embrace_of_skavor",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "The Challenge",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Hit Points greater than 50%"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "teb_montante_passive",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 5,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+5 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "flanking_immune",
+                              "description": "Immune to Flanking",
+                              "bullet_text": "This unit takes no penalties when flanked.",
+                              "icon": "vanilla3/battle_ui/ability_icons/flanking_immune"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 17
           }
         ]
       },
@@ -1788,7 +1884,7 @@
                 ]
               }
             ],
-            "unlocked_at_rank": 12
+            "unlocked_at_rank": 8
           }
         ],
         "parent_subset_required": [

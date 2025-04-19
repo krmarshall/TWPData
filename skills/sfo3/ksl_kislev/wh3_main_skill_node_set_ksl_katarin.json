@@ -1495,14 +1495,9 @@
                 ]
               },
               {
-                "description": "Speed: +25% for Snow Leopard units\n\t(own armies factionwide)",
+                "description": "Speed: +40% for Snow Leopard units\n\t(own armies factionwide)",
                 "key": "wh3_main_effect_force_stat_speed_snow_leopards",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
-              },
-              {
-                "description": "Weapon strength: +25% for Snow Leopard and Things in the Woods units\n\t(Lord's army)",
-                "key": "wh3_main_effect_stat_weapon_strength_ksl_snow_leopards",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
             ],
             "unlocked_at_rank": 8
@@ -1756,79 +1751,14 @@
           {
             "effects": [
               {
-                "description": "Hit points: +5%",
+                "description": "Hit points: +10%",
                 "key": "wh_main_effect_character_stat_unit_health",
                 "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
               {
-                "description": "Armour: +5",
+                "description": "Armour: +10",
                 "key": "wh_main_effect_character_stat_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-              },
-              {
-                "description": "Weapon strength: +10%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-              },
-              {
-                "description": "Spell: \"Biting Wind\"",
-                "key": "wh3_main_effect_ability_enable_biting_wind",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_biting_wind",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_spell_tempest_biting_wind",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_biting_wind",
-                      "overpower_option": "wh3_main_spell_tempest_biting_wind_upgraded",
-                      "type": {
-                        "key": "wh_type_wind",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
-                        "onscreen_name": "Wind"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Biting Wind",
-                      "active_time": 9,
-                      "effect_range": 0,
-                      "mana_cost": 12,
-                      "miscast_chance": 0.25,
-                      "recharge_time": 60,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
-                      "target_if": [
-                        "Not on or below a platform"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh3_main_spell_expanding_wind",
-                          "localised_text": "Expanding, forward-moving area of effect",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "localised_text": "Strong vs multiple units",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "vortex": {
-                        "vortex_key": "wh3_main_spell_tempest_biting_wind",
-                        "duration": 8,
-                        "damage": 30,
-                        "damage_ap": 15,
-                        "goal_radius": 8,
-                        "movement_speed": 20,
-                        "delay": 3,
-                        "affects_allies": true,
-                        "is_magical": true
-                      }
-                    }
-                  }
-                ]
               },
               {
                 "description": "Passive ability: \"Permafrost Wards\"",
@@ -1855,6 +1785,9 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Winds of magic power is 15 or greater"
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_main_unit_passive_permafrost_wards",
@@ -1864,7 +1797,16 @@
                           "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_damage_reflection",
+                              "how": "add",
+                              "description": "+15 Melee Damage Reflection",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -1876,84 +1818,72 @@
           {
             "effects": [
               {
-                "description": "Hit points: +10%",
+                "description": "Upkeep: -10%\n\t(army in owned territory)",
+                "key": "wh_main_effect_force_all_campaign_upkeep",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Hit points: +20%",
                 "key": "wh_main_effect_character_stat_unit_health",
                 "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
               {
-                "description": "Armour: +10",
+                "description": "Armour: +20",
                 "key": "wh_main_effect_character_stat_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
               },
               {
-                "description": "Weapon strength: +20%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-              },
-              {
-                "description": "Spell: \"Biting Wind\"",
-                "key": "wh3_main_effect_ability_enable_biting_wind",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "description": "Passive ability: \"Permafrost Wards\"",
+                "key": "wh3_main_effect_ability_enable_permafrost_wards",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh3_main_effect_ability_enable_biting_wind",
+                    "effect": "wh3_main_effect_ability_enable_permafrost_wards",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh3_main_spell_tempest_biting_wind",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_biting_wind",
-                      "overpower_option": "wh3_main_spell_tempest_biting_wind_upgraded",
+                      "key": "wh3_main_unit_passive_permafrost_wards",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_permafrost_wards",
+                      "overpower_option": "",
                       "type": {
-                        "key": "wh_type_wind",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
-                        "onscreen_name": "Wind"
+                        "key": "wh_type_ward_save",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_ward_save",
+                        "onscreen_name": "Ward Save"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Biting Wind",
-                      "active_time": 9,
+                      "onscreen_name": "Permafrost Wards",
                       "effect_range": 0,
-                      "mana_cost": 12,
-                      "miscast_chance": 0.25,
-                      "recharge_time": 60,
-                      "target_enemies": true,
+                      "target_enemies": false,
                       "target_friends": false,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": false,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
-                      "target_if": [
-                        "Not on or below a platform"
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Winds of magic power is 15 or greater"
                       ],
-                      "ui_effects": [
+                      "phases": [
                         {
-                          "key": "wh3_main_spell_expanding_wind",
-                          "localised_text": "Expanding, forward-moving area of effect",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "localised_text": "Strong vs multiple units",
-                          "effect_state": "positive"
+                          "icon": "wh3_main_unit_passive_permafrost_wards",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_damage_reflection",
+                              "how": "add",
+                              "description": "+15 Melee Damage Reflection",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                            }
+                          ]
                         }
-                      ],
-                      "vortex": {
-                        "vortex_key": "wh3_main_spell_tempest_biting_wind",
-                        "duration": 8,
-                        "damage": 30,
-                        "damage_ap": 15,
-                        "goal_radius": 8,
-                        "movement_speed": 20,
-                        "delay": 3,
-                        "affects_allies": true,
-                        "is_magical": true
-                      }
+                      ]
                     }
                   }
                 ]
-              },
-              {
-                "description": "Overcast spell: \"Biting Wind Upgraded\"",
-                "key": "wh3_main_effect_ability_overcast_biting_wind",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               }
             ]
           }
@@ -1979,22 +1909,17 @@
           {
             "effects": [
               {
-                "description": "Recruitment cost: -5% for Ice Guard units\n\t(Lord's army)",
-                "key": "wh3_main_effect_recruitment_cost_ksl_ice_guard",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
-              },
-              {
-                "description": "Leadership: +5 for Ice Guard units\n\t(Lord's army)",
+                "description": "Leadership: +4 for Ice Guard units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_leadership_ksl_ice_guard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale"
               },
               {
-                "description": "Melee attack: +6 for Ice Guard units\n\t(Lord's army)",
+                "description": "Melee attack: +4 for Ice Guard units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_attack_ksl_ice_guard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Melee defence: +5 for Ice Guard units\n\t(Lord's army)",
+                "description": "Melee defence: +4 for Ice Guard units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_defence_ksl_ice_guard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -2003,17 +1928,17 @@
           {
             "effects": [
               {
-                "description": "Recruitment cost: -10% for Ice Guard units\n\t(Lord's army)",
-                "key": "wh3_main_effect_recruitment_cost_ksl_ice_guard",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
-              },
-              {
-                "description": "Leadership: +10 for Ice Guard units\n\t(Lord's army)",
+                "description": "Leadership: +8 for Ice Guard units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_leadership_ksl_ice_guard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale"
               },
               {
-                "description": "Melee defence: +10 for Ice Guard units\n\t(Lord's army)",
+                "description": "Melee attack: +8 for Ice Guard units\n\t(Lord's army)",
+                "key": "wh3_main_effect_force_stat_melee_attack_ksl_ice_guard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              },
+              {
+                "description": "Melee defence: +8 for Ice Guard units\n\t(Lord's army)",
                 "key": "wh3_main_effect_force_stat_melee_defence_ksl_ice_guard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               }
@@ -2046,95 +1971,9 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Speed: +10%",
+                "description": "Speed: +20%",
                 "key": "wh_main_effect_character_stat_speed",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-              },
-              {
-                "description": "Spell: \"Hailstorm\"",
-                "key": "wh3_main_effect_ability_enable_hailstorm",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_hailstorm",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_spell_tempest_hailstorm",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_hailstorm",
-                      "overpower_option": "wh3_main_spell_tempest_hailstorm_upgraded",
-                      "type": {
-                        "key": "wh_type_bombardment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                        "onscreen_name": "Bombardment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Hailstorm",
-                      "active_time": 9,
-                      "effect_range": 0,
-                      "mana_cost": 8,
-                      "miscast_chance": 0.25,
-                      "recharge_time": 45,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_bombardment_medium_strike_aoe",
-                          "localised_text": "Medium strike area",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "localised_text": "Strong vs multiple units",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_projectile_number_40",
-                          "localised_text": "Projectiles: 40",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_projectile_aoe_3",
-                          "localised_text": "Explosion area of effect: 3m",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "bombardment": {
-                        "bombardment_key": "wh3_main_spell_tempest_hailstorm",
-                        "arrival_window": 6,
-                        "radius_spread": 15,
-                        "start_time": 2,
-                        "projectile_type": {
-                          "key": "wh3_main_spell_tempest_hailstorm",
-                          "damage": 50,
-                          "ap_damage": 25,
-                          "shockwave_radius": 1,
-                          "effective_range": 40,
-                          "base_reload_time": 1,
-                          "is_magical": true,
-                          "can_damage_allies": true,
-                          "explosion_type": {
-                            "key": "wh3_main_spell_tempest_hailstorm",
-                            "affects_allies": true,
-                            "detonation_damage": 0,
-                            "detonation_damage_ap": 50,
-                            "detonation_radius": 3,
-                            "is_magical": true
-                          }
-                        },
-                        "num_projectiles": 40
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Overcast spell: \"Hailstorm Upgraded\"",
-                "key": "wh3_main_effect_ability_overcast_hailstorm",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
                 "description": "Attribute: Strider",
@@ -2153,6 +1992,11 @@
           },
           {
             "effects": [
+              {
+                "description": "Campaign movement range: +10% for armies",
+                "key": "wh_main_effect_force_all_campaign_movement_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+              },
               {
                 "description": "Speed: +20%",
                 "key": "wh_main_effect_character_stat_speed",
@@ -2314,6 +2158,19 @@
                 "description": "Overcast spell: \"Gust of True Flight Upgraded\"",
                 "key": "wh3_main_effect_ability_overcast_gust_of_true_flight",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Attribute: Strider",
+                "key": "wh_main_effect_attribute_enable_strider",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
+                "related_attributes": [
+                  {
+                    "key": "strider",
+                    "description": " Strider",
+                    "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                    "icon": "sfo3/battle_ui/ability_icons/strider"
+                  }
+                ]
               }
             ]
           }
@@ -2349,22 +2206,17 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/kislev_acolyte"
               },
               {
-                "description": "Devotion generated: 2 per turn",
-                "key": "wh3_main_effect_ksl_devotion_gain_characters",
-                "icon": "vanilla3/campaign_ui/effect_bundles/devotion"
-              },
-              {
                 "description": "Diplomatic relations: +10 with all Kislev factions",
                 "key": "wh3_main_faction_political_diplomacy_mod_kislev",
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
               },
               {
-                "description": "Control: +1\n\t(all provinces)",
+                "description": "Control: +4\n\t(own local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Enemy leadership: -7\n\t(enemy armies in province)",
+                "description": "Enemy leadership: -2\n\t(enemy armies in province)",
                 "key": "wh_main_effect_force_stat_leadership_enemy_unit",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale"
               }
@@ -2373,19 +2225,84 @@
           {
             "effects": [
               {
-                "description": "Devotion generated: 2 per turn",
-                "key": "wh3_main_effect_ksl_devotion_gain_characters",
-                "icon": "vanilla3/campaign_ui/effect_bundles/devotion"
+                "description": "Allegiance points gained: +100% for alliances with Kislev",
+                "key": "wh3_main_effect_allegiance_points_mod_kislev",
+                "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
               },
               {
-                "description": "Diplomatic relations: +20 with all Kislev factions",
+                "description": "Allowed +1 greater Tier difference in Support for the Ice Court before penalties are applied",
+                "key": "wh3_main_effect_ksl_ice_court_levels_allowed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/kislev_acolyte"
+              },
+              {
+                "description": "Diplomatic relations: +10 with all Kislev factions",
                 "key": "wh3_main_faction_political_diplomacy_mod_kislev",
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
               },
               {
-                "description": "Control: +2\n\t(all provinces)",
+                "description": "Control: +4\n\t(own local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Spell: \"Biting Wind\"",
+                "key": "wh3_main_effect_ability_enable_biting_wind",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_biting_wind",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_tempest_biting_wind",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_tempest_biting_wind",
+                      "overpower_option": "wh3_main_spell_tempest_biting_wind_upgraded",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Biting Wind",
+                      "active_time": 9,
+                      "effect_range": 0,
+                      "mana_cost": 12,
+                      "miscast_chance": 0.25,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh3_main_spell_expanding_wind",
+                          "localised_text": "Expanding, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh3_main_spell_tempest_biting_wind",
+                        "duration": 8,
+                        "damage": 30,
+                        "damage_ap": 15,
+                        "goal_radius": 8,
+                        "movement_speed": 20,
+                        "delay": 3,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
               },
               {
                 "description": "Spell: \"Swiftwing\"",
@@ -2458,9 +2375,19 @@
                 ]
               },
               {
+                "description": "Overcast spell: \"Biting Wind Upgraded\"",
+                "key": "wh3_main_effect_ability_overcast_biting_wind",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
                 "description": "Overcast spell: \"Swiftwing Upgraded\"",
                 "key": "wh3_main_effect_ability_overcast_swiftwing",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Enemy leadership: -2\n\t(enemy armies in province)",
+                "key": "wh_main_effect_force_stat_leadership_enemy_unit",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
               }
             ]
           }
@@ -2503,11 +2430,6 @@
                 "description": "Missile block chance: +15%\n\t(Lord's army)",
                 "key": "wh_main_effect_character_stat_missile_block",
                 "icon": "vanilla3/campaign_ui/effect_bundles/block_character"
-              },
-              {
-                "description": "Winds of Magic cost: -10% for all spells",
-                "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
                 "description": "Attribute: Immune to Flanking",
@@ -2703,11 +2625,6 @@
                 "description": "Overcast spell: \"Blizzard Upgraded\"",
                 "key": "wh3_main_effect_ability_overcast_blizzard",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Ward save: 10%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_stat_ward_save",
-                "icon": "sfo3/campaign_ui/effect_bundles/resistance_ward_save"
               }
             ]
           }
@@ -5843,14 +5760,14 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/edict_ksl_purge_the_steppes"
       },
       {
-        "description": "Devotion generated: 10 from successful Frost Maiden Hero actions",
-        "key": "wh3_main_effect_pooled_resource_ksl_devotion_hero_actions_frost_maiden",
-        "icon": "vanilla3/campaign_ui/effect_bundles/devotion"
+        "description": "Allowed +1 greater Tier difference in Support for the Ice Court before penalties are applied",
+        "key": "wh3_main_effect_ksl_ice_court_levels_allowed",
+        "icon": "vanilla3/campaign_ui/effect_bundles/kislev_acolyte"
       },
       {
-        "description": "Control: +5",
-        "key": "wh_main_effect_public_order_faction",
-        "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+        "description": "Diplomatic relations: -25 with the faction of the Orthodoxy",
+        "key": "wh3_main_diplomatic_relations_orthodoxy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
       },
       {
         "description": "Hero recruit rank: +5 for Frost Maidens",
@@ -5858,9 +5775,9 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
       },
       {
-        "description": "Ice Court training duration: -2 turns",
-        "key": "wh3_main_effect_ice_court_training_time_reduction",
-        "icon": "vanilla3/campaign_ui/effect_bundles/turns"
+        "description": "Ice Court training cost: -10%",
+        "key": "wh3_main_effect_ice_court_training_cost_mod",
+        "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
       },
       {
         "description": "Unit capacity: +1\n\tRegiments of Renown",
@@ -6142,7 +6059,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/icon_court_support"
             },
             {
-              "description": "Corruption: -10\n\t(local province)",
+              "description": "Corruption: -8\n\t(local province)",
               "key": "wh3_main_effect_corruption_reduction_characters",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
             },
