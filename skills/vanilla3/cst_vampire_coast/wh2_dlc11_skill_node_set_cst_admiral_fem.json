@@ -1593,7 +1593,7 @@
                           "effect_type": "positive",
                           "onscreen_name": "Curse of Undeath",
                           "is_hidden_in_ui": false,
-                          "heal_amount": 0.0005,
+                          "heal_amount": 0.001,
                           "hp_change_frequency": 1,
                           "resurrect": true
                         }
@@ -2254,10 +2254,10 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.05,
+                              "value": 1.1,
                               "stat": "scalar_speed",
                               "how": "mult",
-                              "description": "x1.05 Speed",
+                              "description": "x1.1 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
@@ -2319,9 +2319,9 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Curse of Years",
-                      "active_time": 32,
+                      "active_time": 35,
                       "effect_range": 35,
-                      "mana_cost": 11,
+                      "mana_cost": 10,
                       "recharge_time": 47,
                       "target_enemies": true,
                       "target_friends": false,
@@ -2336,7 +2336,7 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 32,
+                          "duration": 35,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
@@ -4319,14 +4319,29 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/loyalty"
             },
             {
+              "description": "Immediately causes wall breaches when besieging",
+              "key": "wh3_dlc23_effect_settlement_walls_damage_when_sieged_scripted",
+              "icon": "vanilla3/campaign_ui/effect_bundles/siege_attack"
+            },
+            {
               "description": "Brute: Extra loyalty gained following a battle",
               "key": "wh2_dlc11_cst_lord_innate_brute_dummy",
               "icon": "vanilla3/campaign_ui/effect_bundles/loyalty"
             },
             {
-              "description": "Attrition: +10% when under siege\n\t(enemy armies in local region)",
+              "description": "Attrition: +33% when under siege\n\t(enemy armies in local region)",
               "key": "wh_main_effect_force_army_campaign_siege_defend_attrition_bad",
               "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+            },
+            {
+              "description": "Enables flaming attacks\n\t(Lord's army)",
+              "key": "wh2_main_effect_character_stat_enable_flaming_attacks",
+              "icon": "vanilla3/campaign_ui/effect_bundles/modifier_icon_flaming"
+            },
+            {
+              "description": "Missile explosion radius: +15%\n\t(Lord's army)",
+              "key": "wh3_dlc25_effect_force_stat_explosion_radius_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/explosion_radius"
             }
           ]
         }
@@ -4358,9 +4373,19 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/loyalty"
             },
             {
-              "description": "Income from raiding: +10%\n\t(Lord's army)",
+              "description": "Income from raiding: +20%\n\t(Lord's army)",
               "key": "wh_main_effect_force_all_campaign_raid_income",
               "icon": "vanilla3/campaign_ui/effect_bundles/income"
+            },
+            {
+              "description": "Control: -4\n\t(local enemy province)",
+              "key": "wh_main_effect_public_order_characters_negative",
+              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+            },
+            {
+              "description": "Magic item drop chance from battle: +10%",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             }
           ]
         }
@@ -4390,6 +4415,29 @@
               "description": "Brute: Extra loyalty gained following a battle",
               "key": "wh2_dlc11_cst_lord_innate_brute_dummy",
               "icon": "vanilla3/campaign_ui/effect_bundles/loyalty"
+            },
+            {
+              "description": "Melee attack: +10",
+              "key": "wh_main_effect_character_stat_melee_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+            },
+            {
+              "description": "Weapon strength: +20%",
+              "key": "wh_main_effect_character_stat_weapon_strength",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+            },
+            {
+              "description": "Attribute: Causes Terror",
+              "key": "wh_main_effect_attribute_enable_causes_terror",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+              "related_attributes": [
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                }
+              ]
             },
             {
               "description": "Enemy leadership: -3\n\t(local region)",
@@ -4429,6 +4477,71 @@
               "description": "Recruit rank: +1\n\t(Lord's army)",
               "key": "wh_main_effect_force_all_campaign_experience_base_all",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Ability: \"Inspired Assault II\"",
+              "key": "wh3_main_effect_ability_enable_inspired_assault_ii",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_inspired_assault_ii",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_lord_abilities_inspired_assault_ii",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_abilities_inspired_assault_ii",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Inspired Assault II",
+                    "active_time": 42,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 100,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lord_abilities_inspired_assault_ii",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 42,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 24,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+24 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 1.4,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.4 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Unit experience gain: +25%\n\t(Lord's army)",
+              "key": "wh3_dlc20_effect_xp_gain_all_units",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
@@ -4460,9 +4573,32 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/loyalty"
             },
             {
+              "description": "Missile strength: +20% during ambushes\n\t(Lord's army)",
+              "key": "wh2_dlc16_effect_force_army_battle_unit_missile_strength_during_ambushes",
+              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+            },
+            {
               "description": "Ambush success chance: +25%\n\t(Lord's army)",
               "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
               "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+            },
+            {
+              "description": "Attribute: Stalk",
+              "key": "wh_main_effect_attribute_enable_stalk",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk",
+              "related_attributes": [
+                {
+                  "key": "stalk",
+                  "description": " Stalk",
+                  "bullet_text": "This unit can move hidden in any terrain.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk"
+                }
+              ]
+            },
+            {
+              "description": "Melee attack: +12 during ambushes\n\t(Lord's army)",
+              "key": "wh2_dlc09_effect_force_stat_melee_attack_during_ambushes",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             }
           ]
         }
@@ -4492,6 +4628,16 @@
               "description": "Mastermind: Loyalty decline rate is lowered",
               "key": "wh2_dlc11_cst_lord_innate_mastermind_dummy",
               "icon": "vanilla3/campaign_ui/effect_bundles/loyalty"
+            },
+            {
+              "description": "Immune to diplomatic penalties from trespassing",
+              "key": "wh3_dlc25_effect_trespass_immunity_for_army",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy_trespass"
+            },
+            {
+              "description": "Enables lightning strike battles when reinforcements are present",
+              "key": "wh_main_effect_conquest_enable_night_battles",
+              "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
             },
             {
               "description": "Income from all buildings: +8%\n\t(local region)",

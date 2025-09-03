@@ -1818,10 +1818,10 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.05,
+                              "value": 1.1,
                               "stat": "scalar_speed",
                               "how": "mult",
-                              "description": "x1.05 Speed",
+                              "description": "x1.1 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
@@ -2096,7 +2096,7 @@
                         "vortex_key": "wh_main_spell_death_the_purple_sun_of_xereus",
                         "duration": 11,
                         "damage": 4,
-                        "damage_ap": 7,
+                        "damage_ap": 11,
                         "goal_radius": 12,
                         "movement_speed": 2,
                         "delay": 0,
@@ -2164,7 +2164,7 @@
                         "vortex_key": "wh_main_spell_death_the_purple_sun_of_xereus",
                         "duration": 11,
                         "damage": 4,
-                        "damage_ap": 7,
+                        "damage_ap": 11,
                         "goal_radius": 12,
                         "movement_speed": 2,
                         "delay": 0,
@@ -2237,7 +2237,7 @@
                         "vortex_key": "wh_main_spell_death_the_purple_sun_of_xereus",
                         "duration": 11,
                         "damage": 4,
-                        "damage_ap": 7,
+                        "damage_ap": 11,
                         "goal_radius": 12,
                         "movement_speed": 2,
                         "delay": 0,
@@ -3181,9 +3181,90 @@
         {
           "effects": [
             {
-              "description": "Leadership aura size: +40%",
+              "description": "Leadership aura size: +100%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            },
+            {
+              "description": "Passive ability: \"Icon of Endless War\"",
+              "key": "wh3_main_effect_ability_enable_icon_of_endless_war",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_icon_of_endless_war",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_item_passive_icon_of_endless_war",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_banner_passive_icon_of_endless_war",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Icon of Endless War",
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_main_item_passive_icon_of_endless_war",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.01,
+                        "stat_effects": [
+                          {
+                            "value": 8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Causes Fear",
+              "key": "wh_main_effect_attribute_enable_causes_fear",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear",
+              "related_attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Causes Terror",
+              "key": "wh_main_effect_attribute_enable_causes_terror",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+              "related_attributes": [
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                }
+              ]
             }
           ]
         }
@@ -3209,6 +3290,16 @@
               "description": "Undivided Authority: +1\n\t(own army)",
               "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_undivided_character",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
+            },
+            {
+              "description": "Character experience gain: +100%",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Upkeep: -50% for this unit",
+              "key": "wh2_dlc16_unit_upkeep",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             }
           ]
         }
@@ -3259,9 +3350,14 @@
         {
           "effects": [
             {
-              "description": "Cooldown: -5% to all spells",
+              "description": "Cooldown: -10% to all spells",
               "key": "wh2_dlc12_effect_magic_cooldown_all_lores",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+            },
+            {
+              "description": "Miscast base chance: -15%",
+              "key": "wh_main_effect_character_stat_miscast",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             }
           ]
         }
@@ -3346,15 +3442,15 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
             {
-              "description": "Attribute: Causes Fear",
-              "key": "wh_main_effect_attribute_enable_causes_fear",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear",
+              "description": "Attribute: Causes Terror",
+              "key": "wh_main_effect_attribute_enable_causes_terror",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
               "related_attributes": [
                 {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
                 }
               ]
             }
@@ -3378,14 +3474,14 @@
         {
           "effects": [
             {
+              "description": "Missile block chance: +10%",
+              "key": "wh_main_effect_character_stat_missile_block",
+              "icon": "vanilla3/campaign_ui/effect_bundles/block_character"
+            },
+            {
               "description": "Armour: +25",
               "key": "wh_main_effect_character_stat_armour",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-            },
-            {
-              "description": "Unit mass: +25%",
-              "key": "wh3_main_effect_character_stat_unit_mass_percentage_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/mass_character"
             }
           ]
         }
@@ -3435,6 +3531,11 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Unit experience gain per turn: +25\n\t(all units in army)",
+              "key": "wh_main_effect_agent_action_outcome_parent_army_xp_gain",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
             {
               "description": "Character experience gain: +15%",
               "key": "wh3_main_effect_character_campaign_experience_mod",

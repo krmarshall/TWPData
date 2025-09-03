@@ -923,8 +923,13 @@
           {
             "effects": [
               {
-                "description": "Casualty replenishment rate: +8% for Construct units\n\t(Hero's army)",
+                "description": "Casualty replenishment rate: +5% for Construct units\n\t(Hero's army)",
                 "key": "wh2_dlc09_effect_replenishment_tmb_structures",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Dune Restoration: +5% chance for destroyed Construct units to be restored after battle\n\t(Hero's army)",
+                "key": "wh3_main_effect_tmb_constructs_post_battle_unit_saving_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               }
             ],
@@ -1028,7 +1033,7 @@
         "tier": 4,
         "indent": 2,
         "points_on_creation": 0,
-        "required_num_parents": 1,
+        "required_num_parents": 2,
         "visible_in_ui": true,
         "is_background_skill": false,
         "localised_name": "Master Builder",
@@ -1050,12 +1055,12 @@
             "unlocked_at_rank": 10
           }
         ],
-        "right_arrow": true,
         "parent_subset_required": [
           "wh2_dlc09_skill_tmb_necrotect_unique_1",
           "wh2_dlc09_skill_tmb_necrotect_unique_2",
           "wh2_dlc09_skill_tmb_necrotect_unique_3"
-        ]
+        ],
+        "right_arrow": true
       },
       {
         "key": "wh2_dlc09_skill_tmb_necrotect_master_necrosphinx",
@@ -1078,10 +1083,14 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
               }
             ],
-            "unlocked_at_rank": 14
+            "unlocked_at_rank": 14,
+            "blocks_skill_node_keys": [
+              "wh2_dlc09_skill_tmb_necrotect_master_heirotitan",
+              "wh2_dlc09_skill_tmb_necrotect_master_warsphinx"
+            ]
           }
         ],
-        "parent_required": [
+        "parent_subset_required": [
           "wh2_dlc09_skill_tmb_necrotect_unique_4"
         ],
         "boxed": true
@@ -1107,10 +1116,14 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
               }
             ],
-            "unlocked_at_rank": 14
+            "unlocked_at_rank": 14,
+            "blocks_skill_node_keys": [
+              "wh2_dlc09_skill_tmb_necrotect_master_heirotitan",
+              "wh2_dlc09_skill_tmb_necrotect_master_necrosphinx"
+            ]
           }
         ],
-        "parent_required": [
+        "parent_subset_required": [
           "wh2_dlc09_skill_tmb_necrotect_unique_4"
         ],
         "boxed": true
@@ -1136,13 +1149,105 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
               }
             ],
-            "unlocked_at_rank": 14
+            "unlocked_at_rank": 14,
+            "blocks_skill_node_keys": [
+              "wh2_dlc09_skill_tmb_necrotect_master_necrosphinx",
+              "wh2_dlc09_skill_tmb_necrotect_master_warsphinx"
+            ]
           }
         ],
-        "parent_required": [
+        "parent_subset_required": [
           "wh2_dlc09_skill_tmb_necrotect_unique_4"
         ],
+        "right_arrow": true,
         "boxed": true
+      },
+      {
+        "key": "wh2_dlc09_skill_tmb_necrotect_ability_3",
+        "image_path": "vanilla3/campaign_ui/skills/wh3_dlc26_skill_tmb_focused_restoration",
+        "character_skill_key": "wh2_dlc09_skill_tmb_necrotect_ability_3",
+        "tier": 8,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 1,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Focused Restoration",
+        "localised_description": "Intensifying the chanting of sinister mantras, the Necrotects redouble their efforts to preserve and finish their restorative works.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Targeting range: +20% for \"Restore\"",
+                "key": "wh3_main_effect_ability_targeting_range_restore",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              },
+              {
+                "description": "Ability number of uses: +1 for \"Restore\"",
+                "key": "wh3_main_effect_ability_uses_restore",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_uses_restore",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh2_dlc09_character_abilities_restore",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                        "onscreen_name": "Regeneration"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Restore",
+                      "active_time": 20,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "target_if": [
+                        "Unit is construct"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_replenish",
+                          "localised_text": "Replenishes hit points of combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_abilities_restore",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 20,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.008,
+                          "hp_change_frequency": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "parent_subset_required": [
+          "wh2_dlc09_skill_tmb_necrotect_master_heirotitan",
+          "wh2_dlc09_skill_tmb_necrotect_master_necrosphinx",
+          "wh2_dlc09_skill_tmb_necrotect_master_warsphinx"
+        ]
       },
       {
         "key": "Rad_Skill_Dump_Attack_000053",
@@ -2853,8 +2958,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 1 per turn",
+                "description": "Canopic Jars generated: 5 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +1%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
@@ -2862,8 +2972,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 2 per turn",
+                "description": "Canopic Jars generated: 10 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +3%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
@@ -2871,8 +2986,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 3 per turn",
+                "description": "Canopic Jars generated: 15 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +5%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
@@ -3145,12 +3265,17 @@
         {
           "effects": [
             {
+              "description": "Melee attack: +10",
+              "key": "wh_main_effect_character_stat_melee_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+            },
+            {
               "description": "Weapon strength: +10%",
               "key": "wh_main_effect_character_stat_weapon_strength",
               "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
             },
             {
-              "description": "Charge bonus: +8",
+              "description": "Charge bonus: +15",
               "key": "wh_main_effect_character_stat_charge_bonus_add",
               "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
             }
@@ -3190,6 +3315,71 @@
                   "icon": "vanilla3/battle_ui/ability_icons/strider"
                 }
               ]
+            },
+            {
+              "description": "Passive ability: \"Wayfarer\"",
+              "key": "wh2_dlc17_effect_ability_enable_wayfarer",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc17_effect_ability_enable_wayfarer",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc17_unit_passive_wayfarer",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_passive_fast_mover",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wayfarer",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh2_dlc17_unit_passive_wayfarer",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_deceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Deceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "strider",
+                            "description": " Strider",
+                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                            "icon": "vanilla3/battle_ui/ability_icons/strider"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -3211,14 +3401,24 @@
         {
           "effects": [
             {
+              "description": "Immune to diplomatic penalties from trespassing",
+              "key": "wh3_dlc25_effect_trespass_immunity_for_army",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy_trespass"
+            },
+            {
               "description": "Diplomatic relations: +5 with all factions",
               "key": "wh_main_faction_political_diplomacy_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             },
             {
-              "description": "Control: +1\n\t(local province)",
+              "description": "Control: +2\n\t(local province)",
               "key": "wh_main_effect_public_order_characters",
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+            },
+            {
+              "description": "Melee defence: +10",
+              "key": "wh_main_effect_character_stat_melee_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
             }
           ]
         }
@@ -3240,13 +3440,23 @@
         {
           "effects": [
             {
-              "description": "Canopic Jars generated: 2 per turn",
-              "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
-              "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              "description": "Character experience gain: +20%\n\t(accompanying Lord)",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
             {
               "description": "Recruit rank: +1\n\t(Hero's army)",
               "key": "wh_main_effect_force_all_campaign_experience_base_all",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Canopic Jars gained post-battle +5%\n\t(Hero's army)",
+              "key": "wh3_main_effect_post_battle_canopic_jars",
+              "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+            },
+            {
+              "description": "Unit experience gain: +10%\n\t(Hero's army)",
+              "key": "wh3_dlc20_effect_xp_gain_all_units",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
@@ -3269,9 +3479,27 @@
         {
           "effects": [
             {
+              "description": "Weapon strength: +15%",
+              "key": "wh_main_effect_character_stat_weapon_strength",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+            },
+            {
               "description": "Bonus vs Infantry: +10",
               "key": "wh_main_effect_character_stat_bonus_vs_infantry",
               "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small_character"
+            },
+            {
+              "description": "Attribute: Unyielding Assault",
+              "key": "wh3_main_effect_attribute_unyielding_assault",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unyielding_assault",
+              "related_attributes": [
+                {
+                  "key": "unyielding_assault",
+                  "description": "Unyielding Assault",
+                  "bullet_text": "This unit can never have its Melee Attack reduced during battle.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unyielding_assault"
+                }
+              ]
             }
           ]
         }
@@ -3293,9 +3521,19 @@
         {
           "effects": [
             {
-              "description": "Physical resistance: 5%",
+              "description": "Wound recovery time: -2 turns",
+              "key": "wh_main_effect_character_wound_recovery_time_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+            },
+            {
+              "description": "Physical resistance: 15%",
               "key": "wh_main_effect_character_stat_physical_resistance",
               "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+            },
+            {
+              "description": "Fire resistance: 15%",
+              "key": "wh_main_effect_character_stat_fire_resistance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_fire"
             }
           ]
         }
@@ -3320,6 +3558,11 @@
               "description": "Unit capacity: +2\n\tSepulchral Stalkers",
               "key": "wh2_dlc09_effect_unit_cap_tmb_mon_sepulchral_stalkers_0",
               "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+            },
+            {
+              "description": "Recruit rank: +1 for Sepulchral Stalker units\n\t(own army)",
+              "key": "wh3_main_effect_skill_unit_xp_levels_sepulchral_stalkers",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
@@ -3349,6 +3592,11 @@
               "description": "Unit capacity: +1\n\tUshabti (Great Bows)",
               "key": "wh2_dlc09_effect_unit_cap_tmb_mon_ushabti_1",
               "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+            },
+            {
+              "description": "Recruit rank: +1 for Ushabti units\n\t(own army)",
+              "key": "wh2_dlc09_effect_unit_xp_levels_tmb_ushabti",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
@@ -3370,9 +3618,14 @@
         {
           "effects": [
             {
-              "description": "Unit capacity: +1\n\tKhemrian Warsphinx",
-              "key": "wh2_dlc09_effect_unit_cap_tmb_veh_khemrian_warsphinx_0",
+              "description": "Unit capacity: +1\n\tNecrosphinx \n\tKhemrian Warsphinx",
+              "key": "wh3_main_effect_unit_cap_tmb_necrosphinx_warsphinx",
               "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+            },
+            {
+              "description": "Recruit rank: +1 for Khemrian Warsphinx and Necrosphinx units",
+              "key": "wh2_dlc09_effect_unit_xp_levels_tmb_sphinxes",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
@@ -3397,6 +3650,11 @@
               "description": "Unit capacity: +2\n\tTomb Scorpion",
               "key": "wh2_dlc09_effect_unit_cap_tmb_mon_tomb_scorpion_0",
               "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+            },
+            {
+              "description": "Recruit rank: +1 for Tomb Scorpion units\n\t(own army)",
+              "key": "wh3_main_effect_skill_unit_xp_levels_scorpions",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
@@ -3426,6 +3684,11 @@
               "description": "Recruit rank: +1 for Ushabti units\n\t(local province)",
               "key": "wh2_dlc09_effect_unit_xp_levels_tmb_ushabti",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Canopic Jars gained post-battle +5%\n\t(Hero's army)",
+              "key": "wh3_main_effect_post_battle_canopic_jars",
+              "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
             }
           ]
         }
@@ -3452,7 +3715,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
             },
             {
-              "description": "Melee attack: +5",
+              "description": "Melee attack: +10",
               "key": "wh_main_effect_character_stat_melee_attack",
               "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
             },
@@ -3481,12 +3744,17 @@
         {
           "effects": [
             {
+              "description": "Hit points: +10%",
+              "key": "wh_main_effect_character_stat_unit_health",
+              "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+            },
+            {
               "description": "Armour: +25",
               "key": "wh_main_effect_character_stat_armour",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
             },
             {
-              "description": "Melee defence: +5",
+              "description": "Melee defence: +8",
               "key": "wh_main_effect_character_stat_melee_defence",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
             }
@@ -3510,7 +3778,7 @@
         {
           "effects": [
             {
-              "description": "Ambush success chance: +10%\n\t(armies in local owned region)",
+              "description": "Ambush success chance: +15%\n\t(armies in local owned region)",
               "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
               "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
             },
@@ -3568,6 +3836,11 @@
                   ]
                 }
               ]
+            },
+            {
+              "description": "Melee defence: +10",
+              "key": "wh_main_effect_character_stat_melee_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
             }
           ]
         }
@@ -3592,6 +3865,75 @@
               "description": "Corruption: -2\n\t(local province)",
               "key": "wh3_main_effect_corruption_reduction_characters",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+            },
+            {
+              "description": "Spell resistance: 35%",
+              "key": "wh_main_effect_character_stat_magic_resistance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+            },
+            {
+              "description": "Bound spell: \"Banishment\"",
+              "key": "wh2_main_effect_ability_enable_bound_slann_2",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_main_effect_ability_enable_bound_slann_2",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_dlc04_spell_bound_banishment",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_banishment",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_vortex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                      "onscreen_name": "Vortex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Banishment",
+                    "active_time": 20,
+                    "effect_range": 0,
+                    "num_uses": 2,
+                    "recharge_time": 150,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 150,
+                    "wind_up_time": 5,
+                    "target_if": [
+                      "Not on or below a platform"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh2_main_spell_huge_vortex",
+                        "localised_text": "Huge, randomly-moving area of effect",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh2_main_all_good_against_armour",
+                        "localised_text": "Good against armour",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "vortex": {
+                      "vortex_key": "wh2_main_bound_banishment",
+                      "duration": 20,
+                      "damage": 0,
+                      "damage_ap": 10,
+                      "goal_radius": 12,
+                      "movement_speed": 2,
+                      "delay": 0,
+                      "affects_allies": true,
+                      "is_magical": true
+                    }
+                  }
+                }
+              ]
             }
           ]
         }

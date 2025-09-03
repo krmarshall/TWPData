@@ -4335,6 +4335,11 @@
               "description": "Missile resistance: 10%",
               "key": "wh_main_effect_character_stat_missile_resistance",
               "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
+            },
+            {
+              "description": "Harmony: +1 Yang\n\t(local province)",
+              "key": "wh3_main_pooled_resource_harmony_characters_yang",
+              "icon": "vanilla3/campaign_ui/effect_bundles/cathay_yang"
             }
           ]
         }
@@ -4493,6 +4498,11 @@
         {
           "effects": [
             {
+              "description": "Reinforcements supporting this army can have their arrival point adjusted by +500 metres without incurring any time penalty",
+              "key": "wh3_main_effect_reinforcement_adjustment_budget",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
+            },
+            {
               "description": "Enemy battle reinforcement time: +10%\n\t(all units in army)",
               "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/military"
@@ -4506,6 +4516,73 @@
               "description": "Leadership aura size: +25%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            },
+            {
+              "description": "Passive ability: \"Tactician\"",
+              "key": "wh3_main_effect_ability_enable_strategist",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_strategist",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_lord_passive_strategist",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Tactician",
+                    "effect_range": 75,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than 50% of base"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_self_not",
+                        "localised_text": "Does not affect self",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.1 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4540,6 +4617,19 @@
               "description": "Melee defence: +2 for Peasant Long Spearmen, Celestial Dragon Guard, Jade Warriors and Jade Warriors (Halberds) units\n\t(all units in army)",
               "key": "wh3_main_effect_force_stat_melee_defence_cth_infantry",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            },
+            {
+              "description": "Attribute: Unyielding Assault",
+              "key": "wh3_main_effect_attribute_unyielding_assault",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unyielding_assault",
+              "related_attributes": [
+                {
+                  "key": "unyielding_assault",
+                  "description": "Unyielding Assault",
+                  "bullet_text": "This unit can never have its Melee Attack reduced during battle.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unyielding_assault"
+                }
+              ]
             }
           ]
         }

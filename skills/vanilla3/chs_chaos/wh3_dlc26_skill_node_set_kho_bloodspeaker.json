@@ -1797,6 +1797,13 @@
                           "stat_effects": [
                             {
                               "value": 1.25,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.25 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.25,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.25 Speed",
@@ -3813,9 +3820,90 @@
         {
           "effects": [
             {
-              "description": "Leadership aura size: +40%",
+              "description": "Leadership aura size: +100%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            },
+            {
+              "description": "Passive ability: \"Icon of Endless War\"",
+              "key": "wh3_main_effect_ability_enable_icon_of_endless_war",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_icon_of_endless_war",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_item_passive_icon_of_endless_war",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_banner_passive_icon_of_endless_war",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Icon of Endless War",
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_main_item_passive_icon_of_endless_war",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.01,
+                        "stat_effects": [
+                          {
+                            "value": 8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Causes Fear",
+              "key": "wh_main_effect_attribute_enable_causes_fear",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear",
+              "related_attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Causes Terror",
+              "key": "wh_main_effect_attribute_enable_causes_terror",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+              "related_attributes": [
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                }
+              ]
             }
           ]
         }
@@ -3841,6 +3929,16 @@
               "description": "Undivided Authority: +1\n\t(own army)",
               "key": "wh3_dlc20_effect_pooled_resource_mod_chs_authority_undivided_character",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_chaos"
+            },
+            {
+              "description": "Character experience gain: +100%",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Upkeep: -50% for this unit",
+              "key": "wh2_dlc16_unit_upkeep",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             }
           ]
         }
@@ -3954,15 +4052,15 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
             {
-              "description": "Attribute: Causes Fear",
-              "key": "wh_main_effect_attribute_enable_causes_fear",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear",
+              "description": "Attribute: Causes Terror",
+              "key": "wh_main_effect_attribute_enable_causes_terror",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
               "related_attributes": [
                 {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
                 }
               ]
             }
@@ -3986,14 +4084,14 @@
         {
           "effects": [
             {
+              "description": "Missile block chance: +10%",
+              "key": "wh_main_effect_character_stat_missile_block",
+              "icon": "vanilla3/campaign_ui/effect_bundles/block_character"
+            },
+            {
               "description": "Armour: +25",
               "key": "wh_main_effect_character_stat_armour",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-            },
-            {
-              "description": "Unit mass: +25%",
-              "key": "wh3_main_effect_character_stat_unit_mass_percentage_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/mass_character"
             }
           ]
         }
@@ -4044,6 +4142,11 @@
         {
           "effects": [
             {
+              "description": "Unit experience gain per turn: +25\n\t(all units in army)",
+              "key": "wh_main_effect_agent_action_outcome_parent_army_xp_gain",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
               "description": "Character experience gain: +15%",
               "key": "wh3_main_effect_character_campaign_experience_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
@@ -4067,6 +4170,11 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Vigour loss reduction: 0%",
+              "key": "wh_main_effect_force_stat_vigour_loss_reduction",
+              "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+            },
             {
               "description": "Speed: +15%",
               "key": "wh_main_effect_character_stat_speed",
@@ -4097,12 +4205,17 @@
         {
           "effects": [
             {
+              "description": "Melee attack: +10",
+              "key": "wh_main_effect_character_stat_melee_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+            },
+            {
               "description": "Weapon strength: +10%",
               "key": "wh_main_effect_character_stat_weapon_strength",
               "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
             },
             {
-              "description": "Charge bonus: +8",
+              "description": "Charge bonus: +15",
               "key": "wh_main_effect_character_stat_charge_bonus_add",
               "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
             }
@@ -4125,6 +4238,68 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Passive ability: \"Rabble Rouse\"",
+              "key": "wh3_dlc25_effect_ability_enable_rabble_rouse",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_dlc25_effect_ability_enable_rabble_rouse",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc12_unit_passive_demagoguery",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_unit_abilities_demagoguery",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Rabble-Rouse",
+                    "effect_range": 35,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh2_dlc12_unit_passive_demagoguery",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Immune to Psychology",
+              "key": "wh_main_effect_attribute_enable_immune_to_psychology",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
+              "related_attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                }
+              ]
+            },
             {
               "description": "Leadership: +10",
               "key": "wh_main_effect_character_stat_leadership",
@@ -4155,7 +4330,7 @@
         {
           "effects": [
             {
-              "description": "Ambush success chance: +10%\n\t(armies in local owned region)",
+              "description": "Ambush success chance: +25%\n\t(armies in local owned region)",
               "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
               "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
             },
@@ -4213,6 +4388,11 @@
                   ]
                 }
               ]
+            },
+            {
+              "description": "Melee defence: +10",
+              "key": "wh_main_effect_character_stat_melee_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
             }
           ]
         }
@@ -4233,6 +4413,16 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Melee attack: +8",
+              "key": "wh_main_effect_character_stat_melee_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+            },
+            {
+              "description": "Melee defence: +8",
+              "key": "wh_main_effect_character_stat_melee_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+            },
             {
               "description": "Leadership: +2\n\t(all units in army)",
               "key": "wh_main_effect_force_stat_leadership",
@@ -4279,6 +4469,71 @@
                   "icon": "vanilla3/battle_ui/ability_icons/strider"
                 }
               ]
+            },
+            {
+              "description": "Passive ability: \"Wayfarer\"",
+              "key": "wh2_dlc17_effect_ability_enable_wayfarer",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc17_effect_ability_enable_wayfarer",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc17_unit_passive_wayfarer",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_passive_fast_mover",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wayfarer",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh2_dlc17_unit_passive_wayfarer",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_deceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Deceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "strider",
+                            "description": " Strider",
+                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                            "icon": "vanilla3/battle_ui/ability_icons/strider"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4299,6 +4554,16 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Spell intensity: +10%\n\t(If Spellcaster)",
+              "key": "wh3_main_effect_spell_mastery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+            },
+            {
+              "description": "Character experience gain: +50%",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
             {
               "description": "Hero self-defence: +5% chance of wounding aggressors",
               "key": "wh_main_effect_agent_defence_wound_chance_mod",
@@ -4329,9 +4594,14 @@
         {
           "effects": [
             {
-              "description": "Character experience gain: +15%",
+              "description": "Character experience gain: +75%",
               "key": "wh3_main_effect_character_campaign_experience_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Magic item drop chance from battle: +15%",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             }
           ]
         }
@@ -4356,6 +4626,85 @@
               "description": "Campaign movement range: +5%",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            },
+            {
+              "description": "Ability: \"Tacticians, Stand Your Ground!\"",
+              "key": "wh3_dlc24_effect_ability_enable_tacticians_stand_your_ground",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_dlc24_effect_ability_enable_tacticians_stand_your_ground",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_dlc24_character_abilities_tacticians_stand_your_ground",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_your_ground",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Tacticians, Stand Your Ground!",
+                    "active_time": 18,
+                    "effect_range": 35,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 100,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_spell_upgraded_cast_range",
+                        "localised_text": "Extended cast range",
+                        "effect_state": "magic"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_your_ground",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 18,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 16,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+16 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 24,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+24 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Vanguard Deployment",
+              "key": "wh_main_effect_attribute_enable_vanguard_deployment",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
+              "related_attributes": [
+                {
+                  "key": "guerrilla_deploy",
+                  "description": "Vanguard Deployment",
+                  "bullet_text": "This unit can deploy outside the deployment zone.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_guerrilla_deploy"
+                }
+              ]
             }
           ]
         }
@@ -4382,7 +4731,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
             },
             {
-              "description": "Melee attack: +5",
+              "description": "Melee attack: +10",
               "key": "wh_main_effect_character_stat_melee_attack",
               "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
             },
@@ -4411,14 +4760,76 @@
         {
           "effects": [
             {
+              "description": "Reinforcements supporting this army can have their arrival point adjusted by +500 metres without incurring any time penalty",
+              "key": "wh3_main_effect_reinforcement_adjustment_budget",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
+            },
+            {
               "description": "Character's aura leadership effect: +4",
               "key": "wh_main_effect_character_stat_aura_leadership_effect",
               "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
             },
             {
-              "description": "Leadership aura size: +25%",
+              "description": "Leadership aura size: +50%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            },
+            {
+              "description": "Passive ability: \"Tactician\"",
+              "key": "wh3_main_effect_ability_enable_strategist",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_strategist",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_lord_passive_strategist",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Tactician",
+                    "effect_range": 55,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+5 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4440,12 +4851,17 @@
         {
           "effects": [
             {
+              "description": "Hit points: +10%",
+              "key": "wh_main_effect_character_stat_unit_health",
+              "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+            },
+            {
               "description": "Armour: +25",
               "key": "wh_main_effect_character_stat_armour",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
             },
             {
-              "description": "Melee defence: +5",
+              "description": "Melee defence: +8",
               "key": "wh_main_effect_character_stat_melee_defence",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
             }
@@ -4456,15 +4872,15 @@
     {
       "key": "wh3_main_skill_node_kho_herald_of_khorne_innate_13",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_weapon_master",
+      "character_skill_key": "wh2_main_skill_innate_all_weapon_master_melee_only",
       "tier": 12,
       "indent": 6,
       "points_on_creation": 0,
       "required_num_parents": 0,
       "visible_in_ui": false,
-      "is_background_skill": true,
+      "is_background_skill": false,
       "localised_name": "Weapon Master",
-      "localised_description": "If you can swing, slash, stab, gouge, or shoot it, this warrior has mastered every aspect of its use.",
+      "localised_description": "If you can swing, slash, stab or gouge, it, this warrior has mastered every aspect of its use.",
       "levels": [
         {
           "effects": [
@@ -4474,19 +4890,36 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
             },
             {
-              "description": "Armour-piercing weapon damage: +35",
+              "description": "Enables sundering attacks",
+              "key": "wh2_dlc10_effect_character_stat_enable_sundering_attacks",
+              "icon": "vanilla3/campaign_ui/effect_bundles/phase_sunder_armour",
+              "related_phases": [
+                {
+                  "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
+                  "order": 0,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 10,
+                  "effect_type": "negative",
+                  "onscreen_name": "Sundered Armour",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": -30,
+                      "stat": "stat_armour",
+                      "how": "add",
+                      "description": "-30 Armour",
+                      "icon": "vanilla3/skins/default/icon_stat_armour"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": "Armour-piercing weapon damage: +75",
               "key": "wh_main_effect_character_stat_ap_damage",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
-            },
-            {
-              "description": "Missile strength: +10%",
-              "key": "wh_main_effect_character_stat_missile_damage",
-              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage_character"
-            },
-            {
-              "description": "Reload time reduction: +10%",
-              "key": "wh_main_effect_character_stat_reload_time_reduction",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
             }
           ]
         }
@@ -4508,7 +4941,7 @@
         {
           "effects": [
             {
-              "description": "Campaign line of sight: +10%",
+              "description": "Campaign line of sight: +25%",
               "key": "wh_main_effect_agent_field_line_of_sight_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/agent"
             },
@@ -4516,6 +4949,68 @@
               "description": "Magic item drop chance from battle: +15%",
               "key": "wh_main_effect_character_mod_ancillary_drop",
               "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+            },
+            {
+              "description": "Ambush defence chance: +15%\n\t(own army)",
+              "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+            },
+            {
+              "description": "Passive ability: \"Spotter\"",
+              "key": "wh3_main_effect_ability_enable_spotter",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_spotter",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_character_passive_spotter",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_eye_of_the_dragon",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Spotter",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh3_main_character_passive_spotter",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 2,
+                            "stat": "stat_spotting_forest",
+                            "how": "mult",
+                            "description": "x2 Forest Spotting",
+                            "icon": "vanilla3/skins/default/icon_stat_spotting"
+                          },
+                          {
+                            "value": 2,
+                            "stat": "stat_spotting_scrub",
+                            "how": "mult",
+                            "description": "x2 Forest Spotting",
+                            "icon": "vanilla3/skins/default/icon_stat_spotting"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4622,6 +5117,63 @@
               "description": "Khorne corruption: +3\n\t(local province)",
               "key": "wh3_main_effect_corruption_khorne_characters",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+            },
+            {
+              "description": "Ability: \"Mantle of Immolation\"",
+              "key": "wh3_main_effect_enable_ability_mantle_of_immolation",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_enable_ability_mantle_of_immolation",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_twa07_unit_passive_mantle_of_immolation",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_twa07_mantle_of_immolation",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Mantle of Immolation",
+                    "effect_range": 35,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh3_twa07_unit_passive_mantle_of_immolation",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -20,
+                            "stat": "stat_weakness_flame",
+                            "how": "add",
+                            "description": "-20 Weakness to Fire Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                          },
+                          {
+                            "value": -5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "-5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }

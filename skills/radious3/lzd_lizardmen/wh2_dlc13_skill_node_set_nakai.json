@@ -185,6 +185,11 @@
           {
             "effects": [
               {
+                "description": "Vigour loss reduction: -50%",
+                "key": "wh_main_effect_force_stat_vigour_loss_reduction",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              },
+              {
                 "description": "Character's aura leadership effect: +5",
                 "key": "wh_main_effect_character_stat_aura_leadership_effect",
                 "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
@@ -216,12 +221,84 @@
           {
             "effects": [
               {
+                "description": "Passive Ability: Daemon Crusher",
+                "key": "wh3_main_unit_enable_ability_daemon_crusher",
+                "icon": "vanilla3/battle_ui/ability_icons/placeholder",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_unit_enable_ability_daemon_crusher",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_unit_passive_daemon_crusher",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc26_character_passive_daemon_crusher",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_hexes",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                        "onscreen_name": "Hex (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Daemon Crusher",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "enabled_if": [
+                        "In melee"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh3_main_unit_passive_daemon_crusher",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -4,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-4 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "daemonic",
+                              "description": "Removes Daemonic",
+                              "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_daemonic"
+                            }
+                          ]
+                        },
+                        {
+                          "icon": "wh3_main_unit_passive_daemon_crusher_self",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "imbue_magical": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
                 "description": "Weapon strength: +10%",
                 "key": "wh_main_effect_character_stat_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               },
               {
-                "description": "Charge bonus: +10",
+                "description": "Charge bonus: +15",
                 "key": "wh_main_effect_character_stat_charge_bonus_add",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
@@ -518,7 +595,7 @@
           {
             "effects": [
               {
-                "description": "Weapon strength: +5%",
+                "description": "Weapon strength: +10%",
                 "key": "wh_main_effect_character_stat_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               },
@@ -553,8 +630,8 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               },
               {
-                "description": "Weapon strength: +10% when fighting against Skaven",
-                "key": "wh2_main_effect_character_stat_weapon_strength_vs_skaven",
+                "description": "Weapon strength: +5% when fighting against Greenskins, Skaven, Dark Elves, Beastmen, Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs and Norsca",
+                "key": "wh2_main_effect_character_stat_weapon_strength_vs_forces_of_destruction",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               }
             ]
@@ -3189,6 +3266,12 @@
         "icon": "vanilla3/battle_ui/ability_icons/hide_forest"
       },
       {
+        "key": "wallbreaker",
+        "description": " Wallbreaker",
+        "bullet_text": "Allows the unit to attack and destroy walls in melee. This attribute also adds a  +50% damage multiplier against buildings.",
+        "icon": "vanilla3/battle_ui/ability_icons/wallbreaker"
+      },
+      {
         "key": "ignore_trees",
         "description": " Woodsman",
         "bullet_text": "This unit can pass through trees.",
@@ -3509,6 +3592,11 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/effect_rite"
       },
       {
+        "description": "Immune to diplomatic penalties from trespassing",
+        "key": "wh3_dlc25_effect_trespass_immunity_for_army",
+        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy_trespass"
+      },
+      {
         "description": "Lord recruit rank: +2 for Kroxigor Ancients",
         "key": "wh2_dlc13_faction_trait_nakai_recruit_rank",
         "icon": "vanilla3/campaign_ui/effect_bundles/army"
@@ -3524,7 +3612,7 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/income"
       },
       {
-        "description": "Charge bonus: +10 for Kroxigors units",
+        "description": "Charge bonus: +10 for Kroxigor units",
         "key": "wh2_main_effect_force_stat_charge_bonus_add_lzd_kroxigor",
         "icon": "vanilla3/campaign_ui/effect_bundles/charge"
       },

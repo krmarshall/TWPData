@@ -260,7 +260,7 @@
                       "active_time": 20,
                       "effect_range": 0,
                       "num_uses": 2,
-                      "recharge_time": 135,
+                      "recharge_time": 150,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
@@ -424,6 +424,11 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Wound recovery time: -1 turns",
+                "key": "wh_main_effect_character_wound_recovery_time_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+              },
               {
                 "description": "Passive ability: \"Regeneration\"",
                 "key": "wh2_main_effect_ability_enable_regeneration",
@@ -1739,6 +1744,7 @@
                           "effect_type": "positive",
                           "onscreen_name": "Exorcism",
                           "is_hidden_in_ui": false,
+                          "imbue_magical": true,
                           "stat_effects": [
                             {
                               "value": 4,
@@ -2223,10 +2229,10 @@
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 1.05,
+                              "value": 1.1,
                               "stat": "scalar_speed",
                               "how": "mult",
-                              "description": "x1.05 Speed",
+                              "description": "x1.1 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
@@ -2496,6 +2502,13 @@
                           "stat_effects": [
                             {
                               "value": 1.2,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.2 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.2,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.2 Speed",
@@ -2569,6 +2582,13 @@
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
+                            {
+                              "value": 1.2,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.2 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
                             {
                               "value": 1.2,
                               "stat": "scalar_speed",
@@ -4259,17 +4279,50 @@
       "visible_in_ui": false,
       "is_background_skill": true,
       "localised_name": "Fourth Generation",
-      "localised_description": "So powerful is their affinity with the Winds that even a fourth generation spawning produces Slann with impressive spellcasting abilities.",
+      "localised_description": "Younger Slann’s determination to involve themselves in worldly affairs has not yet been dampened by age. They are faster to rouse themselves to war when Chaos looms.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Unit experience gain per turn: +30\n\t(Lord's army)",
-              "key": "wh_dlc05_effect_building_army_xp_gain",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              "description": "Ward save: 15% when fighting against armies that spread corruption\n\t(Lord's army)",
+              "key": "wh3_dlc24_effect_force_stat_ward_save_ksl_vs_corrupters_morathi",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
             },
             {
-              "description": "Miscast base chance: -30%",
+              "description": "Spell intensity: +10%",
+              "key": "wh3_main_effect_spell_mastery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+            },
+            {
+              "description": "Attribute: Immune to Flanking",
+              "key": "wh3_dlc26_effect_attribute_enable_immune_to_flanking",
+              "icon": "vanilla3/campaign_ui/effect_bundles/flanking_immune",
+              "related_attributes": [
+                {
+                  "key": "flanking_immune",
+                  "description": "Immune to Flanking",
+                  "bullet_text": "This unit takes no penalties when flanked.",
+                  "icon": "vanilla3/battle_ui/ability_icons/flanking_immune"
+                }
+              ]
+            },
+            {
+              "description": "Melee attack: +30",
+              "key": "wh_main_effect_character_stat_melee_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+            },
+            {
+              "description": "Melee defence: +20",
+              "key": "wh_main_effect_character_stat_melee_defence",
+              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+            },
+            {
+              "description": "Armour-piercing weapon damage: +300",
+              "key": "wh_main_effect_character_stat_ap_damage",
+              "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+            },
+            {
+              "description": "Miscast base chance: -25%",
               "key": "wh_main_effect_character_stat_miscast",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             },
@@ -4277,6 +4330,11 @@
               "description": "Winds of Magic power reserve capacity: +5",
               "key": "wh3_main_effect_winds_of_magic_pool_cap",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            },
+            {
+              "description": "Ward save: 15% when fighting against armies that spread corruption\n\t(Lord's army)",
+              "key": "wh3_dlc24_effect_force_stat_ward_save_ksl_vs_corrupters",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
             }
           ]
         }
@@ -4293,24 +4351,44 @@
       "visible_in_ui": false,
       "is_background_skill": true,
       "localised_name": "Third Generation",
-      "localised_description": "Spawned via sacred rites, third generation Slann are adept at controlling the Winds of Magic to the Lizardmen's advantage.",
+      "localised_description": "Slann of the Third Generation have not yet lost their interest in imparting their vast wisdom to their cohorts, though they would rather not stand up while doing so.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Unit experience gain per turn: +40\n\t(Lord's army)",
+              "description": "Spell intensity: +20%",
+              "key": "wh3_main_effect_spell_mastery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+            },
+            {
+              "description": "Unit experience gain per turn: +200\n\t(Lord's army)",
               "key": "wh_dlc05_effect_building_army_xp_gain",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
             {
-              "description": "Miscast base chance: -40%",
+              "description": "Character experience gain: +50%\n\t(characters in force)",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Miscast base chance: -50%",
               "key": "wh_main_effect_character_stat_miscast",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            },
+            {
+              "description": "Barrier hit points: +100\n\t(Lord's army)",
+              "key": "wh3_main_effect_battle_barrier_health_add",
+              "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             },
             {
               "description": "Winds of Magic power reserve capacity: +15",
               "key": "wh3_main_effect_winds_of_magic_pool_cap",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            },
+            {
+              "description": "Unit experience gain: +50%\n\t(Lord's army)",
+              "key": "wh3_dlc20_effect_xp_gain_all_units",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             }
           ]
         }
@@ -4332,17 +4410,27 @@
         {
           "effects": [
             {
-              "description": "Unit experience gain per turn: +50\n\t(Lord's army)",
-              "key": "wh_dlc05_effect_building_army_xp_gain",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              "description": "Spell intensity: +40%",
+              "key": "wh3_main_effect_spell_mastery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
             },
             {
-              "description": "Miscast base chance: -50%",
+              "description": "Chance of Winds of Magic changing in strength: +50%\n\t(local province)",
+              "key": "wh3_main_effect_winds_of_magic_change_chance_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            },
+            {
+              "description": "Miscast base chance: -100%",
               "key": "wh_main_effect_character_stat_miscast",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
             },
             {
-              "description": "Winds of Magic power reserve capacity: +20",
+              "description": "Barrier hit points: +1000",
+              "key": "wh3_main_effect_battle_barrier_health_add",
+              "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
+            },
+            {
+              "description": "Winds of Magic power reserve capacity: +25",
               "key": "wh3_main_effect_winds_of_magic_pool_cap",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
             }

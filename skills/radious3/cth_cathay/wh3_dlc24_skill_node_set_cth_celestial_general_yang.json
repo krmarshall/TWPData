@@ -1413,6 +1413,13 @@
                           "stat_effects": [
                             {
                               "value": 1.25,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.25 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.25,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.25 Speed",
@@ -3929,6 +3936,11 @@
               "description": "Construction cost: -10% for all buildings\n\t(local province)",
               "key": "wh_main_effect_building_construction_cost_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+            },
+            {
+              "description": "Harmony: +1 Yang\n\t(local province)",
+              "key": "wh3_main_pooled_resource_harmony_characters_yang",
+              "icon": "vanilla3/campaign_ui/effect_bundles/cathay_yang"
             }
           ]
         }
@@ -3979,9 +3991,91 @@
         {
           "effects": [
             {
-              "description": "Melee attack: +7",
+              "description": "Melee attack: +5",
               "key": "wh_main_effect_character_stat_melee_attack",
               "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+            },
+            {
+              "description": "Passive ability: \"Frenzy\"",
+              "key": "wh_dlc08_effect_ability_enable_frenzy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh_dlc08_effect_ability_enable_frenzy",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_unit_passive_frenzy",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Frenzy",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than 50% of base"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 6,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+6 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.1 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4002,6 +4096,11 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Casualties captured post-battle: +5%\n\t(own army)",
+              "key": "wh_main_effect_force_all_campaign_captives",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
+            },
             {
               "description": "Leadership: +10",
               "key": "wh_main_effect_character_stat_leadership",
@@ -4027,9 +4126,14 @@
         {
           "effects": [
             {
-              "description": "Character experience gain: +15%",
+              "description": "Character experience gain: +75%",
               "key": "wh3_main_effect_character_campaign_experience_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Magic item drop chance from battle: +15%",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             }
           ]
         }
@@ -4056,7 +4160,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
             },
             {
-              "description": "Melee attack: +5",
+              "description": "Melee attack: +10",
               "key": "wh_main_effect_character_stat_melee_attack",
               "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
             },
@@ -4085,14 +4189,76 @@
         {
           "effects": [
             {
+              "description": "Reinforcements supporting this army can have their arrival point adjusted by +500 metres without incurring any time penalty",
+              "key": "wh3_main_effect_reinforcement_adjustment_budget",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
+            },
+            {
               "description": "Character's aura leadership effect: +4",
               "key": "wh_main_effect_character_stat_aura_leadership_effect",
               "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
             },
             {
-              "description": "Leadership aura size: +25%",
+              "description": "Leadership aura size: +50%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            },
+            {
+              "description": "Passive ability: \"Tactician\"",
+              "key": "wh3_main_effect_ability_enable_strategist",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_strategist",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_lord_passive_strategist",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Tactician",
+                    "effect_range": 55,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+5 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4117,6 +4283,19 @@
               "description": "Hero self-defence: +10% chance of wounding aggressors",
               "key": "wh_main_effect_agent_defence_wound_chance_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+            },
+            {
+              "description": "Attribute: Unyielding Assault",
+              "key": "wh3_main_effect_attribute_unyielding_assault",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unyielding_assault",
+              "related_attributes": [
+                {
+                  "key": "unyielding_assault",
+                  "description": "Unyielding Assault",
+                  "bullet_text": "This unit can never have its Melee Attack reduced during battle.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unyielding_assault"
+                }
+              ]
             }
           ]
         }

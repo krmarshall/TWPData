@@ -1726,6 +1726,13 @@
                           "stat_effects": [
                             {
                               "value": 1.25,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.25 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.25,
                               "stat": "scalar_speed",
                               "how": "mult",
                               "description": "x1.25 Speed",
@@ -2328,7 +2335,7 @@
     "hit_points": 10,
     "bonus_hit_points": 7590,
     "armour": 114,
-    "missile_block_chance": 10,
+    "missile_block_chance": 20,
     "morale": 70,
     "damage_mod_flame": 0,
     "damage_mod_magic": 0,
@@ -2565,12 +2572,17 @@
         {
           "effects": [
             {
+              "description": "Melee attack: +10",
+              "key": "wh_main_effect_character_stat_melee_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+            },
+            {
               "description": "Weapon strength: +10%",
               "key": "wh_main_effect_character_stat_weapon_strength",
               "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
             },
             {
-              "description": "Charge bonus: +8",
+              "description": "Charge bonus: +15",
               "key": "wh_main_effect_character_stat_charge_bonus_add",
               "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
             }
@@ -2593,6 +2605,11 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Income from post-battle loot: +10%",
+              "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/income"
+            },
             {
               "description": "Charge bonus: +10",
               "key": "wh_main_effect_character_stat_charge_bonus_add",
@@ -2623,6 +2640,11 @@
         {
           "effects": [
             {
+              "description": "Character experience gain: +30%",
+              "key": "wh3_main_effect_character_campaign_experience_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
               "description": "Attribute: Immune to Psychology",
               "key": "wh_main_effect_attribute_enable_immune_to_psychology",
               "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
@@ -2636,7 +2658,12 @@
               ]
             },
             {
-              "description": "Leadership: +3",
+              "description": "Hit points: +10%",
+              "key": "wh_main_effect_character_stat_unit_health",
+              "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+            },
+            {
+              "description": "Leadership: +15",
               "key": "wh_main_effect_character_stat_leadership",
               "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
             }
@@ -2659,6 +2686,11 @@
       "levels": [
         {
           "effects": [
+            {
+              "description": "Meat gained from battles: +10%\n\t(Lord's army)",
+              "key": "wh3_main_tech_ogr_postbattle_meat",
+              "icon": "vanilla3/campaign_ui/effect_bundles/meat_bundle"
+            },
             {
               "description": "Campaign movement range: +8%",
               "key": "wh_main_effect_agent_movement_range_mod",
@@ -2734,6 +2766,71 @@
                   "icon": "vanilla3/battle_ui/ability_icons/strider"
                 }
               ]
+            },
+            {
+              "description": "Passive ability: \"Wayfarer\"",
+              "key": "wh2_dlc17_effect_ability_enable_wayfarer",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc17_effect_ability_enable_wayfarer",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc17_unit_passive_wayfarer",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_passive_fast_mover",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wayfarer",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh2_dlc17_unit_passive_wayfarer",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 3,
+                            "stat": "scalar_entity_deceleration_modifier",
+                            "how": "mult",
+                            "description": "x3 Deceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "strider",
+                            "description": " Strider",
+                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                            "icon": "vanilla3/battle_ui/ability_icons/strider"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -2755,9 +2852,14 @@
         {
           "effects": [
             {
-              "description": "Character experience gain: +15%",
+              "description": "Character experience gain: +75%",
               "key": "wh3_main_effect_character_campaign_experience_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Magic item drop chance from battle: +15%",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             }
           ]
         }
@@ -2784,9 +2886,19 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
             {
+              "description": "Post battle chance of stealing a magic item: +5%",
+              "key": "wh_main_effect_character_mod_ancillary_steal",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
+            },
+            {
               "description": "Corruption: -2\n\t(local province)",
               "key": "wh3_main_effect_corruption_reduction_characters",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+            },
+            {
+              "description": "Magic item drop chance from battle: +5%",
+              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             }
           ]
         }
@@ -2813,7 +2925,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
             },
             {
-              "description": "Melee attack: +5",
+              "description": "Melee attack: +10",
               "key": "wh_main_effect_character_stat_melee_attack",
               "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
             },
@@ -2842,14 +2954,76 @@
         {
           "effects": [
             {
+              "description": "Reinforcements supporting this army can have their arrival point adjusted by +500 metres without incurring any time penalty",
+              "key": "wh3_main_effect_reinforcement_adjustment_budget",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
+            },
+            {
               "description": "Character's aura leadership effect: +4",
               "key": "wh_main_effect_character_stat_aura_leadership_effect",
               "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
             },
             {
-              "description": "Leadership aura size: +25%",
+              "description": "Leadership aura size: +50%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            },
+            {
+              "description": "Passive ability: \"Tactician\"",
+              "key": "wh3_main_effect_ability_enable_strategist",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_main_effect_ability_enable_strategist",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_main_lord_passive_strategist",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Tactician",
+                    "effect_range": 55,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_strategist",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+5 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -2871,12 +3045,17 @@
         {
           "effects": [
             {
+              "description": "Hit points: +10%",
+              "key": "wh_main_effect_character_stat_unit_health",
+              "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+            },
+            {
               "description": "Armour: +25",
               "key": "wh_main_effect_character_stat_armour",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
             },
             {
-              "description": "Melee defence: +5",
+              "description": "Melee defence: +8",
               "key": "wh_main_effect_character_stat_melee_defence",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
             }
@@ -2905,7 +3084,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
             },
             {
-              "description": "Armour-piercing weapon damage: +35",
+              "description": "Armour-piercing weapon damage: +65",
               "key": "wh_main_effect_character_stat_ap_damage",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
             },

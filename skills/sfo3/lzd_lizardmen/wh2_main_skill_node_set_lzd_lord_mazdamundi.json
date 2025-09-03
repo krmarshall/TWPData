@@ -1258,6 +1258,40 @@
     ],
     [
       {
+        "key": "wh3_main_skill_node_lzd_lord_mazdamundi_discipline_2_1",
+        "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
+        "character_skill_key": "wh3_main_skill_lzd_disciplines_soul_of_stone",
+        "tier": 1,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Soul of Stone",
+        "localised_description": "Cold, merciless, without pity, obeying only logic. Hardened against magic's ill-effects.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Spell resistance: 20%",
+                "key": "wh_main_effect_character_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              },
+              {
+                "description": "Spell resistance: 10%\n\t(all armies factionwide)",
+                "key": "wh_main_effect_force_stat_magic_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+              }
+            ],
+            "unlocked_at_rank": 8
+          }
+        ],
+        "right_arrow": true,
+        "parent_required": [
+          "wh2_main_skill_node_lzd_lord_mazdamundi_discipline_2_0"
+        ]
+      },
+      {
         "key": "lzd_skill_slann_self_1",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_rally",
         "character_skill_key": "wh_main_skill_all_lord_battle_rally",
@@ -1444,6 +1478,11 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Wound recovery time: -1 turns",
+                "key": "wh_main_effect_character_wound_recovery_time_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+              },
               {
                 "description": "Passive ability: \"Regeneration\"",
                 "key": "wh2_main_effect_ability_enable_regeneration",
@@ -5032,11 +5071,6 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/vortex_lzd_5"
       },
       {
-        "description": "Diplomatic relations: -25 with most factions",
-        "key": "wh2_main_faction_political_diplomacy_mod_mazdamundi",
-        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
-      },
-      {
         "description": "Construction cost: -50% for Star Chamber buildings",
         "key": "wh2_main_effect_building_construction_cost_mod_lzd_starchamber",
         "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
@@ -5045,6 +5079,11 @@
         "description": "Rite cost: -25%",
         "key": "wh2_main_effect_lzd_rite_cost_mod",
         "icon": "vanilla3/campaign_ui/effect_bundles/effect_rite"
+      },
+      {
+        "key": "invalid_effect",
+        "description": "Invalid Effect",
+        "icon": "vanilla3/campaign_ui/effect_bundles/0_placeholder_effect_bundle"
       },
       {
         "description": "Spell resistance: 2% per rank achieved",
@@ -5164,16 +5203,28 @@
         ],
         "effects": [
           {
-            "description": "Allegiance points gained: +50% for alliances with Lizardmen",
-            "key": "wh3_main_effect_allegiance_points_mod_lizardmen",
+            "description": "Allegiance points gained: +30%",
+            "key": "wh3_main_effect_allegiance_points_mod",
             "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-            "priority": 1
+            "priority": 6
+          },
+          {
+            "description": "Growth per region: +10 after winning a battle\n\t(all provinces)",
+            "key": "wh3_main_effect_factionwide_growth_from_battle_result",
+            "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+            "priority": 101
           },
           {
             "description": "Control: +1\n\t(all provinces)",
             "key": "wh_main_effect_public_order_characters",
             "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
             "priority": 6
+          },
+          {
+            "description": "Allegiance points gained: +50% for alliances with Lizardmen",
+            "key": "wh3_main_effect_allegiance_points_mod_lizardmen",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
           }
         ]
       }
@@ -5277,16 +5328,28 @@
         ],
         "effects": [
           {
-            "description": "Allegiance points gained: +50% for alliances with Lizardmen",
-            "key": "wh3_main_effect_allegiance_points_mod_lizardmen",
+            "description": "Allegiance points gained: +30%",
+            "key": "wh3_main_effect_allegiance_points_mod",
             "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
-            "priority": 1
+            "priority": 6
+          },
+          {
+            "description": "Growth per region: +10 after winning a battle\n\t(all provinces)",
+            "key": "wh3_main_effect_factionwide_growth_from_battle_result",
+            "icon": "vanilla3/campaign_ui/effect_bundles/growth",
+            "priority": 101
           },
           {
             "description": "Control: +1\n\t(all provinces)",
             "key": "wh_main_effect_public_order_characters",
             "icon": "vanilla3/campaign_ui/effect_bundles/public_order",
             "priority": 6
+          },
+          {
+            "description": "Allegiance points gained: +50% for alliances with Lizardmen",
+            "key": "wh3_main_effect_allegiance_points_mod_lizardmen",
+            "icon": "vanilla3/campaign_ui/effect_bundles/allegiance",
+            "priority": 1
           }
         ]
       }
@@ -5295,15 +5358,15 @@
   "backgroundSkills": [
     {
       "key": "wh2_main_skill_node_lzd_lord_mazdamundi_magic_dummy",
-      "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh2_main_skill_all_magic_heavens_dummy_harmonic_convergence_apotheosis",
+      "image_path": "vanilla3/campaign_ui/skills/trait_human",
+      "character_skill_key": "wh2_main_skill_all_magic_high_dummy_apotheosis_soulquench",
       "tier": 11,
       "indent": 3,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": false,
-      "localised_name": "Harmonic Convergence [HIDDEN]",
+      "localised_name": "[HIDDEN] Apotheosis and soul quench",
       "localised_description": "",
       "levels": [
         {
@@ -5375,71 +5438,89 @@
               ]
             },
             {
-              "description": "Spell: \"Harmonic Convergence\"",
-              "key": "wh_main_effect_ability_enable_harmonic_convergence",
+              "description": "Spell: \"Soul Quench\"",
+              "key": "wh2_main_effect_ability_enable_soul_quench",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh_main_effect_ability_enable_harmonic_convergence",
+                  "effect": "wh2_main_effect_ability_enable_soul_quench",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh_main_spell_heavens_harmonic_convergence",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_harmonic_convergence",
-                    "overpower_option": "wh_main_spell_heavens_harmonic_convergence_upgraded",
+                    "key": "wh2_main_spell_high_magic_soul_quench",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_high_magic_soul_quench",
+                    "overpower_option": "wh2_main_spell_high_magic_soul_quench_upgraded",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_magic_missile",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
+                      "onscreen_name": "Magic Missile"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Harmonic Convergence",
-                    "active_time": 30,
+                    "onscreen_name": "Soul Quench",
                     "effect_range": 0,
-                    "mana_cost": 5,
-                    "miscast_chance": 0.25,
-                    "num_effected_friendly_units": 1,
-                    "recharge_time": 45,
-                    "target_enemies": false,
-                    "target_friends": true,
+                    "mana_cost": 8,
+                    "miscast_chance": 0.2,
+                    "recharge_time": 60,
+                    "target_enemies": true,
+                    "target_friends": false,
                     "target_ground": false,
-                    "target_self": true,
-                    "target_intercept_range": 200,
-                    "wind_up_time": 1,
-                    "phases": [
+                    "target_self": false,
+                    "target_intercept_range": 250,
+                    "wind_up_time": 3,
+                    "ui_effects": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_harmonic_convergence",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": 30,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 30,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+30 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          },
-                          {
-                            "value": 30,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+30 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
-                          },
-                          {
-                            "value": 40,
-                            "stat": "stat_armour",
-                            "how": "add",
-                            "description": "+40 Armour",
-                            "icon": "vanilla3/skins/default/icon_stat_armour"
-                          }
-                        ]
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_number_1",
+                        "localised_text": "Projectiles: 1",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_aoe_4",
+                        "localised_text": "Explosion area of effect: 4m",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_main_projectile_requires_line_of_sight",
+                        "localised_text": "Requires line of sight to the target",
+                        "effect_state": "negative"
                       }
-                    ]
+                    ],
+                    "activated_projectile": {
+                      "key": "wh2_main_spell_high_magic_soul_quench",
+                      "damage": 750,
+                      "ap_damage": 250,
+                      "shockwave_radius": 1,
+                      "effective_range": 300,
+                      "base_reload_time": 1,
+                      "is_magical": true,
+                      "can_damage_allies": true,
+                      "explosion_type": {
+                        "key": "wh2_main_spell_high_magic_soul_quench",
+                        "affects_allies": true,
+                        "detonation_damage": 400,
+                        "detonation_damage_ap": 0,
+                        "detonation_radius": 4,
+                        "is_magical": true,
+                        "is_flaming": true
+                      },
+                      "contact_stat_effect": {
+                        "icon": "wh2_main_unit_contact_souls",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 5,
+                        "effect_type": "negative",
+                        "onscreen_name": "Quenched!",
+                        "is_hidden_in_ui": true,
+                        "damage_amount": 10,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 10
+                      }
+                    }
                   }
                 }
               ]
@@ -5477,6 +5558,16 @@
               "description": "Winds of Magic cost: -10% for all spells",
               "key": "wh2_dlc14_effect_magic_cost_all_lores_percentage",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            },
+            {
+              "description": "Miscast base chance: +25% for all enemy spellcasters\n\t(enemy armies in province)",
+              "key": "wh3_main_effect_force_stat_miscast_enemy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic"
+            },
+            {
+              "description": "Chance of Winds of Magic increasing in strength when changing: +20%\n\t(local province)",
+              "key": "wh3_main_effect_winds_of_magic_increase_chance_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
             },
             {
               "description": "Upkeep: -20% for Temple Guard units\n\t(Lord's army)",
