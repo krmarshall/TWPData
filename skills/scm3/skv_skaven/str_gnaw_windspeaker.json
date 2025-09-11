@@ -246,7 +246,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Armour: -10\n\t(enemy armies in local province)",
+                "description": "Armour: -5\n\t(enemy armies in local province)",
                 "key": "wh_main_effect_force_stat_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               }
@@ -265,7 +265,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Armour: -15\n\t(enemy armies in local province)",
+                "description": "Armour: -10\n\t(enemy armies in local province)",
                 "key": "wh_main_effect_force_stat_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               }
@@ -495,25 +495,32 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 24,
+                          "duration": 26,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "damage_amount": 20,
+                          "damage_amount": 5,
                           "hp_change_frequency": 1,
                           "max_damaged_entities": 5,
                           "stat_effects": [
                             {
-                              "value": 0.75,
+                              "value": 0.7,
                               "stat": "scalar_speed",
                               "how": "mult",
-                              "description": "x0.75 Speed",
+                              "description": "x0.7 Speed",
                               "icon": "vanilla3/skins/default/icon_stat_speed"
                             },
                             {
-                              "value": 0.6,
+                              "value": 0.7,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x0.7 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 0.7,
                               "stat": "stat_armour",
                               "how": "mult",
-                              "description": "x0.6 Armour",
+                              "description": "x0.7 Armour",
                               "icon": "vanilla3/skins/default/icon_stat_armour"
                             }
                           ]
@@ -568,8 +575,8 @@
                       "onscreen_name": "Swirling Sirocco",
                       "active_time": 20,
                       "effect_range": 0,
-                      "num_uses": 3,
-                      "recharge_time": 102,
+                      "num_uses": 2,
+                      "recharge_time": 60,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
@@ -588,14 +595,14 @@
                       ],
                       "vortex": {
                         "vortex_key": "str_gnaw_swirling_sirocco",
-                        "duration": 17,
-                        "damage": 5,
-                        "damage_ap": 2,
-                        "goal_radius": 7,
+                        "duration": 13,
+                        "damage": 2,
+                        "damage_ap": 3,
+                        "goal_radius": 6,
                         "movement_speed": 3,
                         "delay": 3,
                         "affects_allies": true,
-                        "num_vortexes": 4,
+                        "num_vortexes": 3,
                         "delay_between_vortexes": 1,
                         "contact_effect": {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_contact_disorientated",
@@ -793,62 +800,89 @@
     [
       {
         "key": "str_gnaw_windspeaker_magic_00",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh2_main_spell_ruin_howling_warpgale",
-        "character_skill_key": "wh2_main_skill_all_magic_ruin_02_howling_warpgale_lord",
+        "image_path": "scm3/battle_ui/ability_icons/20kr_spell_gnaw_horned_rats_embrace",
+        "character_skill_key": "20kr_main_skill_all_magic_gnaw_01_horned_rats_embrace_windspeaker",
         "tier": 0,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Howling Warpgale",
+        "localised_name": "Horned Rats Embrace",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Howling Warpgale Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_howling_warpgale",
+                "description": "Spell: \"Horned Rats Embrace\"",
+                "key": "20kr_main_effect_ability_enable_horned_rats_embrace",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_howling_warpgale",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "20kr_main_effect_ability_enable_horned_rats_embrace",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh2_main_spell_ruin_howling_warpgale",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_ruin_howling_warpgale",
-                      "overpower_option": "wh2_main_spell_ruin_howling_warpgale_upgraded",
+                      "key": "20kr_spell_gnaw_horned_rats_embrace",
+                      "icon_name": "scm3/battle_ui/ability_icons/20kr_spell_gnaw_horned_rats_embrace",
+                      "overpower_option": "20kr_spell_gnaw_horned_rats_embrace_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Howling Warpgale",
-                      "active_time": 14,
-                      "effect_range": 55,
-                      "mana_cost": 5,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 100,
-                      "wind_up_time": 1,
-                      "target_if": [
-                        "Flying unit"
+                      "onscreen_name": "Horned Rats Embrace",
+                      "active_time": 39,
+                      "effect_range": 0,
+                      "mana_cost": 6,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 43,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc07_spell_ignores_ap",
+                          "localised_text": "Good against AP damage",
+                          "effect_state": "positive"
+                        }
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_ruin_howling_warpgale",
+                          "icon": "scm3/battle_ui/ability_icons/20kr_spell_gnaw_horned_rats_embrace",
                           "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 14,
-                          "effect_type": "negative",
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 39,
+                          "effect_type": "positive",
                           "is_hidden_in_ui": false,
-                          "cant_move": true
+                          "stat_effects": [
+                            {
+                              "value": 1.13,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.13 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 13,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+13 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 13,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+13 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -856,8 +890,8 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Howling Warpgale\"",
-                "key": "wh2_main_effect_ability_cooldown_howling_warpgale",
+                "description": "Cooldown: -13% to \"Horned Rats Embrace\"",
+                "key": "20kr_main_effect_ability_cooldown_horned_rats_embrace",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -865,48 +899,75 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Howling Warpgale Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_howling_warpgale",
+                "description": "Spell: \"Horned Rats Embrace\"",
+                "key": "20kr_main_effect_ability_enable_horned_rats_embrace",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_howling_warpgale",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "20kr_main_effect_ability_enable_horned_rats_embrace",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh2_main_spell_ruin_howling_warpgale",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_ruin_howling_warpgale",
-                      "overpower_option": "wh2_main_spell_ruin_howling_warpgale_upgraded",
+                      "key": "20kr_spell_gnaw_horned_rats_embrace",
+                      "icon_name": "scm3/battle_ui/ability_icons/20kr_spell_gnaw_horned_rats_embrace",
+                      "overpower_option": "20kr_spell_gnaw_horned_rats_embrace_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Howling Warpgale",
-                      "active_time": 14,
-                      "effect_range": 55,
-                      "mana_cost": 5,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 100,
-                      "wind_up_time": 1,
-                      "target_if": [
-                        "Flying unit"
+                      "onscreen_name": "Horned Rats Embrace",
+                      "active_time": 39,
+                      "effect_range": 0,
+                      "mana_cost": 6,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 43,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc07_spell_ignores_ap",
+                          "localised_text": "Good against AP damage",
+                          "effect_state": "positive"
+                        }
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_ruin_howling_warpgale",
+                          "icon": "scm3/battle_ui/ability_icons/20kr_spell_gnaw_horned_rats_embrace",
                           "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 14,
-                          "effect_type": "negative",
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 39,
+                          "effect_type": "positive",
                           "is_hidden_in_ui": false,
-                          "cant_move": true
+                          "stat_effects": [
+                            {
+                              "value": 1.13,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.13 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 13,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+13 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 13,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+13 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -914,23 +975,28 @@
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Howling Warpgale\"",
-                "key": "wh2_main_effect_ability_cooldown_howling_warpgale",
+                "description": "Overcast spell: \"Horned Rats Embrace Upgraded\"",
+                "key": "20kr_main_effect_ability_overcast_horned_rats_embrace",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Horned Rats Embrace\"",
+                "key": "20kr_main_effect_ability_cooldown_horned_rats_embrace",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Howling Warpgale\"",
-                "key": "wh2_main_effect_ability_wom_cost_howling_warpgale",
+                "description": "Winds of Magic cost: -1 for \"Horned Rats Embrace\"",
+                "key": "20kr_main_effect_ability_wom_cost_horned_rats_embrace",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Howling Warpgale Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_howling_warpgale_upgrade",
+                "description": "Winds of Magic cost: -2 for \"Horned Rats Embrace Upgraded\"",
+                "key": "20kr_main_effect_ability_wom_cost_horned_rats_embrace_upgrade",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Howling Warpgale Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_howling_warpgale_upgrade",
+                "description": "Miscast base chance: -15% for \"Horned Rats Embrace Upgraded\"",
+                "key": "20kr_main_effect_ability_miscast_horned_rats_embrace_upgrade",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
@@ -2498,7 +2564,7 @@
           {
             "effects": [
               {
-                "description": "Ammunition: +5% for Pig-Sticker, Dunedagger, Captured Rock Lobber, and Captured Spear Chukka units\n\t(Lord's army)",
+                "description": "Ammunition: +10% for Pig-Sticker, Dunedagger, Captured Rock Lobber, and Captured Spear Chukka units\n\t(Lord's army)",
                 "key": "str_gnaw_ranged_ammo",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
@@ -2512,7 +2578,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               },
               {
-                "description": "Ammunition: +10% for Pig-Sticker, Dunedagger, Captured Rock Lobber, and Captured Spear Chukka units\n\t(Lord's army)",
+                "description": "Ammunition: +20% for Pig-Sticker, Dunedagger, Captured Rock Lobber, and Captured Spear Chukka units\n\t(Lord's army)",
                 "key": "str_gnaw_ranged_ammo",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
@@ -2526,7 +2592,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               },
               {
-                "description": "Ammunition: +15% for Pig-Sticker, Dunedagger, Captured Rock Lobber, and Captured Spear Chukka units\n\t(Lord's army)",
+                "description": "Ammunition: +30% for Pig-Sticker, Dunedagger, Captured Rock Lobber, and Captured Spear Chukka units\n\t(Lord's army)",
                 "key": "str_gnaw_ranged_ammo",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
@@ -2733,7 +2799,7 @@
       },
       {
         "key": "str_gnaw_duneskulk_army_3_1",
-        "image_path": "vanilla3/campaign_ui/skills/character_bonus_vs_large",
+        "image_path": "vanilla3/campaign_ui/skills/battle_attack",
         "character_skill_key": "str_gnaw_melee7",
         "tier": 8,
         "indent": 4,
@@ -2752,8 +2818,8 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
               },
               {
-                "description": "Bonus vs Large: +8 for Clanrat, Big Game Hunter, Ambush Netter, and Boar Wrangler units (Rank 7 and above)\n\t(Lord's army)",
-                "key": "str_gnaw_melee7_bvL",
+                "description": "Melee Attack: +6 for Clanrat, Big Game Hunter, Ambush Netter, and Boar Wrangler units (Rank 7 and above)\n\t(Lord's army)",
+                "key": "20kr_gnaw_melee7_ma",
                 "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large"
               }
             ]
@@ -3777,48 +3843,75 @@
         {
           "effects": [
             {
-              "description": "Spell: \"Howling Warpgale\"",
-              "key": "wh2_main_effect_ability_enable_howling_warpgale",
+              "description": "Spell: \"Horned Rats Embrace\"",
+              "key": "20kr_main_effect_ability_enable_horned_rats_embrace",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh2_main_effect_ability_enable_howling_warpgale",
+                  "effect": "20kr_main_effect_ability_enable_horned_rats_embrace",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh2_main_spell_ruin_howling_warpgale",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_ruin_howling_warpgale",
-                    "overpower_option": "wh2_main_spell_ruin_howling_warpgale_upgraded",
+                    "key": "20kr_spell_gnaw_horned_rats_embrace",
+                    "icon_name": "scm3/battle_ui/ability_icons/20kr_spell_gnaw_horned_rats_embrace",
+                    "overpower_option": "20kr_spell_gnaw_horned_rats_embrace_upgraded",
                     "type": {
-                      "key": "wh_type_area_of_hexes",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                      "onscreen_name": "Hex (Area)"
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Howling Warpgale",
-                    "active_time": 14,
-                    "effect_range": 55,
-                    "mana_cost": 5,
-                    "recharge_time": 30,
-                    "target_enemies": true,
-                    "target_friends": false,
-                    "target_ground": true,
-                    "target_self": false,
-                    "target_intercept_range": 100,
-                    "wind_up_time": 1,
-                    "target_if": [
-                      "Flying unit"
+                    "onscreen_name": "Horned Rats Embrace",
+                    "active_time": 39,
+                    "effect_range": 0,
+                    "mana_cost": 6,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 43,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": true,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 3,
+                    "ui_effects": [
+                      {
+                        "key": "wh_dlc07_spell_ignores_ap",
+                        "localised_text": "Good against AP damage",
+                        "effect_state": "positive"
+                      }
                     ],
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_ruin_howling_warpgale",
+                        "icon": "scm3/battle_ui/ability_icons/20kr_spell_gnaw_horned_rats_embrace",
                         "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": 14,
-                        "effect_type": "negative",
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 39,
+                        "effect_type": "positive",
                         "is_hidden_in_ui": false,
-                        "cant_move": true
+                        "stat_effects": [
+                          {
+                            "value": 1.13,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.13 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 13,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+13 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 13,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+13 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
                       }
                     ]
                   }

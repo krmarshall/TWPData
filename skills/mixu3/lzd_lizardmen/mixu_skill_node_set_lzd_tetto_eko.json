@@ -472,7 +472,7 @@
       {
         "key": "mixu_skill_node_lzd_tetto_eko_generic_4",
         "image_path": "vanilla3/campaign_ui/skills/wh2_liz_blessing_of_tepok",
-        "character_skill_key": "wh2_main_skill_lzd_blessing_tepok",
+        "character_skill_key": "mixu_lzd_tetto_eko_generic_blessing_of_tepok",
         "tier": 6,
         "indent": 0,
         "points_on_creation": 0,
@@ -485,19 +485,19 @@
           {
             "effects": [
               {
-                "description": "Winds of Magic power reserve capacity: +10\n\t(own army)",
+                "description": "Upkeep: -15% for Flying units\n\t(own army)",
+                "key": "wh2_dlc16_effect_upkeep_flying",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +10",
                 "key": "wh3_main_effect_winds_of_magic_pool_cap",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               },
               {
-                "description": "Speed: +10%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_stat_speed",
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
-              },
-              {
-                "description": "Spell resistance: 10%\n\t(Lord's army)",
-                "key": "wh_main_effect_force_stat_magic_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+                "description": "Missile resistance: 15% for Flying units\n\t(own army)",
+                "key": "wh3_dlc23_effect_missile_resistance_flying_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
               }
             ],
             "unlocked_at_rank": 10
@@ -662,14 +662,14 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/military"
               },
               {
-                "description": "Chance of intercepting an army using Tunnelling, beast-paths or Worldroots: +50%",
-                "key": "wh_main_effect_general_mod_tunnel_interception_chance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/subterranean"
+                "description": "Reinforcements supporting this army can have their arrival point adjusted by +1000 metres without incurring any time penalty",
+                "key": "wh3_main_effect_reinforcement_adjustment_budget",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
               },
               {
-                "description": "Enemy Hero action success chance: -25%\n\t(enemy characters in region)",
-                "key": "wh2_main_effect_agent_action_success_chance_enemies_in_region",
-                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+                "description": "Enemy battle reinforcement time: +50%",
+                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
               }
             ]
           }
@@ -713,7 +713,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
               {
-                "description": "Spell resistance: 10% for melee infantry units\n\t(Lord's army)",
+                "description": "Spell resistance: 15% for melee infantry units\n\t(Lord's army)",
                 "key": "mixu_LL_magic_resistance_infantry_units_melee",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
               }
@@ -865,6 +865,11 @@
           {
             "effects": [
               {
+                "description": "Targeting range: +25% for spells",
+                "key": "wh3_main_effect_spell_targeting_range_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
                 "description": "Cooldown: -30% to \"Urannon's Thunderbolt\" bound spell",
                 "key": "mixu_LL_ability_cooldown_bound_urannons_thunderbolt",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
@@ -943,12 +948,7 @@
                 ]
               },
               {
-                "description": "Miscast base chance: -50%",
-                "key": "wh_main_effect_character_stat_miscast",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Teleport stance usage cost: -50% Winds of Magic\n\t(Lord's army)",
+                "description": "Teleport stance usage cost: -100% Winds of Magic\n\t(Lord's army)",
                 "key": "wh3_main_effect_stance_cost_multiplier_tunneling_tze",
                 "icon": "vanilla3/campaign_ui/effect_bundles/teleport"
               }
@@ -4159,7 +4159,36 @@
           "key": "wh3_main_effect_winds_of_magic_pool_cap",
           "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
         }
-      ]
+      ],
+      "item_set": {
+        "key": "mixu_LL_lzd_tetto_eko",
+        "name": "Elemental Power",
+        "description": "Some artefacts are imbued with the ancient power of the Old Ones… as are some of their champions.",
+        "contains": [
+          {
+            "name": "The Eye of the Old Ones",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "The Stellar Staff",
+            "icon": "skins/default/equipment_items_arcane"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Barrier hit points: +400",
+            "key": "wh3_main_effect_battle_barrier_health_add",
+            "icon": "vanilla3/campaign_ui/effect_bundles/barrier",
+            "priority": 320
+          },
+          {
+            "description": "Barrier replenishment delay: -20%",
+            "key": "wh3_main_effect_battle_barrier_replenish_delay_mod",
+            "icon": "vanilla3/campaign_ui/effect_bundles/barrier",
+            "priority": 92
+          }
+        ]
+      }
     },
     {
       "key": "mixu_lzd_tetto_eko_enchanted_item_the_eye_of_the_old_ones",
@@ -4248,7 +4277,36 @@
             }
           ]
         }
-      ]
+      ],
+      "item_set": {
+        "key": "mixu_LL_lzd_tetto_eko",
+        "name": "Elemental Power",
+        "description": "Some artefacts are imbued with the ancient power of the Old Ones… as are some of their champions.",
+        "contains": [
+          {
+            "name": "The Eye of the Old Ones",
+            "icon": "skins/default/equipment_items_enchanted"
+          },
+          {
+            "name": "The Stellar Staff",
+            "icon": "skins/default/equipment_items_arcane"
+          }
+        ],
+        "effects": [
+          {
+            "description": "Barrier hit points: +400",
+            "key": "wh3_main_effect_battle_barrier_health_add",
+            "icon": "vanilla3/campaign_ui/effect_bundles/barrier",
+            "priority": 320
+          },
+          {
+            "description": "Barrier replenishment delay: -20%",
+            "key": "wh3_main_effect_battle_barrier_replenish_delay_mod",
+            "icon": "vanilla3/campaign_ui/effect_bundles/barrier",
+            "priority": 92
+          }
+        ]
+      }
     }
   ],
   "backgroundSkills": [
@@ -4350,6 +4408,11 @@
                   }
                 }
               ]
+            },
+            {
+              "description": "Enemy Hero action success chance: -25%\n\t(enemy characters in region)",
+              "key": "wh2_main_effect_agent_action_success_chance_enemies_in_region",
+              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
             },
             {
               "description": "Ambush defence chance: +25%\n\t(Lord's army)",
