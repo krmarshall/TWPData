@@ -340,8 +340,8 @@
               "charge_bonus": 80,
               "bonus_v_large": 0,
               "bonus_v_infantry": 28,
-              "damage": 230,
-              "ap_damage": 120,
+              "damage": 260,
+              "ap_damage": 140,
               "splash_target_size_limit": "very_large",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
@@ -639,7 +639,7 @@
           {
             "effects": [
               {
-                "description": "Hit points: +4%",
+                "description": "Hit points: +8%",
                 "key": "wh_main_effect_character_stat_unit_health",
                 "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
@@ -656,9 +656,9 @@
     ],
     [
       {
-        "key": "dust_skill_nyletoth_unique_0",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_unique_0",
         "image_path": "vanilla3/campaign_ui/skills/character_magic",
-        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_cultist",
+        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_0",
         "tier": 0,
         "indent": 1,
         "points_on_creation": 0,
@@ -671,28 +671,33 @@
           {
             "effects": [
               {
-                "description": "Enemy Winds of Magic power reserve capacity: -15\n\t(local region)",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap_enemy",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+                "description": "Enables magical attacks",
+                "key": "wh_main_effect_character_stat_enable_magic_attacks",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magical_attacks"
               },
               {
-                "description": "Spell resistance: 10%",
-                "key": "wh_main_effect_character_stat_magic_resistance",
+                "description": "Spell resistance: 10%\n\t(own army)",
+                "key": "wh_main_effect_force_stat_magic_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+              },
+              {
+                "description": "Spell resistance: -10%\n\t(enemy armies in local region)",
+                "key": "wh_main_effect_force_stat_magic_resistance_bad",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
               }
             ],
             "unlocked_at_rank": 10,
             "blocks_skill_node_keys": [
-              "dust_skill_nyletoth_unique_1",
-              "dust_skill_nyletoth_unique_2"
+              "wh2_dlc09_skill_tmb_tomb_prince_unique_3"
             ]
           }
-        ]
+        ],
+        "right_arrow": true
       },
       {
-        "key": "dust_skill_nyletoth_unique_1",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_unique_1",
         "image_path": "vanilla3/campaign_ui/skills/character_morale",
-        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_throne_successor",
+        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_1",
         "tier": 1,
         "indent": 1,
         "points_on_creation": 0,
@@ -705,28 +710,36 @@
           {
             "effects": [
               {
-                "description": "Character's aura leadership effect: +5",
-                "key": "wh_main_effect_character_stat_aura_leadership_effect",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+                "description": "Unit capacity: +1\n\tSkeleton Chariot\n\tSkeleton Archer Chariot",
+                "key": "wh3_main_effect_unit_cap_tmb_chariots_shared_2",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
               },
               {
-                "description": "Leadership aura size: +25%",
-                "key": "wh_main_effect_character_stat_leadership_aura_size",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+                "description": "Attribute: Devastating Flanker for Chariot units\n\t(Hero's army)",
+                "key": "wh3_main_effect_attribute_enable_devestating_flanker_tmb_chariots",
+                "icon": "vanilla3/campaign_ui/effect_bundles/devastating_flanker",
+                "related_attributes": [
+                  {
+                    "key": "devastating_flanker",
+                    "description": "Devastating Flanker",
+                    "bullet_text": "Entities with this attribute double their charge bonus when attacking the rear or flank of an entity.",
+                    "icon": "vanilla3/battle_ui/ability_icons/devastating_flanker"
+                  }
+                ]
               }
             ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "dust_skill_nyletoth_unique_0",
-              "dust_skill_nyletoth_unique_2"
-            ]
+            "unlocked_at_rank": 10
           }
+        ],
+        "right_arrow": true,
+        "parent_required": [
+          "wh2_dlc09_skill_tmb_tomb_prince_unique_0"
         ]
       },
       {
-        "key": "dust_skill_nyletoth_unique_2",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_unique_2",
         "image_path": "vanilla3/campaign_ui/skills/character_health",
-        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_royalty_at_arm",
+        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_2",
         "tier": 2,
         "indent": 1,
         "points_on_creation": 0,
@@ -747,14 +760,18 @@
                 "description": "Melee attack: +8",
                 "key": "wh_main_effect_character_stat_melee_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Charge bonus: +15",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
             ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "dust_skill_nyletoth_unique_0",
-              "dust_skill_nyletoth_unique_1"
-            ]
+            "unlocked_at_rank": 10
           }
+        ],
+        "parent_required": [
+          "wh2_dlc09_skill_tmb_tomb_prince_unique_1"
         ]
       },
       {
@@ -1280,11 +1297,138 @@
     ],
     [
       {
-        "key": "dust_skill_nyletoth_personal_0",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_unique_3",
+        "image_path": "vanilla3/campaign_ui/skills/wh3_dlc26_skill_tmb_prince_of_the_dune",
+        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_3",
+        "tier": 0,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Prince of the Dunes",
+        "localised_description": "Those sons not given to serve the Mortuary Cult shall instead serve in their sovereign’s eternal council of war.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +5",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Physical resistance: 5%",
+                "key": "wh_main_effect_character_stat_physical_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "wh2_dlc09_skill_tmb_tomb_prince_unique_0"
+            ]
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_unique_4",
+        "image_path": "vanilla3/campaign_ui/skills/wh3_dlc26_skill_tmb_storied_dynasty",
+        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_4",
+        "tier": 1,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Storied Dynasty",
+        "localised_description": "To challenge the might of long-established Nehekharan dynasties is to risk the wrath of the desert’s most reputable sons.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Vigour loss reduction: -50% when fighting in desert terrain",
+                "key": "wh3_main_effect_character_stat_improved_vigour_in_desert",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              },
+              {
+                "description": "Income from raiding: +10%\n\t(Hero's army)",
+                "key": "wh_main_effect_force_all_campaign_raid_income",
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+              },
+              {
+                "description": "Attribute: Causes Terror",
+                "key": "wh_main_effect_attribute_enable_causes_terror",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+                "related_attributes": [
+                  {
+                    "key": "causes_terror",
+                    "description": " Can Cause Terror",
+                    "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                    "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "wh2_dlc09_skill_tmb_tomb_prince_unique_0"
+            ]
+          }
+        ],
+        "right_arrow": true,
+        "parent_required": [
+          "wh2_dlc09_skill_tmb_tomb_prince_unique_3"
+        ]
+      },
+      {
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_unique_5",
+        "image_path": "vanilla3/campaign_ui/skills/wh3_dlc26_skill_tmb_dynastic_herald",
+        "character_skill_key": "wh2_dlc09_skill_tmb_tomb_prince_5",
+        "tier": 2,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Dynastic Herald",
+        "localised_description": "\"My name was etched in gold long before your ancestors even knew how to speak.\"",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Diplomatic relations: +5 with Tomb Kings",
+                "key": "wh2_dlc09_faction_political_diplomacy_mod_tomb_kings",
+                "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+              },
+              {
+                "description": "Melee attack: +5",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Bonus vs Infantry: +15",
+                "key": "wh_main_effect_character_stat_bonus_vs_infantry",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small_character"
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "wh2_dlc09_skill_tmb_tomb_prince_unique_0"
+            ]
+          }
+        ],
+        "parent_required": [
+          "wh2_dlc09_skill_tmb_tomb_prince_unique_4"
+        ]
+      }
+    ],
+    [
+      {
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_0",
         "image_path": "vanilla3/campaign_ui/skills/character_morale",
         "character_skill_key": "wh2_dlc09_skill_tmb_personal_base",
         "tier": 0,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1310,11 +1454,11 @@
         "right_arrow": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_1",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_1",
         "image_path": "vanilla3/campaign_ui/skills/character_damage",
         "character_skill_key": "wh2_dlc09_skill_tmb_personal_conqueror",
         "tier": 1,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1352,16 +1496,16 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_0"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_0"
         ],
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_2",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_2",
         "image_path": "vanilla3/campaign_ui/skills/character_attack",
         "character_skill_key": "wh_main_skill_all_all_self_blade_master",
         "tier": 2,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1398,16 +1542,16 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_0"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_0"
         ],
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_3",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_3",
         "image_path": "vanilla3/campaign_ui/skills/character_defence",
         "character_skill_key": "wh_main_skill_all_all_self_hard_to_hit",
         "tier": 3,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1444,16 +1588,16 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_0"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_0"
         ],
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_4",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_4",
         "image_path": "vanilla3/campaign_ui/skills/character_morale",
         "character_skill_key": "wh_main_skill_all_all_self_indomitable",
         "tier": 4,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1490,17 +1634,17 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_0"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_0"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_5",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_5",
         "image_path": "vanilla3/campaign_ui/skills/wh2_dlc09_strike_of_tombs",
         "character_skill_key": "wh2_dlc09_skill_tmb_personal_5",
         "tier": 5,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
@@ -1583,18 +1727,18 @@
         ],
         "right_arrow": true,
         "parent_subset_required": [
-          "dust_skill_nyletoth_personal_1",
-          "dust_skill_nyletoth_personal_2",
-          "dust_skill_nyletoth_personal_3",
-          "dust_skill_nyletoth_personal_4"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_1",
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_2",
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_3",
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_4"
         ]
       },
       {
-        "key": "dust_skill_nyletoth_personal_6",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_6",
         "image_path": "vanilla3/campaign_ui/skills/character_damage",
         "character_skill_key": "wh_main_skill_all_all_self_wound-maker_2",
         "tier": 6,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1631,16 +1775,16 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_5"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_5"
         ],
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_7",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_7",
         "image_path": "vanilla3/campaign_ui/skills/character_armour",
         "character_skill_key": "wh_main_skill_all_lord_self_full_plate_armour_2",
         "tier": 7,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1677,16 +1821,16 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_5"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_5"
         ],
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_8",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_8",
         "image_path": "vanilla3/campaign_ui/skills/character_charge",
         "character_skill_key": "wh_main_skill_all_all_self_devastating_charge",
         "tier": 8,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1723,16 +1867,16 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_5"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_5"
         ],
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_9",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_9",
         "image_path": "vanilla3/campaign_ui/skills/character_speed",
         "character_skill_key": "wh2_dlc09_skill_tmb_personal_9",
         "tier": 9,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1765,17 +1909,17 @@
           }
         ],
         "parent_required": [
-          "dust_skill_nyletoth_personal_5"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_5"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "dust_skill_nyletoth_personal_10",
+        "key": "wh2_dlc09_skill_tmb_tomb_prince_personal_10",
         "image_path": "vanilla3/campaign_ui/skills/wh2_dlc09_strike_of_nehekhara",
         "character_skill_key": "wh2_dlc09_skill_tmb_personal_10",
         "tier": 10,
-        "indent": 2,
+        "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
@@ -1862,14 +2006,13 @@
           }
         ],
         "parent_subset_required": [
-          "dust_skill_nyletoth_personal_6",
-          "dust_skill_nyletoth_personal_7",
-          "dust_skill_nyletoth_personal_8",
-          "dust_skill_nyletoth_personal_9"
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_6",
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_7",
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_8",
+          "wh2_dlc09_skill_tmb_tomb_prince_personal_9"
         ]
       }
     ],
-    [],
     [],
     [
       {
@@ -2195,8 +2338,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 1 per turn",
+                "description": "Canopic Jars generated: 5 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +1%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
@@ -2204,8 +2352,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 2 per turn",
+                "description": "Canopic Jars generated: 10 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +3%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
@@ -2213,8 +2366,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 3 per turn",
+                "description": "Canopic Jars generated: 15 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +5%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]

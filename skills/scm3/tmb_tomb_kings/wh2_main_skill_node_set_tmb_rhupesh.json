@@ -528,12 +528,17 @@
           {
             "effects": [
               {
+                "description": "Vigour loss reduction: -25%",
+                "key": "wh_main_effect_force_stat_vigour_loss_reduction",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              },
+              {
                 "description": "Charge bonus: +10",
                 "key": "wh_main_effect_character_stat_charge_bonus_add",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               },
               {
-                "description": "Physical resistance: 7%",
+                "description": "Physical resistance: 5%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
               }
@@ -557,6 +562,11 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Casualties captured post-battle: +5%",
+                "key": "wh_main_effect_force_all_campaign_captives",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
+              },
               {
                 "description": "Control: -4\n\t(local enemy province)",
                 "key": "wh_main_effect_public_order_characters_negative",
@@ -593,7 +603,7 @@
           {
             "effects": [
               {
-                "description": "Hit points: +4%",
+                "description": "Hit points: +8%",
                 "key": "wh_main_effect_character_stat_unit_health",
                 "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
@@ -733,12 +743,15 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Blessing of Asaph",
-                      "effect_range": 35,
+                      "effect_range": 55,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "target_if": [
+                        "Missile attack possible"
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_character_passive_blessing_of_asaph",
@@ -749,6 +762,54 @@
                           "duration": -1,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "imbue_contact": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": false,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Poison!",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": 0.85,
+                                "stat": "scalar_missile_damage_ap",
+                                "how": "mult",
+                                "description": "x0.85 Armour-Piercing Missile Damage",
+                                "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                              },
+                              {
+                                "value": 0.85,
+                                "stat": "scalar_missile_damage_base",
+                                "how": "mult",
+                                "description": "x0.85 Base Missile Damage",
+                                "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                              },
+                              {
+                                "value": 0.85,
+                                "stat": "scalar_speed",
+                                "how": "mult",
+                                "description": "x0.85 Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              },
+                              {
+                                "value": 0.85,
+                                "stat": "stat_melee_damage_base",
+                                "how": "mult",
+                                "description": "x0.85 Base Weapon Damage",
+                                "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                              },
+                              {
+                                "value": 0.85,
+                                "stat": "stat_melee_damage_ap",
+                                "how": "mult",
+                                "description": "x0.85 Armour-Piercing Weapon Damage",
+                                "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                              }
+                            ]
+                          },
                           "stat_effects": [
                             {
                               "value": 1.15,
@@ -2367,7 +2428,7 @@
           {
             "effects": [
               {
-                "description": "[PH] Ammunition: +15% for Skeleton Archers, Ushabti (Great Bows), Skeleton Horse Archers, Screaming Skull Catapult, Casket of Souls and Bone Giant units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Ammunition: +15% for Skeleton Archers, Ushabti (Great Bows), Skeleton Horse Archers, Screaming Skull Catapult, Casket of Souls and Bone Giant units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc09_effect_force_stat_ammunition_tmb_archer_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               },
@@ -2377,7 +2438,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               },
               {
-                "description": "[PH] Missile resistance: 15% for Skeleton Archers, Ushabti (Great Bows), Skeleton Horse Archers, Screaming Skull Catapult, Casket of Souls and Bone Giant units (Rank 7 and above)\n\t(Lord's army)",
+                "description": "Missile resistance: 15% for Skeleton Archers, Ushabti (Great Bows), Skeleton Horse Archers, Screaming Skull Catapult, Casket of Souls and Bone Giant units (Rank 7 and above)\n\t(Lord's army)",
                 "key": "wh2_dlc09_effect_force_stat_missile_resistance_tmb_archer_rank7",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
               }
@@ -2776,8 +2837,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 1 per turn",
+                "description": "Canopic Jars generated: 5 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +1%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
@@ -2785,8 +2851,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 2 per turn",
+                "description": "Canopic Jars generated: 10 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +3%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
@@ -2794,8 +2865,13 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 3 per turn",
+                "description": "Canopic Jars generated: 15 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +5%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
             ]
