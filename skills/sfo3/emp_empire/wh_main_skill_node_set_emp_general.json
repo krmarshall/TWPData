@@ -146,15 +146,17 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Imperial Allegiance",
+                    "active_time": 15,
                     "effect_range": 0,
+                    "recharge_time": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "Losing melee combat",
-                      "Leadership is higher than broken"
+                      "Leadership is higher than broken",
+                      "In melee"
                     ],
                     "phases": [
                       {
@@ -163,7 +165,7 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
-                        "duration": -1,
+                        "duration": 15,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
@@ -379,15 +381,17 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Imperial Allegiance",
+                    "active_time": 15,
                     "effect_range": 0,
+                    "recharge_time": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "Losing melee combat",
-                      "Leadership is higher than broken"
+                      "Leadership is higher than broken",
+                      "In melee"
                     ],
                     "phases": [
                       {
@@ -396,7 +400,7 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
-                        "duration": -1,
+                        "duration": 15,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
@@ -626,15 +630,17 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Imperial Allegiance",
+                    "active_time": 15,
                     "effect_range": 0,
+                    "recharge_time": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "Losing melee combat",
-                      "Leadership is higher than broken"
+                      "Leadership is higher than broken",
+                      "In melee"
                     ],
                     "phases": [
                       {
@@ -643,7 +649,7 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
-                        "duration": -1,
+                        "duration": 15,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
@@ -3557,15 +3563,17 @@
           },
           "is_hidden_in_ui": false,
           "onscreen_name": "Imperial Allegiance",
+          "active_time": 15,
           "effect_range": 0,
+          "recharge_time": 1,
           "target_enemies": false,
           "target_friends": false,
           "target_ground": false,
           "target_self": false,
           "target_intercept_range": 0,
           "enabled_if": [
-            "Losing melee combat",
-            "Leadership is higher than broken"
+            "Leadership is higher than broken",
+            "In melee"
           ],
           "phases": [
             {
@@ -3574,7 +3582,7 @@
               "target_enemies": false,
               "target_self": true,
               "target_friends": false,
-              "duration": -1,
+              "duration": 15,
               "effect_type": "positive",
               "is_hidden_in_ui": false,
               "stat_effects": [
@@ -3660,7 +3668,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
             {
-              "description": "Upkeep: -25%\n\t(characters's army when in own territory)",
+              "description": "Upkeep: -25%\n\t(characters in force)",
               "key": "wh_main_effect_force_all_campaign_upkeep",
               "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             },
@@ -4830,6 +4838,98 @@
               "description": "Melee defence: +5\n\t(army in owned territory)",
               "key": "wh_main_effect_force_stat_melee_defence",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            },
+            {
+              "description": "Number of uses: +1 for \"Imperial Tactics\"",
+              "key": "emp_army_tactics_use",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "emp_army_tactics_use",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "emp_army_tactics",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Tactics",
+                    "active_time": 30,
+                    "effect_range": 40,
+                    "num_effected_friendly_units": 2,
+                    "num_uses": 3,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Unit is not Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+20 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_accuracy",
+                            "how": "add",
+                            "description": "+20 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4864,6 +4964,98 @@
               "description": "Reload time reduction: +10% for Artillery units\n\t(Lord's army)",
               "key": "wh_main_effect_force_stat_reload_time_reduction_artillery",
               "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
+            },
+            {
+              "description": "Number of uses: +1 for \"Imperial Tactics\"",
+              "key": "emp_army_tactics_use",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "emp_army_tactics_use",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "emp_army_tactics",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Tactics",
+                    "active_time": 30,
+                    "effect_range": 40,
+                    "num_effected_friendly_units": 2,
+                    "num_uses": 3,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Unit is not Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+20 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_accuracy",
+                            "how": "add",
+                            "description": "+20 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4967,6 +5159,98 @@
                   }
                 }
               ]
+            },
+            {
+              "description": "Number of uses: +1 for \"Imperial Tactics\"",
+              "key": "emp_army_tactics_use",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "emp_army_tactics_use",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "emp_army_tactics",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Tactics",
+                    "active_time": 30,
+                    "effect_range": 40,
+                    "num_effected_friendly_units": 2,
+                    "num_uses": 3,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Unit is not Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+20 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_accuracy",
+                            "how": "add",
+                            "description": "+20 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -4996,6 +5280,98 @@
               "description": "Melee defence: +5 for Wolf-Kin, Spearmen, Swordsmen, Free Company Militia, Halberdiers and Greatswords units\n\t(Lord's army)",
               "key": "wh_main_effect_force_stat_melee_defence_emp_tier_1",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            },
+            {
+              "description": "Number of uses: +1 for \"Imperial Tactics\"",
+              "key": "emp_army_tactics_use",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "emp_army_tactics_use",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "emp_army_tactics",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Tactics",
+                    "active_time": 30,
+                    "effect_range": 40,
+                    "num_effected_friendly_units": 2,
+                    "num_uses": 3,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Unit is not Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+20 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_accuracy",
+                            "how": "add",
+                            "description": "+20 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -5022,7 +5398,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
             {
-              "description": "Defensive supplies: +500\n\t(local region)",
+              "description": "Defensive supplies: +600\n\t(local region)",
               "key": "wh3_main_effect_building_settlement_initial_supply_points",
               "icon": "vanilla3/campaign_ui/effect_bundles/supplies"
             },
@@ -5030,6 +5406,98 @@
               "description": "Reinforcement range: +25%\n\t(Lord's army)",
               "key": "wh_main_effect_force_all_campaign_reinforcement_range",
               "icon": "vanilla3/campaign_ui/effect_bundles/military"
+            },
+            {
+              "description": "Number of uses: +1 for \"Imperial Tactics\"",
+              "key": "emp_army_tactics_use",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "emp_army_tactics_use",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "emp_army_tactics",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Tactics",
+                    "active_time": 30,
+                    "effect_range": 40,
+                    "num_effected_friendly_units": 2,
+                    "num_uses": 3,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Unit is not Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_army_tactics",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+20 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_accuracy",
+                            "how": "add",
+                            "description": "+20 Accuracy",
+                            "icon": "vanilla3/skins/default/icon_stat_range"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }

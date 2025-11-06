@@ -341,7 +341,7 @@
               ]
             },
             {
-              "description": "Missile strength: +10% for Luminark units",
+              "description": "Missile strength: +20% for Luminark units",
               "key": "wh3_dlc25_effect_force_stat_missile_damage_luminark",
               "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
             }
@@ -542,15 +542,17 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Imperial Allegiance",
+                    "active_time": 15,
                     "effect_range": 0,
+                    "recharge_time": 1,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "Losing melee combat",
-                      "Leadership is higher than broken"
+                      "Leadership is higher than broken",
+                      "In melee"
                     ],
                     "phases": [
                       {
@@ -559,7 +561,7 @@
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
-                        "duration": -1,
+                        "duration": 15,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
@@ -1390,31 +1392,32 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/army"
             },
             {
-              "description": "Army ability: \"Imperial Tactics\"",
-              "key": "emp_army_tactics_enable",
+              "description": "Number of uses: +2 for \"Imperial Tactics\"",
+              "key": "emp_army_tactics_use",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "emp_army_tactics_enable",
-                  "bonus_value_id": "enable",
+                  "effect": "emp_army_tactics_use",
+                  "bonus_value_id": "uses_mod",
                   "unit_ability": {
                     "key": "emp_army_tactics",
                     "icon_name": "sfo3/battle_ui/ability_icons/emp_army_tactics",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Imperial Tactics",
                     "active_time": 30,
-                    "effect_range": 0,
-                    "num_effected_friendly_units": 1,
+                    "effect_range": 40,
+                    "num_effected_friendly_units": 2,
+                    "num_uses": 3,
                     "recharge_time": 90,
                     "target_enemies": false,
-                    "target_friends": true,
-                    "target_ground": false,
+                    "target_friends": false,
+                    "target_ground": true,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "target_if": [
@@ -1439,38 +1442,38 @@
                             "icon": "vanilla3/skins/default/icon_stat_morale"
                           },
                           {
-                            "value": 25,
+                            "value": 20,
                             "stat": "stat_melee_defence",
                             "how": "add",
-                            "description": "+25 Melee Defence",
+                            "description": "+20 Melee Defence",
                             "icon": "vanilla3/skins/default/icon_stat_defence"
                           },
                           {
-                            "value": 1.25,
+                            "value": 1.2,
                             "stat": "stat_charge_bonus",
                             "how": "mult",
-                            "description": "x1.25 Charge Bonus",
+                            "description": "x1.2 Charge Bonus",
                             "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
                           },
                           {
-                            "value": 25,
+                            "value": 20,
                             "stat": "stat_accuracy",
                             "how": "add",
-                            "description": "+25 Accuracy",
+                            "description": "+20 Accuracy",
                             "icon": "vanilla3/skins/default/icon_stat_range"
                           },
                           {
-                            "value": 1.25,
+                            "value": 1.2,
                             "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x1.25 Armour-Piercing Weapon Damage",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           },
                           {
-                            "value": 25,
+                            "value": 20,
                             "stat": "stat_reloading",
                             "how": "add",
-                            "description": "+25 Reload Skill",
+                            "description": "+20 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
                           }
                         ]

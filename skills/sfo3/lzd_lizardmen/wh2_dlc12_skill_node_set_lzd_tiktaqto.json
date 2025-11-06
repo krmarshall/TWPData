@@ -554,12 +554,12 @@
           {
             "effects": [
               {
-                "description": "Campaign movement range: +25%",
+                "description": "Campaign movement range: +20%",
                 "key": "wh_main_effect_agent_movement_range_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Speed: +25%",
+                "description": "Speed: +20%",
                 "key": "wh_main_effect_character_stat_speed",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
               },
@@ -670,6 +670,19 @@
                 "description": "Replaces: \"Drop Sphere of Tepok\"",
                 "key": "wh2_dlc12_effect_ability_disable_drop_sphere_of_tepok",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              },
+              {
+                "description": "Attribute: Flanking Immune for Terradon and Ripperdactyl units\n\t(all armies factionwide)",
+                "key": "wh_effect_attribute_enable_flanking_immune_lzd_terradon_ripperdactyl",
+                "icon": "sfo3/campaign_ui/effect_bundles/flanking_immune",
+                "related_attributes": [
+                  {
+                    "key": "flanking_immune",
+                    "description": "Immune to Flanking",
+                    "bullet_text": "This unit takes no penalties when flanked.",
+                    "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
+                  }
+                ]
               }
             ]
           }
@@ -1182,7 +1195,7 @@
                       "onscreen_name": "Master of the Skies",
                       "active_time": 30,
                       "effect_range": 0,
-                      "recharge_time": 90,
+                      "recharge_time": 60,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -1212,6 +1225,13 @@
                               "how": "add",
                               "description": "+50 Melee Defence",
                               "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_missile",
+                              "how": "add",
+                              "description": "+25 Missile Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
                             }
                           ]
                         }
@@ -1382,40 +1402,40 @@
       },
       {
         "key": "wh2_dlc12_skill_node_lzd_tiktaqto_combat_4",
-        "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_deadly_onslaught",
-        "character_skill_key": "wh_main_skill_all_all_self_deadly_onslaught",
+        "image_path": "sfo3/campaign_ui/skills/wh_active_flow",
+        "character_skill_key": "wh_active_flow",
         "tier": 10,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Deadly Onslaught",
-        "localised_description": "The war is endless. The cycle of charging, clashing, and bloody hand-to-hand fighting is without end. It will never stop.",
+        "localised_name": "Flow of Battle",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Ability: \"Deadly Onslaught\"",
-                "key": "wh_main_effect_ability_enable_deadly_onslaught",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "description": "Ability: \"Flow of Battle\"",
+                "key": "wh_active_flow_enable",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_deadly_onslaught",
+                    "effect": "wh_active_flow_enable",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_character_abilities_deadly_onslaught",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+                      "key": "wh_active_flow",
+                      "icon_name": "sfo3/battle_ui/ability_icons/wh_active_flow",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Deadly Onslaught",
+                      "onscreen_name": "Flow of Battle",
                       "active_time": 30,
-                      "effect_range": 0,
+                      "effect_range": 40,
                       "recharge_time": 120,
                       "target_enemies": false,
                       "target_friends": false,
@@ -1424,50 +1444,22 @@
                       "target_intercept_range": 0,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+                          "icon": "sfo3/battle_ui/ability_icons/wh_active_flow",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
-                          "target_friends": false,
+                          "target_friends": true,
                           "duration": 30,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "fatigue_change_ratio": -0.01,
                           "stat_effects": [
                             {
-                              "value": 1.5,
-                              "stat": "scalar_splash_attack_power",
+                              "value": 1.2,
+                              "stat": "scalar_speed",
                               "how": "mult",
-                              "description": "x1.5 Splash Attack Power",
-                              "icon": "vanilla3/skins/default/icon_stat_damage"
-                            },
-                            {
-                              "value": 1.25,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x1.25 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 1.5,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x1.5 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                            },
-                            {
-                              "value": 1.25,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.25 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            }
-                          ],
-                          "attributes": [
-                            {
-                              "key": "ogre_charge",
-                              "description": "Unstoppable Charge",
-                              "bullet_text": "When attacking braced charge defenders, this unit only loses half of its charge bonus.",
-                              "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
+                              "description": "x1.2 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
                             }
                           ]
                         }
@@ -2803,7 +2795,7 @@
     "size": "large",
     "hit_points": 0,
     "bonus_hit_points": 6500,
-    "armour": 30,
+    "armour": 50,
     "missile_block_chance": 0,
     "morale": 70,
     "damage_mod_flame": 0,
@@ -2871,6 +2863,12 @@
         "description": "Can fly",
         "bullet_text": "This unit can fly.",
         "icon": "sfo3/battle_ui/ability_icons/flying"
+      },
+      {
+        "key": "flanking_immune",
+        "description": "Immune to Flanking",
+        "bullet_text": "This unit takes no penalties when flanked.",
+        "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
       }
     ],
     "abilities": [
@@ -3353,6 +3351,11 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/skink_chief"
       },
       {
+        "description": "Campaign line of sight: up to +100% per Skink hero on Terradon (based on rank)",
+        "key": "lzd_tic_tac_campaign_sight_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+      },
+      {
         "description": "Skink Heroes start with a Terradon mount",
         "key": "wh2_dlc12_effect_faction_effect_skink_terradon_mount_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/agent"
@@ -3361,11 +3364,6 @@
         "description": "Rite of Tzunki: Increases the campaign movement range of all armies and characters when performed",
         "key": "wh2_dlc12_effect_faction_effect_tiktaqto_unique_rite_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/effect_rite"
-      },
-      {
-        "description": "Campaign line of sight: +50%",
-        "key": "wh_main_effect_agent_field_line_of_sight_mod",
-        "icon": "vanilla3/campaign_ui/effect_bundles/agent"
       },
       {
         "description": "Terradons gain a unique battle ability",
@@ -3767,7 +3765,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Blade of the Ancient Skies",
-                "effect_range": 0,
+                "effect_range": 40,
                 "target_enemies": false,
                 "target_friends": false,
                 "target_ground": false,
@@ -3788,25 +3786,37 @@
                     "is_hidden_in_ui": false,
                     "stat_effects": [
                       {
-                        "value": 1.15,
-                        "stat": "stat_melee_damage_base",
+                        "value": 3,
+                        "stat": "stat_mass",
                         "how": "mult",
-                        "description": "x1.15 Base Weapon Damage",
-                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                        "description": "x3  Mass",
+                        "icon": "vanilla3/skins/default/icon_stat_mass"
                       },
                       {
-                        "value": 15,
-                        "stat": "stat_melee_attack",
+                        "value": 50,
+                        "stat": "stat_bonus_vs_large",
                         "how": "add",
-                        "description": "+15 Melee Attack",
-                        "icon": "vanilla3/skins/default/icon_stat_attack"
-                      },
+                        "description": "+50 Bonus vs. Large",
+                        "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
+                      }
+                    ]
+                  },
+                  {
+                    "icon": "wh2_dlc12_weapon_passive_blade_of_the_ancient_skies_allies",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": false,
+                    "target_friends": true,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
                       {
-                        "value": 1.15,
-                        "stat": "stat_melee_damage_ap",
-                        "how": "mult",
-                        "description": "x1.15 Armour-Piercing Weapon Damage",
-                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                        "value": 20,
+                        "stat": "stat_resistance_missile",
+                        "how": "add",
+                        "description": "+20 Missile Resistance",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
                       }
                     ]
                   }
@@ -3972,9 +3982,9 @@
                         "icon_name": "sfo3/battle_ui/ability_icons/lzd_army_tic_tac_2",
                         "overpower_option": "",
                         "type": {
-                          "key": "wh_type_augment",
+                          "key": "wh_type_summon_unit",
                           "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                          "onscreen_name": "Augment"
+                          "onscreen_name": "Summon Unit"
                         },
                         "is_hidden_in_ui": false,
                         "onscreen_name": "Mastery of Ripperdactyls",
@@ -4032,6 +4042,13 @@
                             "stat_effects": [
                               {
                                 "value": 1.25,
+                                "stat": "scalar_charge_speed",
+                                "how": "mult",
+                                "description": "x1.25 Charge Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              },
+                              {
+                                "value": 1.25,
                                 "stat": "scalar_speed",
                                 "how": "mult",
                                 "description": "x1.25 Speed",
@@ -4042,6 +4059,13 @@
                                 "stat": "scalar_entity_acceleration_modifier",
                                 "how": "mult",
                                 "description": "x2 Acceleration",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              },
+                              {
+                                "value": 2,
+                                "stat": "scalar_entity_deceleration_modifier",
+                                "how": "mult",
+                                "description": "x2 Deceleration",
                                 "icon": "vanilla3/skins/default/icon_stat_speed"
                               }
                             ],

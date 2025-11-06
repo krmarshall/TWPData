@@ -300,12 +300,15 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Daemon Crusher",
-                      "effect_range": 35,
+                      "effect_range": 40,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": -1,
+                      "enabled_if": [
+                        "In melee"
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_main_unit_passive_daemon_crusher",
@@ -316,6 +319,15 @@
                           "duration": -1,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -5,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-5 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
                           "attributes": [
                             {
                               "key": "daemonic",
@@ -342,12 +354,12 @@
                 ]
               },
               {
-                "description": "Weapon strength: +10%",
+                "description": "Weapon strength: +5%",
                 "key": "wh_main_effect_character_stat_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               },
               {
-                "description": "Charge bonus: +25",
+                "description": "Charge bonus: +20",
                 "key": "wh_main_effect_character_stat_charge_bonus_add",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
@@ -356,6 +368,78 @@
           },
           {
             "effects": [
+              {
+                "description": "Passive Ability: Daemon Crusher",
+                "key": "wh3_main_unit_enable_ability_daemon_crusher",
+                "icon": "vanilla3/battle_ui/ability_icons/placeholder",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_unit_enable_ability_daemon_crusher",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_unit_passive_daemon_crusher",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc26_character_passive_daemon_crusher",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_hexes",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                        "onscreen_name": "Hex (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Daemon Crusher",
+                      "effect_range": 40,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "enabled_if": [
+                        "In melee"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh3_main_unit_passive_daemon_crusher",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -5,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-5 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "daemonic",
+                              "description": "Removes Daemonic",
+                              "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
+                            }
+                          ]
+                        },
+                        {
+                          "icon": "wh3_main_unit_passive_daemon_crusher_self",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "imbue_magical": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
               {
                 "description": "Weapon strength: +20%",
                 "key": "wh_main_effect_character_stat_weapon_strength",
@@ -3140,9 +3224,9 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy_trespass"
       },
       {
-        "description": "Nakai's faction has different technology tree than other Lizardmen and Alignments effects",
+        "description": " Unique technology tree\n\t  Unique Alignments effects\n\t  Changeable starting position",
         "key": "lzd_nakai_campaign_dummy",
-        "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+        "icon": "sfo3/campaign_ui/effect_bundles/lzd_main"
       },
       {
         "description": "Lord recruit rank: +5 for Kroxigor Ancients",
@@ -3246,16 +3330,22 @@
         ],
         "effects": [
           {
-            "description": "Magic item drop chance from battle: +10%\n\t(all characters factionwide)",
+            "description": "Magic item drop chance from battle: +10%\n\t(factionwide)",
             "key": "wh_main_effect_character_mod_ancillary_drop",
             "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
             "priority": 110
           },
           {
-            "description": "Horde growth: +5\n\t(own armies factionwide)",
+            "description": "Horde growth: +4\n\t(Lord's army)",
             "key": "wh_main_effect_hordebuilding_growth_characters",
             "icon": "vanilla3/campaign_ui/effect_bundles/growth",
             "priority": 141
+          },
+          {
+            "description": "Chance to gain a magic item: 100% per turn",
+            "key": "wh_main_effect_faction_mod_ancillary_per_turn",
+            "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+            "priority": 1
           }
         ]
       }
@@ -3268,7 +3358,7 @@
       "unlocked_at_rank": 15,
       "effects": [
         {
-          "description": "Casualty replenishment rate: +10%\n\t(Lord's army)",
+          "description": "Casualty replenishment rate: +10%\n\t(own armies in province)",
           "key": "wh_main_effect_force_all_campaign_replenishment_rate",
           "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
         },
@@ -3299,16 +3389,22 @@
         ],
         "effects": [
           {
-            "description": "Magic item drop chance from battle: +10%\n\t(all characters factionwide)",
+            "description": "Magic item drop chance from battle: +10%\n\t(factionwide)",
             "key": "wh_main_effect_character_mod_ancillary_drop",
             "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
             "priority": 110
           },
           {
-            "description": "Horde growth: +5\n\t(own armies factionwide)",
+            "description": "Horde growth: +4\n\t(Lord's army)",
             "key": "wh_main_effect_hordebuilding_growth_characters",
             "icon": "vanilla3/campaign_ui/effect_bundles/growth",
             "priority": 141
+          },
+          {
+            "description": "Chance to gain a magic item: 100% per turn",
+            "key": "wh_main_effect_faction_mod_ancillary_per_turn",
+            "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+            "priority": 1
           }
         ]
       }

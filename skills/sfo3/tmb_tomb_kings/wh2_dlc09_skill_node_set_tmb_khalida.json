@@ -1244,7 +1244,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "True Blessing of Asaph",
-                      "effect_range": 60,
+                      "effect_range": 75,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -1317,6 +1317,11 @@
                 "description": "Attrition: -25% casualties suffered from all attrition\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              },
+              {
+                "description": "Campaign movement range: +10%",
+                "key": "wh_main_effect_agent_movement_range_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ],
             "unlocked_at_rank": 10
@@ -1327,6 +1332,11 @@
                 "description": "Attrition: -50% casualties suffered from all attrition\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              },
+              {
+                "description": "Campaign movement range: +20%",
+                "key": "wh_main_effect_agent_movement_range_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
                 "description": "Passive ability: \"Regeneration\"",
@@ -1411,7 +1421,7 @@
           {
             "effects": [
               {
-                "description": "Unit capacity: +6\n\tSkeleton Archers",
+                "description": "Unit capacity: +4\n\tSkeleton Archers",
                 "key": "wh2_dlc09_effect_unit_cap_tmb_inf_skeleton_archers_0",
                 "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
               },
@@ -1421,13 +1431,8 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Ammunition: +20%\n\t(all armies factionwide)",
+                "description": "Ammunition: +5%\n\t(all armies factionwide)",
                 "key": "wh_main_effect_force_stat_ammunition",
-                "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
-              },
-              {
-                "description": "Ammunition: +10% for Skeleton Archers units\n\t(all armies factionwide)",
-                "key": "wh2_dlc09_effect_force_stat_ammunition_tmb_skeleton_archer",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
             ],
@@ -1436,13 +1441,18 @@
           {
             "effects": [
               {
+                "description": "Unit capacity: +8\n\tSkeleton Archers",
+                "key": "wh2_dlc09_effect_unit_cap_tmb_inf_skeleton_archers_0",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              },
+              {
                 "description": "Recruit rank: +4 for Skeleton Archer units",
                 "key": "wh2_dlc09_tmb_skeleton_archer_recruitment_rank",
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Ammunition: +20% for Skeleton Archers units\n\t(all armies factionwide)",
-                "key": "wh2_dlc09_effect_force_stat_ammunition_tmb_skeleton_archer",
+                "description": "Ammunition: +10%\n\t(all armies factionwide)",
+                "key": "wh_main_effect_force_stat_ammunition",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
               }
             ]
@@ -1530,6 +1540,75 @@
               }
             ],
             "unlocked_at_rank": 10
+          },
+          {
+            "effects": [
+              {
+                "description": "Army ability: \"Legionary Barrage\"\n\t(own armies in province)",
+                "key": "wh2_dlc09_effect_army_ability_enable_legionary_barrage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_dlc09_effect_army_ability_enable_legionary_barrage",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh2_dlc09_army_abilities_barrage_of_the_legion",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_army_abilities_barrage_of_the_legion",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_wind",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                        "onscreen_name": "Wind"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Legionary Barrage",
+                      "active_time": 4,
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 120,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_medium_wind",
+                          "localised_text": "Medium, forward-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh2_dlc09_army_abilities_barrage_of_the_legion",
+                        "duration": 4,
+                        "damage": 0,
+                        "damage_ap": 40,
+                        "goal_radius": 7,
+                        "movement_speed": 7,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Melee attack: +10 when in foreign territory\n\t(Lord's army)",
+                "key": "wh_effect_foreign_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              }
+            ]
           }
         ],
         "parent_required": [
@@ -1553,7 +1632,7 @@
           {
             "effects": [
               {
-                "description": "Attribute: Immune to Contact Effects for Sepulchral Stalkers and Necropolise Knight units\n\t(Lord's army)",
+                "description": "Attribute: Immune to Contact Effects for Sepulchral Stalkers and Necropolis Knight units\n\t(Lord's army)",
                 "key": "wh3_main_effect_immunity_to_contact_effects_tmb_sepulchral_necropolis",
                 "icon": "sfo3/campaign_ui/effect_bundles/attribute_contact_immunity",
                 "related_attributes": [
@@ -1580,6 +1659,24 @@
           },
           {
             "effects": [
+              {
+                "description": "Experience gain: +10% for units\n\t(own armies in province)",
+                "key": "wh_effect_all_exp_gain",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
+                "description": "Attribute: Immune to Contact Effects for Sepulchral Stalkers and Necropolis Knight units\n\t(Lord's army)",
+                "key": "wh3_main_effect_immunity_to_contact_effects_tmb_sepulchral_necropolis",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_contact_immunity",
+                "related_attributes": [
+                  {
+                    "key": "ignore_imbue_contact_effects_enemy",
+                    "description": "Immune to Contact Effects",
+                    "bullet_text": "Entities with this attribute ignore the effects of enemy contact effects such as  Poison",
+                    "icon": "sfo3/battle_ui/ability_icons/ignore_imbue_contact_effects_enemy"
+                  }
+                ]
+              },
               {
                 "description": "Melee attack: +8 for Sepulchral Stalkers and Necropolis Knights units\n\t(Lord's army)",
                 "key": "wh2_dlc09_effect_force_stat_melee_attack_stalker_necropolis_knight",
@@ -1615,7 +1712,7 @@
           {
             "effects": [
               {
-                "description": "Physical resistance: 20%",
+                "description": "Physical resistance: 10%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
                 "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
               },
@@ -2029,32 +2126,41 @@
       },
       {
         "key": "wh2_dlc09_skill_tmb_khalida_personal_4",
-        "image_path": "vanilla3/campaign_ui/skills/character_morale",
-        "character_skill_key": "wh2_dlc11_skill_all_lord_self_self_indomitable",
+        "image_path": "vanilla3/campaign_ui/skills/character_health",
+        "character_skill_key": "wh_main_skill_all_dignitary_self_tenacity_2",
         "tier": 4,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Indomitable",
-        "localised_description": "The iron will and indomitable presence of this leader ensures their followers remain steadfast when facing peril.",
+        "localised_name": "Tenacity",
+        "localised_description": "This one will not go down easily – it will be necessary to break both the will and the body first.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Leadership: +6",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+                "description": "Hit points: +3%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Leadership: +12",
-                "key": "wh_main_effect_character_stat_leadership",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+                "description": "Hit points: +8%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               }
             ]
           }
@@ -2893,6 +2999,14 @@
                               "description": "+15 Flame Resistance",
                               "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
                             }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "ignore_imbue_contact_effects_enemy",
+                              "description": "Immune to Contact Effects",
+                              "bullet_text": "Entities with this attribute ignore the effects of enemy contact effects such as  Poison",
+                              "icon": "sfo3/battle_ui/ability_icons/ignore_imbue_contact_effects_enemy"
+                            }
                           ]
                         }
                       ]
@@ -3150,6 +3264,14 @@
                               "description": "+30 Flame Resistance",
                               "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
                             }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "ignore_imbue_contact_effects_enemy",
+                              "description": "Immune to Contact Effects",
+                              "bullet_text": "Entities with this attribute ignore the effects of enemy contact effects such as  Poison",
+                              "icon": "sfo3/battle_ui/ability_icons/ignore_imbue_contact_effects_enemy"
+                            }
                           ]
                         }
                       ]
@@ -3353,21 +3475,7 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 5 per turn",
-                "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
-                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
-              },
-              {
-                "description": "Canopic Jars gained post-battle +1%\n\t(own army)",
-                "key": "wh3_main_effect_post_battle_canopic_jars",
-                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Canopic Jars generated: 10 per turn",
+                "description": "Canopic Jars generated: 3 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               },
@@ -3381,12 +3489,26 @@
           {
             "effects": [
               {
-                "description": "Canopic Jars generated: 15 per turn",
+                "description": "Canopic Jars generated: 6 per turn",
                 "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               },
               {
-                "description": "Canopic Jars gained post-battle +5%\n\t(own army)",
+                "description": "Canopic Jars gained post-battle +6%\n\t(own army)",
+                "key": "wh3_main_effect_post_battle_canopic_jars",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Canopic Jars generated: 10 per turn",
+                "key": "wh2_dlc09_pooled_resource_canopic_jars_characters",
+                "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
+              },
+              {
+                "description": "Canopic Jars gained post-battle +10%\n\t(own army)",
                 "key": "wh3_main_effect_post_battle_canopic_jars",
                 "icon": "vanilla3/campaign_ui/effect_bundles/canopic_jars"
               }
@@ -3541,7 +3663,7 @@
           {
             "effects": [
               {
-                "description": "Attrition: -25% casualties suffered from all attrition\n\t(Lord's army)",
+                "description": "Attrition: -30% casualties suffered from all attrition\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
@@ -3550,7 +3672,7 @@
           {
             "effects": [
               {
-                "description": "Attrition: -35% casualties suffered from all attrition\n\t(Lord's army)",
+                "description": "Attrition: -60% casualties suffered from all attrition\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
               }
@@ -3657,24 +3779,39 @@
                 "description": "Ambush success chance: +6%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Campaign line of sight: +10%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Ambush success chance: +13%\n\t(Lord's army)",
+                "description": "Ambush success chance: +16%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Campaign line of sight: +20%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Ambush success chance: +25%\n\t(Lord's army)",
+                "description": "Ambush success chance: +30%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Campaign line of sight: +40%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
               }
             ]
           }
@@ -4197,7 +4334,7 @@
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
       {
-        "description": "Vampire hunting missions and additional Control effects for military buildings",
+        "description": "Vengeance - increasing effects with every battle, Vampire hunting missions and additional Control effects for military buildings",
         "key": "tmb_khalida_camapign_dummy",
         "icon": "sfo3/campaign_ui/effect_bundles/khalida_vengeance"
       },
@@ -4217,9 +4354,9 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
       },
       {
-        "description": "Ammunition: +25%",
-        "key": "wh_main_effect_force_stat_ammunition",
-        "icon": "vanilla3/campaign_ui/effect_bundles/ammo"
+        "description": "Dedication to Asaph: Increased Armour-Piercing damage, penetration and magical arrows for archer units",
+        "key": "wh3_main_effect_projectile_tmb_penetration_arrows",
+        "icon": "vanilla3/campaign_ui/effect_bundles/projectile_penetration"
       }
     ]
   },
@@ -4451,11 +4588,6 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
             },
             {
-              "description": "Attrition: -25% casualties suffered from all attrition\n\t(Lord's army)",
-              "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
-            },
-            {
               "description": "Corruption: -5\n\t(local province)",
               "key": "wh3_main_effect_corruption_reduction_characters",
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
@@ -4571,7 +4703,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Blessing of Asaph",
-                    "effect_range": 40,
+                    "effect_range": 50,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
