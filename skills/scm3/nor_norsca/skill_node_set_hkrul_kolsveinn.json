@@ -55,7 +55,7 @@
       {
         "key": "wh_dlc08_skill_node_nor_marauder_chieftan_unique_06",
         "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
-        "character_skill_key": "wh_main_skill_chs_lord_battle_voice_of_the_dark_gods",
+        "character_skill_key": "wh_main_skill_chs_lord_battle_voice_of_the_dark_gods_nor",
         "tier": 4,
         "indent": 0,
         "points_on_creation": 0,
@@ -68,11 +68,135 @@
           {
             "effects": [
               {
-                "description": "Leadership aura size: +40%",
+                "description": "Character's aura leadership effect: +4",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Leadership aura size: +80%",
                 "key": "wh_main_effect_character_stat_leadership_aura_size",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              },
+              {
+                "description": "Cooldown: -33% to \"Stand or Die!\"",
+                "key": "wh2_main_effect_ability_cooldown_stand_or_die",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_cooldown_stand_or_die",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh_main_character_abilities_stand_or_die",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_or_die",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Stand or Die!",
+                      "active_time": 18,
+                      "effect_range": 35,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_stand_or_die",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 18,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 16,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+16 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 24,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+24 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Cooldown: -33% for \"Fight or Die!\"",
+                "key": "wh3_dlc27_effect_ability_cooldown_fight_or_die",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc27_effect_ability_cooldown_fight_or_die",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh_dlc08_lord_abilities_fight_or_die",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_lord_abilities_fight_or_die",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fight or Die!",
+                      "active_time": 18,
+                      "effect_range": 35,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "wh_dlc08_unit_abilities_fight_or_die",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 18,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 16,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+16 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 24,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+24 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
-            ]
+            ],
+            "unlocked_at_rank": 15
           }
         ]
       }
@@ -158,7 +282,7 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +5 for Norscan Giant units\n\t(Hero's army)",
+                "description": "Melee attack: +5 for Norscan Giant and Curs'd Ettin units\n\t(Hero's army)",
                 "key": "wh_dlc08_effect_force_stat_melee_attack_norscan_giants",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
