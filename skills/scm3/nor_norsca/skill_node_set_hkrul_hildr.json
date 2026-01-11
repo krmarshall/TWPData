@@ -131,7 +131,7 @@
           {
             "effects": [
               {
-                "description": "Speed: +15%",
+                "description": "Speed: +25%",
                 "key": "wh_main_effect_character_stat_speed",
                 "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
               },
@@ -198,14 +198,14 @@
           {
             "effects": [
               {
-                "description": "Fish: +3 per turn",
-                "key": "rhox_bjornling_fish_catching",
-                "icon": "scm3/campaign_ui/effect_bundles/hkrul_bjornling_fish"
-              },
-              {
                 "description": "Casualty replenishment rate: +5%\n\t(Hero's army)",
                 "key": "wh_main_effect_force_all_campaign_replenishment_rate",
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Construction time: -1 for Ports\n\t(all provinces)",
+                "key": "wh2_main_effect_building_construction_time_mod_ports",
+                "icon": "vanilla3/campaign_ui/effect_bundles/construction"
               }
             ]
           }
@@ -237,9 +237,9 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               },
               {
-                "description": "Armour: +15",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "scm3/campaign_ui/effect_bundles/armour_character"
+                "description": "Income from Ports: +5%\n\t(all provinces)",
+                "key": "wh2_main_effect_economy_gdp_mod_trade_sea_global",
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
               }
             ]
           }
@@ -308,7 +308,7 @@
                     "bonus_value_id": "enable",
                     "unit_ability": {
                       "key": "hkrul_hildr_brew",
-                      "icon_name": "scm3/battle_ui/ability_icons/hkrul_soren_brew",
+                      "icon_name": "scm3/battle_ui/ability_icons/hkrul_hildr_brew",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_area_of_regeneration",
@@ -317,14 +317,14 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Reaver's Brew",
-                      "active_time": 10,
-                      "effect_range": 15,
-                      "num_effected_friendly_units": 3,
+                      "active_time": 15,
+                      "effect_range": 35,
+                      "num_effected_friendly_units": 5,
                       "num_uses": 2,
-                      "recharge_time": 110,
+                      "recharge_time": 90,
                       "target_enemies": false,
                       "target_friends": false,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
                       "ui_effects": [
@@ -336,7 +336,7 @@
                       ],
                       "phases": [
                         {
-                          "icon": "hkrul_hildr_brew",
+                          "icon": "scm3/battle_ui/ability_icons/hkrul_hildr_brew",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
@@ -344,7 +344,8 @@
                           "duration": 15,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
-                          "heal_amount": 0.008,
+                          "fatigue_change_ratio": -0.01,
+                          "heal_amount": 0.009,
                           "hp_change_frequency": 1
                         }
                       ]
@@ -1261,13 +1262,13 @@
     "damage_mod_physical": 0,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
-    "melee_attack": 59,
+    "melee_attack": 63,
     "melee_defence": 49,
     "charge_bonus": 40,
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
     "damage": 150,
-    "ap_damage": 350,
+    "ap_damage": 365,
     "splash_target_size_limit": "large",
     "splash_attack_max_attacks": 1,
     "melee_attack_interval": 3.8,
@@ -1442,10 +1443,10 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Maiden's Kiss",
-                "active_time": 15,
+                "active_time": 20,
                 "effect_range": 25,
                 "num_uses": 3,
-                "recharge_time": 45,
+                "recharge_time": 70,
                 "target_enemies": false,
                 "target_friends": false,
                 "target_ground": false,
@@ -1464,7 +1465,7 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 15,
+                    "duration": 20,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "stat_effects": [
@@ -1490,7 +1491,7 @@
                     "target_enemies": true,
                     "target_self": false,
                     "target_friends": false,
-                    "duration": 15,
+                    "duration": 20,
                     "effect_type": "negative",
                     "is_hidden_in_ui": false,
                     "stat_effects": [
@@ -1615,9 +1616,66 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/experience"
             },
             {
-              "description": "Melee attack: +5 when fighting against Warriors of Chaos, Daemons of Chaos, Chaos Dwarfs, Norsca and Beastmen\n\t(accompanying Lord)",
-              "key": "wh2_dlc10_effect_force_stat_melee_attack_vs_chaos_norsca_beastmen",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              "description": "Ability: \"Cry of the Reaver\"",
+              "key": "hkrul_geimdall_rally",
+              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+              "related_abilities": [
+                {
+                  "effect": "hkrul_geimdall_rally",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "hkrul_geimdall_rally",
+                    "icon_name": "scm3/battle_ui/ability_icons/hkrul_hildr_cry",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Cry of the Reaver",
+                    "active_time": 30,
+                    "effect_range": 50,
+                    "recharge_time": 105,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Entity size is small"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "scm3/battle_ui/ability_icons/hkrul_geimdall_rally",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 15,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+15 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_bonus_vs_infantry",
+                            "how": "add",
+                            "description": "+5 Bonus vs. Infantry",
+                            "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_infantry"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }

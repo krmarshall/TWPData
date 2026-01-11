@@ -56,25 +56,12 @@
             "unlocked_at_rank": 10
           }
         ]
-      },
-      {
-        "key": "hkrul_usta_unique_04",
-        "image_path": "hkrul_usta_special_0_2",
-        "character_skill_key": "hkrul_usta_special_0_2",
-        "tier": 4,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "",
-        "localised_description": ""
       }
     ],
     [
       {
         "key": "hkrul_usta_self_01",
-        "image_path": "hkrul_usta_special_1_0",
+        "image_path": "scm3/campaign_ui/skills/hkrul_usta_special_1_0",
         "character_skill_key": "hkrul_usta_special_1_0",
         "tier": 0,
         "indent": 1,
@@ -86,6 +73,18 @@
         "localised_description": "\"I go where omens point and leave where they bleed.\"",
         "levels": [
           {
+            "effects": [
+              {
+                "description": "Winds of Magic power reserve minimum: +10",
+                "key": "wh3_main_effect_winds_of_magic_pool_min",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              },
+              {
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              }
+            ],
             "unlocked_at_rank": 10
           }
         ],
@@ -93,7 +92,7 @@
       },
       {
         "key": "hkrul_usta_self_02",
-        "image_path": "hkrul_usta_special_1_1",
+        "image_path": "scm3/campaign_ui/skills/hkrul_usta_special_1_1",
         "character_skill_key": "hkrul_usta_special_1_1",
         "tier": 1,
         "indent": 1,
@@ -103,6 +102,22 @@
         "is_background_skill": false,
         "localised_name": "The Third Path",
         "localised_description": "She walks the way between fate and ruin.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Speed: +15% for all Missile units\n\t(Hero's army)",
+                "key": "wh2_dlc13_effect_movement_speed_missile_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              },
+              {
+                "description": "Speed: +10%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              }
+            ]
+          }
+        ],
         "parent_required": [
           "hkrul_usta_self_01"
         ],
@@ -110,7 +125,7 @@
       },
       {
         "key": "hkrul_usta_self_03",
-        "image_path": "hkrul_usta_special_1_2",
+        "image_path": "scm3/campaign_ui/skills/hkrul_usta_special_1_2",
         "character_skill_key": "hkrul_usta_special_1_2",
         "tier": 2,
         "indent": 1,
@@ -120,6 +135,106 @@
         "is_background_skill": false,
         "localised_name": "Witchfire Surge",
         "localised_description": "Her advice comes laced with truth and venom.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Cooldown: -15% to \"Soul Stealer\"",
+                "key": "wh2_main_effect_ability_cooldown_soul_stealer",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "related_abilities": [
+                  {
+                    "effect": "wh2_main_effect_ability_cooldown_soul_stealer",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh2_main_spell_dark_magic_soul_stealer",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                        "onscreen_name": "Direct Damage (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Soul Stealer",
+                      "active_time": 12,
+                      "effect_range": 35,
+                      "mana_cost": 18,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 54,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_absorb_hp",
+                          "localised_text": "Absorbs hitpoints from enemies",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_dlc08_direct_damage_character_unit",
+                          "localised_text": "Strong vs character",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single combatant",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_multiple",
+                          "localised_text": "Weak vs multiple combatants",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 12,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 75,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 1
+                        },
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer_miscast",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 12,
+                          "effect_type": "positive",
+                          "onscreen_name": "Absorb hitpoints from enemies",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.008,
+                          "hp_change_frequency": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +15",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              }
+            ]
+          }
+        ],
         "parent_required": [
           "hkrul_usta_self_01"
         ],
@@ -128,7 +243,7 @@
       },
       {
         "key": "hkrul_usta_self_04",
-        "image_path": "hkrul_usta_special_1_3",
+        "image_path": "scm3/campaign_ui/skills/hkrul_usta_special_1_3",
         "character_skill_key": "hkrul_usta_special_1_3",
         "tier": 3,
         "indent": 1,
@@ -138,6 +253,22 @@
         "is_background_skill": false,
         "localised_name": "Hex of the Lost",
         "localised_description": "Those who turn from her words vanish in snow and shadow.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Upkeep: -15% for Shaman Sorcerers\n\t(all armies factionwide)",
+                "key": "hkrul_sayl_shaman_upkeep",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Enemy leadership: -5\n\t(enemy armies in local province)",
+                "key": "wh_main_effect_force_stat_leadership_enemy_unit",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+              }
+            ]
+          }
+        ],
         "right_arrow": true,
         "parent_subset_required": [
           "hkrul_usta_self_02",
@@ -146,7 +277,7 @@
       },
       {
         "key": "hkrul_usta_self_05",
-        "image_path": "hkrul_usta_special_1_4",
+        "image_path": "scm3/campaign_ui/skills/hkrul_usta_special_1_4",
         "character_skill_key": "hkrul_usta_special_1_4",
         "tier": 4,
         "indent": 1,
@@ -156,6 +287,72 @@
         "is_background_skill": false,
         "localised_name": "Talisman-Burdened",
         "localised_description": "She bears charms that make grown men weep.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Cooldown: -15% to \"Cursed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_cooldown_cursed_cauldron",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
+              },
+              {
+                "description": "Ability: \"Woundbound Curse\"",
+                "key": "hkrul_usta_gaze",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "hkrul_usta_gaze",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "hkrul_usta_gaze",
+                      "icon_name": "scm3/battle_ui/ability_icons/hkrul_usta_doll",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Woundbound Curse",
+                      "active_time": 25,
+                      "effect_range": 0,
+                      "num_effected_enemy_units": 1,
+                      "num_uses": 3,
+                      "recharge_time": 110,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "phases": [
+                        {
+                          "icon": "hkrul_usta_gaze",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 20,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "cant_move": true,
+                          "stat_effects": [
+                            {
+                              "value": -20,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-20 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
         "parent_required": [
           "hkrul_usta_self_04"
         ],
@@ -163,7 +360,7 @@
       },
       {
         "key": "hkrul_usta_self_06",
-        "image_path": "hkrul_usta_special_1_5",
+        "image_path": "scm3/campaign_ui/skills/hkrul_usta_special_1_5",
         "character_skill_key": "hkrul_usta_special_1_5",
         "tier": 5,
         "indent": 1,
@@ -173,6 +370,22 @@
         "is_background_skill": false,
         "localised_name": "Cursebinder",
         "localised_description": "She reads what the fire leaves behind.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Weapon strength: +20%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              },
+              {
+                "description": "Cooldown: -10% to spells",
+                "key": "wh2_main_effect_ability_cooldown_spells",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character"
+              }
+            ]
+          }
+        ],
         "parent_required": [
           "hkrul_usta_self_04"
         ],
@@ -181,7 +394,7 @@
       },
       {
         "key": "hkrul_usta_self_07",
-        "image_path": "hkrul_usta_special_1_5",
+        "image_path": "scm3/campaign_ui/skills/hkrul_usta_special_1_6",
         "character_skill_key": "hkrul_usta_special_1_6",
         "tier": 6,
         "indent": 1,
@@ -191,6 +404,22 @@
         "is_background_skill": false,
         "localised_name": "Hag-Touched",
         "localised_description": "She made a bargain once — no one knows with whom, or for what.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Effect duration: +35% for Hex spells",
+                "key": "wh3_dlc24_effect_ability_ability_duration_debuff_spells_hag_witches",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Winds of Magic cost: -2 for \"Incantation of Mania\"",
+                "key": "wh3_dlc24_effect_ability_wom_cost_malediction_of_madness_upgraded",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              }
+            ]
+          }
+        ],
         "parent_subset_required": [
           "hkrul_usta_self_05",
           "hkrul_usta_self_06"
@@ -200,207 +429,117 @@
     [
       {
         "key": "hkrul_usta_magic_01",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_searing_doom",
-        "character_skill_key": "wh_main_skill_all_magic_metal_01_searing_doom",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer",
+        "character_skill_key": "wh2_main_skill_magic_dark_soul_stealer_lord",
         "tier": 0,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Searing Doom",
+        "localised_name": "Soul Stealer",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Searing Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_searing_doom",
+                "description": "Spell: \"Soul Stealer\"",
+                "key": "wh2_main_effect_ability_enable_soul_stealer",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_searing_doom",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh2_main_effect_ability_enable_soul_stealer",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_metal_searing_doom",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_searing_doom",
-                      "overpower_option": "wh_main_spell_metal_searing_doom_upgraded",
+                      "key": "wh2_main_spell_dark_magic_soul_stealer",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer",
+                      "overpower_option": "",
                       "type": {
-                        "key": "wh_type_bombardment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                        "onscreen_name": "Bombardment"
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                        "onscreen_name": "Direct Damage (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Searing Doom",
-                      "active_time": 8,
-                      "effect_range": 0,
-                      "mana_cost": 6,
-                      "recharge_time": 30,
+                      "onscreen_name": "Soul Stealer",
+                      "active_time": 12,
+                      "effect_range": 35,
+                      "mana_cost": 18,
+                      "num_effected_friendly_units": 1,
+                      "recharge_time": 54,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
+                      "target_intercept_range": 100,
+                      "wind_up_time": 5,
                       "ui_effects": [
                         {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "localised_text": "Causes moderate magical damage",
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh2_main_bombardment_medium_strike_aoe",
-                          "localised_text": "Medium strike area",
+                          "key": "wh2_main_spell_absorb_hp",
+                          "localised_text": "Absorbs hitpoints from enemies",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_strong_against_unit",
-                          "localised_text": "Strong vs a single unit",
+                          "key": "wh_dlc08_direct_damage_character_unit",
+                          "localised_text": "Strong vs character",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single combatant",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_multiple",
+                          "localised_text": "Weak vs multiple combatants",
                           "effect_state": "negative"
                         }
                       ],
-                      "bombardment": {
-                        "bombardment_key": "wh_main_spell_metal_searing_doom",
-                        "arrival_window": 3,
-                        "radius_spread": 10,
-                        "start_time": 2,
-                        "projectile_type": {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "damage": 24,
-                          "ap_damage": 12,
-                          "shockwave_radius": 1,
-                          "effective_range": 40,
-                          "base_reload_time": 1,
-                          "is_magical": true,
-                          "can_damage_allies": true,
-                          "explosion_type": {
-                            "key": "wh_main_spell_metal_searing_doom",
-                            "affects_allies": true,
-                            "detonation_damage": 0,
-                            "detonation_damage_ap": 30,
-                            "detonation_radius": 3,
-                            "is_magical": true
-                          }
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 12,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 75,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 1
                         },
-                        "num_projectiles": 40
-                      }
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer_miscast",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 12,
+                          "effect_type": "positive",
+                          "onscreen_name": "Absorb hitpoints from enemies",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.008,
+                          "hp_change_frequency": 1
+                        }
+                      ]
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Searing Doom\"",
-                "key": "wh_main_effect_ability_cooldown_searing_doom",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Searing Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_searing_doom",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_searing_doom",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_searing_doom",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_searing_doom",
-                      "overpower_option": "wh_main_spell_metal_searing_doom_upgraded",
-                      "type": {
-                        "key": "wh_type_bombardment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                        "onscreen_name": "Bombardment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Searing Doom",
-                      "active_time": 8,
-                      "effect_range": 0,
-                      "mana_cost": 6,
-                      "recharge_time": 30,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_all_magical_damage_moderate",
-                          "localised_text": "Causes moderate magical damage",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh2_main_bombardment_medium_strike_aoe",
-                          "localised_text": "Medium strike area",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_unit",
-                          "localised_text": "Strong vs a single unit",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
-                        }
-                      ],
-                      "bombardment": {
-                        "bombardment_key": "wh_main_spell_metal_searing_doom",
-                        "arrival_window": 3,
-                        "radius_spread": 10,
-                        "start_time": 2,
-                        "projectile_type": {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "damage": 24,
-                          "ap_damage": 12,
-                          "shockwave_radius": 1,
-                          "effective_range": 40,
-                          "base_reload_time": 1,
-                          "is_magical": true,
-                          "can_damage_allies": true,
-                          "explosion_type": {
-                            "key": "wh_main_spell_metal_searing_doom",
-                            "affects_allies": true,
-                            "detonation_damage": 0,
-                            "detonation_damage_ap": 30,
-                            "detonation_radius": 3,
-                            "is_magical": true
-                          }
-                        },
-                        "num_projectiles": 40
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Cooldown: -50% to \"Searing Doom\"",
-                "key": "wh_main_effect_ability_cooldown_searing_doom",
+                "description": "Cooldown: -50% to \"Soul Stealer\"",
+                "key": "wh2_main_effect_ability_cooldown_soul_stealer",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Searing Doom\"",
-                "key": "wh2_main_effect_ability_wom_cost_searing_doom",
+                "description": "Winds of Magic cost: -4 for \"Soulstealer\"",
+                "key": "wh2_main_effect_ability_wom_cost_soulstealer",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Winds of Magic cost: -2 for \"Searing Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_searing_doom_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Miscast base chance: -15% for \"Searing Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_searing_doom_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -409,40 +548,40 @@
       },
       {
         "key": "hkrul_usta_magic_02",
-        "image_path": "vanilla3/campaign_ui/skills/wh_dlc03_lore_passive_wild_heart",
-        "character_skill_key": "wh_dlc03_skill_magic_beasts_wild_heart",
+        "image_path": "vanilla3/campaign_ui/skills/wh3_dlc24_lore_passive_fate_of_interlopers",
+        "character_skill_key": "wh3_dlc24_skill_ksl_magic_hag_07_fate_of_interlopers",
         "tier": 1,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Wild Heart",
-        "localised_description": "The spellcaster attunes the magic of the wild, channelling its ancient and arcane power.",
+        "localised_name": "Fate of Interlopers",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Passive ability: \"Wild Heart\"",
-                "key": "wh_dlc03_effect_ability_enable_wild_heart",
+                "description": "Passive ability: \"Fate of Interlopers\"",
+                "key": "wh3_dlc24_effect_ability_enable_fate_of_interlopers",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc03_effect_ability_enable_wild_heart",
+                    "effect": "wh3_dlc24_effect_ability_enable_fate_of_interlopers",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc03_lore_passive_wild_heart",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_lore_passive_wild_heart",
+                      "key": "wh3_dlc24_lore_passive_fate_of_interlopers",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_lore_passive_fate_of_interlopers",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_augment_of_the_winds",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                        "onscreen_name": "Augment of the Winds"
+                        "key": "wh_type_area_of_hexes",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                        "onscreen_name": "Hex (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Wild Heart",
-                      "active_time": 25,
-                      "effect_range": 0,
+                      "onscreen_name": "Fate of Interlopers",
+                      "active_time": 11,
+                      "effect_range": -1,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -460,16 +599,44 @@
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_lore_passive_wild_heart",
+                          "icon": "wh3_dlc24_lore_passive_fate_of_interlopers_enemy",
                           "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 11,
+                          "effect_type": "negative",
+                          "onscreen_name": "Fate of Interlopers",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -4,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-4 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        },
+                        {
+                          "icon": "wh3_dlc24_lore_passive_fate_of_interlopers_ally",
+                          "order": 2,
                           "target_enemies": false,
                           "target_self": true,
-                          "target_friends": false,
-                          "duration": 25,
+                          "target_friends": true,
+                          "duration": 11,
                           "effect_type": "positive",
-                          "onscreen_name": "Wild Heart",
+                          "onscreen_name": "Fate of Interlopers",
                           "is_hidden_in_ui": false,
-                          "mana_regen_mod": 0.8
+                          "stat_effects": [
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "+20 Spell Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -486,157 +653,95 @@
       },
       {
         "key": "hkrul_usta_magic_03",
-        "image_path": "scm3/campaign_ui/skills/wh_dlc03_spell_beasts_flock_of_doom",
-        "character_skill_key": "wh_dlc03_skill_magic_beasts_flock_of_doom",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_malediction_of_madness",
+        "character_skill_key": "wh3_dlc24_skill_ksl_magic_hag_06_malediction_of_madness",
         "tier": 2,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Flock of Doom",
-        "localised_description": "With a mighty bellow, the caster invokes Corvus the Crow Lord, summoning his servants to peck at the foe's eyes.",
+        "localised_name": "Malediction of Madness",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Flock of Doom\"",
-                "key": "wh_dlc03_effect_ability_enable_flock_of_doom",
+                "description": "Spell: \"Malediction of Madness\"",
+                "key": "wh3_dlc24_effect_ability_enable_malediction_of_madness",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc03_effect_ability_enable_flock_of_doom",
+                    "effect": "wh3_dlc24_effect_ability_enable_malediction_of_madness",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_flock_of_doom",
-                      "icon_name": "scm3/campaign_ui/skills/wh_dlc03_spell_beasts_flock_of_doom",
-                      "overpower_option": "wh_dlc03_spell_beasts_flock_of_doom_upgraded",
+                      "key": "wh3_dlc24_spell_hags_malediction_of_madness",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_malediction_of_madness",
+                      "overpower_option": "wh3_dlc24_spell_hags_malediction_of_madness_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
-                        "onscreen_name": "Direct Damage (Area)"
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Flock of Doom",
-                      "active_time": 6,
-                      "effect_range": 35,
-                      "mana_cost": 6,
+                      "onscreen_name": "Malediction of Madness",
+                      "active_time": 15,
+                      "effect_range": 0,
+                      "mana_cost": 16,
+                      "num_effected_enemy_units": 1,
                       "recharge_time": 45,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 100,
-                      "wind_up_time": 1,
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "localised_text": "Causes damage to combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_dlc08_direct_damage_medium_unit",
-                          "localised_text": "Strong vs 25 men unit or above",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "localised_text": "Strong vs multiple combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
-                        }
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "",
+                        "Not on or below a platform"
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_malediction_of_madness",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 6,
+                          "duration": 15,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "damage_amount": 5,
                           "hp_change_frequency": 1,
-                          "max_damaged_entities": 25
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Flock of Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_flock_of_doom",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_flock_of_doom",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_flock_of_doom",
-                      "icon_name": "scm3/campaign_ui/skills/wh_dlc03_spell_beasts_flock_of_doom",
-                      "overpower_option": "wh_dlc03_spell_beasts_flock_of_doom_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
-                        "onscreen_name": "Direct Damage (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Flock of Doom",
-                      "active_time": 6,
-                      "effect_range": 35,
-                      "mana_cost": 6,
-                      "recharge_time": 45,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 100,
-                      "wind_up_time": 1,
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "localised_text": "Causes damage to combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_dlc08_direct_damage_medium_unit",
-                          "localised_text": "Strong vs 25 men unit or above",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "localised_text": "Strong vs multiple combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 6,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 5,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 25
+                          "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x0.5 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": -24,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-24 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 0.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x0.5 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "rampage",
+                              "description": "➖ Rampage!",
+                              "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                              "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -644,8 +749,104 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Flock of Doom\"",
-                "key": "wh_dlc03_effect_ability_cooldown_flock_of_doom",
+                "description": "Blessing spell: \"Incantation of Mania\"",
+                "key": "wh3_dlc24_effect_ability_overcast_malediction_of_madness",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Spell: \"Malediction of Madness\"",
+                "key": "wh3_dlc24_effect_ability_enable_malediction_of_madness",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc24_effect_ability_enable_malediction_of_madness",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc24_spell_hags_malediction_of_madness",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_malediction_of_madness",
+                      "overpower_option": "wh3_dlc24_spell_hags_malediction_of_madness_upgraded",
+                      "type": {
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Malediction of Madness",
+                      "active_time": 15,
+                      "effect_range": 0,
+                      "mana_cost": 16,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 45,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "",
+                        "Not on or below a platform"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_malediction_of_madness",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 15,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "hp_change_frequency": 1,
+                          "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x0.5 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": -24,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-24 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 0.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x0.5 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "rampage",
+                              "description": "➖ Rampage!",
+                              "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                              "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Blessing spell: \"Incantation of Mania\"",
+                "key": "wh3_dlc24_effect_ability_overcast_malediction_of_madness",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Malediction of Madness\"",
+                "key": "wh3_dlc24_effect_ability_cooldown_malediction_of_madness",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -653,69 +854,81 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Flock of Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_flock_of_doom",
+                "description": "Spell: \"Malediction of Madness\"",
+                "key": "wh3_dlc24_effect_ability_enable_malediction_of_madness",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_flock_of_doom",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh3_dlc24_effect_ability_enable_malediction_of_madness",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_flock_of_doom",
-                      "icon_name": "scm3/campaign_ui/skills/wh_dlc03_spell_beasts_flock_of_doom",
-                      "overpower_option": "wh_dlc03_spell_beasts_flock_of_doom_upgraded",
+                      "key": "wh3_dlc24_spell_hags_malediction_of_madness",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_malediction_of_madness",
+                      "overpower_option": "wh3_dlc24_spell_hags_malediction_of_madness_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
-                        "onscreen_name": "Direct Damage (Area)"
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Flock of Doom",
-                      "active_time": 6,
-                      "effect_range": 35,
-                      "mana_cost": 6,
+                      "onscreen_name": "Malediction of Madness",
+                      "active_time": 15,
+                      "effect_range": 0,
+                      "mana_cost": 16,
+                      "num_effected_enemy_units": 1,
                       "recharge_time": 45,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 100,
-                      "wind_up_time": 1,
-                      "ui_effects": [
-                        {
-                          "key": "wh_main_all_direct_damage",
-                          "localised_text": "Causes damage to combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_dlc08_direct_damage_medium_unit",
-                          "localised_text": "Strong vs 25 men unit or above",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_multiple",
-                          "localised_text": "Strong vs multiple combatants",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
-                        }
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "",
+                        "Not on or below a platform"
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_malediction_of_madness",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 6,
+                          "duration": 15,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "damage_amount": 5,
                           "hp_change_frequency": 1,
-                          "max_damaged_entities": 25
+                          "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x0.5 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": -24,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-24 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 0.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x0.5 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "rampage",
+                              "description": "➖ Rampage!",
+                              "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                              "icon": "vanilla3/battle_ui/ability_icons/rampage"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -723,24 +936,24 @@
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Flock of Doom\"",
-                "key": "wh_dlc03_effect_ability_cooldown_flock_of_doom",
+                "description": "Blessing spell: \"Incantation of Mania\"",
+                "key": "wh3_dlc24_effect_ability_overcast_malediction_of_madness",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -50% to \"Malediction of Madness\"",
+                "key": "wh3_dlc24_effect_ability_cooldown_malediction_of_madness",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Flock of Doom\"",
-                "key": "wh2_main_effect_ability_wom_cost_flock_of_doom",
+                "description": "Winds of Magic cost: -1 for \"Malediction of Madness\"",
+                "key": "wh3_dlc24_effect_ability_wom_cost_malediction_of_madness",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Flock of Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_flock_of_doom_upgraded",
+                "description": "Winds of Magic cost: -2 for \"Incantation of Mania\"",
+                "key": "wh3_dlc24_effect_ability_wom_cost_malediction_of_madness_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Miscast base chance: -15% for \"Flock of Doom Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_flock_of_doom_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -752,169 +965,73 @@
       },
       {
         "key": "hkrul_usta_magic_04",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-        "character_skill_key": "wh_dlc03_skill_magic_beasts_panns_impenetrable_pelt",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_power_of_darkness",
+        "character_skill_key": "wh2_main_skill_magic_dark_power_of_darkness_lord",
         "tier": 3,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Pann's Impenetrable Pelt",
-        "localised_description": "Calling upon the beast spirits of the wild, the caster sheathes vulnerable flesh in unyielding fur and hide.",
+        "localised_name": "Power of Darkness",
+        "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Pann's Impenetrable Pelt\"",
-                "key": "wh_dlc03_effect_ability_enable_panns_impenetrable_pelt",
+                "description": "Spell: \"Power of Darkness\"",
+                "key": "wh2_main_effect_ability_enable_power_of_darkness_hidden",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc03_effect_ability_enable_panns_impenetrable_pelt",
+                    "effect": "wh2_main_effect_ability_enable_power_of_darkness_hidden",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "overpower_option": "wh_dlc03_spell_beasts_panns_impenetrable_pelt_upgraded",
+                      "key": "wh2_main_spell_dark_magic_power_of_darkness",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_power_of_darkness",
+                      "overpower_option": "",
                       "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
+                        "key": "wh_type_augment_of_the_winds",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                        "onscreen_name": "Augment of the Winds"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Pann's Impenetrable Pelt",
-                      "active_time": 31,
+                      "onscreen_name": "Power of Darkness",
+                      "active_time": 20,
                       "effect_range": 0,
-                      "mana_cost": 7,
+                      "mana_cost": 4,
                       "num_effected_friendly_units": 1,
-                      "recharge_time": 43,
+                      "num_uses": 2,
+                      "recharge_time": 28,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": false,
                       "target_self": true,
                       "target_intercept_range": 200,
-                      "wind_up_time": 3,
+                      "wind_up_time": 1,
                       "ui_effects": [
                         {
-                          "key": "wh_dlc07_spell_ignores_ap",
-                          "localised_text": "Good against AP damage",
-                          "effect_state": "positive"
+                          "key": "wh_main_all_direct_damage_self",
+                          "localised_text": "Causes damage to self",
+                          "effect_state": "negative"
                         }
                       ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_power_of_darkness",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 31,
+                          "duration": 20,
                           "effect_type": "positive",
+                          "onscreen_name": "Power of Darkness",
                           "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.25,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.25 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "overpower_option": "wh_dlc03_spell_beasts_panns_impenetrable_pelt_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Pann's Impenetrable Pelt",
-                      "active_time": 31,
-                      "effect_range": 0,
-                      "mana_cost": 7,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc07_spell_ignores_ap",
-                          "localised_text": "Good against AP damage",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 31,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.25,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.25 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                            }
-                          ]
+                          "damage_amount": 33,
+                          "hp_change_frequency": 1,
+                          "mana_max_depletion_mod": 0.7,
+                          "mana_regen_mod": 0.8,
+                          "max_damaged_entities": 1
                         }
                       ]
                     }
@@ -922,109 +1039,14 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Pann's Impenetrable Pelt\"",
-                "key": "wh_dlc03_effect_ability_cooldown_panns_impenetrable_pelt",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_panns_impenetrable_pelt",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                      "overpower_option": "wh_dlc03_spell_beasts_panns_impenetrable_pelt_upgraded",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Pann's Impenetrable Pelt",
-                      "active_time": 31,
-                      "effect_range": 0,
-                      "mana_cost": 7,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 43,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": true,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 3,
-                      "ui_effects": [
-                        {
-                          "key": "wh_dlc07_spell_ignores_ap",
-                          "localised_text": "Good against AP damage",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_panns_impenetrable_pelt",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 31,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.25,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.25 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+24 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 20,
-                              "stat": "stat_resistance_physical",
-                              "how": "add",
-                              "description": "+20 Physical Resistance",
-                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Cooldown: -50% to \"Pann's Impenetrable Pelt\"",
-                "key": "wh_dlc03_effect_ability_cooldown_panns_impenetrable_pelt",
+                "description": "Cooldown: -50% to \"Power of Darkness\"",
+                "key": "wh2_main_effect_ability_cooldown_power_of_darkness",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Pann's Impenetrable Pelt\"",
-                "key": "wh2_main_effect_ability_wom_cost_panns_impenetrable_pelt",
+                "description": "Winds of Magic cost: -1 for \"Power of Darkness\"",
+                "key": "wh2_main_effect_ability_wom_cost_power_of_darkness",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Winds of Magic cost: -2 for \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_panns_impenetrable_pelt_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Miscast base chance: -15% for \"Pann's Impenetrable Pelt Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_panns_impenetrable_pelt_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -1036,125 +1058,82 @@
       },
       {
         "key": "hkrul_usta_magic_05",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
-        "character_skill_key": "wh_main_skill_all_magic_metal_02_plague_of_rust",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_curse_of_the_ancient_witch",
+        "character_skill_key": "wh3_dlc24_skill_ksl_magic_hag_03_curse_of_the_ancient_witch_lord",
         "tier": 4,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Plague of Rust",
+        "localised_name": "Curse of the Ancient Witch",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Plague of Rust\"",
-                "key": "wh_main_effect_ability_enable_plague_of_rust",
+                "description": "Spell: \"Curse of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_enable_curse_of_the_ancient_witch",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_plague_of_rust",
+                    "effect": "wh3_dlc24_effect_ability_enable_curse_of_the_ancient_witch",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_metal_plague_of_rust",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
-                      "overpower_option": "wh_main_spell_metal_plague_of_rust_upgraded",
+                      "key": "wh3_dlc24_spell_hags_curse_of_the_ancient_witch",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_curse_of_the_ancient_witch",
+                      "overpower_option": "wh3_dlc24_spell_hags_curse_of_the_ancient_witch_upgraded",
                       "type": {
-                        "key": "wh_type_hex",
+                        "key": "wh_type_chain_hex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
+                        "onscreen_name": "Chain Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Plague of Rust",
-                      "active_time": 44,
+                      "onscreen_name": "Curse of the Ancient Witch",
+                      "active_time": 27,
                       "effect_range": 0,
-                      "mana_cost": 4,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 28,
+                      "mana_cost": 8,
+                      "num_effected_enemy_units": 5,
+                      "recharge_time": 27,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "phases": [
+                      "wind_up_time": 3,
+                      "ui_effects": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 44,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -30,
-                              "stat": "stat_armour",
-                              "how": "add",
-                              "description": "-30 Armour",
-                              "icon": "vanilla3/skins/default/icon_stat_armour"
-                            }
-                          ]
+                          "key": "wh3_main_all_enemy_spreading_radius_30m",
+                          "localised_text": "Will spread to enemies within the Spread Range metres of affected unit",
+                          "effect_state": "positive"
                         }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Plague of Rust Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_plague_of_rust",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_plague_of_rust",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_plague_of_rust",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
-                      "overpower_option": "wh_main_spell_metal_plague_of_rust_upgraded",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Plague of Rust",
-                      "active_time": 44,
-                      "effect_range": 0,
-                      "mana_cost": 4,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 28,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
+                      ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_curse_of_the_ancient_witch",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 44,
+                          "duration": 27,
                           "effect_type": "negative",
+                          "onscreen_name": "Curse of the Ancient Witch",
                           "is_hidden_in_ui": false,
+                          "spread_radius": 30,
                           "stat_effects": [
                             {
-                              "value": -30,
+                              "value": -60,
                               "stat": "stat_armour",
                               "how": "add",
-                              "description": "-30 Armour",
+                              "description": "-60 Armour",
                               "icon": "vanilla3/skins/default/icon_stat_armour"
+                            },
+                            {
+                              "value": -50,
+                              "stat": "stat_missile_block_chance",
+                              "how": "add",
+                              "description": "-50 Missile Block Chance",
+                              "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
                             }
                           ]
                         }
@@ -1164,8 +1143,13 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Plague of Rust\"",
-                "key": "wh_main_effect_ability_cooldown_plague_of_rust",
+                "description": "Blessing spell: \"Blessing of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_overcast_curse_of_the_ancient_witch",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Curse of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_cooldown_curse_of_the_ancient_witch",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1173,52 +1157,68 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Plague of Rust Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_plague_of_rust",
+                "description": "Spell: \"Curse of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_enable_curse_of_the_ancient_witch",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_plague_of_rust",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh3_dlc24_effect_ability_enable_curse_of_the_ancient_witch",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_metal_plague_of_rust",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
-                      "overpower_option": "wh_main_spell_metal_plague_of_rust_upgraded",
+                      "key": "wh3_dlc24_spell_hags_curse_of_the_ancient_witch",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_curse_of_the_ancient_witch",
+                      "overpower_option": "wh3_dlc24_spell_hags_curse_of_the_ancient_witch_upgraded",
                       "type": {
-                        "key": "wh_type_hex",
+                        "key": "wh_type_chain_hex",
                         "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
+                        "onscreen_name": "Chain Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Plague of Rust",
-                      "active_time": 44,
+                      "onscreen_name": "Curse of the Ancient Witch",
+                      "active_time": 27,
                       "effect_range": 0,
-                      "mana_cost": 4,
-                      "num_effected_enemy_units": 1,
-                      "recharge_time": 28,
+                      "mana_cost": 8,
+                      "num_effected_enemy_units": 5,
+                      "recharge_time": 27,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 200,
-                      "wind_up_time": 1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh3_main_all_enemy_spreading_radius_30m",
+                          "localised_text": "Will spread to enemies within the Spread Range metres of affected unit",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_curse_of_the_ancient_witch",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 44,
+                          "duration": 27,
                           "effect_type": "negative",
+                          "onscreen_name": "Curse of the Ancient Witch",
                           "is_hidden_in_ui": false,
+                          "spread_radius": 30,
                           "stat_effects": [
                             {
-                              "value": -30,
+                              "value": -60,
                               "stat": "stat_armour",
                               "how": "add",
-                              "description": "-30 Armour",
+                              "description": "-60 Armour",
                               "icon": "vanilla3/skins/default/icon_stat_armour"
+                            },
+                            {
+                              "value": -50,
+                              "stat": "stat_missile_block_chance",
+                              "how": "add",
+                              "description": "-50 Missile Block Chance",
+                              "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
                             }
                           ]
                         }
@@ -1228,24 +1228,24 @@
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Plague of Rust\"",
-                "key": "wh_main_effect_ability_cooldown_plague_of_rust",
+                "description": "Blessing spell: \"Blessing of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_overcast_curse_of_the_ancient_witch",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -50% to \"Curse of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_cooldown_curse_of_the_ancient_witch",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Plague of Rust\"",
-                "key": "wh2_main_effect_ability_wom_cost_plague_of_rust",
+                "description": "Winds of Magic cost: -2 for \"Curse of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_wom_cost_curse_of_the_ancient_witch",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -1 for \"Plague of Rust Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_plague_of_rust_upgraded",
+                "description": "Winds of Magic cost: -3 for \"Blessing of the Ancient Witch\"",
+                "key": "wh3_dlc24_effect_ability_wom_cost_curse_of_the_ancient_witch_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Miscast base chance: -15% for \"Plague of Rust Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_plague_of_rust_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -1341,156 +1341,250 @@
       },
       {
         "key": "hkrul_usta_magic_07",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_gehennas_golden_hounds",
-        "character_skill_key": "wh_main_skill_all_magic_metal_05_gehennas_golden_hounds",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_cursed_cauldron",
+        "character_skill_key": "wh3_dlc24_skill_ksl_magic_hag_05_cursed_cauldron",
         "tier": 6,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Gehenna's Golden Hounds",
+        "localised_name": "Cursed Cauldron",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Gehenna's Golden Hounds\"",
-                "key": "wh_main_effect_ability_enable_gehennas_golden_hounds",
+                "description": "Spell: \"Cursed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_enable_cursed_cauldron",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_gehennas_golden_hounds",
+                    "effect": "wh3_dlc24_effect_ability_enable_cursed_cauldron",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_metal_gehennas_golden_hounds",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_gehennas_golden_hounds",
-                      "overpower_option": "wh_main_spell_metal_gehennas_golden_hounds_upgraded",
+                      "key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_cursed_cauldron",
+                      "overpower_option": "wh3_dlc24_spell_hags_cursed_cauldron_upgraded",
                       "type": {
-                        "key": "wh_type_vortex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "onscreen_name": "Vortex"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Gehenna's Golden Hounds",
-                      "active_time": 13,
+                      "onscreen_name": "Cursed Cauldron",
+                      "active_time": 10,
                       "effect_range": 0,
-                      "mana_cost": 8,
-                      "recharge_time": 45,
+                      "mana_cost": 18,
+                      "recharge_time": 18,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
                       "target_if": [
-                        "Grounded",
                         "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_main_spell_medium_vortex",
-                          "localised_text": "Medium, randomly-moving area of effect",
+                          "key": "wh2_main_all_magical_damage_major",
+                          "localised_text": "Causes major magical damage",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_strong_against_units",
-                          "localised_text": "Strong vs multiple units",
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
                         }
                       ],
-                      "vortex": {
-                        "vortex_key": "wh_main_spell_metal_gehennas_golden_hounds",
-                        "duration": 13,
-                        "damage": 7,
-                        "damage_ap": 8,
-                        "goal_radius": 7,
-                        "movement_speed": 2,
-                        "delay": 0,
-                        "affects_allies": true,
-                        "is_magical": true
-                      }
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Gehenna's Golden Hounds Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_gehennas_golden_hounds",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_gehennas_golden_hounds",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_gehennas_golden_hounds",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_gehennas_golden_hounds",
-                      "overpower_option": "wh_main_spell_metal_gehennas_golden_hounds_upgraded",
-                      "type": {
-                        "key": "wh_type_vortex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "onscreen_name": "Vortex"
+                      "bombardment": {
+                        "bombardment_key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                        "arrival_window": 20,
+                        "radius_spread": 15,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                          "damage": 40,
+                          "ap_damage": 90,
+                          "shockwave_radius": 0.7,
+                          "effective_range": 120,
+                          "base_reload_time": 12,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_dlc24_spell_hags_cursed_cauldron_explosion",
+                            "affects_allies": true,
+                            "detonation_damage": 28,
+                            "detonation_damage_ap": 64,
+                            "detonation_radius": 4,
+                            "is_magical": true
+                          },
+                          "spawned_vortex": {
+                            "vortex_key": "wh3_dlc24_spell_hags_cursed_cauldron_projectile",
+                            "duration": 5,
+                            "damage": 14,
+                            "damage_ap": 4,
+                            "goal_radius": 3,
+                            "movement_speed": 2,
+                            "delay": 0.1,
+                            "affects_allies": true,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
                       },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Gehenna's Golden Hounds",
-                      "active_time": 13,
-                      "effect_range": 0,
-                      "mana_cost": 8,
-                      "recharge_time": 45,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
-                      "target_if": [
-                        "Grounded",
-                        "Not on or below a platform"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh2_main_spell_medium_vortex",
-                          "localised_text": "Medium, randomly-moving area of effect",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_strong_against_units",
-                          "localised_text": "Strong vs multiple units",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
-                        }
-                      ],
                       "vortex": {
-                        "vortex_key": "wh_main_spell_metal_gehennas_golden_hounds",
-                        "duration": 13,
-                        "damage": 7,
-                        "damage_ap": 8,
-                        "goal_radius": 7,
-                        "movement_speed": 2,
+                        "vortex_key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                        "duration": 10,
+                        "damage": 0,
+                        "damage_ap": 2,
+                        "goal_radius": 10,
+                        "movement_speed": 0,
                         "delay": 0,
                         "affects_allies": true,
-                        "is_magical": true
+                        "is_magical": true,
+                        "is_flaming": true
                       }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Gehenna's Golden Hounds\"",
-                "key": "wh_main_effect_ability_cooldown_gehennas_golden_hounds",
+                "description": "Blessing spell: \"Blessed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_overcast_cursed_cauldron",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Spell: \"Cursed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_enable_cursed_cauldron",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc24_effect_ability_enable_cursed_cauldron",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_cursed_cauldron",
+                      "overpower_option": "wh3_dlc24_spell_hags_cursed_cauldron_upgraded",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Cursed Cauldron",
+                      "active_time": 10,
+                      "effect_range": 0,
+                      "mana_cost": 18,
+                      "recharge_time": 18,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "target_if": [
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_magical_damage_major",
+                          "localised_text": "Causes major magical damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                        "arrival_window": 20,
+                        "radius_spread": 15,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                          "damage": 40,
+                          "ap_damage": 90,
+                          "shockwave_radius": 0.7,
+                          "effective_range": 120,
+                          "base_reload_time": 12,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_dlc24_spell_hags_cursed_cauldron_explosion",
+                            "affects_allies": true,
+                            "detonation_damage": 28,
+                            "detonation_damage_ap": 64,
+                            "detonation_radius": 4,
+                            "is_magical": true
+                          },
+                          "spawned_vortex": {
+                            "vortex_key": "wh3_dlc24_spell_hags_cursed_cauldron_projectile",
+                            "duration": 5,
+                            "damage": 14,
+                            "damage_ap": 4,
+                            "goal_radius": 3,
+                            "movement_speed": 2,
+                            "delay": 0.1,
+                            "affects_allies": true,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
+                      },
+                      "vortex": {
+                        "vortex_key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                        "duration": 10,
+                        "damage": 0,
+                        "damage_ap": 2,
+                        "goal_radius": 10,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Blessing spell: \"Blessed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_overcast_cursed_cauldron",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Cursed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_cooldown_cursed_cauldron",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1498,89 +1592,131 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Gehenna's Golden Hounds Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_gehennas_golden_hounds",
+                "description": "Spell: \"Cursed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_enable_cursed_cauldron",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_gehennas_golden_hounds",
-                    "bonus_value_id": "enable_overchage",
+                    "effect": "wh3_dlc24_effect_ability_enable_cursed_cauldron",
+                    "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_metal_gehennas_golden_hounds",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_gehennas_golden_hounds",
-                      "overpower_option": "wh_main_spell_metal_gehennas_golden_hounds_upgraded",
+                      "key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_spell_hags_cursed_cauldron",
+                      "overpower_option": "wh3_dlc24_spell_hags_cursed_cauldron_upgraded",
                       "type": {
-                        "key": "wh_type_vortex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
-                        "onscreen_name": "Vortex"
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Gehenna's Golden Hounds",
-                      "active_time": 13,
+                      "onscreen_name": "Cursed Cauldron",
+                      "active_time": 10,
                       "effect_range": 0,
-                      "mana_cost": 8,
-                      "recharge_time": 45,
+                      "mana_cost": 18,
+                      "recharge_time": 18,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
                       "target_self": false,
-                      "target_intercept_range": 150,
-                      "wind_up_time": 3,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
                       "target_if": [
-                        "Grounded",
                         "Not on or below a platform"
                       ],
                       "ui_effects": [
                         {
-                          "key": "wh2_main_spell_medium_vortex",
-                          "localised_text": "Medium, randomly-moving area of effect",
+                          "key": "wh2_main_all_magical_damage_major",
+                          "localised_text": "Causes major magical damage",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_strong_against_units",
-                          "localised_text": "Strong vs multiple units",
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
                           "effect_state": "positive"
                         },
                         {
-                          "key": "wh_main_all_weak_against_single",
-                          "localised_text": "Weak vs a single combatant",
-                          "effect_state": "negative"
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_unit",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
                         }
                       ],
+                      "bombardment": {
+                        "bombardment_key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                        "arrival_window": 20,
+                        "radius_spread": 15,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                          "damage": 40,
+                          "ap_damage": 90,
+                          "shockwave_radius": 0.7,
+                          "effective_range": 120,
+                          "base_reload_time": 12,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_dlc24_spell_hags_cursed_cauldron_explosion",
+                            "affects_allies": true,
+                            "detonation_damage": 28,
+                            "detonation_damage_ap": 64,
+                            "detonation_radius": 4,
+                            "is_magical": true
+                          },
+                          "spawned_vortex": {
+                            "vortex_key": "wh3_dlc24_spell_hags_cursed_cauldron_projectile",
+                            "duration": 5,
+                            "damage": 14,
+                            "damage_ap": 4,
+                            "goal_radius": 3,
+                            "movement_speed": 2,
+                            "delay": 0.1,
+                            "affects_allies": true,
+                            "is_magical": true,
+                            "is_flaming": true
+                          }
+                        },
+                        "num_projectiles": 30
+                      },
                       "vortex": {
-                        "vortex_key": "wh_main_spell_metal_gehennas_golden_hounds",
-                        "duration": 13,
-                        "damage": 7,
-                        "damage_ap": 8,
-                        "goal_radius": 7,
-                        "movement_speed": 2,
+                        "vortex_key": "wh3_dlc24_spell_hags_cursed_cauldron",
+                        "duration": 10,
+                        "damage": 0,
+                        "damage_ap": 2,
+                        "goal_radius": 10,
+                        "movement_speed": 0,
                         "delay": 0,
                         "affects_allies": true,
-                        "is_magical": true
+                        "is_magical": true,
+                        "is_flaming": true
                       }
                     }
                   }
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Gehenna's Golden Hounds\"",
-                "key": "wh_main_effect_ability_cooldown_gehennas_golden_hounds",
+                "description": "Blessing spell: \"Blessed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_overcast_cursed_cauldron",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -50% to \"Cursed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_cooldown_cursed_cauldron",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Gehenna's Golden Hounds\"",
-                "key": "wh2_main_effect_ability_wom_cost_gehennas_golden_hounds",
+                "description": "Winds of Magic cost: -1 for \"Cursed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_wom_cost_cursed_cauldron",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -3 for \"Gehenna's Golden Hounds Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_gehennas_golden_hounds_upgraded",
+                "description": "Winds of Magic cost: -2 for \"Blessed Cauldron\"",
+                "key": "wh3_dlc24_effect_ability_wom_cost_cursed_cauldron_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-              },
-              {
-                "description": "Miscast base chance: -15% for \"Gehenna's Golden Hounds Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_gehennas_golden_hounds_upgraded",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
           }
@@ -1592,137 +1728,73 @@
       },
       {
         "key": "hkrul_usta_magic_08",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_transmutation_of_lead",
-        "character_skill_key": "wh_main_skill_all_magic_metal_09_transmutation_of_lead",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_word_of_pain",
+        "character_skill_key": "wh2_main_skill_magic_dark_word_of_pain_lord",
         "tier": 7,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Transmutation of Lead",
+        "localised_name": "Word of Pain",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell: \"Transmutation of Lead\"",
-                "key": "wh_main_effect_ability_enable_transmutation_of_lead",
+                "description": "Spell: \"Word of Pain\"",
+                "key": "wh2_main_effect_ability_enable_word_of_pain",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_transmutation_of_lead",
+                    "effect": "wh2_main_effect_ability_enable_word_of_pain",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_spell_metal_transmutation_of_lead",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_transmutation_of_lead",
-                      "overpower_option": "wh_main_spell_metal_transmutation_of_lead_upgraded",
+                      "key": "wh2_main_spell_dark_magic_word_of_pain",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_word_of_pain",
+                      "overpower_option": "wh2_main_spell_dark_magic_word_of_pain_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Transmutation of Lead",
-                      "active_time": 50,
-                      "effect_range": 35,
-                      "mana_cost": 11,
-                      "recharge_time": 47,
+                      "onscreen_name": "Word of Pain",
+                      "active_time": 40,
+                      "effect_range": 0,
+                      "mana_cost": 8,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 44,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 200,
-                      "wind_up_time": 5,
+                      "wind_up_time": 3,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_transmutation_of_lead",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_word_of_pain",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 50,
+                          "duration": 40,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 0.7,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.7 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": -24,
+                              "value": -40,
                               "stat": "stat_melee_attack",
                               "how": "add",
-                              "description": "-24 Melee Attack",
+                              "description": "-40 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Overcast spell: \"Transmutation of Lead Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_transmutation_of_lead",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-                "related_abilities": [
-                  {
-                    "effect": "wh2_main_effect_ability_overcast_transmutation_of_lead",
-                    "bonus_value_id": "enable_overchage",
-                    "unit_ability": {
-                      "key": "wh_main_spell_metal_transmutation_of_lead",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_transmutation_of_lead",
-                      "overpower_option": "wh_main_spell_metal_transmutation_of_lead_upgraded",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Transmutation of Lead",
-                      "active_time": 50,
-                      "effect_range": 35,
-                      "mana_cost": 11,
-                      "recharge_time": 47,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 5,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_transmutation_of_lead",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 50,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 0.7,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.7 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": -24,
-                              "stat": "stat_melee_attack",
+                              "value": -30,
+                              "stat": "stat_accuracy",
                               "how": "add",
-                              "description": "-24 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                              "description": "-30 Accuracy",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
                             }
                           ]
                         }
@@ -1732,8 +1804,13 @@
                 ]
               },
               {
-                "description": "Cooldown: -30% to \"Transmutation of Lead\"",
-                "key": "wh_main_effect_ability_cooldown_transmutation_of_lead",
+                "description": "Overcast spell: \"Word of Pain Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_word_of_pain",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+              },
+              {
+                "description": "Cooldown: -30% to \"Word of Pain\"",
+                "key": "wh2_main_effect_ability_cooldown_word_of_pain",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               }
             ]
@@ -1741,58 +1818,59 @@
           {
             "effects": [
               {
-                "description": "Overcast spell: \"Transmutation of Lead Upgraded\"",
-                "key": "wh2_main_effect_ability_overcast_transmutation_of_lead",
+                "description": "Overcast spell: \"Word of Pain Upgraded\"",
+                "key": "wh2_main_effect_ability_overcast_word_of_pain",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
                 "related_abilities": [
                   {
-                    "effect": "wh2_main_effect_ability_overcast_transmutation_of_lead",
+                    "effect": "wh2_main_effect_ability_overcast_word_of_pain",
                     "bonus_value_id": "enable_overchage",
                     "unit_ability": {
-                      "key": "wh_main_spell_metal_transmutation_of_lead",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_transmutation_of_lead",
-                      "overpower_option": "wh_main_spell_metal_transmutation_of_lead_upgraded",
+                      "key": "wh2_main_spell_dark_magic_word_of_pain",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_word_of_pain",
+                      "overpower_option": "wh2_main_spell_dark_magic_word_of_pain_upgraded",
                       "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Transmutation of Lead",
-                      "active_time": 50,
-                      "effect_range": 35,
-                      "mana_cost": 11,
-                      "recharge_time": 47,
+                      "onscreen_name": "Word of Pain",
+                      "active_time": 40,
+                      "effect_range": 0,
+                      "mana_cost": 8,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 44,
                       "target_enemies": true,
                       "target_friends": false,
-                      "target_ground": true,
+                      "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 200,
-                      "wind_up_time": 5,
+                      "wind_up_time": 3,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_transmutation_of_lead",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_word_of_pain",
                           "order": 1,
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 50,
+                          "duration": 40,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
                             {
-                              "value": 0.7,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x0.7 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": -24,
+                              "value": -40,
                               "stat": "stat_melee_attack",
                               "how": "add",
-                              "description": "-24 Melee Attack",
+                              "description": "-40 Melee Attack",
                               "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": -30,
+                              "stat": "stat_accuracy",
+                              "how": "add",
+                              "description": "-30 Accuracy",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
                             }
                           ]
                         }
@@ -1802,23 +1880,23 @@
                 ]
               },
               {
-                "description": "Cooldown: -50% to \"Transmutation of Lead\"",
-                "key": "wh_main_effect_ability_cooldown_transmutation_of_lead",
+                "description": "Cooldown: -50% to \"Word of Pain\"",
+                "key": "wh2_main_effect_ability_cooldown_word_of_pain",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
               },
               {
-                "description": "Winds of Magic cost: -2 for \"Transmutation of Lead\"",
-                "key": "wh2_main_effect_ability_wom_cost_transmutation_of_lead",
+                "description": "Winds of Magic cost: -2 for \"Word of Pain\"",
+                "key": "wh2_main_effect_ability_wom_cost_word_of_pain",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Winds of Magic cost: -3 for \"Transmutation of Lead Upgraded\"",
-                "key": "wh2_main_effect_ability_wom_cost_transmutation_of_lead_upgraded",
+                "description": "Winds of Magic cost: -3 for \"Word of Pain Upgraded\"",
+                "key": "wh2_main_effect_ability_wom_cost_word_of_pain_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
               },
               {
-                "description": "Miscast base chance: -15% for \"Transmutation of Lead Upgraded\"",
-                "key": "wh2_main_effect_ability_miscast_transmutation_of_lead_upgraded",
+                "description": "Miscast base chance: -15% for \"Word of Pain Upgraded\"",
+                "key": "wh2_main_effect_ability_miscast_word_of_pain_upgraded",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic"
               }
             ]
@@ -1889,28 +1967,28 @@
       {
         "key": "hkrul_usta_magic_11",
         "image_path": "vanilla3/campaign_ui/skills/wh_main_character_abilities_arcane_conduit",
-        "character_skill_key": "wh2_dlc14_skilll_all_magic_all_greater_arcane_conduit",
+        "character_skill_key": "wh_main_skill_all_magic_all_11_arcane_conduit",
         "tier": 10,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Greater Arcane Conduit",
+        "localised_name": "Arcane Conduit",
         "localised_description": "",
         "levels": [
           {
             "effects": [
               {
-                "description": "Passive ability: \"Greater Arcane Conduit\"",
-                "key": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
+                "description": "Passive ability: \"Arcane Conduit\"",
+                "key": "wh_main_effect_ability_enable_arcane_conduit",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_dlc08_effect_ability_enable_greater_arcane_conduit",
+                    "effect": "wh_main_effect_ability_enable_arcane_conduit",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh2_main_character_passive_grand_arcane_conduit",
+                      "key": "wh_main_character_abilities_arcane_conduit",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
                       "overpower_option": "",
                       "type": {
@@ -1919,7 +1997,7 @@
                         "onscreen_name": "Augment of the Winds"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Greater Arcane Conduit",
+                      "onscreen_name": "Arcane Conduit",
                       "effect_range": 0,
                       "target_enemies": false,
                       "target_friends": false,
@@ -1928,25 +2006,16 @@
                       "target_intercept_range": 0,
                       "phases": [
                         {
-                          "icon": "wh2_main_character_passive_grand_arcane_conduit",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_arcane_conduit",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
-                          "onscreen_name": "Greater Arcane Conduit",
+                          "onscreen_name": "Arcane Conduit",
                           "is_hidden_in_ui": false,
-                          "mana_regen_mod": 0.6,
-                          "stat_effects": [
-                            {
-                              "value": 1.15,
-                              "stat": "scalar_spell_mastery",
-                              "how": "mult",
-                              "description": "x1.15 Spell Mastery",
-                              "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
-                            }
-                          ]
+                          "mana_regen_mod": 0.4
                         }
                       ]
                     }
@@ -2262,8 +2331,8 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 4,
-    "mass": 400,
+    "run_speed": 3.5,
+    "mass": 300,
     "size": "small",
     "hit_points": 8,
     "bonus_hit_points": 3921,
@@ -2362,7 +2431,7 @@
   },
   "backgroundSkills": [
     {
-      "key": "wolftribe_skill_node_tempest_magic_dummy",
+      "key": "hkrul_usta_magic_dummy",
       "image_path": "vanilla3/campaign_ui/skills/trait_human",
       "character_skill_key": "hkrul_usta_dummy_seering_doom",
       "tier": 11,
@@ -2377,81 +2446,90 @@
         {
           "effects": [
             {
-              "description": "Spell: \"Searing Doom\"",
-              "key": "wh_main_effect_ability_enable_searing_doom",
+              "description": "Spell: \"Soul Stealer\"",
+              "key": "wh2_main_effect_ability_enable_soul_stealer",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh_main_effect_ability_enable_searing_doom",
+                  "effect": "wh2_main_effect_ability_enable_soul_stealer",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh_main_spell_metal_searing_doom",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_searing_doom",
-                    "overpower_option": "wh_main_spell_metal_searing_doom_upgraded",
+                    "key": "wh2_main_spell_dark_magic_soul_stealer",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer",
+                    "overpower_option": "",
                     "type": {
-                      "key": "wh_type_bombardment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                      "onscreen_name": "Bombardment"
+                      "key": "wh_type_area_of_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                      "onscreen_name": "Direct Damage (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Searing Doom",
-                    "active_time": 8,
-                    "effect_range": 0,
-                    "mana_cost": 6,
-                    "recharge_time": 30,
+                    "onscreen_name": "Soul Stealer",
+                    "active_time": 12,
+                    "effect_range": 35,
+                    "mana_cost": 18,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 54,
                     "target_enemies": true,
                     "target_friends": false,
                     "target_ground": true,
                     "target_self": false,
-                    "target_intercept_range": 200,
-                    "wind_up_time": 1,
+                    "target_intercept_range": 100,
+                    "wind_up_time": 5,
                     "ui_effects": [
                       {
-                        "key": "wh2_main_all_magical_damage_moderate",
-                        "localised_text": "Causes moderate magical damage",
+                        "key": "wh_main_all_direct_damage",
+                        "localised_text": "Causes damage to combatants",
                         "effect_state": "positive"
                       },
                       {
-                        "key": "wh2_main_bombardment_medium_strike_aoe",
-                        "localised_text": "Medium strike area",
+                        "key": "wh2_main_spell_absorb_hp",
+                        "localised_text": "Absorbs hitpoints from enemies",
                         "effect_state": "positive"
                       },
                       {
-                        "key": "wh_main_all_strong_against_unit",
-                        "localised_text": "Strong vs a single unit",
+                        "key": "wh_dlc08_direct_damage_character_unit",
+                        "localised_text": "Strong vs character",
                         "effect_state": "positive"
                       },
                       {
-                        "key": "wh_main_all_weak_against_single",
-                        "localised_text": "Weak vs a single combatant",
+                        "key": "wh_main_all_strong_against_single",
+                        "localised_text": "Strong vs a single combatant",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_weak_against_multiple",
+                        "localised_text": "Weak vs multiple combatants",
                         "effect_state": "negative"
                       }
                     ],
-                    "bombardment": {
-                      "bombardment_key": "wh_main_spell_metal_searing_doom",
-                      "arrival_window": 3,
-                      "radius_spread": 10,
-                      "start_time": 2,
-                      "projectile_type": {
-                        "key": "wh_main_spell_metal_searing_doom",
-                        "damage": 24,
-                        "ap_damage": 12,
-                        "shockwave_radius": 1,
-                        "effective_range": 40,
-                        "base_reload_time": 1,
-                        "is_magical": true,
-                        "can_damage_allies": true,
-                        "explosion_type": {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "affects_allies": true,
-                          "detonation_damage": 0,
-                          "detonation_damage_ap": 30,
-                          "detonation_radius": 3,
-                          "is_magical": true
-                        }
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 12,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 75,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 1
                       },
-                      "num_projectiles": 40
-                    }
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_dark_magic_soul_stealer_miscast",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 12,
+                        "effect_type": "positive",
+                        "onscreen_name": "Absorb hitpoints from enemies",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.008,
+                        "hp_change_frequency": 1
+                      }
+                    ]
                   }
                 }
               ]
@@ -2517,15 +2595,15 @@
     {
       "key": "hkrul_usta_innate_01",
       "image_path": "scm3/campaign_ui/skills/innate_hkrul_einar",
-      "character_skill_key": "hkrul_usta_innate",
+      "character_skill_key": "innate_hkrul_usta",
       "tier": 0,
       "indent": 6,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": true,
       "is_background_skill": true,
-      "localised_name": "",
-      "localised_description": "",
+      "localised_name": "Crone of the North",
+      "localised_description": "\"I have buried kings and burned prophets. Do not speak to me of fate.\"",
       "levels": [
         {
           "effects": [
@@ -2533,6 +2611,16 @@
               "description": "",
               "key": "hkrul_enable_immortality",
               "icon": ""
+            },
+            {
+              "description": "Enemy Winds of Magic power reserve capacity: -10\n\t(enemy armies in local province)",
+              "key": "wh3_main_effect_winds_of_magic_pool_cap_enemy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            },
+            {
+              "description": "Diplomatic relations: +10 with all Kislev factions",
+              "key": "wh3_main_faction_political_diplomacy_mod_kislev",
+              "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
             }
           ]
         }

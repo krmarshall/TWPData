@@ -131,7 +131,7 @@
     [
       {
         "key": "skill_node_hkrul_orgrim_special_1_0",
-        "image_path": "hkrul_orgrim_special_1_0",
+        "image_path": "scm3/campaign_ui/skills/hkrul_orgrim_special_1_0",
         "character_skill_key": "hkrul_orgrim_special_1_0",
         "tier": 0,
         "indent": 1,
@@ -145,14 +145,14 @@
           {
             "effects": [
               {
-                "description": "Armour: +15",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "scm3/campaign_ui/effect_bundles/armour_character"
+                "description": "Unit mass: +15%",
+                "key": "wh3_main_effect_character_stat_unit_mass_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mass_character"
               },
               {
-                "description": "Leadership: +5 for Infantry units\n\t(Hero's army)",
-                "key": "wh_main_effect_force_stat_leadership_infantry",
-                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+                "description": "Charge bonus: +15",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
             ],
             "unlocked_at_rank": 8
@@ -162,7 +162,7 @@
       },
       {
         "key": "skill_node_hkrul_orgrim_special_1_1",
-        "image_path": "hkrul_orgrim_special_1_1",
+        "image_path": "scm3/campaign_ui/skills/hkrul_orgrim_special_1_1",
         "character_skill_key": "hkrul_orgrim_special_1_1",
         "tier": 1,
         "indent": 1,
@@ -176,76 +176,14 @@
           {
             "effects": [
               {
-                "description": "Missile block chance: +25%",
-                "key": "wh_main_effect_character_stat_missile_block",
-                "icon": "vanilla3/campaign_ui/effect_bundles/block_character"
+                "description": "Enemy leadership: -7 for Khornate units\n\t(enemy armies in local region)",
+                "key": "hkrul_orgrim_morale_khorne",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale"
               },
               {
-                "description": "Passive Ability: \"Claws of Loyalty\"",
-                "key": "hkrul_haftagg_shield",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "related_abilities": [
-                  {
-                    "effect": "hkrul_haftagg_shield",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "hkrul_haftagg_shield",
-                      "icon_name": "hkrul_haftagg_prayer",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Claws of Loyalty",
-                      "effect_range": 75,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "target_if": [
-                        "Entity size is small"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "wh3_dlc20_ability_intensity_nearby_deaths",
-                          "localised_text": "Effect intensity increases with each nearby entity death.",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "hkrul_haftagg_shield",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": false,
-                          "target_friends": true,
-                          "duration": -1,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 15,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+15 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            },
-                            {
-                              "value": 10,
-                              "stat": "stat_bonus_vs_large",
-                              "how": "add",
-                              "description": "+10 Bonus vs. Large",
-                              "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
+                "description": "Speed: +15%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
               }
             ]
           }
@@ -257,7 +195,7 @@
       },
       {
         "key": "skill_node_hkrul_orgrim_special_1_2",
-        "image_path": "hkrul_orgrim_special_1_2",
+        "image_path": "scm3/campaign_ui/skills/hkrul_orgrim_special_1_2",
         "character_skill_key": "hkrul_orgrim_special_1_2",
         "tier": 2,
         "indent": 1,
@@ -271,14 +209,22 @@
           {
             "effects": [
               {
-                "description": "Speed: +10%",
-                "key": "wh_main_effect_character_stat_speed",
-                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-              },
-              {
-                "description": "Melee attack: +15",
+                "description": "Melee attack: +10",
                 "key": "wh_main_effect_character_stat_melee_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Attribute: Causes Terror",
+                "key": "wh_main_effect_attribute_enable_causes_terror",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+                "related_attributes": [
+                  {
+                    "key": "causes_terror",
+                    "description": " Can Cause Terror",
+                    "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                    "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                  }
+                ]
               }
             ]
           }
@@ -291,7 +237,7 @@
       },
       {
         "key": "skill_node_hkrul_orgrim_special_1_3",
-        "image_path": "hkrul_orgrim_special_1_3",
+        "image_path": "scm3/campaign_ui/skills/hkrul_orgrim_special_1_3",
         "character_skill_key": "hkrul_orgrim_special_1_3",
         "tier": 3,
         "indent": 1,
@@ -305,9 +251,9 @@
           {
             "effects": [
               {
-                "description": "Character experience gain: +15%",
-                "key": "wh3_main_effect_character_campaign_experience_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "Hit points: +10%\n\t(accompanying Lord)",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
               {
                 "description": "Recruit rank: +1 for all units\n\t(Hero's army)",
@@ -325,7 +271,7 @@
       },
       {
         "key": "skill_node_hkrul_orgrim_special_1_4",
-        "image_path": "hkrul_orgrim_special_1_4",
+        "image_path": "scm3/campaign_ui/skills/hkrul_orgrim_special_1_4",
         "character_skill_key": "hkrul_orgrim_special_1_4",
         "tier": 4,
         "indent": 1,
@@ -339,14 +285,14 @@
           {
             "effects": [
               {
-                "description": "Construction cost: -10% for all buildings\n\t(local province)",
-                "key": "wh_main_effect_building_construction_cost_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
               },
               {
-                "description": "Construction time: -20% for all buildings\n\t(local province)",
-                "key": "wh2_main_effect_building_construction_time_mod_all",
-                "icon": "vanilla3/campaign_ui/effect_bundles/construction"
+                "description": "Weapon strength: +10%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               }
             ]
           }
@@ -358,7 +304,7 @@
       },
       {
         "key": "skill_node_hkrul_orgrim_special_1_5",
-        "image_path": "hkrul_orgrim_special_1_5",
+        "image_path": "scm3/campaign_ui/skills/hkrul_orgrim_special_1_5",
         "character_skill_key": "hkrul_orgrim_special_1_5",
         "tier": 5,
         "indent": 1,
@@ -400,7 +346,7 @@
       },
       {
         "key": "skill_node_hkrul_orgrim_special_1_6",
-        "image_path": "hkrul_orgrim_special_1_6",
+        "image_path": "scm3/campaign_ui/skills/hkrul_orgrim_special_1_6",
         "character_skill_key": "hkrul_orgrim_special_1_6",
         "tier": 6,
         "indent": 1,
@@ -414,14 +360,14 @@
           {
             "effects": [
               {
-                "description": "Local Recruitment duration: -1 turn for all Marauder Champion and Huscarl units\n\t(Hero's army)",
+                "description": "Global Recruitment duration: -1 turn for all Skin wolves units\n\t(Hero's army)",
                 "key": "hkrul_haftagg_time",
                 "icon": "vanilla3/campaign_ui/effect_bundles/turns"
               },
               {
-                "description": "Base weapon damage: +5\n\t(Hero's army)",
-                "key": "wh2_main_effect_force_stat_weapon_strength_base",
-                "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_damage_base_force"
+                "description": "Range: +15%\n\t(Hero's army)",
+                "key": "wh_main_effect_force_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
               }
             ]
           }
@@ -916,30 +862,30 @@
       },
       {
         "key": "skill_node_hkrul_orgrim_self_4",
-        "image_path": "scm3/campaign_ui/skills/wh_main_character_abilities_deadly_onslaught",
-        "character_skill_key": "wh_main_skill_all_all_self_deadly_onslaught",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
+        "character_skill_key": "wh3_dlc24_skill_all_all_self_colossal_strike",
         "tier": 10,
         "indent": 2,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Deadly Onslaught",
-        "localised_description": "The war is endless. The cycle of charging, clashing, and bloody hand-to-hand fighting is without end. It will never stop.",
+        "localised_name": "Colossal Strike",
+        "localised_description": "The bigger they are, the harder they fall.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Ability: \"Deadly Onslaught\"",
-                "key": "wh_main_effect_ability_enable_deadly_onslaught",
+                "description": "Ability: \"Colossal Strike\"",
+                "key": "wh3_dlc24_effect_ability_enable_colossal_strike",
                 "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_main_effect_ability_enable_deadly_onslaught",
+                    "effect": "wh3_dlc24_effect_ability_enable_colossal_strike",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_main_character_abilities_deadly_onslaught",
-                      "icon_name": "scm3/campaign_ui/skills/wh_main_character_abilities_deadly_onslaught",
+                      "key": "wh3_dlc24_character_abilities_colossal_strike",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
                       "overpower_option": "",
                       "type": {
                         "key": "wh_type_augment",
@@ -947,8 +893,8 @@
                         "onscreen_name": "Augment"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Deadly Onslaught",
-                      "active_time": 31,
+                      "onscreen_name": "Colossal Strike",
+                      "active_time": 32,
                       "effect_range": 0,
                       "recharge_time": 90,
                       "target_enemies": false,
@@ -958,12 +904,12 @@
                       "target_intercept_range": 0,
                       "phases": [
                         {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_deadly_onslaught",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc24_character_abilities_colossal_strike",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
-                          "duration": 31,
+                          "duration": 32,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "stat_effects": [
@@ -975,11 +921,11 @@
                               "icon": "vanilla3/skins/default/icon_stat_damage_base"
                             },
                             {
-                              "value": 1.6,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x1.6 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                              "value": 16,
+                              "stat": "stat_bonus_vs_large",
+                              "how": "add",
+                              "description": "+16 Bonus vs. Large",
+                              "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
                             },
                             {
                               "value": 1.25,
@@ -987,6 +933,14 @@
                               "how": "mult",
                               "description": "x1.25 Armour-Piercing Weapon Damage",
                               "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
                             }
                           ]
                         }
@@ -1006,7 +960,556 @@
         ]
       }
     ],
-    [],
+    [
+      {
+        "key": "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_01",
+        "image_path": "vanilla3/campaign_ui/skills/battle_armour",
+        "character_skill_key": "wh_dlc08_skill_nor_skin_wolf_werekin_battle_twisted_flesh",
+        "tier": 0,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Twisted Flesh",
+        "localised_description": "The raw, corrupted hide of the Skin Wolf, scarred from its many spontaneous transmogrifications, forms a protective, armour-like layer.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Twisted Flesh I\"",
+                "key": "wh_dlc08_effect_ability_enable_twisted_flesh_i",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_twisted_flesh_i",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_twisted_flesh_i",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_defensive_aura",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Twisted Flesh I",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_twisted_flesh_i",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 7,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+7 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 6,
+            "blocks_skill_node_keys": [
+              "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_03"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Twisted Flesh II\"",
+                "key": "wh_dlc08_effect_ability_enable_twisted_flesh_ii",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_twisted_flesh_ii",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_twisted_flesh_ii",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_defensive_aura",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Twisted Flesh II",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_twisted_flesh_ii",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+15 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Twisted Flesh III\"",
+                "key": "wh_dlc08_effect_ability_enable_twisted_flesh_iii",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_twisted_flesh_iii",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_twisted_flesh_iii",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_defensive_aura",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Twisted Flesh III",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_twisted_flesh_iii",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 23,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+23 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_02",
+        "image_path": "vanilla3/campaign_ui/skills/battle_armour",
+        "character_skill_key": "wh_dlc08_skill_nor_skin_wolf_werekin_battle_ruinous_flesh",
+        "tier": 1,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 3,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Ruinous Flesh",
+        "localised_description": "Werekin flesh is scored with the symbols and marks of the Dark Gods, granting additional arcane protection to their ravaged physical forms.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Replaces: \"Twisted Flesh III\"",
+                "key": "wh_dlc08_effect_ability_disable_twisted_flesh_iii_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour"
+              },
+              {
+                "description": "Passive ability: \"Ruinous Flesh\"",
+                "key": "wh_dlc08_effect_ability_enable_ruinous_flesh",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_ruinous_flesh",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_ruinous_flesh",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_defensive_aura",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Ruinous Flesh",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "wh_dlc08_hero_passive_ruinious_flesh",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 23,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+23 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_missile",
+                              "how": "add",
+                              "description": "+10 Missile Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_03"
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_01"
+        ]
+      },
+      {
+        "key": "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_03",
+        "image_path": "vanilla3/campaign_ui/skills/wh2_main_character_abilities_vicious_assault",
+        "character_skill_key": "wh_dlc08_skill_nor_skin_wolf_werekin_battle_vicious_assault",
+        "tier": 2,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Vicious Assault",
+        "localised_description": "The Dark Gods influence extends to the ferocity of their servants' attacks, increasing their power and reach manyfold.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Vicious Assault I\"",
+                "key": "wh_dlc08_effect_ability_enable_vicious_assault_i",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_vicious_assault_i",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_vicious_assault_i",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_offensive_aura",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Vicious Assault I",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_vicious_assault_i",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 5,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+5 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 6,
+            "blocks_skill_node_keys": [
+              "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_01"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Replaces: \"Vicious Assault I\"",
+                "key": "wh_dlc08_effect_ability_disable_vicious_assault_i_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Passive ability: \"Vicious Assault II\"",
+                "key": "wh_dlc08_effect_ability_enable_vicious_assault_ii",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_vicious_assault_ii",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_vicious_assault_ii",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_offensive_aura",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Vicious Assault II",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_vicious_assault_ii",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 8,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+8 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Replaces: \"Vicious Assault II\"",
+                "key": "wh_dlc08_effect_ability_disable_vicious_assault_ii_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Passive ability: \"Vicious Assault III\"",
+                "key": "wh_dlc08_effect_ability_enable_vicious_assault_iii",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_vicious_assault_iii",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_vicious_assault_iii",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_hero_passive_offensive_aura",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Vicious Assault III",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_vicious_assault_iii",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 12,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+12 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_04",
+        "image_path": "vanilla3/campaign_ui/skills/wh_dlc08_hero_passive_frenzied_assault",
+        "character_skill_key": "wh_dlc08_skill_nor_skin_wolf_werekin_battle_frenzied_assault",
+        "tier": 3,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 3,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Frenzied Assault",
+        "localised_description": "Violence bordering on absolute delirium; 'berserk' doesn't even come close.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Replaces: \"Vicious Assault III\"",
+                "key": "wh_dlc08_effect_ability_disable_vicious_assault_iii_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Passive ability: \"Frenzied Assault\"",
+                "key": "wh_dlc08_effect_ability_enable_frenzied_assault",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_frenzied_assault",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_hero_passive_frenzied_assault",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_frenzied_assault",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Frenzied Assault",
+                      "effect_range": 35,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_hero_passive_frenzied_assault",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 12,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+12 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 1.4,
+                              "stat": "stat_charge_bonus",
+                              "how": "mult",
+                              "description": "x1.4 Charge Bonus",
+                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_01"
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "wh_dlc08_skill_node_nor_skin_wolf_werekin_battle_03"
+        ]
+      }
+    ],
     [],
     [
       {
@@ -1319,26 +1822,26 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 7.5,
+    "run_speed": 6.5,
     "mass": 1500,
     "size": "large",
     "hit_points": 8,
-    "bonus_hit_points": 5032,
-    "armour": 70,
+    "bonus_hit_points": 5756,
+    "armour": 75,
     "missile_block_chance": 0,
-    "morale": 70,
+    "morale": 75,
     "damage_mod_flame": 0,
     "damage_mod_magic": 0,
     "damage_mod_physical": 20,
     "damage_mod_missile": 0,
     "damage_mod_all": 0,
-    "melee_attack": 45,
-    "melee_defence": 32,
+    "melee_attack": 55,
+    "melee_defence": 41,
     "charge_bonus": 50,
-    "bonus_v_large": 40,
+    "bonus_v_large": 45,
     "bonus_v_infantry": 0,
-    "damage": 150,
-    "ap_damage": 280,
+    "damage": 170,
+    "ap_damage": 290,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
@@ -1432,6 +1935,129 @@
             }
           ]
         }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_unit_passive_frenzy",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Frenzy",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than 50% of base"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+10 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_charge_bonus",
+                  "how": "mult",
+                  "description": "x1.1 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_unit_passive_regeneration",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_regeneration",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+            "onscreen_name": "Regeneration"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Regeneration",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "ui_effects": [
+            {
+              "key": "wh_main_all_replenish",
+              "localised_text": "Replenishes hit points of combatants",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "heal_amount": 0.001,
+              "hp_change_frequency": 1,
+              "stat_effects": [
+                {
+                  "value": -20,
+                  "stat": "stat_weakness_flame",
+                  "how": "add",
+                  "description": "-20 Weakness to Fire Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },
@@ -1504,7 +2130,7 @@
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
-      "is_background_skill": false,
+      "is_background_skill": true,
       "localised_name": "Born of Tooth and Snow",
       "localised_description": "\"The North remembers those who survive its bite.\"",
       "levels": [
@@ -1521,16 +2147,16 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             },
             {
-              "description": "Ability: \"Wyrdfang Roar\"",
-              "key": "hkrul_haftagg_roar",
+              "description": "Ability: \"Greyblood’s Fang\"",
+              "key": "hkrul_orgrim_axe",
               "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
               "related_abilities": [
                 {
-                  "effect": "hkrul_haftagg_roar",
+                  "effect": "hkrul_orgrim_axe",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "hkrul_haftagg_roar",
-                    "icon_name": "hkrul_haftagg_roar",
+                    "key": "hkrul_orgrim_axe",
+                    "icon_name": "scm3/battle_ui/ability_icons/hkrul_orgrim_axe",
                     "overpower_option": "",
                     "type": {
                       "key": "wh_type_augment",
@@ -1538,7 +2164,7 @@
                       "onscreen_name": "Augment"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Wyrdfang Roar",
+                    "onscreen_name": "Greyblood’s Fang",
                     "active_time": 30,
                     "effect_range": 0,
                     "recharge_time": 100,
@@ -1547,10 +2173,9 @@
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
-                    "wind_up_time": 1,
                     "phases": [
                       {
-                        "icon": "hkrul_haftagg_roar",
+                        "icon": "scm3/battle_ui/ability_icons/hkrul_orgrim_axe",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
@@ -1558,19 +2183,39 @@
                         "duration": 35,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
+                        "imbue_contact": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "onscreen_name": "Discouraged!",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -16,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-16 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        },
                         "stat_effects": [
                           {
-                            "value": 1.5,
-                            "stat": "scalar_splash_attack_power",
+                            "value": 1.35,
+                            "stat": "stat_melee_damage_base",
                             "how": "mult",
-                            "description": "x1.5 Splash Attack Power",
-                            "icon": "vanilla3/skins/default/icon_stat_damage"
+                            "description": "x1.35 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
                           },
                           {
-                            "value": 25,
+                            "value": 15,
                             "stat": "stat_bonus_vs_large",
-                            "how": "add",
-                            "description": "+25 Bonus vs. Large",
+                            "how": "",
+                            "description": "!INVALID PREPEND HOW! 15 Bonus vs. Large",
                             "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
                           }
                         ]
