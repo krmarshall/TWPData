@@ -47,9 +47,7 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 3.5,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 0,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_crush",
                 "order": 1,
@@ -123,6 +121,98 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_aura_buff_armour",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_armour",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bolstered Armour",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_armour",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_armour",
+                            "how": "add",
+                            "description": "+10 Armour",
+                            "icon": "vanilla3/skins/default/icon_stat_armour"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+5 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_dlc11_lord_abilities_song_of_enthrallment",
@@ -282,98 +372,6 @@
                         "damage_amount": 200,
                         "hp_change_frequency": 1,
                         "max_damaged_entities": 2
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_aura_buff_armour",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_armour",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Bolstered Armour",
-                    "effect_range": 50,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_armour",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 10,
-                            "stat": "stat_armour",
-                            "how": "add",
-                            "description": "+10 Armour",
-                            "icon": "vanilla3/skins/default/icon_stat_armour"
-                          },
-                          {
-                            "value": 5,
-                            "stat": "stat_resistance_physical",
-                            "how": "add",
-                            "description": "+5 Physical Resistance",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_arcane",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Arcane Mastery",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x0.75 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          }
-                        ]
                       }
                     ]
                   }
@@ -4577,8 +4575,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -4631,6 +4627,47 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_dlc11_lord_abilities_song_of_enthrallment",
@@ -4793,47 +4830,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_arcane",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Arcane Mastery",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.75,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x0.75 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                }
-              ]
-            }
-          ]
-        }
       }
     ]
   },
@@ -4843,6 +4839,11 @@
     "localised_title": "Mistress of the Deep",
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
+      {
+        "description": "(HIDDEN) Ignore movement cost for embarking and disembarking\n\t(factionwide)",
+        "key": "wh3_dlc27_ignore_embark_disembark_cost",
+        "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+      },
       {
         "description": "Ghost Paladin with unique effects, skill line and Ghost Knights capacity",
         "key": "cst_cylostra_campaign_dummy",

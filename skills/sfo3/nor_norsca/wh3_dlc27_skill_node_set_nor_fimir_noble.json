@@ -198,9 +198,9 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Favoured by the Matriarch",
-                      "active_time": 19,
+                      "active_time": 30,
                       "effect_range": 55,
-                      "recharge_time": 90,
+                      "recharge_time": 120,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -213,9 +213,25 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 19,
+                          "duration": 30,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+10 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -361,6 +377,9 @@
                   }
                 ]
               }
+            ],
+            "related_unit_cards": [
+              "nor_fimir_pack"
             ]
           }
         ],
@@ -450,12 +469,15 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Shrouding Mists",
-                      "effect_range": 35,
+                      "effect_range": 50,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is higher than 50% of base"
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_hero_passive_shrouding_mists",
@@ -465,7 +487,24 @@
                           "target_friends": true,
                           "duration": -1,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_missile",
+                              "how": "add",
+                              "description": "+10 Missile Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "stalk",
+                              "description": " Stalk",
+                              "bullet_text": "This unit can move hidden in any terrain.",
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -490,6 +529,9 @@
                   }
                 ]
               }
+            ],
+            "related_unit_cards": [
+              "nor_fimir_pack"
             ]
           }
         ],
@@ -1091,6 +1133,9 @@
             "blocks_skill_node_keys": [
               "wh3_dlc27_skill_node_nor_fimir_noble_shared_2",
               "wh3_dlc27_skill_node_nor_fimir_noble_shared_3"
+            ],
+            "related_unit_cards": [
+              "nor_fimir_pack"
             ]
           }
         ]
@@ -1167,9 +1212,613 @@
             ]
           }
         ]
+      },
+      {
+        "key": "nor_skill_fimir_noble_1",
+        "image_path": "vanilla3/campaign_ui/skills/character_speed",
+        "character_skill_key": "nor_skill_balefiend_1",
+        "tier": 10,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Lightweight Skins",
+        "localised_description": "Fabric woven and tainted with primordial awareness protects while leaving the wearer light on their feet. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Speed: +5%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              },
+              {
+                "description": "Missile resistance: 5%",
+                "key": "wh_main_effect_character_stat_missile_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "nor_skill_fimir_noble_2",
+        "image_path": "vanilla3/campaign_ui/skills/character_damage",
+        "character_skill_key": "nor_skill_balefiend_2",
+        "tier": 11,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Bog Blessed",
+        "localised_description": "There is no knowing what ancient powers sleep in the in the under the water. To most, that is. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +2%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Weapon strength: +2%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +4%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Weapon strength: +4%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +6%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Weapon strength: +8%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "nor_skill_fimir_noble_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "nor_skill_fimir_noble_3",
+        "image_path": "vanilla3/campaign_ui/skills/character_disaster",
+        "character_skill_key": "nor_skill_balefiend_3",
+        "tier": 12,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Ancient Pathfinder",
+        "localised_description": "Knowledge of trails forgotten by the more civilized races eons ago allow the Balefiend to safely lead the army through the most dangerous of terrain. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +2%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Attrition: -5% casualties suffered from all attrition\n\t(Hero's army)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +4%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Attrition: -10% casualties suffered from all attrition\n\t(Hero's army)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +6%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Attrition: -15% casualties suffered from all attrition\n\t(Hero's army)",
+                "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "nor_skill_fimir_noble_1"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "nor_skill_fimir_noble_4",
+        "image_path": "vanilla3/campaign_ui/skills/character_bonus_vs_large",
+        "character_skill_key": "nor_skill_balefiend_4",
+        "tier": 13,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Friend of the Warrior Caste",
+        "localised_description": "Few in Fimir society study outside of their caste, but this one has honed their martial prowess with a Fimm relative. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +2%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Bonus vs Large: +2",
+                "key": "wh_main_effect_character_stat_bonus_vs_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +4%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Bonus vs Large: +4",
+                "key": "wh_main_effect_character_stat_bonus_vs_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +6%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Bonus vs Large: +8",
+                "key": "wh_main_effect_character_stat_bonus_vs_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "nor_skill_fimir_noble_1"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "nor_skill_fimir_noble_5",
+        "image_path": "vanilla3/campaign_ui/skills/wh_main_character_passive_evasion",
+        "character_skill_key": "nor_skill_balefiend_5",
+        "tier": 14,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Mist Walker",
+        "localised_description": "Mist follows the Balefiend everywhere, obfuscating his movements. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Passive ability: \"Pursuit of Battle\"",
+                "key": "wh_effect_enable_wh_passive_scaling_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_effect_enable_wh_passive_scaling_defence",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_passive_scaling_defence",
+                      "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_scaling_defence",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Pursuit of Battle",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "In melee",
+                        "Leadership is higher than broken"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_intensity_time_melee_150",
+                          "localised_text": "Effect intensity increases with time spent engaged in melee (150s)",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_passive_scaling_defence",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+15 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+20 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "nor_skill_fimir_noble_2",
+          "nor_skill_fimir_noble_3",
+          "nor_skill_fimir_noble_4"
+        ]
       }
     ],
-    [],
+    [
+      {
+        "key": "hero_spy_1_ogr_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/character_movement",
+        "character_skill_key": "hero_spy_1",
+        "tier": 10,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Hidden Paths",
+        "localised_description": "There is always another way.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Campaign movement range: +10%\n\t(when not embedded)",
+                "key": "wh_main_effect_agent_movement_range_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+              },
+              {
+                "description": "Speed: +10%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "hero_spy_2_ogr_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/character_subterfuge",
+        "character_skill_key": "hero_spy_2",
+        "tier": 11,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Retinue: Disciple",
+        "localised_description": "Useful, if a bit impetuous.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hero action success chance: +1%",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Hero self-defence: +1% chance of wounding aggressors",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hero action success chance: +3%",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Hero self-defence: +3% chance of wounding aggressors",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hero action success chance: +6%",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Hero self-defence: +6% chance of wounding aggressors",
+                "key": "wh_main_effect_agent_defence_wound_chance_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_ogr_hunter"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_3_ogr_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
+        "character_skill_key": "wh_skill_hero_raiding",
+        "tier": 12,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Raiders",
+        "localised_description": "Take it all!",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Income from raiding: +5%\n\t(Hero's army)",
+                "key": "wh_main_effect_force_all_campaign_raid_income",
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Income from raiding: +10%\n\t(Hero's army)",
+                "key": "wh_main_effect_force_all_campaign_raid_income",
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Income from raiding: +20%\n\t(Hero's army)",
+                "key": "wh_main_effect_force_all_campaign_raid_income",
+                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_ogr_hunter"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_4_ogr_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
+        "character_skill_key": "hero_spy_4",
+        "tier": 13,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Contacts",
+        "localised_description": "Sometimes it’s best to have friends in low places.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy battle reinforcement time: +5%\n\t(Hero's army)",
+                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
+              },
+              {
+                "description": "Campaign line of sight: +10%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy battle reinforcement time: +10%\n\t(Hero's army)",
+                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
+              },
+              {
+                "description": "Campaign line of sight: +20%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enemy battle reinforcement time: +20%\n\t(Hero's army)",
+                "key": "wh3_main_effect_opposing_reinforcement_time_percentage_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military"
+              },
+              {
+                "description": "Campaign line of sight: +40%",
+                "key": "wh_main_effect_agent_field_line_of_sight_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_ogr_hunter"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_5_ogr_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_ambush",
+        "character_skill_key": "hero_spy_5",
+        "tier": 14,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Shadow",
+        "localised_description": "Always watching.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +2%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +2%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +4%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +4%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Ambush success chance: +8%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ambush defence chance: +8%\n\t(own armies in region)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "hero_spy_1_ogr_hunter"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "hero_spy_6_ogr_hunter",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
+        "character_skill_key": "hero_spy_6",
+        "tier": 15,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 4,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Grandmaster",
+        "localised_description": "They’ve all heard the stories of this one’s accomplishments. The stories, of course, pale in comparison to the truth.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hero action cost: -10%\n\t(own characters in region)",
+                "key": "wh_main_effect_agent_action_cost_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+              },
+              {
+                "description": "Enemy Hero action success chance: -5%\n\t(own characters in region)",
+                "key": "wh_main_effect_agent_action_success_chance_enemy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "hero_spy_2_ogr_hunter",
+          "hero_spy_3_ogr_hunter",
+          "hero_spy_4_ogr_hunter",
+          "hero_spy_5_ogr_hunter"
+        ]
+      }
+    ],
     [
       {
         "key": "wh3_dlc27_skill_node_nor_fimir_noble_campaign_01",
@@ -1484,17 +2133,17 @@
     "run_speed": 5,
     "mass": 2000,
     "size": "large",
-    "hit_points": 8,
-    "bonus_hit_points": 5432,
+    "hit_points": 0,
+    "bonus_hit_points": 6750,
     "armour": 110,
     "missile_block_chance": 0,
     "morale": 70,
     "damage_mod_flame": 0,
     "damage_mod_magic": 0,
     "damage_mod_physical": 0,
-    "damage_mod_missile": 25,
+    "damage_mod_missile": 30,
     "damage_mod_all": 0,
-    "melee_attack": 52,
+    "melee_attack": 50,
     "melee_defence": 30,
     "charge_bonus": 40,
     "bonus_v_large": 20,
@@ -1504,9 +2153,7 @@
     "splash_target_size_limit": "large",
     "splash_attack_max_attacks": 5,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
@@ -1547,8 +2194,259 @@
         "bullet_text": "This unit can hide in forests until enemy units get too close.",
         "icon": "sfo3/battle_ui/ability_icons/hide_forest"
       }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh3_dlc27_hero_passive_shrouding_mists",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_hero_passive_shrouding_mists",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Shrouding Mists",
+          "effect_range": 50,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than 50% of base"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_hero_passive_shrouding_mists",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_missile",
+                  "how": "add",
+                  "description": "+10 Missile Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "stalk",
+                  "description": " Stalk",
+                  "bullet_text": "This unit can move hidden in any terrain.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "onscreen_name": "Wounded!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_dlc08_unit_passive_from_the_mist",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_passive_from_the_mist",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_ward_save",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_ward_save",
+            "onscreen_name": "Ward Save"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "From the Mist",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than 50% of base"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_passive_from_the_mist",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.1 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 25,
+                  "stat": "stat_resistance_missile",
+                  "how": "add",
+                  "description": "+25 Missile Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                }
+              ]
+            }
+          ]
+        }
+      }
     ]
   },
+  "items": [
+    {
+      "key": "wh3_dlc27_anc_enchanted_item_skinhidden_plate",
+      "onscreen_name": "Skinhidden Plates",
+      "colour_text": "The Fimir’s uniquely scaly skin allows the embedding of armoured plates to increase stature and resilience, though injury causes them to be swiftly shed!",
+      "ui_icon": "skins/default/equipment_items_enchanted",
+      "effects": [
+        {
+          "description": "Physical resistance: 8%",
+          "key": "wh_main_effect_character_stat_physical_resistance",
+          "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
+        },
+        {
+          "description": "Passive ability: \"Skinhidden Plate\"",
+          "key": "wh3_dlc27_effect_ability_enable_skinhidden_plate",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh3_dlc27_effect_ability_enable_skinhidden_plate",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh3_dlc27_item_passive_skinhidden_plate",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_item_passive_skinhidden_plate",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Augment"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Skinhidden Plates",
+                "effect_range": 0,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "Hit Points greater than 50% base"
+                ],
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_item_passive_skinhidden_plate",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 20,
+                        "stat": "stat_armour",
+                        "how": "add",
+                        "description": "+20 Armour",
+                        "icon": "vanilla3/skins/default/icon_stat_armour"
+                      }
+                    ],
+                    "attributes": [
+                      {
+                        "key": "causes_terror",
+                        "description": " Can Cause Terror",
+                        "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                        "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "wh3_dlc27_skill_node_nor_fimir_noble_campaign_actions_dummy",
@@ -1610,578 +2508,146 @@
       ]
     },
     {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_01",
-      "image_path": "vanilla3/campaign_ui/skills/trait_chaos",
-      "character_skill_key": "wh2_main_skill_innate_chs_diabolic_spendour",
-      "tier": 0,
-      "indent": 6,
+      "key": "nor_skill_trait_fimir_noble_1",
+      "image_path": "vanilla3/campaign_ui/skills/trait_norsca",
+      "character_skill_key": "nor_skill_trait_fimir_noble_1",
+      "tier": 1,
+      "indent": 25,
       "points_on_creation": 0,
       "required_num_parents": 0,
-      "visible_in_ui": false,
+      "visible_in_ui": true,
       "is_background_skill": true,
-      "localised_name": "Diabolic Splendour ",
-      "localised_description": "Oh, horrific wonder! Vile awe! Such hateful majesty!",
+      "localised_name": "Chosen by Mistress",
+      "localised_description": "A Fimir noble is a grim, one‑eyed chieftain wreathed in swamp‑mist and ancient oaths.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Leadership aura size: +100%",
-              "key": "wh_main_effect_character_stat_leadership_aura_size",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              "description": "Spell resistance: 40%",
+              "key": "wh_main_effect_character_stat_magic_resistance",
+              "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
             },
             {
-              "description": "Passive ability: \"Icon of Endless War\"",
-              "key": "wh3_main_effect_ability_enable_icon_of_endless_war",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "description": "Passive ability: \"Apex Magic\"",
+              "key": "nor_passive_apex_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
               "related_abilities": [
                 {
-                  "effect": "wh3_main_effect_ability_enable_icon_of_endless_war",
+                  "effect": "nor_passive_apex_enable",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh3_main_item_passive_icon_of_endless_war",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_banner_passive_icon_of_endless_war",
+                    "key": "nor_passive_apex",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc15_unit_passive_sorcery_weapon",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_explosion",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+                      "onscreen_name": "Explosion"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Icon of Endless War",
+                    "onscreen_name": "Apex Magic",
+                    "active_time": 5,
                     "effect_range": 0,
-                    "num_effected_friendly_units": 1,
+                    "recharge_time": 60,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "In melee"
+                      "In melee",
+                      "Winds of magic power is 15 or greater"
                     ],
-                    "phases": [
+                    "ui_effects": [
                       {
-                        "icon": "wh3_main_item_passive_icon_of_endless_war",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.01,
-                        "stat_effects": [
-                          {
-                            "value": 8,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+8 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          }
-                        ]
+                        "key": "wh_explosion_large",
+                        "localised_text": "Large explosion with knockback effect",
+                        "effect_state": "positive"
                       }
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "description": "Attribute: Causes Fear",
-              "key": "wh_main_effect_attribute_enable_causes_fear",
-              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear",
-              "related_attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
-                }
-              ]
-            },
-            {
-              "description": "Attribute: Causes Terror",
-              "key": "wh_main_effect_attribute_enable_causes_terror",
-              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror",
-              "related_attributes": [
-                {
-                  "key": "causes_terror",
-                  "description": " Can Cause Terror",
-                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_03",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_fleet_footed",
-      "tier": 2,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Fleet-Footed",
-      "localised_description": "Being fleet of foot is useful in a fight… or when trying to get away afterwards!",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Speed: +40%",
-              "key": "wh_main_effect_character_stat_speed",
-              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-            },
-            {
-              "description": "Attribute: Strider",
-              "key": "wh_main_effect_attribute_enable_strider",
-              "icon": "sfo3/campaign_ui/effect_bundles/attribute_ignore_forest_penalties",
-              "related_attributes": [
-                {
-                  "key": "strider",
-                  "description": " Strider",
-                  "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
-                  "icon": "sfo3/battle_ui/ability_icons/strider"
-                }
-              ]
-            },
-            {
-              "description": "Passive ability: \"Wayfarer\"",
-              "key": "wh2_dlc17_effect_ability_enable_wayfarer",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "related_abilities": [
-                {
-                  "effect": "wh2_dlc17_effect_ability_enable_wayfarer",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh2_dlc17_unit_passive_wayfarer",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_passive_fast_mover",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Wayfarer",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "wh2_dlc17_unit_passive_wayfarer",
+                    ],
+                    "vortex": {
+                      "vortex_key": "nor_passive_apex",
+                      "duration": 2,
+                      "damage": 4,
+                      "damage_ap": 4,
+                      "goal_radius": 30,
+                      "movement_speed": 0,
+                      "delay": 0,
+                      "affects_allies": false,
+                      "contact_effect": {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_pro08_unit_contact_dampen",
                         "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
+                        "target_enemies": true,
+                        "target_self": false,
                         "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
+                        "duration": 10,
+                        "effect_type": "negative",
+                        "onscreen_name": "Dampen!\n\t Removes Magical Attacks",
                         "is_hidden_in_ui": false,
+                        "remove_magical": true,
                         "stat_effects": [
                           {
-                            "value": 3,
-                            "stat": "scalar_entity_acceleration_modifier",
-                            "how": "mult",
-                            "description": "x3 Acceleration",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "value": -10,
+                            "stat": "stat_armour",
+                            "how": "add",
+                            "description": "-10 Armour",
+                            "icon": "vanilla3/skins/default/icon_stat_armour"
                           },
                           {
-                            "value": 3,
-                            "stat": "scalar_entity_deceleration_modifier",
-                            "how": "mult",
-                            "description": "x3 Deceleration",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "strider",
-                            "description": " Strider",
-                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
-                            "icon": "sfo3/battle_ui/ability_icons/strider"
+                            "value": -25,
+                            "stat": "stat_resistance_magic",
+                            "how": "add",
+                            "description": "-25 Spell Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
                           }
                         ]
                       }
-                    ]
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_04",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_cunning",
-      "tier": 3,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Cunning",
-      "localised_description": "Deceit is a perfectly acceptable means of attack.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Ambush success chance: +20%\n\t(own armies in region)",
-              "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-            },
-            {
-              "description": "Enables poison attacks",
-              "key": "wh_main_effect_character_stat_enable_poison_attacks",
-              "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
-              "related_phases": [
-                {
-                  "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
-                  "order": 0,
-                  "target_enemies": true,
-                  "target_self": false,
-                  "target_friends": false,
-                  "duration": 10,
-                  "effect_type": "negative",
-                  "onscreen_name": "Poison!",
-                  "is_hidden_in_ui": false,
-                  "stat_effects": [
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_missile_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Missile Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_missile_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Missile Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "scalar_speed",
-                      "how": "mult",
-                      "description": "x0.8 Speed",
-                      "icon": "vanilla3/skins/default/icon_stat_speed"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_base",
-                      "how": "mult",
-                      "description": "x0.8 Base Weapon Damage",
-                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                    },
-                    {
-                      "value": 0.8,
-                      "stat": "stat_melee_damage_ap",
-                      "how": "mult",
-                      "description": "x0.8 Armour-Piercing Weapon Damage",
-                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                     }
-                  ]
+                  }
                 }
               ]
             },
             {
-              "description": "Melee defence: +10",
-              "key": "wh_main_effect_character_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_05",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_determined",
-      "tier": 4,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Determined",
-      "localised_description": "Having a modicum of resolve is useful in a world that continually tests it.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Character experience gain: +30%",
-              "key": "wh3_main_effect_character_campaign_experience_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Attribute: Immune to Psychology",
-              "key": "wh_main_effect_attribute_enable_immune_to_psychology",
-              "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
-              "related_attributes": [
-                {
-                  "key": "immune_to_psychology",
-                  "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                }
-              ]
-            },
-            {
-              "description": "Hit points: +10%",
-              "key": "wh_main_effect_character_stat_unit_health",
-              "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-            },
-            {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_06",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_confident",
-      "tier": 5,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Confident",
-      "localised_description": "Self-belief is a fine thing when not misplaced.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Passive ability: \"Rabble Rouse\"",
-              "key": "wh3_dlc25_effect_ability_enable_rabble_rouse",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "description": "Passive ability: \"Greater Magic Bond\"",
+              "key": "wh_effect_enable_wh_passive_magic_buff",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character",
               "related_abilities": [
                 {
-                  "effect": "wh3_dlc25_effect_ability_enable_rabble_rouse",
+                  "effect": "wh_effect_enable_wh_passive_magic_buff",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh2_dlc12_unit_passive_demagoguery",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_unit_abilities_demagoguery",
+                    "key": "wh_passive_magic_buff",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
+                      "key": "wh_type_augment_of_the_winds",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                      "onscreen_name": "Augment of the Winds"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Rabble-Rouse",
-                    "effect_range": 50,
+                    "onscreen_name": "Greater Magic Bond",
+                    "effect_range": 0,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "In melee"
+                      "Leadership is higher than broken"
                     ],
                     "phases": [
                       {
-                        "icon": "wh2_dlc12_unit_passive_demagoguery",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "scalar_bracing",
-                            "how": "mult",
-                            "description": "x1.1 Charge Resistance",
-                            "icon": "vanilla3/skins/default/icon_stat_bracing"
-                          },
-                          {
-                            "value": 10,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+10 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "immune_to_psychology",
-                            "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "description": "Experience gain: +5% for units\n\t(all units in army)",
-              "key": "wh_effect_all_exp_gain",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Attribute: Immune to Psychology",
-              "key": "wh_main_effect_attribute_enable_immune_to_psychology",
-              "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology",
-              "related_attributes": [
-                {
-                  "key": "immune_to_psychology",
-                  "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                }
-              ]
-            },
-            {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
-            {
-              "description": "Leadership: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_07",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_disciplined",
-      "tier": 6,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Disciplined",
-      "localised_description": "Always in control, this one leaves no stone unturned and nothing to chance.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Melee attack: +8",
-              "key": "wh_main_effect_character_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-            },
-            {
-              "description": "Melee defence: +8",
-              "key": "wh_main_effect_character_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-            },
-            {
-              "description": "Leadership: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            },
-            {
-              "description": "Melee attack: +1\n\t(all units in army)",
-              "key": "wh_main_effect_force_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_08",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_perceptive",
-      "tier": 7,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Perceptive",
-      "localised_description": "Although actually reading minds is not in their skillset, this one has extraordinary insight into the motives of others.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Campaign line of sight: +25%",
-              "key": "wh_main_effect_agent_field_line_of_sight_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            },
-            {
-              "description": "Magic item drop chance from battle: +25%",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
-              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-            },
-            {
-              "description": "Ambush defence chance: +15%\n\t(own army)",
-              "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-            },
-            {
-              "description": "Passive ability: \"Spotter\"",
-              "key": "wh3_main_effect_ability_enable_spotter",
-              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-              "related_abilities": [
-                {
-                  "effect": "wh3_main_effect_ability_enable_spotter",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh3_main_character_passive_spotter",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_eye_of_the_dragon",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Spotter",
-                    "effect_range": 50,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "wh3_main_character_passive_spotter",
+                        "icon": "wh_passive_magic_buff",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
                         "duration": -1,
                         "effect_type": "positive",
+                        "onscreen_name": "Greater Magic Bond",
                         "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 2,
-                            "stat": "stat_spotting_forest",
-                            "how": "mult",
-                            "description": "x2 Forest Spotting",
-                            "icon": "vanilla3/skins/default/icon_stat_spotting"
-                          },
-                          {
-                            "value": 2,
-                            "stat": "stat_spotting_scrub",
-                            "how": "mult",
-                            "description": "x2 Forest Spotting",
-                            "icon": "vanilla3/skins/default/icon_stat_spotting"
-                          }
-                        ]
+                        "mana_max_depletion_mod": 0.05,
+                        "mana_regen_mod": 0.25
                       }
                     ]
                   }
@@ -2193,268 +2659,136 @@
       ]
     },
     {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_09",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_aggressive",
-      "tier": 8,
-      "indent": 6,
+      "key": "nor_skill_trait_fimir_noble_2",
+      "image_path": "vanilla3/campaign_ui/skills/trait_norsca",
+      "character_skill_key": "nor_skill_trait_fimir_noble_2",
+      "tier": 2,
+      "indent": 25,
       "points_on_creation": 0,
       "required_num_parents": 0,
-      "visible_in_ui": false,
+      "visible_in_ui": true,
       "is_background_skill": true,
-      "localised_name": "Aggressive",
-      "localised_description": "If you're gonna die, you may as well die with your boots on.",
+      "localised_name": "Unforgiven",
+      "localised_description": "A Fimir noble is a grim, one‑eyed chieftain wreathed in swamp‑mist and ancient oaths.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Melee attack: +10",
-              "key": "wh_main_effect_character_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              "description": "Attrition: -10% casualties suffered from all attrition\n\t(own armies in region)",
+              "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
             },
             {
-              "description": "Melee defence: -5",
-              "key": "wh_main_effect_character_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-            },
-            {
-              "description": "Weapon strength: +10%",
-              "key": "wh_main_effect_character_stat_weapon_strength",
-              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-            },
-            {
-              "description": "Charge bonus: +25",
-              "key": "wh_main_effect_character_stat_charge_bonus_add",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_10",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_tough",
-      "tier": 9,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Tough",
-      "localised_description": "Rugged, resistant, and almost unbreakable, this being can and will take on all comers.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Hit points: +10%",
-              "key": "wh_main_effect_character_stat_unit_health",
-              "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-            },
-            {
-              "description": "Armour: +25",
-              "key": "wh_main_effect_character_stat_armour",
-              "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-            },
-            {
-              "description": "Melee defence: +5",
-              "key": "wh_main_effect_character_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_13",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_knowledgeable",
-      "tier": 12,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Knowledgeable",
-      "localised_description": "What this being doesn't know probably isn't worth knowing, so deep is their interest in the world and its ways.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Character experience gain: +25%",
-              "key": "wh3_main_effect_character_campaign_experience_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Magic item drop chance from battle: +15%",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
-              "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_14",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh2_main_skill_innate_all_intelligent",
-      "tier": 13,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Intelligent",
-      "localised_description": "Sharp minds make sharp blades sharper still.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Spell intensity: +10%\n\t(If Spellcaster)",
-              "key": "wh3_main_effect_spell_mastery",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
-            },
-            {
-              "description": "Character experience gain: +50%",
-              "key": "wh3_main_effect_character_campaign_experience_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-            },
-            {
-              "description": "Upkeep: -2%\n\t(all units in army)",
-              "key": "wh_main_effect_force_all_campaign_upkeep",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-            },
-            {
-              "description": "Hero self-defence: +10% chance of wounding aggressors",
-              "key": "wh_main_effect_agent_defence_wound_chance_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            },
-            {
-              "description": "Ambush defence chance: +10%\n\t(all units in army)",
-              "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_15",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh_main_skill_innate_all_melancholic",
-      "tier": 14,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Melancholic",
-      "localised_description": "\"Why forlorn? Are you not a king, an emperor – a champion?\"",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Hero self-defence: -10% chance of wounding aggressors",
-              "key": "wh_main_effect_agent_defence_wound_chance_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            },
-            {
-              "description": "Control: -4\n\t(enemy local province)",
-              "key": "wh_main_effect_public_order_characters_negative",
-              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
-            },
-            {
-              "description": "Attribute: Causes Terror",
-              "key": "wh_main_effect_attribute_enable_causes_terror",
-              "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror",
-              "related_attributes": [
-                {
-                  "key": "causes_terror",
-                  "description": " Can Cause Terror",
-                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_16",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh_main_skill_innate_all_phlegmatic",
-      "tier": 15,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Phlegmatic",
-      "localised_description": "A calming presence can be a steadying hand… but also disquieting.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Passive ability: \"Rabble Rouse\"",
-              "key": "wh3_dlc25_effect_ability_enable_rabble_rouse",
+              "description": "Passive ability: \"Berserk\"",
+              "key": "wh_dlc08_effect_ability_enable_berserk",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
               "related_abilities": [
                 {
-                  "effect": "wh3_dlc25_effect_ability_enable_rabble_rouse",
+                  "effect": "wh_dlc08_effect_ability_enable_berserk",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh2_dlc12_unit_passive_demagoguery",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_unit_abilities_demagoguery",
+                    "key": "wh_dlc08_unit_passive_berserk",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_passive_berserk",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Rabble-Rouse",
-                    "effect_range": 50,
+                    "onscreen_name": "Berserk",
+                    "active_time": 150,
+                    "effect_range": 0,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "In melee"
+                      "In melee",
+                      "Leadership is higher than broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_intensity_time_melee_150",
+                        "localised_text": "Effect intensity increases with time spent engaged in melee (150s)",
+                        "effect_state": "positive"
+                      }
                     ],
                     "phases": [
                       {
-                        "icon": "wh2_dlc12_unit_passive_demagoguery",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_berserk_i",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
-                        "target_friends": true,
-                        "duration": -1,
+                        "target_friends": false,
+                        "duration": 120,
                         "effect_type": "positive",
+                        "onscreen_name": "Stage One",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 1.1,
-                            "stat": "scalar_bracing",
+                            "value": 1.2,
+                            "stat": "scalar_speed",
                             "how": "mult",
-                            "description": "x1.1 Charge Resistance",
-                            "icon": "vanilla3/skins/default/icon_stat_bracing"
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
                           },
                           {
-                            "value": 10,
-                            "stat": "stat_morale",
+                            "value": 20,
+                            "stat": "stat_melee_attack",
                             "how": "add",
-                            "description": "+10 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                            "description": "+20 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+20 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_berserk_ii",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "onscreen_name": "Stage Two",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+20 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+20 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
                           }
                         ],
                         "attributes": [
                           {
-                            "key": "immune_to_psychology",
-                            "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                            "icon": "sfo3/battle_ui/ability_icons/rampage"
                           }
                         ]
                       }
@@ -2462,277 +2796,10 @@
                   }
                 }
               ]
-            },
-            {
-              "description": "Control: +2\n\t(own local province)",
-              "key": "wh_main_effect_public_order_characters",
-              "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
-            },
-            {
-              "description": "Campaign line of sight: +25%",
-              "key": "wh_main_effect_agent_field_line_of_sight_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_17",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh_main_skill_innate_all_sanguine",
-      "tier": 16,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Sanguine",
-      "localised_description": "An assured air instils great confidence in your followers.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Enemy Hero action success chance: -10%",
-              "key": "wh_main_effect_agent_action_success_chance_enemy",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            },
-            {
-              "description": "Melee attack: +10",
-              "key": "wh_main_effect_character_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-            },
-            {
-              "description": "Leadership: +4",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_18",
-      "image_path": "vanilla3/campaign_ui/skills/trait_physical",
-      "character_skill_key": "wh_main_skill_innate_all_scar_disfiguring",
-      "tier": 17,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Disfiguring Scar",
-      "localised_description": "Such an ugly scar is always memorable.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_brt_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_chs_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_dwf_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_emp_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_grn_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_vmp_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "Enemy leadership: -4\n\t(enemy armies in region)",
-              "key": "wh_main_effect_force_stat_leadership_enemy_unit",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            },
-            {
-              "description": "Melee defence: -10",
-              "key": "wh_main_effect_force_stat_melee_defence",
-              "icon": "vanilla3/campaign_ui/effect_bundles/defence"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_19",
-      "image_path": "vanilla3/campaign_ui/skills/trait_physical",
-      "character_skill_key": "wh_main_skill_innate_all_scar_distinguishing",
-      "tier": 18,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Distinguishing Scar",
-      "localised_description": "Clearly a veteran of some heroic deed.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_brt_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_chs_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_dwf_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_emp_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_grn_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "[HIDDEN] Adds the name \"the Scarred\"",
-              "key": "wh_main_effect_name_epithet_vmp_the_scarred",
-              "icon": ""
-            },
-            {
-              "description": "Melee attack: -10",
-              "key": "wh_main_effect_character_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-            },
-            {
-              "description": "Enemy leadership: -4\n\t(enemy armies in region)",
-              "key": "wh_main_effect_force_stat_leadership_enemy_unit",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_20",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh_main_skill_innate_all_sneaky",
-      "tier": 19,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Sneaky",
-      "localised_description": "Skulk and sneak or shadow and stalk, theirs is a guileful nature.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Hero action success chance: +10%",
-              "key": "wh_main_effect_agent_action_success_chance",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-            },
-            {
-              "description": "Attribute: Stalk",
-              "key": "wh_main_effect_attribute_enable_stalk",
-              "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk",
-              "related_attributes": [
-                {
-                  "key": "stalk",
-                  "description": " Stalk",
-                  "bullet_text": "This unit can move hidden in any terrain.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_21",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh_main_skill_innate_all_stupid",
-      "tier": 20,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Stupid",
-      "localised_description": "Shares the intellect of a River Troll.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "All Climate penalties are nullified\n\t(local region)",
-              "key": "wh3_main_effect_ignore_climate_penalties",
-              "icon": "vanilla3/campaign_ui/effect_bundles/climate_uninhabitable"
-            },
-            {
-              "description": "Campaign movement range: -10%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            },
-            {
-              "description": "Speed: +10%",
-              "key": "wh_main_effect_character_stat_speed",
-              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
-            },
-            {
-              "description": "Charge bonus: +50%",
-              "key": "wh_main_effect_character_stat_charge_bonus_pct",
-              "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-            },
-            {
-              "description": "Leadership: -10",
-              "key": "wh_main_effect_force_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_22",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh_main_skill_innate_all_uncompromising",
-      "tier": 21,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Uncompromising",
-      "localised_description": "Others may call it decisive, but being uncompromising can be a weakness as well as a strength.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Hero self-defence: +25% chance of wounding aggressors",
-              "key": "wh_main_effect_agent_defence_wound_chance_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
             },
             {
               "description": "Attribute: Unyielding Assault",
-              "key": "wh3_main_effect_attribute_unyielding_assault",
+              "key": "wh_effect_attribute_unyielding_assault",
               "icon": "sfo3/campaign_ui/effect_bundles/attribute_unyielding_assault",
               "related_attributes": [
                 {
@@ -2744,6 +2811,878 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "key": "nor_skill_trait_fimir_noble_3",
+      "image_path": "vanilla3/campaign_ui/skills/trait_norsca",
+      "character_skill_key": "nor_skill_trait_fimir_noble_3",
+      "tier": 3,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Batterer",
+      "localised_description": "A Fimir noble is a grim, one‑eyed chieftain wreathed in swamp‑mist and ancient oaths.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Hidden effect for granting Siege Attacker via a secret army ability. Use this instead of wh_dlc04_effect_unit_enable_can_siege_dummy if you actually want it to do something!\n\t(Hero's army)",
+              "key": "wh2_dlc16_effect_siege_attacker_hidden",
+              "icon": "",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc16_effect_siege_attacker_hidden",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc16_army_abilities_siege_attacker_hidden",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/placeholder",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": true,
+                    "onscreen_name": "placeholder",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": true,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh2_dlc16_army_abilities_siege_attacker_hidden",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Growth: -10\n\t(own local province)",
+              "key": "wh_main_effect_province_growth_characters",
+              "icon": "vanilla3/campaign_ui/effect_bundles/growth"
+            },
+            {
+              "description": "Unit mass: +25%",
+              "key": "wh3_main_effect_character_stat_unit_mass_percentage_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/mass_character"
+            },
+            {
+              "description": "Weapon strength: +25%",
+              "key": "wh_main_effect_character_stat_weapon_strength",
+              "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+            },
+            {
+              "description": "Attribute: Siege Attacker",
+              "key": "wh_dlc04_effect_attribute_enable_can_siege_dummy",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_can_siege"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "nor_skill_trait_fimir_noble_4",
+      "image_path": "vanilla3/campaign_ui/skills/trait_norsca",
+      "character_skill_key": "nor_skill_trait_fimir_noble_4",
+      "tier": 4,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Enslaved",
+      "localised_description": "A Fimir noble is a grim, one‑eyed chieftain wreathed in swamp‑mist and ancient oaths.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Speed: -10%",
+              "key": "wh_main_effect_character_stat_speed",
+              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+            },
+            {
+              "description": "Passive ability: \"Guardian\"",
+              "key": "wh2_dlc10_effect_ability_enable_guardian",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh2_dlc10_effect_ability_enable_guardian",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc10_unit_passive_guardian",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_passive_guardian",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_ward_save",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                      "onscreen_name": "Ward Save (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Guardian",
+                    "effect_range": 40,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Unit is a Lord or Hero"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh_pro04_unit_passive_guardian",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 15,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+15 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Unbreakable\n\t(accompanying Lord)",
+              "key": "wh_main_effect_attribute_enable_unbreakable",
+              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable",
+              "related_attributes": [
+                {
+                  "key": "unbreakable",
+                  "description": " Unbreakable",
+                  "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "nor_skill_trait_fimir_noble_5",
+      "image_path": "vanilla3/campaign_ui/skills/trait_norsca",
+      "character_skill_key": "nor_skill_trait_fimir_noble_5",
+      "tier": 5,
+      "indent": 25,
+      "points_on_creation": 0,
+      "required_num_parents": 0,
+      "visible_in_ui": true,
+      "is_background_skill": true,
+      "localised_name": "Crazed",
+      "localised_description": "A Fimir noble is a grim, one‑eyed chieftain wreathed in swamp‑mist and ancient oaths.",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Passive ability: \"Rabble Rouse\"",
+              "key": "wh3_dlc25_effect_ability_enable_rabble_rouse",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_dlc25_effect_ability_enable_rabble_rouse",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh2_dlc12_unit_passive_demagoguery",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_unit_abilities_demagoguery",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Rabble-Rouse",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh2_dlc12_unit_passive_demagoguery",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_bracing",
+                            "how": "mult",
+                            "description": "x1.1 Charge Resistance",
+                            "icon": "vanilla3/skins/default/icon_stat_bracing"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Passive ability: \"Feral Rage\"",
+              "key": "wh3_dlc24_effect_ability_enable_feral_rage",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh3_dlc24_effect_ability_enable_feral_rage",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_dlc24_unit_passive_feral_rage_i",
+                    "icon_name": "sfo3/battle_ui/ability_icons/rampage",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Feral Rage I",
+                    "active_time": 45,
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points less than 75%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_dlc24_unit_passive_feral_rage",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 45,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "attributes": [
+                          {
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                            "icon": "sfo3/battle_ui/ability_icons/rampage"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "wh3_dlc24_effect_ability_enable_feral_rage",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh3_dlc24_unit_passive_feral_rage_ii",
+                    "icon_name": "sfo3/battle_ui/ability_icons/rampage",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Feral Rage II",
+                    "active_time": 45,
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points less than 25%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_dlc24_unit_passive_feral_rage",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 45,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "attributes": [
+                          {
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                            "icon": "sfo3/battle_ui/ability_icons/rampage"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh_skill_automated_movement",
+      "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+      "character_skill_key": "wh_skill_automated_movement",
+      "tier": 50,
+      "indent": 50,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": false,
+      "localised_name": "",
+      "localised_description": "",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +1%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +2%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 2
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +3%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 3
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +4%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 4
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +5%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 5
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +6%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 6
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +7%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 7
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +8%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 8
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +9%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 9
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +10%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 10
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +11%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 11
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +12%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 12
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +13%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 13
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +14%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 14
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +15%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 15
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +16%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 16
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +17%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 17
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +18%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 18
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +19%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 19
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +20%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 20
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +21%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 21
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +22%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 22
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +23%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 23
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +24%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 24
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +25%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 25
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +26%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 26
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +27%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 27
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +28%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 28
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +29%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 29
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +30%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 30
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +31%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 31
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +32%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 32
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +33%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 33
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +34%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 34
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +35%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 35
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +36%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 36
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +37%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 37
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +38%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 38
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +39%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 39
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +40%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 40
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +41%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 41
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +42%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 42
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +43%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 43
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +44%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 44
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +45%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 45
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +46%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 46
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +47%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 47
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +48%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 48
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +49%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 49
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +50%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 50
         }
       ]
     }

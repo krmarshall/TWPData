@@ -155,9 +155,19 @@
           {
             "effects": [
               {
+                "description": "Undivided glory generated: 8",
+                "key": "wh3_main_pooled_resource_dae_undivided_points_base",
+                "icon": "vanilla3/campaign_ui/effect_bundles/undivided_points"
+              },
+              {
                 "description": "Control: +1\n\t(own local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Character experience gain: +50%",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
                 "description": "Casualty replenishment rate: 0%\n\t(Lord's army)",
@@ -254,6 +264,11 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
+                "description": "Character experience gain: -25%",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+              },
+              {
                 "description": "Casualty replenishment rate: +8%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_all_campaign_replenishment_rate",
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
@@ -277,6 +292,11 @@
                 "description": "Control: +6\n\t(own local province)",
                 "key": "wh_main_effect_public_order_characters",
                 "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Character experience gain: -50%",
+                "key": "wh3_main_effect_character_campaign_experience_mod",
+                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
                 "description": "Casualty replenishment rate: +10%\n\t(Lord's army)",
@@ -2784,7 +2804,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           },
           {
@@ -2802,7 +2823,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           },
           {
@@ -2820,7 +2842,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -3233,7 +3256,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -4092,7 +4116,6 @@
     "splash_target_size_limit": "large",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
     "fly_speed": 8,
     "is_magical": true,
@@ -4104,7 +4127,7 @@
       "target_friends": false,
       "duration": 3,
       "effect_type": "negative",
-      "onscreen_name": "Dreaded - removes Immune to Psychology",
+      "onscreen_name": "Dreaded",
       "is_hidden_in_ui": false,
       "max_damaged_entities": 5,
       "attributes": [
@@ -4132,7 +4155,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {
@@ -4149,6 +4172,69 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "chs_passive_main_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_2",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Chaotic Blessing",
+          "active_time": 60,
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points greater than 50%"
+          ],
+          "phases": [
+            {
+              "icon": "chs_passive_main_2_1",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 59,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.2,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.2 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.2,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.2 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ]
+            },
+            {
+              "icon": "chs_passive_main_2_2",
+              "order": 2,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "fatigue_change_ratio": -0.2
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_daemonic_instability_daemon",
@@ -4328,69 +4414,6 @@
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "chs_passive_main_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_2",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Chaotic Blessing",
-          "active_time": 60,
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Hit Points greater than 50%"
-          ],
-          "phases": [
-            {
-              "icon": "chs_passive_main_2_1",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 59,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.2,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x1.2 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 1.2,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.2 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ]
-            },
-            {
-              "icon": "chs_passive_main_2_2",
-              "order": 2,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.2
             }
           ]
         }
@@ -4907,7 +4930,8 @@
           ],
           "related_unit_cards": [
             "chs_marauder",
-            "chs_marauder_great_weapons"
+            "chs_marauder_great_weapons",
+            "nor_bearmen_bear"
           ]
         }
       ]

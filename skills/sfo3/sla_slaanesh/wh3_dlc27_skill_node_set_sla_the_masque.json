@@ -286,13 +286,20 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Chanson of Caging",
-                      "effect_range": 55,
+                      "effect_range": 60,
                       "recharge_time": 20,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh3_dlc27_chanson_of_caging",
+                          "localised_text": "Mutually exclusive with The Dance of Dreaming and The Waltz of Lethargy",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_dlc27_lord_abilities_chanson_of_caging_enemies",
@@ -303,7 +310,16 @@
                           "duration": -1,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "fatigue_change_ratio": 0.01
+                          "fatigue_change_ratio": 0.01,
+                          "stat_effects": [
+                            {
+                              "value": 0.85,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.85 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
                         },
                         {
                           "icon": "wh3_dlc27_lord_abilities_chanson_of_caging_allies",
@@ -313,7 +329,23 @@
                           "target_friends": true,
                           "duration": -1,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.1,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.1 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_missile",
+                              "how": "add",
+                              "description": "+10 Missile Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -396,7 +428,143 @@
                 ]
               },
               {
-                "description": "Ambush defence chance: +30%\n\t(Lord's army)",
+                "description": "Ambush defence chance: +10%\n\t(Lord's army)",
+                "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              },
+              {
+                "description": "Ability: \"Slippery\"",
+                "key": "wh_main_effect_ability_enable_slippery",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_slippery",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_hero_abilities_slippery",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_hero_abilities_slippery",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Slippery",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "recharge_time": 120,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_hero_abilities_slippery",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.4,
+                              "stat": "scalar_entity_acceleration_modifier",
+                              "how": "mult",
+                              "description": "x1.4 Acceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.2,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.2 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+20 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_resistance_missile",
+                              "how": "add",
+                              "description": "+20 Missile Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Enables charmed attacks",
+                "key": "wh2_dlc16_enable_charmed_attacks",
+                "icon": "vanilla3/campaign_ui/effect_bundles/dlc16_phase_charmed",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_charmed",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Charmed!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": -10,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "-10 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "description": "Enables charmed attacks for Daemonettes of Slaanesh\n\t(Lord's army)",
+                "key": "wh3_dlc27_enable_charmed_attacks_sla_daemonettes",
+                "icon": "vanilla3/campaign_ui/effect_bundles/dlc16_phase_charmed",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_charmed",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Charmed!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": -10,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "-10 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "description": "Ambush defence chance: +75%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_ambush_defence_success_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
               },
@@ -497,7 +665,26 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +5 for Daemonic Cavalry and Chariot units\n\t(all armies factionwide)",
+                "description": "Melee attack: +3 for Daemonic Cavalry and Chariot units\n\t(all armies factionwide)",
+                "key": "wh3_dlc27_effect_force_stat_melee_attack_sla_daemonic_cavalry_and_chariots",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee"
+              },
+              {
+                "description": "Charge bonus: +5 for Daemonic Cavalry and Chariot units\n\t(all armies factionwide)",
+                "key": "wh3_dlc27_effect_force_stat_charge_bonus_add_sla_daemonic_cavalry_and_chariots",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              },
+              {
+                "description": "Vigour loss reduction: -10% for Daemonic Cavalry and Chariot units\n\t(all armies factionwide)",
+                "key": "wh3_dlc27_effect_force_stat_vigour_loss_reduction_sla_daemonic_cavalry_and_chariots",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee attack: +6 for Daemonic Cavalry and Chariot units\n\t(all armies factionwide)",
                 "key": "wh3_dlc27_effect_force_stat_melee_attack_sla_daemonic_cavalry_and_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
@@ -532,6 +719,79 @@
         "localised_name": "Rigorous Precision",
         "localised_description": "The chaos of battle can often sand off the edges off precise martial choreography, but if there is a place where the Masque's perfectly honed, deadly movements thrive, it is *that* chaos.",
         "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee attack: +4",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Bonus vs Infantry: +5",
+                "key": "wh_main_effect_character_stat_bonus_vs_infantry",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small_character"
+              },
+              {
+                "description": "Ability: \"Heroic Killing Blow\"",
+                "key": "wh_main_effect_ability_enable_heroic_killing_blow",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_heroic_killing_blow",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_character_abilities_heroic_killing_blow",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Heroic Killing Blow",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "recharge_time": 120,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.6,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.6 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.6,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.6 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           {
             "effects": [
               {
@@ -627,7 +887,103 @@
           {
             "effects": [
               {
-                "description": "Bonus vs Infantry: +12 for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units\n\t(Lord's army)",
+                "description": "Bonus vs Infantry: +3 for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units\n\t(Lord's army)",
+                "key": "wh3_dlc27_effect_force_stat_bonus_vs_infantry_sla_daemonettes",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small"
+              },
+              {
+                "description": "Speed: +6% for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units\n\t(Lord's army)",
+                "key": "wh3_main_effect_force_stat_speed_sla_daemonettes",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              },
+              {
+                "description": "Passive ability: \"Frenzy\" for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units\n\t(Lord's army)",
+                "key": "wh3_dlc27_effect_ability_enable_frenzy_sla_daemonettes",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc27_effect_ability_enable_frenzy_sla_daemonettes",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_unit_passive_frenzy",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Frenzy",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is higher than 50% of base"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.1,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.1 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+10 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 5,
+                              "stat": "stat_charge_bonus",
+                              "how": "add",
+                              "description": "+5 Charge Bonus",
+                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            },
+                            {
+                              "value": 1.1,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.1 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "immune_to_psychology",
+                              "description": " Immune to Psychology",
+                              "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Bonus vs Infantry: +6 for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units\n\t(Lord's army)",
                 "key": "wh3_dlc27_effect_force_stat_bonus_vs_infantry_sla_daemonettes",
                 "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small"
               },
@@ -717,6 +1073,11 @@
                     }
                   }
                 ]
+              },
+              {
+                "description": "Weapon strength: +12% for Daemonettes of Slaanesh, Exalted Daemonettes of Slaanesh and Marauders of Slaanesh units\n\t(Lord's army)",
+                "key": "wh3_main_effect_force_stat_weapon_strength_sla_daemonettes_marauders",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
               }
             ]
           }
@@ -761,13 +1122,20 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Waltz of Lethargy",
-                      "effect_range": 35,
+                      "effect_range": 40,
                       "recharge_time": 20,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh3_dlc27_the_waltz_of_lethargy",
+                          "localised_text": "Mutually exclusive with The Dance of Dreaming and Chanson of Caging",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_dlc27_lord_abilities_the_waltz_of_lethargy_enemies",
@@ -777,7 +1145,16 @@
                           "target_friends": false,
                           "duration": -1,
                           "effect_type": "negative",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -6,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-6 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
                         },
                         {
                           "icon": "wh3_dlc27_lord_abilities_the_waltz_of_lethargy_allies",
@@ -787,7 +1164,16 @@
                           "target_friends": true,
                           "duration": -1,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 6,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+6 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -844,13 +1230,20 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Chanson of Caging",
-                      "effect_range": 55,
+                      "effect_range": 60,
                       "recharge_time": 20,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh3_dlc27_chanson_of_caging",
+                          "localised_text": "Mutually exclusive with The Dance of Dreaming and The Waltz of Lethargy",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_dlc27_lord_abilities_chanson_of_caging_enemies",
@@ -861,7 +1254,16 @@
                           "duration": -1,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "fatigue_change_ratio": 0.01
+                          "fatigue_change_ratio": 0.01,
+                          "stat_effects": [
+                            {
+                              "value": 0.85,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.85 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
                         },
                         {
                           "icon": "wh3_dlc27_lord_abilities_chanson_of_caging_allies",
@@ -871,7 +1273,23 @@
                           "target_friends": true,
                           "duration": -1,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.1,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.1 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_missile",
+                              "how": "add",
+                              "description": "+10 Missile Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -890,7 +1308,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Dance of Dreaming",
-                      "effect_range": 35,
+                      "effect_range": 40,
                       "recharge_time": 20,
                       "target_enemies": false,
                       "target_friends": false,
@@ -899,6 +1317,23 @@
                       "target_intercept_range": 0,
                       "target_if": [
                         "In melee"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh3_dlc27_the_dance_of_dreaming",
+                          "localised_text": "Mutually exclusive with The Waltz of Lethargy and Chanson of Caging",
+                          "effect_state": "negative"
+                        },
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_damaged_entities_6",
+                          "localised_text": "Affect up to 6 entities",
+                          "effect_state": "positive"
+                        }
                       ],
                       "phases": [
                         {
@@ -910,9 +1345,18 @@
                           "duration": -1,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "damage_amount": 4,
+                          "damage_amount": 5,
                           "hp_change_frequency": 1,
-                          "max_damaged_entities": 6
+                          "max_damaged_entities": 6,
+                          "stat_effects": [
+                            {
+                              "value": -6,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-6 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -931,13 +1375,20 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Waltz of Lethargy",
-                      "effect_range": 35,
+                      "effect_range": 40,
                       "recharge_time": 20,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh3_dlc27_the_waltz_of_lethargy",
+                          "localised_text": "Mutually exclusive with The Dance of Dreaming and Chanson of Caging",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_dlc27_lord_abilities_the_waltz_of_lethargy_enemies",
@@ -947,7 +1398,16 @@
                           "target_friends": false,
                           "duration": -1,
                           "effect_type": "negative",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -6,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-6 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
                         },
                         {
                           "icon": "wh3_dlc27_lord_abilities_the_waltz_of_lethargy_allies",
@@ -957,7 +1417,16 @@
                           "target_friends": true,
                           "duration": -1,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 6,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+6 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -2854,10 +3323,10 @@
   ],
   "unitStats": {
     "run_speed": 7,
-    "mass": 800,
+    "mass": 1000,
     "size": "small",
-    "hit_points": 8,
-    "bonus_hit_points": 5322,
+    "hit_points": 0,
+    "bonus_hit_points": 6500,
     "armour": 25,
     "missile_block_chance": 0,
     "morale": 80,
@@ -2867,19 +3336,51 @@
     "damage_mod_missile": 0,
     "damage_mod_all": 0,
     "melee_attack": 65,
-    "melee_defence": 63,
+    "melee_defence": 65,
     "charge_bonus": 50,
     "bonus_v_large": 0,
     "bonus_v_infantry": 25,
-    "damage": 220,
-    "ap_damage": 260,
+    "damage": 225,
+    "ap_damage": 275,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 5,
-    "melee_attack_interval": 3.8,
-    "barrier": 0,
+    "melee_attack_interval": 4,
     "can_siege": true,
-    "fly_speed": 0,
     "is_magical": true,
+    "contact_phase": {
+      "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_blinded",
+      "order": 1,
+      "target_enemies": true,
+      "target_self": false,
+      "target_friends": false,
+      "duration": 10,
+      "effect_type": "negative",
+      "onscreen_name": "Blinded!",
+      "is_hidden_in_ui": false,
+      "stat_effects": [
+        {
+          "value": -15,
+          "stat": "stat_melee_attack",
+          "how": "add",
+          "description": "-15 Melee Attack",
+          "icon": "vanilla3/skins/default/icon_stat_attack"
+        },
+        {
+          "value": -15,
+          "stat": "stat_melee_defence",
+          "how": "add",
+          "description": "-15 Melee Defence",
+          "icon": "vanilla3/skins/default/icon_stat_defence"
+        },
+        {
+          "value": -15,
+          "stat": "stat_accuracy",
+          "how": "add",
+          "description": "-15 Accuracy",
+          "icon": "vanilla3/skins/default/icon_stat_range"
+        }
+      ]
+    },
     "attributes": [
       {
         "key": "causes_fear",
@@ -2890,7 +3391,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {
@@ -2917,6 +3418,256 @@
         "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
         "icon": "sfo3/battle_ui/ability_icons/strider"
       }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh3_dlc27_lord_abilities_the_dance_of_dreaming",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_lord_abilities_the_dance_of_dreaming",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+            "onscreen_name": "Direct Damage (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "The Dance of Dreaming",
+          "effect_range": 40,
+          "recharge_time": 20,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "target_if": [
+            "In melee"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh3_dlc27_the_dance_of_dreaming",
+              "localised_text": "Mutually exclusive with The Waltz of Lethargy and Chanson of Caging",
+              "effect_state": "negative"
+            },
+            {
+              "key": "wh_main_all_direct_damage",
+              "localised_text": "Causes damage to combatants",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_damaged_entities_6",
+              "localised_text": "Affect up to 6 entities",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_lord_abilities_the_dance_of_dreaming",
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 5,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 6,
+              "stat_effects": [
+                {
+                  "value": -6,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "-6 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_daemonic_instability_slaanesh",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Daemonic Instability",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is broken"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "wh3_main_unit_passive_daemonic_instability_slaanesh_1",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 20,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 2,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.75 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": -25,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-25 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": -25,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "-25 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_daemonic_instability_slaanesh_ii",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability_ii",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Banished!",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is shattered"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "wh3_main_unit_passive_daemonic_instability_slaanesh_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 200,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 2
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "onscreen_name": "Wounded!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
+      }
     ]
   },
   "factionEffects": {
@@ -2924,7 +3675,28 @@
     "localised_description": "Condemned to dance throughout eternity, her every motion a stylised rendition of one of the Dark Prince's great victories.",
     "localised_title": "Eternal Dancer",
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
-    "effects": []
+    "effects": [
+      {
+        "description": "Has access to the Eternal Dance, allowing armies to assemble dances to gain powerful buffs, army abilities and rituals.",
+        "key": "wh3_dlc27_sla_the_masque_innate_feature_dummy_eternal_dance",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc27_sla_eternal_dance"
+      },
+      {
+        "description": "Unlocks Hero recruitment: Alluress",
+        "key": "wh3_main_effect_agent_enable_recruitment_sla_alluress",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+      },
+      {
+        "description": "Casualty replenishment rate: +10% for daemonic Infantry, Cavalry and Chariot units",
+        "key": "wh3_dlc27_faction_trait_sla_masque_replenishment_rate_infantry_cavalry_chariots",
+        "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+      },
+      {
+        "description": "Global and Local recruitment duration: -1 turn for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units (minimum 1)",
+        "key": "wh3_dlc27_faction_trait_sla_masque_recruit_time_daemonettes",
+        "icon": "vanilla3/campaign_ui/effect_bundles/turns"
+      }
+    ]
   },
   "items": [
     {
@@ -2953,7 +3725,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Staff of Masks",
-                "active_time": 23,
+                "active_time": 30,
                 "effect_range": 0,
                 "num_effected_enemy_units": 1,
                 "num_uses": 2,
@@ -2963,6 +3735,23 @@
                 "target_ground": false,
                 "target_self": false,
                 "target_intercept_range": 50,
+                "ui_effects": [
+                  {
+                    "key": "wh_main_all_direct_damage",
+                    "localised_text": "Causes damage to combatants",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_strong_against_multiple",
+                    "localised_text": "Strong vs multiple combatants",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_damaged_entities_15",
+                    "localised_text": "Affect up to 15 entities",
+                    "effect_state": "positive"
+                  }
+                ],
                 "phases": [
                   {
                     "icon": "wh3_dlc27_item_abilities_staff_of_the_masque_enemy",
@@ -2970,7 +3759,7 @@
                     "target_enemies": true,
                     "target_self": false,
                     "target_friends": false,
-                    "duration": 23,
+                    "duration": 30,
                     "effect_type": "negative",
                     "is_hidden_in_ui": false,
                     "damage_amount": 5,
@@ -2984,7 +3773,7 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 23,
+                    "duration": 30,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "fatigue_change_ratio": -0.01,
@@ -3031,17 +3820,17 @@
         {
           "effects": [
             {
-              "description": "Wound recovery time: -3 turns",
+              "description": "Wound recovery time: -2 turns",
               "key": "wh_main_effect_character_wound_recovery_time_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
             },
             {
-              "description": "Physical resistance: 15% for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units\n\t(Lord's army)",
+              "description": "Physical resistance: 10% for Daemonettes of Slaanesh and Exalted Daemonettes of Slaanesh units\n\t(Lord's army)",
               "key": "wh3_dlc27_effect_force_stat_physical_resistance_sla_daemonettes",
               "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
             },
             {
-              "description": "Upkeep: -25% for all Daemonette units\n\t(Lord's army)",
+              "description": "Upkeep: -20% for all Daemonette units\n\t(Lord's army)",
               "key": "wh3_dlc27_sla_the_masque_innate_upkeep_daemonettes",
               "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             },
@@ -3064,7 +3853,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "The Dance of Dreaming",
-                    "effect_range": 35,
+                    "effect_range": 40,
                     "recharge_time": 20,
                     "target_enemies": false,
                     "target_friends": false,
@@ -3073,6 +3862,23 @@
                     "target_intercept_range": 0,
                     "target_if": [
                       "In melee"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh3_dlc27_the_dance_of_dreaming",
+                        "localised_text": "Mutually exclusive with The Waltz of Lethargy and Chanson of Caging",
+                        "effect_state": "negative"
+                      },
+                      {
+                        "key": "wh_main_all_direct_damage",
+                        "localised_text": "Causes damage to combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_damaged_entities_6",
+                        "localised_text": "Affect up to 6 entities",
+                        "effect_state": "positive"
+                      }
                     ],
                     "phases": [
                       {
@@ -3084,9 +3890,18 @@
                         "duration": -1,
                         "effect_type": "negative",
                         "is_hidden_in_ui": false,
-                        "damage_amount": 4,
+                        "damage_amount": 5,
                         "hp_change_frequency": 1,
-                        "max_damaged_entities": 6
+                        "max_damaged_entities": 6,
+                        "stat_effects": [
+                          {
+                            "value": -6,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-6 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
                       }
                     ]
                   }

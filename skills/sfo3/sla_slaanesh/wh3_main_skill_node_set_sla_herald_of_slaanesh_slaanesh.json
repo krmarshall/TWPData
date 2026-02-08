@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "attributes": [
                 {
@@ -60,7 +58,7 @@
                 {
                   "key": "daemonic",
                   "description": "Daemonic",
-                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
                 },
                 {
@@ -345,10 +343,10 @@
             ],
             "mount_unit_stats": {
               "run_speed": 10,
-              "mass": 1800,
+              "mass": 2250,
               "size": "medium",
-              "hit_points": 8,
-              "bonus_hit_points": 5024,
+              "hit_points": 0,
+              "bonus_hit_points": 6250,
               "armour": 15,
               "missile_block_chance": 0,
               "morale": 70,
@@ -357,8 +355,8 @@
               "damage_mod_physical": 20,
               "damage_mod_missile": 0,
               "damage_mod_all": 0,
-              "melee_attack": 60,
-              "melee_defence": 55,
+              "melee_attack": 55,
+              "melee_defence": 50,
               "charge_bonus": 70,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
@@ -367,8 +365,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "attributes": [
                 {
@@ -380,7 +376,7 @@
                 {
                   "key": "daemonic",
                   "description": "Daemonic",
-                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
                 },
                 {
@@ -406,6 +402,241 @@
                   "description": " Strider",
                   "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
                   "icon": "sfo3/battle_ui/ability_icons/strider"
+                }
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_lord_passive_soul_siphon",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_lord_passive_soul_snare",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                      "onscreen_name": "Direct Damage (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Soul Siphon",
+                    "effect_range": 30,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "target_if": [
+                      "Leadership is wavering or lower"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage",
+                        "localised_text": "Causes damage to combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_damaged_entities_4",
+                        "localised_text": "Affect up to 4 entities",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_main_lord_passive_soul_siphon",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 8,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 4
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_daemonic_instability_slaanesh",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Daemonic Instability",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage_self",
+                        "localised_text": "Causes damage to self",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_main_unit_passive_daemonic_instability_slaanesh_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 20,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 2,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.75 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": -25,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "-25 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": -25,
+                            "stat": "stat_armour",
+                            "how": "add",
+                            "description": "-25 Armour",
+                            "icon": "vanilla3/skins/default/icon_stat_armour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_daemonic_instability_slaanesh_ii",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability_ii",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Banished!",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is shattered"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage_self",
+                        "localised_text": "Causes damage to self",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_main_unit_passive_daemonic_instability_slaanesh_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 200,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 2
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -458,8 +689,6 @@
               "splash_target_size_limit": "very_large",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_bleed",
@@ -494,7 +723,7 @@
                 {
                   "key": "daemonic",
                   "description": "Daemonic",
-                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
                 },
                 {
@@ -795,8 +1024,6 @@
               "splash_target_size_limit": "very_large",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_maim",
@@ -831,7 +1058,7 @@
                 {
                   "key": "daemonic",
                   "description": "Daemonic",
-                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
                 },
                 {
@@ -1963,6 +2190,13 @@
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_dlc27_lord_passive_soul_siphon_upgraded",
@@ -2061,8 +2295,27 @@
           {
             "effects": [
               {
-                "description": "Upkeep: -5% for Slaanesh units\n\t(Lord's army)",
+                "description": "Upkeep: -3% for Slaanesh units\n\t(Lord's army)",
                 "key": "wh3_main_effect_upkeep_sla_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Upkeep: -3% for Slaanesh units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_upkeep_sla_all_factionwide",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Upkeep: -6% for Slaanesh units\n\t(Lord's army)",
+                "key": "wh3_main_effect_upkeep_sla_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Upkeep: -6% for Slaanesh units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_upkeep_sla_all_factionwide",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               }
             ]
@@ -2073,14 +2326,10 @@
                 "description": "Upkeep: -10% for Slaanesh units\n\t(Lord's army)",
                 "key": "wh3_main_effect_upkeep_sla_all",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-              }
-            ]
-          },
-          {
-            "effects": [
+              },
               {
-                "description": "Upkeep: -20% for Slaanesh units\n\t(Lord's army)",
-                "key": "wh3_main_effect_upkeep_sla_all",
+                "description": "Upkeep: -10% for Slaanesh units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_upkeep_sla_all_factionwide",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               }
             ]
@@ -5545,8 +5794,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -5558,7 +5805,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {
@@ -6752,6 +6999,11 @@
                         "key": "wh_main_vortex_large_breath",
                         "localised_text": "Expanding tear-shaped attack",
                         "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
                       }
                     ],
                     "vortex": {
@@ -7887,6 +8139,11 @@
                         "key": "wh_main_vortex_large_breath",
                         "localised_text": "Expanding tear-shaped attack",
                         "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
                       }
                     ],
                     "vortex": {
@@ -7998,7 +8255,7 @@
             {
               "description": "Enemy reload time reduction: -10%\n\t(enemy armies in region)",
               "key": "wh_effect_all_reload_enemies",
-              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
             }
           ]
         }

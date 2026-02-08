@@ -1964,7 +1964,7 @@
                       "miscast_chance": 0.25,
                       "num_effected_friendly_units": 1,
                       "num_uses": 2,
-                      "recharge_time": 45,
+                      "recharge_time": 60,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": true,
@@ -3833,9 +3833,7 @@
     "splash_target_size_limit": "very_large",
     "splash_attack_max_attacks": 10,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -3882,6 +3880,58 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wef_passive_main_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/wef_passive_main_2",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Protectors of the Wood",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points greater than 50%"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wef_passive_main_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "mana_max_depletion_mod": 0.05,
+              "stat_effects": [
+                {
+                  "value": 20,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "+20 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+10 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh_dlc05_hero_passive_blessing_of_the_ancients",
@@ -4107,61 +4157,64 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "wef_passive_main_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/wef_passive_main_2",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Protectors of the Wood",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Hit Points greater than 50%"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wef_passive_main_2",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "mana_max_depletion_mod": 0.05,
-              "stat_effects": [
-                {
-                  "value": 20,
-                  "stat": "stat_armour",
-                  "how": "add",
-                  "description": "+20 Armour",
-                  "icon": "vanilla3/skins/default/icon_stat_armour"
-                },
-                {
-                  "value": 10,
-                  "stat": "stat_resistance_physical",
-                  "how": "add",
-                  "description": "+10 Physical Resistance",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                }
-              ]
-            }
-          ]
-        }
       }
     ]
   },
+  "items": [
+    {
+      "key": "wh3_dlc24_anc_arcane_item_ritual_of_the_beast",
+      "onscreen_name": "Ritual of the Beast",
+      "colour_text": "Those masters of the hidden lore of Ghur speak of bloody rites to be performed before a great idol of beast skulls and freshly flensed hides should one dare to call upon the power of the Bloody Hidesman, and the terrible price of doing so.",
+      "ui_icon": "skins/default/equipment_items_arcane",
+      "effects": [
+        {
+          "description": "Ability: \"Ritual of the Beast\"",
+          "key": "wh3_dlc24_abilities_enable_ritual_of_the_beast",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh3_dlc24_abilities_enable_ritual_of_the_beast",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh3_dlc24_item_abilities_ritual_of_the_beast",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_item_abilities_ritual_of_the_beast",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_summon_unit",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Summon Unit"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Ritual of the Beast",
+                "active_time": 1,
+                "effect_range": 0,
+                "num_effected_friendly_units": 1,
+                "num_uses": 1,
+                "recharge_time": 300,
+                "target_enemies": false,
+                "target_friends": true,
+                "target_ground": true,
+                "target_self": true,
+                "target_intercept_range": 50,
+                "ui_effects": [
+                  {
+                    "key": "wh3_dlc24_all_summon_elemental_incarnate_of_beasts",
+                    "localised_text": "Summons an Elemental Incarnate of Beasts",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_direct_damage_unbinding",
+                    "localised_text": "Summoned units have specific debuffs conditions",
+                    "effect_state": "negative"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "wh2_dlc16_skill_node_wef_malicious_ancient_treeman_beasts_magic_dummy",
@@ -4482,7 +4535,7 @@
               ]
             },
             {
-              "description": "Enable contact effect: \"Lethal Posion\"",
+              "description": "Enable contact effect: \"Lethal Poison\"",
               "key": "wh_effect_enable_contact_poison_lethal",
               "icon": "sfo3/campaign_ui/effect_bundles/wh_main_unit_contact_poison_lethal",
               "related_phases": [
@@ -4636,7 +4689,7 @@
                   "target_friends": false,
                   "duration": 3,
                   "effect_type": "negative",
-                  "onscreen_name": "Dreaded - removes Immune to Psychology",
+                  "onscreen_name": "Dreaded",
                   "is_hidden_in_ui": false,
                   "max_damaged_entities": 5,
                   "attributes": [

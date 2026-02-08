@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
@@ -119,6 +117,123 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "chs_passive_nurgle_fart",
+                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_explosion",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+                      "onscreen_name": "Explosion"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Touch of the Plague",
+                    "active_time": 30,
+                    "effect_range": 20,
+                    "recharge_time": 150,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee",
+                      "Leadership is higher than broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_explosion",
+                        "localised_text": "Explosion with knockback effect",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 5,
+                        "fatigue_change_ratio": 0.01,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 10
+                      }
+                    ],
+                    "vortex": {
+                      "vortex_key": "chs_passive_nurgle_fart",
+                      "duration": 1,
+                      "damage": 0,
+                      "damage_ap": 0,
+                      "goal_radius": 20,
+                      "movement_speed": 0,
+                      "delay": 0,
+                      "affects_allies": false,
+                      "contact_effect": {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_poison_lethal",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 15,
+                        "effect_type": "negative",
+                        "onscreen_name": "Lethal Poison - 2 damage, 5 entities",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 2,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 5,
+                        "stat_effects": [
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_missile_damage_ap",
+                            "how": "mult",
+                            "description": "x0.9 Armour-Piercing Missile Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_missile_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Missile Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.9 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.9 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "stat_healing_power",
+                            "how": "mult",
+                            "description": "x0.9 Incoming Healing Modifier",
+                            "icon": "vanilla3/skins/default/stat_healing_received"
+                          },
+                          {
+                            "value": 0.9,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.9 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_cloud_of_flies",
@@ -249,7 +364,128 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 4
+          }
+        ]
+      },
+      {
+        "key": "wh3_dlc20_skill_node_chs_cha_chaos_sorcerer_lord_nurgle_mnur_warshrine",
+        "image_path": "vanilla3/campaign_ui/skills/mount_warshrine",
+        "character_skill_key": "wh3_dlc20_skill_mount_chs_cha_chaos_sorcerer_lord_nurgle_mnur_warshrine",
+        "tier": 2,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Chaos Warshrine",
+        "localised_description": "A vast, mobile altar allows the souls of the slain to be ritualistically condemned directly from the field of slaughter.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Warshrine",
+                "key": "wh_main_effect_enable_mount_warshrine",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 3,
+              "mass": 4000,
+              "size": "very_large",
+              "hit_points": 0,
+              "bonus_hit_points": 14500,
+              "armour": 60,
+              "missile_block_chance": 0,
+              "morale": 70,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 35,
+              "melee_defence": 35,
+              "charge_bonus": 25,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 250,
+              "ap_damage": 125,
+              "splash_target_size_limit": "very_large",
+              "splash_attack_max_attacks": 5,
+              "melee_attack_interval": 4,
+              "can_siege": true,
+              "contact_phase": {
+                "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 10,
+                "effect_type": "negative",
+                "onscreen_name": "Poison!",
+                "is_hidden_in_ui": false,
+                "stat_effects": [
+                  {
+                    "value": 0.8,
+                    "stat": "scalar_missile_damage_ap",
+                    "how": "mult",
+                    "description": "x0.8 Armour-Piercing Missile Damage",
+                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "scalar_missile_damage_base",
+                    "how": "mult",
+                    "description": "x0.8 Base Missile Damage",
+                    "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "scalar_speed",
+                    "how": "mult",
+                    "description": "x0.8 Speed",
+                    "icon": "vanilla3/skins/default/icon_stat_speed"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "stat_melee_damage_base",
+                    "how": "mult",
+                    "description": "x0.8 Base Weapon Damage",
+                    "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "stat_melee_damage_ap",
+                    "how": "mult",
+                    "description": "x0.8 Armour-Piercing Weapon Damage",
+                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  }
+                ]
+              },
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
+                },
+                {
+                  "key": "mark_nurgle",
+                  "description": "Mark of Nurgle",
+                  "bullet_text": "This unit is branded with the Mark of Nurgle, and is affected by Nurgle Authority.",
+                  "icon": "sfo3/battle_ui/ability_icons/mark_nurgle"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "chs_passive_nurgle_fart",
@@ -366,130 +602,7 @@
                       }
                     }
                   }
-                }
-              ]
-            },
-            "auto_unlock_at_rank": 4
-          }
-        ]
-      },
-      {
-        "key": "wh3_dlc20_skill_node_chs_cha_chaos_sorcerer_lord_nurgle_mnur_warshrine",
-        "image_path": "vanilla3/campaign_ui/skills/mount_warshrine",
-        "character_skill_key": "wh3_dlc20_skill_mount_chs_cha_chaos_sorcerer_lord_nurgle_mnur_warshrine",
-        "tier": 2,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Chaos Warshrine",
-        "localised_description": "A vast, mobile altar allows the souls of the slain to be ritualistically condemned directly from the field of slaughter.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Mount: Warshrine",
-                "key": "wh_main_effect_enable_mount_warshrine",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              }
-            ],
-            "mount_unit_stats": {
-              "run_speed": 3,
-              "mass": 4000,
-              "size": "very_large",
-              "hit_points": 0,
-              "bonus_hit_points": 14500,
-              "armour": 60,
-              "missile_block_chance": 0,
-              "morale": 70,
-              "damage_mod_flame": 0,
-              "damage_mod_magic": 0,
-              "damage_mod_physical": 0,
-              "damage_mod_missile": 15,
-              "damage_mod_all": 0,
-              "melee_attack": 35,
-              "melee_defence": 35,
-              "charge_bonus": 25,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 0,
-              "damage": 250,
-              "ap_damage": 125,
-              "splash_target_size_limit": "very_large",
-              "splash_attack_max_attacks": 5,
-              "melee_attack_interval": 4,
-              "barrier": 0,
-              "can_siege": true,
-              "fly_speed": 0,
-              "contact_phase": {
-                "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
-                "order": 1,
-                "target_enemies": true,
-                "target_self": false,
-                "target_friends": false,
-                "duration": 10,
-                "effect_type": "negative",
-                "onscreen_name": "Poison!",
-                "is_hidden_in_ui": false,
-                "stat_effects": [
-                  {
-                    "value": 0.8,
-                    "stat": "scalar_missile_damage_ap",
-                    "how": "mult",
-                    "description": "x0.8 Armour-Piercing Missile Damage",
-                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "scalar_missile_damage_base",
-                    "how": "mult",
-                    "description": "x0.8 Base Missile Damage",
-                    "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "scalar_speed",
-                    "how": "mult",
-                    "description": "x0.8 Speed",
-                    "icon": "vanilla3/skins/default/icon_stat_speed"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "stat_melee_damage_base",
-                    "how": "mult",
-                    "description": "x0.8 Base Weapon Damage",
-                    "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "stat_melee_damage_ap",
-                    "how": "mult",
-                    "description": "x0.8 Armour-Piercing Weapon Damage",
-                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                  }
-                ]
-              },
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
-                {
-                  "key": "encourages",
-                  "description": "Encourage",
-                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
-                },
-                {
-                  "key": "mark_nurgle",
-                  "description": "Mark of Nurgle",
-                  "bullet_text": "This unit is branded with the Mark of Nurgle, and is affected by Nurgle Authority.",
-                  "icon": "sfo3/battle_ui/ability_icons/mark_nurgle"
-                }
-              ],
-              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh3_dlc20_unit_passive_giver_of_abundant_glory",
@@ -661,7 +774,133 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 14
+          }
+        ]
+      },
+      {
+        "key": "wh3_dlc25_skill_node_chs_cha_chaos_sorcerer_lord_nurgle_mnur_rot_beast",
+        "image_path": "vanilla3/campaign_ui/skills/mount_rot_beast",
+        "character_skill_key": "wh3_dlc25_skill_mount_chs_cha_chaos_sorcerer_lord_nurgle_mnur_rot_beast",
+        "tier": 3,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Rot Beast",
+        "localised_description": "This vile, mutilated steed bears its rider into the very thick of battle, where any wounds scored upon its cancerous flesh are sealed by the pus weeping from its foetid body.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Rot Beast",
+                "key": "wh3_dlc25_effect_enable_mount_rot_beast",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 9.5,
+              "mass": 2250,
+              "size": "medium",
+              "hit_points": 0,
+              "bonus_hit_points": 7500,
+              "armour": 80,
+              "missile_block_chance": 0,
+              "morale": 70,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 40,
+              "melee_defence": 40,
+              "charge_bonus": 65,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 150,
+              "ap_damage": 275,
+              "splash_target_size_limit": "medium",
+              "splash_attack_max_attacks": 5,
+              "melee_attack_interval": 4,
+              "contact_phase": {
+                "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 10,
+                "effect_type": "negative",
+                "onscreen_name": "Poison!",
+                "is_hidden_in_ui": false,
+                "stat_effects": [
+                  {
+                    "value": 0.8,
+                    "stat": "scalar_missile_damage_ap",
+                    "how": "mult",
+                    "description": "x0.8 Armour-Piercing Missile Damage",
+                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "scalar_missile_damage_base",
+                    "how": "mult",
+                    "description": "x0.8 Base Missile Damage",
+                    "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "scalar_speed",
+                    "how": "mult",
+                    "description": "x0.8 Speed",
+                    "icon": "vanilla3/skins/default/icon_stat_speed"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "stat_melee_damage_base",
+                    "how": "mult",
+                    "description": "x0.8 Base Weapon Damage",
+                    "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                  },
+                  {
+                    "value": 0.8,
+                    "stat": "stat_melee_damage_ap",
+                    "how": "mult",
+                    "description": "x0.8 Armour-Piercing Weapon Damage",
+                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                  }
+                ]
+              },
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
+                },
+                {
+                  "key": "hide_forest",
+                  "description": "Hide (forest)",
+                  "bullet_text": "This unit can hide in forests until enemy units get too close.",
+                  "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+                },
+                {
+                  "key": "mark_nurgle",
+                  "description": "Mark of Nurgle",
+                  "bullet_text": "This unit is branded with the Mark of Nurgle, and is affected by Nurgle Authority.",
+                  "icon": "sfo3/battle_ui/ability_icons/mark_nurgle"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "chs_passive_nurgle_fart",
@@ -778,135 +1017,7 @@
                       }
                     }
                   }
-                }
-              ]
-            },
-            "auto_unlock_at_rank": 14
-          }
-        ]
-      },
-      {
-        "key": "wh3_dlc25_skill_node_chs_cha_chaos_sorcerer_lord_nurgle_mnur_rot_beast",
-        "image_path": "vanilla3/campaign_ui/skills/mount_rot_beast",
-        "character_skill_key": "wh3_dlc25_skill_mount_chs_cha_chaos_sorcerer_lord_nurgle_mnur_rot_beast",
-        "tier": 3,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Rot Beast",
-        "localised_description": "This vile, mutilated steed bears its rider into the very thick of battle, where any wounds scored upon its cancerous flesh are sealed by the pus weeping from its foetid body.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Mount: Rot Beast",
-                "key": "wh3_dlc25_effect_enable_mount_rot_beast",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              }
-            ],
-            "mount_unit_stats": {
-              "run_speed": 9,
-              "mass": 2250,
-              "size": "medium",
-              "hit_points": 0,
-              "bonus_hit_points": 7500,
-              "armour": 80,
-              "missile_block_chance": 0,
-              "morale": 70,
-              "damage_mod_flame": 0,
-              "damage_mod_magic": 0,
-              "damage_mod_physical": 0,
-              "damage_mod_missile": 15,
-              "damage_mod_all": 0,
-              "melee_attack": 40,
-              "melee_defence": 40,
-              "charge_bonus": 65,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 0,
-              "damage": 150,
-              "ap_damage": 275,
-              "splash_target_size_limit": "medium",
-              "splash_attack_max_attacks": 5,
-              "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
-              "contact_phase": {
-                "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
-                "order": 1,
-                "target_enemies": true,
-                "target_self": false,
-                "target_friends": false,
-                "duration": 10,
-                "effect_type": "negative",
-                "onscreen_name": "Poison!",
-                "is_hidden_in_ui": false,
-                "stat_effects": [
-                  {
-                    "value": 0.8,
-                    "stat": "scalar_missile_damage_ap",
-                    "how": "mult",
-                    "description": "x0.8 Armour-Piercing Missile Damage",
-                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "scalar_missile_damage_base",
-                    "how": "mult",
-                    "description": "x0.8 Base Missile Damage",
-                    "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "scalar_speed",
-                    "how": "mult",
-                    "description": "x0.8 Speed",
-                    "icon": "vanilla3/skins/default/icon_stat_speed"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "stat_melee_damage_base",
-                    "how": "mult",
-                    "description": "x0.8 Base Weapon Damage",
-                    "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                  },
-                  {
-                    "value": 0.8,
-                    "stat": "stat_melee_damage_ap",
-                    "how": "mult",
-                    "description": "x0.8 Armour-Piercing Weapon Damage",
-                    "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                  }
-                ]
-              },
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
-                {
-                  "key": "encourages",
-                  "description": "Encourage",
-                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
-                },
-                {
-                  "key": "hide_forest",
-                  "description": "Hide (forest)",
-                  "bullet_text": "This unit can hide in forests until enemy units get too close.",
-                  "icon": "sfo3/battle_ui/ability_icons/hide_forest"
-                },
-                {
-                  "key": "mark_nurgle",
-                  "description": "Mark of Nurgle",
-                  "bullet_text": "This unit is branded with the Mark of Nurgle, and is affected by Nurgle Authority.",
-                  "icon": "sfo3/battle_ui/ability_icons/mark_nurgle"
-                }
-              ],
-              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_cloud_of_flies",
@@ -1036,123 +1147,6 @@
                         ]
                       }
                     ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "chs_passive_nurgle_fart",
-                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_explosion",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
-                      "onscreen_name": "Explosion"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Touch of the Plague",
-                    "active_time": 30,
-                    "effect_range": 20,
-                    "recharge_time": 150,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "In melee",
-                      "Leadership is higher than broken"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_explosion",
-                        "localised_text": "Explosion with knockback effect",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": 30,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "damage_amount": 5,
-                        "fatigue_change_ratio": 0.01,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 10
-                      }
-                    ],
-                    "vortex": {
-                      "vortex_key": "chs_passive_nurgle_fart",
-                      "duration": 1,
-                      "damage": 0,
-                      "damage_ap": 0,
-                      "goal_radius": 20,
-                      "movement_speed": 0,
-                      "delay": 0,
-                      "affects_allies": false,
-                      "contact_effect": {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_poison_lethal",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": 15,
-                        "effect_type": "negative",
-                        "onscreen_name": "Lethal Poison - 2 damage, 5 entities",
-                        "is_hidden_in_ui": false,
-                        "damage_amount": 2,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 5,
-                        "stat_effects": [
-                          {
-                            "value": 0.9,
-                            "stat": "scalar_missile_damage_ap",
-                            "how": "mult",
-                            "description": "x0.9 Armour-Piercing Missile Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "scalar_missile_damage_base",
-                            "how": "mult",
-                            "description": "x0.9 Base Missile Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.9 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x0.9 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_healing_power",
-                            "how": "mult",
-                            "description": "x0.9 Incoming Healing Modifier",
-                            "icon": "vanilla3/skins/default/stat_healing_received"
-                          },
-                          {
-                            "value": 0.9,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x0.9 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      }
-                    }
                   }
                 }
               ]
@@ -3393,7 +3387,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           },
           {
@@ -3411,7 +3406,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           },
           {
@@ -3429,7 +3425,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -3842,7 +3839,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -4702,8 +4700,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
@@ -4774,6 +4770,123 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "chs_passive_nurgle_fart",
+          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_explosion",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+            "onscreen_name": "Explosion"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Touch of the Plague",
+          "active_time": 30,
+          "effect_range": 20,
+          "recharge_time": 150,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "In melee",
+            "Leadership is higher than broken"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_explosion",
+              "localised_text": "Explosion with knockback effect",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 5,
+              "fatigue_change_ratio": 0.01,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 10
+            }
+          ],
+          "vortex": {
+            "vortex_key": "chs_passive_nurgle_fart",
+            "duration": 1,
+            "damage": 0,
+            "damage_ap": 0,
+            "goal_radius": 20,
+            "movement_speed": 0,
+            "delay": 0,
+            "affects_allies": false,
+            "contact_effect": {
+              "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_poison_lethal",
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 15,
+              "effect_type": "negative",
+              "onscreen_name": "Lethal Poison - 2 damage, 5 entities",
+              "is_hidden_in_ui": false,
+              "damage_amount": 2,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 5,
+              "stat_effects": [
+                {
+                  "value": 0.9,
+                  "stat": "scalar_missile_damage_ap",
+                  "how": "mult",
+                  "description": "x0.9 Armour-Piercing Missile Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                },
+                {
+                  "value": 0.9,
+                  "stat": "scalar_missile_damage_base",
+                  "how": "mult",
+                  "description": "x0.9 Base Missile Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                },
+                {
+                  "value": 0.9,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.9 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.9,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.9 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 0.9,
+                  "stat": "stat_healing_power",
+                  "how": "mult",
+                  "description": "x0.9 Incoming Healing Modifier",
+                  "icon": "vanilla3/skins/default/stat_healing_received"
+                },
+                {
+                  "value": 0.9,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.9 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ]
+            }
+          }
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_cloud_of_flies",
@@ -4903,123 +5016,6 @@
               ]
             }
           ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "chs_passive_nurgle_fart",
-          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_explosion",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
-            "onscreen_name": "Explosion"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Touch of the Plague",
-          "active_time": 30,
-          "effect_range": 20,
-          "recharge_time": 150,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "In melee",
-            "Leadership is higher than broken"
-          ],
-          "ui_effects": [
-            {
-              "key": "wh_explosion",
-              "localised_text": "Explosion with knockback effect",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/chs_passive_nurgle_fart",
-              "order": 1,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 30,
-              "effect_type": "negative",
-              "is_hidden_in_ui": false,
-              "damage_amount": 5,
-              "fatigue_change_ratio": 0.01,
-              "hp_change_frequency": 1,
-              "max_damaged_entities": 10
-            }
-          ],
-          "vortex": {
-            "vortex_key": "chs_passive_nurgle_fart",
-            "duration": 1,
-            "damage": 0,
-            "damage_ap": 0,
-            "goal_radius": 20,
-            "movement_speed": 0,
-            "delay": 0,
-            "affects_allies": false,
-            "contact_effect": {
-              "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_poison_lethal",
-              "order": 1,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 15,
-              "effect_type": "negative",
-              "onscreen_name": "Lethal Poison - 2 damage, 5 entities",
-              "is_hidden_in_ui": false,
-              "damage_amount": 2,
-              "hp_change_frequency": 1,
-              "max_damaged_entities": 5,
-              "stat_effects": [
-                {
-                  "value": 0.9,
-                  "stat": "scalar_missile_damage_ap",
-                  "how": "mult",
-                  "description": "x0.9 Armour-Piercing Missile Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                },
-                {
-                  "value": 0.9,
-                  "stat": "scalar_missile_damage_base",
-                  "how": "mult",
-                  "description": "x0.9 Base Missile Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                },
-                {
-                  "value": 0.9,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x0.9 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
-                  "value": 0.9,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x0.9 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 0.9,
-                  "stat": "stat_healing_power",
-                  "how": "mult",
-                  "description": "x0.9 Incoming Healing Modifier",
-                  "icon": "vanilla3/skins/default/stat_healing_received"
-                },
-                {
-                  "value": 0.9,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x0.9 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ]
-            }
-          }
         }
       }
     ]

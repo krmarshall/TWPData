@@ -2518,9 +2518,7 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
@@ -2665,6 +2663,82 @@
       }
     ]
   },
+  "items": [
+    {
+      "key": "wh3_dlc27_anc_enchanted_item_skinhidden_plate",
+      "onscreen_name": "Skinhidden Plates",
+      "colour_text": "The Fimir’s uniquely scaly skin allows the embedding of armoured plates to increase stature and resilience, though injury causes them to be swiftly shed!",
+      "ui_icon": "skins/default/equipment_items_enchanted",
+      "effects": [
+        {
+          "description": "Physical resistance: 8%",
+          "key": "wh_main_effect_character_stat_physical_resistance",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+        },
+        {
+          "description": "Passive ability: \"Skinhidden Plate\"",
+          "key": "wh3_dlc27_effect_ability_enable_skinhidden_plate",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh3_dlc27_effect_ability_enable_skinhidden_plate",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh3_dlc27_item_passive_skinhidden_plate",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_item_passive_skinhidden_plate",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Augment"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Skinhidden Plates",
+                "effect_range": 0,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "enabled_if": [
+                  "Hit Points greater than 50% base"
+                ],
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_item_passive_skinhidden_plate",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 15,
+                        "stat": "stat_armour",
+                        "how": "add",
+                        "description": "+15 Armour",
+                        "icon": "vanilla3/skins/default/icon_stat_armour"
+                      }
+                    ],
+                    "attributes": [
+                      {
+                        "key": "causes_terror",
+                        "description": " Can Cause Terror",
+                        "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "wh_dlc08_skill_node_nor_fimir_balefiend_shadow_campaign_actions_dummy",

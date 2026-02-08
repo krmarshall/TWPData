@@ -303,7 +303,7 @@
           "short_description": "To remain in stasis is a fate worse than even the cruellest death. Praise the Architect of Fate, for He brings blessed change – and not a moment too soon.",
           "effects": [
             {
-              "description": "Barrier hit points: +250\n\t(all characters factionwide)",
+              "description": "Barrier hit points: +500\n\t(all characters factionwide)",
               "key": "wh3_main_effect_battle_barrier_health_add",
               "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             },
@@ -1593,7 +1593,7 @@
           "short_description": "Which caused which – the writhing, sanity-stripping runes or the unnaturally shifting steel that bears them? Only Tzeentch knows.",
           "effects": [
             {
-              "description": "Barrier: +10% for Chaos Knights of Tzeentch, Doom Knights of Tzeentch and Burning Chariot of Tzeentch units",
+              "description": "Barrier: +20% for Chaos Knights of Tzeentch, Doom Knights of Tzeentch and Burning Chariot of Tzeentch units",
               "key": "wh3_main_effect_force_stat_barrier_tze_cav_chariot",
               "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             },
@@ -1740,12 +1740,12 @@
           "short_description": "Deep within the Crystal Labyrinth, the Weaver of Fates pulls at the strings of time. Thus do his myriad servants grow in strength and wisdom at unnatural pace.",
           "effects": [
             {
-              "description": "Barrier: +10% for Lord of Change units",
+              "description": "Barrier: +20% for Lord of Change units",
               "key": "wh3_main_effect_force_stat_barrier_tze_lord_of_change",
               "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             },
             {
-              "description": "Barrier: +10% for Soul Grinder (Tzeentch) units",
+              "description": "Barrier: +20% for Soul Grinder (Tzeentch) units",
               "key": "wh3_main_effect_force_stat_barrier_tze_soul_grinder",
               "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             },
@@ -2471,13 +2471,8 @@
           "short_description": "Only by Tzeentch's will do any of us draw breath. Due gratitude must be shown.",
           "effects": [
             {
-              "description": "Reinforcement range: +25%",
-              "key": "wh_main_effect_force_all_campaign_reinforcement_range",
-              "icon": "vanilla3/campaign_ui/effect_bundles/military"
-            },
-            {
-              "description": "Magic item drop chance from battle: +10%",
-              "key": "wh_main_effect_character_mod_ancillary_drop",
+              "description": "Chance to gain a magic item: 50% per turn",
+              "key": "wh_main_effect_faction_mod_ancillary_per_turn",
               "icon": "vanilla3/campaign_ui/effect_bundles/item_ability"
             },
             {
@@ -2558,7 +2553,7 @@
         "key": "tze_tech_final_1",
         "tier": 4,
         "indent": 8,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_1",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_2",
@@ -2566,9 +2561,64 @@
           "short_description": "Deception is its own reward. Come what may, the Weaver of Fates rejoices when a long-planned scheme is at last revealed.",
           "effects": [
             {
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
               "description": "Miscast base chance: -20%",
               "key": "wh_main_effect_character_stat_miscast",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            },
+            {
+              "description": "All enemies have increased miscast chance by +10%% during battles",
+              "key": "wh_passive_mapwide_debuff_miscast_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh_passive_mapwide_debuff_miscast_enable",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_passive_mapwide_debuff_miscast",
+                    "icon_name": "sfo3/battle_ui/ability_icons/run_amok",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": true,
+                    "onscreen_name": "All Enemies Debuff",
+                    "effect_range": -1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "wh_passive_mapwide_debuff_miscast",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -2577,7 +2627,7 @@
         "key": "tze_tech_final_2",
         "tier": 5,
         "indent": 8,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_2",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_10",
@@ -2588,6 +2638,16 @@
               "description": "Spell intensity: +10%",
               "key": "wh3_main_effect_spell_mastery",
               "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+            },
+            {
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
+              "description": "Hero capacity: +1 for all Heroes",
+              "key": "wh2_main_effect_agent_cap_increase_all_heroes",
+              "icon": "vanilla3/campaign_ui/effect_bundles/agent"
             }
           ]
         }
@@ -2596,7 +2656,7 @@
         "key": "tze_tech_final_3",
         "tier": 6,
         "indent": 8,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_3",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_6",
@@ -2607,6 +2667,91 @@
               "description": "Targeting range: +50% for spells",
               "key": "wh3_main_effect_spell_targeting_range_all",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+            },
+            {
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
+              "description": "Passive ability: \"Apex Magic\"\n\t(all Lords)",
+              "key": "nor_passive_apex_enable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "nor_passive_apex_enable",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "nor_passive_apex",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc15_unit_passive_sorcery_weapon",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_explosion",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_explosion",
+                      "onscreen_name": "Explosion"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Apex Magic",
+                    "active_time": 5,
+                    "effect_range": 0,
+                    "recharge_time": 60,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee",
+                      "Winds of magic power is 15 or greater"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_explosion_large",
+                        "localised_text": "Large explosion with knockback effect",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "vortex": {
+                      "vortex_key": "nor_passive_apex",
+                      "duration": 2,
+                      "damage": 4,
+                      "damage_ap": 4,
+                      "goal_radius": 30,
+                      "movement_speed": 0,
+                      "delay": 0,
+                      "affects_allies": false,
+                      "contact_effect": {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_pro08_unit_contact_dampen",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 10,
+                        "effect_type": "negative",
+                        "onscreen_name": "Dampen!\n\t Removes Magical Attacks",
+                        "is_hidden_in_ui": false,
+                        "remove_magical": true,
+                        "stat_effects": [
+                          {
+                            "value": -10,
+                            "stat": "stat_armour",
+                            "how": "add",
+                            "description": "-10 Armour",
+                            "icon": "vanilla3/skins/default/icon_stat_armour"
+                          },
+                          {
+                            "value": -25,
+                            "stat": "stat_resistance_magic",
+                            "how": "add",
+                            "description": "-25 Spell Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
             }
           ]
         }
@@ -2670,7 +2815,7 @@
         "key": "tze_tech_final_4",
         "tier": 4,
         "indent": 9,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_4",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_3",
@@ -2678,7 +2823,12 @@
           "short_description": "Reality bends and shifts every second.",
           "effects": [
             {
-              "description": "Chance of intercepting an army using Tunnelling, beast-paths or Worldroots: +50%",
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
+              "description": "Chance of intercepting an army using Tunnelling, beast-paths or Worldroots: +75%",
               "key": "wh_main_effect_general_mod_tunnel_interception_chance",
               "icon": "vanilla3/campaign_ui/effect_bundles/subterranean"
             }
@@ -2689,7 +2839,7 @@
         "key": "tze_tech_final_5",
         "tier": 5,
         "indent": 9,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_5",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_9",
@@ -2702,17 +2852,22 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
             },
             {
-              "description": "Reload time reduction: +10% for units recruited via allied recruitment (excluding Tzeentch units)",
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
+              "description": "Reload time reduction: +15% for units recruited via allied recruitment (excluding Tzeentch units)",
               "key": "wh3_dlc24_effect_force_stat_reload_allied_recruitment_not_tzeentch",
               "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
             },
             {
-              "description": "Melee attack: +4 for units recruited via allied recruitment (excluding Tzeentch units)",
+              "description": "Melee attack: +5 for units recruited via allied recruitment (excluding Tzeentch units)",
               "key": "wh3_dlc24_effect_force_stat_attack_allied_recruitment_not_tzeentch",
               "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             },
             {
-              "description": "Melee defence: +4 for units recruited via allied recruitment (excluding Tzeentch units)",
+              "description": "Melee defence: +5 for units recruited via allied recruitment (excluding Tzeentch units)",
               "key": "wh3_dlc24_effect_force_stat_defence_allied_recruitment_not_tzeentch",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
             }
@@ -2723,7 +2878,7 @@
         "key": "tze_tech_final_6",
         "tier": 6,
         "indent": 9,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_6",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_1",
@@ -2731,9 +2886,19 @@
           "short_description": "The squealing giggle of a single Horror can shred mortal minds to ribbons. This is why great Tzeentch provides an ever-swelling legion of these Whirling Destroyers.",
           "effects": [
             {
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
               "description": "Attrition: -50% casualties suffered from all attrition",
               "key": "wh_main_effect_force_army_campaign_attrition_all_resistance",
               "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+            },
+            {
+              "description": "Reinforcement range: +25%",
+              "key": "wh_main_effect_force_all_campaign_reinforcement_range",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military"
             }
           ]
         }
@@ -2748,7 +2913,7 @@
         "key": "tze_tech_final_7",
         "tier": 4,
         "indent": 10,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_7",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_8",
@@ -2756,12 +2921,17 @@
           "short_description": "To remain in stasis is a fate worse than even the cruellest death. Praise the Architect of Fate, for He brings blessed change – and not a moment too soon.",
           "effects": [
             {
-              "description": "Barrier replenishment delay: -15%",
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
+              "description": "Barrier replenishment delay: -20%",
               "key": "wh3_main_effect_battle_barrier_replenish_delay_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             },
             {
-              "description": "Barrier replenishment rate: +15%",
+              "description": "Barrier replenishment rate: +20%",
               "key": "wh3_main_effect_battle_barrier_replenish_rate_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
             }
@@ -2772,7 +2942,7 @@
         "key": "tze_tech_final_8",
         "tier": 5,
         "indent": 10,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_8",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_7",
@@ -2780,9 +2950,19 @@
           "short_description": "Most believe that mutation is random, but the faithful know that Tzeentch's instructions for how the flesh will one day warp are inscribed upon the very fibres of one's being.",
           "effects": [
             {
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
               "description": "Local Recruitment duration: -1 turn (minimum 1)",
               "key": "wh2_main_effect_faction_trait_unit_recruitment_duration_all",
               "icon": "vanilla3/campaign_ui/effect_bundles/turns"
+            },
+            {
+              "description": "Local recruitment capacity: +1",
+              "key": "wh_main_effect_unit_recruitment_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/army"
             }
           ]
         }
@@ -2791,13 +2971,23 @@
         "key": "tze_tech_final_9",
         "tier": 6,
         "indent": 10,
-        "research_points_required": 400,
+        "research_points_required": 800,
         "technology": {
           "key": "tze_tech_final_9",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_dlc24_tech_the_changeling_rift_4",
           "onscreen_name": "Glean Magic",
           "short_description": "All knowledge belongs to the Bringer of Change, and he will reclaim it at will.",
           "effects": [
+            {
+              "description": "Research rate: +9",
+              "key": "wh_main_effect_technology_research_points",
+              "icon": "vanilla3/campaign_ui/effect_bundles/technology"
+            },
+            {
+              "description": "Range: +10%",
+              "key": "wh_main_effect_force_stat_range",
+              "icon": "vanilla3/campaign_ui/effect_bundles/accuracy"
+            },
             {
               "description": "Cooldown: -20% to \"Soul Leech of Tzeentch\"",
               "key": "chs_tzeentch_unit_ability_recharge_damage",

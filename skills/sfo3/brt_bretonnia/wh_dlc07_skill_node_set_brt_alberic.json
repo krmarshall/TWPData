@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 8,
+              "run_speed": 8.5,
               "mass": 1750,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "small",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "attributes": [
                 {
                   "key": "encourages",
@@ -76,6 +74,131 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "brt_passive_main_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Knight's Duty",
+                    "effect_range": 0,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than 50% of base"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x1.25 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+10 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "glorious_charge",
+                            "description": "Glorious Charge",
+                            "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
+                            "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_aura_buff_command",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bolstered Command",
+                    "effect_range": 60,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 3,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+3 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 3,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+3 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 3,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+3 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 3,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+3 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh_dlc07_character_abilities_heroic_killing_blow",
@@ -239,131 +362,6 @@
                             "stat": "stat_reloading",
                             "how": "add",
                             "description": "-20 Reload Skill",
-                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "brt_passive_main_2",
-                    "icon_name": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Knight's Duty",
-                    "effect_range": 0,
-                    "num_uses": 1,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than 50% of base"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.25,
-                            "stat": "scalar_entity_acceleration_modifier",
-                            "how": "mult",
-                            "description": "x1.25 Acceleration",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": 10,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+10 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "glorious_charge",
-                            "description": "Glorious Charge",
-                            "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
-                            "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_aura_buff_command",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Bolstered Command",
-                    "effect_range": 60,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 3,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+3 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          },
-                          {
-                            "value": 3,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+3 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          },
-                          {
-                            "value": 3,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+3 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
-                          },
-                          {
-                            "value": 3,
-                            "stat": "stat_reloading",
-                            "how": "add",
-                            "description": "+3 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
                           }
                         ]
@@ -422,8 +420,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 12.5,
               "attributes": [
                 {
                   "key": "encourages",
@@ -457,176 +453,6 @@
                 }
               ],
               "abilities": [
-                {
-                  "unit_ability": {
-                    "key": "wh_dlc07_character_abilities_heroic_killing_blow",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Heroic Killing Blow",
-                    "active_time": 30,
-                    "effect_range": 0,
-                    "recharge_time": 120,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 30,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.6,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.6 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.6,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.6 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_dlc07_lord_passive_spirit_of_the_tempest",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc07_lord_passive_spirit_of_the_tempest",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Spirit of the Tempest",
-                    "active_time": 120,
-                    "effect_range": -1,
-                    "recharge_time": 1,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc07_lord_passive_spirit_of_the_tempest",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": 120,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x1.1 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_charge_bonus",
-                            "how": "mult",
-                            "description": "x1.1 Charge Bonus",
-                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh3_main_unit_passive_single_entity",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_hex",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                      "onscreen_name": "Hex"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Wounds",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "negative",
-                        "onscreen_name": "Wounded!",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.8,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.8 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": 0.8,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x0.8 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x1.1 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          },
-                          {
-                            "value": 0.8,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x0.8 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
-                          {
-                            "value": -20,
-                            "stat": "stat_reloading",
-                            "how": "add",
-                            "description": "-20 Reload Skill",
-                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
                 {
                   "unit_ability": {
                     "key": "brt_passive_main_2",
@@ -751,117 +577,7 @@
                       }
                     ]
                   }
-                }
-              ]
-            },
-            "auto_unlock_at_rank": 8
-          }
-        ]
-      },
-      {
-        "key": "wh_dlc07_skill_node_brt_alberic_unique_02",
-        "image_path": "vanilla3/campaign_ui/skills/mount_hippogryph",
-        "character_skill_key": "wh_dlc07_skill_brt_alberic_unique_general_hippogryph",
-        "tier": 4,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Tempete",
-        "localised_description": "Alberic's personal Hippogryph, broken years prior when the duke was a young Knight Errant, is an especially fearsome specimen of an infamously savage species.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Mount: Hippogryph",
-                "key": "wh_main_effect_enable_mount_hippogryph",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              }
-            ],
-            "mount_unit_stats": {
-              "run_speed": 7,
-              "mass": 2500,
-              "size": "very_large",
-              "hit_points": 0,
-              "bonus_hit_points": 7250,
-              "armour": 100,
-              "missile_block_chance": 50,
-              "morale": 75,
-              "damage_mod_flame": 15,
-              "damage_mod_magic": 0,
-              "damage_mod_physical": 0,
-              "damage_mod_missile": 15,
-              "damage_mod_all": 0,
-              "melee_attack": 50,
-              "melee_defence": 55,
-              "charge_bonus": 90,
-              "bonus_v_large": 40,
-              "bonus_v_infantry": 0,
-              "damage": 225,
-              "ap_damage": 275,
-              "splash_target_size_limit": "large",
-              "splash_attack_max_attacks": 10,
-              "melee_attack_interval": 4,
-              "barrier": 0,
-              "can_siege": true,
-              "fly_speed": 11,
-              "contact_phase": {
-                "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_bleed",
-                "order": 1,
-                "target_enemies": true,
-                "target_self": false,
-                "target_friends": false,
-                "duration": 15,
-                "effect_type": "negative",
-                "onscreen_name": "Bleed - 4 damage, 5 entities",
-                "is_hidden_in_ui": false,
-                "damage_amount": 4,
-                "hp_change_frequency": 1,
-                "max_damaged_entities": 5,
-                "stat_effects": [
-                  {
-                    "value": 0.9,
-                    "stat": "stat_healing_power",
-                    "how": "mult",
-                    "description": "x0.9 Incoming Healing Modifier",
-                    "icon": "vanilla3/skins/default/stat_healing_received"
-                  }
-                ]
-              },
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
-                {
-                  "key": "causes_terror",
-                  "description": " Can Cause Terror",
-                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
-                },
-                {
-                  "key": "encourages",
-                  "description": "Encourage",
-                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
-                },
-                {
-                  "key": "flying",
-                  "description": "Can fly",
-                  "bullet_text": "This unit can fly.",
-                  "icon": "sfo3/battle_ui/ability_icons/flying"
-                },
-                {
-                  "key": "knight",
-                  "description": "Knight",
-                  "bullet_text": "Witnessing friendly units with the Peasant Attribute rout will not affect this unit's leadership.",
-                  "icon": "sfo3/battle_ui/ability_icons/knight"
-                }
-              ],
-              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh_dlc07_character_abilities_heroic_killing_blow",
@@ -1031,7 +747,116 @@
                       }
                     ]
                   }
+                }
+              ],
+              "fly_speed": 12.5
+            },
+            "auto_unlock_at_rank": 8
+          }
+        ]
+      },
+      {
+        "key": "wh_dlc07_skill_node_brt_alberic_unique_02",
+        "image_path": "vanilla3/campaign_ui/skills/mount_hippogryph",
+        "character_skill_key": "wh_dlc07_skill_brt_alberic_unique_general_hippogryph",
+        "tier": 4,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Tempete",
+        "localised_description": "Alberic's personal Hippogryph, broken years prior when the duke was a young Knight Errant, is an especially fearsome specimen of an infamously savage species.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Hippogryph",
+                "key": "wh_main_effect_enable_mount_hippogryph",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 7.5,
+              "mass": 2500,
+              "size": "very_large",
+              "hit_points": 0,
+              "bonus_hit_points": 7250,
+              "armour": 100,
+              "missile_block_chance": 50,
+              "morale": 75,
+              "damage_mod_flame": 15,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 50,
+              "melee_defence": 55,
+              "charge_bonus": 90,
+              "bonus_v_large": 40,
+              "bonus_v_infantry": 0,
+              "damage": 225,
+              "ap_damage": 275,
+              "splash_target_size_limit": "large",
+              "splash_attack_max_attacks": 10,
+              "melee_attack_interval": 4,
+              "can_siege": true,
+              "contact_phase": {
+                "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_bleed",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 15,
+                "effect_type": "negative",
+                "onscreen_name": "Bleed - 4 damage, 5 entities",
+                "is_hidden_in_ui": false,
+                "damage_amount": 4,
+                "hp_change_frequency": 1,
+                "max_damaged_entities": 5,
+                "stat_effects": [
+                  {
+                    "value": 0.9,
+                    "stat": "stat_healing_power",
+                    "how": "mult",
+                    "description": "x0.9 Incoming Healing Modifier",
+                    "icon": "vanilla3/skins/default/stat_healing_received"
+                  }
+                ]
+              },
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
+                },
+                {
+                  "key": "flying",
+                  "description": "Can fly",
+                  "bullet_text": "This unit can fly.",
+                  "icon": "sfo3/battle_ui/ability_icons/flying"
+                },
+                {
+                  "key": "knight",
+                  "description": "Knight",
+                  "bullet_text": "Witnessing friendly units with the Peasant Attribute rout will not affect this unit's leadership.",
+                  "icon": "sfo3/battle_ui/ability_icons/knight"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "brt_passive_main_2",
@@ -1218,8 +1043,179 @@
                       }
                     ]
                   }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_dlc07_character_abilities_heroic_killing_blow",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Heroic Killing Blow",
+                    "active_time": 30,
+                    "effect_range": 0,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_heroic_killing_blow",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.6,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.6 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.6,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.6 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_dlc07_lord_passive_spirit_of_the_tempest",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc07_lord_passive_spirit_of_the_tempest",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Spirit of the Tempest",
+                    "active_time": 120,
+                    "effect_range": -1,
+                    "recharge_time": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc07_lord_passive_spirit_of_the_tempest",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 120,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.1 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.1 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
                 }
-              ]
+              ],
+              "fly_speed": 11
             },
             "auto_unlock_at_rank": 14
           }
@@ -1589,6 +1585,11 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Allows to begin an Errantry",
+                "key": "brt_effect_errantry_dilemma_dummy",
+                "icon": "sfo3/campaign_ui/effect_bundles/brt_vow_quest_completed"
+              },
               {
                 "description": "Hit points: +10%",
                 "key": "wh_main_effect_character_stat_unit_health",
@@ -3750,8 +3751,6 @@
     "splash_target_size_limit": "small",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "attributes": [
       {
         "key": "encourages",
@@ -3779,6 +3778,131 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "brt_passive_main_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Knight's Duty",
+          "effect_range": 0,
+          "num_uses": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than 50% of base"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.25,
+                  "stat": "scalar_entity_acceleration_modifier",
+                  "how": "mult",
+                  "description": "x1.25 Acceleration",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+10 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "glorious_charge",
+                  "description": "Glorious Charge",
+                  "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
+                  "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_aura_buff_command",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Bolstered Command",
+          "effect_range": 60,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 3,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+3 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 3,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+3 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 3,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+3 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": 3,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "+3 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh_dlc07_character_abilities_heroic_killing_blow",
@@ -3948,131 +4072,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "brt_passive_main_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Knight's Duty",
-          "effect_range": 0,
-          "num_uses": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than 50% of base"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/brt_passive_main_2",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.25,
-                  "stat": "scalar_entity_acceleration_modifier",
-                  "how": "mult",
-                  "description": "x1.25 Acceleration",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
-                  "value": 10,
-                  "stat": "stat_melee_attack",
-                  "how": "add",
-                  "description": "+10 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                }
-              ],
-              "attributes": [
-                {
-                  "key": "glorious_charge",
-                  "description": "Glorious Charge",
-                  "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
-                  "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_aura_buff_command",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_augments",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-            "onscreen_name": "Augment (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Bolstered Command",
-          "effect_range": 60,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 3,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+3 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                },
-                {
-                  "value": 3,
-                  "stat": "stat_melee_attack",
-                  "how": "add",
-                  "description": "+3 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                },
-                {
-                  "value": 3,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "+3 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
-                },
-                {
-                  "value": 3,
-                  "stat": "stat_reloading",
-                  "how": "add",
-                  "description": "+3 Reload Skill",
-                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
       }
     ]
   },
@@ -4083,12 +4082,17 @@
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
       {
+        "description": "(HIDDEN) Ignore movement cost for embarking and disembarking\n\t(factionwide)",
+        "key": "wh3_dlc27_ignore_embark_disembark_cost",
+        "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+      },
+      {
         "description": "Unique technologies, landmark and Green Knight skills",
         "key": "brt_campaign_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/green_knight_effect"
       },
       {
-        "description": "Bretonnia Navy construction (Alberic horde army)",
+        "description": "Newly recruited lords receive unique dilemmas",
         "key": "brt_alberic_campaign_dummy",
         "icon": "sfo3/campaign_ui/effect_bundles/conf_bordeleaux"
       },
@@ -4455,6 +4459,919 @@
         {
           "effects": [
             {
+              "description": "\n\t(Lord's army)",
+              "key": "brt_army_use_hidden",
+              "icon": "",
+              "related_abilities": [
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_alberic",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_alberic",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chosen of Manann",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/brt_army_alberic",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "strider",
+                            "description": " Strider",
+                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                            "icon": "sfo3/battle_ui/ability_icons/strider"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_alberic_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_alberic",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chosen of Manann",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "brt_army_alberic_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 2,
+                            "stat": "scalar_entity_deceleration_modifier",
+                            "how": "mult",
+                            "description": "x2 Deceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 2,
+                            "stat": "scalar_entity_acceleration_modifier",
+                            "how": "mult",
+                            "description": "x2 Acceleration",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+10 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "ogre_charge",
+                            "description": "Unstoppable Charge",
+                            "bullet_text": "When attacking braced charge defenders, this unit only loses half of its charge bonus.",
+                            "icon": "sfo3/battle_ui/ability_icons/ogre_charge"
+                          },
+                          {
+                            "key": "strider",
+                            "description": " Strider",
+                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                            "icon": "sfo3/battle_ui/ability_icons/strider"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_alberic_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_alberic",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chosen of Manann",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "brt_army_alberic_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.2,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.2 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 40,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+40 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 1.2,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.2 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "strider",
+                            "description": " Strider",
+                            "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                            "icon": "sfo3/battle_ui/ability_icons/strider"
+                          },
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_fay",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_fay",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Blessing of the Fay",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "ui_effects": [
+                      {
+                        "key": "wh_heal_total_10",
+                        "localised_text": "Restores up to 10% Hit Points",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/brt_army_fay",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.0033,
+                        "hp_change_frequency": 1,
+                        "imbue_magical": true,
+                        "stat_effects": [
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_magic",
+                            "how": "add",
+                            "description": "+20 Spell Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_fay_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_fay",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Blessing of the Fay",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "ui_effects": [
+                      {
+                        "key": "wh_heal_total_10",
+                        "localised_text": "Restores up to 10% Hit Points",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "brt_army_fay_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.01,
+                        "heal_amount": 0.0033,
+                        "hp_change_frequency": 1,
+                        "imbue_magical": true,
+                        "stat_effects": [
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_magic",
+                            "how": "add",
+                            "description": "+20 Spell Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_fay_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_fay",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Blessing of the Fay",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "ui_effects": [
+                      {
+                        "key": "wh_heal_total_10",
+                        "localised_text": "Restores up to 10% Hit Points",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "brt_army_fay_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.0033,
+                        "hp_change_frequency": 1,
+                        "imbue_magical": true,
+                        "stat_effects": [
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_magic",
+                            "how": "add",
+                            "description": "+20 Spell Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "causes_fear",
+                            "description": " Can Cause Fear",
+                            "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                          },
+                          {
+                            "key": "causes_terror",
+                            "description": " Can Cause Terror",
+                            "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_king",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_king",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Lion of Bretonnia",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/brt_army_king",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x1.25  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
+                          },
+                          {
+                            "value": 8,
+                            "stat": "stat_damage_reflection",
+                            "how": "add",
+                            "description": "+8 Melee Damage Reflection",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_missile",
+                            "how": "add",
+                            "description": "+20 Missile Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "can_block_missiles_360",
+                            "description": " 360 Missile Block",
+                            "bullet_text": "This unit can block projectiles regardless of its facing.",
+                            "icon": "sfo3/battle_ui/ability_icons/can_block_missiles_360"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_king_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_king",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Lion of Bretonnia",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "brt_army_king_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x1.25  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
+                          },
+                          {
+                            "value": 8,
+                            "stat": "stat_damage_reflection",
+                            "how": "add",
+                            "description": "+8 Melee Damage Reflection",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_bonus_vs_large",
+                            "how": "add",
+                            "description": "+10 Bonus vs. Large",
+                            "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_large"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_missile",
+                            "how": "add",
+                            "description": "+20 Missile Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "can_block_missiles_360",
+                            "description": " 360 Missile Block",
+                            "bullet_text": "This unit can block projectiles regardless of its facing.",
+                            "icon": "sfo3/battle_ui/ability_icons/can_block_missiles_360"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_king_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_king",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Lion of Bretonnia",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "brt_army_king_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.25,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x1.25  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
+                          },
+                          {
+                            "value": 8,
+                            "stat": "stat_damage_reflection",
+                            "how": "add",
+                            "description": "+8 Melee Damage Reflection",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+10 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_missile",
+                            "how": "add",
+                            "description": "+20 Missile Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "can_block_missiles_360",
+                            "description": " 360 Missile Block",
+                            "bullet_text": "This unit can block projectiles regardless of its facing.",
+                            "icon": "sfo3/battle_ui/ability_icons/can_block_missiles_360"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_repanse",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_repanse",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Damoiselle de Guerre",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/brt_army_repanse",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "add",
+                            "description": "+5 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+10 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "charge_defense",
+                            "description": " Expert Charge Defence",
+                            "bullet_text": "When bracing, this unit negates the charge bonus of any attacker.",
+                            "icon": "sfo3/battle_ui/ability_icons/charge_defense"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_repanse_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_repanse",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Damoiselle de Guerre",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "brt_army_repanse_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "imbue_ignition": true,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_flame",
+                            "how": "add",
+                            "description": "+20 Flame Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "add",
+                            "description": "+5 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+10 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "charge_defense",
+                            "description": " Expert Charge Defence",
+                            "bullet_text": "When bracing, this unit negates the charge bonus of any attacker.",
+                            "icon": "sfo3/battle_ui/ability_icons/charge_defense"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "effect": "brt_army_use_hidden",
+                  "bonus_value_id": "uses_mod",
+                  "unit_ability": {
+                    "key": "brt_army_repanse_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/brt_army_repanse",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Damoiselle de Guerre",
+                    "active_time": 30,
+                    "effect_range": 100,
+                    "num_uses": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "brt_army_repanse_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_bonus_vs_infantry",
+                            "how": "add",
+                            "description": "+5 Bonus vs. Infantry",
+                            "icon": "vanilla3/skins/default/modifier_icon_bonus_vs_infantry"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "add",
+                            "description": "+5 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "+10 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "charge_defense",
+                            "description": " Expert Charge Defence",
+                            "bullet_text": "When bracing, this unit negates the charge bonus of any attacker.",
+                            "icon": "sfo3/battle_ui/ability_icons/charge_defense"
+                          },
+                          {
+                            "key": "charge_reflection",
+                            "description": "Charge Reflection",
+                            "bullet_text": "When bracing, this unit causes additional damage when attacking charging enemies. ",
+                            "icon": "sfo3/battle_ui/ability_icons/charge_reflection"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
               "description": "Enable sea-based attacks on port settlements\n\t(Lord's army)",
               "key": "wh3_dlc27_effect_enable_attack_from_sea_dummy",
               "icon": "vanilla3/campaign_ui/effect_bundles/admiral"
@@ -4486,6 +5403,11 @@
               "description": "Melee defence: +10 for Knights of the Realm units\n\t(Lord's army)",
               "key": "wh_dlc07_effect_force_stat_melee_defence_knights_of_the_realm",
               "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+            },
+            {
+              "description": "Number of uses: +1 for faction army ability\n\t(Lord's army)",
+              "key": "brt_army_use_dummy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/army"
             }
           ],
           "related_unit_cards": [

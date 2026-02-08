@@ -2383,9 +2383,7 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
-    "fly_speed": 0,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_contact_dazed",
       "order": 1,
@@ -2446,6 +2444,58 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "bst_active_roar",
+          "icon_name": "sfo3/battle_ui/ability_icons/bst_active_roar",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Beastmen Roar",
+          "active_time": 30,
+          "effect_range": -1,
+          "recharge_time": 180,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/bst_active_roar",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "fatigue_change_ratio": -0.01,
+              "stat_effects": [
+                {
+                  "value": 10,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+10 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh_dlc03_unit_abilities_slaughterers_call",
@@ -2649,58 +2699,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "bst_active_roar",
-          "icon_name": "sfo3/battle_ui/ability_icons/bst_active_roar",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_augments",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-            "onscreen_name": "Augment (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Beastmen Roar",
-          "active_time": 30,
-          "effect_range": -1,
-          "recharge_time": 180,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/bst_active_roar",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": 30,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.01,
-              "stat_effects": [
-                {
-                  "value": 10,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+10 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                }
-              ],
-              "attributes": [
-                {
-                  "key": "immune_to_psychology",
-                  "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                }
-              ]
-            }
-          ]
-        }
       }
     ]
   },
@@ -2720,11 +2718,6 @@
       "levels": [
         {
           "effects": [
-            {
-              "description": "Leadership: +10",
-              "key": "wh_main_effect_character_stat_leadership",
-              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-            },
             {
               "description": "Ability: \"Potion of Toughness\"",
               "key": "wh_main_effect_ability_enable_potion_of_toughness",
@@ -2792,6 +2785,11 @@
                   }
                 }
               ]
+            },
+            {
+              "description": "Leadership: +10",
+              "key": "wh_main_effect_character_stat_leadership",
+              "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
             },
             {
               "description": "Ability number of uses: +1 for \"Potion of Toughness\"",

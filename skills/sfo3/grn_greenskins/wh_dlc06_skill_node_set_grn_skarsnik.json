@@ -640,13 +640,13 @@
               {
                 "description": "Attribute: Unspottable for Night Goblin Archer units\n\t(Lord's army)",
                 "key": "wh3_dlc26_effect_attribute_enable_unspottable_grn_night_goblin_archers",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unspottable",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable",
                 "related_attributes": [
                   {
                     "key": "unspottable",
                     "description": " Unspottable",
                     "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                    "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                   }
                 ]
               }
@@ -2770,8 +2770,6 @@
     "splash_target_size_limit": "large",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 3.5,
-    "barrier": 0,
-    "fly_speed": 0,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
       "order": 1,
@@ -2855,6 +2853,74 @@
     "abilities": [
       {
         "unit_ability": {
+          "key": "wh2_dlc15_army_abilities_doom_diver_strike",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc15_army_abilities_doom_diver_strike",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_bombardment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+            "onscreen_name": "Bombardment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Doom Diver Strike",
+          "active_time": 6,
+          "effect_range": 0,
+          "num_uses": 3,
+          "recharge_time": 120,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": true,
+          "target_self": false,
+          "target_intercept_range": -1,
+          "ui_effects": [
+            {
+              "key": "wh2_main_bombardment_medium_strike_aoe",
+              "localised_text": "Medium strike area",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_strong_against_all",
+              "localised_text": "Strong vs single and multiple units",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_projectile_number_10",
+              "localised_text": "Projectiles: 10",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_projectile_aoe_4",
+              "localised_text": "Explosion area of effect: 4m",
+              "effect_state": "positive"
+            }
+          ],
+          "bombardment": {
+            "bombardment_key": "wh2_dlc15_army_abilities_doom_diver_strike",
+            "arrival_window": 3,
+            "radius_spread": 8,
+            "start_time": 2,
+            "projectile_type": {
+              "key": "wh2_dlc15_army_abilities_doom_diver_strike",
+              "damage": 1000,
+              "ap_damage": 1000,
+              "shockwave_radius": 1,
+              "effective_range": 400,
+              "base_reload_time": 18,
+              "can_damage_allies": true,
+              "explosion_type": {
+                "key": "wh2_dlc15_army_abilities_doom_diver_strike_explosion",
+                "affects_allies": true,
+                "detonation_damage": 150,
+                "detonation_damage_ap": 100,
+                "detonation_radius": 4
+              }
+            },
+            "num_projectiles": 10
+          }
+        }
+      },
+      {
+        "unit_ability": {
           "key": "wh_dlc06_lord_abilities_tricksy_traps",
           "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc06_lord_abilities_tricksy_traps",
           "overpower_option": "",
@@ -2917,7 +2983,7 @@
                   "key": "unspottable",
                   "description": " Unspottable",
                   "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                  "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                 }
               ]
             }
@@ -3066,149 +3132,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "grn_passive_main_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/grn_passive_main_2",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_augments",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-            "onscreen_name": "Augment (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Larger Proppa Smash! ",
-          "active_time": 150,
-          "effect_range": 40,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken",
-            "In melee"
-          ],
-          "ui_effects": [
-            {
-              "key": "wh_intensity_time_melee_150",
-              "localised_text": "Effect intensity increases with time spent engaged in melee (150s)",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "grn_passive_main_2_1",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": 130,
-              "effect_type": "positive",
-              "onscreen_name": "Stage One",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.15,
-                  "stat": "stat_melee_attack",
-                  "how": "mult",
-                  "description": "x1.15 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                }
-              ]
-            },
-            {
-              "icon": "grn_passive_main_2_2",
-              "order": 2,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": 20,
-              "effect_type": "positive",
-              "onscreen_name": "Stage Two",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.01,
-              "stat_effects": [
-                {
-                  "value": 1.15,
-                  "stat": "stat_melee_attack",
-                  "how": "mult",
-                  "description": "x1.15 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh2_dlc15_army_abilities_doom_diver_strike",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc15_army_abilities_doom_diver_strike",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_bombardment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-            "onscreen_name": "Bombardment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Doom Diver Strike",
-          "active_time": 6,
-          "effect_range": 0,
-          "num_uses": 3,
-          "recharge_time": 120,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": true,
-          "target_self": false,
-          "target_intercept_range": -1,
-          "ui_effects": [
-            {
-              "key": "wh2_main_bombardment_medium_strike_aoe",
-              "localised_text": "Medium strike area",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_main_all_strong_against_all",
-              "localised_text": "Strong vs single and multiple units",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_projectile_number_10",
-              "localised_text": "Projectiles: 10",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_projectile_aoe_4",
-              "localised_text": "Explosion area of effect: 4m",
-              "effect_state": "positive"
-            }
-          ],
-          "bombardment": {
-            "bombardment_key": "wh2_dlc15_army_abilities_doom_diver_strike",
-            "arrival_window": 3,
-            "radius_spread": 8,
-            "start_time": 2,
-            "projectile_type": {
-              "key": "wh2_dlc15_army_abilities_doom_diver_strike",
-              "damage": 1000,
-              "ap_damage": 1000,
-              "shockwave_radius": 1,
-              "effective_range": 400,
-              "base_reload_time": 18,
-              "can_damage_allies": true,
-              "explosion_type": {
-                "key": "wh2_dlc15_army_abilities_doom_diver_strike_explosion",
-                "affects_allies": true,
-                "detonation_damage": 150,
-                "detonation_damage_ap": 100,
-                "detonation_radius": 4
-              }
-            },
-            "num_projectiles": 10
-          }
-        }
       }
     ]
   },
@@ -3244,7 +3167,7 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/army"
       },
       {
-        "description": "Technology research rate: -40 until Karak Eight Peaks is conquered",
+        "description": "Research rate: -40 until Karak Eight Peaks is conquered",
         "key": "grn_skarsnik_k8p",
         "icon": "vanilla3/campaign_ui/effect_bundles/technology"
       },
@@ -3425,6 +3348,140 @@
               "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
             }
           ]
+        }
+      ]
+    },
+    {
+      "key": "wh_main_anc_magic_standard_spider_banner",
+      "onscreen_name": "Spider Banner",
+      "colour_text": "",
+      "ui_icon": "battle_ui/ability_icons/wh_main_banner_passive_spider_banner",
+      "effects": [
+        {
+          "description": "Passive ability: \"Spider Banner\"\n\t(assigned unit)",
+          "key": "wh_main_effect_ability_enable_spider_banner",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh_main_effect_ability_enable_spider_banner",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh_main_banner_passive_spider_banner",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_banner_passive_spider_banner",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_augment",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Augment"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Spider Banner",
+                "effect_range": 30,
+                "target_enemies": false,
+                "target_friends": false,
+                "target_ground": false,
+                "target_self": false,
+                "target_intercept_range": 0,
+                "phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_banner_passive_spider_banner",
+                    "order": 1,
+                    "target_enemies": false,
+                    "target_self": true,
+                    "target_friends": false,
+                    "duration": -1,
+                    "effect_type": "positive",
+                    "onscreen_name": " Poison Imbuement",
+                    "is_hidden_in_ui": false,
+                    "imbue_contact": {
+                      "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_poison_lethal",
+                      "order": 1,
+                      "target_enemies": true,
+                      "target_self": false,
+                      "target_friends": false,
+                      "duration": 15,
+                      "effect_type": "negative",
+                      "onscreen_name": "Lethal Poison - 2 damage, 5 entities",
+                      "is_hidden_in_ui": false,
+                      "damage_amount": 2,
+                      "hp_change_frequency": 1,
+                      "max_damaged_entities": 5,
+                      "stat_effects": [
+                        {
+                          "value": 0.9,
+                          "stat": "scalar_missile_damage_ap",
+                          "how": "mult",
+                          "description": "x0.9 Armour-Piercing Missile Damage",
+                          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                        },
+                        {
+                          "value": 0.9,
+                          "stat": "scalar_missile_damage_base",
+                          "how": "mult",
+                          "description": "x0.9 Base Missile Damage",
+                          "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                        },
+                        {
+                          "value": 0.9,
+                          "stat": "scalar_speed",
+                          "how": "mult",
+                          "description": "x0.9 Speed",
+                          "icon": "vanilla3/skins/default/icon_stat_speed"
+                        },
+                        {
+                          "value": 0.9,
+                          "stat": "stat_melee_damage_base",
+                          "how": "mult",
+                          "description": "x0.9 Base Weapon Damage",
+                          "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                        },
+                        {
+                          "value": 0.9,
+                          "stat": "stat_healing_power",
+                          "how": "mult",
+                          "description": "x0.9 Incoming Healing Modifier",
+                          "icon": "vanilla3/skins/default/stat_healing_received"
+                        },
+                        {
+                          "value": 0.9,
+                          "stat": "stat_melee_damage_ap",
+                          "how": "mult",
+                          "description": "x0.9 Armour-Piercing Weapon Damage",
+                          "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                        }
+                      ]
+                    },
+                    "attributes": [
+                      {
+                        "key": "strider",
+                        "description": " Strider",
+                        "bullet_text": "Speed and combat penalties caused by terrain are ignored by this unit.",
+                        "icon": "sfo3/battle_ui/ability_icons/strider"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh_main_anc_magic_standard_the_bad_moon_banner",
+      "onscreen_name": "The Bad Moon Banner",
+      "colour_text": "When the leering yellow face of the Bad Moon Banner rises, all Night Goblins swell with an insane blend of daring and battle-madness!",
+      "ui_icon": "campaign_ui/ancillaries/wh_main_anc_magic_standard_the_bad_moon_banner",
+      "effects": [
+        {
+          "description": "Leadership: +5\n\t(assigned unit)",
+          "key": "wh_main_effect_character_stat_leadership",
+          "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+        },
+        {
+          "description": "Melee defence: +5\n\t(assigned unit)",
+          "key": "wh_main_effect_character_stat_melee_defence",
+          "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
         }
       ]
     }
@@ -3608,7 +3665,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: 0% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +0.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3647,7 +3704,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +1% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +1.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3687,7 +3744,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +2% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +2.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3727,7 +3784,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +3% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +3.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3767,7 +3824,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +4% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +4.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3807,7 +3864,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +5% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +5.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3847,7 +3904,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +6% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +6.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3887,7 +3944,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +7% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +7.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3927,7 +3984,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +8% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +8.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -3967,7 +4024,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +9% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +9.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4007,7 +4064,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +10% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +10.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4047,7 +4104,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +11% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +11.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4087,7 +4144,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +12% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +12.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4127,7 +4184,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +13% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +13.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4167,7 +4224,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +14% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +14.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4207,7 +4264,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +15% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +15.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4247,7 +4304,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +16% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +16.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4287,7 +4344,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +17% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +17.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4327,7 +4384,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +18% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +18.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4367,7 +4424,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +19% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +19.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4407,7 +4464,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +20% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +20.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4447,7 +4504,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +21% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +21.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4487,7 +4544,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +22% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +22.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4527,7 +4584,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +23% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +23.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }
@@ -4567,7 +4624,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Casualty replenishment rate: +24% for Night Goblins units\n\t(Lord's army)",
+              "description": "Casualty replenishment rate: +24.5% for Night Goblins units\n\t(Lord's army)",
               "key": "grn_effect_night_goblins_heal",
               "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
             }

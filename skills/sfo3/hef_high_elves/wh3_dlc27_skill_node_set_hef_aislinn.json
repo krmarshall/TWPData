@@ -25,31 +25,52 @@
             ],
             "mount_unit_stats": {
               "run_speed": 8,
-              "mass": 2800,
+              "mass": 3000,
               "size": "large",
-              "hit_points": 8,
-              "bonus_hit_points": 6736,
+              "hit_points": 0,
+              "bonus_hit_points": 8500,
               "armour": 80,
               "missile_block_chance": 0,
-              "morale": 80,
+              "morale": 85,
               "damage_mod_flame": 0,
               "damage_mod_magic": 0,
               "damage_mod_physical": 0,
               "damage_mod_missile": 15,
               "damage_mod_all": 0,
-              "melee_attack": 52,
+              "melee_attack": 55,
               "melee_defence": 35,
-              "charge_bonus": 75,
+              "charge_bonus": 100,
               "bonus_v_large": 0,
-              "bonus_v_infantry": 28,
-              "damage": 230,
-              "ap_damage": 220,
+              "bonus_v_infantry": 30,
+              "damage": 275,
+              "ap_damage": 225,
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 9,
+              "contact_phase": {
+                "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_bleed",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 15,
+                "effect_type": "negative",
+                "onscreen_name": "Bleed - 4 damage, 5 entities",
+                "is_hidden_in_ui": false,
+                "damage_amount": 4,
+                "hp_change_frequency": 1,
+                "max_damaged_entities": 5,
+                "stat_effects": [
+                  {
+                    "value": 0.9,
+                    "stat": "stat_healing_power",
+                    "how": "mult",
+                    "description": "x0.9 Incoming Healing Modifier",
+                    "icon": "vanilla3/skins/default/stat_healing_received"
+                  }
+                ]
+              },
               "attributes": [
                 {
                   "key": "causes_fear",
@@ -68,8 +89,327 @@
                   "description": "Can fly",
                   "bullet_text": "This unit can fly.",
                   "icon": "sfo3/battle_ui/ability_icons/flying"
+                },
+                {
+                  "key": "glorious_charge",
+                  "description": "Glorious Charge",
+                  "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
+                  "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
                 }
-              ]
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_aura_buff_leadership",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bolstered Leadership",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+5 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_main_unit_passive_martial_mastery",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_martial_mastery",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Martial Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points greater than 50% base"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_martial_mastery",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+10 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 15,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+15 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "disciplined",
+                            "description": "Disciplined",
+                            "bullet_text": "This unit does not suffer a leadership penalty when the Lord dies. It can also rally after routing more often.",
+                            "icon": "sfo3/battle_ui/ability_icons/disciplined"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_dlc27_character_abilities_iron_hand_captain",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_character_abilities_iron_hand_admiral",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Iron-Handed Captain",
+                    "active_time": 45,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 250,
+                    "target_if": [
+                      "Leadership is broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_dlc27_character_abilities_iron_hand_captain",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 45,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 100,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+100 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 25,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+25 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_dlc27_unit_passive_momentum",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_unit_passive_momentum",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Momentum",
+                    "active_time": 15,
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Unit 's current Speed is higher than 50% of its base Speed.",
+                      "Unit is charging"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_unit_passive_momentum",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 15,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.5,
+                            "stat": "scalar_charge_speed",
+                            "how": "mult",
+                            "description": "x1.5 Charge Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x1.5 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "stat_mass",
+                            "how": "mult",
+                            "description": "x1.5  Mass",
+                            "icon": "vanilla3/skins/default/icon_stat_mass"
+                          },
+                          {
+                            "value": 1.5,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.5 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "fly_speed": 9
             },
             "auto_unlock_at_rank": 10
           }
@@ -101,28 +441,46 @@
               "mass": 5000,
               "size": "very_large",
               "hit_points": 0,
-              "bonus_hit_points": 9434,
-              "armour": 90,
+              "bonus_hit_points": 11500,
+              "armour": 100,
               "missile_block_chance": 0,
               "morale": 85,
               "damage_mod_flame": 0,
               "damage_mod_magic": 0,
-              "damage_mod_physical": 0,
-              "damage_mod_missile": 25,
-              "damage_mod_all": 0,
-              "melee_attack": 69,
-              "melee_defence": 57,
-              "charge_bonus": 50,
+              "damage_mod_physical": 20,
+              "damage_mod_missile": 0,
+              "damage_mod_all": 10,
+              "melee_attack": 65,
+              "melee_defence": 45,
+              "charge_bonus": 70,
               "bonus_v_large": 0,
               "bonus_v_infantry": 0,
-              "damage": 140,
-              "ap_damage": 440,
+              "damage": 175,
+              "ap_damage": 475,
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 6,
-              "melee_attack_interval": 3.8,
-              "barrier": 0,
+              "melee_attack_interval": 4,
               "can_siege": true,
-              "fly_speed": 9,
+              "contact_phase": {
+                "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 10,
+                "effect_type": "negative",
+                "onscreen_name": "Sundered Armour",
+                "is_hidden_in_ui": false,
+                "stat_effects": [
+                  {
+                    "value": -30,
+                    "stat": "stat_armour",
+                    "how": "add",
+                    "description": "-30 Armour",
+                    "icon": "vanilla3/skins/default/icon_stat_armour"
+                  }
+                ]
+              },
               "attributes": [
                 {
                   "key": "causes_fear",
@@ -147,8 +505,260 @@
                   "description": "Can fly",
                   "bullet_text": "This unit can fly.",
                   "icon": "sfo3/battle_ui/ability_icons/flying"
+                },
+                {
+                  "key": "glorious_charge",
+                  "description": "Glorious Charge",
+                  "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
+                  "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
                 }
-              ]
+              ],
+              "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_aura_buff_leadership",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bolstered Leadership",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+5 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh2_main_unit_abilities_star_dragons_breath",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_abilities_star_dragons_breath",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_magic_missiles",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missiles",
+                      "onscreen_name": "Magic Missiles"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Star Dragon's Breath",
+                    "effect_range": 0,
+                    "num_uses": 3,
+                    "recharge_time": 120,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 80,
+                    "wind_up_time": 1.3,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_strong_against_all",
+                        "localised_text": "Strong vs single and multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_number_8",
+                        "localised_text": "Projectiles: 8",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_aoe_12",
+                        "localised_text": "Explosion area of effect: 12m",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "activated_projectile": {
+                      "key": "wh2_main_hef_star_dragon_breath",
+                      "damage": 100,
+                      "ap_damage": 100,
+                      "shockwave_radius": 2,
+                      "effective_range": 90,
+                      "base_reload_time": 6,
+                      "is_flaming": true,
+                      "shots_per_volley": 8,
+                      "can_damage_allies": true,
+                      "explosion_type": {
+                        "key": "wh2_main_hef_star_dragon_explosion",
+                        "affects_allies": true,
+                        "detonation_damage": 50,
+                        "detonation_damage_ap": 50,
+                        "detonation_radius": 12,
+                        "is_flaming": true
+                      }
+                    }
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_dlc27_character_abilities_iron_hand_captain",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_character_abilities_iron_hand_admiral",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Iron-Handed Captain",
+                    "active_time": 45,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 250,
+                    "target_if": [
+                      "Leadership is broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_dlc27_character_abilities_iron_hand_captain",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": 45,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 100,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+100 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 25,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+25 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "fly_speed": 9
             },
             "auto_unlock_at_rank": 18
           }
@@ -391,7 +1001,7 @@
           {
             "effects": [
               {
-                "description": "Replenishes 10% campaign movement range after winning a battle",
+                "description": "Replenishes 5% campaign movement range after winning a battle",
                 "key": "wh3_main_effect_force_all_campaign_movement_range_post_battle_win",
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
@@ -414,8 +1024,8 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Master of Mists",
-                      "active_time": 47,
-                      "effect_range": 35,
+                      "active_time": 45,
+                      "effect_range": 50,
                       "num_uses": 1,
                       "target_enemies": false,
                       "target_friends": false,
@@ -429,9 +1039,153 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 47,
+                          "duration": 45,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_missile_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Missile Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "scalar_missile_range",
+                              "how": "mult",
+                              "description": "x1.5 Range",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+20 Reload Skill",
+                              "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "snipe",
+                              "description": " Snipe",
+                              "bullet_text": "This unit remains hidden while firing.",
+                              "icon": "sfo3/battle_ui/ability_icons/snipe"
+                            },
+                            {
+                              "key": "stalk",
+                              "description": " Stalk",
+                              "bullet_text": "This unit can move hidden in any terrain.",
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Attribute: Stalk for Lothern Sea Guard units\n\t(Lord's army)",
+                "key": "wh3_dlc27_effect_attribute_stalk_hef_seaguard",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk",
+                "related_attributes": [
+                  {
+                    "key": "stalk",
+                    "description": " Stalk",
+                    "bullet_text": "This unit can move hidden in any terrain.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_stalk"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Replenishes 10% campaign movement range after winning a battle",
+                "key": "wh3_main_effect_force_all_campaign_movement_range_post_battle_win",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+              },
+              {
+                "description": "Upkeep: -10% for Gate Guard and Lothern Sea Guard units\n\t(Lord's army)",
+                "key": "wh2_main_effect_tech_upkeep_reduction_hef_seaguard",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Ability: \"Master of Mists\"",
+                "key": "wh3_dlc27_effect_ability_enable_master_of_mists",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc27_effect_ability_enable_master_of_mists",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_character_abilities_master_of_mists",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_character_abilities_master_of_mists",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Master of Mists",
+                      "active_time": 45,
+                      "effect_range": 50,
+                      "num_uses": 1,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 250,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_character_abilities_master_of_mists",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 45,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_missile_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Missile Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_missile_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Missile Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "scalar_missile_range",
+                              "how": "mult",
+                              "description": "x1.5 Range",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            },
+                            {
+                              "value": 20,
+                              "stat": "stat_reloading",
+                              "how": "add",
+                              "description": "+20 Reload Skill",
+                              "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                            }
+                          ],
                           "attributes": [
                             {
                               "key": "snipe",
@@ -517,11 +1271,28 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "localised_text": "Causes fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_stationary_aoe",
+                          "localised_text": "Huge, stationary area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "vortex": {
                         "vortex_key": "wh3_dlc27_army_abilities_asuryans_fury",
                         "duration": 20,
-                        "damage": 3,
-                        "damage_ap": 1,
+                        "damage": 4,
+                        "damage_ap": 2,
                         "goal_radius": 30,
                         "movement_speed": 0,
                         "delay": 0,
@@ -554,11 +1325,28 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "localised_text": "Causes fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_stationary_aoe",
+                          "localised_text": "Huge, stationary area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "vortex": {
                         "vortex_key": "wh3_dlc27_army_abilities_asuryans_rage",
                         "duration": 15,
-                        "damage": 3,
-                        "damage_ap": 1,
+                        "damage": 4,
+                        "damage_ap": 2,
                         "goal_radius": 30,
                         "movement_speed": 0,
                         "delay": 0,
@@ -591,11 +1379,28 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "localised_text": "Causes fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_stationary_aoe",
+                          "localised_text": "Huge, stationary area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "vortex": {
                         "vortex_key": "wh3_dlc27_army_abilities_asuryans_wrath",
                         "duration": 25,
-                        "damage": 2,
-                        "damage_ap": 2,
+                        "damage": 3,
+                        "damage_ap": 3,
                         "goal_radius": 40,
                         "movement_speed": 0,
                         "delay": 0,
@@ -628,6 +1433,23 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_army_damage_ranged",
+                          "localised_text": "Good damage",
+                          "effect_state": "double_positive"
+                        },
+                        {
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "bombardment": {
                         "bombardment_key": "wh3_dlc27_army_abilities_dragonship_assault",
                         "arrival_window": 0.5,
@@ -698,6 +1520,23 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_army_damage_ranged",
+                          "localised_text": "Good damage",
+                          "effect_state": "double_positive"
+                        },
+                        {
+                          "key": "wh_main_bombardment_large_strike_aoe",
+                          "localised_text": "Large strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "bombardment": {
                         "bombardment_key": "wh3_dlc27_army_abilities_dragonship_blitz",
                         "arrival_window": 0.5,
@@ -768,6 +1607,23 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_army_damage_ranged",
+                          "localised_text": "Good damage",
+                          "effect_state": "double_positive"
+                        },
+                        {
+                          "key": "wh_main_bombardment_small_strike_aoe",
+                          "localised_text": "Small strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "bombardment": {
                         "bombardment_key": "wh3_dlc27_army_abilities_dragonship_volley",
                         "arrival_window": 0.5,
@@ -838,6 +1694,13 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc11_all_replenish_ammo",
+                          "localised_text": "Replenishes ammunition",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "wh3_dlc27_army_abilities_ships_of_the_line",
@@ -877,6 +1740,13 @@
                       "target_self": false,
                       "target_intercept_range": -1,
                       "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc11_all_replenish_ammo",
+                          "localised_text": "Replenishes ammunition",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_war_supplies",
@@ -893,6 +1763,547 @@
                     }
                   }
                 ]
+              },
+              {
+                "description": "Ability number of uses: +1 for Dragonship army abilities\n\t(own army)",
+                "key": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              },
+              {
+                "description": "Dragonship Supply construction cost: -5% for all Dragonship buildings\n\t(own army)",
+                "key": "wh3_dlc27_effect_building_construction_cost_mod_dragonships_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_hef_dragonship_supplies"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "HIDDEN - Ability number of uses: +1 for Dragonship army abilities",
+                "key": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_asuryans_fury",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_asuryans_rage_upgrade_2",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Asur Fire II",
+                      "active_time": 20,
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "localised_text": "Causes fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_stationary_aoe",
+                          "localised_text": "Huge, stationary area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh3_dlc27_army_abilities_asuryans_fury",
+                        "duration": 20,
+                        "damage": 4,
+                        "damage_ap": 2,
+                        "goal_radius": 30,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": false,
+                        "is_flaming": true
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_asuryans_rage",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_asuryans_rage_upgrade_1",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Asur Fire I",
+                      "active_time": 15,
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "localised_text": "Causes fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_stationary_aoe",
+                          "localised_text": "Huge, stationary area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh3_dlc27_army_abilities_asuryans_rage",
+                        "duration": 15,
+                        "damage": 4,
+                        "damage_ap": 2,
+                        "goal_radius": 30,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": false,
+                        "is_flaming": true
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_asuryans_wrath",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_asuryans_rage_upgrade_3",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Asur Fire III",
+                      "active_time": 25,
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_flaming",
+                          "localised_text": "Causes fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_spell_stationary_aoe",
+                          "localised_text": "Huge, stationary area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_weak_against_single",
+                          "localised_text": "Weak vs a single combatant",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh3_dlc27_army_abilities_asuryans_wrath",
+                        "duration": 25,
+                        "damage": 3,
+                        "damage_ap": 3,
+                        "goal_radius": 40,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": false,
+                        "is_flaming": true
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_dragonship_assault",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_dragonship_assault_upgrade_2",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Dragonship Assault",
+                      "active_time": 6,
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_army_damage_ranged",
+                          "localised_text": "Good damage",
+                          "effect_state": "double_positive"
+                        },
+                        {
+                          "key": "wh2_main_bombardment_medium_strike_aoe",
+                          "localised_text": "Medium strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh3_dlc27_army_abilities_dragonship_assault",
+                        "arrival_window": 0.5,
+                        "radius_spread": 15,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh3_dlc27_hef_dragonship_bolt",
+                          "damage": 100,
+                          "ap_damage": 200,
+                          "shockwave_radius": 1,
+                          "effective_range": 380,
+                          "base_reload_time": 12,
+                          "bonus_v_large": 150,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_dlc27_hef_dragonship_bolt",
+                            "affects_allies": true,
+                            "detonation_damage": 10,
+                            "detonation_damage_ap": 16,
+                            "detonation_radius": 2
+                          },
+                          "contact_stat_effect": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_contact_shieldbreaker",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Shieldbreaker",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": -25,
+                                "stat": "stat_missile_block_chance",
+                                "how": "add",
+                                "description": "-25 Missile Block Chance",
+                                "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
+                              }
+                            ]
+                          }
+                        },
+                        "num_projectiles": 27
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_dragonship_blitz",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_dragonship_assault_upgrade_3",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Dragonship Blitz",
+                      "active_time": 6,
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_army_damage_ranged",
+                          "localised_text": "Good damage",
+                          "effect_state": "double_positive"
+                        },
+                        {
+                          "key": "wh_main_bombardment_large_strike_aoe",
+                          "localised_text": "Large strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh3_dlc27_army_abilities_dragonship_blitz",
+                        "arrival_window": 0.5,
+                        "radius_spread": 18,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh3_dlc27_hef_dragonship_bolt",
+                          "damage": 100,
+                          "ap_damage": 200,
+                          "shockwave_radius": 1,
+                          "effective_range": 380,
+                          "base_reload_time": 12,
+                          "bonus_v_large": 150,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_dlc27_hef_dragonship_bolt",
+                            "affects_allies": true,
+                            "detonation_damage": 10,
+                            "detonation_damage_ap": 16,
+                            "detonation_radius": 2
+                          },
+                          "contact_stat_effect": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_contact_shieldbreaker",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Shieldbreaker",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": -25,
+                                "stat": "stat_missile_block_chance",
+                                "how": "add",
+                                "description": "-25 Missile Block Chance",
+                                "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
+                              }
+                            ]
+                          }
+                        },
+                        "num_projectiles": 36
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_dragonship_volley",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_dragonship_assault_upgrade_1",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Dragonship Volley",
+                      "active_time": 6,
+                      "effect_range": 0,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_army_damage_ranged",
+                          "localised_text": "Good damage",
+                          "effect_state": "double_positive"
+                        },
+                        {
+                          "key": "wh_main_bombardment_small_strike_aoe",
+                          "localised_text": "Small strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh2_main_all_good_against_armour",
+                          "localised_text": "Good against armour",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh3_dlc27_army_abilities_dragonship_volley",
+                        "arrival_window": 0.5,
+                        "radius_spread": 12,
+                        "start_time": 2,
+                        "projectile_type": {
+                          "key": "wh3_dlc27_hef_dragonship_bolt",
+                          "damage": 100,
+                          "ap_damage": 200,
+                          "shockwave_radius": 1,
+                          "effective_range": 380,
+                          "base_reload_time": 12,
+                          "bonus_v_large": 150,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh3_dlc27_hef_dragonship_bolt",
+                            "affects_allies": true,
+                            "detonation_damage": 10,
+                            "detonation_damage_ap": 16,
+                            "detonation_radius": 2
+                          },
+                          "contact_stat_effect": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_contact_shieldbreaker",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Shieldbreaker",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": -25,
+                                "stat": "stat_missile_block_chance",
+                                "how": "add",
+                                "description": "-25 Missile Block Chance",
+                                "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
+                              }
+                            ]
+                          }
+                        },
+                        "num_projectiles": 18
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_ships_of_the_line",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_war_supplies_upgrade_2",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Ships of the Line",
+                      "active_time": 10,
+                      "effect_range": 55,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc11_all_replenish_ammo",
+                          "localised_text": "Replenishes ammunition",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh3_dlc27_army_abilities_ships_of_the_line",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 10,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "replenish_ammo": 0.25
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "effect": "wh3_dlc27_effect_ability_uses_hef_dragonship_abilities_hidden",
+                    "bonus_value_id": "uses_mod",
+                    "unit_ability": {
+                      "key": "wh3_dlc27_army_abilities_war_supplies",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_war_supplies_upgrade_1",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "War Supplies",
+                      "active_time": 10,
+                      "effect_range": 55,
+                      "num_uses": 3,
+                      "recharge_time": 60,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": -1,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_dlc11_all_replenish_ammo",
+                          "localised_text": "Replenishes ammunition",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_army_abilities_war_supplies",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 10,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "replenish_ammo": 0.15
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Dragonship crew growth: +4\n\t(own army)",
+                "key": "wh3_dlc27_effect_dragonship_growth_core",
+                "icon": "vanilla3/campaign_ui/effect_bundles/growth"
               },
               {
                 "description": "Ability number of uses: +1 for Dragonship army abilities\n\t(own army)",
@@ -941,12 +2352,39 @@
                 ]
               },
               {
+                "description": "Campaign movement range: -20% for enemy armies starting their turn in this province\n\t(enemy armies in region)",
+                "key": "wh2_main_effect_force_enemy_campaign_movement_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+              },
+              {
+                "description": "Ambush success chance: +10%\n\t(Lord's army)",
+                "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Attribute: Vanguard Deployment for all units\n\t(Lord's army)",
+                "key": "wh2_dlc16_effect_force_enable_attribute_guerrilla_deployment_all",
+                "icon": "sfo3/campaign_ui/effect_bundles/attribute_guerrilla_deploy",
+                "related_attributes": [
+                  {
+                    "key": "guerrilla_deploy",
+                    "description": "Vanguard Deployment",
+                    "bullet_text": "This unit can deploy outside the deployment zone.",
+                    "icon": "sfo3/campaign_ui/effect_bundles/attribute_guerrilla_deploy"
+                  }
+                ]
+              },
+              {
                 "description": "Campaign movement range: -50% for enemy armies starting their turn in this province\n\t(enemy armies in region)",
                 "key": "wh2_main_effect_force_enemy_campaign_movement_range",
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               },
               {
-                "description": "Ambush success chance: +20%\n\t(Lord's army)",
+                "description": "Ambush success chance: +25%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_army_campaign_ambush_attack_success_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/icon_effects_ambush"
               }
@@ -1184,12 +2622,16 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Naval Discipline",
-                      "effect_range": 55,
+                      "effect_range": 60,
+                      "num_effected_friendly_units": 5,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Leadership is higher than broken"
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_lord_passive_naval_discipline",
@@ -1206,6 +2648,12 @@
                               "description": " Charge Defence vs. Large",
                               "bullet_text": "When bracing, this unit negates the charge bonus of any large attacker.",
                               "icon": "sfo3/battle_ui/ability_icons/charge_defense_vs_large"
+                            },
+                            {
+                              "key": "flanking_immune",
+                              "description": "Immune to Flanking",
+                              "bullet_text": "This unit takes no penalties when flanked.",
+                              "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
                             }
                           ]
                         }
@@ -1725,9 +3173,9 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Quicksilver Strike",
-                      "active_time": 29,
+                      "active_time": 30,
                       "effect_range": 0,
-                      "recharge_time": 60,
+                      "recharge_time": 120,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
@@ -1740,9 +3188,32 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
-                          "duration": 29,
+                          "duration": 30,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.5 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -2019,9 +3490,6 @@
                 "key": "wh2_main_effect_force_stat_charge_bonus_add_hef_chariots_dragonprinces",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -2041,9 +3509,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -2063,9 +3528,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           }
         ],
@@ -2385,8 +3847,7 @@
               }
             ],
             "related_unit_cards": [
-              "wef_warhawks",
-              "cr_hef_skycutter"
+              "wef_warhawks"
             ]
           }
         ],
@@ -3079,11 +4540,11 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 3.6,
-    "mass": 1000,
+    "run_speed": 3.8,
+    "mass": 1500,
     "size": "small",
-    "hit_points": 8,
-    "bonus_hit_points": 4280,
+    "hit_points": 0,
+    "bonus_hit_points": 5500,
     "armour": 90,
     "missile_block_chance": 0,
     "morale": 85,
@@ -3096,15 +4557,13 @@
     "melee_defence": 65,
     "charge_bonus": 50,
     "bonus_v_large": 0,
-    "bonus_v_infantry": 28,
-    "damage": 310,
+    "bonus_v_infantry": 30,
+    "damage": 300,
     "ap_damage": 150,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 5,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
-    "fly_speed": 0,
     "attributes": [
       {
         "key": "causes_fear",
@@ -3123,6 +4582,257 @@
         "description": "Hide (forest)",
         "bullet_text": "This unit can hide in forests until enemy units get too close.",
         "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+      },
+      {
+        "key": "glorious_charge",
+        "description": "Glorious Charge",
+        "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
+        "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
+      }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_passive_aura_buff_leadership",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Bolstered Leadership",
+          "effect_range": 50,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 5,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+5 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh2_main_unit_passive_martial_mastery",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_martial_mastery",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Martial Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points greater than 50% base"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_martial_mastery",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 10,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+10 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 15,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+15 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "disciplined",
+                  "description": "Disciplined",
+                  "bullet_text": "This unit does not suffer a leadership penalty when the Lord dies. It can also rally after routing more often.",
+                  "icon": "sfo3/battle_ui/ability_icons/disciplined"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_dlc27_character_abilities_iron_hand_captain",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc27_character_abilities_iron_hand_admiral",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Iron-Handed Captain",
+          "active_time": 45,
+          "effect_range": 0,
+          "num_effected_friendly_units": 1,
+          "recharge_time": 120,
+          "target_enemies": false,
+          "target_friends": true,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 250,
+          "target_if": [
+            "Leadership is broken"
+          ],
+          "phases": [
+            {
+              "icon": "wh3_dlc27_character_abilities_iron_hand_captain",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": false,
+              "target_friends": true,
+              "duration": 45,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 100,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+100 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 25,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+25 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "force_rally",
+                  "description": "Rally",
+                  "bullet_text": "Motivates units to rally immediately",
+                  "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "onscreen_name": "Wounded!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },
@@ -3131,7 +4841,83 @@
     "localised_description": "Aislinn’s host moves with unerring precision, advancing through arcane mists in perfect order, betraying not the perilous threshold between sea and shore.",
     "localised_title": "Tempered in Storms",
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
-    "effects": []
+    "effects": [
+      {
+        "description": "(HIDDEN) Immune to High Seas, Reef and Storm attrition",
+        "key": "wh2_twa03_attrition_immunity_high_seas_reef_storm_hidden",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+      },
+      {
+        "description": "(HIDDEN) Stance",
+        "key": "wh3_dlc26_effect_stance_availability_settle_enable",
+        "icon": "vanilla3/campaign_ui/effect_bundles/teleport"
+      },
+      {
+        "description": "(HIDDEN) Building set used when a new Dragonship lord spawns",
+        "key": "wh3_dlc27_effect_force_newhorde_buildings_aislinn",
+        "icon": ""
+      },
+      {
+        "description": "(HIDDEN) Replenishment in regions with Sea Patrol Outpost",
+        "key": "wh3_dlc27_effect_force_replenishment_hef_sea_patrol_outpost",
+        "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+      },
+      {
+        "description": "(HIDDEN) Sea Lanes have no journey duration for all forces",
+        "key": "wh3_dlc27_effect_sea_lane_travel_time_instant_hidden",
+        "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+      },
+      {
+        "description": "(HIDDEN) Immune to diplomatic penalties from trespassing in regions with a Sea Patrol Outpost\n\t(all characters in regions with foreign slot established)",
+        "key": "wh3_dlc27_effect_trespass_immunity_for_army_sea_patrol_outpost",
+        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy_trespass"
+      },
+      {
+        "description": "(HIDDEN) Can use the Mist Landing stance to move from the sea to land, ignoring obstacles",
+        "key": "wh3_dlc27_enable_disembark_stance",
+        "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+      },
+      {
+        "description": "(HIDDEN) Confederation assigned to other High Elves",
+        "key": "wh3_dlc27_hef_third_party_confederation_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/confederation"
+      },
+      {
+        "description": "(HIDDEN) Ignore movement cost for embarking and disembarking\n\t(factionwide)",
+        "key": "wh3_dlc27_ignore_embark_disembark_cost",
+        "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+      },
+      {
+        "description": "(HIDDEN) Diplomatic relations: -20 with empire",
+        "key": "wh_dlc27_faction_political_diplomacy_mod_empire",
+        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+      },
+      {
+        "description": "(HIDDEN) Diplomatic relations: -40 with Marienburg",
+        "key": "wh_dlc27_faction_political_diplomacy_mod_marienburg",
+        "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+      },
+      {
+        "description": "Asur Domination:\n\t Has access to powerful Dragonships\n\t Can establish Colonies and gift conquered regions to other High Elf factions\n\t Has access to Asur Domination advancements",
+        "key": "wh3_dlc27_effect_trait_asur_domination_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc27_hef_assur_domination"
+      },
+      {
+        "description": "Can issue Provincial Commandments without owning the entire province",
+        "key": "wh3_main_effect_no_commandment_restrictions_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc27_hef_elven_colonies"
+      },
+      {
+        "description": "Improved sea navigation",
+        "key": "wh3_dlc27_effect_trait_sea_benefits_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc27_hef_dragonships"
+      },
+      {
+        "description": "Local Recruitment duration: -1 turn(s) for Oceanids, Sea Elementals and Merwyrm units (minimum 1)",
+        "key": "wh3_dlc27_faction_trait_hef_aislinn_recruit_time_oceanids_selementals_merwyrms",
+        "icon": "vanilla3/campaign_ui/effect_bundles/turns"
+      }
+    ]
   },
   "items": [
     {
@@ -3147,7 +4933,7 @@
           "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
         },
         {
-          "description": "Physical resistance: 5%",
+          "description": "Physical resistance: 10%",
           "key": "wh_main_effect_character_stat_physical_resistance",
           "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
         },
@@ -3179,7 +4965,14 @@
                 "target_ground": true,
                 "target_self": false,
                 "target_intercept_range": 100,
-                "wind_up_time": 5
+                "wind_up_time": 5,
+                "ui_effects": [
+                  {
+                    "key": "wh3_dlc27_summon_merwyrm",
+                    "localised_text": "Summons a Merwyrm",
+                    "effect_state": "positive"
+                  }
+                ]
               }
             }
           ]
@@ -3244,7 +5037,7 @@
           ]
         },
         {
-          "description": "Attribute: Unbreakable for Oceanids and Sea Elemental units\n\t(own army)",
+          "description": "Attribute: Unbreakable for Oceanids and Sea Elemental units\n\t(Lord's army)",
           "key": "wh3_dlc27_effect_attribute_enable_unbreakable_hef_sea_summons",
           "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable",
           "related_attributes": [
@@ -3314,7 +5107,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "Iron-Handed Captain",
-                    "active_time": 42,
+                    "active_time": 45,
                     "effect_range": 0,
                     "num_effected_friendly_units": 1,
                     "recharge_time": 120,
@@ -3322,7 +5115,7 @@
                     "target_friends": true,
                     "target_ground": false,
                     "target_self": false,
-                    "target_intercept_range": 200,
+                    "target_intercept_range": 250,
                     "target_if": [
                       "Leadership is broken"
                     ],
@@ -3333,15 +5126,31 @@
                         "target_enemies": false,
                         "target_self": false,
                         "target_friends": true,
-                        "duration": 42,
+                        "duration": 45,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 100,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+100 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 25,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+25 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ],
                         "attributes": [
                           {
                             "key": "force_rally",
                             "description": "Rally",
                             "bullet_text": "Motivates units to rally immediately",
-                            "icon": "vanilla3/battle_ui/ability_icons/force_rally"
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
                           }
                         ]
                       }
@@ -3353,7 +5162,9 @@
           ],
           "related_unit_cards": [
             "wh2_dlc10_hef_inf_shadow_warriors",
-            "wh2_dlc10_hef_inf_shadow_warriors_ror"
+            "wh2_dlc10_hef_inf_shadow_warriors_ror",
+            "hef_handmaidens",
+            "hef_shadow_spearmen"
           ]
         }
       ]

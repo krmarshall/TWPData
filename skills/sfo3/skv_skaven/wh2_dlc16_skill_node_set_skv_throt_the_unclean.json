@@ -47,9 +47,7 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 0,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_toxic",
                 "order": 1,
@@ -106,6 +104,61 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "skv_passive_aura_horror",
+                    "icon_name": "sfo3/battle_ui/ability_icons/skv_passive_aura_horror",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Alpha",
+                    "effect_range": 50,
+                    "num_effected_friendly_units": 3,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "target_if": [
+                      "Unit is Clan Moulder Monster"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_self_not",
+                        "localised_text": "Does not affect self",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/skv_passive_aura_horror",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "add",
+                            "description": "+5 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_main_unit_passive_scurry_away",
@@ -337,61 +390,6 @@
                             "how": "add",
                             "description": "-20 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "skv_passive_aura_horror",
-                    "icon_name": "sfo3/battle_ui/ability_icons/skv_passive_aura_horror",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Alpha",
-                    "effect_range": 50,
-                    "num_effected_friendly_units": 3,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "target_if": [
-                      "Unit is Clan Moulder Monster"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_self_not",
-                        "localised_text": "Does not affect self",
-                        "effect_state": "negative"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/skv_passive_aura_horror",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": false,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 5,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "add",
-                            "description": "+5 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
                       }
@@ -2957,8 +2955,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "attributes": [
       {
         "key": "causes_fear",

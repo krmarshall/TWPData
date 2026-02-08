@@ -141,7 +141,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -5519,7 +5519,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {
@@ -5536,6 +5536,135 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_autoresolve_buff_unit_melee_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/venris",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": true,
+          "onscreen_name": "placeholder",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_magic_buff",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Greater Magic Bond",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "wh_passive_magic_buff",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "onscreen_name": "Greater Magic Bond",
+              "is_hidden_in_ui": false,
+              "mana_max_depletion_mod": 0.05,
+              "mana_regen_mod": 0.25
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "chs_active_tzeentch_soul_drain",
+          "icon_name": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+            "onscreen_name": "Direct Damage (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Soul Leech of Tzeentch",
+          "active_time": 30,
+          "effect_range": 30,
+          "recharge_time": 150,
+          "target_enemies": true,
+          "target_friends": false,
+          "target_ground": true,
+          "target_self": false,
+          "target_intercept_range": 150,
+          "wind_up_time": 3,
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage",
+              "localised_text": "Causes damage to combatants",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_strong_against_units",
+              "localised_text": "Strong vs multiple units",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_damaged_entities_60",
+              "localised_text": "Affect up to 60 entities",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 1,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 60,
+              "stat_effects": [
+                {
+                  "value": -10,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-10 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_resistance_magic",
+                  "how": "add",
+                  "description": "-20 Spell Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_daemonic_instability_tzeentch",
@@ -5717,135 +5846,6 @@
               ]
             }
           ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_magic_buff",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment_of_the_winds",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-            "onscreen_name": "Augment of the Winds"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Greater Magic Bond",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "wh_passive_magic_buff",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "onscreen_name": "Greater Magic Bond",
-              "is_hidden_in_ui": false,
-              "mana_max_depletion_mod": 0.05,
-              "mana_regen_mod": 0.25
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "chs_active_tzeentch_soul_drain",
-          "icon_name": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_direct_damage",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
-            "onscreen_name": "Direct Damage (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Soul Leech of Tzeentch",
-          "active_time": 30,
-          "effect_range": 30,
-          "recharge_time": 150,
-          "target_enemies": true,
-          "target_friends": false,
-          "target_ground": true,
-          "target_self": false,
-          "target_intercept_range": 150,
-          "wind_up_time": 3,
-          "ui_effects": [
-            {
-              "key": "wh_main_all_direct_damage",
-              "localised_text": "Causes damage to combatants",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_main_all_strong_against_units",
-              "localised_text": "Strong vs multiple units",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_damaged_entities_60",
-              "localised_text": "Affect up to 60 entities",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
-              "order": 1,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 30,
-              "effect_type": "negative",
-              "is_hidden_in_ui": false,
-              "damage_amount": 1,
-              "hp_change_frequency": 1,
-              "max_damaged_entities": 60,
-              "stat_effects": [
-                {
-                  "value": -10,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "-10 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
-                },
-                {
-                  "value": -20,
-                  "stat": "stat_resistance_magic",
-                  "how": "add",
-                  "description": "-20 Spell Resistance",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_autoresolve_buff_unit_melee_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/venris",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": true,
-          "onscreen_name": "placeholder",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0
         }
       }
     ]
@@ -6054,169 +6054,6 @@
                           }
                         ]
                       }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_main_skill_node_tze_exalted_lord_of_change_metal_magic_dummy",
-      "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh2_main_skill_all_magic_metal_dummy_searing_doom_plague_of_rust",
-      "tier": 15,
-      "indent": 2,
-      "points_on_creation": 1,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": false,
-      "localised_name": "Searing Doom [HIDDEN]",
-      "localised_description": "",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Spell: \"Plague of Rust\"",
-              "key": "wh_main_effect_ability_enable_plague_of_rust",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "related_abilities": [
-                {
-                  "effect": "wh_main_effect_ability_enable_plague_of_rust",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh_main_spell_metal_plague_of_rust",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
-                    "overpower_option": "wh_main_spell_metal_plague_of_rust_upgraded",
-                    "type": {
-                      "key": "wh_type_hex",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                      "onscreen_name": "Hex"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Plague of Rust",
-                    "active_time": 60,
-                    "effect_range": 0,
-                    "mana_cost": 6,
-                    "miscast_chance": 0.25,
-                    "num_effected_enemy_units": 1,
-                    "recharge_time": 60,
-                    "target_enemies": true,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 200,
-                    "wind_up_time": 1,
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": 60,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.75 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": -50,
-                            "stat": "stat_armour",
-                            "how": "add",
-                            "description": "-50 Armour",
-                            "icon": "vanilla3/skins/default/icon_stat_armour"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "description": "Spell: \"Searing Doom\"",
-              "key": "wh_main_effect_ability_enable_searing_doom",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "related_abilities": [
-                {
-                  "effect": "wh_main_effect_ability_enable_searing_doom",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh_main_spell_metal_searing_doom",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_searing_doom",
-                    "overpower_option": "wh_main_spell_metal_searing_doom_upgraded",
-                    "type": {
-                      "key": "wh_type_bombardment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
-                      "onscreen_name": "Bombardment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Searing Doom",
-                    "active_time": 9,
-                    "effect_range": 0,
-                    "mana_cost": 12,
-                    "miscast_chance": 0.25,
-                    "recharge_time": 75,
-                    "target_enemies": true,
-                    "target_friends": false,
-                    "target_ground": true,
-                    "target_self": false,
-                    "target_intercept_range": 200,
-                    "wind_up_time": 1,
-                    "ui_effects": [
-                      {
-                        "key": "wh2_main_bombardment_medium_strike_aoe",
-                        "localised_text": "Medium strike area",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_main_all_strong_against_units",
-                        "localised_text": "Strong vs multiple units",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_projectile_number_40",
-                        "localised_text": "Projectiles: 40",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_projectile_aoe_3",
-                        "localised_text": "Explosion area of effect: 3m",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "bombardment": {
-                      "bombardment_key": "wh_main_spell_metal_searing_doom",
-                      "arrival_window": 3,
-                      "radius_spread": 10,
-                      "start_time": 2,
-                      "projectile_type": {
-                        "key": "wh_main_spell_metal_searing_doom",
-                        "damage": 25,
-                        "ap_damage": 75,
-                        "shockwave_radius": 1,
-                        "effective_range": 40,
-                        "base_reload_time": 1,
-                        "is_magical": true,
-                        "can_damage_allies": true,
-                        "explosion_type": {
-                          "key": "wh_main_spell_metal_searing_doom",
-                          "affects_allies": true,
-                          "detonation_damage": 25,
-                          "detonation_damage_ap": 75,
-                          "detonation_radius": 3,
-                          "is_magical": true
-                        }
-                      },
-                      "num_projectiles": 40
                     }
                   }
                 }
@@ -6764,12 +6601,175 @@
             {
               "description": "Reload time reduction: +1% per rank achieved\n\t(Lord's army)",
               "key": "wh_chevron_reload",
-              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_force"
             },
             {
               "description": "Missile resistance: 1% per rank achieved\n\t(Lord's army)",
               "key": "wh_chevron_res_missile",
               "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "wh3_main_skill_node_tze_exalted_lord_of_change_metal_magic_dummy",
+      "image_path": "vanilla3/campaign_ui/skills/battle_attack",
+      "character_skill_key": "wh2_main_skill_all_magic_metal_dummy_searing_doom_plague_of_rust",
+      "tier": 15,
+      "indent": 2,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": false,
+      "localised_name": "Searing Doom [HIDDEN]",
+      "localised_description": "",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Spell: \"Plague of Rust\"",
+              "key": "wh_main_effect_ability_enable_plague_of_rust",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_plague_of_rust",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_spell_metal_plague_of_rust",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
+                    "overpower_option": "wh_main_spell_metal_plague_of_rust_upgraded",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Plague of Rust",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "mana_cost": 6,
+                    "miscast_chance": 0.25,
+                    "num_effected_enemy_units": 1,
+                    "recharge_time": 60,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 1,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 60,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.75 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": -50,
+                            "stat": "stat_armour",
+                            "how": "add",
+                            "description": "-50 Armour",
+                            "icon": "vanilla3/skins/default/icon_stat_armour"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Spell: \"Searing Doom\"",
+              "key": "wh_main_effect_ability_enable_searing_doom",
+              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+              "related_abilities": [
+                {
+                  "effect": "wh_main_effect_ability_enable_searing_doom",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_spell_metal_searing_doom",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_searing_doom",
+                    "overpower_option": "wh_main_spell_metal_searing_doom_upgraded",
+                    "type": {
+                      "key": "wh_type_bombardment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                      "onscreen_name": "Bombardment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Searing Doom",
+                    "active_time": 9,
+                    "effect_range": 0,
+                    "mana_cost": 12,
+                    "miscast_chance": 0.25,
+                    "recharge_time": 75,
+                    "target_enemies": true,
+                    "target_friends": false,
+                    "target_ground": true,
+                    "target_self": false,
+                    "target_intercept_range": 200,
+                    "wind_up_time": 1,
+                    "ui_effects": [
+                      {
+                        "key": "wh2_main_bombardment_medium_strike_aoe",
+                        "localised_text": "Medium strike area",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_number_40",
+                        "localised_text": "Projectiles: 40",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_projectile_aoe_3",
+                        "localised_text": "Explosion area of effect: 3m",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "bombardment": {
+                      "bombardment_key": "wh_main_spell_metal_searing_doom",
+                      "arrival_window": 3,
+                      "radius_spread": 10,
+                      "start_time": 2,
+                      "projectile_type": {
+                        "key": "wh_main_spell_metal_searing_doom",
+                        "damage": 25,
+                        "ap_damage": 75,
+                        "shockwave_radius": 1,
+                        "effective_range": 40,
+                        "base_reload_time": 1,
+                        "is_magical": true,
+                        "can_damage_allies": true,
+                        "explosion_type": {
+                          "key": "wh_main_spell_metal_searing_doom",
+                          "affects_allies": true,
+                          "detonation_damage": 25,
+                          "detonation_damage_ap": 75,
+                          "detonation_radius": 3,
+                          "is_magical": true
+                        }
+                      },
+                      "num_projectiles": 40
+                    }
+                  }
+                }
+              ]
             }
           ]
         }

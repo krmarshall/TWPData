@@ -47,8 +47,6 @@
               "splash_target_size_limit": "very_large",
               "splash_attack_max_attacks": 10,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "attributes": [
                 {
@@ -77,6 +75,123 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "vmp_passive_aura_kemmler",
+                    "icon_name": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Shadow of the Lichmaster",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken",
+                      "In melee"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage",
+                        "localised_text": "Causes damage to combatants",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 2,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 10,
+                        "stat_effects": [
+                          {
+                            "value": 0.9,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.9 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": -5,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "-5 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": -5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "-5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh_main_unit_passive_unstable",
@@ -254,123 +369,6 @@
                             "how": "add",
                             "description": "-20 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "vmp_passive_aura_kemmler",
-                    "icon_name": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_hexes",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                      "onscreen_name": "Hex (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Shadow of the Lichmaster",
-                    "effect_range": 50,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken",
-                      "In melee"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_all_direct_damage",
-                        "localised_text": "Causes damage to combatants",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "damage_amount": 2,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 10,
-                        "stat_effects": [
-                          {
-                            "value": 0.9,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.9 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x1.1 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          },
-                          {
-                            "value": -5,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "-5 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          },
-                          {
-                            "value": -5,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "-5 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_arcane",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Arcane Mastery",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x0.75 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
                           }
                         ]
                       }
@@ -1532,11 +1530,11 @@
               }
             ],
             "related_unit_cards": [
-              "wh2_dlc11_vmp_crossbowmen",
               "vmp_bloodline_necrarch",
               "vmp_bloodline_dragon",
               "vmp_bloodline_lahmia",
-              "vmp_bloodline_strigoi"
+              "vmp_bloodline_strigoi",
+              "wh2_dlc11_vmp_crossbowmen"
             ]
           }
         ],
@@ -4616,8 +4614,6 @@
     "splash_target_size_limit": "very_large",
     "splash_attack_max_attacks": 10,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -4646,6 +4642,123 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "vmp_passive_aura_kemmler",
+          "icon_name": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_hexes",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+            "onscreen_name": "Hex (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Shadow of the Lichmaster",
+          "effect_range": 50,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken",
+            "In melee"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage",
+              "localised_text": "Causes damage to combatants",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 2,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 10,
+              "stat_effects": [
+                {
+                  "value": 0.9,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.9 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": -5,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "-5 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": -5,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-5 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh_main_unit_passive_unstable",
@@ -4823,123 +4936,6 @@
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "vmp_passive_aura_kemmler",
-          "icon_name": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_hexes",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-            "onscreen_name": "Hex (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Shadow of the Lichmaster",
-          "effect_range": 50,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken",
-            "In melee"
-          ],
-          "ui_effects": [
-            {
-              "key": "wh_main_all_direct_damage",
-              "localised_text": "Causes damage to combatants",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/vmp_passive_aura_kemmler",
-              "order": 1,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "negative",
-              "is_hidden_in_ui": false,
-              "damage_amount": 2,
-              "hp_change_frequency": 1,
-              "max_damaged_entities": 10,
-              "stat_effects": [
-                {
-                  "value": 0.9,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x0.9 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x1.1 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                },
-                {
-                  "value": -5,
-                  "stat": "stat_melee_attack",
-                  "how": "add",
-                  "description": "-5 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                },
-                {
-                  "value": -5,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "-5 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_arcane",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Arcane Mastery",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.75,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x0.75 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
                 }
               ]
             }

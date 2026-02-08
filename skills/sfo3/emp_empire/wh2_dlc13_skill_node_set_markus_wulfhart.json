@@ -1757,9 +1757,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           },
           {
@@ -1778,9 +1778,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           },
           {
@@ -1799,9 +1799,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           }
         ],
@@ -1920,9 +1920,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           },
           {
@@ -1941,9 +1941,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           },
           {
@@ -1962,9 +1962,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           }
         ],
@@ -3017,9 +3017,7 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_skirmish": true,
-    "fly_speed": 0,
     "projectile": {
       "key": "wh2_dlc13_emp_markus_wulfhart_arrow",
       "damage": 125,
@@ -3073,6 +3071,60 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "emp_passive_main_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Imperial Allegiance",
+          "active_time": 15,
+          "effect_range": 0,
+          "recharge_time": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken",
+            "In melee"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 15,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 8,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+8 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+5 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_dlc13_lord_passive_fleet_footed",
@@ -3188,60 +3240,6 @@
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "emp_passive_main_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Imperial Allegiance",
-          "active_time": 15,
-          "effect_range": 0,
-          "recharge_time": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken",
-            "In melee"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 15,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 8,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+8 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                },
-                {
-                  "value": 5,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "+5 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
                 }
               ]
             }

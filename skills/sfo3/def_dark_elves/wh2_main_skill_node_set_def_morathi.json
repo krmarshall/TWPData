@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 8,
+              "run_speed": 8.2,
               "mass": 1500,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 10.5,
               "is_magical": true,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_blinded",
@@ -99,6 +97,106 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "def_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/def_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "No Mercy",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Winning melee combat"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/def_passive_main_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "causes_fear",
+                            "description": " Can Cause Fear",
+                            "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_main_faction_abilities_murderous_prowess",
@@ -350,108 +448,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_arcane",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Arcane Mastery",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x0.75 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "def_passive_main_1",
-                    "icon_name": "sfo3/battle_ui/ability_icons/def_passive_main_1",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "No Mercy",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Winning melee combat"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/def_passive_main_1",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "causes_fear",
-                            "description": " Can Cause Fear",
-                            "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
-                          }
-                        ]
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 10.5
             },
             "auto_unlock_at_rank": 12
           }
@@ -2881,6 +2880,11 @@
                           "effect_state": "positive"
                         },
                         {
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        },
+                        {
                           "key": "wh_damaged_entities_1",
                           "localised_text": "Affect up to 1 entity",
                           "effect_state": "positive"
@@ -4629,8 +4633,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_blinded",
@@ -4681,6 +4683,106 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "def_passive_main_1",
+          "icon_name": "sfo3/battle_ui/ability_icons/def_passive_main_1",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "No Mercy",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Winning melee combat"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/def_passive_main_1",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_main_faction_abilities_murderous_prowess",
@@ -4932,106 +5034,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_arcane",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Arcane Mastery",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.75,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x0.75 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "def_passive_main_1",
-          "icon_name": "sfo3/battle_ui/ability_icons/def_passive_main_1",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "No Mercy",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Winning melee combat"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/def_passive_main_1",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x1.1 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.1 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ],
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
-                }
-              ]
-            }
-          ]
-        }
       }
     ]
   },
@@ -5226,7 +5228,7 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
       },
       {
-        "description": "Unique units: Pleasure Cultists and Daemonettes of Slaanesh",
+        "description": "Unique units and hero: Druchii Anointed, Pleasure Cultists, Devotees of Slaanesh and Daemonettes of Slaanesh",
         "key": "def_morathi_units_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/edict_def_sacrifices_for_khaine"
       }
@@ -5851,5 +5853,60 @@
         }
       ]
     }
-  ]
+  ],
+  "altFactionNodeSets": {
+    "wh2_main_def_cult_of_pleasure": {
+      "factionName": "Cult of Pleasure",
+      "nodes": [
+        {
+          "key": "def_skill_supreme_wizard_1_death",
+          "image_path": "vanilla3/campaign_ui/skills/campaign_slaanesh_corruption",
+          "character_skill_key": "def_skill_supreme_wizard_1",
+          "tier": 10,
+          "indent": 2,
+          "points_on_creation": 1,
+          "required_num_parents": 0,
+          "visible_in_ui": true,
+          "is_background_skill": false,
+          "localised_name": "Dark Revelry",
+          "localised_description": "Come attendants, and summon the congregation.",
+          "faction": "wh2_main_def_cult_of_pleasure",
+          "levels": [
+            {
+              "effects": [
+                {
+                  "description": "Diplomatic relations: +10 with Slaaneshi factions",
+                  "key": "wh3_main_faction_political_diplomacy_mod_slaanesh",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+                },
+                {
+                  "description": "Character experience gain: +10%",
+                  "key": "wh3_main_effect_character_campaign_experience_mod",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                },
+                {
+                  "description": "Slaanesh corruption: +2\n\t(local province)",
+                  "key": "wh3_main_effect_corruption_slaanesh_technology",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
+                },
+                {
+                  "description": "Casualty replenishment rate: +1% for Pleasure Cultists units\n\t(own armies factionwide)",
+                  "key": "def_pleasure_cultists_heal",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+                },
+                {
+                  "description": "Physical resistance: 10% for Pleasure Cultists units\n\t(Lord's army)",
+                  "key": "def_pleasure_cultists_res_physical",
+                  "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
+                }
+              ],
+              "related_unit_cards": [
+                "def_pleasure_cultists"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
 }

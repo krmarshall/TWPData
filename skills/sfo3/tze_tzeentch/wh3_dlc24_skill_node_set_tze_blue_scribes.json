@@ -1412,7 +1412,61 @@
                             "detonation_damage": 100,
                             "detonation_damage_ap": 50,
                             "detonation_radius": 20,
-                            "is_magical": true
+                            "is_magical": true,
+                            "contact_phase_effect": {
+                              "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_monstrous_impact",
+                              "order": 1,
+                              "target_enemies": true,
+                              "target_self": false,
+                              "target_friends": true,
+                              "duration": 10,
+                              "effect_type": "negative",
+                              "onscreen_name": "Monstrous Impact",
+                              "is_hidden_in_ui": false,
+                              "stat_effects": [
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_charge_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Charge Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                },
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                }
+                              ]
+                            }
+                          },
+                          "contact_stat_effect": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_monstrous_impact",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Monstrous Impact",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": 0.25,
+                                "stat": "scalar_charge_speed",
+                                "how": "mult",
+                                "description": "x0.25 Charge Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              },
+                              {
+                                "value": 0.25,
+                                "stat": "scalar_speed",
+                                "how": "mult",
+                                "description": "x0.25 Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              }
+                            ]
                           }
                         }
                       }
@@ -1591,14 +1645,14 @@
                         }
                       ],
                       "bombardment": {
-                        "bombardment_key": "wh_main_spell_heavens_urannons_thunderbolt",
-                        "arrival_window": 8,
+                        "bombardment_key": "wh3_dlc27_spell_heavens_urannons_thunderbolt_v2",
+                        "arrival_window": 0.1,
                         "radius_spread": 1,
                         "start_time": 3,
                         "projectile_type": {
-                          "key": "wh_main_spell_heavens_urannons_thunderbolt",
+                          "key": "wh3_dlc27_spell_heavens_urannons_thunderbolt_v2",
                           "damage": 0,
-                          "ap_damage": 400,
+                          "ap_damage": 672,
                           "shockwave_radius": 2,
                           "effective_range": 200,
                           "base_reload_time": 1,
@@ -1612,8 +1666,7 @@
                             "detonation_radius": 8,
                             "is_magical": true
                           }
-                        },
-                        "num_projectiles": 3
+                        }
                       }
                     }
                   },
@@ -5830,8 +5883,8 @@
                         "explosion_type": {
                           "key": "wh2_dlc14_spell_stealth_warp_stars",
                           "affects_allies": true,
-                          "detonation_damage": 30,
-                          "detonation_damage_ap": 60,
+                          "detonation_damage": 20,
+                          "detonation_damage_ap": 40,
                           "detonation_radius": 1,
                           "is_magical": true
                         }
@@ -5905,7 +5958,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -6618,7 +6671,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -9483,7 +9536,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -10460,6 +10513,11 @@
                           "effect_state": "positive"
                         },
                         {
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        },
+                        {
                           "key": "wh_damaged_entities_1",
                           "localised_text": "Affect up to 1 entity",
                           "effect_state": "positive"
@@ -10572,17 +10630,25 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Flensing Haar",
-                      "active_time": 24,
+                      "active_time": 30,
                       "effect_range": 0,
                       "mana_cost": 8,
+                      "miscast_chance": 0.25,
                       "num_effected_enemy_units": 5,
-                      "recharge_time": 45,
+                      "recharge_time": 75,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 200,
                       "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh3_main_all_enemy_spreading_radius_30m",
+                          "localised_text": "Will spread to enemies within the Spread Range metres of affected unit",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_spell_mists_flensing_haar",
@@ -10590,10 +10656,33 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 24,
+                          "duration": 30,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "spread_radius": 40
+                          "spread_radius": 40,
+                          "stat_effects": [
+                            {
+                              "value": -10,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-10 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": -25,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "-25 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            },
+                            {
+                              "value": -25,
+                              "stat": "stat_missile_block_chance",
+                              "how": "add",
+                              "description": "-25 Missile Block Chance",
+                              "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -10612,11 +10701,12 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Ladrielle's Shroud",
-                      "active_time": 25,
+                      "active_time": 60,
                       "effect_range": 0,
                       "mana_cost": 4,
+                      "miscast_chance": 0.25,
                       "num_effected_friendly_units": 1,
-                      "recharge_time": 40,
+                      "recharge_time": 45,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": false,
@@ -10630,10 +10720,10 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 25,
+                          "duration": 60,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
-                          "fatigue_change_ratio": -0.03,
+                          "fatigue_change_ratio": -0.01,
                           "attributes": [
                             {
                               "key": "ignore_imbue_contact_effects_enemy",
@@ -10660,17 +10750,30 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Mathlann’s Spite",
-                      "active_time": 20,
+                      "active_time": 30,
                       "effect_range": 0,
                       "mana_cost": 8,
+                      "miscast_chance": 0.25,
                       "num_effected_enemy_units": 1,
-                      "recharge_time": 37,
+                      "recharge_time": 60,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
-                      "target_intercept_range": 150,
+                      "target_intercept_range": 300,
                       "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_spell_mists_mathlanns_spite",
@@ -10678,13 +10781,36 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 20,
+                          "duration": 30,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "damage_amount": 30,
-                          "fatigue_change_ratio": 0.01,
                           "hp_change_frequency": 1,
-                          "max_damaged_entities": 1
+                          "max_damaged_entities": 1,
+                          "stat_effects": [
+                            {
+                              "value": 0.7,
+                              "stat": "scalar_missile_range",
+                              "how": "mult",
+                              "description": "x0.7 Range",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            },
+                            {
+                              "value": 0.7,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.7 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "revealed",
+                              "description": "Reveals Unit",
+                              "bullet_text": "This unit is permanently visible to the enemy, regardless of line of sight.\n\t\n\tRevealed units are not affected by the following attributes:\n\t Hide Forest\n\t Stalk\n\t Unspottable",
+                              "icon": "sfo3/battle_ui/ability_icons/revealed"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -10703,10 +10829,11 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Writhing Mist",
-                      "active_time": 24,
-                      "effect_range": 35,
+                      "active_time": 30,
+                      "effect_range": 30,
                       "mana_cost": 10,
-                      "recharge_time": 56,
+                      "miscast_chance": 0.25,
+                      "recharge_time": 75,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": true,
@@ -10720,9 +10847,18 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 24,
+                          "duration": 30,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 30,
+                              "stat": "stat_missile_block_chance",
+                              "how": "add",
+                              "description": "+30 Missile Block Chance",
+                              "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
+                            }
+                          ],
                           "attributes": [
                             {
                               "key": "can_block_missiles_360",
@@ -10750,9 +10886,32 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 24,
+                          "duration": 30,
                           "effect_type": "negative",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -5,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-5 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": -30,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-30 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 0.5,
+                              "stat": "stat_accuracy",
+                              "how": "mult",
+                              "description": "x0.5 Accuracy",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -10771,17 +10930,25 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Walk Between Worlds",
-                      "active_time": 22,
+                      "active_time": 60,
                       "effect_range": 0,
                       "mana_cost": 6,
+                      "miscast_chance": 0.25,
                       "num_effected_friendly_units": 1,
-                      "recharge_time": 45,
+                      "recharge_time": 60,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": false,
                       "target_self": true,
                       "target_intercept_range": 150,
                       "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_spell_upgraded_added_effect_range",
+                          "localised_text": "Added effect area",
+                          "effect_state": "magic"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_spell_mists_walk_between_worlds",
@@ -10789,9 +10956,46 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 22,
+                          "duration": 60,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_charge_speed",
+                              "how": "mult",
+                              "description": "x1.25 Charge Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_entity_deceleration_modifier",
+                              "how": "mult",
+                              "description": "x1.25 Deceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_entity_acceleration_modifier",
+                              "how": "mult",
+                              "description": "x1.25 Acceleration",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x1.25 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_resistance_physical",
+                              "how": "add",
+                              "description": "+25 Physical Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                            }
+                          ],
                           "attributes": [
                             {
                               "key": "strider",
@@ -10821,14 +11025,69 @@
                       "active_time": 3,
                       "effect_range": 0,
                       "mana_cost": 13,
+                      "miscast_chance": 0.25,
                       "num_uses": 2,
-                      "recharge_time": 46,
+                      "recharge_time": 60,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": true,
                       "target_self": true,
                       "target_intercept_range": 50,
-                      "wind_up_time": 3
+                      "wind_up_time": 3,
+                      "ui_effects": [
+                        {
+                          "key": "wh_explosion_large",
+                          "localised_text": "Large explosion with knockback effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_dlc27_summon_oceanids",
+                          "localised_text": "Summons a unit of Oceanids",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_direct_damage_unbinding",
+                          "localised_text": "Summoned units have specific debuffs conditions",
+                          "effect_state": "negative"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_water_explosion",
+                        "duration": 3,
+                        "damage": 15,
+                        "damage_ap": 0,
+                        "goal_radius": 50,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": false,
+                        "contact_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_deep_tidecall",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 20,
+                          "effect_type": "negative",
+                          "onscreen_name": "Tidecall",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 0.8,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.8 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": -10,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-10 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      }
                     }
                   }
                 ]
@@ -14197,7 +14456,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {
@@ -14584,7 +14843,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +1%",
+              "description": "Campaign movement range: +1%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14593,7 +14852,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +2%",
+              "description": "Campaign movement range: +2%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14603,7 +14862,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +3%",
+              "description": "Campaign movement range: +3%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14613,7 +14872,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +4%",
+              "description": "Campaign movement range: +4%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14623,7 +14882,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +5%",
+              "description": "Campaign movement range: +5%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14633,7 +14892,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +6%",
+              "description": "Campaign movement range: +6%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14643,7 +14902,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +7%",
+              "description": "Campaign movement range: +7%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14653,7 +14912,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +8%",
+              "description": "Campaign movement range: +8%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14663,7 +14922,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +9%",
+              "description": "Campaign movement range: +9%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14673,7 +14932,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +10%",
+              "description": "Campaign movement range: +10%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14683,7 +14942,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +11%",
+              "description": "Campaign movement range: +11%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14693,7 +14952,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +12%",
+              "description": "Campaign movement range: +12%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14703,7 +14962,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +13%",
+              "description": "Campaign movement range: +13%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14713,7 +14972,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +14%",
+              "description": "Campaign movement range: +14%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14723,7 +14982,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +15%",
+              "description": "Campaign movement range: +15%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14733,7 +14992,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +16%",
+              "description": "Campaign movement range: +16%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14743,7 +15002,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +17%",
+              "description": "Campaign movement range: +17%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14753,7 +15012,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +18%",
+              "description": "Campaign movement range: +18%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14763,7 +15022,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +19%",
+              "description": "Campaign movement range: +19%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14773,7 +15032,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +20%",
+              "description": "Campaign movement range: +20%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14783,7 +15042,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +21%",
+              "description": "Campaign movement range: +21%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14793,7 +15052,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +22%",
+              "description": "Campaign movement range: +22%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14803,7 +15062,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +23%",
+              "description": "Campaign movement range: +23%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14813,7 +15072,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +24%",
+              "description": "Campaign movement range: +24%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14823,7 +15082,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +25%",
+              "description": "Campaign movement range: +25%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14833,7 +15092,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +26%",
+              "description": "Campaign movement range: +26%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14843,7 +15102,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +27%",
+              "description": "Campaign movement range: +27%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14853,7 +15112,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +28%",
+              "description": "Campaign movement range: +28%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14863,7 +15122,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +29%",
+              "description": "Campaign movement range: +29%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14873,7 +15132,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +30%",
+              "description": "Campaign movement range: +30%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14883,7 +15142,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +31%",
+              "description": "Campaign movement range: +31%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14893,7 +15152,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +32%",
+              "description": "Campaign movement range: +32%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14903,7 +15162,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +33%",
+              "description": "Campaign movement range: +33%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14913,7 +15172,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +34%",
+              "description": "Campaign movement range: +34%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14923,7 +15182,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +35%",
+              "description": "Campaign movement range: +35%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14933,7 +15192,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +36%",
+              "description": "Campaign movement range: +36%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14943,7 +15202,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +37%",
+              "description": "Campaign movement range: +37%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14953,7 +15212,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +38%",
+              "description": "Campaign movement range: +38%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14963,7 +15222,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +39%",
+              "description": "Campaign movement range: +39%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14973,7 +15232,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +40%",
+              "description": "Campaign movement range: +40%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14983,7 +15242,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +41%",
+              "description": "Campaign movement range: +41%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -14993,7 +15252,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +42%",
+              "description": "Campaign movement range: +42%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15003,7 +15262,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +43%",
+              "description": "Campaign movement range: +43%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15013,7 +15272,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +44%",
+              "description": "Campaign movement range: +44%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15023,7 +15282,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +45%",
+              "description": "Campaign movement range: +45%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15033,7 +15292,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +46%",
+              "description": "Campaign movement range: +46%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15043,7 +15302,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +47%",
+              "description": "Campaign movement range: +47%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15053,7 +15312,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +48%",
+              "description": "Campaign movement range: +48%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15063,7 +15322,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +49%",
+              "description": "Campaign movement range: +49%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }
@@ -15073,7 +15332,7 @@
         {
           "effects": [
             {
-              "description": "Campaign movement range: +50%",
+              "description": "Campaign movement range: +50%\n\t(based on character rank)",
               "key": "wh_main_effect_agent_movement_range_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
             }

@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 8,
+              "run_speed": 8.5,
               "mass": 1250,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 10,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "attributes": [
                 {
@@ -71,6 +69,143 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "hef_passive_aura_heal",
+                    "icon_name": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_regeneration",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
+                      "onscreen_name": "Regeneration (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Presence of the Everqueen",
+                    "effect_range": 40,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_self_not",
+                        "localised_text": "Does not affect self",
+                        "effect_state": "negative"
+                      },
+                      {
+                        "key": "wh_main_all_replenish",
+                        "localised_text": "Replenishes hit points of combatants",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.0005,
+                        "hp_change_frequency": 1,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_flame",
+                            "how": "add",
+                            "description": "+10 Flame Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_magic_buff",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment_of_the_winds",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                      "onscreen_name": "Augment of the Winds"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Greater Magic Bond",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh_passive_magic_buff",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "onscreen_name": "Greater Magic Bond",
+                        "is_hidden_in_ui": false,
+                        "mana_max_depletion_mod": 0.05,
+                        "mana_regen_mod": 0.25
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_dlc10_lord_passive_boon_of_isha",
@@ -230,143 +365,6 @@
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
                           }
                         ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_arcane",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Arcane Mastery",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x0.75 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "hef_passive_aura_heal",
-                    "icon_name": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_regeneration",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-                      "onscreen_name": "Regeneration (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Presence of the Everqueen",
-                    "effect_range": 40,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_self_not",
-                        "localised_text": "Does not affect self",
-                        "effect_state": "negative"
-                      },
-                      {
-                        "key": "wh_main_all_replenish",
-                        "localised_text": "Replenishes hit points of combatants",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": false,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "heal_amount": 0.0005,
-                        "hp_change_frequency": 1,
-                        "stat_effects": [
-                          {
-                            "value": 10,
-                            "stat": "stat_resistance_flame",
-                            "how": "add",
-                            "description": "+10 Flame Resistance",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_magic_buff",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment_of_the_winds",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                      "onscreen_name": "Augment of the Winds"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Greater Magic Bond",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "wh_passive_magic_buff",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "onscreen_name": "Greater Magic Bond",
-                        "is_hidden_in_ui": false,
-                        "mana_max_depletion_mod": 0.05,
-                        "mana_regen_mod": 0.25
                       }
                     ]
                   }
@@ -422,8 +420,6 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 10,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 13,
               "is_magical": true,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_bleed",
@@ -475,6 +471,143 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "hef_passive_aura_heal",
+                    "icon_name": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_regeneration",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
+                      "onscreen_name": "Regeneration (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Presence of the Everqueen",
+                    "effect_range": 40,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_self_not",
+                        "localised_text": "Does not affect self",
+                        "effect_state": "negative"
+                      },
+                      {
+                        "key": "wh_main_all_replenish",
+                        "localised_text": "Replenishes hit points of combatants",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": false,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.0005,
+                        "hp_change_frequency": 1,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_flame",
+                            "how": "add",
+                            "description": "+10 Flame Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_magic_buff",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment_of_the_winds",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                      "onscreen_name": "Augment of the Winds"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Greater Magic Bond",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh_passive_magic_buff",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "onscreen_name": "Greater Magic Bond",
+                        "is_hidden_in_ui": false,
+                        "mana_max_depletion_mod": 0.05,
+                        "mana_regen_mod": 0.25
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_dlc10_lord_passive_boon_of_isha",
@@ -637,145 +770,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_arcane",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Arcane Mastery",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x0.75 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "hef_passive_aura_heal",
-                    "icon_name": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_regeneration",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-                      "onscreen_name": "Regeneration (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Presence of the Everqueen",
-                    "effect_range": 40,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_self_not",
-                        "localised_text": "Does not affect self",
-                        "effect_state": "negative"
-                      },
-                      {
-                        "key": "wh_main_all_replenish",
-                        "localised_text": "Replenishes hit points of combatants",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": false,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "heal_amount": 0.0005,
-                        "hp_change_frequency": 1,
-                        "stat_effects": [
-                          {
-                            "value": 10,
-                            "stat": "stat_resistance_flame",
-                            "how": "add",
-                            "description": "+10 Flame Resistance",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_magic_buff",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment_of_the_winds",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                      "onscreen_name": "Augment of the Winds"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Greater Magic Bond",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "wh_passive_magic_buff",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "onscreen_name": "Greater Magic Bond",
-                        "is_hidden_in_ui": false,
-                        "mana_max_depletion_mod": 0.05,
-                        "mana_regen_mod": 0.25
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 13
             },
             "auto_unlock_at_rank": 16
           }
@@ -1008,7 +1005,7 @@
           {
             "effects": [
               {
-                "description": "Diplomatic relations: +10 with High Elves",
+                "description": "Diplomatic relations: +25 with High Elves",
                 "key": "wh2_main_faction_political_diplomacy_mod_high_elves",
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
               },
@@ -1022,7 +1019,7 @@
           {
             "effects": [
               {
-                "description": "Diplomatic relations: +20 with High Elves",
+                "description": "Diplomatic relations: +50 with High Elves",
                 "key": "wh2_main_faction_political_diplomacy_mod_high_elves",
                 "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
               },
@@ -1175,7 +1172,7 @@
           {
             "effects": [
               {
-                "description": "Upkeep: -5%\n\t(Lord's army)",
+                "description": "Upkeep: -10%\n\t(Lord's army)",
                 "key": "wh_main_effect_force_all_campaign_upkeep",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               },
@@ -3404,9 +3401,6 @@
                 "key": "wh2_main_effect_force_stat_charge_bonus_add_hef_chariots_dragonprinces",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -3426,9 +3420,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -3448,9 +3439,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           }
         ],
@@ -3770,8 +3758,7 @@
               }
             ],
             "related_unit_cards": [
-              "wef_warhawks",
-              "cr_hef_skycutter"
+              "wef_warhawks"
             ]
           }
         ],
@@ -4492,8 +4479,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 10,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -4516,6 +4501,143 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "hef_passive_aura_heal",
+          "icon_name": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_regeneration",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
+            "onscreen_name": "Regeneration (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Presence of the Everqueen",
+          "effect_range": 40,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_self_not",
+              "localised_text": "Does not affect self",
+              "effect_state": "negative"
+            },
+            {
+              "key": "wh_main_all_replenish",
+              "localised_text": "Replenishes hit points of combatants",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": false,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "heal_amount": 0.0005,
+              "hp_change_frequency": 1,
+              "stat_effects": [
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_flame",
+                  "how": "add",
+                  "description": "+10 Flame Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_magic_buff",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Greater Magic Bond",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "wh_passive_magic_buff",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "onscreen_name": "Greater Magic Bond",
+              "is_hidden_in_ui": false,
+              "mana_max_depletion_mod": 0.05,
+              "mana_regen_mod": 0.25
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_dlc10_lord_passive_boon_of_isha",
@@ -4678,143 +4800,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_arcane",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Arcane Mastery",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.75,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x0.75 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "hef_passive_aura_heal",
-          "icon_name": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_regeneration",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
-            "onscreen_name": "Regeneration (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Presence of the Everqueen",
-          "effect_range": 40,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "ui_effects": [
-            {
-              "key": "wh_self_not",
-              "localised_text": "Does not affect self",
-              "effect_state": "negative"
-            },
-            {
-              "key": "wh_main_all_replenish",
-              "localised_text": "Replenishes hit points of combatants",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/hef_passive_aura_heal",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": false,
-              "target_friends": true,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "heal_amount": 0.0005,
-              "hp_change_frequency": 1,
-              "stat_effects": [
-                {
-                  "value": 10,
-                  "stat": "stat_resistance_flame",
-                  "how": "add",
-                  "description": "+10 Flame Resistance",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_magic_buff",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment_of_the_winds",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-            "onscreen_name": "Augment of the Winds"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Greater Magic Bond",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "wh_passive_magic_buff",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "onscreen_name": "Greater Magic Bond",
-              "is_hidden_in_ui": false,
-              "mana_max_depletion_mod": 0.05,
-              "mana_regen_mod": 0.25
-            }
-          ]
-        }
       }
     ]
   },
@@ -4967,9 +4952,14 @@
       "unlocked_at_rank": 15,
       "effects": [
         {
-          "description": "Casualty replenishment rate: +10%\n\t(Lord's army)",
+          "description": "Casualty replenishment rate: +10%\n\t(own armies in province)",
           "key": "wh_main_effect_force_all_campaign_replenishment_rate",
           "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+        },
+        {
+          "description": "Battle healing cap: +10%\n\t(all armies factionwide)",
+          "key": "wh3_dlc20_effect_healing_cap_modifier",
+          "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
         },
         {
           "description": "Character's aura leadership effect: +10",

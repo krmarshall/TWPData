@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 7,
+              "run_speed": 7.5,
               "mass": 2000,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "very_large",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
@@ -85,6 +83,69 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "chs_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chaotic Crusade",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points greater than 50%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "chs_passive_main_1_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 59,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "chs_passive_main_1_2",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.1
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
@@ -154,7 +215,74 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 4
+          }
+        ]
+      },
+      {
+        "key": "wh_main_skill_node_chs_sorcerer_lord_shadows_mount_warshrine",
+        "image_path": "vanilla3/campaign_ui/skills/mount_warshrine",
+        "character_skill_key": "wh3_dlc20_skill_mount_chs_cha_chaos_sorcerer_lord_shadows_warshrine",
+        "tier": 2,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Chaos Warshrine",
+        "localised_description": "A vast, mobile altar allows the souls of the slain to be ritualistically condemned directly from the field of slaughter.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Warshrine",
+                "key": "wh_main_effect_enable_mount_warshrine",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 3.5,
+              "mass": 4000,
+              "size": "very_large",
+              "hit_points": 0,
+              "bonus_hit_points": 13500,
+              "armour": 60,
+              "missile_block_chance": 0,
+              "morale": 70,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 35,
+              "melee_defence": 35,
+              "charge_bonus": 25,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 250,
+              "ap_damage": 125,
+              "splash_target_size_limit": "very_large",
+              "splash_attack_max_attacks": 5,
+              "melee_attack_interval": 4,
+              "can_siege": true,
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "chs_passive_main_1",
@@ -217,76 +345,7 @@
                       }
                     ]
                   }
-                }
-              ]
-            },
-            "auto_unlock_at_rank": 4
-          }
-        ]
-      },
-      {
-        "key": "wh_main_skill_node_chs_sorcerer_lord_shadows_mount_warshrine",
-        "image_path": "vanilla3/campaign_ui/skills/mount_warshrine",
-        "character_skill_key": "wh3_dlc20_skill_mount_chs_cha_chaos_sorcerer_lord_shadows_warshrine",
-        "tier": 2,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Chaos Warshrine",
-        "localised_description": "A vast, mobile altar allows the souls of the slain to be ritualistically condemned directly from the field of slaughter.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Mount: Warshrine",
-                "key": "wh_main_effect_enable_mount_warshrine",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              }
-            ],
-            "mount_unit_stats": {
-              "run_speed": 3,
-              "mass": 4000,
-              "size": "very_large",
-              "hit_points": 0,
-              "bonus_hit_points": 13500,
-              "armour": 60,
-              "missile_block_chance": 0,
-              "morale": 70,
-              "damage_mod_flame": 0,
-              "damage_mod_magic": 0,
-              "damage_mod_physical": 0,
-              "damage_mod_missile": 15,
-              "damage_mod_all": 0,
-              "melee_attack": 35,
-              "melee_defence": 35,
-              "charge_bonus": 25,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 0,
-              "damage": 250,
-              "ap_damage": 125,
-              "splash_target_size_limit": "very_large",
-              "splash_attack_max_attacks": 5,
-              "melee_attack_interval": 4,
-              "barrier": 0,
-              "can_siege": true,
-              "fly_speed": 0,
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
-                {
-                  "key": "encourages",
-                  "description": "Encourage",
-                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
-                }
-              ],
-              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh3_dlc20_unit_passive_giver_of_glory",
@@ -405,69 +464,6 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "chs_passive_main_1",
-                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Chaotic Crusade",
-                    "active_time": 60,
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Hit Points greater than 50%"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "chs_passive_main_1_1",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 59,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      },
-                      {
-                        "icon": "chs_passive_main_1_2",
-                        "order": 2,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.1
-                      }
-                    ]
-                  }
                 }
               ]
             },
@@ -520,9 +516,7 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 9.5,
               "is_magical": true,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
@@ -601,6 +595,69 @@
               "abilities": [
                 {
                   "unit_ability": {
+                    "key": "chs_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chaotic Crusade",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points greater than 50%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "chs_passive_main_1_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 59,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "chs_passive_main_1_2",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
                     "overpower_option": "",
@@ -668,71 +725,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "chs_passive_main_1",
-                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Chaotic Crusade",
-                    "active_time": 60,
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Hit Points greater than 50%"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "chs_passive_main_1_1",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 59,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      },
-                      {
-                        "icon": "chs_passive_main_1_2",
-                        "order": 2,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.1
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 9.5
             },
             "auto_unlock_at_rank": 18
           }
@@ -783,9 +778,7 @@
               "splash_target_size_limit": "very_large",
               "splash_attack_max_attacks": 10,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 10,
               "is_flaming": true,
               "is_magical": true,
               "contact_phase": {
@@ -852,6 +845,69 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "chs_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chaotic Crusade",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points greater than 50%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "chs_passive_main_1_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 59,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "chs_passive_main_1_2",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.1
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_main_unit_abilities_dark_fire_of_chaos",
@@ -982,71 +1038,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "chs_passive_main_1",
-                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Chaotic Crusade",
-                    "active_time": 60,
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Hit Points greater than 50%"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "chs_passive_main_1_1",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 59,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      },
-                      {
-                        "icon": "chs_passive_main_1_2",
-                        "order": 2,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.1
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 10
             },
             "auto_unlock_at_rank": 22
           }
@@ -3338,7 +3332,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           },
           {
@@ -3356,7 +3351,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           },
           {
@@ -3374,7 +3370,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -3787,7 +3784,8 @@
             ],
             "related_unit_cards": [
               "chs_marauder",
-              "chs_marauder_great_weapons"
+              "chs_marauder_great_weapons",
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -4651,8 +4649,6 @@
     "splash_target_size_limit": "very_large",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
@@ -4689,6 +4685,69 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "chs_passive_main_1",
+          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Chaotic Crusade",
+          "active_time": 60,
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points greater than 50%"
+          ],
+          "phases": [
+            {
+              "icon": "chs_passive_main_1_1",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 59,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ]
+            },
+            {
+              "icon": "chs_passive_main_1_2",
+              "order": 2,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "fatigue_change_ratio": -0.1
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
@@ -4755,69 +4814,6 @@
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "chs_passive_main_1",
-          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Chaotic Crusade",
-          "active_time": 60,
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Hit Points greater than 50%"
-          ],
-          "phases": [
-            {
-              "icon": "chs_passive_main_1_1",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 59,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x1.1 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.1 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ]
-            },
-            {
-              "icon": "chs_passive_main_1_2",
-              "order": 2,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.1
             }
           ]
         }
@@ -5324,7 +5320,8 @@
           ],
           "related_unit_cards": [
             "chs_marauder",
-            "chs_marauder_great_weapons"
+            "chs_marauder_great_weapons",
+            "nor_bearmen_bear"
           ]
         }
       ]

@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 4,
+              "run_speed": 4.5,
               "mass": 7000,
               "size": "very_large",
               "hit_points": 0,
@@ -49,7 +49,6 @@
               "melee_attack_interval": 3.5,
               "barrier": 1000,
               "can_siege": true,
-              "fly_speed": 0,
               "attributes": [
                 {
                   "key": "wallbreaker",
@@ -83,76 +82,6 @@
                 }
               ],
               "abilities": [
-                {
-                  "unit_ability": {
-                    "key": "wh3_main_unit_passive_single_entity",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_hex",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                      "onscreen_name": "Hex"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Wounds",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "negative",
-                        "onscreen_name": "Wounded!",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.8,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.8 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": 0.8,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x0.8 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x1.1 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          },
-                          {
-                            "value": 0.8,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x0.8 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          },
-                          {
-                            "value": -20,
-                            "stat": "stat_reloading",
-                            "how": "add",
-                            "description": "-20 Reload Skill",
-                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
                 {
                   "unit_ability": {
                     "key": "lzd_passive_slann",
@@ -252,6 +181,12 @@
                             "description": " Unbreakable",
                             "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
                             "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
                           }
                         ]
                       }
@@ -306,6 +241,76 @@
                             "description": "Removes ➖ Rampage!",
                             "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                             "icon": "sfo3/battle_ui/ability_icons/rampage"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Wounds",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.8,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.8 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x1.1 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          },
+                          {
+                            "value": -20,
+                            "stat": "stat_reloading",
+                            "how": "add",
+                            "description": "-20 Reload Skill",
+                            "icon": "vanilla3/skins/default/icon_stat_reload_time"
                           }
                         ]
                       }
@@ -2996,7 +3001,61 @@
                             "detonation_damage": 100,
                             "detonation_damage_ap": 50,
                             "detonation_radius": 20,
-                            "is_magical": true
+                            "is_magical": true,
+                            "contact_phase_effect": {
+                              "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_monstrous_impact",
+                              "order": 1,
+                              "target_enemies": true,
+                              "target_self": false,
+                              "target_friends": true,
+                              "duration": 10,
+                              "effect_type": "negative",
+                              "onscreen_name": "Monstrous Impact",
+                              "is_hidden_in_ui": false,
+                              "stat_effects": [
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_charge_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Charge Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                },
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                }
+                              ]
+                            }
+                          },
+                          "contact_stat_effect": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_monstrous_impact",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Monstrous Impact",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": 0.25,
+                                "stat": "scalar_charge_speed",
+                                "how": "mult",
+                                "description": "x0.25 Charge Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              },
+                              {
+                                "value": 0.25,
+                                "stat": "scalar_speed",
+                                "how": "mult",
+                                "description": "x0.25 Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              }
+                            ]
                           }
                         }
                       }
@@ -3090,7 +3149,61 @@
                             "detonation_damage": 100,
                             "detonation_damage_ap": 50,
                             "detonation_radius": 20,
-                            "is_magical": true
+                            "is_magical": true,
+                            "contact_phase_effect": {
+                              "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_monstrous_impact",
+                              "order": 1,
+                              "target_enemies": true,
+                              "target_self": false,
+                              "target_friends": true,
+                              "duration": 10,
+                              "effect_type": "negative",
+                              "onscreen_name": "Monstrous Impact",
+                              "is_hidden_in_ui": false,
+                              "stat_effects": [
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_charge_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Charge Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                },
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                }
+                              ]
+                            }
+                          },
+                          "contact_stat_effect": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_monstrous_impact",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Monstrous Impact",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": 0.25,
+                                "stat": "scalar_charge_speed",
+                                "how": "mult",
+                                "description": "x0.25 Charge Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              },
+                              {
+                                "value": 0.25,
+                                "stat": "scalar_speed",
+                                "how": "mult",
+                                "description": "x0.25 Speed",
+                                "icon": "vanilla3/skins/default/icon_stat_speed"
+                              }
+                            ]
                           }
                         }
                       }
@@ -4768,7 +4881,6 @@
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
     "barrier": 1000,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -4797,76 +4909,6 @@
       }
     ],
     "abilities": [
-      {
-        "unit_ability": {
-          "key": "wh3_main_unit_passive_single_entity",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_hex",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-            "onscreen_name": "Hex"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Wounds",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "negative",
-              "onscreen_name": "Wounded!",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.8,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x0.8 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
-                  "value": 0.8,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x0.8 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x1.1 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                },
-                {
-                  "value": 0.8,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x0.8 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                },
-                {
-                  "value": -20,
-                  "stat": "stat_reloading",
-                  "how": "add",
-                  "description": "-20 Reload Skill",
-                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
-      },
       {
         "unit_ability": {
           "key": "lzd_passive_slann",
@@ -4966,6 +5008,12 @@
                   "description": " Unbreakable",
                   "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                },
+                {
+                  "key": "force_rally",
+                  "description": "Rally",
+                  "bullet_text": "Motivates units to rally immediately",
+                  "icon": "sfo3/battle_ui/ability_icons/force_rally"
                 }
               ]
             }
@@ -5020,6 +5068,76 @@
                   "description": "Removes ➖ Rampage!",
                   "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
                   "icon": "sfo3/battle_ui/ability_icons/rampage"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "onscreen_name": "Wounded!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
             }
@@ -5314,179 +5432,6 @@
   ],
   "backgroundSkills": [
     {
-      "key": "wh2_main_skill_node_lzd_lord_mazdamundi_magic_dummy",
-      "image_path": "vanilla3/campaign_ui/skills/trait_human",
-      "character_skill_key": "wh2_main_skill_all_magic_high_dummy_apotheosis_soulquench",
-      "tier": 11,
-      "indent": 3,
-      "points_on_creation": 1,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": false,
-      "localised_name": "[HIDDEN] Apotheosis and soul quench",
-      "localised_description": "",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Spell: \"Apotheosis\"",
-              "key": "wh2_main_effect_ability_enable_apotheosis",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_ability_enable_apotheosis",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh2_main_spell_high_magic_apotheosis",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_high_magic_apotheosis",
-                    "overpower_option": "wh2_main_spell_high_magic_apotheosis_upgraded",
-                    "type": {
-                      "key": "wh_type_regeneration",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
-                      "onscreen_name": "Regeneration"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Apotheosis",
-                    "active_time": 10,
-                    "effect_range": 0,
-                    "mana_cost": 6,
-                    "miscast_chance": 0.2,
-                    "num_effected_friendly_units": 1,
-                    "recharge_time": 45,
-                    "target_enemies": false,
-                    "target_friends": true,
-                    "target_ground": false,
-                    "target_self": true,
-                    "target_intercept_range": 200,
-                    "wind_up_time": 1,
-                    "ui_effects": [
-                      {
-                        "key": "wh_heal_total_10",
-                        "localised_text": "Restores up to 10% Hit Points",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_spell_high_magic_apotheosis",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": 10,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "ability_recharge_change": -25,
-                        "fatigue_change_ratio": -0.02,
-                        "heal_amount": 0.01,
-                        "hp_change_frequency": 1,
-                        "attributes": [
-                          {
-                            "key": "causes_fear",
-                            "description": " Can Cause Fear",
-                            "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "description": "Spell: \"Soul Quench\"",
-              "key": "wh2_main_effect_ability_enable_soul_quench",
-              "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
-              "related_abilities": [
-                {
-                  "effect": "wh2_main_effect_ability_enable_soul_quench",
-                  "bonus_value_id": "enable",
-                  "unit_ability": {
-                    "key": "wh2_main_spell_high_magic_soul_quench",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_spell_high_magic_soul_quench",
-                    "overpower_option": "wh2_main_spell_high_magic_soul_quench_upgraded",
-                    "type": {
-                      "key": "wh_type_magic_missile",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_magic_missile",
-                      "onscreen_name": "Magic Missile"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Soul Quench",
-                    "effect_range": 0,
-                    "mana_cost": 8,
-                    "miscast_chance": 0.2,
-                    "recharge_time": 60,
-                    "target_enemies": true,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 250,
-                    "wind_up_time": 3,
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_all_strong_against_units",
-                        "localised_text": "Strong vs multiple units",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_projectile_number_1",
-                        "localised_text": "Projectiles: 1",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_projectile_aoe_4",
-                        "localised_text": "Explosion area of effect: 4m",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh3_main_projectile_requires_line_of_sight",
-                        "localised_text": "Requires line of sight to the target",
-                        "effect_state": "negative"
-                      }
-                    ],
-                    "activated_projectile": {
-                      "key": "wh2_main_spell_high_magic_soul_quench",
-                      "damage": 750,
-                      "ap_damage": 250,
-                      "shockwave_radius": 1,
-                      "effective_range": 300,
-                      "base_reload_time": 1,
-                      "is_magical": true,
-                      "can_damage_allies": true,
-                      "explosion_type": {
-                        "key": "wh2_main_spell_high_magic_soul_quench",
-                        "affects_allies": true,
-                        "detonation_damage": 400,
-                        "detonation_damage_ap": 0,
-                        "detonation_radius": 4,
-                        "is_magical": true,
-                        "is_flaming": true
-                      },
-                      "contact_stat_effect": {
-                        "icon": "wh2_main_unit_contact_souls",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": true,
-                        "duration": 5,
-                        "effect_type": "negative",
-                        "onscreen_name": "Quenched!",
-                        "is_hidden_in_ui": true,
-                        "damage_amount": 10,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 10
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "key": "wh2_main_skill_node_lzd_mazdamundi_innate_01",
       "image_path": "vanilla3/campaign_ui/skills/trait_lizardmen",
       "character_skill_key": "wh2_main_skill_innate_lzd_mazdamundi_venerated",
@@ -5648,7 +5593,7 @@
           "required_num_parents": 0,
           "visible_in_ui": true,
           "is_background_skill": false,
-          "localised_name": "Lord of the Solar-City",
+          "localised_name": "SOLAR-CITY",
           "localised_description": "Woe to the warm-bloods who would despoil our realm, for their craving for trinkets and baubles drives them deeper into lands forbidden to them. Cast them out, show them no pity, feed their carcasses to the beasts of the jungle and leave their bones to bleach upon the golden shores of our land. Let them see that it is folly to intrude upon the domains of the Lizardmen. (Mazdamundi campaign only skill)",
           "faction": "wh2_main_lzd_hexoatl",
           "levels": [

@@ -301,7 +301,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -582,7 +582,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -593,9 +593,9 @@
               }
             ],
             "related_unit_cards": [
-              "wh2_dlc13_emp_halberdiers_ror",
               "emp_flagellants_ext",
-              "emp_sigmar_war"
+              "emp_sigmar_war",
+              "wh2_dlc13_emp_halberdiers_ror"
             ]
           },
           {
@@ -676,7 +676,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -687,9 +687,9 @@
               }
             ],
             "related_unit_cards": [
-              "wh2_dlc13_emp_halberdiers_ror",
               "emp_flagellants_ext",
-              "emp_sigmar_war"
+              "emp_sigmar_war",
+              "wh2_dlc13_emp_halberdiers_ror"
             ]
           }
         ],
@@ -2873,8 +2873,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 3.5,
-    "barrier": 0,
-    "fly_speed": 0,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_contact_weeping_blade",
       "order": 1,
@@ -2928,6 +2926,106 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "skv_passive_smoke_out",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_lord_passive_warpstone_detonation",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_hexes",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+            "onscreen_name": "Hex (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Smoke Out",
+          "active_time": 30,
+          "effect_range": 40,
+          "num_effected_enemy_units": 2,
+          "recharge_time": 60,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Losing melee combat",
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "skv_passive_smoke_out",
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.75 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": -10,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "-10 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": -10,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-10 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_vigour",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Vigorous",
+          "active_time": 10,
+          "effect_range": 0,
+          "recharge_time": 30,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Out of melee"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "fatigue_change_ratio": -0.01
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_main_unit_passive_scurry_away",
@@ -3038,106 +3136,6 @@
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "skv_passive_smoke_out",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc12_lord_passive_warpstone_detonation",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_hexes",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-            "onscreen_name": "Hex (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Smoke Out",
-          "active_time": 30,
-          "effect_range": 40,
-          "num_effected_enemy_units": 2,
-          "recharge_time": 60,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Losing melee combat",
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "skv_passive_smoke_out",
-              "order": 1,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 30,
-              "effect_type": "negative",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.75,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x0.75 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
-                  "value": -10,
-                  "stat": "stat_melee_attack",
-                  "how": "add",
-                  "description": "-10 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                },
-                {
-                  "value": -10,
-                  "stat": "stat_reloading",
-                  "how": "add",
-                  "description": "-10 Reload Skill",
-                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_vigour",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Vigorous",
-          "active_time": 10,
-          "effect_range": 0,
-          "recharge_time": 30,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Out of melee"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 10,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.01
             }
           ]
         }
@@ -3515,7 +3513,7 @@
                             "key": "unspottable",
                             "description": " Unspottable",
                             "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                            "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                           }
                         ]
                       }

@@ -859,7 +859,8 @@
           ],
           "related_unit_cards": [
             "chs_marauder",
-            "chs_marauder_great_weapons"
+            "chs_marauder_great_weapons",
+            "nor_bearmen_bear"
           ]
         }
       },
@@ -1394,58 +1395,70 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/corruption_slaanesh"
             },
             {
-              "description": "Army ability: \"Sweet Sorrow\"",
-              "key": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+              "description": "Army ability: \"Fascination\"",
+              "key": "wh3_main_effect_army_ability_enable_fascination",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
               "related_abilities": [
                 {
-                  "effect": "wh3_main_effect_army_ability_enable_sweet_sorrow",
+                  "effect": "wh3_main_effect_army_ability_enable_fascination",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh3_main_army_abilities_sweet_sorrow",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                    "key": "wh3_main_army_abilities_fascination",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Sweet Sorrow",
+                    "onscreen_name": "Fascination",
                     "active_time": 30,
-                    "effect_range": -1,
-                    "recharge_time": 120,
-                    "target_enemies": false,
+                    "effect_range": 0,
+                    "num_effected_enemy_units": 1,
+                    "recharge_time": 90,
+                    "target_enemies": true,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": -1,
-                    "wind_up_time": 5,
+                    "wind_up_time": 3,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage",
+                        "localised_text": "Causes damage to combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_strong_against_units",
+                        "localised_text": "Strong vs multiple units",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_damaged_entities_25",
+                        "localised_text": "Affect up to 25 entities",
+                        "effect_state": "positive"
+                      }
+                    ],
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_sweet_sorrow",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_army_abilities_fascination",
                         "order": 1,
-                        "target_enemies": false,
+                        "target_enemies": true,
                         "target_self": false,
-                        "target_friends": true,
+                        "target_friends": false,
                         "duration": 30,
-                        "effect_type": "positive",
+                        "effect_type": "negative",
                         "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.02,
-                        "stat_effects": [
+                        "damage_amount": 5,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 25,
+                        "attributes": [
                           {
-                            "value": 1.25,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x1.25 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": 2,
-                            "stat": "scalar_entity_acceleration_modifier",
-                            "how": "mult",
-                            "description": "x2 Acceleration",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                            "icon": "sfo3/battle_ui/ability_icons/rampage"
                           }
                         ]
                       }
@@ -1514,6 +1527,11 @@
               "description": "Hero capacity: +2 for Chaos Sorcerers",
               "key": "wh_main_effect_agent_cap_increase_wizard_chaos_sorcerer",
               "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+            },
+            {
+              "description": "Hero capacity: +2 for Exalted Heroes",
+              "key": "wh_main_effect_agent_cap_increase_champion_exalted_hero",
+              "icon": "vanilla3/campaign_ui/effect_bundles/exalted_hero"
             },
             {
               "description": "Enables direct recruitment of Marked Chaos Sorcerers",

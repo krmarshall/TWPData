@@ -212,7 +212,17 @@
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
-                      "target_intercept_range": 0,
+                      "target_intercept_range": 50,
+                      "enabled_if": [
+                        "Terror causing unit in range"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_intensity_time_melee_150",
+                          "localised_text": "Effect intensity increases with time spent engaged in melee (150s)",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_character_passive_thrill_of_battle",
@@ -222,7 +232,23 @@
                           "target_friends": false,
                           "duration": -1,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 2,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x2 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 2,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x2 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -342,6 +368,9 @@
                   }
                 ]
               }
+            ],
+            "related_unit_cards": [
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -396,6 +425,9 @@
                   }
                 ]
               }
+            ],
+            "related_unit_cards": [
+              "nor_bearmen_bear"
             ]
           }
         ],
@@ -456,14 +488,17 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "War Cry",
-                      "active_time": 18,
-                      "effect_range": 35,
-                      "recharge_time": 45,
+                      "active_time": 30,
+                      "effect_range": 40,
+                      "recharge_time": 60,
                       "target_enemies": false,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Unit is charging"
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc27_character_passive_war_cry",
@@ -471,9 +506,32 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": 18,
+                          "duration": 30,
                           "effect_type": "positive",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 15,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+15 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+25 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 25,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+25 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -1230,7 +1288,447 @@
         ]
       }
     ],
-    [],
+    [
+      {
+        "key": "nor_skill_werekin_1_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/battle_damage",
+        "character_skill_key": "nor_skill_werekin_1",
+        "tier": 10,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Terrifying Howl",
+        "localised_description": "Ringing across miles, the blood curdling cry leaves knees knocking and hands shaking.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy weapon strength: -5%\n\t(enemy characters in region)",
+                "key": "wh_effect_all_damage_melee_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
+              },
+              {
+                "description": "Enemy missile strength: -5%\n\t(enemy characters in region)",
+                "key": "wh_effect_all_damage_missile_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "nor_skill_werekin_2_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/character_speed",
+        "character_skill_key": "nor_skill_werekin_2",
+        "tier": 11,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Unnatural Vigour",
+        "localised_description": "Wounds sealing up as quickly as they are open, muscles pumping with unearthly abandon. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +3%",
+                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Speed: +3%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +6%",
+                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Speed: +6%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +10%",
+                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Speed: +10%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "nor_skill_werekin_1_beorg"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "nor_skill_werekin_3_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "nor_skill_werekin_3",
+        "tier": 12,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Savage Hunger",
+        "localised_description": "The thirst for rended flesh further fuels the Skin Wolf's unnatural healing abilities. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +3%",
+                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Melee attack: +3",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +6%",
+                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Melee attack: +6",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Casualty replenishment rate: +10%",
+                "key": "wh_main_effect_force_all_campaign_replenishment_rate",
+                "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
+              },
+              {
+                "description": "Melee attack: +10",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "nor_skill_werekin_1_beorg"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "nor_skill_werekin_4_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/battle_defence",
+        "character_skill_key": "nor_skill_werekin_4",
+        "tier": 13,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 3,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Favoured by Khorne",
+        "localised_description": "For this one prays nightly with at his altar of blood. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Enemy melee defence: -2\n\t(enemy characters in region)",
+                "key": "wh_effect_all_defence_enemies",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+              },
+              {
+                "description": "Enable contact effect: \"Bonecrusher\"",
+                "key": "wh_effect_enable_contact_crush",
+                "icon": "sfo3/campaign_ui/effect_bundles/wh_main_unit_contact_crush",
+                "related_phases": [
+                  {
+                    "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_crush",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Bonecrusher",
+                    "is_hidden_in_ui": false,
+                    "max_damaged_entities": 5,
+                    "stat_effects": [
+                      {
+                        "value": 0.75,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.75 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      },
+                      {
+                        "value": -5,
+                        "stat": "stat_melee_defence",
+                        "how": "add",
+                        "description": "-5 Melee Defence",
+                        "icon": "vanilla3/skins/default/icon_stat_defence"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "nor_skill_werekin_8_beorg"
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "nor_skill_werekin_2_beorg",
+          "nor_skill_werekin_3_beorg"
+        ]
+      },
+      {
+        "key": "nor_skill_werekin_5_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ward_save",
+        "character_skill_key": "nor_skill_werekin_5",
+        "tier": 14,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Horrid Blessing",
+        "localised_description": "A transformation so horrific, the very air grows thick with evil, protecting the advancing force of ruin. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Missile resistance: 2%\n\t(Hero's army)",
+                "key": "wh_main_effect_character_stat_missile_resistance",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
+              }
+            ],
+            "unlocked_at_rank": 10
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "nor_skill_werekin_6_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/battle_defence",
+        "character_skill_key": "nor_skill_werekin_6",
+        "tier": 15,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Alpha Wolf",
+        "localised_description": "While these slathering beasts don't exactly communicate with each other, they most certainly know how to follow the biggest and bloodiest in the pack. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +1 for Skin Wolves units\n\t(Hero's army)",
+                "key": "wh_dlc08_effect_force_stat_melee_defence_skin_wolves",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+              },
+              {
+                "description": "Charge bonus: +2 for Skin Wolves units\n\t(Hero's army)",
+                "key": "wh_dlc08_effect_force_stat_charge_bonus_add_skin_wolves",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +2 for Skin Wolves units\n\t(Hero's army)",
+                "key": "wh_dlc08_effect_force_stat_melee_defence_skin_wolves",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+              },
+              {
+                "description": "Charge bonus: +4 for Skin Wolves units\n\t(Hero's army)",
+                "key": "wh_dlc08_effect_force_stat_charge_bonus_add_skin_wolves",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Melee defence: +3 for Skin Wolves units\n\t(Hero's army)",
+                "key": "wh_dlc08_effect_force_stat_melee_defence_skin_wolves",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+              },
+              {
+                "description": "Charge bonus: +8 for Skin Wolves units\n\t(Hero's army)",
+                "key": "wh_dlc08_effect_force_stat_charge_bonus_add_skin_wolves",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "nor_skill_werekin_5_beorg"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "nor_skill_werekin_7_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/battle_speed",
+        "character_skill_key": "nor_skill_werekin_7",
+        "tier": 16,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Fetid Stench",
+        "localised_description": "Bits of gore left sloughing off and stinking terrify the enemy cavalry, encouraging the wolves to give chase. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Vigour loss reduction: +2% for cavalry units\n\t(enemy armies in region)",
+                "key": "wh_main_effect_force_stat_vigour_loss_reduction_cavalry",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              },
+              {
+                "description": "Speed: +3% for Norscan Warhounds, Norscan Ice Wolves, Marauder Chariot and Kurgan Horsemen units\n\t(Hero's army)",
+                "key": "wh2_dlc11_effect_force_stat_speed_nor_warhounds_ice_wolves_chariots",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              }
+            ],
+            "related_unit_cards": [
+              "wh_dlc08_nor_warhounds"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Vigour loss reduction: +4% for cavalry units\n\t(enemy armies in region)",
+                "key": "wh_main_effect_force_stat_vigour_loss_reduction_cavalry",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              },
+              {
+                "description": "Speed: +6% for Norscan Warhounds, Norscan Ice Wolves, Marauder Chariot and Kurgan Horsemen units\n\t(Hero's army)",
+                "key": "wh2_dlc11_effect_force_stat_speed_nor_warhounds_ice_wolves_chariots",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              }
+            ],
+            "related_unit_cards": [
+              "wh_dlc08_nor_warhounds"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Vigour loss reduction: +6% for cavalry units\n\t(enemy armies in region)",
+                "key": "wh_main_effect_force_stat_vigour_loss_reduction_cavalry",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              },
+              {
+                "description": "Speed: +10% for Norscan Warhounds, Norscan Ice Wolves, Marauder Chariot and Kurgan Horsemen units\n\t(Hero's army)",
+                "key": "wh2_dlc11_effect_force_stat_speed_nor_warhounds_ice_wolves_chariots",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+              }
+            ],
+            "related_unit_cards": [
+              "wh_dlc08_nor_warhounds"
+            ]
+          }
+        ],
+        "parent_required": [
+          "nor_skill_werekin_5_beorg"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "nor_skill_werekin_8_beorg",
+        "image_path": "vanilla3/campaign_ui/skills/battle_attack",
+        "character_skill_key": "nor_skill_werekin_8",
+        "tier": 17,
+        "indent": 4,
+        "points_on_creation": 0,
+        "required_num_parents": 3,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Sharpened Claws",
+        "localised_description": "The instinct to scratch their claws against passing rocks ends up grinding their claws into fearsome points. ",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Bonus vs Large: -2\n\t(enemy armies in region)",
+                "key": "wh_main_effect_character_stat_mod_bonus_v_large",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character"
+              },
+              {
+                "description": "Enable contact effect: \"Bleed\"",
+                "key": "wh_effect_enable_contact_bleed",
+                "icon": "sfo3/campaign_ui/effect_bundles/wh_main_unit_contact_bleed",
+                "related_phases": [
+                  {
+                    "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_bleed",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 15,
+                    "effect_type": "negative",
+                    "onscreen_name": "Bleed - 4 damage, 5 entities",
+                    "is_hidden_in_ui": false,
+                    "damage_amount": 4,
+                    "hp_change_frequency": 1,
+                    "max_damaged_entities": 5,
+                    "stat_effects": [
+                      {
+                        "value": 0.9,
+                        "stat": "stat_healing_power",
+                        "how": "mult",
+                        "description": "x0.9 Incoming Healing Modifier",
+                        "icon": "vanilla3/skins/default/stat_healing_received"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "blocks_skill_node_keys": [
+              "nor_skill_werekin_4_beorg"
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "nor_skill_werekin_6_beorg",
+          "nor_skill_werekin_7_beorg"
+        ]
+      }
+    ],
     [
       {
         "key": "wh3_dlc27_skill_node_nor_beorg_campaign_01",
@@ -1542,11 +2040,11 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 5.6,
+    "run_speed": 5.5,
     "mass": 2500,
     "size": "large",
-    "hit_points": 8,
-    "bonus_hit_points": 6162,
+    "hit_points": 0,
+    "bonus_hit_points": 7500,
     "armour": 90,
     "missile_block_chance": 0,
     "morale": 80,
@@ -1556,17 +2054,42 @@
     "damage_mod_missile": 0,
     "damage_mod_all": 0,
     "melee_attack": 40,
-    "melee_defence": 53,
+    "melee_defence": 55,
     "charge_bonus": 35,
     "bonus_v_large": 0,
     "bonus_v_infantry": 20,
-    "damage": 220,
-    "ap_damage": 230,
+    "damage": 225,
+    "ap_damage": 250,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 5,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
+    "contact_phase": {
+      "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc17_unit_contact_dazed",
+      "order": 1,
+      "target_enemies": true,
+      "target_self": false,
+      "target_friends": false,
+      "duration": 10,
+      "effect_type": "negative",
+      "onscreen_name": "Dazed!",
+      "is_hidden_in_ui": false,
+      "stat_effects": [
+        {
+          "value": 0.75,
+          "stat": "scalar_speed",
+          "how": "mult",
+          "description": "x0.75 Speed",
+          "icon": "vanilla3/skins/default/icon_stat_speed"
+        },
+        {
+          "value": -10,
+          "stat": "stat_melee_defence",
+          "how": "add",
+          "description": "-10 Melee Defence",
+          "icon": "vanilla3/skins/default/icon_stat_defence"
+        }
+      ]
+    },
     "attributes": [
       {
         "key": "causes_fear",
@@ -1591,6 +2114,245 @@
         "description": " Immune to Psychology",
         "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+      }
+    ],
+    "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_single_entity",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_hex",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+            "onscreen_name": "Hex"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Wounds",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "onscreen_name": "Wounded!",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.8,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x0.8 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x0.8 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x1.1 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                },
+                {
+                  "value": 0.8,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x0.8 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "-20 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_unit_passive_frenzy",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Frenzy",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than 50% of base"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+10 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_charge_bonus",
+                  "how": "add",
+                  "description": "+5 Charge Bonus",
+                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "immune_to_psychology",
+                  "description": " Immune to Psychology",
+                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_unit_passive_regeneration",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_regeneration",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+            "onscreen_name": "Regeneration"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Regeneration",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "ui_effects": [
+            {
+              "key": "wh_main_all_replenish",
+              "localised_text": "Replenishes hit points of combatants",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_regeneration",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "heal_amount": 0.001,
+              "hp_change_frequency": 1,
+              "stat_effects": [
+                {
+                  "value": -25,
+                  "stat": "stat_weakness_flame",
+                  "how": "add",
+                  "description": "-25 Weakness to Fire Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_flaming"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_pro04_unit_passive_guardian",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_nor_guardian",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_ward_save",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+            "onscreen_name": "Ward Save (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Guardian",
+          "effect_range": 40,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "target_if": [
+            "Unit is a Lord or Hero"
+          ],
+          "phases": [
+            {
+              "icon": "wh_pro04_unit_passive_guardian",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": false,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 15,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+15 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   },
@@ -1642,7 +2404,16 @@
                     "target_friends": false,
                     "duration": 22,
                     "effect_type": "positive",
-                    "is_hidden_in_ui": false
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 40,
+                        "stat": "stat_resistance_all",
+                        "how": "add",
+                        "description": "+40 Damage Resistance ",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                      }
+                    ]
                   }
                 ]
               }
@@ -1658,7 +2429,8 @@
       "related_unit_cards": [
         "nor_blessed",
         "nor_huscarls",
-        "nor_ulf"
+        "nor_ulf",
+        "nor_bearmen_bear"
       ]
     }
   ],
@@ -1827,6 +2599,11 @@
                   }
                 }
               ]
+            },
+            {
+              "description": "Vigour loss reduction: -25% when attacking",
+              "key": "wh_effect_attacking_fatigue",
+              "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             }
           ]
         }
@@ -1924,6 +2701,520 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "key": "wh_skill_automated_movement",
+      "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+      "character_skill_key": "wh_skill_automated_movement",
+      "tier": 50,
+      "indent": 50,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": false,
+      "localised_name": "",
+      "localised_description": "",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +1%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +2%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 2
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +3%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 3
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +4%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 4
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +5%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 5
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +6%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 6
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +7%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 7
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +8%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 8
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +9%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 9
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +10%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 10
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +11%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 11
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +12%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 12
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +13%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 13
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +14%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 14
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +15%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 15
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +16%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 16
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +17%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 17
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +18%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 18
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +19%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 19
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +20%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 20
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +21%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 21
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +22%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 22
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +23%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 23
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +24%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 24
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +25%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 25
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +26%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 26
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +27%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 27
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +28%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 28
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +29%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 29
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +30%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 30
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +31%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 31
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +32%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 32
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +33%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 33
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +34%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 34
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +35%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 35
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +36%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 36
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +37%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 37
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +38%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 38
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +39%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 39
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +40%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 40
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +41%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 41
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +42%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 42
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +43%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 43
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +44%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 44
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +45%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 45
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +46%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 46
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +47%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 47
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +48%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 48
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +49%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 49
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +50%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 50
         }
       ]
     }

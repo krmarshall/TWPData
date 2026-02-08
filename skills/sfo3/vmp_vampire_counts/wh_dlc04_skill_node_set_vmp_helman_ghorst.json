@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 2,
+              "run_speed": 2.5,
               "mass": 100,
               "size": "small",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "very_large",
               "splash_attack_max_attacks": 10,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_dlc04_unit_contact_helmans_blight",
@@ -104,6 +102,92 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_main_spell_vampires_raise_dead_bound",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_summon_unit",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Summon Unit"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Raise Dead",
+                    "active_time": 1,
+                    "effect_range": 0,
+                    "num_effected_friendly_units": 1,
+                    "num_uses": 4,
+                    "recharge_time": 90,
+                    "target_enemies": false,
+                    "target_friends": true,
+                    "target_ground": true,
+                    "target_self": true,
+                    "target_intercept_range": 40,
+                    "wind_up_time": 3,
+                    "target_if": [
+                      ""
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_summon_zombies",
+                        "localised_text": "Summons a unit of Zombies",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_defend_vs_charge",
+                        "localised_text": "Good at defending spellcaster",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_main_all_direct_damage_unbinding",
+                        "localised_text": "Summoned units have specific debuffs conditions",
+                        "effect_state": "negative"
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh_dlc04_unit_passive_the_reliquary_corruption",
@@ -479,92 +563,6 @@
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
                           }
                         ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_arcane",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Arcane Mastery",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x0.75 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_main_spell_vampires_raise_dead_bound",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_summon_unit",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Summon Unit"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Raise Dead",
-                    "active_time": 1,
-                    "effect_range": 0,
-                    "num_effected_friendly_units": 1,
-                    "num_uses": 4,
-                    "recharge_time": 90,
-                    "target_enemies": false,
-                    "target_friends": true,
-                    "target_ground": true,
-                    "target_self": true,
-                    "target_intercept_range": 40,
-                    "wind_up_time": 3,
-                    "target_if": [
-                      ""
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_all_summon_zombies",
-                        "localised_text": "Summons a unit of Zombies",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_main_all_defend_vs_charge",
-                        "localised_text": "Good at defending spellcaster",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_main_all_direct_damage_unbinding",
-                        "localised_text": "Summoned units have specific debuffs conditions",
-                        "effect_state": "negative"
                       }
                     ]
                   }
@@ -1574,11 +1572,11 @@
               }
             ],
             "related_unit_cards": [
-              "wh2_dlc11_vmp_crossbowmen",
               "vmp_bloodline_necrarch",
               "vmp_bloodline_dragon",
               "vmp_bloodline_lahmia",
-              "vmp_bloodline_strigoi"
+              "vmp_bloodline_strigoi",
+              "wh2_dlc11_vmp_crossbowmen"
             ]
           }
         ],
@@ -4549,8 +4547,6 @@
     "splash_target_size_limit": "very_large",
     "splash_attack_max_attacks": 10,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "sfo3/battle_ui/ability_icons/wh_dlc04_unit_contact_helmans_blight",
@@ -4606,6 +4602,92 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_main_spell_vampires_raise_dead_bound",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_summon_unit",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Summon Unit"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Raise Dead",
+          "active_time": 1,
+          "effect_range": 0,
+          "num_effected_friendly_units": 1,
+          "num_uses": 4,
+          "recharge_time": 90,
+          "target_enemies": false,
+          "target_friends": true,
+          "target_ground": true,
+          "target_self": true,
+          "target_intercept_range": 40,
+          "wind_up_time": 3,
+          "target_if": [
+            ""
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_summon_zombies",
+              "localised_text": "Summons a unit of Zombies",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_defend_vs_charge",
+              "localised_text": "Good at defending spellcaster",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_direct_damage_unbinding",
+              "localised_text": "Summoned units have specific debuffs conditions",
+              "effect_state": "negative"
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh_main_unit_passive_regeneration",
@@ -4835,92 +4917,6 @@
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_arcane",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Arcane Mastery",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.75,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x0.75 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_main_spell_vampires_raise_dead_bound",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_vampires_raise_dead",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_summon_unit",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Summon Unit"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Raise Dead",
-          "active_time": 1,
-          "effect_range": 0,
-          "num_effected_friendly_units": 1,
-          "num_uses": 4,
-          "recharge_time": 90,
-          "target_enemies": false,
-          "target_friends": true,
-          "target_ground": true,
-          "target_self": true,
-          "target_intercept_range": 40,
-          "wind_up_time": 3,
-          "target_if": [
-            ""
-          ],
-          "ui_effects": [
-            {
-              "key": "wh_main_all_summon_zombies",
-              "localised_text": "Summons a unit of Zombies",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_main_all_defend_vs_charge",
-              "localised_text": "Good at defending spellcaster",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_main_all_direct_damage_unbinding",
-              "localised_text": "Summoned units have specific debuffs conditions",
-              "effect_state": "negative"
             }
           ]
         }

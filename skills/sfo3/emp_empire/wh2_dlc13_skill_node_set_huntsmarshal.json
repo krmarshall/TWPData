@@ -302,9 +302,9 @@
             "unlocked_at_rank": 12,
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
               "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror",
               "wh2_dlc13_emp_halberdiers_ror",
               "emp_altdorf_company",
               "wh2_dlc13_emp_spearmen_ror"
@@ -1482,9 +1482,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           },
           {
@@ -1503,9 +1503,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           },
           {
@@ -1524,9 +1524,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           }
         ],
@@ -1645,9 +1645,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           },
           {
@@ -1666,9 +1666,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           },
           {
@@ -1687,9 +1687,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           }
         ],
@@ -2742,9 +2742,7 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_skirmish": true,
-    "fly_speed": 0,
     "projectile": {
       "key": "wh2_dlc13_emp_huntsmarshal_arrow",
       "damage": 250,
@@ -2792,6 +2790,118 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "emp_passive_main_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Imperial Allegiance",
+          "active_time": 15,
+          "effect_range": 0,
+          "recharge_time": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken",
+            "In melee"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 15,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 8,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+8 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+5 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_aura_buff_attack_range",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack_range",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Bolstered Marksmanship",
+          "effect_range": 60,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack_range",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "scalar_missile_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Missile Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "scalar_missile_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Missile Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_accuracy",
+                  "how": "add",
+                  "description": "+10 Accuracy",
+                  "icon": "vanilla3/skins/default/icon_stat_range"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_dlc13_lord_abilities_oil_flask",
@@ -2945,118 +3055,6 @@
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "emp_passive_main_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Imperial Allegiance",
-          "active_time": 15,
-          "effect_range": 0,
-          "recharge_time": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken",
-            "In melee"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 15,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 8,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+8 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                },
-                {
-                  "value": 5,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "+5 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_aura_buff_attack_range",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack_range",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_augments",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-            "onscreen_name": "Augment (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Bolstered Marksmanship",
-          "effect_range": 60,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_attack_range",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.1,
-                  "stat": "scalar_missile_damage_ap",
-                  "how": "mult",
-                  "description": "x1.1 Armour-Piercing Missile Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "scalar_missile_damage_base",
-                  "how": "mult",
-                  "description": "x1.1 Base Missile Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
-                },
-                {
-                  "value": 10,
-                  "stat": "stat_accuracy",
-                  "how": "add",
-                  "description": "+10 Accuracy",
-                  "icon": "vanilla3/skins/default/icon_stat_range"
                 }
               ]
             }
@@ -3218,7 +3216,7 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
             },
             {
-              "description": "Upkeep: -25%\n\t(characters in force)",
+              "description": "Upkeep: -25%\n\t(characters in army)",
               "key": "wh_main_effect_force_all_campaign_upkeep",
               "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
             },
@@ -4386,7 +4384,7 @@
       "indent": 25,
       "points_on_creation": 0,
       "required_num_parents": 0,
-      "visible_in_ui": false,
+      "visible_in_ui": true,
       "is_background_skill": true,
       "localised_name": "Ranger",
       "localised_description": "Master trackers and marksmen, a huntsmarshal navigates any terrain and utilizes guerrilla tactics to hunt down threats to the empire with lethal precision.",

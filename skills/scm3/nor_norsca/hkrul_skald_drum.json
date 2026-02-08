@@ -125,52 +125,50 @@
         "right_arrow": true
       },
       {
-        "key": "wh_dlc08_skill_node_nor_shaman_sorcerer_fire_unique_06",
-        "image_path": "vanilla3/campaign_ui/skills/character_military_spending",
-        "character_skill_key": "wh_dlc08_skill_nor_shaman_sorcerer_campaign_bounty_of_favour",
+        "key": "rhox_skald_skill_node_self_02",
+        "image_path": "vanilla3/campaign_ui/skills/character_charge",
+        "character_skill_key": "wh_main_skill_all_all_self_devastating_charge",
         "tier": 1,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Favour as Tribute",
-        "localised_description": "Ruin subtly corrupts a populace from the very depths of their souls; the resultant favour feeds the Dark Powers' servants and spurs them ever onwards.",
+        "localised_name": "Devastating Charge",
+        "localised_description": "Some creatures charge home with such fury that the very ground shakes beneath their feet.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Income from post-battle loot: +10%\n\t(accompanying Lord)",
-                "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
-              },
-              {
-                "description": "Income from raiding: +10%\n\t(Hero's army)",
-                "key": "wh_main_effect_force_all_campaign_raid_income",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Charge bonus: +6",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Income from post-battle loot: +15%\n\t(accompanying Lord)",
-                "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
-              },
+                "description": "Charge bonus: +16",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
+              }
+            ]
+          },
+          {
+            "effects": [
               {
-                "description": "Income from raiding: +15%\n\t(Hero's army)",
-                "key": "wh_main_effect_force_all_campaign_raid_income",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
-              },
-              {
-                "description": "Income from sacking settlements: +10%\n\t(Hero's army)",
-                "key": "wh_main_effect_force_all_campaign_sacking_income",
-                "icon": "vanilla3/campaign_ui/effect_bundles/income"
+                "description": "Charge bonus: +30",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
             ]
           }
-        ]
+        ],
+        "parent_required": [
+          "rhox_skald_skill_node_self_01"
+        ],
+        "boxed": true
       },
       {
         "key": "rhox_skald_skill_node_self_03",
@@ -1831,8 +1829,6 @@
     "splash_target_size_limit": "large",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "attributes": [
       {
         "key": "encourages",
@@ -1848,6 +1844,106 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "rhox_skald_battle_chant",
+          "icon_name": "scm3/battle_ui/ability_icons/hkrul_skald_chant",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Skaldfire Cry",
+          "effect_range": 50,
+          "recharge_time": 30,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "wind_up_time": 1,
+          "ui_effects": [
+            {
+              "key": "rhox_skald_exclusive",
+              "localised_text": "Mutually exclusive with other Skald inspiring abilities",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "rhox_skald_battle_chant",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 15,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+15 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "rhox_skald_guardian_cadence",
+          "icon_name": "scm3/battle_ui/ability_icons/hkrul_skald_drum_act",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Oathskin Pulse",
+          "effect_range": 50,
+          "recharge_time": 30,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "wind_up_time": 1,
+          "ui_effects": [
+            {
+              "key": "rhox_skald_exclusive",
+              "localised_text": "Mutually exclusive with other Skald inspiring abilities",
+              "effect_state": "negative"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "rhox_skald_guardian_cadence",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 10,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+10 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
@@ -1961,106 +2057,6 @@
                   "how": "add",
                   "description": "+10 Physical Resistance",
                   "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "rhox_skald_battle_chant",
-          "icon_name": "scm3/battle_ui/ability_icons/hkrul_skald_chant",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_augments",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-            "onscreen_name": "Augment (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Skaldfire Cry",
-          "effect_range": 50,
-          "recharge_time": 30,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "wind_up_time": 1,
-          "ui_effects": [
-            {
-              "key": "rhox_skald_exclusive",
-              "localised_text": "Mutually exclusive with other Skald inspiring abilities",
-              "effect_state": "negative"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "rhox_skald_battle_chant",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 15,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+15 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "rhox_skald_guardian_cadence",
-          "icon_name": "scm3/battle_ui/ability_icons/hkrul_skald_drum_act",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_augments",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-            "onscreen_name": "Augment (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Oathskin Pulse",
-          "effect_range": 50,
-          "recharge_time": 30,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "wind_up_time": 1,
-          "ui_effects": [
-            {
-              "key": "rhox_skald_exclusive",
-              "localised_text": "Mutually exclusive with other Skald inspiring abilities",
-              "effect_state": "negative"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "rhox_skald_guardian_cadence",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 10,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "+10 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
                 }
               ]
             }

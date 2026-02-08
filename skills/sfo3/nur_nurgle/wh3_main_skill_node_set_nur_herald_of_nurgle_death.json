@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 2,
+              "run_speed": 2.8,
               "mass": 1500,
               "size": "very_large",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
@@ -108,7 +106,7 @@
                 {
                   "key": "daemonic",
                   "description": "Daemonic",
-                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
                 },
                 {
@@ -119,6 +117,58 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_aura_buff_leadership",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bolstered Leadership",
+                    "effect_range": 50,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 5,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+5 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_cloud_of_flies",
@@ -362,58 +412,6 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_aura_buff_leadership",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Bolstered Leadership",
-                    "effect_range": 50,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_leadership",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 5,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+5 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "immune_to_psychology",
-                            "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                          }
-                        ]
-                      }
-                    ]
-                  }
                 }
               ]
             },
@@ -466,9 +464,7 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 9,
               "is_magical": true,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_buzz",
@@ -478,7 +474,7 @@
                 "target_friends": false,
                 "duration": 10,
                 "effect_type": "negative",
-                "onscreen_name": "Buzz - removes Encourage",
+                "onscreen_name": "Buzz",
                 "is_hidden_in_ui": false,
                 "max_damaged_entities": 5,
                 "stat_effects": [
@@ -516,7 +512,7 @@
                 {
                   "key": "daemonic",
                   "description": "Daemonic",
-                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
                   "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
                 },
                 {
@@ -777,7 +773,8 @@
                     ]
                   }
                 }
-              ]
+              ],
+              "fly_speed": 9
             },
             "auto_unlock_at_rank": 11
           }
@@ -1258,8 +1255,27 @@
           {
             "effects": [
               {
-                "description": "Upkeep: -5% for Nurgle units\n\t(Lord's army)",
+                "description": "Upkeep: -3% for Nurgle units\n\t(Lord's army)",
                 "key": "wh3_main_effect_upkeep_nur_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Upkeep: -3% for Nurgle units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_upkeep_nur_all_factionwide",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Upkeep: -6% for Nurgle units\n\t(Lord's army)",
+                "key": "wh3_main_effect_upkeep_nur_all",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Upkeep: -6% for Nurgle units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_upkeep_nur_all_factionwide",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               }
             ]
@@ -1270,14 +1286,10 @@
                 "description": "Upkeep: -10% for Nurgle units\n\t(Lord's army)",
                 "key": "wh3_main_effect_upkeep_nur_all",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
-              }
-            ]
-          },
-          {
-            "effects": [
+              },
               {
-                "description": "Upkeep: -20% for Nurgle units\n\t(Lord's army)",
-                "key": "wh3_main_effect_upkeep_nur_all",
+                "description": "Upkeep: -10% for Nurgle units\n\t(own armies factionwide)",
+                "key": "wh3_main_effect_upkeep_nur_all_factionwide",
                 "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
               }
             ]
@@ -4570,8 +4582,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
@@ -4631,7 +4641,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {

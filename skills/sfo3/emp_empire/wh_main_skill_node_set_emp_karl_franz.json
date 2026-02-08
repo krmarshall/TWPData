@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_crush",
                 "order": 1,
@@ -98,6 +96,127 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "emp_passive_karl",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_karl",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Last Stand",
+                    "active_time": 30,
+                    "effect_range": -1,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points less than 50%",
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_karl",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_all",
+                            "how": "add",
+                            "description": "+20 Damage Resistance ",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "unbreakable",
+                            "description": " Unbreakable",
+                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                          },
+                          {
+                            "key": "cannot_die",
+                            "description": "Cannot Die",
+                            "bullet_text": "Entities in this unit take damage, but cannot die.",
+                            "icon": "sfo3/battle_ui/ability_icons/cannot_die"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "emp_passive_main_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Allegiance",
+                    "active_time": 15,
+                    "effect_range": 0,
+                    "recharge_time": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken",
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 15,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
@@ -162,121 +281,6 @@
                             "how": "add",
                             "description": "-20 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "emp_passive_karl",
-                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_karl",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Last Stand",
-                    "active_time": 30,
-                    "effect_range": -1,
-                    "num_uses": 1,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Hit Points less than 50%",
-                      "In melee"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_karl",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": 30,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 20,
-                            "stat": "stat_resistance_all",
-                            "how": "add",
-                            "description": "+20 Damage Resistance ",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "unbreakable",
-                            "description": " Unbreakable",
-                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
-                          },
-                          {
-                            "key": "cannot_die",
-                            "description": "Cannot Die",
-                            "bullet_text": "Entities in this unit take damage, but cannot die.",
-                            "icon": "sfo3/battle_ui/ability_icons/cannot_die"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "emp_passive_main_2",
-                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Imperial Allegiance",
-                    "active_time": 15,
-                    "effect_range": 0,
-                    "recharge_time": 1,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken",
-                      "In melee"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 15,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 8,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+8 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          },
-                          {
-                            "value": 5,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+5 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
                           }
                         ]
                       }
@@ -334,8 +338,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 12.5,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_crush",
                 "order": 1,
@@ -385,6 +387,127 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "emp_passive_karl",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_karl",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_augments",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                      "onscreen_name": "Augment (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Last Stand",
+                    "active_time": 30,
+                    "effect_range": -1,
+                    "num_uses": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points less than 50%",
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_karl",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": true,
+                        "duration": 30,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 20,
+                            "stat": "stat_resistance_all",
+                            "how": "add",
+                            "description": "+20 Damage Resistance ",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "unbreakable",
+                            "description": " Unbreakable",
+                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                          },
+                          {
+                            "key": "cannot_die",
+                            "description": "Cannot Die",
+                            "bullet_text": "Entities in this unit take damage, but cannot die.",
+                            "icon": "sfo3/battle_ui/ability_icons/cannot_die"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "emp_passive_main_2",
+                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Imperial Allegiance",
+                    "active_time": 15,
+                    "effect_range": 0,
+                    "recharge_time": 1,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken",
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 15,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "+5 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
@@ -454,7 +577,110 @@
                       }
                     ]
                   }
+                }
+              ],
+              "fly_speed": 12.5
+            },
+            "auto_unlock_at_rank": 12
+          }
+        ]
+      },
+      {
+        "key": "wh_main_skill_node_emp_karl_franz_unique_06",
+        "image_path": "vanilla3/campaign_ui/skills/mount_deathclaw",
+        "character_skill_key": "wh_main_skill_emp_lord_unique_karl_franz_deathclaw",
+        "tier": 6,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Deathclaw",
+        "localised_description": "The bond between Franz and Deathclaw - the mightiest of Imperial Griffons - is legendary.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Deathclaw",
+                "key": "wh_main_effect_enable_mount_deathclaw",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 7.5,
+              "mass": 2000,
+              "size": "very_large",
+              "hit_points": 0,
+              "bonus_hit_points": 9750,
+              "armour": 120,
+              "missile_block_chance": 0,
+              "morale": 80,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 60,
+              "melee_defence": 40,
+              "charge_bonus": 90,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 250,
+              "ap_damage": 400,
+              "splash_target_size_limit": "large",
+              "splash_attack_max_attacks": 10,
+              "melee_attack_interval": 4,
+              "can_siege": true,
+              "contact_phase": {
+                "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_maim",
+                "order": 1,
+                "target_enemies": true,
+                "target_self": false,
+                "target_friends": false,
+                "duration": 45,
+                "effect_type": "negative",
+                "onscreen_name": "Maim - 4 damage, 5 entities",
+                "is_hidden_in_ui": false,
+                "damage_amount": 4,
+                "hp_change_frequency": 1,
+                "max_damaged_entities": 5,
+                "stat_effects": [
+                  {
+                    "value": 0.75,
+                    "stat": "scalar_speed",
+                    "how": "mult",
+                    "description": "x0.75 Speed",
+                    "icon": "vanilla3/skins/default/icon_stat_speed"
+                  }
+                ]
+              },
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
+                },
+                {
+                  "key": "flying",
+                  "description": "Can fly",
+                  "bullet_text": "This unit can fly.",
+                  "icon": "sfo3/battle_ui/ability_icons/flying"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "emp_passive_karl",
@@ -510,6 +736,12 @@
                             "description": "Cannot Die",
                             "bullet_text": "Entities in this unit take damage, but cannot die.",
                             "icon": "sfo3/battle_ui/ability_icons/cannot_die"
+                          },
+                          {
+                            "key": "force_rally",
+                            "description": "Rally",
+                            "bullet_text": "Motivates units to rally immediately",
+                            "icon": "sfo3/battle_ui/ability_icons/force_rally"
                           }
                         ]
                       }
@@ -569,111 +801,7 @@
                       }
                     ]
                   }
-                }
-              ]
-            },
-            "auto_unlock_at_rank": 12
-          }
-        ]
-      },
-      {
-        "key": "wh_main_skill_node_emp_karl_franz_unique_06",
-        "image_path": "vanilla3/campaign_ui/skills/mount_deathclaw",
-        "character_skill_key": "wh_main_skill_emp_lord_unique_karl_franz_deathclaw",
-        "tier": 6,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Deathclaw",
-        "localised_description": "The bond between Franz and Deathclaw - the mightiest of Imperial Griffons - is legendary.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Mount: Deathclaw",
-                "key": "wh_main_effect_enable_mount_deathclaw",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              }
-            ],
-            "mount_unit_stats": {
-              "run_speed": 7,
-              "mass": 2000,
-              "size": "very_large",
-              "hit_points": 0,
-              "bonus_hit_points": 9750,
-              "armour": 120,
-              "missile_block_chance": 0,
-              "morale": 80,
-              "damage_mod_flame": 0,
-              "damage_mod_magic": 0,
-              "damage_mod_physical": 0,
-              "damage_mod_missile": 15,
-              "damage_mod_all": 0,
-              "melee_attack": 60,
-              "melee_defence": 40,
-              "charge_bonus": 90,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 0,
-              "damage": 250,
-              "ap_damage": 400,
-              "splash_target_size_limit": "large",
-              "splash_attack_max_attacks": 10,
-              "melee_attack_interval": 4,
-              "barrier": 0,
-              "can_siege": true,
-              "fly_speed": 13,
-              "contact_phase": {
-                "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_maim",
-                "order": 1,
-                "target_enemies": true,
-                "target_self": false,
-                "target_friends": false,
-                "duration": 45,
-                "effect_type": "negative",
-                "onscreen_name": "Maim - 4 damage, 5 entities",
-                "is_hidden_in_ui": false,
-                "damage_amount": 4,
-                "hp_change_frequency": 1,
-                "max_damaged_entities": 5,
-                "stat_effects": [
-                  {
-                    "value": 0.75,
-                    "stat": "scalar_speed",
-                    "how": "mult",
-                    "description": "x0.75 Speed",
-                    "icon": "vanilla3/skins/default/icon_stat_speed"
-                  }
-                ]
-              },
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
-                {
-                  "key": "causes_terror",
-                  "description": " Can Cause Terror",
-                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
-                },
-                {
-                  "key": "encourages",
-                  "description": "Encourage",
-                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
-                },
-                {
-                  "key": "flying",
-                  "description": "Can fly",
-                  "bullet_text": "This unit can fly.",
-                  "icon": "sfo3/battle_ui/ability_icons/flying"
-                }
-              ],
-              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh_main_mount_passive_bloodroar",
@@ -787,123 +915,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "emp_passive_karl",
-                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_karl",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Last Stand",
-                    "active_time": 30,
-                    "effect_range": -1,
-                    "num_uses": 1,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Hit Points less than 50%",
-                      "In melee"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_karl",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
-                        "duration": 30,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 20,
-                            "stat": "stat_resistance_all",
-                            "how": "add",
-                            "description": "+20 Damage Resistance ",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "unbreakable",
-                            "description": " Unbreakable",
-                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
-                          },
-                          {
-                            "key": "cannot_die",
-                            "description": "Cannot Die",
-                            "bullet_text": "Entities in this unit take damage, but cannot die.",
-                            "icon": "sfo3/battle_ui/ability_icons/cannot_die"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "emp_passive_main_2",
-                    "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Imperial Allegiance",
-                    "active_time": 15,
-                    "effect_range": 0,
-                    "recharge_time": 1,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken",
-                      "In melee"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 15,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 8,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+8 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          },
-                          {
-                            "value": 5,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "+5 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
-                          }
-                        ]
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 13
             },
             "auto_unlock_at_rank": 16
           }
@@ -1250,9 +1264,9 @@
             ],
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           },
           {
@@ -1280,9 +1294,9 @@
             ],
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           }
         ],
@@ -1414,9 +1428,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           },
           {
@@ -1440,9 +1454,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           }
         ],
@@ -2270,9 +2284,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           },
           {
@@ -2291,9 +2305,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           },
           {
@@ -2312,9 +2326,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_empire_knights_everlasting_light_ror",
               "wh2_dlc13_emp_empire_knights_morr_ror",
-              "wh2_dlc13_emp_greatswords_ror",
               "emp_knights_panther",
-              "emp_wolf_knight"
+              "emp_wolf_knight",
+              "wh2_dlc13_emp_greatswords_ror"
             ]
           }
         ],
@@ -2433,9 +2447,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           },
           {
@@ -2454,9 +2468,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           },
           {
@@ -2475,9 +2489,9 @@
             "related_unit_cards": [
               "wh2_dlc13_emp_greatswords_ror",
               "wh_dlc04_emp_royal_gryphites",
-              "wh2_dlc13_emp_swordsmen_ror",
               "emp_carroburg",
-              "emp_wolf_kin"
+              "emp_wolf_kin",
+              "wh2_dlc13_emp_swordsmen_ror"
             ]
           }
         ],
@@ -3530,8 +3544,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "contact_phase": {
       "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_crush",
       "order": 1,
@@ -3581,6 +3593,127 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "emp_passive_karl",
+          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_karl",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Last Stand",
+          "active_time": 30,
+          "effect_range": -1,
+          "num_uses": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points less than 50%",
+            "In melee"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/emp_passive_karl",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": 30,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 20,
+                  "stat": "stat_resistance_all",
+                  "how": "add",
+                  "description": "+20 Damage Resistance ",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "unbreakable",
+                  "description": " Unbreakable",
+                  "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                },
+                {
+                  "key": "cannot_die",
+                  "description": "Cannot Die",
+                  "bullet_text": "Entities in this unit take damage, but cannot die.",
+                  "icon": "sfo3/battle_ui/ability_icons/cannot_die"
+                },
+                {
+                  "key": "force_rally",
+                  "description": "Rally",
+                  "bullet_text": "Motivates units to rally immediately",
+                  "icon": "sfo3/battle_ui/ability_icons/force_rally"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "emp_passive_main_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Imperial Allegiance",
+          "active_time": 15,
+          "effect_range": 0,
+          "recharge_time": 1,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken",
+            "In melee"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 15,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 8,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+8 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+5 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
@@ -3645,121 +3778,6 @@
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "emp_passive_karl",
-          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_karl",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_augments",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-            "onscreen_name": "Augment (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Last Stand",
-          "active_time": 30,
-          "effect_range": -1,
-          "num_uses": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Hit Points less than 50%",
-            "In melee"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/emp_passive_karl",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": true,
-              "duration": 30,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 20,
-                  "stat": "stat_resistance_all",
-                  "how": "add",
-                  "description": "+20 Damage Resistance ",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                }
-              ],
-              "attributes": [
-                {
-                  "key": "unbreakable",
-                  "description": " Unbreakable",
-                  "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
-                },
-                {
-                  "key": "cannot_die",
-                  "description": "Cannot Die",
-                  "bullet_text": "Entities in this unit take damage, but cannot die.",
-                  "icon": "sfo3/battle_ui/ability_icons/cannot_die"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "emp_passive_main_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Imperial Allegiance",
-          "active_time": 15,
-          "effect_range": 0,
-          "recharge_time": 1,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken",
-            "In melee"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/emp_passive_main_2",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 15,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 8,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+8 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                },
-                {
-                  "value": 5,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "+5 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
                 }
               ]
             }

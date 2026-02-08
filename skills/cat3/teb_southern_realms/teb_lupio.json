@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 7,
+              "run_speed": 7.8,
               "mass": 1500,
               "size": "medium",
               "hit_points": 8,
@@ -47,9 +47,7 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 0,
               "attributes": [
                 {
                   "key": "encourages",
@@ -235,7 +233,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 7,
+              "run_speed": 7.8,
               "mass": 1500,
               "size": "medium",
               "hit_points": 8,
@@ -258,9 +256,7 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 5,
               "melee_attack_interval": 3.6,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 0,
               "attributes": [
                 {
                   "key": "causes_fear",
@@ -282,6 +278,50 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_main_mount_passive_bloodroar",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_mount_passive_bloodroar",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Bloodroar",
+                    "effect_range": 35,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_mount_passive_bloodroar",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": -8,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "-8 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
@@ -332,50 +372,6 @@
                             "how": "mult",
                             "description": "x0.8 Armour-Piercing Weapon Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_main_mount_passive_bloodroar",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_mount_passive_bloodroar",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_hexes",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                      "onscreen_name": "Hex (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Bloodroar",
-                    "effect_range": 35,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "In melee"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_mount_passive_bloodroar",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": -8,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "-8 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
                           }
                         ]
                       }
@@ -4601,9 +4597,7 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
-    "fly_speed": 0,
     "attributes": [
       {
         "key": "charge_defense_vs_large",
@@ -4988,20 +4982,6 @@
   ],
   "backgroundSkills": [
     {
-      "key": "teb_dedicated_required_dumbdumbdummy",
-      "image_path": "vanilla3/campaign_ui/skills/wh2_dlc10_guardian",
-      "character_skill_key": "teb_dedicated_required_dumbdumbdummy",
-      "tier": 19,
-      "indent": 1,
-      "points_on_creation": 1,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": false,
-      "localised_name": "",
-      "localised_description": "",
-      "right_arrow": true
-    },
-    {
       "key": "teb_lupio_unique_cloak",
       "image_path": "vanilla3/campaign_ui/skills/item_talisman",
       "character_skill_key": "teb_lupio_unique_cloak",
@@ -5287,6 +5267,20 @@
           ]
         }
       ]
+    },
+    {
+      "key": "teb_dedicated_required_dumbdumbdummy",
+      "image_path": "vanilla3/campaign_ui/skills/wh2_dlc10_guardian",
+      "character_skill_key": "teb_dedicated_required_dumbdumbdummy",
+      "tier": 19,
+      "indent": 1,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": false,
+      "localised_name": "",
+      "localised_description": "",
+      "right_arrow": true
     }
   ]
 }

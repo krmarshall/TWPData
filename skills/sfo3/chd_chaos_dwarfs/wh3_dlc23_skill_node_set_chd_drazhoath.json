@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 7,
+              "run_speed": 7.5,
               "mass": 4000,
               "size": "large",
               "hit_points": 0,
@@ -47,9 +47,7 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 7,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 9,
               "is_flaming": true,
               "attributes": [
                 {
@@ -276,7 +274,8 @@
                     ]
                   }
                 }
-              ]
+              ],
+              "fly_speed": 9
             },
             "auto_unlock_at_rank": 11
           }
@@ -4017,8 +4016,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 7,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_flaming": true,
     "attributes": [
       {
@@ -4126,12 +4123,7 @@
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
       {
-        "description": "Siege towers: +2 per siege item constructed\n\t(own armies factionwide)",
-        "key": "wh3_dlc23_effect_siege_engine_number_chd_siege_tower",
-        "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
-      },
-      {
-        "description": "Research rate: +5% for every tower settlement",
+        "description": " Research rate: +5 for every tower settlement\n\t  Replenishment and speed bonus for K'daai units on recruitment building\n\t  Unique military building upgrade and capacity for K'daai Fireborn units",
         "key": "chd_drazhoath_campaign_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc23_edict_chd_smoke_stacks"
       },
@@ -4141,14 +4133,101 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
       },
       {
+        "description": "Spell intensity: +25% for overcasted Lore of Hashut spells",
+        "key": "wh_effect_lore_hashut_overcast_spell_mastery",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+      },
+      {
+        "description": "Income from trade tariffs: +100%",
+        "key": "wh_main_effect_economy_trade_tariff_mod",
+        "icon": "vanilla3/campaign_ui/effect_bundles/income"
+      },
+      {
         "description": "Armaments output: +10%",
         "key": "wh3_dlc23_pooled_resource_chd_armaments_modifier",
         "icon": "vanilla3/campaign_ui/effect_bundles/chd_armaments"
       },
       {
-        "description": "Fire resistance: 20%\n\t(own armies factionwide in owned territory)",
-        "key": "wh_main_effect_force_stat_fire_resistance",
-        "icon": "sfo3/campaign_ui/effect_bundles/resistance_fire"
+        "description": "Passive ability: \"Frenzy\" for Hobgoblin units",
+        "key": "wh_effect_enable_wh_main_unit_passive_frenzy_wh3_dlc23_chd_hobgoblin_units",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+        "related_abilities": [
+          {
+            "effect": "wh_effect_enable_wh_main_unit_passive_frenzy_wh3_dlc23_chd_hobgoblin_units",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "wh_main_unit_passive_frenzy",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_augment",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                "onscreen_name": "Augment"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Frenzy",
+              "effect_range": 0,
+              "target_enemies": false,
+              "target_friends": false,
+              "target_ground": false,
+              "target_self": false,
+              "target_intercept_range": 0,
+              "enabled_if": [
+                "Leadership is higher than 50% of base"
+              ],
+              "phases": [
+                {
+                  "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                  "order": 1,
+                  "target_enemies": false,
+                  "target_self": true,
+                  "target_friends": false,
+                  "duration": -1,
+                  "effect_type": "positive",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": 1.1,
+                      "stat": "stat_melee_damage_base",
+                      "how": "mult",
+                      "description": "x1.1 Base Weapon Damage",
+                      "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                    },
+                    {
+                      "value": 10,
+                      "stat": "stat_melee_attack",
+                      "how": "add",
+                      "description": "+10 Melee Attack",
+                      "icon": "vanilla3/skins/default/icon_stat_attack"
+                    },
+                    {
+                      "value": 5,
+                      "stat": "stat_charge_bonus",
+                      "how": "add",
+                      "description": "+5 Charge Bonus",
+                      "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                    },
+                    {
+                      "value": 1.1,
+                      "stat": "stat_melee_damage_ap",
+                      "how": "mult",
+                      "description": "x1.1 Armour-Piercing Weapon Damage",
+                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                    }
+                  ],
+                  "attributes": [
+                    {
+                      "key": "immune_to_psychology",
+                      "description": " Immune to Psychology",
+                      "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                      "icon": "sfo3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   },
@@ -4350,6 +4429,11 @@
               }
             }
           ]
+        },
+        {
+          "description": "Enemy Hero action success chance: -10%",
+          "key": "wh_main_effect_agent_action_success_chance_enemy",
+          "icon": "vanilla3/campaign_ui/effect_bundles/agent"
         },
         {
           "description": "Winds of Magic power reserve capacity: +10\n\t(Lord's army)",

@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 9,
+              "run_speed": 9.5,
               "mass": 2000,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_flaming": true,
               "attributes": [
                 {
@@ -77,6 +75,77 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "hef_active_tyrion",
+                    "icon_name": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Curse of Aenarion",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "recharge_time": 180,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 60,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.01,
+                        "stat_effects": [
+                          {
+                            "value": 2,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x2 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 2,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x2 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "unbreakable",
+                            "description": " Unbreakable",
+                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                          },
+                          {
+                            "key": "rampage",
+                            "description": "➖ Rampage!",
+                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                            "icon": "sfo3/battle_ui/ability_icons/rampage"
+                          },
+                          {
+                            "key": "unyielding_assault",
+                            "description": "Unyielding Assault",
+                            "bullet_text": "This unit can never have its Melee Attack reduced during battle.",
+                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unyielding_assault"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_main_unit_passive_martial_mastery",
@@ -200,77 +269,6 @@
                             "how": "add",
                             "description": "-20 Reload Skill",
                             "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "hef_active_tyrion",
-                    "icon_name": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Curse of Aenarion",
-                    "active_time": 60,
-                    "effect_range": 0,
-                    "recharge_time": 180,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 60,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.01,
-                        "stat_effects": [
-                          {
-                            "value": 2,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x2 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 2,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x2 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "unbreakable",
-                            "description": " Unbreakable",
-                            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
-                          },
-                          {
-                            "key": "rampage",
-                            "description": "➖ Rampage!",
-                            "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
-                            "icon": "sfo3/battle_ui/ability_icons/rampage"
-                          },
-                          {
-                            "key": "unyielding_assault",
-                            "description": "Unyielding Assault",
-                            "bullet_text": "This unit can never have its Melee Attack reduced during battle.",
-                            "icon": "sfo3/campaign_ui/effect_bundles/attribute_unyielding_assault"
                           }
                         ]
                       }
@@ -1454,9 +1452,6 @@
               "wh2_main_skill_node_hef_tyrion_dedication_5",
               "wh2_main_skill_node_hef_tyrion_dedication_6",
               "wh2_main_skill_node_hef_tyrion_dedication_7"
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           }
         ]
@@ -2362,9 +2357,6 @@
                 "key": "wh2_main_effect_force_stat_charge_bonus_add_hef_chariots_dragonprinces",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -2384,9 +2376,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -2406,9 +2395,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           }
         ],
@@ -2615,8 +2601,7 @@
               }
             ],
             "related_unit_cards": [
-              "wef_warhawks",
-              "cr_hef_skycutter"
+              "wef_warhawks"
             ]
           }
         ],
@@ -3347,8 +3332,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_flaming": true,
     "attributes": [
       {
@@ -3371,6 +3354,77 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "hef_active_tyrion",
+          "icon_name": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Curse of Aenarion",
+          "active_time": 60,
+          "effect_range": 0,
+          "recharge_time": 180,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 60,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "fatigue_change_ratio": -0.01,
+              "stat_effects": [
+                {
+                  "value": 2,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x2 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 2,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x2 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ],
+              "attributes": [
+                {
+                  "key": "unbreakable",
+                  "description": " Unbreakable",
+                  "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                },
+                {
+                  "key": "rampage",
+                  "description": "➖ Rampage!",
+                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
+                  "icon": "sfo3/battle_ui/ability_icons/rampage"
+                },
+                {
+                  "key": "unyielding_assault",
+                  "description": "Unyielding Assault",
+                  "bullet_text": "This unit can never have its Melee Attack reduced during battle.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unyielding_assault"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_main_unit_passive_martial_mastery",
@@ -3499,77 +3553,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "hef_active_tyrion",
-          "icon_name": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Curse of Aenarion",
-          "active_time": 60,
-          "effect_range": 0,
-          "recharge_time": 180,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/hef_active_tyrion",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 60,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.01,
-              "stat_effects": [
-                {
-                  "value": 2,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x2 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 2,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x2 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ],
-              "attributes": [
-                {
-                  "key": "unbreakable",
-                  "description": " Unbreakable",
-                  "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
-                },
-                {
-                  "key": "rampage",
-                  "description": "➖ Rampage!",
-                  "bullet_text": "A Rampaging unit is uncontrollable and will attack the nearest enemy unit.\n\tWhen there are no enemy units nearby, a Rampaging unit will move around randomly instead.",
-                  "icon": "sfo3/battle_ui/ability_icons/rampage"
-                },
-                {
-                  "key": "unyielding_assault",
-                  "description": "Unyielding Assault",
-                  "bullet_text": "This unit can never have its Melee Attack reduced during battle.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unyielding_assault"
-                }
-              ]
-            }
-          ]
-        }
       }
     ]
   },
@@ -3585,14 +3568,24 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/construction"
       },
       {
-        "description": "Tyrion can take path of Retribution or Unity and every High Elves faction grant unique confederation bonuses",
-        "key": "hef_tyrion_campaign_dummy",
-        "icon": "sfo3/campaign_ui/effect_bundles/hef_generic"
+        "description": "Champion of Ulthuan: Use Influence to carry out decisive campaign map actions and call upon special aid from High Elf alliances",
+        "key": "wh3_dlc27_tyrion_frontend_imperatives_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/effect_rite"
+      },
+      {
+        "description": "Gains additional Influence from winning battles (doubled on Ulthuan)",
+        "key": "wh3_dlc27_tyrion_frontend_influence_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/intrigue"
       },
       {
         "description": "Diplomatic relations: -25 with all factions except High Elves",
         "key": "wh_diplomacy_all_no_hef",
         "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy"
+      },
+      {
+        "description": "Tyrion can take path of Retribution or Unity",
+        "key": "hef_tyrion_campaign_dummy",
+        "icon": "sfo3/campaign_ui/effect_bundles/hef_generic"
       },
       {
         "description": "Construction time: -50% for Shrine of Khaine building",
@@ -3892,7 +3885,7 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 1,
+                    "duration": 1.1,
                     "effect_type": "positive",
                     "onscreen_name": "Heart of Avelorn",
                     "is_hidden_in_ui": false,

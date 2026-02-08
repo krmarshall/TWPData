@@ -3831,9 +3831,7 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 7,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_siege": true,
-    "fly_speed": 0,
     "is_flaming": true,
     "is_magical": true,
     "attributes": [
@@ -3875,6 +3873,44 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_passive_vigour",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Vigorous",
+          "active_time": 10,
+          "effect_range": 0,
+          "recharge_time": 30,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Out of melee"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "fatigue_change_ratio": -0.01
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
@@ -3944,44 +3980,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_vigour",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Vigorous",
-          "active_time": 10,
-          "effect_range": 0,
-          "recharge_time": 30,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Out of melee"
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_vigour",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 10,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.01
-            }
-          ]
-        }
       }
     ]
   },
@@ -3992,9 +3990,14 @@
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
       {
-        "description": "Siege towers: +2 per siege item constructed\n\t(own armies factionwide)",
-        "key": "wh3_dlc23_effect_siege_engine_number_chd_siege_tower",
-        "icon": "vanilla3/campaign_ui/effect_bundles/artillery"
+        "description": "\n\t(own garrisons factionwide)",
+        "key": "wh_effect_exp_per_turn_all_hidden",
+        "icon": ""
+      },
+      {
+        "description": "Recruitment cost: +25%",
+        "key": "wh_main_effect_force_all_campaign_recruitment_cost_hidden",
+        "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
       },
       {
         "description": "Rush Construction Labour cost: -25%",
@@ -4002,7 +4005,7 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/construction"
       },
       {
-        "description": "Diplomatic relations: +5 with all Chaos factions for every tower settlement",
+        "description": " Diplomatic relations: +5 with all Chaos factions for every tower settlement\n\t  Unique Overseer lord stance\n\t  Unique military building upgrade and capacity for Bull Centaurs units",
         "key": "chd_astragoth_campaign_dummy",
         "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc23_edict_chd_smoke_stacks"
       },
@@ -4012,9 +4015,19 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/chd_conclave_influence"
       },
       {
-        "description": "Control: +2 for every concurrent war with a neighbouring faction",
+        "description": "Control: +4 for every concurrent war with a neighbouring faction",
         "key": "wh_main_effect_public_order_neighbouring_wars",
         "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+      },
+      {
+        "description": "Units are 25%% more expensive to recruit but garrisons gain experience from all battles",
+        "key": "chd_astragoth_campaign_units_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/army"
+      },
+      {
+        "description": "Experience gain: +100% for units recruited via allied recruitment (excluding Chaos Dwarfs units)",
+        "key": "chd_effect_allied_exp_gain",
+        "icon": "vanilla3/campaign_ui/effect_bundles/experience"
       }
     ]
   },
@@ -4324,7 +4337,7 @@
           "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
         },
         {
-          "description": "Weapon strength: +10%",
+          "description": "Weapon strength: +20%",
           "key": "wh_main_effect_character_stat_weapon_strength",
           "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
         }

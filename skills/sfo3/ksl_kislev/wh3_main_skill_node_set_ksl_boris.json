@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 7,
+              "run_speed": 7.5,
               "mass": 2000,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_halberd",
@@ -105,6 +103,98 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_autoresolve_buff_unit_melee_4",
+                    "icon_name": "sfo3/battle_ui/ability_icons/venris",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": true,
+                    "onscreen_name": "placeholder",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "ksl_passive_skald",
+                    "icon_name": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Skald",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_intensity_kills_100",
+                        "localised_text": "Effect intensity increases with each kill made by the unit (100)",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.15 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+5 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+10 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          },
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.15 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_lord_abilities_fury_of_ursun",
@@ -360,98 +450,6 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "ksl_passive_skald",
-                    "icon_name": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Skald",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_intensity_kills_100",
-                        "localised_text": "Effect intensity increases with each kill made by the unit (100)",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.15,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.15 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 5,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+5 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          },
-                          {
-                            "value": 10,
-                            "stat": "stat_resistance_physical",
-                            "how": "add",
-                            "description": "+10 Physical Resistance",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                          },
-                          {
-                            "value": 1.15,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.15 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_autoresolve_buff_unit_melee_4",
-                    "icon_name": "sfo3/battle_ui/ability_icons/venris",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": true,
-                    "onscreen_name": "placeholder",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0
-                  }
                 }
               ]
             },
@@ -504,8 +502,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_crush",
@@ -576,6 +572,98 @@
               "abilities": [
                 {
                   "unit_ability": {
+                    "key": "wh_autoresolve_buff_unit_melee_4",
+                    "icon_name": "sfo3/battle_ui/ability_icons/venris",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": true,
+                    "onscreen_name": "placeholder",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "ksl_passive_skald",
+                    "icon_name": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Skald",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_intensity_kills_100",
+                        "localised_text": "Effect intensity increases with each kill made by the unit (100)",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.15 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 5,
+                            "stat": "stat_morale",
+                            "how": "add",
+                            "description": "+5 Leadership",
+                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_physical",
+                            "how": "add",
+                            "description": "+10 Physical Resistance",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                          },
+                          {
+                            "value": 1.15,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.15 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
                     "key": "wh3_main_lord_abilities_fury_of_ursun",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_mount_abilities_fury_of_ursun",
                     "overpower_option": "",
@@ -828,98 +916,6 @@
                         ]
                       }
                     ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "ksl_passive_skald",
-                    "icon_name": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Skald",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "ui_effects": [
-                      {
-                        "key": "wh_intensity_kills_100",
-                        "localised_text": "Effect intensity increases with each kill made by the unit (100)",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.15,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.15 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 5,
-                            "stat": "stat_morale",
-                            "how": "add",
-                            "description": "+5 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
-                          },
-                          {
-                            "value": 10,
-                            "stat": "stat_resistance_physical",
-                            "how": "add",
-                            "description": "+10 Physical Resistance",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                          },
-                          {
-                            "value": 1.15,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.15 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_autoresolve_buff_unit_melee_4",
-                    "icon_name": "sfo3/battle_ui/ability_icons/venris",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": true,
-                    "onscreen_name": "placeholder",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0
                   }
                 }
               ]
@@ -3364,8 +3360,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_halberd",
@@ -3434,6 +3428,98 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_autoresolve_buff_unit_melee_4",
+          "icon_name": "sfo3/battle_ui/ability_icons/venris",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": true,
+          "onscreen_name": "placeholder",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "ksl_passive_skald",
+          "icon_name": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Skald",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_intensity_kills_100",
+              "localised_text": "Effect intensity increases with each kill made by the unit (100)",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.15,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.15 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 5,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+5 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 10,
+                  "stat": "stat_resistance_physical",
+                  "how": "add",
+                  "description": "+10 Physical Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                },
+                {
+                  "value": 1.15,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.15 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_lord_abilities_fury_of_ursun",
@@ -3688,98 +3774,6 @@
               ]
             }
           ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "ksl_passive_skald",
-          "icon_name": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Skald",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "ui_effects": [
-            {
-              "key": "wh_intensity_kills_100",
-              "localised_text": "Effect intensity increases with each kill made by the unit (100)",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/ksl_passive_skald",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.15,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x1.15 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 5,
-                  "stat": "stat_morale",
-                  "how": "add",
-                  "description": "+5 Leadership",
-                  "icon": "vanilla3/skins/default/icon_stat_morale"
-                },
-                {
-                  "value": 10,
-                  "stat": "stat_resistance_physical",
-                  "how": "add",
-                  "description": "+10 Physical Resistance",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                },
-                {
-                  "value": 1.15,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.15 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_autoresolve_buff_unit_melee_4",
-          "icon_name": "sfo3/battle_ui/ability_icons/venris",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": true,
-          "onscreen_name": "placeholder",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0
         }
       }
     ]

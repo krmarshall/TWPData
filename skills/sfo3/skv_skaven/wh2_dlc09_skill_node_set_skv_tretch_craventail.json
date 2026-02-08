@@ -535,7 +535,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -643,7 +643,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -2763,8 +2763,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "contact_phase": {
       "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_bleed",
       "order": 1,
@@ -2821,6 +2819,58 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "skv_passive_run",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc07_lord_passive_spirit_of_the_tempest",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Fast-Fast!",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 70,
+          "enabled_if": [
+            "No enemy presence in ability range",
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "skv_passive_run",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.5,
+                  "stat": "scalar_speed",
+                  "how": "mult",
+                  "description": "x1.5 Speed",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                },
+                {
+                  "value": 2,
+                  "stat": "scalar_entity_acceleration_modifier",
+                  "how": "mult",
+                  "description": "x2 Acceleration",
+                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_dlc09_character_abilities_stay_here_ill_get_help",
@@ -2903,7 +2953,7 @@
                   "key": "unspottable",
                   "description": " Unspottable",
                   "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                  "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                 }
               ]
             }
@@ -2974,58 +3024,6 @@
                   "how": "add",
                   "description": "-20 Reload Skill",
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "skv_passive_run",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc07_lord_passive_spirit_of_the_tempest",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Fast-Fast!",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 70,
-          "enabled_if": [
-            "No enemy presence in ability range",
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "skv_passive_run",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.5,
-                  "stat": "scalar_speed",
-                  "how": "mult",
-                  "description": "x1.5 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
-                },
-                {
-                  "value": 2,
-                  "stat": "scalar_entity_acceleration_modifier",
-                  "how": "mult",
-                  "description": "x2 Acceleration",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
                 }
               ]
             }
@@ -3133,11 +3131,11 @@
       "wh2_dlc14_skv_inf_poison_wind_mortar_ror",
       "wh2_dlc14_skv_inf_warp_grinder",
       "wh2_main_skv_cha_warlord",
-      "skv_cha_bloodtail",
-      "skv_cha_rik",
       "skv_black13",
       "skv_rictus_stormvermin_0",
-      "skv_rictus_stormvermin_1"
+      "skv_rictus_stormvermin_1",
+      "skv_cha_bloodtail",
+      "skv_cha_rik"
     ]
   },
   "items": [
@@ -3280,9 +3278,9 @@
             }
           ],
           "related_unit_cards": [
-            "wh2_dlc13_emp_halberdiers_ror",
             "emp_flagellants_ext",
-            "emp_sigmar_war"
+            "emp_sigmar_war",
+            "wh2_dlc13_emp_halberdiers_ror"
           ]
         }
       ]

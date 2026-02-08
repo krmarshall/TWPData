@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 8,
+              "run_speed": 8.5,
               "mass": 1750,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "small",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "attributes": [
                 {
@@ -186,8 +184,6 @@
               "splash_target_size_limit": "small",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 12.5,
               "is_magical": true,
               "attributes": [
                 {
@@ -274,7 +270,8 @@
                     ]
                   }
                 }
-              ]
+              ],
+              "fly_speed": 12.5
             },
             "auto_unlock_at_rank": 13
           }
@@ -652,6 +649,11 @@
                 "description": "Chivalry: +2 per turn",
                 "key": "wh_dlc07_effect_chivalry_per_turn_traits_good",
                 "icon": "vanilla3/campaign_ui/effect_bundles/chivalry_positive"
+              },
+              {
+                "description": "Allows to begin an Errantry",
+                "key": "brt_effect_errantry_dilemma_dummy",
+                "icon": "sfo3/campaign_ui/effect_bundles/brt_vow_quest_completed"
               },
               {
                 "description": "Upkeep: -5% for non-Knight units\n\t(Lord's army)",
@@ -3578,8 +3580,6 @@
     "splash_target_size_limit": "small",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -3668,6 +3668,61 @@
       }
     ]
   },
+  "items": [
+    {
+      "key": "wh3_dlc24_anc_arcane_item_ritual_of_the_beast",
+      "onscreen_name": "Ritual of the Beast",
+      "colour_text": "Those masters of the hidden lore of Ghur speak of bloody rites to be performed before a great idol of beast skulls and freshly flensed hides should one dare to call upon the power of the Bloody Hidesman, and the terrible price of doing so.",
+      "ui_icon": "skins/default/equipment_items_arcane",
+      "effects": [
+        {
+          "description": "Ability: \"Ritual of the Beast\"",
+          "key": "wh3_dlc24_abilities_enable_ritual_of_the_beast",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "wh3_dlc24_abilities_enable_ritual_of_the_beast",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "wh3_dlc24_item_abilities_ritual_of_the_beast",
+                "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc24_item_abilities_ritual_of_the_beast",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_summon_unit",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                  "onscreen_name": "Summon Unit"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Ritual of the Beast",
+                "active_time": 1,
+                "effect_range": 0,
+                "num_effected_friendly_units": 1,
+                "num_uses": 1,
+                "recharge_time": 300,
+                "target_enemies": false,
+                "target_friends": true,
+                "target_ground": true,
+                "target_self": true,
+                "target_intercept_range": 50,
+                "ui_effects": [
+                  {
+                    "key": "wh3_dlc24_all_summon_elemental_incarnate_of_beasts",
+                    "localised_text": "Summons an Elemental Incarnate of Beasts",
+                    "effect_state": "positive"
+                  },
+                  {
+                    "key": "wh_main_all_direct_damage_unbinding",
+                    "localised_text": "Summoned units have specific debuffs conditions",
+                    "effect_state": "negative"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "wh_dlc07_skill_node_brt_prophetess_beast_magic1_dummy",
@@ -4511,6 +4566,31 @@
               "description": "Winds of Magic power reserve capacity: +10",
               "key": "wh3_main_effect_winds_of_magic_pool_cap",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "brt_skill_alberic_level",
+      "image_path": "vanilla3/campaign_ui/skills/battle_military_spending",
+      "character_skill_key": "brt_skill_alberic_level",
+      "tier": 75,
+      "indent": 0,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": false,
+      "localised_name": "",
+      "localised_description": "",
+      "faction": "wh_main_brt_bordeleaux",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "",
+              "key": "wh_main_effect_force_all_campaign_upkeep_hidden",
+              "icon": ""
             }
           ]
         }

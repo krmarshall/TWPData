@@ -149,7 +149,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 8,
+              "run_speed": 8.4,
               "mass": 1000,
               "size": "medium",
               "hit_points": 8,
@@ -172,9 +172,7 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 0,
               "is_magical": true,
               "attributes": [
                 {
@@ -4054,8 +4052,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 6,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -4233,6 +4229,116 @@
       "hef_iotm_islanders_hb"
     ]
   },
+  "items": [
+    {
+      "key": "hef_magister_star_sword",
+      "onscreen_name": "Sacred Star Blade",
+      "colour_text": "An arcane sword of blessed Star-Metal, said to be alloyed with various meteoric fragments from the heavens above. Its translucent blade surges with voltaic power.",
+      "ui_icon": "skins/default/equipment_items_weapon",
+      "effects": [
+        {
+          "description": "Enables sundering attacks",
+          "key": "wh2_dlc10_effect_character_stat_enable_sundering_attacks",
+          "icon": "vanilla3/campaign_ui/effect_bundles/phase_sunder_armour",
+          "related_phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
+              "order": 0,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 10,
+              "effect_type": "negative",
+              "onscreen_name": "Sundered Armour",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": -30,
+                  "stat": "stat_armour",
+                  "how": "add",
+                  "description": "-30 Armour",
+                  "icon": "vanilla3/skins/default/icon_stat_armour"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "description": "Armour-piercing weapon damage: +15%",
+          "key": "wh_main_effect_character_stat_weapon_strength_ap_damage_mult",
+          "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+        },
+        {
+          "description": "Ability: \"Sword of the Stars\"",
+          "key": "enable_jbv2_hef_star_sword",
+          "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+          "related_abilities": [
+            {
+              "effect": "enable_jbv2_hef_star_sword",
+              "bonus_value_id": "enable",
+              "unit_ability": {
+                "key": "jbv2_hef_sword_stars",
+                "icon_name": "scm3/battle_ui/ability_icons/jbv2_sword_stars",
+                "overpower_option": "",
+                "type": {
+                  "key": "wh_type_breath",
+                  "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_breath",
+                  "onscreen_name": "Breath"
+                },
+                "is_hidden_in_ui": false,
+                "onscreen_name": "Sword of the Stars",
+                "active_time": 2,
+                "effect_range": 0,
+                "num_uses": 2,
+                "recharge_time": 60,
+                "target_enemies": true,
+                "target_friends": false,
+                "target_ground": true,
+                "target_self": false,
+                "target_intercept_range": 50,
+                "wind_up_time": 1,
+                "vortex": {
+                  "vortex_key": "jbv2_sword_stars",
+                  "duration": 2,
+                  "damage": 8,
+                  "damage_ap": 20,
+                  "goal_radius": 25,
+                  "movement_speed": 24,
+                  "delay": 0,
+                  "affects_allies": true,
+                  "is_magical": true,
+                  "contact_effect": {
+                    "icon": "scm3/battle_ui/ability_icons/jbv2_cosmic_shredding",
+                    "order": 1,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": true,
+                    "duration": 12,
+                    "effect_type": "negative",
+                    "onscreen_name": "Astral Breaking",
+                    "is_hidden_in_ui": false,
+                    "damage_amount": 3,
+                    "hp_change_frequency": 1,
+                    "remove_magical": true,
+                    "max_damaged_entities": 8,
+                    "stat_effects": [
+                      {
+                        "value": 0.5,
+                        "stat": "stat_resistance_physical",
+                        "how": "mult",
+                        "description": "x0.5 Physical Resistance",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "backgroundSkills": [
     {
       "key": "jbv2_hef_magister_innate_conduit",
@@ -4853,18 +4959,6 @@
             }
           ],
           "related_unit_cards": [
-            "hng_nomads_ror",
-            "hng_raiders_ror",
-            "hng_spawneaters_ror",
-            "hng_heavy_archers_ror",
-            "hng_mounted_shamans_ror",
-            "hng_chaos_vultures_ror",
-            "hng_khevtuul_ror",
-            "hng_torguud_ror",
-            "hng_ambushers_ror",
-            "hng_centigors_bows_ror",
-            "hng_khans_guard_ror",
-            "hng_death_worm_ror",
             "hng_captives",
             "hng_nomads",
             "hng_pillagers_0",
@@ -4903,6 +4997,7 @@
             "hng_aw_reaper_bolt_thrower",
             "hng_aw_scourgerunner",
             "hng_aw_tortured_hydra",
+            "hkrul_kurgan_berserker",
             "thm_skeggi_berserker",
             "yusak_marauder_berserker",
             "scm_fc_norsca_wolf_nor_marauder_berserker",
@@ -4914,7 +5009,6 @@
             "scm_fc_norsca_sarl_nor_marauder_berserker",
             "scm_fc_norsca_ursfjordings_nor_marauder_berserker",
             "scm_mer_marauder_berserker",
-            "hkrul_kurgan_berserker",
             "hng_aw_steel_spitters",
             "hng_aw_looted_cannon",
             "hng_aw_riders_of_the_raging_sky",
@@ -4922,6 +5016,18 @@
             "hng_aw_wallripper",
             "hng_aw_dread_beasts",
             "hng_steppe_stalker",
+            "hng_nomads_ror",
+            "hng_raiders_ror",
+            "hng_spawneaters_ror",
+            "hng_heavy_archers_ror",
+            "hng_mounted_shamans_ror",
+            "hng_chaos_vultures_ror",
+            "hng_khevtuul_ror",
+            "hng_torguud_ror",
+            "hng_ambushers_ror",
+            "hng_centigors_bows_ror",
+            "hng_khans_guard_ror",
+            "hng_death_worm_ror",
             "abyssal_terror",
             "dt_ror_1"
           ]
@@ -5359,15 +5465,15 @@
             }
           ],
           "related_unit_cards": [
+            "ovn_mar_ahr_riverwardens_0",
+            "thm_privaters",
+            "hkrul_mar_schilder",
+            "hkrul_knights_mariner_pistol",
+            "hkrul_manann_fanatics",
             "emp_sisters_sigmar",
             "emp_sisters_sigmar_ror",
             "emp_nuns",
-            "emp_nuns_ror",
-            "hkrul_manann_fanatics",
-            "ovn_mar_ahr_riverwardens_0",
-            "thm_privaters",
-            "hkrul_knights_mariner_pistol",
-            "hkrul_mar_schilder"
+            "emp_nuns_ror"
           ]
         }
       ]

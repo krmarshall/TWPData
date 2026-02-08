@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 8,
+              "run_speed": 8.5,
               "mass": 1250,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "attributes": [
                 {
@@ -65,6 +63,85 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_arcane",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Arcane Mastery",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 0.75,
+                            "stat": "scalar_miscast_chance",
+                            "how": "mult",
+                            "description": "x0.75 Miscast Chance",
+                            "icon": "vanilla3/skins/default/icon_stat_miscast"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh_passive_magic_buff",
+                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment_of_the_winds",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                      "onscreen_name": "Augment of the Winds"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Greater Magic Bond",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than broken"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh_passive_magic_buff",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "onscreen_name": "Greater Magic Bond",
+                        "is_hidden_in_ui": false,
+                        "mana_max_depletion_mod": 0.05,
+                        "mana_regen_mod": 0.25
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_main_unit_passive_martial_prowess",
@@ -186,7 +263,92 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 11
+          }
+        ]
+      },
+      {
+        "key": "wh2_main_skill_node_hef_teclis_mount_2",
+        "image_path": "vanilla3/campaign_ui/skills/mount_arcane_phoenix",
+        "character_skill_key": "wh2_dlc15_skill_hef_teclis_mount_arcane_phoenix",
+        "tier": 5,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Arcane Phoenix",
+        "localised_description": "Fighting upon an Arcane Phoenix, Teclis rides the magical tempests, harnessing the power of the howling Winds sweeping through the world of mortals.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Arcane Phoenix",
+                "key": "wh2_dlc15_effect_enable_mount_arcane_phoenix",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              },
+              {
+                "description": "Scholarly Tomes generated: +2 per turn",
+                "key": "hef_teclis_teclis",
+                "icon": "sfo3/campaign_ui/effect_bundles/hef_teclis"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 8,
+              "mass": 1750,
+              "size": "large",
+              "hit_points": 0,
+              "bonus_hit_points": 7750,
+              "armour": 50,
+              "missile_block_chance": 0,
+              "morale": 85,
+              "damage_mod_flame": 75,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 20,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 45,
+              "melee_defence": 45,
+              "charge_bonus": 60,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 150,
+              "ap_damage": 300,
+              "splash_target_size_limit": "medium",
+              "splash_attack_max_attacks": 6,
+              "melee_attack_interval": 4,
+              "is_flaming": true,
+              "is_magical": true,
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
+                },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
+                },
+                {
+                  "key": "flying",
+                  "description": "Can fly",
+                  "bullet_text": "This unit can fly.",
+                  "icon": "sfo3/battle_ui/ability_icons/flying"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh_passive_arcane",
@@ -265,94 +427,7 @@
                       }
                     ]
                   }
-                }
-              ]
-            },
-            "auto_unlock_at_rank": 11
-          }
-        ]
-      },
-      {
-        "key": "wh2_main_skill_node_hef_teclis_mount_2",
-        "image_path": "vanilla3/campaign_ui/skills/mount_arcane_phoenix",
-        "character_skill_key": "wh2_dlc15_skill_hef_teclis_mount_arcane_phoenix",
-        "tier": 5,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Arcane Phoenix",
-        "localised_description": "Fighting upon an Arcane Phoenix, Teclis rides the magical tempests, harnessing the power of the howling Winds sweeping through the world of mortals.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Mount: Arcane Phoenix",
-                "key": "wh2_dlc15_effect_enable_mount_arcane_phoenix",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              },
-              {
-                "description": "Scholarly Tomes generated: +2 per turn",
-                "key": "hef_teclis_teclis",
-                "icon": "sfo3/campaign_ui/effect_bundles/hef_teclis"
-              }
-            ],
-            "mount_unit_stats": {
-              "run_speed": 8,
-              "mass": 1750,
-              "size": "large",
-              "hit_points": 0,
-              "bonus_hit_points": 7750,
-              "armour": 50,
-              "missile_block_chance": 0,
-              "morale": 85,
-              "damage_mod_flame": 75,
-              "damage_mod_magic": 0,
-              "damage_mod_physical": 20,
-              "damage_mod_missile": 15,
-              "damage_mod_all": 0,
-              "melee_attack": 45,
-              "melee_defence": 45,
-              "charge_bonus": 60,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 0,
-              "damage": 150,
-              "ap_damage": 300,
-              "splash_target_size_limit": "medium",
-              "splash_attack_max_attacks": 6,
-              "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 12,
-              "is_flaming": true,
-              "is_magical": true,
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
-                {
-                  "key": "causes_terror",
-                  "description": " Can Cause Terror",
-                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_terror"
-                },
-                {
-                  "key": "encourages",
-                  "description": "Encourage",
-                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
-                },
-                {
-                  "key": "flying",
-                  "description": "Can fly",
-                  "bullet_text": "This unit can fly.",
-                  "icon": "sfo3/battle_ui/ability_icons/flying"
-                }
-              ],
-              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh2_main_unit_passive_attuned_to_magic",
@@ -480,87 +555,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_arcane",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Arcane Mastery",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 0.75,
-                            "stat": "scalar_miscast_chance",
-                            "how": "mult",
-                            "description": "x0.75 Miscast Chance",
-                            "icon": "vanilla3/skins/default/icon_stat_miscast"
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "unit_ability": {
-                    "key": "wh_passive_magic_buff",
-                    "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment_of_the_winds",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-                      "onscreen_name": "Augment of the Winds"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Greater Magic Bond",
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is higher than broken"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "wh_passive_magic_buff",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": -1,
-                        "effect_type": "positive",
-                        "onscreen_name": "Greater Magic Bond",
-                        "is_hidden_in_ui": false,
-                        "mana_max_depletion_mod": 0.05,
-                        "mana_regen_mod": 0.25
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 12
             },
             "auto_unlock_at_rank": 25
           }
@@ -2272,12 +2269,39 @@
                       "onscreen_name": "Fireball Upgraded",
                       "effect_range": 0,
                       "num_uses": 6,
-                      "recharge_time": 60,
+                      "recharge_time": 90,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": false,
                       "target_self": false,
                       "target_intercept_range": 300,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_all_magical_and_flaming_medium",
+                          "localised_text": "Causes moderate magical & fire damage",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_projectile_powerful_explosion",
+                          "localised_text": "Powerful explosion",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_projectile_effective_long_range",
+                          "localised_text": "Effective at long range",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh3_main_projectile_requires_line_of_sight",
+                          "localised_text": "Requires line of sight to the target",
+                          "effect_state": "negative"
+                        }
+                      ],
                       "activated_projectile": {
                         "key": "wh_main_spell_fire_fireball_upgraded",
                         "damage": 1000,
@@ -3446,9 +3470,6 @@
                 "key": "wh2_main_effect_force_stat_charge_bonus_add_hef_chariots_dragonprinces",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -3468,9 +3489,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           },
           {
@@ -3490,9 +3508,6 @@
                 "key": "wh2_main_effect_force_stat_missile_damage_hef_chariots",
                 "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
               }
-            ],
-            "related_unit_cards": [
-              "cr_hef_skycutter"
             ]
           }
         ],
@@ -3812,8 +3827,7 @@
               }
             ],
             "related_unit_cards": [
-              "wef_warhawks",
-              "cr_hef_skycutter"
+              "wef_warhawks"
             ]
           }
         ],
@@ -4544,8 +4558,6 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "attributes": [
       {
@@ -4562,6 +4574,85 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_passive_arcane",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Arcane Mastery",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 0.75,
+                  "stat": "scalar_miscast_chance",
+                  "how": "mult",
+                  "description": "x0.75 Miscast Chance",
+                  "icon": "vanilla3/skins/default/icon_stat_miscast"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_magic_buff",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Greater Magic Bond",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "wh_passive_magic_buff",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "onscreen_name": "Greater Magic Bond",
+              "is_hidden_in_ui": false,
+              "mana_max_depletion_mod": 0.05,
+              "mana_regen_mod": 0.25
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh2_main_unit_passive_martial_prowess",
@@ -4683,85 +4774,6 @@
             }
           ]
         }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_arcane",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Arcane Mastery",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/wh_passive_arcane",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 0.75,
-                  "stat": "scalar_miscast_chance",
-                  "how": "mult",
-                  "description": "x0.75 Miscast Chance",
-                  "icon": "vanilla3/skins/default/icon_stat_miscast"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_magic_buff",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment_of_the_winds",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-            "onscreen_name": "Augment of the Winds"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Greater Magic Bond",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "wh_passive_magic_buff",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "onscreen_name": "Greater Magic Bond",
-              "is_hidden_in_ui": false,
-              "mana_max_depletion_mod": 0.05,
-              "mana_regen_mod": 0.25
-            }
-          ]
-        }
       }
     ]
   },
@@ -4771,6 +4783,11 @@
     "localised_title": "High Loremaster",
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
+      {
+        "description": "Has access to the Secrets of the White Tower to unlock Cataclysm spells, powerful rituals, and benefits for the Order's spellcasters",
+        "key": "wh3_dlc27_teclis_frontend_white_tower_dummy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc27_hef_scrolls_of_knowledge"
+      },
       {
         "description": "Scholarly Tomes unlock powerful magical knowledge for Teclis and Archmages",
         "key": "hef_teclis_campaign_dummy",
@@ -4787,31 +4804,10 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/allegiance"
       },
       {
-        "description": "Recruit rank: +5 for Loremasters of Hoeth, Mages and Archmages",
-        "key": "wh2_dlc15_effect_recruitment_xp_hef_loremaster_mages_archmages",
-        "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
-      },
-      {
-        "description": "Attribute: Perfect Vigour for Swordmasters of Hoeth and Loremasters of Hoeth",
-        "key": "hef_hoeth_perfect_vigour",
-        "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune",
-        "related_attributes": [
-          {
-            "key": "fatigue_immune",
-            "description": " Perfect Vigour",
-            "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
-            "icon": "sfo3/campaign_ui/effect_bundles/attribute_fatigue_immune"
-          }
-        ]
-      },
-      {
         "description": "No recruitment cost for Lothern Skycutter units",
         "key": "hef_skycutter_cost_no",
         "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
       }
-    ],
-    "related_unit_cards": [
-      "cr_hef_skycutter"
     ]
   },
   "items": [
@@ -4851,7 +4847,7 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Scroll of Hoeth",
-                "active_time": 32,
+                "active_time": 30,
                 "effect_range": 0,
                 "num_effected_enemy_units": 1,
                 "recharge_time": 90,
@@ -4872,12 +4868,12 @@
                     "target_enemies": true,
                     "target_self": false,
                     "target_friends": false,
-                    "duration": 32,
+                    "duration": 30,
                     "effect_type": "negative",
                     "onscreen_name": "Scroll of Hoeth",
                     "is_hidden_in_ui": false,
                     "ability_recharge_change": 30,
-                    "mana_regen_mod": -0.4
+                    "mana_regen_mod": -0.5
                   }
                 ]
               }

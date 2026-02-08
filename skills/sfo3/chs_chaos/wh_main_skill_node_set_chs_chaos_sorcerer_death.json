@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 7,
+              "run_speed": 7.5,
               "mass": 2000,
               "size": "medium",
               "hit_points": 0,
@@ -47,8 +47,6 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
-              "fly_speed": 0,
               "is_magical": true,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
@@ -85,6 +83,69 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "chs_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chaotic Crusade",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points greater than 50%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "chs_passive_main_1_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 59,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "chs_passive_main_1_2",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.1
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
@@ -154,7 +215,74 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 4
+          }
+        ]
+      },
+      {
+        "key": "wh3_dlc20_skill_node_chs_cha_chaos_sorcerer_death_warshrine",
+        "image_path": "vanilla3/campaign_ui/skills/mount_warshrine",
+        "character_skill_key": "wh3_dlc20_skill_mount_chs_cha_chaos_sorcerer_death_warshrine",
+        "tier": 1,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Chaos Warshrine",
+        "localised_description": "A vast, mobile altar allows the souls of the slain to be ritualistically condemned directly from the field of slaughter.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Warshrine",
+                "key": "wh_main_effect_enable_mount_warshrine",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 3.5,
+              "mass": 4000,
+              "size": "very_large",
+              "hit_points": 0,
+              "bonus_hit_points": 12750,
+              "armour": 60,
+              "missile_block_chance": 0,
+              "morale": 60,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 0,
+              "damage_mod_physical": 0,
+              "damage_mod_missile": 15,
+              "damage_mod_all": 0,
+              "melee_attack": 35,
+              "melee_defence": 30,
+              "charge_bonus": 25,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 0,
+              "damage": 250,
+              "ap_damage": 125,
+              "splash_target_size_limit": "very_large",
+              "splash_attack_max_attacks": 5,
+              "melee_attack_interval": 4,
+              "can_siege": true,
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
+                }
+              ],
+              "abilities": [
                 {
                   "unit_ability": {
                     "key": "chs_passive_main_1",
@@ -217,76 +345,7 @@
                       }
                     ]
                   }
-                }
-              ]
-            },
-            "auto_unlock_at_rank": 4
-          }
-        ]
-      },
-      {
-        "key": "wh3_dlc20_skill_node_chs_cha_chaos_sorcerer_death_warshrine",
-        "image_path": "vanilla3/campaign_ui/skills/mount_warshrine",
-        "character_skill_key": "wh3_dlc20_skill_mount_chs_cha_chaos_sorcerer_death_warshrine",
-        "tier": 1,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Chaos Warshrine",
-        "localised_description": "A vast, mobile altar allows the souls of the slain to be ritualistically condemned directly from the field of slaughter.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Mount: Warshrine",
-                "key": "wh_main_effect_enable_mount_warshrine",
-                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
-              }
-            ],
-            "mount_unit_stats": {
-              "run_speed": 3,
-              "mass": 4000,
-              "size": "very_large",
-              "hit_points": 0,
-              "bonus_hit_points": 12500,
-              "armour": 60,
-              "missile_block_chance": 0,
-              "morale": 60,
-              "damage_mod_flame": 0,
-              "damage_mod_magic": 0,
-              "damage_mod_physical": 0,
-              "damage_mod_missile": 15,
-              "damage_mod_all": 0,
-              "melee_attack": 35,
-              "melee_defence": 30,
-              "charge_bonus": 25,
-              "bonus_v_large": 0,
-              "bonus_v_infantry": 0,
-              "damage": 250,
-              "ap_damage": 125,
-              "splash_target_size_limit": "very_large",
-              "splash_attack_max_attacks": 5,
-              "melee_attack_interval": 4,
-              "barrier": 0,
-              "can_siege": true,
-              "fly_speed": 0,
-              "attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
-                {
-                  "key": "encourages",
-                  "description": "Encourage",
-                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
-                  "icon": "sfo3/campaign_ui/effect_bundles/attribute_encourages"
-                }
-              ],
-              "abilities": [
                 {
                   "unit_ability": {
                     "key": "wh3_dlc20_unit_passive_giver_of_glory",
@@ -405,69 +464,6 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "chs_passive_main_1",
-                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Chaotic Crusade",
-                    "active_time": 60,
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Hit Points greater than 50%"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "chs_passive_main_1_1",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 59,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      },
-                      {
-                        "icon": "chs_passive_main_1_2",
-                        "order": 2,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.1
-                      }
-                    ]
-                  }
                 }
               ]
             },
@@ -520,9 +516,7 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
-              "fly_speed": 9.5,
               "is_magical": true,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
@@ -601,6 +595,69 @@
               "abilities": [
                 {
                   "unit_ability": {
+                    "key": "chs_passive_main_1",
+                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Chaotic Crusade",
+                    "active_time": 60,
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Hit Points greater than 50%"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "chs_passive_main_1_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 59,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ]
+                      },
+                      {
+                        "icon": "chs_passive_main_1_2",
+                        "order": 2,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": 1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "fatigue_change_ratio": -0.1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
                     "key": "wh3_main_unit_passive_single_entity",
                     "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
                     "overpower_option": "",
@@ -668,71 +725,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "chs_passive_main_1",
-                    "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Chaotic Crusade",
-                    "active_time": 60,
-                    "effect_range": 0,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Hit Points greater than 50%"
-                    ],
-                    "phases": [
-                      {
-                        "icon": "chs_passive_main_1_1",
-                        "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 59,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "stat_effects": [
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_base",
-                            "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
-                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_melee_damage_ap",
-                            "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
-                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ]
-                      },
-                      {
-                        "icon": "chs_passive_main_1_2",
-                        "order": 2,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": false,
-                        "duration": 1,
-                        "effect_type": "positive",
-                        "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.1
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 9.5
             },
             "auto_unlock_at_rank": 18
           }
@@ -3854,8 +3849,6 @@
     "splash_target_size_limit": "large",
     "splash_attack_max_attacks": 8,
     "melee_attack_interval": 4,
-    "barrier": 0,
-    "fly_speed": 0,
     "is_magical": true,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
@@ -3892,6 +3885,69 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "chs_passive_main_1",
+          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Chaotic Crusade",
+          "active_time": 60,
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Hit Points greater than 50%"
+          ],
+          "phases": [
+            {
+              "icon": "chs_passive_main_1_1",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 59,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_base",
+                  "how": "mult",
+                  "description": "x1.1 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.1,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.1 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                }
+              ]
+            },
+            {
+              "icon": "chs_passive_main_1_2",
+              "order": 2,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": 1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "fatigue_change_ratio": -0.1
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_single_entity",
@@ -3958,69 +4014,6 @@
                   "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "chs_passive_main_1",
-          "icon_name": "sfo3/battle_ui/ability_icons/chs_passive_main_1",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Chaotic Crusade",
-          "active_time": 60,
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Hit Points greater than 50%"
-          ],
-          "phases": [
-            {
-              "icon": "chs_passive_main_1_1",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 59,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x1.1 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.1 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ]
-            },
-            {
-              "icon": "chs_passive_main_1_2",
-              "order": 2,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": 1,
-              "effect_type": "positive",
-              "is_hidden_in_ui": false,
-              "fatigue_change_ratio": -0.1
             }
           ]
         }
@@ -4197,520 +4190,6 @@
               "icon": "vanilla3/campaign_ui/effect_bundles/souls"
             }
           ]
-        }
-      ]
-    },
-    {
-      "key": "wh_skill_automated_movement",
-      "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
-      "character_skill_key": "wh_skill_automated_movement",
-      "tier": 50,
-      "indent": 50,
-      "points_on_creation": 1,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": false,
-      "localised_name": "",
-      "localised_description": "",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +1%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ]
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +2%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 2
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +3%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 3
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +4%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 4
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +5%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 5
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +6%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 6
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +7%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 7
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +8%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 8
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +9%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 9
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +10%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 10
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +11%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 11
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +12%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 12
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +13%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 13
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +14%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 14
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +15%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 15
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +16%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 16
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +17%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 17
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +18%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 18
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +19%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 19
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +20%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 20
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +21%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 21
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +22%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 22
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +23%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 23
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +24%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 24
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +25%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 25
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +26%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 26
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +27%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 27
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +28%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 28
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +29%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 29
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +30%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 30
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +31%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 31
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +32%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 32
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +33%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 33
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +34%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 34
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +35%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 35
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +36%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 36
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +37%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 37
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +38%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 38
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +39%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 39
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +40%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 40
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +41%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 41
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +42%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 42
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +43%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 43
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +44%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 44
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +45%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 45
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +46%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 46
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +47%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 47
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +48%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 48
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +49%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 49
-        },
-        {
-          "effects": [
-            {
-              "description": "Campaign movement range: +50%",
-              "key": "wh_main_effect_agent_movement_range_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-            }
-          ],
-          "auto_unlock_at_rank": 50
         }
       ]
     },
@@ -5730,6 +5209,520 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "key": "wh_skill_automated_movement",
+      "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+      "character_skill_key": "wh_skill_automated_movement",
+      "tier": 50,
+      "indent": 50,
+      "points_on_creation": 1,
+      "required_num_parents": 0,
+      "visible_in_ui": false,
+      "is_background_skill": false,
+      "localised_name": "",
+      "localised_description": "",
+      "levels": [
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +1%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ]
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +2%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 2
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +3%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 3
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +4%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 4
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +5%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 5
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +6%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 6
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +7%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 7
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +8%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 8
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +9%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 9
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +10%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 10
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +11%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 11
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +12%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 12
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +13%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 13
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +14%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 14
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +15%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 15
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +16%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 16
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +17%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 17
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +18%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 18
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +19%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 19
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +20%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 20
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +21%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 21
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +22%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 22
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +23%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 23
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +24%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 24
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +25%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 25
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +26%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 26
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +27%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 27
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +28%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 28
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +29%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 29
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +30%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 30
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +31%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 31
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +32%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 32
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +33%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 33
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +34%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 34
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +35%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 35
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +36%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 36
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +37%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 37
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +38%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 38
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +39%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 39
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +40%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 40
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +41%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 41
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +42%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 42
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +43%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 43
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +44%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 44
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +45%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 45
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +46%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 46
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +47%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 47
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +48%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 48
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +49%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 49
+        },
+        {
+          "effects": [
+            {
+              "description": "Campaign movement range: +50%\n\t(based on character rank)",
+              "key": "wh_main_effect_agent_movement_range_mod",
+              "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+            }
+          ],
+          "auto_unlock_at_rank": 50
         }
       ]
     }

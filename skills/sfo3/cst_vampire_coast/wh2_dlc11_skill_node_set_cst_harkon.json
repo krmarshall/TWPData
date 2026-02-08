@@ -24,7 +24,7 @@
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 6,
+              "run_speed": 6.5,
               "mass": 2000,
               "size": "very_large",
               "hit_points": 0,
@@ -47,10 +47,8 @@
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 8,
               "melee_attack_interval": 4,
-              "barrier": 0,
               "can_siege": true,
               "can_skirmish": true,
-              "fly_speed": 10,
               "contact_phase": {
                 "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
                 "order": 1,
@@ -179,6 +177,71 @@
                 }
               ],
               "abilities": [
+                {
+                  "unit_ability": {
+                    "key": "vmp_active_terrorgheist_shriek",
+                    "icon_name": "sfo3/battle_ui/ability_icons/vmp_active_terrorgheist_shriek",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Terrorgheist Shriek",
+                    "active_time": 30,
+                    "effect_range": 30,
+                    "recharge_time": 120,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage",
+                        "localised_text": "Causes damage to combatants",
+                        "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh_damaged_entities_5",
+                        "localised_text": "Affect up to 5 entities",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "sfo3/battle_ui/ability_icons/vmp_active_terrorgheist_shriek",
+                        "order": 1,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
+                        "duration": 30,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 5,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 5,
+                        "stat_effects": [
+                          {
+                            "value": 0.5,
+                            "stat": "scalar_speed",
+                            "how": "mult",
+                            "description": "x0.5 Speed",
+                            "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": -15,
+                            "stat": "stat_melee_defence",
+                            "how": "add",
+                            "description": "-15 Melee Defence",
+                            "icon": "vanilla3/skins/default/icon_stat_defence"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
                 {
                   "unit_ability": {
                     "key": "wh2_dlc11_lord_abilities_power_siphon",
@@ -649,73 +712,9 @@
                       }
                     ]
                   }
-                },
-                {
-                  "unit_ability": {
-                    "key": "vmp_active_terrorgheist_shriek",
-                    "icon_name": "sfo3/battle_ui/ability_icons/vmp_active_terrorgheist_shriek",
-                    "overpower_option": "",
-                    "type": {
-                      "key": "wh_type_area_of_hexes",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                      "onscreen_name": "Hex (Area)"
-                    },
-                    "is_hidden_in_ui": false,
-                    "onscreen_name": "Terrorgheist Shriek",
-                    "active_time": 30,
-                    "effect_range": 30,
-                    "recharge_time": 120,
-                    "target_enemies": false,
-                    "target_friends": false,
-                    "target_ground": false,
-                    "target_self": false,
-                    "target_intercept_range": 0,
-                    "ui_effects": [
-                      {
-                        "key": "wh_main_all_direct_damage",
-                        "localised_text": "Causes damage to combatants",
-                        "effect_state": "positive"
-                      },
-                      {
-                        "key": "wh_damaged_entities_5",
-                        "localised_text": "Affect up to 5 entities",
-                        "effect_state": "positive"
-                      }
-                    ],
-                    "phases": [
-                      {
-                        "icon": "sfo3/battle_ui/ability_icons/vmp_active_terrorgheist_shriek",
-                        "order": 1,
-                        "target_enemies": true,
-                        "target_self": false,
-                        "target_friends": false,
-                        "duration": 30,
-                        "effect_type": "negative",
-                        "is_hidden_in_ui": false,
-                        "damage_amount": 5,
-                        "hp_change_frequency": 1,
-                        "max_damaged_entities": 5,
-                        "stat_effects": [
-                          {
-                            "value": 0.5,
-                            "stat": "scalar_speed",
-                            "how": "mult",
-                            "description": "x0.5 Speed",
-                            "icon": "vanilla3/skins/default/icon_stat_speed"
-                          },
-                          {
-                            "value": -15,
-                            "stat": "stat_melee_defence",
-                            "how": "add",
-                            "description": "-15 Melee Defence",
-                            "icon": "vanilla3/skins/default/icon_stat_defence"
-                          }
-                        ]
-                      }
-                    ]
-                  }
                 }
-              ]
+              ],
+              "fly_speed": 10
             },
             "auto_unlock_at_rank": 18
           }
@@ -3466,9 +3465,7 @@
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
     "melee_attack_interval": 4,
-    "barrier": 0,
     "can_skirmish": true,
-    "fly_speed": 0,
     "contact_phase": {
       "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_disrupted",
       "order": 1,
@@ -3913,6 +3910,11 @@
     "localised_title": "Captain of the Coast",
     "ui_icon": "vanilla3/campaign_ui/effect_bundles/character",
     "effects": [
+      {
+        "description": "(HIDDEN) Ignore movement cost for embarking and disembarking\n\t(factionwide)",
+        "key": "wh3_dlc27_ignore_embark_disembark_cost",
+        "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
+      },
       {
         "description": "Extended technology tree and special sanity missions",
         "key": "cst_harkon_campaign_dummy",

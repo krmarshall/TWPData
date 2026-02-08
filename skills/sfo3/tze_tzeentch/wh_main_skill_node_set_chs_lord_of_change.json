@@ -141,7 +141,7 @@
                               "key": "unspottable",
                               "description": " Unspottable",
                               "bullet_text": "If this unit can hide at its current location it will not be spotted until the enemy is very close.",
-                              "icon": "sfo3/battle_ui/ability_icons/unspottable"
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unspottable"
                             }
                           ]
                         }
@@ -5494,7 +5494,7 @@
       {
         "key": "daemonic",
         "description": "Daemonic",
-        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.",
         "icon": "sfo3/campaign_ui/effect_bundles/attribute_daemonic"
       },
       {
@@ -5511,6 +5511,135 @@
       }
     ],
     "abilities": [
+      {
+        "unit_ability": {
+          "key": "wh_autoresolve_buff_unit_melee_2",
+          "icon_name": "sfo3/battle_ui/ability_icons/venris",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": true,
+          "onscreen_name": "placeholder",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_magic_buff",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment_of_the_winds",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+            "onscreen_name": "Augment of the Winds"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Greater Magic Bond",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "wh_passive_magic_buff",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "positive",
+              "onscreen_name": "Greater Magic Bond",
+              "is_hidden_in_ui": false,
+              "mana_max_depletion_mod": 0.05,
+              "mana_regen_mod": 0.25
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "chs_active_tzeentch_soul_drain",
+          "icon_name": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+            "onscreen_name": "Direct Damage (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Soul Leech of Tzeentch",
+          "active_time": 30,
+          "effect_range": 30,
+          "recharge_time": 150,
+          "target_enemies": true,
+          "target_friends": false,
+          "target_ground": true,
+          "target_self": false,
+          "target_intercept_range": 150,
+          "wind_up_time": 3,
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage",
+              "localised_text": "Causes damage to combatants",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_main_all_strong_against_units",
+              "localised_text": "Strong vs multiple units",
+              "effect_state": "positive"
+            },
+            {
+              "key": "wh_damaged_entities_60",
+              "localised_text": "Affect up to 60 entities",
+              "effect_state": "positive"
+            }
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
+              "order": 1,
+              "target_enemies": true,
+              "target_self": false,
+              "target_friends": false,
+              "duration": 30,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 1,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 60,
+              "stat_effects": [
+                {
+                  "value": -10,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "-10 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": -20,
+                  "stat": "stat_resistance_magic",
+                  "how": "add",
+                  "description": "-20 Spell Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                }
+              ]
+            }
+          ]
+        }
+      },
       {
         "unit_ability": {
           "key": "wh3_main_unit_passive_daemonic_instability_tzeentch",
@@ -5692,135 +5821,6 @@
               ]
             }
           ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_passive_magic_buff",
-          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_magic_buff_character",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment_of_the_winds",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
-            "onscreen_name": "Augment of the Winds"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Greater Magic Bond",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0,
-          "enabled_if": [
-            "Leadership is higher than broken"
-          ],
-          "phases": [
-            {
-              "icon": "wh_passive_magic_buff",
-              "order": 1,
-              "target_enemies": false,
-              "target_self": true,
-              "target_friends": false,
-              "duration": -1,
-              "effect_type": "positive",
-              "onscreen_name": "Greater Magic Bond",
-              "is_hidden_in_ui": false,
-              "mana_max_depletion_mod": 0.05,
-              "mana_regen_mod": 0.25
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "chs_active_tzeentch_soul_drain",
-          "icon_name": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_area_of_direct_damage",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
-            "onscreen_name": "Direct Damage (Area)"
-          },
-          "is_hidden_in_ui": false,
-          "onscreen_name": "Soul Leech of Tzeentch",
-          "active_time": 30,
-          "effect_range": 30,
-          "recharge_time": 150,
-          "target_enemies": true,
-          "target_friends": false,
-          "target_ground": true,
-          "target_self": false,
-          "target_intercept_range": 150,
-          "wind_up_time": 3,
-          "ui_effects": [
-            {
-              "key": "wh_main_all_direct_damage",
-              "localised_text": "Causes damage to combatants",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_main_all_strong_against_units",
-              "localised_text": "Strong vs multiple units",
-              "effect_state": "positive"
-            },
-            {
-              "key": "wh_damaged_entities_60",
-              "localised_text": "Affect up to 60 entities",
-              "effect_state": "positive"
-            }
-          ],
-          "phases": [
-            {
-              "icon": "sfo3/battle_ui/ability_icons/chs_active_tzeentch_soul_drain",
-              "order": 1,
-              "target_enemies": true,
-              "target_self": false,
-              "target_friends": false,
-              "duration": 30,
-              "effect_type": "negative",
-              "is_hidden_in_ui": false,
-              "damage_amount": 1,
-              "hp_change_frequency": 1,
-              "max_damaged_entities": 60,
-              "stat_effects": [
-                {
-                  "value": -10,
-                  "stat": "stat_melee_defence",
-                  "how": "add",
-                  "description": "-10 Melee Defence",
-                  "icon": "vanilla3/skins/default/icon_stat_defence"
-                },
-                {
-                  "value": -20,
-                  "stat": "stat_resistance_magic",
-                  "how": "add",
-                  "description": "-20 Spell Resistance",
-                  "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "unit_ability": {
-          "key": "wh_autoresolve_buff_unit_melee_2",
-          "icon_name": "sfo3/battle_ui/ability_icons/venris",
-          "overpower_option": "",
-          "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
-          },
-          "is_hidden_in_ui": true,
-          "onscreen_name": "placeholder",
-          "effect_range": 0,
-          "target_enemies": false,
-          "target_friends": false,
-          "target_ground": false,
-          "target_self": false,
-          "target_intercept_range": 0
         }
       }
     ]
