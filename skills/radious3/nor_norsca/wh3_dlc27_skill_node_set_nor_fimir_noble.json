@@ -2683,7 +2683,7 @@
     {
       "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_01",
       "image_path": "vanilla3/campaign_ui/skills/trait_chaos",
-      "character_skill_key": "wh2_main_skill_innate_chs_diabolic_spendour",
+      "character_skill_key": "wh_main_skill_innate_chs_diabolic_spendour",
       "tier": 0,
       "indent": 6,
       "points_on_creation": 0,
@@ -2696,57 +2696,52 @@
         {
           "effects": [
             {
-              "description": "Leadership aura size: +100%",
+              "description": "Leadership aura size: +40%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
             },
             {
-              "description": "Passive ability: \"Icon of Endless War\"",
-              "key": "wh3_main_effect_ability_enable_icon_of_endless_war",
+              "description": "Passive ability: \"Glittering Scales\"",
+              "key": "wh_main_effect_ability_enable_glittering_scales",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
               "related_abilities": [
                 {
-                  "effect": "wh3_main_effect_ability_enable_icon_of_endless_war",
+                  "effect": "wh_main_effect_ability_enable_glittering_scales",
                   "bonus_value_id": "enable",
                   "unit_ability": {
-                    "key": "wh3_main_item_passive_icon_of_endless_war",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_banner_passive_icon_of_endless_war",
+                    "key": "wh_main_weapon_passive_glittering_scales",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_glittering_scales",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_area_of_hexes",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                      "onscreen_name": "Hex (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Icon of Endless War",
-                    "effect_range": 0,
-                    "num_effected_friendly_units": 1,
+                    "onscreen_name": "Glittering Scales",
+                    "effect_range": 35,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
-                    "enabled_if": [
-                      "In melee"
-                    ],
                     "phases": [
                       {
-                        "icon": "wh3_main_item_passive_icon_of_endless_war",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_weapon_passive_glittering_scales",
                         "order": 1,
-                        "target_enemies": false,
-                        "target_self": true,
-                        "target_friends": true,
+                        "target_enemies": true,
+                        "target_self": false,
+                        "target_friends": false,
                         "duration": -1,
-                        "effect_type": "positive",
+                        "effect_type": "negative",
                         "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": -0.01,
                         "stat_effects": [
                           {
-                            "value": 8,
-                            "stat": "stat_morale",
+                            "value": -6,
+                            "stat": "stat_melee_attack",
                             "how": "add",
-                            "description": "+8 Leadership",
-                            "icon": "vanilla3/skins/default/icon_stat_morale"
+                            "description": "-6 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
                           }
                         ]
                       }
@@ -2756,30 +2751,14 @@
               ]
             },
             {
-              "description": "Attribute: Causes Fear",
-              "key": "wh_main_effect_attribute_enable_causes_fear",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear",
-              "related_attributes": [
-                {
-                  "key": "causes_fear",
-                  "description": " Can Cause Fear",
-                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
-                }
-              ]
+              "description": "Physical resistance: 5%\n\t(own army)",
+              "key": "wh_main_effect_force_stat_physical_resistance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
             },
             {
-              "description": "Attribute: Causes Terror",
-              "key": "wh_main_effect_attribute_enable_causes_terror",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
-              "related_attributes": [
-                {
-                  "key": "causes_terror",
-                  "description": " Can Cause Terror",
-                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
-                }
-              ]
+              "description": "Spell resistance: 5%\n\t(own army)",
+              "key": "wh_main_effect_force_stat_magic_resistance",
+              "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
             }
           ]
         }
@@ -3614,38 +3593,6 @@
               "description": "Enemy leadership: -3\n\t(local region)",
               "key": "wh_main_effect_force_stat_leadership_enemy_unit",
               "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "wh3_dlc27_skill_node_nor_fimir_noble_innate_20",
-      "image_path": "vanilla3/campaign_ui/skills/trait_personality",
-      "character_skill_key": "wh_main_skill_innate_all_sneaky",
-      "tier": 19,
-      "indent": 6,
-      "points_on_creation": 0,
-      "required_num_parents": 0,
-      "visible_in_ui": false,
-      "is_background_skill": true,
-      "localised_name": "Sneaky",
-      "localised_description": "Skulk and sneak or shadow and stalk, theirs is a guileful nature.",
-      "levels": [
-        {
-          "effects": [
-            {
-              "description": "Attribute: Stalk",
-              "key": "wh_main_effect_attribute_enable_stalk",
-              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk",
-              "related_attributes": [
-                {
-                  "key": "stalk",
-                  "description": " Stalk",
-                  "bullet_text": "This unit can move hidden in any terrain.",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_stalk"
-                }
-              ]
             }
           ]
         }
