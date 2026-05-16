@@ -1,54 +1,55 @@
 {
-  "key": "str_haematoma_skullpriest",
+  "key": "20kr_haematoma_bloodreaper",
   "skillTree": [
     [
       {
-        "key": "str_haematoma_skullpriest_shrine",
-        "image_path": "vanilla3/campaign_ui/skills/mount_warshrine",
-        "character_skill_key": "str_haematoma_skullpriest_shrine",
-        "tier": 1,
+        "key": "20kr_haematoma_bloodreaper_skill_mount_juggernaut",
+        "image_path": "vanilla3/campaign_ui/skills/mount_juggernaut",
+        "character_skill_key": "20kr_haematoma_bloodreaper_skill_mount_juggernaut",
+        "tier": 0,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Chaos Warshrine",
-        "localised_description": "A vast, mobile altar allows the souls of the slain to be ritualistically condemned directly from the field of slaughter.",
+        "localised_name": "Juggernaut",
+        "localised_description": "Mighty beasts of groaning iron and brass, taller than a man and possessed of a crushing mass.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Mount: Warshrine",
-                "key": "wh_main_effect_enable_mount_warshrine",
+                "description": "Mount: Juggernaut",
+                "key": "wh3_main_effect_enable_mount_juggernaut",
                 "icon": "vanilla3/campaign_ui/effect_bundles/mount"
               }
             ],
             "mount_unit_stats": {
-              "run_speed": 3.8,
-              "mass": 4000,
-              "size": "very_large",
+              "run_speed": 7,
+              "mass": 1800,
+              "size": "medium",
               "hit_points": 8,
-              "bonus_hit_points": 10192,
-              "armour": 90,
+              "bonus_hit_points": 4640,
+              "armour": 100,
               "missile_block_chance": 0,
-              "morale": 70,
+              "morale": 65,
               "damage_mod_flame": 0,
               "damage_mod_magic": 35,
-              "damage_mod_physical": 0,
+              "damage_mod_physical": 20,
               "damage_mod_missile": 0,
               "damage_mod_all": 0,
-              "melee_attack": 36,
-              "melee_defence": 28,
-              "charge_bonus": 24,
+              "melee_attack": 60,
+              "melee_defence": 35,
+              "charge_bonus": 65,
               "bonus_v_large": 0,
-              "bonus_v_infantry": 0,
-              "damage": 250,
-              "ap_damage": 125,
-              "splash_target_size_limit": "very_large",
+              "bonus_v_infantry": 20,
+              "damage": 125,
+              "ap_damage": 300,
+              "splash_target_size_limit": "medium",
               "splash_attack_max_attacks": 4,
               "melee_attack_interval": 4,
               "can_siege": true,
               "is_flaming": true,
+              "is_magical": true,
               "attributes": [
                 {
                   "key": "causes_fear",
@@ -57,74 +58,159 @@
                   "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
                 {
+                  "key": "daemonic",
+                  "description": "Daemonic",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_daemonic"
+                },
+                {
                   "key": "encourages",
                   "description": "Encourage",
                   "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
                   "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
                 },
                 {
-                  "key": "mark_khorne",
-                  "description": "Mark of Khorne",
-                  "bullet_text": "A unit with the Mark of Khorne has:\n\t➕ Frenzy Passive Ability\n\t➕ Increased  Spell Resistance\n\t➕ Increased  Armour\n\t➖ Reduced  Melee Defence",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_mark_khorne"
+                  "key": "hide_forest",
+                  "description": "Hide (forest)",
+                  "bullet_text": "This unit can hide in forests until enemy units get too close.",
+                  "icon": "vanilla3/battle_ui/ability_icons/hide_forest"
                 }
               ],
               "abilities": [
                 {
                   "unit_ability": {
-                    "key": "wh3_dlc20_unit_passive_giver_of_furious_glory",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc20_unit_passive_giver_of_furious_glory",
+                    "key": "wh3_main_unit_passive_daemonic_instability_khorne",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_area_of_augments",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                      "onscreen_name": "Augment (Area)"
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Giver of Furious Glory",
-                    "effect_range": 35,
+                    "onscreen_name": "Daemonic Instability",
+                    "effect_range": 0,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
-                    "target_intercept_range": 35,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is broken"
+                    ],
                     "ui_effects": [
                       {
-                        "key": "wh3_dlc20_ability_intensity_nearby_deaths",
-                        "localised_text": "Effect intensity increases with each nearby entity death.",
-                        "effect_state": "positive"
+                        "key": "wh_main_all_direct_damage_self",
+                        "localised_text": "Causes damage to self",
+                        "effect_state": "negative"
                       }
                     ],
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc20_unit_passive_giver_of_furious_glory",
+                        "icon": "wh3_main_unit_passive_daemonic_instability_khorne_1",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
-                        "target_friends": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 66,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 4
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_daemonic_instability_khorne_ii",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability_ii",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Banished!",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is shattered"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage_self_high",
+                        "localised_text": "Causes severe damage to self",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_main_unit_passive_daemonic_instability_khorne_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 133,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 12
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_hellblade",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_hellblade",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Hellblade",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "More than 80 kills"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_hellblade",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
                         "duration": -1,
                         "effect_type": "positive",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 1.15,
+                            "value": 1.2,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
-                            "description": "x1.15 Base Weapon Damage",
+                            "description": "x1.2 Base Weapon Damage",
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
                           },
                           {
-                            "value": 15,
-                            "stat": "stat_resistance_all",
-                            "how": "add",
-                            "description": "+15 Damage Resistance ",
-                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
-                          },
-                          {
-                            "value": 1.15,
+                            "value": 1.2,
                             "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x1.15 Armour-Piercing Weapon Damage",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
@@ -187,11 +273,86 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            "auto_unlock_at_rank": 13
+          }
+        ]
+      },
+      {
+        "key": "20kr_haematoma_bloodreaper_skill_mount_blood_throne",
+        "image_path": "vanilla3/campaign_ui/skills/mount_blood_throne",
+        "character_skill_key": "20kr_haematoma_bloodreaper_skill_mount_blood_throne",
+        "tier": 1,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Blood Throne",
+        "localised_description": "A mighty Daemon Engine, clad in brass armour and driven into battle on iron-shod wheels.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Mount: Blood Throne",
+                "key": "wh3_main_effect_enable_mount_blood_throne",
+                "icon": "vanilla3/campaign_ui/effect_bundles/mount"
+              }
+            ],
+            "mount_unit_stats": {
+              "run_speed": 6.8,
+              "mass": 1600,
+              "size": "very_large",
+              "hit_points": 8,
+              "bonus_hit_points": 5140,
+              "armour": 110,
+              "missile_block_chance": 0,
+              "morale": 65,
+              "damage_mod_flame": 0,
+              "damage_mod_magic": 35,
+              "damage_mod_physical": 20,
+              "damage_mod_missile": 0,
+              "damage_mod_all": 0,
+              "melee_attack": 35,
+              "melee_defence": 20,
+              "charge_bonus": 50,
+              "bonus_v_large": 0,
+              "bonus_v_infantry": 25,
+              "damage": 110,
+              "ap_damage": 245,
+              "splash_target_size_limit": "large",
+              "splash_attack_max_attacks": 4,
+              "melee_attack_interval": 4.6,
+              "can_siege": true,
+              "is_flaming": true,
+              "is_magical": true,
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
                 },
                 {
+                  "key": "daemonic",
+                  "description": "Daemonic",
+                  "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_daemonic"
+                },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
+                }
+              ],
+              "abilities": [
+                {
                   "unit_ability": {
-                    "key": "wh_dlc08_unit_passive_favour_of_the_ruinous_powers",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_favour_of_the_ruinous_powers",
+                    "key": "wh3_main_mount_passive_totem_of_endless_bloodletting",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_mount_passive_totem_of_endless_bloodletting",
                     "overpower_option": "",
                     "type": {
                       "key": "wh_type_area_of_augments",
@@ -199,7 +360,7 @@
                       "onscreen_name": "Augment (Area)"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Favour of the Ruinous Powers",
+                    "onscreen_name": "Totem of Endless Bloodletting",
                     "effect_range": 35,
                     "target_enemies": false,
                     "target_friends": false,
@@ -208,7 +369,7 @@
                     "target_intercept_range": 0,
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_dlc08_unit_abilities_favour_of_the_ruinous_powers",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_mount_passive_totem_of_endless_bloodletting",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
@@ -218,11 +379,18 @@
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 10,
+                            "value": 4,
                             "stat": "stat_morale",
                             "how": "add",
-                            "description": "+10 Leadership",
+                            "description": "+4 Leadership",
                             "icon": "vanilla3/skins/default/icon_stat_morale"
+                          },
+                          {
+                            "value": 8,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+8 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
                           }
                         ]
                       }
@@ -231,16 +399,16 @@
                 },
                 {
                   "unit_ability": {
-                    "key": "wh_main_unit_passive_frenzy",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                    "key": "wh3_main_unit_passive_daemonic_instability_khorne",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Frenzy",
+                    "onscreen_name": "Daemonic Instability",
                     "effect_range": 0,
                     "target_enemies": false,
                     "target_friends": false,
@@ -248,11 +416,145 @@
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "Leadership is higher than 50% of base"
+                      "Leadership is broken"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage_self",
+                        "localised_text": "Causes damage to self",
+                        "effect_state": "negative"
+                      }
                     ],
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                        "icon": "wh3_main_unit_passive_daemonic_instability_khorne_1",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 66,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 4
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_daemonic_instability_khorne_ii",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability_ii",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_direct_damage",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                      "onscreen_name": "Direct Damage"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Banished!",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is shattered"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_direct_damage_self_high",
+                        "localised_text": "Causes severe damage to self",
+                        "effect_state": "negative"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "wh3_main_unit_passive_daemonic_instability_khorne_2",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "negative",
+                        "is_hidden_in_ui": false,
+                        "damage_amount": 133,
+                        "hp_change_frequency": 1,
+                        "max_damaged_entities": 12
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_gorefeast",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_gorefeast",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_regeneration",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_regeneration",
+                      "onscreen_name": "Regeneration"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Gorefeast",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "In melee"
+                    ],
+                    "ui_effects": [
+                      {
+                        "key": "wh_main_all_replenish",
+                        "localised_text": "Replenishes hit points of combatants",
+                        "effect_state": "positive"
+                      }
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_gorefeast",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "heal_amount": 0.001,
+                        "hp_change_frequency": 1
+                      }
+                    ]
+                  }
+                },
+                {
+                  "unit_ability": {
+                    "key": "wh3_main_unit_passive_hellblade",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_hellblade",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Hellblade",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "More than 80 kills"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_hellblade",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
@@ -262,40 +564,18 @@
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 1.1,
+                            "value": 1.2,
                             "stat": "stat_melee_damage_base",
                             "how": "mult",
-                            "description": "x1.1 Base Weapon Damage",
+                            "description": "x1.2 Base Weapon Damage",
                             "icon": "vanilla3/skins/default/icon_stat_damage_base"
                           },
                           {
-                            "value": 10,
-                            "stat": "stat_melee_attack",
-                            "how": "add",
-                            "description": "+10 Melee Attack",
-                            "icon": "vanilla3/skins/default/icon_stat_attack"
-                          },
-                          {
-                            "value": 1.1,
-                            "stat": "stat_charge_bonus",
-                            "how": "mult",
-                            "description": "x1.1 Charge Bonus",
-                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                          },
-                          {
-                            "value": 1.1,
+                            "value": 1.2,
                             "stat": "stat_melee_damage_ap",
                             "how": "mult",
-                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "description": "x1.2 Armour-Piercing Weapon Damage",
                             "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                          }
-                        ],
-                        "attributes": [
-                          {
-                            "key": "immune_to_psychology",
-                            "description": " Immune to Psychology",
-                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
                           }
                         ]
                       }
@@ -304,42 +584,54 @@
                 },
                 {
                   "unit_ability": {
-                    "key": "wh2_main_unit_passive_scurry_away",
-                    "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_scurry_away",
+                    "key": "wh3_main_unit_passive_single_entity",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
                     "overpower_option": "",
                     "type": {
-                      "key": "wh_type_augment",
-                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                      "onscreen_name": "Augment"
+                      "key": "wh_type_hex",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                      "onscreen_name": "Hex"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Scurry Away!",
+                    "onscreen_name": "Wounds",
                     "effect_range": 0,
                     "target_enemies": false,
                     "target_friends": false,
                     "target_ground": false,
                     "target_self": false,
                     "target_intercept_range": 0,
-                    "enabled_if": [
-                      "Leadership is wavering or lower"
-                    ],
                     "phases": [
                       {
-                        "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_scurry_away",
+                        "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_single_entity",
                         "order": 1,
                         "target_enemies": false,
                         "target_self": true,
                         "target_friends": false,
                         "duration": -1,
-                        "effect_type": "positive",
+                        "effect_type": "negative",
+                        "onscreen_name": "Wounded!",
                         "is_hidden_in_ui": false,
                         "stat_effects": [
                           {
-                            "value": 1.1,
+                            "value": 0.9,
                             "stat": "scalar_speed",
                             "how": "mult",
-                            "description": "x1.1 Speed",
+                            "description": "x0.9 Speed",
                             "icon": "vanilla3/skins/default/icon_stat_speed"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x0.8 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 0.8,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x0.8 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                           }
                         ]
                       }
@@ -353,244 +645,33 @@
         ]
       },
       {
-        "key": "wh3_main_skill_node_kho_cultist_unique_0",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_gate_of_khorne",
-        "character_skill_key": "wh3_main_skill_kho_cultist_unique_gate_of_khorne",
-        "tier": 5,
+        "key": "wh3_dlc26_skill_node_kho_character_hates_slaanesh",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "wh3_main_skill_kho_generic_hates_slaanesh",
+        "tier": 4,
         "indent": 0,
-        "points_on_creation": 0,
+        "points_on_creation": 1,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Gate of Khorne",
-        "localised_description": "",
+        "localised_name": "Hates Slaanesh",
+        "localised_description": "Fluttering and flouncing into battle is the way of the weak and self-indulgent. War should be waged Kharneth's way – with pure, unbridled savagery.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Ability: \"Gate of Khorne\"",
-                "key": "wh3_main_effect_ability_enable_gate_of_khorne",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_gate_of_khorne",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_character_abilities_gate_of_khorne",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_gate_of_khorne",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Gate of Khorne",
-                      "active_time": 10,
-                      "effect_range": 0,
-                      "num_uses": 1,
-                      "recharge_time": 120,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 50,
-                      "wind_up_time": 5,
-                      "ui_effects": [
-                        {
-                          "key": "wh3_main_all_summon_bloodletters",
-                          "localised_text": "Summons a unit of Bloodletters",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "localised_text": "Summoned units degrade over time",
-                          "effect_state": "negative"
-                        }
-                      ]
-                    }
-                  }
-                ]
+                "description": "Melee attack: +10 when fighting against Slaaneshi factions",
+                "key": "wh3_main_effect_character_stat_melee_attack_vs_slaanesh",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Weapon strength: +15% when fighting against Slaaneshi factions",
+                "key": "wh3_main_effect_character_stat_weapon_strength_vs_slaanesh",
+                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               }
             ],
-            "unlocked_at_rank": 13
-          },
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Gate of Khorne\"",
-                "key": "wh3_main_effect_ability_enable_gate_of_khorne",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_gate_of_khorne",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_character_abilities_gate_of_khorne",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_gate_of_khorne",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Gate of Khorne",
-                      "active_time": 10,
-                      "effect_range": 0,
-                      "num_uses": 1,
-                      "recharge_time": 120,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 50,
-                      "wind_up_time": 5,
-                      "ui_effects": [
-                        {
-                          "key": "wh3_main_all_summon_bloodletters",
-                          "localised_text": "Summons a unit of Bloodletters",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "localised_text": "Summoned units degrade over time",
-                          "effect_state": "negative"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Ability number of uses: +1 for \"Gate of Khorne\"",
-                "key": "wh3_main_effect_ability_uses_gate_of_khorne",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Gate of Khorne\"",
-                "key": "wh3_main_effect_ability_enable_gate_of_khorne",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_gate_of_khorne",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_character_abilities_gate_of_khorne",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_gate_of_khorne",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Gate of Khorne",
-                      "active_time": 10,
-                      "effect_range": 0,
-                      "num_uses": 1,
-                      "recharge_time": 120,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 50,
-                      "wind_up_time": 5,
-                      "ui_effects": [
-                        {
-                          "key": "wh3_main_all_summon_bloodletters",
-                          "localised_text": "Summons a unit of Bloodletters",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "localised_text": "Summoned units degrade over time",
-                          "effect_state": "negative"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "description": "Ability number of uses: +2 for \"Gate of Khorne\"",
-                "key": "wh3_main_effect_ability_uses_gate_of_khorne",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
-              }
-            ]
+            "unlocked_at_rank": 7
           }
-        ],
-        "right_arrow": true
-      },
-      {
-        "key": "wh3_main_skill_node_kho_cultist_unique_1",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_greater_gate_of_khorne",
-        "character_skill_key": "wh3_main_skill_kho_cultist_unique_greater_gate_of_khorne",
-        "tier": 6,
-        "indent": 0,
-        "points_on_creation": 0,
-        "required_num_parents": 3,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Greater Gate of Khorne",
-        "localised_description": "",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Greater Gate of Khorne\"",
-                "key": "wh3_main_effect_ability_enable_greater_gate_of_khorne",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_greater_gate_of_khorne",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_character_abilities_greater_gate_of_khorne",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_greater_gate_of_khorne",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_summon_unit",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Summon Unit"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Greater Gate of Khorne",
-                      "active_time": 10,
-                      "effect_range": 0,
-                      "num_uses": 1,
-                      "recharge_time": 120,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": true,
-                      "target_self": true,
-                      "target_intercept_range": 50,
-                      "wind_up_time": 5,
-                      "ui_effects": [
-                        {
-                          "key": "wh3_main_all_summon_bloodthirster",
-                          "localised_text": "Summons a Bloodthirster",
-                          "effect_state": "positive"
-                        },
-                        {
-                          "key": "wh_main_all_direct_damage_unbinding",
-                          "localised_text": "Summoned units degrade over time",
-                          "effect_state": "negative"
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "wh3_main_skill_node_kho_cultist_unique_0"
         ]
       },
       {
@@ -716,573 +797,29 @@
     ],
     [
       {
-        "key": "str_haematoma_skullpriest_unique_1",
-        "image_path": "vanilla3/campaign_ui/skills/wh3_main_lord_passive_wrath_of_khorne",
-        "character_skill_key": "str_haematoma_skullpriest_slaughter",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_0",
+        "image_path": "vanilla3/campaign_ui/skills/character_charge",
+        "character_skill_key": "wh3_main_skill_kho_all_self_brutal_charge",
         "tier": 0,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Slaughter Mortals",
-        "localised_description": "When facing the defiant realms of Order, the Skullpriest and his kin strike with unmatched ferocity, their hatred of fragile flesh and false gods boiling over in unrelenting brutality.",
+        "localised_name": "Brutal Charge",
+        "localised_description": "When a huge swathe of rage and violence descends upon the unready, very few survivors are left in its wake.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Weapon strength: +10% when fighting against High Elves, Lizardmen, Dwarfs and men\n\t(all units in army)",
-                "key": "wh2_main_effect_character_stat_weapon_strength_vs_forces_of_order",
+                "description": "Weapon strength: +5%",
+                "key": "wh_main_effect_character_stat_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               },
               {
-                "description": "Increased experience gain: +10% for units when fighting against the Forces of Order\n\t(all units in army)",
-                "key": "wh3_dlc20_effect_force_xp_gain_increase_forces_of_order",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
-              }
-            ],
-            "unlocked_at_rank": 13
-          }
-        ],
-        "right_arrow": true
-      },
-      {
-        "key": "str_haematoma_skullpriest_unique_2",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_lord_abilities_bloodthirst",
-        "character_skill_key": "str_haematoma_skullpriest_totem",
-        "tier": 1,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Totems of Khorne",
-        "localised_description": "Raised high amid the carnage, the totems of the Blood God exude unbreakable will, their profane presence turning mortals into living effigies of endless slaughter.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Totems of Khorne\"",
-                "key": "str_haematoma_skullpriest_totem",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "str_haematoma_skullpriest_totem",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "str_haematoma_skullpriest_totem",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_item_abilities_skull_totem",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Totems of Khorne",
-                      "active_time": 80,
-                      "effect_range": 75,
-                      "recharge_time": 120,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "target_if": [
-                        "Unit is a Lord or Hero"
-                      ],
-                      "phases": [
-                        {
-                          "icon": "str_haematoma_skullpriest_totem",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": 80,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 2,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 1,
-                          "stat_effects": [
-                            {
-                              "value": 1.08,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x1.08 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 8,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+8 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 1.08,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x1.08 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                            },
-                            {
-                              "value": 1.08,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.08 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            }
-                          ],
-                          "attributes": [
-                            {
-                              "key": "unbreakable",
-                              "description": " Unbreakable",
-                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
-                            },
-                            {
-                              "key": "cannot_die",
-                              "description": "Cannot Die",
-                              "bullet_text": "Entities in this unit take damage, but cannot die.",
-                              "icon": "vanilla3/battle_ui/ability_icons/cannot_die"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "str_haematoma_skullpriest_unique_1"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "str_haematoma_skullpriest_unique_3",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_lord_abilities_deathbringer",
-        "character_skill_key": "str_haematoma_skullpriest_oblivion",
-        "tier": 2,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Bloody Oblivion",
-        "localised_description": "A chosen warrior is blessed with boundless, wrathful might, burning so fiercely with destructive power that the sheer fury consumes their very being in a final blaze of carnage.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Bloody Oblivion\"",
-                "key": "str_haematoma_skullpriest_oblivion",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "str_haematoma_skullpriest_oblivion",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "str_haematoma_skullpriest_oblivion",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc26_character_abilities_bloody_onslaught",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_augment",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-                        "onscreen_name": "Augment"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Bloody Oblivion",
-                      "active_time": 80,
-                      "effect_range": 0,
-                      "num_effected_friendly_units": 1,
-                      "recharge_time": 80,
-                      "target_enemies": false,
-                      "target_friends": true,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 100,
-                      "target_if": [
-                        "Unit is not Lord or Hero"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "str_haematoma_death",
-                          "localised_text": "Kills the unit targeted",
-                          "effect_state": "negative"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "str_haematoma_skullpriest_oblivion",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": false,
-                          "target_friends": true,
-                          "duration": 80,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": 1.5,
-                              "stat": "stat_melee_damage_base",
-                              "how": "mult",
-                              "description": "x1.5 Base Weapon Damage",
-                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                            },
-                            {
-                              "value": 24,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "+24 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": 1.5,
-                              "stat": "stat_melee_damage_ap",
-                              "how": "mult",
-                              "description": "x1.5 Armour-Piercing Weapon Damage",
-                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                            }
-                          ],
-                          "attributes": [
-                            {
-                              "key": "unbreakable",
-                              "description": " Unbreakable",
-                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
-                              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
-                            },
-                            {
-                              "key": "cannot_die",
-                              "description": "Cannot Die",
-                              "bullet_text": "Entities in this unit take damage, but cannot die.",
-                              "icon": "vanilla3/battle_ui/ability_icons/cannot_die"
-                            },
-                            {
-                              "key": "invulnerable",
-                              "description": "Invulnerable",
-                              "bullet_text": "This unit cannot take damage.",
-                              "icon": "vanilla3/battle_ui/ability_icons/invulnerable"
-                            }
-                          ]
-                        },
-                        {
-                          "icon": "str_haematoma_skullpriest_bloodletter",
-                          "order": 2,
-                          "target_enemies": false,
-                          "target_self": false,
-                          "target_friends": true,
-                          "duration": 10,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 100,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 160
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "str_haematoma_skullpriest_unique_1"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "str_haematoma_skullpriest_unique_4",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_lord_abilities_bellow_of_fury",
-        "character_skill_key": "str_haematoma_skullpriest_chase",
-        "tier": 3,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Chase the Weak",
-        "localised_description": "As fear grips fleeing foes, the Skullpriest’s forces surge forward, quickened and emboldened by the prey's despair, striking with relentless, predatory purpose.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Chase the Weak\"",
-                "key": "str_haematoma_skullpriest_chase",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "str_haematoma_skullpriest_chase",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "str_haematoma_skullpriest_chase",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc26_unit_passive_runes_of_binding",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Chase the Weak",
-                      "effect_range": 35,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 35,
-                      "ui_effects": [
-                        {
-                          "key": "wh3_main_ability_intensity_enemy_low_morale_nearby",
-                          "localised_text": "Effect intensity increases by each enemy unit in range with leadership wavering or lower.",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "str_haematoma_skullpriest_chase",
-                          "order": 1,
-                          "target_enemies": false,
-                          "target_self": true,
-                          "target_friends": true,
-                          "duration": -1,
-                          "effect_type": "positive",
-                          "is_hidden_in_ui": false,
-                          "fatigue_change_ratio": -0.01,
-                          "stat_effects": [
-                            {
-                              "value": 3,
-                              "stat": "scalar_entity_acceleration_modifier",
-                              "how": "mult",
-                              "description": "x3 Acceleration",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 1.5,
-                              "stat": "scalar_speed",
-                              "how": "mult",
-                              "description": "x1.5 Speed",
-                              "icon": "vanilla3/skins/default/icon_stat_speed"
-                            },
-                            {
-                              "value": 1.5,
-                              "stat": "stat_charge_bonus",
-                              "how": "mult",
-                              "description": "x1.5 Charge Bonus",
-                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "str_haematoma_skullpriest_unique_1"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "str_haematoma_skullpriest_unique_5",
-        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_lord_abilities_burning_rage",
-        "character_skill_key": "str_haematoma_skullpriest_influence",
-        "tier": 4,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Khorne’s Influence",
-        "localised_description": "The cries of the dying twist the winds of magic, choking out spells and weaving a red mist of fury that clouds all but the thirst for vengeance.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Khorne’s Influence\"",
-                "key": "str_haematoma_skullpriest_influence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "str_haematoma_skullpriest_influence",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "str_haematoma_skullpriest_influence",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc26_lord_passive_eye_of_khorne",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_hexes",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
-                        "onscreen_name": "Hex (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Khorne’s Influence",
-                      "effect_range": -1,
-                      "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 35,
-                      "ui_effects": [
-                        {
-                          "key": "wh3_dlc20_ability_intensity_nearby_deaths",
-                          "localised_text": "Effect intensity increases with each nearby entity death.",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "str_haematoma_skullpriest_influence",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": -1,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "mana_max_depletion_mod": -0.2,
-                          "mana_regen_mod": -0.8,
-                          "stat_effects": [
-                            {
-                              "value": 0.5,
-                              "stat": "scalar_spell_mastery",
-                              "how": "mult",
-                              "description": "x0.5 Spell Mastery",
-                              "icon": "vanilla3/battle_ui/ability_icons/spell_mastery"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "str_haematoma_skullpriest_unique_1"
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "str_haematoma_skullpriest_unique_6",
-        "image_path": "scm3/campaign_ui/skills/20kr_haematoma_skullpriest_bloodletter",
-        "character_skill_key": "str_haematoma_skullpriest_bloodletter",
-        "tier": 5,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Death-Skull Invocation",
-        "localised_description": "With a guttural chant and a jagged gesture, the Skullpriest rips the soul-essence from his victims, birthing Bloodletters in a searing cascade of hellish wrath.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Ability: \"Death-Skull Invocation\"",
-                "key": "str_haematoma_skullpriest_bloodletter",
-                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
-                "related_abilities": [
-                  {
-                    "effect": "str_haematoma_skullpriest_bloodletter",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "str_haematoma_skullpriest_bloodletter",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_gate_of_khorne",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "onscreen_name": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Death-Skull Invocation",
-                      "active_time": 10,
-                      "effect_range": 0,
-                      "num_effected_enemy_units": 1,
-                      "num_uses": 2,
-                      "recharge_time": 120,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 50,
-                      "target_if": [
-                        "Hit Points less than 20%",
-                        "Unit is not Lord or Hero"
-                      ],
-                      "ui_effects": [
-                        {
-                          "key": "str_haematoma_death",
-                          "localised_text": "Kills the unit targeted",
-                          "effect_state": "negative"
-                        },
-                        {
-                          "key": "wh3_main_all_summon_bloodletters",
-                          "localised_text": "Summons a unit of Bloodletters",
-                          "effect_state": "positive"
-                        }
-                      ],
-                      "phases": [
-                        {
-                          "icon": "str_haematoma_skullpriest_bloodletter",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 10,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 100,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 160
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "parent_subset_required": [
-          "str_haematoma_skullpriest_unique_2",
-          "str_haematoma_skullpriest_unique_3",
-          "str_haematoma_skullpriest_unique_4",
-          "str_haematoma_skullpriest_unique_5"
-        ]
-      }
-    ],
-    [
-      {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_01",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "wh_main_skill_all_all_self_blade_master_starter",
-        "tier": 0,
-        "indent": 2,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Blade Master",
-        "localised_description": "This warrior is one with their blade; it is an extension of their will, making them a worthy foe in combat.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Melee attack: +5",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+                "description": "Charge bonus: +5",
+                "key": "wh_main_effect_character_stat_charge_bonus_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
             ]
           }
@@ -1290,11 +827,11 @@
         "right_arrow": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_02",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_1_1",
         "image_path": "vanilla3/campaign_ui/skills/character_attack",
         "character_skill_key": "wh3_main_skill_kho_hero_self_1_1",
         "tier": 1,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1346,16 +883,16 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_01"
+          "wh3_main_skill_node_kho_bloodreaper_self_0"
         ],
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_03",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_1_2",
         "image_path": "vanilla3/campaign_ui/skills/character_defence",
         "character_skill_key": "wh3_main_skill_kho_hero_self_1_2",
         "tier": 2,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1407,16 +944,16 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_01"
+          "wh3_main_skill_node_kho_bloodreaper_self_0"
         ],
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_04",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_1_3",
         "image_path": "vanilla3/campaign_ui/skills/character_morale",
         "character_skill_key": "wh3_main_skill_kho_hero_self_1_3",
         "tier": 3,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1468,16 +1005,16 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_01"
+          "wh3_main_skill_node_kho_bloodreaper_self_0"
         ],
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_05",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_1_4",
         "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
         "character_skill_key": "wh3_main_skill_kho_hero_self_1_4",
         "tier": 4,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1529,17 +1066,17 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_01"
+          "wh3_main_skill_node_kho_bloodreaper_self_0"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_06",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_2",
         "image_path": "vanilla3/battle_ui/ability_icons/wh_main_character_abilities_foe_seeker",
         "character_skill_key": "wh_main_skill_all_all_self_foe-seeker",
         "tier": 5,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
@@ -1614,18 +1151,18 @@
         ],
         "right_arrow": true,
         "parent_subset_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_02",
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_03",
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_04",
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_05"
+          "wh3_main_skill_node_kho_bloodreaper_self_1_1",
+          "wh3_main_skill_node_kho_bloodreaper_self_1_2",
+          "wh3_main_skill_node_kho_bloodreaper_self_1_3",
+          "wh3_main_skill_node_kho_bloodreaper_self_1_4"
         ]
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_07",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_3_1",
         "image_path": "vanilla3/campaign_ui/skills/character_health",
         "character_skill_key": "wh3_main_skill_kho_hero_self_3_1",
         "tier": 6,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1677,16 +1214,16 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_06"
+          "wh3_main_skill_node_kho_bloodreaper_self_2"
         ],
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_08",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_3_2",
         "image_path": "vanilla3/campaign_ui/skills/character_speed",
         "character_skill_key": "wh3_main_skill_kho_hero_self_3_2",
         "tier": 7,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1738,16 +1275,16 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_06"
+          "wh3_main_skill_node_kho_bloodreaper_self_2"
         ],
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_09",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_3_3",
         "image_path": "vanilla3/campaign_ui/skills/character_attack",
         "character_skill_key": "wh3_main_skill_kho_hero_self_3_3",
         "tier": 8,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1799,16 +1336,16 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_06"
+          "wh3_main_skill_node_kho_bloodreaper_self_2"
         ],
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_10",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_3_4",
         "image_path": "vanilla3/campaign_ui/skills/character_charge",
         "character_skill_key": "wh3_main_skill_kho_hero_self_3_4",
         "tier": 9,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
@@ -1860,17 +1397,17 @@
           }
         ],
         "parent_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_06"
+          "wh3_main_skill_node_kho_bloodreaper_self_2"
         ],
         "right_arrow": true,
         "boxed": true
       },
       {
-        "key": "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_11",
+        "key": "wh3_main_skill_node_kho_bloodreaper_self_4",
         "image_path": "scm3/campaign_ui/skills/wh_main_character_abilities_deadly_onslaught",
         "character_skill_key": "wh_main_skill_all_all_self_deadly_onslaught",
         "tier": 10,
-        "indent": 2,
+        "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 4,
         "visible_in_ui": true,
@@ -1950,44 +1487,517 @@
           }
         ],
         "parent_subset_required": [
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_07",
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_08",
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_09",
-          "wh3_dlc26_skill_node_chs_skarr_bloodwrath_self_10"
+          "wh3_main_skill_node_kho_bloodreaper_self_3_1",
+          "wh3_main_skill_node_kho_bloodreaper_self_3_2",
+          "wh3_main_skill_node_kho_bloodreaper_self_3_3",
+          "wh3_main_skill_node_kho_bloodreaper_self_3_4"
+        ]
+      }
+    ],
+    [
+      {
+        "key": "wh3_main_skill_node_kho_bloodreaper_unique_0",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_abjuration",
+        "character_skill_key": "wh3_main_skill_kho_locus_of_abjuration",
+        "tier": 0,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Locus of Abjuration",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Locus of Abjuration\"",
+                "key": "wh3_main_effect_ability_enable_locus_of_abjuration",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_locus_of_abjuration",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_character_abilities_locus_of_abjuration",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_abjuration",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_ward_save",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_ward_saves",
+                        "onscreen_name": "Ward Save (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Locus of Abjuration",
+                      "active_time": 25,
+                      "effect_range": 55,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_abjuration",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 25,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 65,
+                              "stat": "stat_resistance_magic",
+                              "how": "add",
+                              "description": "+65 Spell Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 8,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_kho_bloodreaper_unique_1",
+              "wh3_main_skill_node_kho_bloodreaper_unique_2"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_kho_bloodreaper_unique_1",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_fury",
+        "character_skill_key": "wh3_main_skill_kho_locus_of_fury",
+        "tier": 1,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Locus of Fury",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Locus of Fury\"",
+                "key": "wh3_main_effect_ability_enable_locus_of_fury",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_locus_of_fury",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_character_abilities_locus_of_fury",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_fury",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Locus of Fury",
+                      "active_time": 17,
+                      "effect_range": 55,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_fury",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 17,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.25 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.4,
+                              "stat": "stat_charge_bonus",
+                              "how": "mult",
+                              "description": "x1.4 Charge Bonus",
+                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            },
+                            {
+                              "value": 1.25,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.25 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 8,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_kho_bloodreaper_unique_0",
+              "wh3_main_skill_node_kho_bloodreaper_unique_2"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_kho_bloodreaper_unique_2",
+        "image_path": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_wrath",
+        "character_skill_key": "wh3_main_skill_kho_locus_of_wrath",
+        "tier": 2,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Locus of Wrath",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Ability: \"Locus of Wrath\"",
+                "key": "wh3_main_effect_ability_enable_locus_of_wrath",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_locus_of_wrath",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_character_abilities_locus_of_wrath",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_wrath",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Locus of Wrath",
+                      "active_time": 25,
+                      "effect_range": 55,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_character_abilities_locus_of_wrath",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 25,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 40,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+40 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 8,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_kho_bloodreaper_unique_0",
+              "wh3_main_skill_node_kho_bloodreaper_unique_1"
+            ]
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "key": "wh3_main_skill_node_kho_bloodreaper_unique_3",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_agent",
+        "character_skill_key": "wh3_dlc26_skill_kho_bloodreaper_unique_01",
+        "tier": 0,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Champion's End",
+        "localised_description": "Sever the head and the rest will crumble.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Assassinate action: Additional 15% success chance",
+                "key": "wh2_main_effect_agent_action_hinder_agent_assassinate_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/subterfuge"
+              },
+              {
+                "description": "Hero action success chance: +15%",
+                "key": "wh_main_effect_agent_action_success_chance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/agent"
+              },
+              {
+                "description": "Vigour loss reduction: -50%",
+                "key": "wh_main_effect_force_stat_vigour_loss_reduction",
+                "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
+              }
+            ],
+            "unlocked_at_rank": 9,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_kho_bloodreaper_unique_4",
+              "wh3_main_skill_node_kho_bloodreaper_unique_5"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_kho_bloodreaper_unique_4",
+        "image_path": "vanilla3/campaign_ui/skills/wh3_twa06_unit_passive_hungering_blades",
+        "character_skill_key": "wh3_dlc26_skill_kho_bloodreaper_unique_02",
+        "tier": 1,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Scythe Upon Chaff",
+        "localised_description": "Blood shall flow for all eternity.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Bonus vs Infantry: +10",
+                "key": "wh_main_effect_character_stat_bonus_vs_infantry",
+                "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_small_character"
+              },
+              {
+                "description": "Passive ability: \"Hungering Blades\"",
+                "key": "wh3_dlc23_effect_ability_enable_hungering_blades",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc23_effect_ability_enable_hungering_blades",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_twa06_unit_passive_hungering_blades",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_twa06_unit_passive_hungering_blades",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Hungering Blades",
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "More than 40 kills"
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_twa06_unit_passive_hungering_blades",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.2,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.2 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 5,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+5 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 1.2,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.2 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 9,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_kho_bloodreaper_unique_3",
+              "wh3_main_skill_node_kho_bloodreaper_unique_5"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_kho_bloodreaper_unique_5",
+        "image_path": "vanilla3/campaign_ui/skills/battle_attack",
+        "character_skill_key": "wh3_dlc26_skill_kho_bloodreaper_unique_03",
+        "tier": 2,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Icon of Slaughter",
+        "localised_description": "Slaughter begets slaughter, and those who lead the charge inspire ferocity in their lessers.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Effect duration: +100% to \"Fight or Die!\"",
+                "key": "wh3_dlc26_effect_ability_duration_fight_or_die",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              },
+              {
+                "description": "Character's aura leadership effect: +5",
+                "key": "wh_main_effect_character_stat_aura_leadership_effect",
+                "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
+              },
+              {
+                "description": "Ability: \"Fight or Die!\"",
+                "key": "wh_dlc08_effect_ability_enable_fight_or_die",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_dlc08_effect_ability_enable_fight_or_die",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_dlc08_lord_abilities_fight_or_die",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc08_lord_abilities_fight_or_die",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_augments",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+                        "onscreen_name": "Augment (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Fight or Die!",
+                      "active_time": 18,
+                      "effect_range": 35,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "wh_dlc08_unit_abilities_fight_or_die",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 18,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 16,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "+16 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            },
+                            {
+                              "value": 24,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+24 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 9,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_kho_bloodreaper_unique_3",
+              "wh3_main_skill_node_kho_bloodreaper_unique_4"
+            ]
+          }
         ]
       }
     ],
     [],
-    [],
     [
       {
-        "key": "wh3_dlc26_skill_node_kho_scyla_anfingrimm_campaign_01",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_experience",
-        "character_skill_key": "wh2_main_skill_all_hero_assist_army_training",
+        "key": "wh3_main_skill_node_kho_bloodreaper_campaign_01",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+        "character_skill_key": "wh2_main_skill_all_hero_assist_army_increase_mobility",
         "tier": 0,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Training",
-        "localised_description": "This champion extols discipline and fear away from the battlefield as much as on it.",
+        "localised_name": "Increase Mobility",
+        "localised_description": "Whether it be training harder, travelling lighter, eating less or sleeping better, there's always a way to draw more from the day.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Training action: Unit experience gain is increased by an additional 10%",
-                "key": "wh2_main_effect_agent_action_assist_army_training_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "Increase Mobility action: Movement range is increased by an additional 5%",
+                "key": "wh2_main_effect_agent_action_assist_army_increase_mobility_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Training action: Unit experience gain is increased by an additional 20%",
-                "key": "wh2_main_effect_agent_action_assist_army_training_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "Increase Mobility action: Movement range is increased by an additional 10%",
+                "key": "wh2_main_effect_agent_action_assist_army_increase_mobility_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ],
             "unlocked_at_rank": 5
@@ -1995,9 +2005,9 @@
           {
             "effects": [
               {
-                "description": "Training action: Unit experience gain is increased by an additional 30%",
-                "key": "wh2_main_effect_agent_action_assist_army_training_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+                "description": "Increase Mobility action: Movement range is increased by an additional 15%",
+                "key": "wh2_main_effect_agent_action_assist_army_increase_mobility_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ],
             "unlocked_at_rank": 10
@@ -2005,43 +2015,53 @@
         ]
       },
       {
-        "key": "wh3_dlc26_skill_node_kho_scyla_anfingrimm_campaign_02",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_khorne_corruption",
-        "character_skill_key": "wh3_main_skill_all_hero_passive_spread_corruption_kho",
+        "key": "wh3_main_skill_node_kho_bloodreaper_campaign_02",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_public_order",
+        "character_skill_key": "wh2_main_skill_all_hero_passive_spread_public_order",
         "tier": 1,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Spread Corruption",
-        "localised_description": "The locals take notice and will be inspired or frightened into action.",
+        "localised_name": "Spread Control",
+        "localised_description": "The sight of this warrior, their stature, import or infamy, can have a calming effect.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Khorne corruption: +1\n\t(local province)",
-                "key": "wh3_main_effect_agent_action_passive_spread_corruption_khorne_effect",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+                "description": "Control: -1\n\t(local enemy province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Spread Corruption action: Khorne corruption is increased by an additional 1",
-                "key": "wh2_main_effect_agent_action_passive_spread_corruption_buff_kho",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+                "description": "Control: +1\n\t(local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Spread Control action: Control is modified by an additional 1",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Khorne corruption: +2\n\t(local province)",
-                "key": "wh3_main_effect_agent_action_passive_spread_corruption_khorne_effect",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+                "description": "Control: -2\n\t(local enemy province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Spread Corruption action: Khorne corruption is increased by an additional 2",
-                "key": "wh2_main_effect_agent_action_passive_spread_corruption_buff_kho",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+                "description": "Control: +2\n\t(local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Spread Control action: Control is modified by an additional 2",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               }
             ],
             "unlocked_at_rank": 5
@@ -2049,14 +2069,19 @@
           {
             "effects": [
               {
-                "description": "Khorne corruption: +3\n\t(local province)",
-                "key": "wh3_main_effect_agent_action_passive_spread_corruption_khorne_effect",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+                "description": "Control: -3\n\t(local enemy province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_negative",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               },
               {
-                "description": "Spread Corruption action: Khorne corruption is increased by an additional 3",
-                "key": "wh2_main_effect_agent_action_passive_spread_corruption_buff_kho",
-                "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+                "description": "Control: +3\n\t(local province)",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_effect_positive",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
+              },
+              {
+                "description": "Spread Control action: Control is modified by an additional 3",
+                "key": "wh2_main_effect_agent_action_passive_spread_public_order_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/public_order"
               }
             ],
             "unlocked_at_rank": 10
@@ -2064,7 +2089,7 @@
         ]
       },
       {
-        "key": "wh3_dlc26_skill_node_kho_scyla_anfingrimm_campaign_03",
+        "key": "wh3_main_skill_node_kho_bloodreaper_campaign_03",
         "image_path": "vanilla3/campaign_ui/skills/campaign_siege_defence",
         "character_skill_key": "wh2_main_skill_all_hero_hinder_settlement_assault_garrison",
         "tier": 2,
@@ -2108,7 +2133,7 @@
         ]
       },
       {
-        "key": "wh3_dlc26_skill_node_kho_scyla_anfingrimm_campaign_04",
+        "key": "wh3_main_skill_node_kho_bloodreaper_campaign_04",
         "image_path": "vanilla3/campaign_ui/skills/campaign_subterfuge",
         "character_skill_key": "wh2_main_skill_all_hero_hinder_agent_assassinate",
         "tier": 3,
@@ -2152,33 +2177,33 @@
         ]
       },
       {
-        "key": "wh3_dlc26_skill_node_kho_scyla_anfingrimm_campaign_05",
-        "image_path": "scm3/campaign_ui/skills/campaign_disaster",
-        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_assault_units",
+        "key": "wh3_main_skill_node_kho_bloodreaper_campaign_05",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_movement",
+        "character_skill_key": "wh2_main_skill_all_hero_hinder_army_block_army",
         "tier": 4,
         "indent": 5,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Assault Units",
-        "localised_description": "Lying in wait, experienced and patient, striking when the foe least expects.",
+        "localised_name": "Block Army",
+        "localised_description": "To sow discord and confuse the enemy, sending them down the wrong route or befuddling their senses.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Assault Units action: Additional 3% casualties inflicted",
-                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+                "description": "Block Army action: Movement range is modified by an additional -3%",
+                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ]
           },
           {
             "effects": [
               {
-                "description": "Assault Units action: Additional 8% casualties inflicted",
-                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+                "description": "Block Army action: Movement range is modified by an additional -8%",
+                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ],
             "unlocked_at_rank": 5
@@ -2186,9 +2211,9 @@
           {
             "effects": [
               {
-                "description": "Assault Units action: Additional 15% casualties inflicted",
-                "key": "wh2_main_effect_agent_action_hinder_army_assault_units_buff",
-                "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
+                "description": "Block Army action: Movement range is modified by an additional -15%",
+                "key": "wh2_main_effect_agent_action_hinder_army_block_army_buff",
+                "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
               }
             ],
             "unlocked_at_rank": 10
@@ -2196,7 +2221,7 @@
         ]
       },
       {
-        "key": "wh3_dlc26_skill_node_kho_scyla_anfingrimm_campaign_06",
+        "key": "wh3_main_skill_node_kho_bloodreaper_campaign_06",
         "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
         "character_skill_key": "wh2_main_skill_all_hero_reduce_action_cost",
         "tier": 5,
@@ -2255,30 +2280,44 @@
     ]
   ],
   "unitStats": {
-    "run_speed": 3.3,
+    "run_speed": 5.2,
     "mass": 1000,
     "size": "small",
     "hit_points": 8,
-    "bonus_hit_points": 4192,
-    "armour": 100,
+    "bonus_hit_points": 4040,
+    "armour": 40,
     "missile_block_chance": 0,
-    "morale": 70,
+    "morale": 65,
     "damage_mod_flame": 0,
     "damage_mod_magic": 35,
-    "damage_mod_physical": 0,
-    "damage_mod_missile": 15,
+    "damage_mod_physical": 20,
+    "damage_mod_missile": 0,
     "damage_mod_all": 0,
-    "melee_attack": 50,
-    "melee_defence": 34,
-    "charge_bonus": 36,
+    "melee_attack": 60,
+    "melee_defence": 35,
+    "charge_bonus": 45,
     "bonus_v_large": 0,
-    "bonus_v_infantry": 15,
-    "damage": 217,
-    "ap_damage": 93,
+    "bonus_v_infantry": 20,
+    "damage": 115,
+    "ap_damage": 260,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 4,
-    "melee_attack_interval": 3.8,
+    "melee_attack_interval": 4,
+    "is_flaming": true,
+    "is_magical": true,
     "attributes": [
+      {
+        "key": "causes_fear",
+        "description": " Can Cause Fear",
+        "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+      },
+      {
+        "key": "daemonic",
+        "description": "Daemonic",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_daemonic"
+      },
       {
         "key": "encourages",
         "description": "Encourage",
@@ -2290,27 +2329,21 @@
         "description": "Hide (forest)",
         "bullet_text": "This unit can hide in forests until enemy units get too close.",
         "icon": "vanilla3/battle_ui/ability_icons/hide_forest"
-      },
-      {
-        "key": "mark_khorne",
-        "description": "Mark of Khorne",
-        "bullet_text": "A unit with the Mark of Khorne has:\n\t➕ Frenzy Passive Ability\n\t➕ Increased  Spell Resistance\n\t➕ Increased  Armour\n\t➖ Reduced  Melee Defence",
-        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_mark_khorne"
       }
     ],
     "abilities": [
       {
         "unit_ability": {
-          "key": "wh_main_unit_passive_frenzy",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+          "key": "wh3_main_unit_passive_daemonic_instability_khorne",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability",
           "overpower_option": "",
           "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
           },
           "is_hidden_in_ui": false,
-          "onscreen_name": "Frenzy",
+          "onscreen_name": "Daemonic Instability",
           "effect_range": 0,
           "target_enemies": false,
           "target_friends": false,
@@ -2318,72 +2351,44 @@
           "target_self": false,
           "target_intercept_range": 0,
           "enabled_if": [
-            "Leadership is higher than 50% of base"
+            "Leadership is broken"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self",
+              "localised_text": "Causes damage to self",
+              "effect_state": "negative"
+            }
           ],
           "phases": [
             {
-              "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+              "icon": "wh3_main_unit_passive_daemonic_instability_khorne_1",
               "order": 1,
               "target_enemies": false,
               "target_self": true,
               "target_friends": false,
               "duration": -1,
-              "effect_type": "positive",
+              "effect_type": "negative",
               "is_hidden_in_ui": false,
-              "stat_effects": [
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_base",
-                  "how": "mult",
-                  "description": "x1.1 Base Weapon Damage",
-                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
-                },
-                {
-                  "value": 10,
-                  "stat": "stat_melee_attack",
-                  "how": "add",
-                  "description": "+10 Melee Attack",
-                  "icon": "vanilla3/skins/default/icon_stat_attack"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "stat_charge_bonus",
-                  "how": "mult",
-                  "description": "x1.1 Charge Bonus",
-                  "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
-                },
-                {
-                  "value": 1.1,
-                  "stat": "stat_melee_damage_ap",
-                  "how": "mult",
-                  "description": "x1.1 Armour-Piercing Weapon Damage",
-                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
-                }
-              ],
-              "attributes": [
-                {
-                  "key": "immune_to_psychology",
-                  "description": " Immune to Psychology",
-                  "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
-                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
-                }
-              ]
+              "damage_amount": 66,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 4
             }
           ]
         }
       },
       {
         "unit_ability": {
-          "key": "wh2_main_unit_passive_scurry_away",
-          "icon_name": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_scurry_away",
+          "key": "wh3_main_unit_passive_daemonic_instability_khorne_ii",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_daemonic_instability_ii",
           "overpower_option": "",
           "type": {
-            "key": "wh_type_augment",
-            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
-            "onscreen_name": "Augment"
+            "key": "wh_type_direct_damage",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+            "onscreen_name": "Direct Damage"
           },
           "is_hidden_in_ui": false,
-          "onscreen_name": "Scurry Away!",
+          "onscreen_name": "Banished!",
           "effect_range": 0,
           "target_enemies": false,
           "target_friends": false,
@@ -2391,11 +2396,56 @@
           "target_self": false,
           "target_intercept_range": 0,
           "enabled_if": [
-            "Leadership is wavering or lower"
+            "Leadership is shattered"
+          ],
+          "ui_effects": [
+            {
+              "key": "wh_main_all_direct_damage_self_high",
+              "localised_text": "Causes severe damage to self",
+              "effect_state": "negative"
+            }
           ],
           "phases": [
             {
-              "icon": "vanilla3/battle_ui/ability_icons/wh2_main_unit_passive_scurry_away",
+              "icon": "wh3_main_unit_passive_daemonic_instability_khorne_2",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": false,
+              "duration": -1,
+              "effect_type": "negative",
+              "is_hidden_in_ui": false,
+              "damage_amount": 133,
+              "hp_change_frequency": 1,
+              "max_damaged_entities": 12
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh3_main_unit_passive_hellblade",
+          "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_hellblade",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_augment",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+            "onscreen_name": "Augment"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Hellblade",
+          "effect_range": 0,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "More than 80 kills"
+          ],
+          "phases": [
+            {
+              "icon": "vanilla3/battle_ui/ability_icons/wh3_main_unit_passive_hellblade",
               "order": 1,
               "target_enemies": false,
               "target_self": true,
@@ -2405,11 +2455,18 @@
               "is_hidden_in_ui": false,
               "stat_effects": [
                 {
-                  "value": 1.1,
-                  "stat": "scalar_speed",
+                  "value": 1.2,
+                  "stat": "stat_melee_damage_base",
                   "how": "mult",
-                  "description": "x1.1 Speed",
-                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                  "description": "x1.2 Base Weapon Damage",
+                  "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                },
+                {
+                  "value": 1.2,
+                  "stat": "stat_melee_damage_ap",
+                  "how": "mult",
+                  "description": "x1.2 Armour-Piercing Weapon Damage",
+                  "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                 }
               ]
             }
@@ -2476,43 +2533,33 @@
   },
   "backgroundSkills": [
     {
-      "key": "wh3_dlc26_skill_node_kho_scyla_anfingrimm_campaign_actions_dummy",
+      "key": "wh3_main_skill_node_kho_bloodreaper_campaign_actions_dummy",
       "image_path": "vanilla3/campaign_ui/skills/battle_attack",
-      "character_skill_key": "wh3_dlc26_skill_all_dummy_agent_actions_kho_scyla_anfingrimm",
+      "character_skill_key": "wh3_main_skill_all_dummy_agent_actions_kho_bloodreaper",
       "tier": 0,
       "indent": 8,
       "points_on_creation": 1,
       "required_num_parents": 0,
       "visible_in_ui": false,
       "is_background_skill": false,
-      "localised_name": "Actions [HIDDEN]",
+      "localised_name": "",
       "localised_description": "",
       "levels": [
         {
           "effects": [
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_assist_army_training",
+              "key": "wh2_main_effect_agent_action_enable_dignitary_hinder_settlement_assault_garrison",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_agent_assassinate",
+              "key": "wh2_main_effect_agent_action_enable_dignitary_hinder_settlement_scout_settlement",
               "icon": ""
             },
             {
               "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_army_assault_units",
-              "icon": ""
-            },
-            {
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_settlement_assault_garrison",
-              "icon": ""
-            },
-            {
-              "description": "",
-              "key": "wh2_main_effect_agent_action_enable_champion_hinder_settlement_scout_settlement",
+              "key": "wh2_main_effect_agent_action_enable_dignitary_passive_spread_public_order",
               "icon": ""
             },
             {
@@ -2527,25 +2574,25 @@
             },
             {
               "description": "",
-              "key": "wh3_dlc26_effect_agent_action_enable_champion_passive_spread_corruption_kho",
+              "key": "wh3_main_effect_agent_action_enable_dignitary_assist_army_enhance_mobility",
               "icon": ""
             },
             {
-              "description": "Khorne corruption: +2\n\t(local province)",
-              "key": "wh3_main_effect_agent_action_passive_spread_corruption_khorne_effect",
-              "icon": "vanilla3/campaign_ui/effect_bundles/corruption_khorne"
+              "description": "",
+              "key": "wh3_main_effect_agent_action_enable_dignitary_hinder_agent_assassinate",
+              "icon": ""
             },
             {
-              "description": "When normally killed in action, this Hero will be wounded instead",
-              "key": "wh2_main_effect_grant_immortality_hero",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
+              "description": "",
+              "key": "wh3_main_effect_agent_action_enable_dignitary_hinder_army_block_army",
+              "icon": ""
             }
           ]
         }
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_01",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_01",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_aggressive",
       "tier": 0,
@@ -2579,7 +2626,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_02",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_02",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_confident",
       "tier": 1,
@@ -2670,7 +2717,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_03",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_03",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_cunning",
       "tier": 2,
@@ -2754,7 +2801,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_05",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_05",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_disciplined",
       "tier": 4,
@@ -2793,7 +2840,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_06",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_06",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_fleet_footed",
       "tier": 5,
@@ -2882,7 +2929,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_07",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_07",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_intelligent",
       "tier": 6,
@@ -2921,7 +2968,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_08",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_08",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_knowledgeable",
       "tier": 7,
@@ -2950,7 +2997,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_09",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_09",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_strategist",
       "tier": 8,
@@ -3053,7 +3100,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_10",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_10",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_strong",
       "tier": 9,
@@ -3087,7 +3134,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_11",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_11",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_tactician",
       "tier": 10,
@@ -3178,7 +3225,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_12",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_12",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_tough",
       "tier": 11,
@@ -3212,7 +3259,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_13",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_13",
       "image_path": "vanilla3/campaign_ui/skills/trait_personality",
       "character_skill_key": "wh2_main_skill_innate_all_weapon_master_melee_only",
       "tier": 12,
@@ -3268,7 +3315,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_33",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_33",
       "image_path": "vanilla3/campaign_ui/skills/trait_khorne",
       "character_skill_key": "wh3_main_skill_innate_khorne_2_hero",
       "tier": 32,
@@ -3298,7 +3345,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_34",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_34",
       "image_path": "vanilla3/campaign_ui/skills/trait_khorne",
       "character_skill_key": "wh3_main_skill_innate_khorne_3",
       "tier": 33,
@@ -3322,7 +3369,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_35",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_35",
       "image_path": "vanilla3/campaign_ui/skills/trait_khorne",
       "character_skill_key": "wh3_main_skill_innate_khorne_4",
       "tier": 34,
@@ -3351,7 +3398,7 @@
       ]
     },
     {
-      "key": "wh3_main_skill_node_kho_cultist_innate_36",
+      "key": "wh3_main_skill_node_kho_bloodreaper_innate_36",
       "image_path": "vanilla3/campaign_ui/skills/trait_khorne",
       "character_skill_key": "wh3_main_skill_innate_khorne_5",
       "tier": 35,
