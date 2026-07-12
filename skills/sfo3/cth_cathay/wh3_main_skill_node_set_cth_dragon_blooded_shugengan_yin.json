@@ -49,26 +49,6 @@
               "melee_attack_interval": 4,
               "is_flaming": true,
               "is_magical": true,
-              "contact_phase": {
-                "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
-                "order": 1,
-                "target_enemies": true,
-                "target_self": false,
-                "target_friends": false,
-                "duration": 10,
-                "effect_type": "negative",
-                "onscreen_name": "Discouraged!",
-                "is_hidden_in_ui": false,
-                "stat_effects": [
-                  {
-                    "value": -10,
-                    "stat": "stat_morale",
-                    "how": "add",
-                    "description": "-10 Leadership",
-                    "icon": "vanilla3/skins/default/icon_stat_morale"
-                  }
-                ]
-              },
               "attributes": [
                 {
                   "key": "encourages",
@@ -213,26 +193,6 @@
               "melee_attack_interval": 4,
               "is_flaming": true,
               "is_magical": true,
-              "contact_phase": {
-                "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
-                "order": 1,
-                "target_enemies": true,
-                "target_self": false,
-                "target_friends": false,
-                "duration": 10,
-                "effect_type": "negative",
-                "onscreen_name": "Discouraged!",
-                "is_hidden_in_ui": false,
-                "stat_effects": [
-                  {
-                    "value": -10,
-                    "stat": "stat_morale",
-                    "how": "add",
-                    "description": "-10 Leadership",
-                    "icon": "vanilla3/skins/default/icon_stat_morale"
-                  }
-                ]
-              },
               "attributes": [
                 {
                   "key": "causes_fear",
@@ -621,28 +581,223 @@
     ],
     [
       {
-        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_0",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_metal",
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_0",
+        "image_path": "vanilla3/campaign_ui/skills/character_armour",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_yin_unique_0",
         "tier": 0,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Bound Plague of Rust (Metal)",
-        "localised_description": "",
+        "localised_name": "Dragon-Blooded Defence",
+        "localised_description": "Some descendants of Dragon-kind are blessed with lightning reflexes and preternatural speed, making it extremely hard for enemies to land a meaningful blow in combat.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Bound spell: \"Plague of Rust\"",
-                "key": "wh3_main_effect_ability_enable_bound_plague_of_rust",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "description": "Armour: +20",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Speed: +15%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              },
+              {
+                "description": "Melee defence: +6",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              }
+            ],
+            "unlocked_at_rank": 13
+          }
+        ],
+        "right_arrow": true
+      },
+      {
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_1",
+        "image_path": "vanilla3/campaign_ui/skills/character_cooldown",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_yin_unique_1",
+        "tier": 1,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Potent Bloodline",
+        "localised_description": "Through their Draconic lineage, Dragon-Blooded Shugengan are capable of wielding some of the most potent spellcraft seen in any kingdoms of Men.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Spell intensity: +10%",
+                "key": "wh3_main_effect_spell_mastery",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+              },
+              {
+                "description": "Cooldown: -20% to All Lore of Yin spells and unlockable Bound Spells",
+                "key": "wh3_main_effect_ability_cooldown_spells_yin",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
                 "related_abilities": [
                   {
-                    "effect": "wh3_main_effect_ability_enable_bound_plague_of_rust",
-                    "bonus_value_id": "enable",
+                    "effect": "wh3_main_effect_ability_cooldown_spells_yin",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_enfeebling_foe",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_hex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                        "onscreen_name": "Hex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "The Enfeebling Foe",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_enemy_units": 1,
+                      "num_uses": 4,
+                      "recharge_time": 60,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -35,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-35 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": -35,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-35 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "effect": "wh3_main_effect_ability_cooldown_spells_yin",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_flock_of_doom",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
+                        "onscreen_name": "Direct Damage (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Flock of Doom",
+                      "active_time": 10,
+                      "effect_range": 40,
+                      "num_uses": 4,
+                      "recharge_time": 90,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 8,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 20
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "effect": "wh3_main_effect_ability_cooldown_spells_yin",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_pit_of_shades",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_pit_of_shades",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Pit of Shades",
+                      "active_time": 13,
+                      "effect_range": 0,
+                      "num_effected_enemy_units": 1,
+                      "num_uses": 1,
+                      "recharge_time": 120,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 6,
+                      "vortex": {
+                        "vortex_key": "wh_dlc05_spell_shadow_pit_of_shades",
+                        "duration": 13,
+                        "damage": 0,
+                        "damage_ap": 15,
+                        "goal_radius": 15,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "contact_effect": {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_vortex_leadership",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "onscreen_name": "Vortex",
+                          "is_hidden_in_ui": false,
+                          "max_damaged_entities": 5,
+                          "stat_effects": [
+                            {
+                              "value": -10,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-10 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "effect": "wh3_main_effect_ability_cooldown_spells_yin",
+                    "bonus_value_id": "recharge_mod",
                     "unit_ability": {
                       "key": "wh3_main_spell_bound_plague_of_rust",
                       "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_plague_of_rust",
@@ -697,249 +852,152 @@
                   }
                 ]
               }
-            ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_1",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_2",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_3"
             ]
           }
-        ]
+        ],
+        "parent_required": [
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_0"
+        ],
+        "boxed": true
       },
       {
-        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_1",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_death",
-        "tier": 1,
-        "indent": 1,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Bound Spirit Leech (Death)",
-        "localised_description": "",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Bound spell: \"Spirit Leech\"",
-                "key": "wh3_main_effect_ability_enable_bound_spirit_leech",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_bound_spirit_leech",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_spell_bound_spirit_leech",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
-                        "onscreen_name": "Direct Damage"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Spirit Leech",
-                      "active_time": 15,
-                      "effect_range": 0,
-                      "num_effected_enemy_units": 1,
-                      "num_uses": 4,
-                      "recharge_time": 90,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 100,
-                      "wind_up_time": 1,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_death_spirit_leech",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 15,
-                          "effect_type": "negative",
-                          "onscreen_name": "Spirit Leech!",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 66,
-                          "fatigue_change_ratio": 0.01,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_0",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_2",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_3"
-            ]
-          }
-        ]
-      },
-      {
-        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_2",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_beasts",
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_2",
+        "image_path": "vanilla3/campaign_ui/skills/battle_ward_save",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_yin_unique_2",
         "tier": 2,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Bound Flock of Doom (Beasts)",
-        "localised_description": "",
+        "localised_name": "Protection of the Celestial Host",
+        "localised_description": "Those bonded to the Celestial Court are often blessed with enhanced protection – a legacy of their kinship to the Dragon Lords.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Bound spell: \"Flock of Doom\"",
-                "key": "wh3_main_effect_ability_enable_bound_flock_of_doom",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_bound_flock_of_doom",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_spell_bound_flock_of_doom",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_area_of_direct_damage",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_direct_damage",
-                        "onscreen_name": "Direct Damage (Area)"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "Flock of Doom",
-                      "active_time": 10,
-                      "effect_range": 40,
-                      "num_uses": 4,
-                      "recharge_time": 90,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": true,
-                      "target_self": false,
-                      "target_intercept_range": 100,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc03_spell_beasts_flock_of_doom",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 10,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "damage_amount": 8,
-                          "hp_change_frequency": 1,
-                          "max_damaged_entities": 20
-                        }
-                      ]
-                    }
-                  }
-                ]
+                "description": "Physical resistance: 10% for Celestial Dragon Crossbows and Great Longma Riders units\n\t(Lord's army)",
+                "key": "wh3_main_effect_force_stat_physical_resistance_dragon_guard_bow_longma_yin",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_physical"
+              },
+              {
+                "description": "Spell resistance: 15% for Celestial Dragon Crossbows and Great Longma Riders units\n\t(Lord's army)",
+                "key": "wh3_main_effect_force_stat_spell_resistance_dragon_guard_bow_longma_yin",
+                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
               }
-            ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_0",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_1",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_3"
             ]
           }
-        ]
+        ],
+        "parent_required": [
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_0"
+        ],
+        "boxed": true
       },
       {
-        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_3",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_shadow",
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_3",
+        "image_path": "vanilla3/campaign_ui/skills/wh3_main_yin",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_yin_unique_3",
         "tier": 3,
         "indent": 1,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Bound Enfeebling Foe (Shadow)",
-        "localised_description": "",
+        "localised_name": "Master of Yin",
+        "localised_description": "Those in harmony with Yin often harbour a preference for troops that possess a likeminded school of thought within their battalions, for quicker marshalling to war.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Bound spell: \"Enfeebling Foe\"",
-                "key": "wh3_main_effect_ability_enable_bound_enfeebling_foe",
-                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-                "related_abilities": [
-                  {
-                    "effect": "wh3_main_effect_ability_enable_bound_enfeebling_foe",
-                    "bonus_value_id": "enable",
-                    "unit_ability": {
-                      "key": "wh3_main_spell_bound_enfeebling_foe",
-                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
-                      "overpower_option": "",
-                      "type": {
-                        "key": "wh_type_hex",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
-                        "onscreen_name": "Hex"
-                      },
-                      "is_hidden_in_ui": false,
-                      "onscreen_name": "The Enfeebling Foe",
-                      "active_time": 30,
-                      "effect_range": 0,
-                      "num_effected_enemy_units": 1,
-                      "num_uses": 4,
-                      "recharge_time": 60,
-                      "target_enemies": true,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 200,
-                      "wind_up_time": 1,
-                      "phases": [
-                        {
-                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_shadow_the_enfeebling_foe",
-                          "order": 1,
-                          "target_enemies": true,
-                          "target_self": false,
-                          "target_friends": false,
-                          "duration": 30,
-                          "effect_type": "negative",
-                          "is_hidden_in_ui": false,
-                          "stat_effects": [
-                            {
-                              "value": -35,
-                              "stat": "stat_melee_attack",
-                              "how": "add",
-                              "description": "-35 Melee Attack",
-                              "icon": "vanilla3/skins/default/icon_stat_attack"
-                            },
-                            {
-                              "value": -35,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "-35 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  }
-                ]
+                "description": "Upkeep: -10% for Celestial Dragon Guard Crossbows and Great Longma units\n\t(Lord's army)",
+                "key": "wh3_main_effect_upkeep_dragon_guard_crossbow_great_longma_yin",
+                "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+              },
+              {
+                "description": "Local Recruitment duration: -1 turn for Celestial Dragon Guard Crossbows and Great Longma units (minimum 1)\n\t(Lord's army)",
+                "key": "wh3_main_effect_unit_recruit_time_dragon_guard_crossbow_great_longma_yin",
+                "icon": "vanilla3/campaign_ui/effect_bundles/turns"
+              },
+              {
+                "description": "Global recruitment duration: -2 turn for Celestial Dragon Guard Crossbows and Great Longma units\n\t(Lord's army)",
+                "key": "wh3_main_effect_global_recruit_time_dragon_guard_crossbow_great_longma_yin",
+                "icon": "vanilla3/campaign_ui/effect_bundles/turns"
               }
-            ],
-            "unlocked_at_rank": 10,
-            "blocks_skill_node_keys": [
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_0",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_1",
-              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_self_2"
             ]
           }
+        ],
+        "parent_required": [
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_0"
+        ],
+        "boxed": true
+      },
+      {
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_4",
+        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_yin_unique_4",
+        "tier": 4,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Resonant Presence",
+        "localised_description": "Masters of Harmony’s resonance, the Dragon-blooded’s very presence can spur their allies to greater feats of arms.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Harmony Amplifier increased by +50%",
+                "key": "wh3_main_effect_harmony_amplifier_cth_lords",
+                "icon": "vanilla3/campaign_ui/effect_bundles/attribute_harmony"
+              }
+            ]
+          }
+        ],
+        "parent_required": [
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_0"
+        ],
+        "right_arrow": true,
+        "boxed": true
+      },
+      {
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_5",
+        "image_path": "vanilla3/campaign_ui/skills/character_barrier",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_yin_unique_5",
+        "tier": 5,
+        "indent": 1,
+        "points_on_creation": 0,
+        "required_num_parents": 3,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Empowered Sorcerer",
+        "localised_description": "The most gifted of the Dragon-blooded Shugengan can draw deeply from the Celestial Winds, manipulating them with masterful skill to harness incredible power in battle.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Winds of Magic power reserve: +2 per turn",
+                "key": "wh3_main_effect_winds_of_magic_character",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              },
+              {
+                "description": "Barrier hit points: +600",
+                "key": "wh3_main_effect_battle_barrier_health_add",
+                "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
+              },
+              {
+                "description": "Winds of Magic power reserve capacity: +20",
+                "key": "wh3_main_effect_winds_of_magic_pool_cap",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+              }
+            ]
+          }
+        ],
+        "parent_subset_required": [
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_1",
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_2",
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_3",
+          "wh3_main_skill_node_cth_dragon_blooded_shugengan_yin_unique_4"
         ]
       }
     ],
@@ -4023,26 +4081,6 @@
     "melee_attack_interval": 4,
     "is_flaming": true,
     "is_magical": true,
-    "contact_phase": {
-      "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
-      "order": 1,
-      "target_enemies": true,
-      "target_self": false,
-      "target_friends": false,
-      "duration": 10,
-      "effect_type": "negative",
-      "onscreen_name": "Discouraged!",
-      "is_hidden_in_ui": false,
-      "stat_effects": [
-        {
-          "value": -10,
-          "stat": "stat_morale",
-          "how": "add",
-          "description": "-10 Leadership",
-          "icon": "vanilla3/skins/default/icon_stat_morale"
-        }
-      ]
-    },
     "attributes": [
       {
         "key": "encourages",

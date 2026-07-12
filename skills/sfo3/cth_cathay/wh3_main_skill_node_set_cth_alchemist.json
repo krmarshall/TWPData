@@ -171,7 +171,7 @@
               "mass": 2000,
               "size": "very_large",
               "hit_points": 0,
-              "bonus_hit_points": 6500,
+              "bonus_hit_points": 7500,
               "armour": 30,
               "missile_block_chance": 0,
               "morale": 60,
@@ -192,38 +192,18 @@
               "melee_attack_interval": 4,
               "projectile": {
                 "key": "wh3_cp1_cth_sky_lantern_crane_gun_bullet",
-                "damage": 22,
-                "ap_damage": 45,
+                "damage": 25,
+                "ap_damage": 125,
                 "shockwave_radius": -1,
-                "effective_range": 165,
-                "base_reload_time": 6,
+                "effective_range": 275,
+                "base_reload_time": 12,
                 "can_damage_allies": true,
                 "explosion_type": {
                   "key": "wh3_cp1_cth_sky_lantern_rifle_explosive",
                   "affects_allies": true,
-                  "detonation_damage": 14,
+                  "detonation_damage": 20,
                   "detonation_damage_ap": 10,
-                  "detonation_radius": 3
-                },
-                "contact_stat_effect": {
-                  "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc09_unit_contact_shieldbreaker",
-                  "order": 1,
-                  "target_enemies": true,
-                  "target_self": false,
-                  "target_friends": true,
-                  "duration": 10,
-                  "effect_type": "negative",
-                  "onscreen_name": "Shieldbreaker",
-                  "is_hidden_in_ui": false,
-                  "stat_effects": [
-                    {
-                      "value": -25,
-                      "stat": "stat_missile_block_chance",
-                      "how": "add",
-                      "description": "-25 Missile Block Chance",
-                      "icon": "vanilla3/skins/default/icon_stat_missile_block_chance"
-                    }
-                  ]
+                  "detonation_radius": 4
                 }
               },
               "accuracy": 10,
@@ -256,7 +236,7 @@
                   "icon": "sfo3/battle_ui/ability_icons/spell_mastery"
                 }
               ],
-              "fly_speed": 4
+              "fly_speed": 5
             },
             "auto_unlock_at_rank": 15
           }
@@ -3078,190 +3058,415 @@
     ],
     [
       {
-        "key": "cth_alchemist_unique_1",
-        "image_path": "vanilla3/campaign_ui/skills/battle_ward_save",
-        "character_skill_key": "wh_skill_hero_elite_res_missile",
+        "key": "wh3_main_skill_node_cth_alchemist_unique_0",
+        "image_path": "vanilla3/campaign_ui/skills/character_cooldown",
+        "character_skill_key": "wh3_cp1_skill_cth_alchemist_unique_student_of_the_house_of_secrets",
         "tier": 0,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "We are the Elite",
-        "localised_description": "True experience is born only on the battlefield.",
+        "localised_name": "Student of the House of Secrets",
+        "localised_description": "Study and repetition make the Alchemist all the more potent, with Shang-Yang’s teachings yielding exceptional practitioners.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Missile resistance: 1% for all units (Rank 7 and above)\n\t(Hero's army)",
-                "key": "wh_effect_all_elite_res_missile",
-                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
-              }
-            ]
-          },
-          {
-            "effects": [
+                "description": "Speed: +15%",
+                "key": "wh_main_effect_character_stat_speed",
+                "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
+              },
               {
-                "description": "Missile resistance: 2% for all units (Rank 7 and above)\n\t(Hero's army)",
-                "key": "wh_effect_all_elite_res_missile",
-                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
+                "description": "Cooldown: -10% to Lore of Metal spells",
+                "key": "wh_main_effect_ability_cooldown_lore_of_metal",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_cooldown_lore_of_metal",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh_main_spell_metal_final_transmutation_upgraded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_final_transmutation",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                        "onscreen_name": "Direct Damage"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Final Transmutation Upgraded",
+                      "active_time": 60,
+                      "effect_range": 0,
+                      "mana_cost": 26,
+                      "miscast_chance": 0.5,
+                      "recharge_time": 100,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 100,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_upgraded_melee_defence",
+                          "localised_text": "Additional effect on melee defence",
+                          "effect_state": "magic"
+                        },
+                        {
+                          "key": "wh_main_spell_upgraded_duration",
+                          "localised_text": "Extended effect duration",
+                          "effect_state": "magic"
+                        },
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_single",
+                          "localised_text": "Strong vs a single unit",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_damaged_entities_1",
+                          "localised_text": "Affect up to 1 entity",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "wh_main_spell_metal_final_transmutation_upgraded",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "onscreen_name": "Stage One",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 33,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 1,
+                          "stat_effects": [
+                            {
+                              "value": 0.75,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.75 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": -10,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-10 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        },
+                        {
+                          "icon": "wh_main_spell_metal_final_transmutation_upgraded_1",
+                          "order": 2,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 20,
+                          "effect_type": "negative",
+                          "onscreen_name": "Stage Two",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 50,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 1,
+                          "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.5 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": -20,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-20 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        },
+                        {
+                          "icon": "wh_main_spell_metal_final_transmutation_upgraded_2",
+                          "order": 3,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 10,
+                          "effect_type": "negative",
+                          "onscreen_name": "Stage Three",
+                          "is_hidden_in_ui": false,
+                          "cant_move": true,
+                          "damage_amount": 100,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 1,
+                          "stat_effects": [
+                            {
+                              "value": -40,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-40 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ],
+                          "attributes": [
+                            {
+                              "key": "unbreakable",
+                              "description": " Unbreakable",
+                              "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                              "icon": "sfo3/campaign_ui/effect_bundles/attribute_unbreakable"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "effect": "wh_main_effect_ability_cooldown_lore_of_metal",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh_main_spell_metal_gehennas_golden_hounds_upgraded",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_metal_gehennas_golden_hounds",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Gehenna's Golden Hounds Upgraded",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "mana_cost": 18,
+                      "miscast_chance": 0.5,
+                      "recharge_time": 75,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Grounded",
+                        "Not on or below a platform"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_spell_upgraded_vortex_number",
+                          "localised_text": "Additional vortex",
+                          "effect_state": "magic"
+                        },
+                        {
+                          "key": "wh_main_spell_upgraded_speed_slower",
+                          "localised_text": "Decreased speed",
+                          "effect_state": "magic"
+                        },
+                        {
+                          "key": "wh_main_spell_upgraded_duration",
+                          "localised_text": "Extended effect duration",
+                          "effect_state": "magic"
+                        },
+                        {
+                          "key": "wh2_main_spell_medium_vortex",
+                          "localised_text": "Medium, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_metal_gehennas_golden_hounds_upgraded",
+                        "duration": 30,
+                        "damage": 15,
+                        "damage_ap": 10,
+                        "goal_radius": 12,
+                        "movement_speed": 1.1,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "num_vortexes": 2,
+                        "delay_between_vortexes": 1,
+                        "contact_effect": {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_vortex_armour",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "onscreen_name": "Vortex",
+                          "is_hidden_in_ui": false,
+                          "max_damaged_entities": 5,
+                          "stat_effects": [
+                            {
+                              "value": -25,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "-25 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
               }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Missile resistance: 4% for all units (Rank 7 and above)\n\t(Hero's army)",
-                "key": "wh_effect_all_elite_res_missile",
-                "icon": "sfo3/campaign_ui/effect_bundles/resistance_missile"
-              }
-            ]
+            ],
+            "unlocked_at_rank": 12
           }
         ],
         "right_arrow": true
       },
       {
-        "key": "cth_alchemist_unique_2",
+        "key": "wh3_main_skill_node_cth_alchemist_unique_1",
         "image_path": "vanilla3/campaign_ui/skills/character_armour",
-        "character_skill_key": "wh_main_skill_all_lord_self_full_plate_armour_2",
+        "character_skill_key": "wh3_cp1_skill_cth_alchemist_unique_steel_sheathing",
         "tier": 1,
         "indent": 3,
         "points_on_creation": 0,
-        "required_num_parents": 0,
+        "required_num_parents": 1,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Full Plate Armour",
-        "localised_description": "Full-plate armour protects the wearer from head-to-foot. Many such suits are blessed or imbued with arcane abilities.",
+        "localised_name": "Steel-Sheathing",
+        "localised_description": "\"Metal is not shaped by force of will alone. It must be felt within; made part of one’s soul – only then may it be shaped effortlessly.\"\n\t–Shang-Yang Tome of Metallurgic Secrets",
         "levels": [
           {
             "effects": [
               {
-                "description": "Armour: +3",
+                "description": "Armour: +20",
                 "key": "wh_main_effect_character_stat_armour",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-              }
-            ]
-          },
-          {
-            "effects": [
+              },
               {
-                "description": "Armour: +8",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Armour: +15",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+                "description": "Ability: \"Alchemist's Elixir of Iron Skin\"",
+                "key": "wh3_main_effect_ability_enable_alchemists_elixir_of_iron_skin",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_alchemists_elixir_of_iron_skin",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_item_abilities_alchemists_elixir_of_iron_skin",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_item_abilities_alchemists_elixir_of_iron_skin",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Alchemist's Elixir of Iron Skin",
+                      "active_time": 60,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 120,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 100,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_main_item_abilities_alchemists_elixir_of_iron_skin",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 60,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 80,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+80 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
             ]
           }
         ],
         "parent_required": [
-          "cth_alchemist_unique_1"
+          "wh3_main_skill_node_cth_alchemist_unique_0"
         ],
         "boxed": true
       },
       {
-        "key": "cth_alchemist_unique_3",
-        "image_path": "vanilla3/campaign_ui/skills/character_damage",
-        "character_skill_key": "wh_main_skill_all_all_self_wound-maker",
+        "key": "wh3_main_skill_node_cth_alchemist_unique_2",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "wh3_cp1_skill_cth_alchemist_unique_alchemical_wrath",
         "tier": 2,
         "indent": 3,
         "points_on_creation": 0,
-        "required_num_parents": 0,
+        "required_num_parents": 1,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Wound-Maker",
-        "localised_description": "Such is their power and ferocity, a wound-maker will ravage the foe, cutting and pulverising until there is only one exit - death.",
+        "localised_name": "Alchemical Wrath",
+        "localised_description": "The fire of an Alchemist’s soul may shape and refine the world's metals, but is equally powerful when manifested physically against their enemies.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Weapon strength: +5%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-              }
-            ]
-          },
-          {
-            "effects": [
+                "description": "Melee attack: +6",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
               {
-                "description": "Weapon strength: +12%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Weapon strength: +20%",
-                "key": "wh_main_effect_character_stat_weapon_strength",
-                "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
+                "description": "Range: +15%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
               }
             ]
           }
         ],
         "parent_required": [
-          "cth_alchemist_unique_1"
+          "wh3_main_skill_node_cth_alchemist_unique_0"
         ],
         "boxed": true
       },
       {
-        "key": "cth_alchemist_unique_4",
-        "image_path": "vanilla3/campaign_ui/skills/character_ward_save",
-        "character_skill_key": "lzd_skill_skink_priest_2",
+        "key": "wh3_main_skill_node_cth_alchemist_unique_3",
+        "image_path": "vanilla3/campaign_ui/skills/character_magic",
+        "character_skill_key": "wh3_cp1_skill_cth_alchemist_unique_living_forge",
         "tier": 3,
         "indent": 3,
         "points_on_creation": 0,
-        "required_num_parents": 0,
+        "required_num_parents": 1,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Dynamism",
-        "localised_description": "True understanding gives rise to a spirit of protection.",
+        "localised_name": "Living Forge",
+        "localised_description": "Why forge bullets when one can conjure them from the very air itself?",
         "levels": [
           {
             "effects": [
               {
-                "description": "Spell resistance: 1%\n\t(Hero's army)",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
+                "description": "Ammunition: +20%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
               },
               {
-                "description": "Winds of Magic power reserve capacity: +2",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Spell resistance: 3%\n\t(Hero's army)",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
-              },
-              {
-                "description": "Winds of Magic power reserve capacity: +4",
-                "key": "wh3_main_effect_winds_of_magic_pool_cap",
-                "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Spell resistance: 5%\n\t(Hero's army)",
-                "key": "wh_main_effect_character_stat_magic_resistance",
-                "icon": "sfo3/campaign_ui/effect_bundles/resistance_magic"
-              },
-              {
-                "description": "Winds of Magic power reserve capacity: +8",
+                "description": "Winds of Magic power reserve capacity: +5",
                 "key": "wh3_main_effect_winds_of_magic_pool_cap",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               }
@@ -3269,8 +3474,9 @@
           }
         ],
         "parent_required": [
-          "cth_alchemist_unique_1"
+          "wh3_main_skill_node_cth_alchemist_unique_0"
         ],
+        "right_arrow": true,
         "boxed": true
       },
       {
@@ -4866,11 +5072,6 @@
               "description": "Weapon strength: +5%",
               "key": "wh_main_effect_character_stat_weapon_strength",
               "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
-            },
-            {
-              "key": "invalid_effect",
-              "description": "Invalid Effect",
-              "icon": "vanilla3/campaign_ui/effect_bundles/0_placeholder_effect_bundle"
             }
           ]
         }
@@ -5022,6 +5223,9 @@
               "key": "wh3_main_effect_force_stat_weapon_strength_cth_melee",
               "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage"
             }
+          ],
+          "related_unit_cards": [
+            "cth_fire_lancers"
           ]
         }
       ]
