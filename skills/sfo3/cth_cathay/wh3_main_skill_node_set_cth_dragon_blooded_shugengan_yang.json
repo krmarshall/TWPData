@@ -596,17 +596,17 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +6",
+                "description": "Melee attack: +5",
                 "key": "wh_main_effect_character_stat_melee_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
               },
               {
-                "description": "Weapon strength: +25%",
+                "description": "Weapon strength: +10%",
                 "key": "wh_main_effect_character_stat_weapon_strength",
                 "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
               },
               {
-                "description": "Charge bonus: +20",
+                "description": "Charge bonus: +10",
                 "key": "wh_main_effect_character_stat_charge_bonus_add",
                 "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
               }
@@ -655,16 +655,28 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Banishment",
-                      "active_time": 17,
+                      "active_time": 15,
                       "effect_range": 0,
                       "num_uses": 1,
-                      "recharge_time": 120,
+                      "recharge_time": 180,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
                       "target_self": false,
                       "target_intercept_range": 150,
                       "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_huge_vortex",
+                          "localised_text": "Huge, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "vortex": {
                         "vortex_key": "wh2_main_bound_banishment",
                         "duration": 15,
@@ -720,17 +732,24 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Cascading Fire Cloak",
-                      "active_time": 19,
+                      "active_time": 30,
                       "effect_range": 0,
                       "num_effected_friendly_units": 1,
                       "num_uses": 2,
-                      "recharge_time": 60,
+                      "recharge_time": 90,
                       "target_enemies": false,
                       "target_friends": true,
                       "target_ground": false,
                       "target_self": true,
                       "target_intercept_range": 200,
                       "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_explosion_large",
+                          "localised_text": "Large explosion with knockback effect",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "phases": [
                         {
                           "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
@@ -758,7 +777,18 @@
                             }
                           ]
                         }
-                      ]
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_cascading_fire_cloak_vortex",
+                        "duration": 1,
+                        "damage": 10,
+                        "damage_ap": 0,
+                        "goal_radius": 20,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": false,
+                        "is_flaming": true
+                      }
                     }
                   },
                   {
@@ -778,13 +808,35 @@
                       "active_time": 7,
                       "effect_range": 0,
                       "num_uses": 1,
-                      "recharge_time": 120,
+                      "recharge_time": 180,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
                       "target_self": false,
                       "target_intercept_range": 200,
                       "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_bombardment_large_strike_aoe",
+                          "localised_text": "Large strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_number_1",
+                          "localised_text": "Projectiles: 1",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_aoe_20",
+                          "localised_text": "Explosion area of effect: 20m",
+                          "effect_state": "positive"
+                        }
+                      ],
                       "bombardment": {
                         "bombardment_key": "wh_main_spell_heavens_comet_of_casandora",
                         "arrival_window": 1,
@@ -1033,7 +1085,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
               },
               {
-                "description": "Barrier hit points: +600",
+                "description": "Barrier hit points: +1000",
                 "key": "wh3_main_effect_battle_barrier_health_add",
                 "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
               },
@@ -2693,247 +2745,83 @@
     ],
     [
       {
-        "key": "cth_dragon_blooded_shugengan_yang_combat_1",
-        "image_path": "vanilla3/campaign_ui/skills/character_defence",
-        "character_skill_key": "wh_main_skill_all_all_self_hard_to_hit_starter",
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_0",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_life",
         "tier": 0,
         "indent": 3,
         "points_on_creation": 0,
         "required_num_parents": 0,
         "visible_in_ui": true,
         "is_background_skill": false,
-        "localised_name": "Hard to Hit",
-        "localised_description": "Hand-to-hand combat is a lethal match of cut and thrust. However, it’s not all about offensive strikes; parries and other defensive moves can also win the day.",
+        "localised_name": "Earth Blood",
+        "localised_description": "The Wizard draws wholesome energies from the soil, imbuing companions with the natural resilience of the earth.",
         "levels": [
           {
             "effects": [
               {
-                "description": "Melee defence: +5",
-                "key": "wh_main_effect_character_stat_melee_defence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-              }
-            ]
-          }
-        ],
-        "right_arrow": true
-      },
-      {
-        "key": "cth_dragon_blooded_shugengan_yang_combat_2",
-        "image_path": "vanilla3/campaign_ui/skills/character_charge",
-        "character_skill_key": "wh2_dlc11_skill_all_lord_self_devastating_charge",
-        "tier": 1,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Devastating Charge",
-        "localised_description": "Some creatures charge home with such fury that the very ground shakes beneath their feet.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Charge bonus: +15",
-                "key": "wh_main_effect_character_stat_charge_bonus_add",
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Charge bonus: +30",
-                "key": "wh_main_effect_character_stat_charge_bonus_add",
-                "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "cth_dragon_blooded_shugengan_yang_combat_1"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "cth_dragon_blooded_shugengan_yang_combat_3",
-        "image_path": "vanilla3/campaign_ui/skills/character_armour",
-        "character_skill_key": "wh3_main_skill_cth_miao_ying_armour",
-        "tier": 2,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Storm Scale",
-        "localised_description": "What weapons can hope to pierce the rigid scales of such a monstrous and majestic beast?",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Armour: +7",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Armour: +15",
-                "key": "wh_main_effect_character_stat_armour",
-                "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "cth_dragon_blooded_shugengan_yang_combat_1"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "cth_dragon_blooded_shugengan_yang_combat_4",
-        "image_path": "vanilla3/campaign_ui/skills/character_health",
-        "character_skill_key": "wh2_dlc11_skill_all_lord_self_scarred_veteran",
-        "tier": 3,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Scarred Veteran",
-        "localised_description": "The scars on this storied warrior reveal a veteran of many battles, a being not easy to kill and one worthy of respect and fear.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Hit points: +7%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Hit points: +15%",
-                "key": "wh_main_effect_character_stat_unit_health",
-                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "cth_dragon_blooded_shugengan_yang_combat_1"
-        ],
-        "boxed": true
-      },
-      {
-        "key": "cth_dragon_blooded_shugengan_yang_combat_5",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
-        "character_skill_key": "wh3_main_skill_cth_miao_ying_dragon_attack",
-        "tier": 4,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 0,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Rage of the Dragon",
-        "localised_description": "A rampage of talons and teeth will carve through the heart of any foe.",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Melee attack: +6",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-              }
-            ]
-          },
-          {
-            "effects": [
-              {
-                "description": "Melee attack: +12",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-              }
-            ]
-          }
-        ],
-        "parent_required": [
-          "cth_dragon_blooded_shugengan_yang_combat_1"
-        ],
-        "right_arrow": true,
-        "boxed": true
-      },
-      {
-        "key": "cth_dragon_blooded_shugengan_yang_combat_6",
-        "image_path": "vanilla3/campaign_ui/skills/character_defence",
-        "character_skill_key": "wh_passive_aura_buff_defence",
-        "tier": 5,
-        "indent": 3,
-        "points_on_creation": 0,
-        "required_num_parents": 4,
-        "visible_in_ui": true,
-        "is_background_skill": false,
-        "localised_name": "Bolstered Defence",
-        "localised_description": "",
-        "levels": [
-          {
-            "effects": [
-              {
-                "description": "Passive ability: \"Bolstered Defence\"",
-                "key": "wh_effect_enable_wh_passive_aura_buff_defence",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee",
+                "description": "Bound spell: \"Earth Blood\"",
+                "key": "wh3_main_effect_ability_enable_bound_earth_blood",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
                 "related_abilities": [
                   {
-                    "effect": "wh_effect_enable_wh_passive_aura_buff_defence",
+                    "effect": "wh3_main_effect_ability_enable_bound_earth_blood",
                     "bonus_value_id": "enable",
                     "unit_ability": {
-                      "key": "wh_passive_aura_buff_defence",
-                      "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_defence",
+                      "key": "wh3_main_spell_bound_earth_blood",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
                       "overpower_option": "",
                       "type": {
-                        "key": "wh_type_area_of_augments",
-                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
-                        "onscreen_name": "Augment (Area)"
+                        "key": "wh_type_area_of_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
+                        "onscreen_name": "Regeneration (Area)"
                       },
                       "is_hidden_in_ui": false,
-                      "onscreen_name": "Bolstered Defence",
-                      "effect_range": 50,
+                      "onscreen_name": "Earth Blood",
+                      "active_time": 7,
+                      "effect_range": 30,
+                      "num_effected_friendly_units": 4,
+                      "num_uses": 4,
+                      "recharge_time": 90,
                       "target_enemies": false,
-                      "target_friends": false,
-                      "target_ground": false,
-                      "target_self": false,
-                      "target_intercept_range": 0,
-                      "enabled_if": [
-                        "Leadership is higher than broken"
+                      "target_friends": true,
+                      "target_ground": true,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_total_7",
+                          "localised_text": "Restores up to 7% Hit Points",
+                          "effect_state": "positive"
+                        }
                       ],
                       "phases": [
                         {
-                          "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_defence",
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
                           "order": 1,
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": true,
-                          "duration": -1,
+                          "duration": 7,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "heal_amount": 0.01,
+                          "hp_change_frequency": 1,
                           "stat_effects": [
                             {
-                              "value": 5,
-                              "stat": "stat_melee_defence",
-                              "how": "add",
-                              "description": "+5 Melee Defence",
-                              "icon": "vanilla3/skins/default/icon_stat_defence"
-                            }
-                          ],
-                          "attributes": [
+                              "value": 0.5,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.5 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
                             {
-                              "key": "charge_defense",
-                              "description": " Expert Charge Defence",
-                              "bullet_text": "When bracing, this unit negates the charge bonus of any attacker.",
-                              "icon": "sfo3/battle_ui/ability_icons/charge_defense"
+                              "value": -5,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-5 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
                             }
                           ]
                         }
@@ -2943,14 +2831,971 @@
                 ]
               }
             ],
-            "unlocked_at_rank": 15
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_1",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_2",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_3"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Bound spell: \"The Dwellers Below\"",
+                "key": "wh3_main_effect_ability_enable_the_dwellers_below",
+                "icon": "spell_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_the_dwellers_below",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_the_dwellers_below",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_the_dwellers_below",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "The Dwellers Below",
+                      "active_time": 20,
+                      "effect_range": 25,
+                      "num_uses": 1,
+                      "recharge_time": 180,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage",
+                          "localised_text": "Causes damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_all",
+                          "localised_text": "Strong vs single and multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_dlc05_spell_life_the_dwellers_below",
+                        "duration": 20,
+                        "damage": 0,
+                        "damage_ap": 5,
+                        "goal_radius": 25,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "contact_effect": {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_the_dwellers_below",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 20,
+                          "effect_type": "negative",
+                          "onscreen_name": "Dwellers Below",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 50,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 1,
+                          "stat_effects": [
+                            {
+                              "value": 0.75,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.75 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Bound spell: \"Earth Blood\"",
+                "key": "wh3_main_effect_ability_enable_bound_earth_blood",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_earth_blood",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_earth_blood",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_regeneration",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_regeneration",
+                        "onscreen_name": "Regeneration (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Earth Blood",
+                      "active_time": 7,
+                      "effect_range": 30,
+                      "num_effected_friendly_units": 4,
+                      "num_uses": 4,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": true,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_heal_total_7",
+                          "localised_text": "Restores up to 7% Hit Points",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_dlc05_spell_life_earth_blood",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 7,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "heal_amount": 0.01,
+                          "hp_change_frequency": 1,
+                          "stat_effects": [
+                            {
+                              "value": 0.5,
+                              "stat": "scalar_speed",
+                              "how": "mult",
+                              "description": "x0.5 Speed",
+                              "icon": "vanilla3/skins/default/icon_stat_speed"
+                            },
+                            {
+                              "value": -5,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-5 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Ability number of uses: +1 for \"Bound Earth Blood\"",
+                "key": "wh3_main_effect_ability_num_uses_earth_blood",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
           }
-        ],
-        "parent_subset_required": [
-          "cth_dragon_blooded_shugengan_yang_combat_2",
-          "cth_dragon_blooded_shugengan_yang_combat_3",
-          "cth_dragon_blooded_shugengan_yang_combat_4",
-          "cth_dragon_blooded_shugengan_yang_combat_5"
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_1",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_heavens",
+        "tier": 1,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Harmonic Convergence",
+        "localised_description": "Divining auspicious signs, the caster guides the minds of targets, augmenting them with the foresight needed for victory.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Bound spell: \"Harmonic Convergeance\"",
+                "key": "wh3_main_effect_ability_enable_bound_harmonic_convergeance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_harmonic_convergeance",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_harmonic_convergence",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_harmonic_convergence",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Harmonic Convergence",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_harmonic_convergence",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 30,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+30 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 30,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+30 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 40,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+40 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_0",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_2",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_3"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Bound spell: \"Comet of Casandora\"",
+                "key": "wh3_main_effect_ability_enable_bound_comet_of_casandora",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_comet_of_casandora",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_comet_of_casandora",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_comet_of_casandora",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_bombardment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_bombardment",
+                        "onscreen_name": "Bombardment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Comet of Casandora",
+                      "active_time": 7,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "recharge_time": 180,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_bombardment_large_strike_aoe",
+                          "localised_text": "Large strike area",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_number_1",
+                          "localised_text": "Projectiles: 1",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_projectile_aoe_20",
+                          "localised_text": "Explosion area of effect: 20m",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "bombardment": {
+                        "bombardment_key": "wh_main_spell_heavens_comet_of_casandora",
+                        "arrival_window": 1,
+                        "radius_spread": 8,
+                        "start_time": 0.1,
+                        "projectile_type": {
+                          "key": "wh_main_spell_heavens_comet_of_casandora",
+                          "damage": 1000,
+                          "ap_damage": 500,
+                          "shockwave_radius": 5,
+                          "effective_range": 200,
+                          "base_reload_time": 1,
+                          "is_magical": true,
+                          "can_damage_allies": true,
+                          "explosion_type": {
+                            "key": "wh_main_spell_heavens_comet_of_casandora",
+                            "affects_allies": true,
+                            "detonation_damage": 100,
+                            "detonation_damage_ap": 50,
+                            "detonation_radius": 20,
+                            "is_magical": true,
+                            "contact_phase_effect": {
+                              "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_unit_contact_monstrous_impact",
+                              "order": 1,
+                              "target_enemies": true,
+                              "target_self": false,
+                              "target_friends": true,
+                              "duration": 10,
+                              "effect_type": "negative",
+                              "onscreen_name": "Monstrous Impact",
+                              "is_hidden_in_ui": false,
+                              "stat_effects": [
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_charge_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Charge Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                },
+                                {
+                                  "value": 0.25,
+                                  "stat": "scalar_speed",
+                                  "how": "mult",
+                                  "description": "x0.25 Speed",
+                                  "icon": "vanilla3/skins/default/icon_stat_speed"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Bound spell: \"Harmonic Convergeance\"",
+                "key": "wh3_main_effect_ability_enable_bound_harmonic_convergeance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_harmonic_convergeance",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_harmonic_convergence",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_harmonic_convergence",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Harmonic Convergence",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_heavens_harmonic_convergence",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 30,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "+30 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            },
+                            {
+                              "value": 30,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+30 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 40,
+                              "stat": "stat_armour",
+                              "how": "add",
+                              "description": "+40 Armour",
+                              "icon": "vanilla3/skins/default/icon_stat_armour"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Ability number of uses: +1 for \"Bound Harmonic Convergeance\"",
+                "key": "wh3_main_effect_ability_num_uses_harmonic_convergeance",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_2",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_fire",
+        "tier": 2,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Cascading Fire Cloak",
+        "localised_description": "A blazing aura surrounds the Pyromancer's chosen ally, shielding them with protective flame and augmenting their abilities.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Bound spell: \"Cascading Fire Cloak\"",
+                "key": "wh3_main_effect_ability_enable_bound_cascading_fire_cloak",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_cascading_fire_cloak",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_cascading_fire_cloak",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Cascading Fire Cloak",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_explosion_large",
+                          "localised_text": "Large explosion with knockback effect",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 40,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+40 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 50,
+                              "stat": "stat_resistance_flame",
+                              "how": "add",
+                              "description": "+50 Flame Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
+                            }
+                          ]
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_cascading_fire_cloak_vortex",
+                        "duration": 1,
+                        "damage": 10,
+                        "damage_ap": 0,
+                        "goal_radius": 20,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": false,
+                        "is_flaming": true
+                      }
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_0",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_1",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_3"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Bound spell: \"Flame Storm\"",
+                "key": "wh3_main_effect_ability_enable_bound_flame_storm",
+                "icon": "spell_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_flame_storm",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_flame_storm",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_flame_storm",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Flame Storm",
+                      "active_time": 20,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "recharge_time": 180,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_medium_vortex",
+                          "localised_text": "Medium, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_flame_storm",
+                        "duration": 20,
+                        "damage": 15,
+                        "damage_ap": 10,
+                        "goal_radius": 15,
+                        "movement_speed": 2,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "is_flaming": true,
+                        "contact_effect": {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_vortex_damage",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "onscreen_name": "Vortex",
+                          "is_hidden_in_ui": false,
+                          "max_damaged_entities": 5,
+                          "stat_effects": [
+                            {
+                              "value": 0.75,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x0.75 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 0.75,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x0.75 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Bound spell: \"Cascading Fire Cloak\"",
+                "key": "wh3_main_effect_ability_enable_bound_cascading_fire_cloak",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_cascading_fire_cloak",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_cascading_fire_cloak",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Cascading Fire Cloak",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 2,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "ui_effects": [
+                        {
+                          "key": "wh_explosion_large",
+                          "localised_text": "Large explosion with knockback effect",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_fire_cascading_fire_cloak",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 40,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+40 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": 50,
+                              "stat": "stat_resistance_flame",
+                              "how": "add",
+                              "description": "+50 Flame Resistance",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_fire"
+                            }
+                          ]
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh_main_spell_fire_cascading_fire_cloak_vortex",
+                        "duration": 1,
+                        "damage": 10,
+                        "damage_ap": 0,
+                        "goal_radius": 20,
+                        "movement_speed": 0,
+                        "delay": 0,
+                        "affects_allies": false,
+                        "is_flaming": true
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Ability number of uses: +1 for \"Bound Cascading Fire Cloak\"",
+                "key": "wh3_main_effect_ability_num_uses_cascading_fire_cloak",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_3",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "wh3_main_skill_cth_dragon_blooded_shugengan_self_light",
+        "tier": 3,
+        "indent": 3,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Pha's Protection",
+        "localised_description": "",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Bound spell: \"Pha's Protection\"",
+                "key": "wh3_main_effect_ability_enable_bound_phas_protection",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_phas_protection",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_phas_protection",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Pha's Protection",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 4,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            },
+                            {
+                              "value": 40,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+40 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ],
+            "unlocked_at_rank": 10,
+            "blocks_skill_node_keys": [
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_0",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_1",
+              "wh3_main_skill_node_cth_dragon_blooded_shugengan_yang_self_2"
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Bound spell: \"Banishment\"",
+                "key": "wh3_main_effect_ability_enable_bound_banishment",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_banishment",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_banishment",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_banishment",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_vortex",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                        "onscreen_name": "Vortex"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Banishment",
+                      "active_time": 15,
+                      "effect_range": 0,
+                      "num_uses": 1,
+                      "recharge_time": 180,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": true,
+                      "target_self": false,
+                      "target_intercept_range": 150,
+                      "wind_up_time": 5,
+                      "ui_effects": [
+                        {
+                          "key": "wh2_main_spell_huge_vortex",
+                          "localised_text": "Huge, randomly-moving area of effect",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_units",
+                          "localised_text": "Strong vs multiple units",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "vortex": {
+                        "vortex_key": "wh2_main_bound_banishment",
+                        "duration": 15,
+                        "damage": 0,
+                        "damage_ap": 10,
+                        "goal_radius": 15,
+                        "movement_speed": 1.5,
+                        "delay": 0,
+                        "affects_allies": true,
+                        "is_magical": true,
+                        "contact_effect": {
+                          "icon": "sfo3/battle_ui/ability_icons/wh_main_unit_contact_vortex_blind",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "negative",
+                          "onscreen_name": "Vortex",
+                          "is_hidden_in_ui": false,
+                          "max_damaged_entities": 5,
+                          "stat_effects": [
+                            {
+                              "value": -5,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-5 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            },
+                            {
+                              "value": -25,
+                              "stat": "stat_accuracy",
+                              "how": "add",
+                              "description": "-25 Accuracy",
+                              "icon": "vanilla3/skins/default/icon_stat_range"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Bound spell: \"Pha's Protection\"",
+                "key": "wh3_main_effect_ability_enable_bound_phas_protection",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_main_effect_ability_enable_bound_phas_protection",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_main_spell_bound_phas_protection",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Pha's Protection",
+                      "active_time": 30,
+                      "effect_range": 0,
+                      "num_effected_friendly_units": 1,
+                      "num_uses": 4,
+                      "recharge_time": 90,
+                      "target_enemies": false,
+                      "target_friends": true,
+                      "target_ground": false,
+                      "target_self": true,
+                      "target_intercept_range": 200,
+                      "wind_up_time": 1,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_spell_light_phas_protection",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": true,
+                          "duration": 30,
+                          "effect_type": "positive",
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 10,
+                              "stat": "stat_resistance_all",
+                              "how": "add",
+                              "description": "+10 Damage Resistance ",
+                              "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                            },
+                            {
+                              "value": 40,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "+40 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "description": "Ability number of uses: +1 for \"Bound Pha's Protection\"",
+                "key": "wh3_main_effect_ability_num_uses_phas_protection",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+              }
+            ]
+          }
         ]
       }
     ],

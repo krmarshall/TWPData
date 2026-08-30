@@ -1769,6 +1769,12 @@
         "description": "Hide (forest)",
         "bullet_text": "This unit can hide in forests until enemy units get too close.",
         "icon": "sfo3/battle_ui/ability_icons/hide_forest"
+      },
+      {
+        "key": "flanking_immune",
+        "description": "Immune to Flanking",
+        "bullet_text": "This unit takes no penalties when flanked.",
+        "icon": "sfo3/battle_ui/ability_icons/flanking_immune"
       }
     ],
     "abilities": [
@@ -1898,6 +1904,71 @@
                   "description": "Glorious Charge",
                   "bullet_text": "When charging into an enemy unit:\n\t  Charge Bonus duration is doubled.\n\t Enemy units take a  Leadership penalty as if they have been attacked in the flank.",
                   "icon": "sfo3/battle_ui/ability_icons/glorious_charge"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "unit_ability": {
+          "key": "wh_passive_aura_buff_command",
+          "icon_name": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
+          "overpower_option": "",
+          "type": {
+            "key": "wh_type_area_of_augments",
+            "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_augments",
+            "onscreen_name": "Augment (Area)"
+          },
+          "is_hidden_in_ui": false,
+          "onscreen_name": "Bolstered Command",
+          "effect_range": 60,
+          "target_enemies": false,
+          "target_friends": false,
+          "target_ground": false,
+          "target_self": false,
+          "target_intercept_range": 0,
+          "enabled_if": [
+            "Leadership is higher than broken"
+          ],
+          "phases": [
+            {
+              "icon": "sfo3/battle_ui/ability_icons/wh_passive_aura_buff_command",
+              "order": 1,
+              "target_enemies": false,
+              "target_self": true,
+              "target_friends": true,
+              "duration": -1,
+              "effect_type": "positive",
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 3,
+                  "stat": "stat_morale",
+                  "how": "add",
+                  "description": "+3 Leadership",
+                  "icon": "vanilla3/skins/default/icon_stat_morale"
+                },
+                {
+                  "value": 3,
+                  "stat": "stat_melee_attack",
+                  "how": "add",
+                  "description": "+3 Melee Attack",
+                  "icon": "vanilla3/skins/default/icon_stat_attack"
+                },
+                {
+                  "value": 3,
+                  "stat": "stat_melee_defence",
+                  "how": "add",
+                  "description": "+3 Melee Defence",
+                  "icon": "vanilla3/skins/default/icon_stat_defence"
+                },
+                {
+                  "value": 3,
+                  "stat": "stat_reloading",
+                  "how": "add",
+                  "description": "+3 Reload Skill",
+                  "icon": "vanilla3/skins/default/icon_stat_reload_time"
                 }
               ]
             }

@@ -1420,13 +1420,29 @@
         "key": "wh3_main_tech_cth_71",
         "tier": 1,
         "indent": 6,
-        "research_points_required": 400,
+        "research_points_required": 600,
         "technology": {
           "key": "wh3_main_tech_cth_71",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_cth_71",
           "onscreen_name": "Honed Senses",
           "short_description": "Veterans pass down long-honed techniques, ensuring new recruits arrive sharp, disciplined, and deadly.",
-          "effects": []
+          "effects": [
+            {
+              "description": "Upkeep: -10% for Tiger Warrior (Dual Axes) and Iron Claw Tiger Warrior units",
+              "key": "wh3_cp1_effect_force_cth_upkeep_tiger_warrior_melee",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+            },
+            {
+              "description": "Recruit rank: +2 for all Tiger Warrior units",
+              "key": "wh3_cp1_effect_force_recruit_rank_cth_tiger_warriors",
+              "icon": "vanilla3/campaign_ui/effect_bundles/experience"
+            },
+            {
+              "description": "Speed: +10% for Tiger Warrior (Dual Axes) and Iron Claw Tiger Warrior units",
+              "key": "wh3_cp1_effect_force_cth_speed_tiger_warrior_melee",
+              "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement"
+            }
+          ]
         },
         "required_tech_node_keys": [
           "wh3_main_tech_cth_29"
@@ -1492,13 +1508,29 @@
         "key": "wh3_main_tech_cth_72",
         "tier": 6,
         "indent": 6,
-        "research_points_required": 400,
+        "research_points_required": 600,
         "technology": {
           "key": "wh3_main_tech_cth_72",
           "icon_name": "vanilla3/campaign_ui/technologies/wh3_main_tech_cth_72",
           "onscreen_name": "Tiger's Call",
           "short_description": "The apex predator's roar echoes across the battlefield, answering the call to service once more.",
-          "effects": []
+          "effects": [
+            {
+              "description": "Upkeep: -10% for Tiger Warrior Stalkers units",
+              "key": "wh3_cp1_cth_upkeep_tiger_warrior_stalkers",
+              "icon": "vanilla3/campaign_ui/effect_bundles/military_spending"
+            },
+            {
+              "description": "Recruitment cost: -10% for all Tiger Warrior units",
+              "key": "wh3_cp1_effect_recruitment_cost_reduction_cth_tiger_warriors",
+              "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
+            },
+            {
+              "description": "Base missile damage: +2 for Tiger Warrior Stalker units",
+              "key": "wh3_cp1_effect_force_stat_missile_damage_base_cth_tiger_warrior_stalkers",
+              "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_ranged_damage_base_force"
+            }
+          ]
         },
         "required_tech_node_keys": [
           "wh3_main_tech_cth_44"
@@ -2217,7 +2249,7 @@
                       "onscreen_name": "Bombardment"
                     },
                     "is_hidden_in_ui": false,
-                    "onscreen_name": "Sky-Junk Bomb",
+                    "onscreen_name": "Sky-Junk Immolation Bomb",
                     "active_time": 1,
                     "effect_range": 0,
                     "num_uses": 3,
@@ -2243,6 +2275,11 @@
                         "key": "wh_projectile_aoe_8",
                         "localised_text": "Explosion area of effect: 8m",
                         "effect_state": "positive"
+                      },
+                      {
+                        "key": "wh3_main_unit_abilities_sky_junk_bomb",
+                        "localised_text": "Long-lasting fire effect on the ground (120s)",
+                        "effect_state": "positive"
                       }
                     ],
                     "bombardment": {
@@ -2261,8 +2298,8 @@
                         "explosion_type": {
                           "key": "wh3_main_unit_abilities_sky_junk_bomb",
                           "affects_allies": true,
-                          "detonation_damage": 75,
-                          "detonation_damage_ap": 150,
+                          "detonation_damage": 25,
+                          "detonation_damage_ap": 50,
                           "detonation_radius": 8,
                           "is_flaming": true,
                           "contact_phase_effect": {
@@ -2298,6 +2335,31 @@
                                 "icon": "vanilla3/skins/default/icon_stat_range"
                               }
                             ]
+                          }
+                        },
+                        "spawned_vortex": {
+                          "vortex_key": "wh3_main_unit_abilities_sky_junk_bomb",
+                          "duration": 120,
+                          "damage": 5,
+                          "damage_ap": 0,
+                          "goal_radius": 8,
+                          "movement_speed": 0,
+                          "delay": 0,
+                          "affects_allies": true,
+                          "is_flaming": true,
+                          "contact_effect": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_character_abilities_pyromaniac",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": true,
+                            "duration": 20,
+                            "effect_type": "negative",
+                            "onscreen_name": "Burning - 5 damage, 10 entities",
+                            "is_hidden_in_ui": false,
+                            "damage_amount": 5,
+                            "hp_change_frequency": 1,
+                            "max_damaged_entities": 10
                           }
                         }
                       }
