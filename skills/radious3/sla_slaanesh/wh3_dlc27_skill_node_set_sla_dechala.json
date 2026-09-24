@@ -126,7 +126,7 @@
       },
       {
         "key": "wh3_dlc27_skill_node_sla_dechala_unique_8",
-        "image_path": "vanilla3/campaign_ui/skills/battle_damage",
+        "image_path": "vanilla3/campaign_ui/skills/character_damage",
         "character_skill_key": "wh3_dlc27_skill_sla_dechala_unique_9",
         "tier": 5,
         "indent": 0,
@@ -160,6 +160,51 @@
               "wh3_dlc27_sla_mon_champions_of_slaanesh",
               "wh3_dlc27_sla_mon_champions_of_slaanesh_ror"
             ]
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_all_army_of_renown_legendary_lord",
+        "image_path": "vanilla3/campaign_ui/skills/character_unit_capacity",
+        "character_skill_key": "wh3_main_skill_all_army_of_renown_legendary_lord",
+        "tier": 28,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Army of Renown",
+        "localised_description": "If their renown does them justice, they will be fit to serve one whose fame they will never outstrip.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +2\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 10
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +4\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +6\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 30
           }
         ]
       },
@@ -337,6 +382,61 @@
           {
             "effects": [
               {
+                "description": "Replaces Poison attacks for Marauder, Marauder Horsemen, Hellstriders and Chariot of Slaanesh units",
+                "key": "wh3_dlc29_disable_contact_phase_eroding_poison_marauder_marauder_horsemen_hellstriders_chariot_of_slaanesh_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 5,
+                    "effect_type": "negative",
+                    "onscreen_name": "Poison!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 0.9,
+                        "stat": "scalar_missile_damage_ap",
+                        "how": "mult",
+                        "description": "x0.9 Armour-Piercing Missile Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "scalar_missile_damage_base",
+                        "how": "mult",
+                        "description": "x0.9 Base Missile Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.8 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x0.9 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x0.9 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
                 "description": "Enables Eroding Poison attacks",
                 "key": "wh3_dlc27_effect_character_stat_enable_eroding_poison_attacks",
                 "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
@@ -460,6 +560,61 @@
                         "stat": "stat_melee_damage_ap",
                         "how": "mult",
                         "description": "x0.85 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "description": "Replaces Poison attacks",
+                "key": "wh3_dlc29_effect_character_stat_disable_eroding_poison_attacks",
+                "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 5,
+                    "effect_type": "negative",
+                    "onscreen_name": "Poison!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 0.9,
+                        "stat": "scalar_missile_damage_ap",
+                        "how": "mult",
+                        "description": "x0.9 Armour-Piercing Missile Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "scalar_missile_damage_base",
+                        "how": "mult",
+                        "description": "x0.9 Base Missile Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.8 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x0.9 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 0.9,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x0.9 Armour-Piercing Weapon Damage",
                         "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                       }
                     ]
@@ -3279,6 +3434,7 @@
         "is_background_skill": false,
         "localised_name": "Route Marcher",
         "localised_description": "Those who know the land and its secrets will travel faster and further than the foes who don't.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3304,6 +3460,7 @@
         "is_background_skill": false,
         "localised_name": "Serve or Die",
         "localised_description": "\"You will serve me, wretch, or you will die, there is no other option.\"",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3350,6 +3507,7 @@
         "is_background_skill": false,
         "localised_name": "Slaves to Excess",
         "localised_description": "The Perfect Prince can never have too many Devotees. It matters not one jot to Slaanesh whether they come to him willingly or are coerced into His worship.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3396,6 +3554,7 @@
         "is_background_skill": false,
         "localised_name": "Despoilers",
         "localised_description": "To despoil, to corrupt and ruin, to break the mortals and take their gods from them - this is what Chaos wants.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3457,6 +3616,7 @@
         "is_background_skill": false,
         "localised_name": "Corruption",
         "localised_description": "With the servants of Chaos comes the corruption – as the landscape twists, this one speeds the transformation.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3504,6 +3664,7 @@
         "is_background_skill": false,
         "localised_name": "Draftmaster",
         "localised_description": "Someone has to ensure the numbers and quality of recruits remain high.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3540,6 +3701,7 @@
         "is_background_skill": false,
         "localised_name": "Lightning Strike",
         "localised_description": "\"The time to strike is now!\"",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3636,6 +3798,7 @@
         "is_background_skill": false,
         "localised_name": "Drawn to Decadence",
         "localised_description": "Having given itself willingly to the service of Slaanesh, this force requires neither the carrot nor the stick to fight for Him though either one would no doubt be pleasurable!",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3682,6 +3845,7 @@
         "is_background_skill": false,
         "localised_name": "Relentless Advance",
         "localised_description": "Battles can be lost, but can the war ever really be won? The advance of Ruin can never truly be halted once and for all.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3695,6 +3859,89 @@
                 "key": "wh3_dlc26_effect_daemon_post_battle_unit_saving_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               }
+            ],
+            "related_unit_cards": [
+              "wh3_dlc25_nur_cav_plague_drones_1_ror",
+              "wh3_main_nur_inf_nurglings_0",
+              "wh3_dlc25_nur_mon_soul_grinder_ror",
+              "wh3_main_nur_cav_plague_drones_0",
+              "wh3_main_nur_cav_plague_drones_1",
+              "wh3_main_nur_cav_pox_riders_of_nurgle_0",
+              "wh3_main_nur_inf_chaos_furies_0",
+              "wh3_main_nur_inf_plaguebearers_1",
+              "wh3_main_nur_inf_plaguebearers_2",
+              "wh3_main_nur_mon_beast_of_nurgle_0",
+              "wh3_main_nur_mon_great_unclean_one_0",
+              "wh3_main_nur_mon_plague_toads_0",
+              "wh3_main_nur_mon_rot_flies_0",
+              "wh3_main_nur_mon_soul_grinder_0",
+              "wh3_twa06_nur_inf_plaguebearers_ror_0",
+              "wh3_twa07_nur_cav_pox_riders_of_nurgle_ror_0",
+              "wh3_twa08_nur_mon_great_unclean_one_0_ror",
+              "wh3_twa10_nur_inf_nurglings_ror",
+              "wh3_dlc26_kho_veh_skullcannon_ror",
+              "wh3_main_dae_inf_chaos_furies_0",
+              "wh3_main_kho_cav_bloodcrushers_0",
+              "wh3_main_kho_gorebeast_chariot",
+              "wh3_main_kho_cav_skullcrushers_0",
+              "wh3_main_kho_inf_bloodletters_0",
+              "wh3_main_kho_inf_bloodletters_1",
+              "wh3_main_kho_inf_chaos_furies_0",
+              "wh3_main_kho_inf_chaos_warhounds_0",
+              "wh3_main_kho_inf_flesh_hounds_of_khorne_0",
+              "wh3_main_kho_mon_bloodthirster_0",
+              "wh3_main_kho_mon_khornataurs_0",
+              "wh3_main_kho_mon_khornataurs_1",
+              "wh3_main_kho_mon_soul_grinder_0",
+              "wh3_main_kho_veh_blood_shrine_0",
+              "wh3_main_kho_veh_skullcannon_0",
+              "wh3_twa06_kho_inf_bloodletters_ror_0",
+              "wh3_twa07_kho_cav_bloodcrushers_ror_0",
+              "wh3_twa08_kho_mon_bloodthirster_0_ror",
+              "wh3_twa10_kho_inf_flesh_hounds_of_khorne_ror",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_main_sla_cav_heartseekers_of_slaanesh_0",
+              "wh3_dlc27_sla_cav_pleasureseekers",
+              "wh3_main_sla_inf_chaos_furies_0",
+              "wh3_main_sla_inf_daemonette_1",
+              "wh3_main_sla_mon_fiends_of_slaanesh_0",
+              "wh3_main_sla_mon_keeper_of_secrets_0",
+              "wh3_main_sla_veh_exalted_seeker_chariot_0",
+              "wh3_dlc27_sla_veh_seeker_chariot_ror",
+              "wh3_main_sla_cav_seekers_of_slaanesh_0",
+              "wh3_main_sla_inf_daemonette_0",
+              "wh3_main_sla_mon_soul_grinder_0",
+              "wh3_main_sla_veh_hellflayer_0",
+              "wh3_main_sla_veh_seeker_chariot_0",
+              "wh3_twa06_sla_inf_daemonette_ror_0",
+              "wh3_twa07_sla_cav_heartseekers_of_slaanesh_ror_0",
+              "wh3_twa08_sla_mon_keeper_of_secrets_0_ror",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_dragonogre",
+              "wh3_dlc24_tze_inf_pink_horrors_ror",
+              "wh3_dlc24_tze_mon_flamers_changebringers",
+              "wh3_dlc24_tze_mon_screamers_ror",
+              "wh3_main_tze_inf_blue_horrors_0",
+              "wh3_main_tze_inf_chaos_furies_0",
+              "wh3_main_tze_inf_forsaken_0",
+              "wh3_main_tze_inf_pink_horrors_0",
+              "wh3_main_tze_inf_pink_horrors_1",
+              "wh3_main_tze_mon_exalted_flamer_0",
+              "wh3_main_tze_mon_flamers_0",
+              "wh3_main_tze_mon_lord_of_change_0",
+              "wh3_main_tze_mon_screamers_0",
+              "wh3_main_tze_mon_soul_grinder_0",
+              "wh3_main_tze_veh_burning_chariot_0",
+              "wh3_twa06_tze_inf_pink_horrors_ror_0",
+              "wh3_twa08_tze_mon_lord_of_change_0_ror",
+              "wh3_twa10_tze_inf_blue_horrors_ror",
+              "wh3_tzeentch_forsa"
             ]
           },
           {
@@ -3709,6 +3956,89 @@
                 "key": "wh3_dlc26_effect_daemon_post_battle_unit_saving_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               }
+            ],
+            "related_unit_cards": [
+              "wh3_dlc25_nur_cav_plague_drones_1_ror",
+              "wh3_main_nur_inf_nurglings_0",
+              "wh3_dlc25_nur_mon_soul_grinder_ror",
+              "wh3_main_nur_cav_plague_drones_0",
+              "wh3_main_nur_cav_plague_drones_1",
+              "wh3_main_nur_cav_pox_riders_of_nurgle_0",
+              "wh3_main_nur_inf_chaos_furies_0",
+              "wh3_main_nur_inf_plaguebearers_1",
+              "wh3_main_nur_inf_plaguebearers_2",
+              "wh3_main_nur_mon_beast_of_nurgle_0",
+              "wh3_main_nur_mon_great_unclean_one_0",
+              "wh3_main_nur_mon_plague_toads_0",
+              "wh3_main_nur_mon_rot_flies_0",
+              "wh3_main_nur_mon_soul_grinder_0",
+              "wh3_twa06_nur_inf_plaguebearers_ror_0",
+              "wh3_twa07_nur_cav_pox_riders_of_nurgle_ror_0",
+              "wh3_twa08_nur_mon_great_unclean_one_0_ror",
+              "wh3_twa10_nur_inf_nurglings_ror",
+              "wh3_dlc26_kho_veh_skullcannon_ror",
+              "wh3_main_dae_inf_chaos_furies_0",
+              "wh3_main_kho_cav_bloodcrushers_0",
+              "wh3_main_kho_gorebeast_chariot",
+              "wh3_main_kho_cav_skullcrushers_0",
+              "wh3_main_kho_inf_bloodletters_0",
+              "wh3_main_kho_inf_bloodletters_1",
+              "wh3_main_kho_inf_chaos_furies_0",
+              "wh3_main_kho_inf_chaos_warhounds_0",
+              "wh3_main_kho_inf_flesh_hounds_of_khorne_0",
+              "wh3_main_kho_mon_bloodthirster_0",
+              "wh3_main_kho_mon_khornataurs_0",
+              "wh3_main_kho_mon_khornataurs_1",
+              "wh3_main_kho_mon_soul_grinder_0",
+              "wh3_main_kho_veh_blood_shrine_0",
+              "wh3_main_kho_veh_skullcannon_0",
+              "wh3_twa06_kho_inf_bloodletters_ror_0",
+              "wh3_twa07_kho_cav_bloodcrushers_ror_0",
+              "wh3_twa08_kho_mon_bloodthirster_0_ror",
+              "wh3_twa10_kho_inf_flesh_hounds_of_khorne_ror",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_main_sla_cav_heartseekers_of_slaanesh_0",
+              "wh3_dlc27_sla_cav_pleasureseekers",
+              "wh3_main_sla_inf_chaos_furies_0",
+              "wh3_main_sla_inf_daemonette_1",
+              "wh3_main_sla_mon_fiends_of_slaanesh_0",
+              "wh3_main_sla_mon_keeper_of_secrets_0",
+              "wh3_main_sla_veh_exalted_seeker_chariot_0",
+              "wh3_dlc27_sla_veh_seeker_chariot_ror",
+              "wh3_main_sla_cav_seekers_of_slaanesh_0",
+              "wh3_main_sla_inf_daemonette_0",
+              "wh3_main_sla_mon_soul_grinder_0",
+              "wh3_main_sla_veh_hellflayer_0",
+              "wh3_main_sla_veh_seeker_chariot_0",
+              "wh3_twa06_sla_inf_daemonette_ror_0",
+              "wh3_twa07_sla_cav_heartseekers_of_slaanesh_ror_0",
+              "wh3_twa08_sla_mon_keeper_of_secrets_0_ror",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_dragonogre",
+              "wh3_dlc24_tze_inf_pink_horrors_ror",
+              "wh3_dlc24_tze_mon_flamers_changebringers",
+              "wh3_dlc24_tze_mon_screamers_ror",
+              "wh3_main_tze_inf_blue_horrors_0",
+              "wh3_main_tze_inf_chaos_furies_0",
+              "wh3_main_tze_inf_forsaken_0",
+              "wh3_main_tze_inf_pink_horrors_0",
+              "wh3_main_tze_inf_pink_horrors_1",
+              "wh3_main_tze_mon_exalted_flamer_0",
+              "wh3_main_tze_mon_flamers_0",
+              "wh3_main_tze_mon_lord_of_change_0",
+              "wh3_main_tze_mon_screamers_0",
+              "wh3_main_tze_mon_soul_grinder_0",
+              "wh3_main_tze_veh_burning_chariot_0",
+              "wh3_twa06_tze_inf_pink_horrors_ror_0",
+              "wh3_twa08_tze_mon_lord_of_change_0_ror",
+              "wh3_twa10_tze_inf_blue_horrors_ror",
+              "wh3_tzeentch_forsa"
             ]
           },
           {
@@ -3723,6 +4053,89 @@
                 "key": "wh3_dlc26_effect_daemon_post_battle_unit_saving_chance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/replenishment"
               }
+            ],
+            "related_unit_cards": [
+              "wh3_dlc25_nur_cav_plague_drones_1_ror",
+              "wh3_main_nur_inf_nurglings_0",
+              "wh3_dlc25_nur_mon_soul_grinder_ror",
+              "wh3_main_nur_cav_plague_drones_0",
+              "wh3_main_nur_cav_plague_drones_1",
+              "wh3_main_nur_cav_pox_riders_of_nurgle_0",
+              "wh3_main_nur_inf_chaos_furies_0",
+              "wh3_main_nur_inf_plaguebearers_1",
+              "wh3_main_nur_inf_plaguebearers_2",
+              "wh3_main_nur_mon_beast_of_nurgle_0",
+              "wh3_main_nur_mon_great_unclean_one_0",
+              "wh3_main_nur_mon_plague_toads_0",
+              "wh3_main_nur_mon_rot_flies_0",
+              "wh3_main_nur_mon_soul_grinder_0",
+              "wh3_twa06_nur_inf_plaguebearers_ror_0",
+              "wh3_twa07_nur_cav_pox_riders_of_nurgle_ror_0",
+              "wh3_twa08_nur_mon_great_unclean_one_0_ror",
+              "wh3_twa10_nur_inf_nurglings_ror",
+              "wh3_dlc26_kho_veh_skullcannon_ror",
+              "wh3_main_dae_inf_chaos_furies_0",
+              "wh3_main_kho_cav_bloodcrushers_0",
+              "wh3_main_kho_gorebeast_chariot",
+              "wh3_main_kho_cav_skullcrushers_0",
+              "wh3_main_kho_inf_bloodletters_0",
+              "wh3_main_kho_inf_bloodletters_1",
+              "wh3_main_kho_inf_chaos_furies_0",
+              "wh3_main_kho_inf_chaos_warhounds_0",
+              "wh3_main_kho_inf_flesh_hounds_of_khorne_0",
+              "wh3_main_kho_mon_bloodthirster_0",
+              "wh3_main_kho_mon_khornataurs_0",
+              "wh3_main_kho_mon_khornataurs_1",
+              "wh3_main_kho_mon_soul_grinder_0",
+              "wh3_main_kho_veh_blood_shrine_0",
+              "wh3_main_kho_veh_skullcannon_0",
+              "wh3_twa06_kho_inf_bloodletters_ror_0",
+              "wh3_twa07_kho_cav_bloodcrushers_ror_0",
+              "wh3_twa08_kho_mon_bloodthirster_0_ror",
+              "wh3_twa10_kho_inf_flesh_hounds_of_khorne_ror",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_main_sla_cav_heartseekers_of_slaanesh_0",
+              "wh3_dlc27_sla_cav_pleasureseekers",
+              "wh3_main_sla_inf_chaos_furies_0",
+              "wh3_main_sla_inf_daemonette_1",
+              "wh3_main_sla_mon_fiends_of_slaanesh_0",
+              "wh3_main_sla_mon_keeper_of_secrets_0",
+              "wh3_main_sla_veh_exalted_seeker_chariot_0",
+              "wh3_dlc27_sla_veh_seeker_chariot_ror",
+              "wh3_main_sla_cav_seekers_of_slaanesh_0",
+              "wh3_main_sla_inf_daemonette_0",
+              "wh3_main_sla_mon_soul_grinder_0",
+              "wh3_main_sla_veh_hellflayer_0",
+              "wh3_main_sla_veh_seeker_chariot_0",
+              "wh3_twa06_sla_inf_daemonette_ror_0",
+              "wh3_twa07_sla_cav_heartseekers_of_slaanesh_ror_0",
+              "wh3_twa08_sla_mon_keeper_of_secrets_0_ror",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_dragonogre",
+              "wh3_dlc24_tze_inf_pink_horrors_ror",
+              "wh3_dlc24_tze_mon_flamers_changebringers",
+              "wh3_dlc24_tze_mon_screamers_ror",
+              "wh3_main_tze_inf_blue_horrors_0",
+              "wh3_main_tze_inf_chaos_furies_0",
+              "wh3_main_tze_inf_forsaken_0",
+              "wh3_main_tze_inf_pink_horrors_0",
+              "wh3_main_tze_inf_pink_horrors_1",
+              "wh3_main_tze_mon_exalted_flamer_0",
+              "wh3_main_tze_mon_flamers_0",
+              "wh3_main_tze_mon_lord_of_change_0",
+              "wh3_main_tze_mon_screamers_0",
+              "wh3_main_tze_mon_soul_grinder_0",
+              "wh3_main_tze_veh_burning_chariot_0",
+              "wh3_twa06_tze_inf_pink_horrors_ror_0",
+              "wh3_twa08_tze_mon_lord_of_change_0_ror",
+              "wh3_twa10_tze_inf_blue_horrors_ror",
+              "wh3_tzeentch_forsa"
             ]
           }
         ],
@@ -3743,6 +4156,7 @@
         "is_background_skill": false,
         "localised_name": "Promise of Perfection",
         "localised_description": "The Prince of Pleasure whispers in the ears of all, pulling at the threads of their every deviant desire.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3805,6 +4219,7 @@
         "is_background_skill": false,
         "localised_name": "Renowned & Feared",
         "localised_description": "This Lord's many deeds - both on and off the battlefield - have brought them renown among their allies and made them feared by their enemies.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [

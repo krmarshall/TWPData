@@ -174,7 +174,7 @@
       },
       {
         "key": "wh3_dlc27_skill_node_sla_dechala_unique_8",
-        "image_path": "vanilla3/campaign_ui/skills/battle_damage",
+        "image_path": "vanilla3/campaign_ui/skills/character_damage",
         "character_skill_key": "wh3_dlc27_skill_sla_dechala_unique_9",
         "tier": 5,
         "indent": 0,
@@ -204,6 +204,51 @@
               }
             ],
             "unlocked_at_rank": 16
+          }
+        ]
+      },
+      {
+        "key": "wh3_main_skill_node_all_army_of_renown_legendary_lord",
+        "image_path": "vanilla3/campaign_ui/skills/character_unit_capacity",
+        "character_skill_key": "wh3_main_skill_all_army_of_renown_legendary_lord",
+        "tier": 28,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Army of Renown",
+        "localised_description": "If their renown does them justice, they will be fit to serve one whose fame they will never outstrip.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +2\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 10
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +4\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +6\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 30
           }
         ]
       },
@@ -381,6 +426,61 @@
           {
             "effects": [
               {
+                "description": "Replaces Poison attacks for Marauder, Marauder Horsemen, Hellstriders and Chariot of Slaanesh units",
+                "key": "wh3_dlc29_disable_contact_phase_eroding_poison_marauder_marauder_horsemen_hellstriders_chariot_of_slaanesh_hidden",
+                "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Poison!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_missile_damage_ap",
+                        "how": "mult",
+                        "description": "x0.8 Armour-Piercing Missile Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_missile_damage_base",
+                        "how": "mult",
+                        "description": "x0.8 Base Missile Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.8 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x0.8 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x0.8 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
                 "description": "Enables Eroding Poison attacks",
                 "key": "wh3_dlc27_effect_character_stat_enable_eroding_poison_attacks",
                 "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
@@ -504,6 +604,61 @@
                         "stat": "stat_melee_damage_ap",
                         "how": "mult",
                         "description": "x0.85 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "description": "Replaces Poison attacks",
+                "key": "wh3_dlc29_effect_character_stat_disable_eroding_poison_attacks",
+                "icon": "vanilla3/campaign_ui/effect_bundles/phase_posion",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_contact_poison",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Poison!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_missile_damage_ap",
+                        "how": "mult",
+                        "description": "x0.8 Armour-Piercing Missile Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing_ranged"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_missile_damage_base",
+                        "how": "mult",
+                        "description": "x0.8 Base Missile Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_ranged_damage_base"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "scalar_speed",
+                        "how": "mult",
+                        "description": "x0.8 Speed",
+                        "icon": "vanilla3/skins/default/icon_stat_speed"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x0.8 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 0.8,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x0.8 Armour-Piercing Weapon Damage",
                         "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                       }
                     ]
@@ -2495,6 +2650,7 @@
         "is_background_skill": false,
         "localised_name": "Route Marcher",
         "localised_description": "Those who know the land and its secrets will travel faster and further than the foes who don't.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2520,6 +2676,7 @@
         "is_background_skill": false,
         "localised_name": "Serve or Die",
         "localised_description": "\"You will serve me, wretch, or you will die, there is no other option.\"",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2566,6 +2723,7 @@
         "is_background_skill": false,
         "localised_name": "Slaves to Excess",
         "localised_description": "The Perfect Prince can never have too many Devotees. It matters not one jot to Slaanesh whether they come to him willingly or are coerced into His worship.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2612,6 +2770,7 @@
         "is_background_skill": false,
         "localised_name": "Despoilers",
         "localised_description": "To despoil, to corrupt and ruin, to break the mortals and take their gods from them - this is what Chaos wants.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2673,6 +2832,7 @@
         "is_background_skill": false,
         "localised_name": "Corruption",
         "localised_description": "With the servants of Chaos comes the corruption – as the landscape twists, this one speeds the transformation.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2735,6 +2895,7 @@
         "is_background_skill": false,
         "localised_name": "Draftmaster",
         "localised_description": "Someone has to ensure the numbers and quality of recruits remain high.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2771,6 +2932,7 @@
         "is_background_skill": false,
         "localised_name": "Lightning Strike",
         "localised_description": "\"The time to strike is now!\"",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2852,6 +3014,7 @@
         "is_background_skill": false,
         "localised_name": "Drawn to Decadence",
         "localised_description": "Having given itself willingly to the service of Slaanesh, this force requires neither the carrot nor the stick to fight for Him though either one would no doubt be pleasurable!",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2898,6 +3061,7 @@
         "is_background_skill": false,
         "localised_name": "Relentless Advance",
         "localised_description": "Battles can be lost, but can the war ever really be won? The advance of Ruin can never truly be halted once and for all.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -2959,6 +3123,7 @@
         "is_background_skill": false,
         "localised_name": "Promise of Perfection",
         "localised_description": "The Prince of Pleasure whispers in the ears of all, pulling at the threads of their every deviant desire.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [
@@ -3021,6 +3186,7 @@
         "is_background_skill": false,
         "localised_name": "Renowned & Feared",
         "localised_description": "This Lord's many deeds - both on and off the battlefield - have brought them renown among their allies and made them feared by their enemies.",
+        "subculture": "wh3_main_sc_sla_slaanesh",
         "levels": [
           {
             "effects": [

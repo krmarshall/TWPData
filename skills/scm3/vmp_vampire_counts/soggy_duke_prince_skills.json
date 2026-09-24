@@ -2610,15 +2610,23 @@
           {
             "effects": [
               {
-                "description": "Missile resistance: 20%",
-                "key": "wh_main_effect_character_stat_missile_resistance",
-                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
-              },
-              {
-                "description": "Physical resistance: 10%",
+                "description": "Physical resistance: 15%",
                 "key": "wh_main_effect_character_stat_physical_resistance",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+              },
+              {
+                "description": "Physical resistance: 10% for Blood Knight units\n\t(Lord's army)",
+                "key": "wh3_dlc29_effect_force_stat_physical_resistance_vmp_blood_knights",
+                "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
               }
+            ],
+            "related_unit_cards": [
+              "thrall_knights",
+              "jiang_undead_longma",
+              "jbv_carriage",
+              "drakenhof_swords_shield_mounted",
+              "drakenhof_templar_veteran_guard",
+              "drakenhof_templar_inner_circle"
             ]
           }
         ],
@@ -2642,6 +2650,96 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Armour: +20",
+                "key": "wh_main_effect_character_stat_armour",
+                "icon": "scm3/campaign_ui/effect_bundles/armour_character"
+              },
+              {
+                "description": "Armour-piercing weapon damage: +40",
+                "key": "wh_main_effect_character_stat_ap_damage",
+                "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+              },
+              {
+                "description": "Cooldown: -33% to \"Heart Piercing\"",
+                "key": "wh3_dlc29_effect_ability_cooldown_heart_piercing",
+                "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc29_effect_ability_cooldown_heart_piercing",
+                    "bonus_value_id": "recharge_mod",
+                    "unit_ability": {
+                      "key": "wh2_dlc11_lord_abilities_heart_piercing",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_heart_piercing",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                        "onscreen_name": "Augment"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Heart Piercing",
+                      "active_time": 28,
+                      "effect_range": 0,
+                      "recharge_time": 120,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_lord_abilities_heart_piercing",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 28,
+                          "effect_type": "positive",
+                          "onscreen_name": " Sunder Imbuement",
+                          "is_hidden_in_ui": false,
+                          "imbue_contact": {
+                            "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_sundered_armour",
+                            "order": 1,
+                            "target_enemies": true,
+                            "target_self": false,
+                            "target_friends": false,
+                            "duration": 10,
+                            "effect_type": "negative",
+                            "onscreen_name": "Sundered Armour",
+                            "is_hidden_in_ui": false,
+                            "stat_effects": [
+                              {
+                                "value": -30,
+                                "stat": "stat_armour",
+                                "how": "add",
+                                "description": "-30 Armour",
+                                "icon": "vanilla3/skins/default/icon_stat_armour"
+                              }
+                            ]
+                          },
+                          "stat_effects": [
+                            {
+                              "value": 1.4,
+                              "stat": "stat_charge_bonus",
+                              "how": "mult",
+                              "description": "x1.4 Charge Bonus",
+                              "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                            },
+                            {
+                              "value": 1.5,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.5 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
               {
                 "description": "Passive ability: \"Honour or Death\"",
                 "key": "wh2_dlc11_effect_ability_enable_honour_or_death",
@@ -2818,7 +2916,7 @@
           {
             "effects": [
               {
-                "description": "Ward save: 5%",
+                "description": "Ward save: +5%",
                 "key": "wh_main_effect_character_stat_ward_save",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
               }
@@ -6884,7 +6982,7 @@
             "description": "Replenishes 10% campaign movement range after winning a battle",
             "key": "wh3_main_effect_force_all_campaign_movement_range_post_battle_win",
             "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement",
-            "priority": 13
+            "priority": 3
           },
           {
             "description": "Vampire Corruption + 5 to local province",
@@ -7113,7 +7211,7 @@
           ]
         },
         {
-          "description": "Ward save: 10%",
+          "description": "Ward save: +10%",
           "key": "wh_main_effect_character_stat_ward_save",
           "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
         },
@@ -7196,7 +7294,7 @@
             "description": "Replenishes 10% campaign movement range after winning a battle",
             "key": "wh3_main_effect_force_all_campaign_movement_range_post_battle_win",
             "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement",
-            "priority": 13
+            "priority": 3
           },
           {
             "description": "Vampire Corruption + 5 to local province",

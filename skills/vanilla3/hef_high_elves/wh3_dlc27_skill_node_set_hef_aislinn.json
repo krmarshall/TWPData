@@ -195,8 +195,7 @@
                     "target_self": false,
                     "target_intercept_range": 0,
                     "enabled_if": [
-                      "Unit 's current Speed is higher than 50% of its base Speed.",
-                      "Unit is charging"
+                      "Unit 's current Speed is higher than 50% of its base Speed."
                     ],
                     "phases": [
                       {
@@ -641,6 +640,51 @@
         ]
       },
       {
+        "key": "wh3_main_skill_node_all_army_of_renown_legendary_lord",
+        "image_path": "vanilla3/campaign_ui/skills/character_unit_capacity",
+        "character_skill_key": "wh3_main_skill_all_army_of_renown_legendary_lord",
+        "tier": 28,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Army of Renown",
+        "localised_description": "If their renown does them justice, they will be fit to serve one whose fame they will never outstrip.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +2\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 10
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +4\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +6\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 30
+          }
+        ]
+      },
+      {
         "key": "wh3_dlc24_skill_node_all_mentor_lord",
         "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_lord",
@@ -909,7 +953,7 @@
                       "active_time": 20,
                       "effect_range": 0,
                       "num_uses": 3,
-                      "recharge_time": 60,
+                      "recharge_time": 90,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
@@ -928,6 +972,11 @@
                           "effect_state": "positive"
                         },
                         {
+                          "key": "wh3_dlc26_all_direct_damage_allies",
+                          "localised_text": "Causes damage to allies",
+                          "effect_state": "negative"
+                        },
+                        {
                           "key": "wh_main_all_weak_against_single",
                           "localised_text": "Weak vs a single combatant",
                           "effect_state": "negative"
@@ -936,12 +985,12 @@
                       "vortex": {
                         "vortex_key": "wh3_dlc27_army_abilities_asuryans_fury",
                         "duration": 20,
-                        "damage": 3,
+                        "damage": 2,
                         "damage_ap": 1,
                         "goal_radius": 30,
                         "movement_speed": 0,
                         "delay": 0,
-                        "affects_allies": false,
+                        "affects_allies": true,
                         "is_flaming": true
                       }
                     }
@@ -982,6 +1031,11 @@
                           "effect_state": "positive"
                         },
                         {
+                          "key": "wh3_dlc26_all_direct_damage_allies",
+                          "localised_text": "Causes damage to allies",
+                          "effect_state": "negative"
+                        },
+                        {
                           "key": "wh_main_all_weak_against_single",
                           "localised_text": "Weak vs a single combatant",
                           "effect_state": "negative"
@@ -990,12 +1044,12 @@
                       "vortex": {
                         "vortex_key": "wh3_dlc27_army_abilities_asuryans_rage",
                         "duration": 15,
-                        "damage": 3,
+                        "damage": 1,
                         "damage_ap": 1,
                         "goal_radius": 30,
                         "movement_speed": 0,
                         "delay": 0,
-                        "affects_allies": false,
+                        "affects_allies": true,
                         "is_flaming": true
                       }
                     }
@@ -1017,7 +1071,7 @@
                       "active_time": 25,
                       "effect_range": 0,
                       "num_uses": 3,
-                      "recharge_time": 60,
+                      "recharge_time": 120,
                       "target_enemies": true,
                       "target_friends": false,
                       "target_ground": true,
@@ -1036,6 +1090,11 @@
                           "effect_state": "positive"
                         },
                         {
+                          "key": "wh3_dlc26_all_direct_damage_allies",
+                          "localised_text": "Causes damage to allies",
+                          "effect_state": "negative"
+                        },
+                        {
                           "key": "wh_main_all_weak_against_single",
                           "localised_text": "Weak vs a single combatant",
                           "effect_state": "negative"
@@ -1044,12 +1103,12 @@
                       "vortex": {
                         "vortex_key": "wh3_dlc27_army_abilities_asuryans_wrath",
                         "duration": 25,
-                        "damage": 2,
+                        "damage": 1,
                         "damage_ap": 2,
                         "goal_radius": 40,
                         "movement_speed": 0,
                         "delay": 0,
-                        "affects_allies": false,
+                        "affects_allies": true,
                         "is_flaming": true
                       }
                     }
@@ -1527,19 +1586,16 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
-                "description": "Ward save: 20% when fighting at sea\n\t(Lord's army)",
+                "description": "Ward save: +20% when fighting at sea\n\t(Lord's army)",
                 "key": "wh3_dlc27_effect_character_stat_ward_save_at_sea",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
               }
             ],
             "unlocked_at_rank": 14,
             "related_unit_cards": [
-              "wh3_dlc27_hef_inf_oceanids",
               "wh3_dlc27_hef_inf_ships_company",
               "wh3_dlc27_hef_inf_ships_company_ror",
-              "wh3_dlc27_hef_mon_merwyrm",
-              "wh3_dlc27_hef_mon_merwyrm_ror",
-              "wh3_dlc27_hef_mon_sea_elemental"
+              "wh3_dlc27_hef_mon_merwyrm"
             ]
           }
         ],
@@ -1604,7 +1660,7 @@
           {
             "effects": [
               {
-                "description": "Ward save: 10%",
+                "description": "Ward save: +10%",
                 "key": "wh_main_effect_character_stat_ward_save",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
               },
@@ -1615,12 +1671,9 @@
               }
             ],
             "related_unit_cards": [
-              "wh3_dlc27_hef_inf_oceanids",
               "wh3_dlc27_hef_inf_ships_company",
               "wh3_dlc27_hef_inf_ships_company_ror",
-              "wh3_dlc27_hef_mon_merwyrm",
-              "wh3_dlc27_hef_mon_merwyrm_ror",
-              "wh3_dlc27_hef_mon_sea_elemental"
+              "wh3_dlc27_hef_mon_merwyrm"
             ]
           }
         ],
@@ -1726,7 +1779,7 @@
       },
       {
         "key": "wh3_dlc27_skill_node_hef_aislinn_personal_3",
-        "image_path": "vanilla3/campaign_ui/skills/campaign_military_spending",
+        "image_path": "vanilla3/campaign_ui/skills/character_military_spending",
         "character_skill_key": "wh3_dlc27_skill_hef_aislinn_unique_approval_of_finubar",
         "tier": 4,
         "indent": 2,
@@ -3315,7 +3368,7 @@
       },
       {
         "key": "wh3_dlc27_skill_node_hef_aislinn_campaign_1_1",
-        "image_path": "vanilla3/campaign_ui/skills/character_growth",
+        "image_path": "vanilla3/campaign_ui/skills/campaign_growth",
         "character_skill_key": "wh3_dlc27_skill_hef_dragonship_admiral_campaign_renown_admiral",
         "tier": 1,
         "indent": 5,
@@ -4159,7 +4212,7 @@
       "unlocked_at_rank": 10,
       "effects": [
         {
-          "description": "Wound recovery time: -2 turns",
+          "description": "Wound recovery time: -1 turns",
           "key": "wh_main_effect_character_wound_recovery_time_mod",
           "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
         },
@@ -4408,12 +4461,9 @@
             "wh2_main_hef_lothern_sea_guard_shields",
             "wh3_dlc27_hef_veh_sky_cutter_bolt_thrower",
             "wh3_dlc27_hef_veh_sky_cutter_bows",
-            "wh3_dlc27_hef_inf_oceanids",
             "wh3_dlc27_hef_inf_ships_company",
             "wh3_dlc27_hef_inf_ships_company_ror",
-            "wh3_dlc27_hef_mon_merwyrm",
-            "wh3_dlc27_hef_mon_merwyrm_ror",
-            "wh3_dlc27_hef_mon_sea_elemental"
+            "wh3_dlc27_hef_mon_merwyrm"
           ]
         }
       ]

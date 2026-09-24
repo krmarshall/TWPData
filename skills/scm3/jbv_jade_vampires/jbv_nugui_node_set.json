@@ -4,7 +4,7 @@
     [
       {
         "key": "jbv_nugui_skill_node_unique_01",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
         "character_skill_key": "wh_main_skill_vmp_spy_unique_tomb_banshee_ghostly_howl",
         "tier": 0,
         "indent": 0,
@@ -18,12 +18,105 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +5",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+                "description": "Attacks cause \"Discouraged\" effect, reducing leadership",
+                "key": "wh2_main_effect_character_stat_enable_discourage_attacks",
+                "icon": "vanilla3/campaign_ui/effect_bundles/discouraged",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Discouraged!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": -16,
+                        "stat": "stat_morale",
+                        "how": "add",
+                        "description": "-16 Leadership",
+                        "icon": "vanilla3/skins/default/icon_stat_morale"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "description": "Ability: \"Ghostly Howl\"",
+                "key": "wh3_dlc29_effect_ability_enable_ghostly_howl",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc29_effect_ability_enable_ghostly_howl",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc29_hero_active_ghostly_howl",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc29_hero_active_ghostly_howl",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                        "onscreen_name": "Direct Damage"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Ghostly Howl",
+                      "active_time": 8,
+                      "effect_range": 0,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 90,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 75,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Leadership is lower than 50% of base"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage_high",
+                          "localised_text": "Causes severe damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc29_hero_active_ghostly_howl",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 8,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 16,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 25,
+                          "stat_effects": [
+                            {
+                              "value": -16,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-16 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
-            ],
-            "unlocked_at_rank": 6
+            ]
           }
         ]
       },
@@ -1591,6 +1684,19 @@
               "description": "Leadership aura size: +100%",
               "key": "wh_main_effect_character_stat_leadership_aura_size",
               "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+            },
+            {
+              "description": "Attribute: Unbreakable",
+              "key": "wh_main_effect_attribute_enable_unbreakable",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable",
+              "related_attributes": [
+                {
+                  "key": "unbreakable",
+                  "description": " Unbreakable",
+                  "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+                }
+              ]
             }
           ]
         }
@@ -1612,12 +1718,12 @@
         {
           "effects": [
             {
-              "description": "Hero action cost: -15%\n\t(Heroes in local province)",
+              "description": "Hero action cost: -15%\n\t(own Heroes in local province)",
               "key": "wh_main_effect_agent_action_cost_mod",
               "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
             },
             {
-              "description": "Hero action success chance: +8%\n\t(Heroes in local province)",
+              "description": "Hero action success chance: +8%\n\t(own Heroes in local province)",
               "key": "wh_main_effect_agent_action_success_chance",
               "icon": "vanilla3/campaign_ui/effect_bundles/agent"
             },

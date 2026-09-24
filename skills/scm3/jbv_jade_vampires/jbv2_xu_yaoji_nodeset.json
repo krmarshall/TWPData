@@ -37,7 +37,7 @@
       },
       {
         "key": "jbv2_xu_yaoji_unique_02",
-        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "image_path": "vanilla3/campaign_ui/skills/character_general_ability",
         "character_skill_key": "wh_main_skill_vmp_spy_unique_tomb_banshee_ghostly_howl",
         "tier": 3,
         "indent": 0,
@@ -51,12 +51,105 @@
           {
             "effects": [
               {
-                "description": "Melee attack: +5",
-                "key": "wh_main_effect_character_stat_melee_attack",
-                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+                "description": "Attacks cause \"Discouraged\" effect, reducing leadership",
+                "key": "wh2_main_effect_character_stat_enable_discourage_attacks",
+                "icon": "vanilla3/campaign_ui/effect_bundles/discouraged",
+                "related_phases": [
+                  {
+                    "icon": "vanilla3/battle_ui/ability_icons/wh_dlc06_unit_contact_discouraged",
+                    "order": 0,
+                    "target_enemies": true,
+                    "target_self": false,
+                    "target_friends": false,
+                    "duration": 10,
+                    "effect_type": "negative",
+                    "onscreen_name": "Discouraged!",
+                    "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": -16,
+                        "stat": "stat_morale",
+                        "how": "add",
+                        "description": "-16 Leadership",
+                        "icon": "vanilla3/skins/default/icon_stat_morale"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "description": "Ability: \"Ghostly Howl\"",
+                "key": "wh3_dlc29_effect_ability_enable_ghostly_howl",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh3_dlc29_effect_ability_enable_ghostly_howl",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh3_dlc29_hero_active_ghostly_howl",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc29_hero_active_ghostly_howl",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_direct_damage",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                        "onscreen_name": "Direct Damage"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Ghostly Howl",
+                      "active_time": 8,
+                      "effect_range": 0,
+                      "num_effected_enemy_units": 1,
+                      "recharge_time": 90,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 75,
+                      "wind_up_time": 3,
+                      "target_if": [
+                        "Leadership is lower than 50% of base"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_main_all_direct_damage_high",
+                          "localised_text": "Causes severe damage to combatants",
+                          "effect_state": "positive"
+                        },
+                        {
+                          "key": "wh_main_all_strong_against_multiple",
+                          "localised_text": "Strong vs multiple combatants",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc29_hero_active_ghostly_howl",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": 8,
+                          "effect_type": "negative",
+                          "is_hidden_in_ui": false,
+                          "damage_amount": 16,
+                          "hp_change_frequency": 1,
+                          "max_damaged_entities": 25,
+                          "stat_effects": [
+                            {
+                              "value": -16,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-16 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
               }
-            ],
-            "unlocked_at_rank": 6
+            ]
           }
         ]
       },
@@ -2554,6 +2647,11 @@
           {
             "effects": [
               {
+                "description": "Corpse cost to recruit units: -15% for all units\n\t(own army)",
+                "key": "wh3_main_effect_vmp_force_corpse_cost",
+                "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc29_vmp_corpses"
+              },
+              {
                 "description": "Winds of Magic power reserve minimum: +15\n\t(Lord's army)",
                 "key": "wh3_main_effect_winds_of_magic_pool_min",
                 "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
@@ -2567,12 +2665,11 @@
                 "description": "Campaign movement range: +5%",
                 "key": "wh_main_effect_agent_movement_range_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/campaign_movement"
-              },
-              {
-                "description": "Raise dead cost: -15%",
-                "key": "wh_main_effect_raise_dead_recruitment_cost_mod",
-                "icon": "vanilla3/campaign_ui/effect_bundles/treasury"
               }
+            ],
+            "related_unit_cards": [
+              "jbv_skeleton",
+              "jbv_zombie"
             ]
           }
         ],
