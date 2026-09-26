@@ -454,6 +454,51 @@
         ]
       },
       {
+        "key": "wh3_main_skill_node_all_army_of_renown_legendary_lord",
+        "image_path": "vanilla3/campaign_ui/skills/character_unit_capacity",
+        "character_skill_key": "wh3_main_skill_all_army_of_renown_legendary_lord",
+        "tier": 28,
+        "indent": 0,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Army of Renown",
+        "localised_description": "If their renown does them justice, they will be fit to serve one whose fame they will never outstrip.",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +2\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 10
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +4\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Regiments of Renown army capacity: +6\n\t(own army)",
+                "key": "wh3_main_effect_recruitment_cap_ror_units",
+                "icon": "vanilla3/campaign_ui/effect_bundles/unit_capacity"
+              }
+            ],
+            "auto_unlock_at_rank": 30
+          }
+        ]
+      },
+      {
         "key": "mixu_LL_all_mentor_lord",
         "image_path": "vanilla3/campaign_ui/skills/character_experience",
         "character_skill_key": "wh3_main_skill_all_mentor_lord",
@@ -531,9 +576,58 @@
           {
             "effects": [
               {
-                "description": "Increased chance of plague breaking out at the start of each turn.\n\t(Lord's army)",
-                "key": "mixu_LL_bst_slugtongue_plague_increase_dummy",
-                "icon": "vanilla3/campaign_ui/effect_bundles/disaster"
+                "description": "Passive ability: \"Life Leeching\"",
+                "key": "wh_main_effect_ability_enable_life-leeching",
+                "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+                "related_abilities": [
+                  {
+                    "effect": "wh_main_effect_ability_enable_life-leeching",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "wh_main_lore_passive_life_leeching",
+                      "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_life_leeching",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_augment_of_the_winds",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment_of_the_winds",
+                        "onscreen_name": "Augment of the Winds"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Life Leeching",
+                      "active_time": 25,
+                      "effect_range": 0,
+                      "target_enemies": false,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 0,
+                      "enabled_if": [
+                        "Casting"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh_dlc05_spell_trigger_when_casting",
+                          "localised_text": "Triggers when casting spell",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "vanilla3/battle_ui/ability_icons/wh_main_lore_passive_life_leeching",
+                          "order": 1,
+                          "target_enemies": false,
+                          "target_self": true,
+                          "target_friends": false,
+                          "duration": 25,
+                          "effect_type": "positive",
+                          "onscreen_name": "Life Leeching",
+                          "is_hidden_in_ui": false,
+                          "mana_max_depletion_mod": 0.1
+                        }
+                      ]
+                    }
+                  }
+                ]
               },
               {
                 "description": "Attribute: Vanguard Deployment",
@@ -583,6 +677,11 @@
                 "description": "Plague duration: +3 turns\n\t(local enemy region)",
                 "key": "mixu_LL_plague_lifetime_mod",
                 "icon": "vanilla3/campaign_ui/effect_bundles/plague"
+              },
+              {
+                "description": "Growth: -60\n\t(local enemy province)",
+                "key": "mixu_bst_slugtongue_province_growth_nurgle_corruption_enemy",
+                "icon": "vanilla3/campaign_ui/effect_bundles/growth"
               }
             ]
           }

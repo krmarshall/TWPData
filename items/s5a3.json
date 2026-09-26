@@ -7,14 +7,14 @@
     "unlocked_at_rank": 18,
     "effects": [
       {
+        "description": "Spell intensity: +10%",
+        "key": "wh3_main_effect_spell_mastery",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+      },
+      {
         "description": "Winds of Magic cost: -1 for Lore of Ice spells",
         "key": "stompies_effect_magic_artefact_cost_ice_lore",
         "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-      },
-      {
-        "description": "Winds of Magic power reserve capacity: +10",
-        "key": "wh3_main_effect_winds_of_magic_pool_cap",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
       }
     ],
     "item_set": {
@@ -1487,7 +1487,7 @@
               "effect_range": 0,
               "num_effected_enemy_units": 1,
               "num_uses": 3,
-              "recharge_time": 100,
+              "recharge_time": 76,
               "target_enemies": true,
               "target_friends": false,
               "target_ground": false,
@@ -9068,10 +9068,6 @@
         {
           "name": "Liber Lupus",
           "icon": "skins/default/equipment_items_enchanted"
-        },
-        {
-          "name": "Talisman of Ulric",
-          "icon": "skins/default/equipment_items_talisman"
         }
       ],
       "effects": [
@@ -20494,6 +20490,115 @@
     }
   },
   {
+    "key": "stompies_anc_enchanted_ice_dagger",
+    "onscreen_name": "Ice Dagger",
+    "colour_text": "Worn around the neck on a thick silver chain is a ceremonial dagger that is unnaturally cold to the touch. It's no mere weapon, but a sacred icon of Ulric's savagery, unleashing a piercing winter chill whenever the blade is drawn from its sheath.",
+    "ui_icon": "skins/default/equipment_items_enchanted",
+    "unlocked_at_rank": 14,
+    "effects": [
+      {
+        "description": "Bound spell: \"Death Frost\"",
+        "key": "stompies_effect_ability_bound_death_frost",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+        "related_abilities": [
+          {
+            "effect": "stompies_effect_ability_bound_death_frost",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "stompies_spell_bound_death_frost",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh3_main_spell_ice_death_frost",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_direct_damage",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_direct_damage",
+                "onscreen_name": "Direct Damage"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Death Frost",
+              "active_time": 20,
+              "effect_range": 0,
+              "num_effected_enemy_units": 1,
+              "num_uses": 3,
+              "recharge_time": 100,
+              "target_enemies": true,
+              "target_friends": false,
+              "target_ground": false,
+              "target_self": false,
+              "target_intercept_range": 300,
+              "wind_up_time": 3,
+              "ui_effects": [
+                {
+                  "key": "wh_main_all_direct_damage",
+                  "localised_text": "Causes damage to combatants",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "wh_dlc08_direct_damage_character_unit",
+                  "localised_text": "Strong vs characters",
+                  "effect_state": "positive"
+                }
+              ],
+              "phases": [
+                {
+                  "icon": "stompies_spell_bound_death_frost",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 20,
+                  "effect_type": "negative",
+                  "is_hidden_in_ui": false,
+                  "damage_amount": 67,
+                  "hp_change_frequency": 1,
+                  "max_damaged_entities": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "description": "Fervour: 10 per turn",
+        "key": "wh3_dlc29_effect_emp_fervour_gain_add",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wh3_dlc29_boris_fervour"
+      }
+    ],
+    "item_set": {
+      "key": "stompies_emil_valgeir",
+      "name": "Ward of the Great Wolf",
+      "description": "Empowered from sacred artefacts, Emil enacts a blessing to protect the Great Wolf's warriors.",
+      "contains": [
+        {
+          "name": "Ice Dagger",
+          "icon": "skins/default/equipment_items_enchanted"
+        },
+        {
+          "name": "Fang of the Winter Wolf",
+          "icon": "skins/default/equipment_items_talisman"
+        }
+      ],
+      "effects": [
+        {
+          "description": "Missile resistance: +10% for Cult of Ulric units\n\t(Hero's army)",
+          "key": "stompies_effect_missile_resist_ulric_units",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile",
+          "priority": 281
+        }
+      ]
+    },
+    "rarity": "Unique",
+    "category": "Enchanted Item",
+    "agent_subtypes": [
+      "Emil Valgeir"
+    ],
+    "available": {
+      "factions": {},
+      "subcultures": {},
+      "cultures": {},
+      "all": true
+    }
+  },
+  {
     "key": "stompies_anc_enchanted_iron_crown",
     "onscreen_name": "Iron Ring of Protection",
     "colour_text": "A heavy ring made from black iron and shaped as twisting dragon horns with a richly green emerald dominating the center. It is enchanted to make the wearer's skin as tough as refined iron.",
@@ -21061,9 +21166,9 @@
   {
     "key": "stompies_anc_enchanted_lupus",
     "onscreen_name": "Liber Lupus",
-    "colour_text": "Also known as the Teutonengeschichte, this tome contains holy texts of the Ulrican Cult. Ulric is a warrior god and gifts his followers with great strength.",
+    "colour_text": "Also known as the Teutonengeschichte, this tome contains holy texts of the Ulrican Cult. Ulric is a warrior god and those who follow the teachings found within this tome are granted great strength.",
     "ui_icon": "skins/default/equipment_items_enchanted",
-    "unlocked_at_rank": 18,
+    "unlocked_at_rank": 14,
     "effects": [
       {
         "description": "Immune to Snow attrition\n\t(Lord's army)",
@@ -21071,13 +21176,13 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/attrition"
       },
       {
-        "description": "Corruption: -1\n\t(local province)",
-        "key": "wh3_main_effect_corruption_reduction_characters",
-        "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
+        "description": "Weapon strength: +10%",
+        "key": "wh_main_effect_character_stat_weapon_strength",
+        "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
       },
       {
-        "description": "Base weapon damage: +5\n\t(Lord's army)",
-        "key": "wh2_main_effect_force_stat_weapon_strength_base",
+        "description": "Base weapon damage: +5 for Cult of Ulric units\n\t(Lord's army)",
+        "key": "stompies_effect_weapon_strength_base_ulric_units",
         "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_damage_base_force"
       }
     ],
@@ -21093,10 +21198,6 @@
         {
           "name": "Liber Lupus",
           "icon": "skins/default/equipment_items_enchanted"
-        },
-        {
-          "name": "Talisman of Ulric",
-          "icon": "skins/default/equipment_items_talisman"
         }
       ],
       "effects": [
@@ -37505,13 +37606,13 @@
   },
   {
     "key": "stompies_anc_talisman_ulric",
-    "onscreen_name": "Talisman of Ulric",
-    "colour_text": "This silver talisman has the shape of a wolf's head and is an ancient heirloom of the Todbringer family. Ulric is the imperial god of war, winter and wolves, and he protects those who battle in his name.",
+    "onscreen_name": "Fang of the Winter Wolf",
+    "colour_text": "A tooth taken from the largest wolf found in the Drakwald Forest during the winter equinox, which is also known as World Still. It was personally blessed by Emil through a holy ritual, and it instills a sense of supreme confidence.",
     "ui_icon": "skins/default/equipment_items_talisman",
-    "unlocked_at_rank": 14,
+    "unlocked_at_rank": 8,
     "effects": [
       {
-        "description": "Passive ability: \"Blessing of the Wolf\"",
+        "description": "Passive ability: \"Fang of the Winter Wolf\"",
         "key": "stompies_effect_ability_blessing_of_the_wolf",
         "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
         "related_abilities": [
@@ -37520,7 +37621,7 @@
             "bonus_value_id": "enable",
             "unit_ability": {
               "key": "stompies_ability_blessing_of_the_wolf",
-              "icon_name": "s5a3/battle_ui/ability_icons/stompies_ability_blessing_of_the_wolf",
+              "icon_name": "s5a3/battle_ui/ability_icons/stompies_ability_fang_of_the_winter_wolf",
               "overpower_option": "",
               "type": {
                 "key": "wh_type_augment",
@@ -37528,15 +37629,17 @@
                 "onscreen_name": "Augment"
               },
               "is_hidden_in_ui": false,
-              "onscreen_name": "Blessing of the Wolf",
+              "onscreen_name": "Fang of the Winter Wolf",
+              "active_time": 34,
               "effect_range": 0,
+              "recharge_time": 5,
               "target_enemies": false,
               "target_friends": false,
               "target_ground": false,
               "target_self": false,
               "target_intercept_range": 0,
               "enabled_if": [
-                "Leadership is higher than wavering"
+                "In melee"
               ],
               "phases": [
                 {
@@ -37545,23 +37648,23 @@
                   "target_enemies": false,
                   "target_self": true,
                   "target_friends": false,
-                  "duration": -1,
+                  "duration": 34,
                   "effect_type": "positive",
                   "is_hidden_in_ui": false,
                   "stat_effects": [
                     {
-                      "value": 1.1,
+                      "value": 1.25,
                       "stat": "stat_melee_damage_base",
                       "how": "mult",
-                      "description": "x1.1 Base Weapon Damage",
+                      "description": "x1.25 Base Weapon Damage",
                       "icon": "vanilla3/skins/default/icon_stat_damage_base"
                     },
                     {
-                      "value": 1.15,
-                      "stat": "stat_charge_bonus",
+                      "value": 1.25,
+                      "stat": "stat_melee_damage_ap",
                       "how": "mult",
-                      "description": "x1.15 Charge Bonus",
-                      "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                      "description": "x1.25 Armour-Piercing Weapon Damage",
+                      "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                     }
                   ]
                 }
@@ -37571,58 +37674,51 @@
         ]
       },
       {
-        "description": "Ward save: +15%",
-        "key": "wh_main_effect_character_stat_ward_save",
-        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
-      },
-      {
-        "description": "Corruption: -3\n\t(local province)",
+        "description": "Corruption: -4\n\t(local province)",
         "key": "wh3_main_effect_corruption_reduction_characters",
         "icon": "vanilla3/campaign_ui/effect_bundles/corruption"
       },
       {
-        "description": "Spell resistance: 15%",
-        "key": "wh_main_effect_character_stat_magic_resistance",
-        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+        "description": "Attribute: Unbreakable",
+        "key": "wh_main_effect_attribute_enable_unbreakable",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable",
+        "related_attributes": [
+          {
+            "key": "unbreakable",
+            "description": " Unbreakable",
+            "bullet_text": "This unit does not suffer any form of leadership loss and will never rout.",
+            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_unbreakable"
+          }
+        ]
       }
     ],
     "item_set": {
-      "key": "stompies_boris_todbringer",
-      "name": "Protecter of the Drakwald",
-      "description": "Drakwald Forest is infested with all manner of foul creatures. Raiders from the North, monsters and worshipers of the Ruinous Powers are about to be destroyed by a prepared Graf Boris.",
+      "key": "stompies_emil_valgeir",
+      "name": "Ward of the Great Wolf",
+      "description": "Empowered from sacred artefacts, Emil enacts a blessing to protect the Great Wolf's warriors.",
       "contains": [
         {
-          "name": "Dwarf Forged Plate Armour",
-          "icon": "skins/default/equipment_items_armour"
-        },
-        {
-          "name": "Liber Lupus",
+          "name": "Ice Dagger",
           "icon": "skins/default/equipment_items_enchanted"
         },
         {
-          "name": "Talisman of Ulric",
+          "name": "Fang of the Winter Wolf",
           "icon": "skins/default/equipment_items_talisman"
         }
       ],
       "effects": [
         {
-          "description": "Leadership: +10 when fighting against Beastmen, Warriors of Chaos, Daemons and Norsca\n\t(Lord's army)",
-          "key": "stompies_effect_leadership_vs_beast_chaos_daemons_norsca",
-          "icon": "vanilla3/campaign_ui/effect_bundles/morale",
-          "priority": 410
-        },
-        {
-          "description": "Melee attack: +5 when fighting against Beastmen, Warriors of Chaos, Daemons and Norsca\n\t(Lord's army)",
-          "key": "stompies_effect_melee_attack_vs_beast_chaos_daemons_norsca",
-          "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-          "priority": 431
+          "description": "Missile resistance: +10% for Cult of Ulric units\n\t(Hero's army)",
+          "key": "stompies_effect_missile_resist_ulric_units",
+          "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile",
+          "priority": 281
         }
       ]
     },
     "rarity": "Unique",
     "category": "Talisman",
     "agent_subtypes": [
-      "Boris Todbringer"
+      "Emil Valgeir"
     ],
     "available": {
       "factions": {},
