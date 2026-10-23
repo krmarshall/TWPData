@@ -6,7 +6,7 @@
         "key": "hkrul_skill_node_zach_unique_01",
         "image_path": "vanilla3/campaign_ui/skills/mount_zombie_dragon",
         "character_skill_key": "hkrul_zach_dragon",
-        "tier": 0,
+        "tier": 2,
         "indent": 0,
         "points_on_creation": 0,
         "required_num_parents": 0,
@@ -1343,8 +1343,8 @@
                 ]
               },
               {
-                "description": "Melee attack: +5 for Grave Guard units\n\t(Lord's army)",
-                "key": "rhox_zach_grave_guard_melee_attack",
+                "description": "Melee attack: +10 for Frederik van Hal\n\t(Lord's army)",
+                "key": "hkrul_zach_frederik_melee_attack",
                 "icon": "vanilla3/campaign_ui/effect_bundles/melee"
               },
               {
@@ -1355,6 +1355,7 @@
             ],
             "unlocked_at_rank": 10,
             "related_unit_cards": [
+              "hkrul_lccp_vmp_giant",
               "jiang_grave_guard_halberd",
               "jiang_grave_guard_crossbow",
               "jiang_grave_guard_crossbow_balefireshaft",
@@ -1422,6 +1423,11 @@
           {
             "effects": [
               {
+                "description": "Melee defence: +10 for Frederik van Hal\n\t(Lord's army)",
+                "key": "hkrul_zach_frederik_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence"
+              },
+              {
                 "description": "Attributes: Mastery of the Elemental Winds to Zacharias and Necromancer characters\n\t(Lord's army)",
                 "key": "rhox_zach_effect_unit_enable_spell_mastery_necromancer",
                 "icon": "vanilla3/campaign_ui/effect_bundles/attribute_mastery_of_elemental_winds",
@@ -1434,6 +1440,9 @@
                   }
                 ]
               }
+            ],
+            "related_unit_cards": [
+              "hkrul_lccp_vmp_giant"
             ]
           }
         ],
@@ -1457,6 +1466,69 @@
         "levels": [
           {
             "effects": [
+              {
+                "description": "Ability: ''Pall of Mortis''",
+                "key": "hkrul_zach_mortis",
+                "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+                "related_abilities": [
+                  {
+                    "effect": "hkrul_zach_mortis",
+                    "bonus_value_id": "enable",
+                    "unit_ability": {
+                      "key": "hkrul_zach_mortis",
+                      "icon_name": "scm3/battle_ui/ability_icons/hkrul_zach_mortis",
+                      "overpower_option": "",
+                      "type": {
+                        "key": "wh_type_area_of_hexes",
+                        "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                        "onscreen_name": "Hex (Area)"
+                      },
+                      "is_hidden_in_ui": false,
+                      "onscreen_name": "Pall of Mortis",
+                      "effect_range": 35,
+                      "target_enemies": true,
+                      "target_friends": false,
+                      "target_ground": false,
+                      "target_self": false,
+                      "target_intercept_range": 35,
+                      "target_if": [
+                        "Living",
+                        "Unit is not Daemonic"
+                      ],
+                      "ui_effects": [
+                        {
+                          "key": "wh3_dlc23_ability_intensity_enemies_in_range",
+                          "localised_text": "Effect intensity increases with each enemy entity in range",
+                          "effect_state": "positive"
+                        }
+                      ],
+                      "phases": [
+                        {
+                          "icon": "scm3/battle_ui/ability_icons/hkrul_zach_mortis",
+                          "order": 1,
+                          "target_enemies": true,
+                          "target_self": false,
+                          "target_friends": false,
+                          "duration": -1,
+                          "effect_type": "negative",
+                          "onscreen_name": "Pall of Mortis",
+                          "is_hidden_in_ui": false,
+                          "fatigue_change_ratio": 0.02,
+                          "stat_effects": [
+                            {
+                              "value": -8,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-8 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
               {
                 "description": "Spell resistance: -25%\n\t(enemy armies in local province)",
                 "key": "wh_main_effect_force_stat_magic_resistance_bad",
@@ -5044,12 +5116,12 @@
       "unlocked_at_rank": 9,
       "effects": [
         {
-          "description": "Melee Attack: +15 for Skeleton infantry units",
+          "description": "Melee Attack: +10 for Skeleton infantry units",
           "key": "hkrul_zach_skeleton_ma",
           "icon": "vanilla3/campaign_ui/effect_bundles/melee"
         },
         {
-          "description": "Melee Defence: +15 for Skeleton infantry units",
+          "description": "Melee Defence: +10 for Skeleton infantry units",
           "key": "hkrul_zach_skeleton_md",
           "icon": "vanilla3/campaign_ui/effect_bundles/defence"
         }
@@ -5074,9 +5146,9 @@
       "unlocked_at_rank": 11,
       "effects": [
         {
-          "description": "Hit points: +15%\n\t(assigned unit)",
-          "key": "wh_main_effect_character_stat_unit_health",
-          "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+          "description": "Armour: +15\n\t(assigned unit)",
+          "key": "wh_main_effect_character_stat_armour",
+          "icon": "scm3/campaign_ui/effect_bundles/armour_character"
         },
         {
           "description": "Missile resistance: 20%\n\t(assigned unit)",
@@ -5093,12 +5165,17 @@
       "unlocked_at_rank": 14,
       "effects": [
         {
+          "description": "Income from post-battle loot: +15%",
+          "key": "wh_main_effect_force_all_campaign_post_battle_loot_mod",
+          "icon": "vanilla3/campaign_ui/effect_bundles/income"
+        },
+        {
           "description": "Spell resistance: 15%",
           "key": "wh_main_effect_character_stat_magic_resistance",
           "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
         },
         {
-          "description": "Ability: \"Circlet of Rathek''",
+          "description": "Ability: ''Circlet of Rathek''",
           "key": "hkrul_zach_circlet",
           "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
           "related_abilities": [
@@ -5121,7 +5198,7 @@
                 "target_friends": false,
                 "target_ground": false,
                 "target_self": false,
-                "target_intercept_range": 0,
+                "target_intercept_range": 35,
                 "ui_effects": [
                   {
                     "key": "wh3_dlc20_ability_intensity_nearby_deaths",
@@ -5138,21 +5215,29 @@
                     "target_friends": false,
                     "duration": -1,
                     "effect_type": "positive",
+                    "onscreen_name": "Circlet of Rathek",
                     "is_hidden_in_ui": false,
                     "stat_effects": [
                       {
-                        "value": 15,
-                        "stat": "stat_damage_reflection",
-                        "how": "add",
-                        "description": "+15 Melee Damage Reflection",
-                        "icon": "vanilla3/skins/default/icon_stat_damage_reflection"
+                        "value": 1.15,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x1.15 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
                       },
                       {
-                        "value": 1.25,
-                        "stat": "stat_resistance_all",
+                        "value": 1.3,
+                        "stat": "stat_healing_power",
                         "how": "mult",
-                        "description": "x1.25 Damage Resistance ",
-                        "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                        "description": "x1.3 Incoming Healing Modifier",
+                        "icon": "vanilla3/skins/default/stat_healing_received"
+                      },
+                      {
+                        "value": 1.15,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x1.15 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
                       }
                     ]
                   }
@@ -5186,11 +5271,6 @@
               "icon": ""
             },
             {
-              "description": "Wound recovery time: -2 turns",
-              "key": "wh_main_effect_character_wound_recovery_time_mod",
-              "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
-            },
-            {
               "description": "Cooldown: -15% to \"Spirit Leech\"",
               "key": "wh_main_effect_ability_cooldown_spirit_leech",
               "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown"
@@ -5205,7 +5285,7 @@
                   "bonus_value_id": "enable",
                   "unit_ability": {
                     "key": "hkrul_zach_heart",
-                    "icon_name": "scm3/battle_ui/ability_icons/hkrul_zach_body",
+                    "icon_name": "scm3/battle_ui/ability_icons/hkrul_zach_drain",
                     "overpower_option": "",
                     "type": {
                       "key": "wh_type_direct_damage",
@@ -5233,8 +5313,9 @@
                         "target_enemies": true,
                         "target_self": false,
                         "target_friends": false,
-                        "duration": 20,
+                        "duration": 18,
                         "effect_type": "negative",
+                        "onscreen_name": "Sycophant of Life",
                         "is_hidden_in_ui": false,
                         "damage_amount": 170,
                         "hp_change_frequency": 2,
@@ -5244,7 +5325,27 @@
                   }
                 }
               ]
+            },
+            {
+              "description": "Melee attack: +6 for Grave Guard units\n\t(Lord's army)",
+              "key": "rhox_zach_grave_guard_melee_attack",
+              "icon": "vanilla3/campaign_ui/effect_bundles/melee"
             }
+          ],
+          "related_unit_cards": [
+            "jiang_grave_guard_halberd",
+            "jiang_grave_guard_crossbow",
+            "jiang_grave_guard_crossbow_balefireshaft",
+            "cth_grave_guard",
+            "cth_grave_guard_great_weapons",
+            "cth_skeleton",
+            "jbv_skeleton_spear",
+            "jbv_warriors_0",
+            "jbv_warriors_1",
+            "jbv_youxia",
+            "jbv_youxia_guandao",
+            "drakenhof_sword_shield_dismounted",
+            "drakenhof_swordmasters"
           ]
         }
       ]

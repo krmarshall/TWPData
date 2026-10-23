@@ -25,10 +25,10 @@
             ],
             "mount_unit_stats": {
               "run_speed": 5.8,
-              "mass": 7500,
+              "mass": 7800,
               "size": "very_large",
-              "hit_points": 8,
-              "bonus_hit_points": 10584,
+              "hit_points": 10,
+              "bonus_hit_points": 12990,
               "armour": 94,
               "missile_block_chance": 0,
               "morale": 80,
@@ -37,18 +37,38 @@
               "damage_mod_physical": 0,
               "damage_mod_missile": 15,
               "damage_mod_all": 0,
-              "melee_attack": 66,
-              "melee_defence": 38,
-              "charge_bonus": 56,
-              "bonus_v_large": 15,
+              "melee_attack": 67,
+              "melee_defence": 48,
+              "charge_bonus": 64,
+              "bonus_v_large": 20,
               "bonus_v_infantry": 0,
-              "damage": 170,
-              "ap_damage": 370,
+              "damage": 180,
+              "ap_damage": 380,
               "splash_target_size_limit": "large",
               "splash_attack_max_attacks": 6,
               "melee_attack_interval": 4.2,
               "can_siege": true,
               "is_magical": true,
+              "attributes": [
+                {
+                  "key": "causes_fear",
+                  "description": " Can Cause Fear",
+                  "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+                },
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                },
+                {
+                  "key": "encourages",
+                  "description": "Encourage",
+                  "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
+                }
+              ],
               "abilities": [
                 {
                   "unit_ability": {
@@ -81,7 +101,16 @@
                         "duration": -1,
                         "effect_type": "negative",
                         "is_hidden_in_ui": false,
-                        "fatigue_change_ratio": 0.01
+                        "fatigue_change_ratio": 0.01,
+                        "stat_effects": [
+                          {
+                            "value": -8,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "-8 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -120,7 +149,16 @@
                         "target_friends": false,
                         "duration": -1,
                         "effect_type": "positive",
-                        "is_hidden_in_ui": false
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 10,
+                            "stat": "stat_resistance_all",
+                            "how": "add",
+                            "description": "+10 Damage Resistance ",
+                            "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -499,7 +537,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Glory Seeker",
-                      "active_time": 24,
+                      "active_time": 30,
                       "effect_range": 0,
                       "num_effected_enemy_units": 1,
                       "recharge_time": 120,
@@ -518,10 +556,26 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 24,
+                          "duration": 30,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "cant_move": true
+                          "cant_move": true,
+                          "stat_effects": [
+                            {
+                              "value": 0,
+                              "stat": "stat_healing_power",
+                              "how": "mult",
+                              "description": "x0 Incoming Healing Modifier",
+                              "icon": "vanilla3/skins/default/stat_healing_received"
+                            },
+                            {
+                              "value": -20,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-20 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -733,6 +787,14 @@
               "wh3_dlc27_nor_inf_marauder_bearmen_greatweapons",
               "wh_main_chs_trolls",
               "wh_dlc01_chs_trolls_mace",
+              "wh3_dlc29_chs_mon_chaos_siege_giant",
+              "wh3_dlc29_chs_inf_chosen_mnur_ror",
+              "wh3_dlc29_chs_inf_flayerkin",
+              "wh3_dlc29_chs_inf_putrid_blightkings_axe_shield",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe_ror",
+              "wh3_dlc29_chs_inf_putrid_blightkings_great_weapons",
+              "wh3_dlc29_chs_mon_basilisk",
               "wh3_main_kho_gorebeast_chariot",
               "wh3_main_kho_cav_skullcrushers_0",
               "wh3_main_kho_inf_chaos_warhounds_0",
@@ -767,7 +829,122 @@
               "wh_pro04_chs_ror_forsaken",
               "wh_pro04_chs_ror_spawn",
               "wh_pro04_chs_ror_dragon_ogre",
-              "wh_pro04_nor_ror_marauder_berserkers"
+              "wh_pro04_nor_ror_marauder_berserkers",
+              "wh3_nurgle_warriors_shield",
+              "wh3_nurgle_warriors_scythe",
+              "wh3_nurgle_warriors_great",
+              "wh3_nurgle_forsa",
+              "wh3_nurgle_pestigor_heavy",
+              "wh3_nurgle_pestigor",
+              "wh3_nurgle_mar_shield",
+              "wh3_nurgle_mar_heavy",
+              "wh3_nurgle_mar_dual",
+              "wh3_nurgle_mar_spear",
+              "wh3_nurgle_infected_shield",
+              "wh3_nurgle_infected_heavy",
+              "wh3_nurgle_infected_dual",
+              "wh3_nurgle_infected_spear",
+              "wh3_nurgle_champions_shield",
+              "wh3_nurgle_champions_heavy",
+              "wh3_nurgle_champions_halb",
+              "wh3_nurgle_knight_sword",
+              "wh3_nurgle_knight_lance",
+              "wh3_nurgle_chosen_shield",
+              "wh3_nurgle_chosen_heavy",
+              "wh3_nurgle_chosen_halb",
+              "wh3_nurgle_chosen_knight_lance",
+              "wh3_nurgle_chosen_knight_sword",
+              "wh3_nurgle_ogre_great",
+              "wh3_nurgle_ogre_dual",
+              "wh3_nurgle_ogre_great_top",
+              "wh3_nurgle_ogre_dual_top",
+              "wh3_khorne_mar_dual",
+              "wh3_khorne_mar_spear",
+              "wh3_khorne_mar_shield",
+              "wh3_khorne_mar_axes",
+              "wh3_khorne_mar_cav",
+              "wh3_khorne_berse_dual",
+              "wh3_khorne_berse_shield",
+              "wh3_khorne_berse_great",
+              "wh3_khorne_champ_shield",
+              "wh3_khorne_champ_halber",
+              "wh3_khorne_knight_sword",
+              "wh3_khorne_knight_lance",
+              "wh3_khorne_chosen_shield",
+              "wh3_khorne_chosen_halber",
+              "wh3_khorne_chosen_heavy",
+              "wh3_khorne_blood_axe",
+              "wh3_khorne_blood_lance",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_khorne_troll",
+              "wh3_khorne_khorngor_shield",
+              "wh3_khorne_khorngor",
+              "wh3_khorne_champ_dual",
+              "wh3_khorne_mammoth",
+              "wh3_slaanesh_mar_great",
+              "wh3_slaanesh_mar_jav",
+              "wh3_slaanesh_mar_horse",
+              "wh3_slaanesh_serva_shield",
+              "wh3_slaanesh_serva_dual",
+              "wh3_slaanesh_serva_spear",
+              "wh3_slaanesh_serva_missile",
+              "wh3_slaanesh_warri_shield",
+              "wh3_slaanesh_warri_halberd",
+              "wh3_slaanesh_warri_great",
+              "wh3_slaanesh_serva_cav",
+              "wh3_slaanesh_knight_sword",
+              "wh3_slaanesh_knight_lance",
+              "wh3_slaanesh_torment_sword",
+              "wh3_slaanesh_torment_lances",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_dragonogre",
+              "wh3_slaanesh_slaangor",
+              "wh3_slaanesh_slaangor_jav",
+              "wh3_tzeentch_mar_shield",
+              "wh3_tzeentch_mar_heavy",
+              "wh3_tzeentch_mar_dual",
+              "wh3_tzeentch_mar_spear",
+              "wh3_tzeentch_mar_cav",
+              "wh3_tzeentch_initi_shield",
+              "wh3_tzeentch_initi_heavy",
+              "wh3_tzeentch_initi_halb",
+              "wh3_tzeentch_initi_dual",
+              "wh3_tzeentch_initi_cav",
+              "wh3_tzeentch_knight_lance",
+              "wh3_tzeentch_forsa",
+              "wh3_tzeentch_chosen_knight_lance",
+              "wh3_tzeentch_chosen_knight_sword",
+              "wh3_tzeentch_warriors_shield",
+              "wh3_tzeentch_warriors_halb",
+              "wh3_tzeentch_warriors_great",
+              "wh3_tzeentch_champions_shield",
+              "wh3_tzeentch_champions_heavy",
+              "wh3_tzeentch_champions_glaive",
+              "wh3_tzeentch_chosen_shield",
+              "wh3_tzeentch_chosen_heavy",
+              "wh3_tzeentch_chosen_halb",
+              "wh3_tzeentch_tzangor_heavy",
+              "wh3_tzeentch_tzangor",
+              "wh_chs_kurgan_archer",
+              "wh_chs_kurgan_horse",
+              "wh_chs_mar_dual",
+              "wh_chs_war_dual",
+              "wh_chs_war_cav",
+              "wh_chs_chosen_cav_sword",
+              "wh_chs_chosen_cav_lance",
+              "wh_chs_chosen_heavy",
+              "wh_chs_champion_halb",
+              "wh_chs_champion_heavy",
+              "wh_chs_marauder_spear",
+              "wh_chs_kurgan_dual",
+              "wh_chs_kurgan_great",
+              "wh_chs_kurgan_spear"
             ]
           }
         ],
@@ -905,7 +1082,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Glory Seeker Upgraded",
-                      "active_time": 36,
+                      "active_time": 40,
                       "effect_range": 0,
                       "num_effected_enemy_units": 1,
                       "recharge_time": 120,
@@ -924,10 +1101,26 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 36,
+                          "duration": 40,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "cant_move": true,
+                          "stat_effects": [
+                            {
+                              "value": 0,
+                              "stat": "stat_healing_power",
+                              "how": "mult",
+                              "description": "x0 Incoming Healing Modifier",
+                              "icon": "vanilla3/skins/default/stat_healing_received"
+                            },
+                            {
+                              "value": -30,
+                              "stat": "stat_melee_defence",
+                              "how": "add",
+                              "description": "-30 Melee Defence",
+                              "icon": "vanilla3/skins/default/icon_stat_defence"
+                            }
+                          ],
                           "attributes": [
                             {
                               "key": "charge_defense",
@@ -1026,7 +1219,16 @@
                           "duration": -1,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
-                          "fatigue_change_ratio": 0.01
+                          "fatigue_change_ratio": 0.01,
+                          "stat_effects": [
+                            {
+                              "value": -8,
+                              "stat": "stat_melee_attack",
+                              "how": "add",
+                              "description": "-8 Melee Attack",
+                              "icon": "vanilla3/skins/default/icon_stat_attack"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -1131,6 +1333,14 @@
               "wh3_dlc27_nor_inf_marauder_bearmen_greatweapons",
               "wh_main_chs_trolls",
               "wh_dlc01_chs_trolls_mace",
+              "wh3_dlc29_chs_mon_chaos_siege_giant",
+              "wh3_dlc29_chs_inf_chosen_mnur_ror",
+              "wh3_dlc29_chs_inf_flayerkin",
+              "wh3_dlc29_chs_inf_putrid_blightkings_axe_shield",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe_ror",
+              "wh3_dlc29_chs_inf_putrid_blightkings_great_weapons",
+              "wh3_dlc29_chs_mon_basilisk",
               "wh3_main_kho_gorebeast_chariot",
               "wh3_main_kho_cav_skullcrushers_0",
               "wh3_main_kho_inf_chaos_warhounds_0",
@@ -1165,7 +1375,122 @@
               "wh_pro04_chs_ror_forsaken",
               "wh_pro04_chs_ror_spawn",
               "wh_pro04_chs_ror_dragon_ogre",
-              "wh_pro04_nor_ror_marauder_berserkers"
+              "wh_pro04_nor_ror_marauder_berserkers",
+              "wh3_nurgle_warriors_shield",
+              "wh3_nurgle_warriors_scythe",
+              "wh3_nurgle_warriors_great",
+              "wh3_nurgle_forsa",
+              "wh3_nurgle_pestigor_heavy",
+              "wh3_nurgle_pestigor",
+              "wh3_nurgle_mar_shield",
+              "wh3_nurgle_mar_heavy",
+              "wh3_nurgle_mar_dual",
+              "wh3_nurgle_mar_spear",
+              "wh3_nurgle_infected_shield",
+              "wh3_nurgle_infected_heavy",
+              "wh3_nurgle_infected_dual",
+              "wh3_nurgle_infected_spear",
+              "wh3_nurgle_champions_shield",
+              "wh3_nurgle_champions_heavy",
+              "wh3_nurgle_champions_halb",
+              "wh3_nurgle_knight_sword",
+              "wh3_nurgle_knight_lance",
+              "wh3_nurgle_chosen_shield",
+              "wh3_nurgle_chosen_heavy",
+              "wh3_nurgle_chosen_halb",
+              "wh3_nurgle_chosen_knight_lance",
+              "wh3_nurgle_chosen_knight_sword",
+              "wh3_nurgle_ogre_great",
+              "wh3_nurgle_ogre_dual",
+              "wh3_nurgle_ogre_great_top",
+              "wh3_nurgle_ogre_dual_top",
+              "wh3_khorne_mar_dual",
+              "wh3_khorne_mar_spear",
+              "wh3_khorne_mar_shield",
+              "wh3_khorne_mar_axes",
+              "wh3_khorne_mar_cav",
+              "wh3_khorne_berse_dual",
+              "wh3_khorne_berse_shield",
+              "wh3_khorne_berse_great",
+              "wh3_khorne_champ_shield",
+              "wh3_khorne_champ_halber",
+              "wh3_khorne_knight_sword",
+              "wh3_khorne_knight_lance",
+              "wh3_khorne_chosen_shield",
+              "wh3_khorne_chosen_halber",
+              "wh3_khorne_chosen_heavy",
+              "wh3_khorne_blood_axe",
+              "wh3_khorne_blood_lance",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_khorne_troll",
+              "wh3_khorne_khorngor_shield",
+              "wh3_khorne_khorngor",
+              "wh3_khorne_champ_dual",
+              "wh3_khorne_mammoth",
+              "wh3_slaanesh_mar_great",
+              "wh3_slaanesh_mar_jav",
+              "wh3_slaanesh_mar_horse",
+              "wh3_slaanesh_serva_shield",
+              "wh3_slaanesh_serva_dual",
+              "wh3_slaanesh_serva_spear",
+              "wh3_slaanesh_serva_missile",
+              "wh3_slaanesh_warri_shield",
+              "wh3_slaanesh_warri_halberd",
+              "wh3_slaanesh_warri_great",
+              "wh3_slaanesh_serva_cav",
+              "wh3_slaanesh_knight_sword",
+              "wh3_slaanesh_knight_lance",
+              "wh3_slaanesh_torment_sword",
+              "wh3_slaanesh_torment_lances",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_dragonogre",
+              "wh3_slaanesh_slaangor",
+              "wh3_slaanesh_slaangor_jav",
+              "wh3_tzeentch_mar_shield",
+              "wh3_tzeentch_mar_heavy",
+              "wh3_tzeentch_mar_dual",
+              "wh3_tzeentch_mar_spear",
+              "wh3_tzeentch_mar_cav",
+              "wh3_tzeentch_initi_shield",
+              "wh3_tzeentch_initi_heavy",
+              "wh3_tzeentch_initi_halb",
+              "wh3_tzeentch_initi_dual",
+              "wh3_tzeentch_initi_cav",
+              "wh3_tzeentch_knight_lance",
+              "wh3_tzeentch_forsa",
+              "wh3_tzeentch_chosen_knight_lance",
+              "wh3_tzeentch_chosen_knight_sword",
+              "wh3_tzeentch_warriors_shield",
+              "wh3_tzeentch_warriors_halb",
+              "wh3_tzeentch_warriors_great",
+              "wh3_tzeentch_champions_shield",
+              "wh3_tzeentch_champions_heavy",
+              "wh3_tzeentch_champions_glaive",
+              "wh3_tzeentch_chosen_shield",
+              "wh3_tzeentch_chosen_heavy",
+              "wh3_tzeentch_chosen_halb",
+              "wh3_tzeentch_tzangor_heavy",
+              "wh3_tzeentch_tzangor",
+              "wh_chs_kurgan_archer",
+              "wh_chs_kurgan_horse",
+              "wh_chs_mar_dual",
+              "wh_chs_war_dual",
+              "wh_chs_war_cav",
+              "wh_chs_chosen_cav_sword",
+              "wh_chs_chosen_cav_lance",
+              "wh_chs_chosen_heavy",
+              "wh_chs_champion_halb",
+              "wh_chs_champion_heavy",
+              "wh_chs_marauder_spear",
+              "wh_chs_kurgan_dual",
+              "wh_chs_kurgan_great",
+              "wh_chs_kurgan_spear"
             ]
           },
           {
@@ -1242,6 +1567,14 @@
               "wh3_dlc27_nor_inf_marauder_bearmen_greatweapons",
               "wh_main_chs_trolls",
               "wh_dlc01_chs_trolls_mace",
+              "wh3_dlc29_chs_mon_chaos_siege_giant",
+              "wh3_dlc29_chs_inf_chosen_mnur_ror",
+              "wh3_dlc29_chs_inf_flayerkin",
+              "wh3_dlc29_chs_inf_putrid_blightkings_axe_shield",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe_ror",
+              "wh3_dlc29_chs_inf_putrid_blightkings_great_weapons",
+              "wh3_dlc29_chs_mon_basilisk",
               "wh3_main_kho_gorebeast_chariot",
               "wh3_main_kho_cav_skullcrushers_0",
               "wh3_main_kho_inf_chaos_warhounds_0",
@@ -1276,7 +1609,122 @@
               "wh_pro04_chs_ror_forsaken",
               "wh_pro04_chs_ror_spawn",
               "wh_pro04_chs_ror_dragon_ogre",
-              "wh_pro04_nor_ror_marauder_berserkers"
+              "wh_pro04_nor_ror_marauder_berserkers",
+              "wh3_nurgle_warriors_shield",
+              "wh3_nurgle_warriors_scythe",
+              "wh3_nurgle_warriors_great",
+              "wh3_nurgle_forsa",
+              "wh3_nurgle_pestigor_heavy",
+              "wh3_nurgle_pestigor",
+              "wh3_nurgle_mar_shield",
+              "wh3_nurgle_mar_heavy",
+              "wh3_nurgle_mar_dual",
+              "wh3_nurgle_mar_spear",
+              "wh3_nurgle_infected_shield",
+              "wh3_nurgle_infected_heavy",
+              "wh3_nurgle_infected_dual",
+              "wh3_nurgle_infected_spear",
+              "wh3_nurgle_champions_shield",
+              "wh3_nurgle_champions_heavy",
+              "wh3_nurgle_champions_halb",
+              "wh3_nurgle_knight_sword",
+              "wh3_nurgle_knight_lance",
+              "wh3_nurgle_chosen_shield",
+              "wh3_nurgle_chosen_heavy",
+              "wh3_nurgle_chosen_halb",
+              "wh3_nurgle_chosen_knight_lance",
+              "wh3_nurgle_chosen_knight_sword",
+              "wh3_nurgle_ogre_great",
+              "wh3_nurgle_ogre_dual",
+              "wh3_nurgle_ogre_great_top",
+              "wh3_nurgle_ogre_dual_top",
+              "wh3_khorne_mar_dual",
+              "wh3_khorne_mar_spear",
+              "wh3_khorne_mar_shield",
+              "wh3_khorne_mar_axes",
+              "wh3_khorne_mar_cav",
+              "wh3_khorne_berse_dual",
+              "wh3_khorne_berse_shield",
+              "wh3_khorne_berse_great",
+              "wh3_khorne_champ_shield",
+              "wh3_khorne_champ_halber",
+              "wh3_khorne_knight_sword",
+              "wh3_khorne_knight_lance",
+              "wh3_khorne_chosen_shield",
+              "wh3_khorne_chosen_halber",
+              "wh3_khorne_chosen_heavy",
+              "wh3_khorne_blood_axe",
+              "wh3_khorne_blood_lance",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_khorne_troll",
+              "wh3_khorne_khorngor_shield",
+              "wh3_khorne_khorngor",
+              "wh3_khorne_champ_dual",
+              "wh3_khorne_mammoth",
+              "wh3_slaanesh_mar_great",
+              "wh3_slaanesh_mar_jav",
+              "wh3_slaanesh_mar_horse",
+              "wh3_slaanesh_serva_shield",
+              "wh3_slaanesh_serva_dual",
+              "wh3_slaanesh_serva_spear",
+              "wh3_slaanesh_serva_missile",
+              "wh3_slaanesh_warri_shield",
+              "wh3_slaanesh_warri_halberd",
+              "wh3_slaanesh_warri_great",
+              "wh3_slaanesh_serva_cav",
+              "wh3_slaanesh_knight_sword",
+              "wh3_slaanesh_knight_lance",
+              "wh3_slaanesh_torment_sword",
+              "wh3_slaanesh_torment_lances",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_dragonogre",
+              "wh3_slaanesh_slaangor",
+              "wh3_slaanesh_slaangor_jav",
+              "wh3_tzeentch_mar_shield",
+              "wh3_tzeentch_mar_heavy",
+              "wh3_tzeentch_mar_dual",
+              "wh3_tzeentch_mar_spear",
+              "wh3_tzeentch_mar_cav",
+              "wh3_tzeentch_initi_shield",
+              "wh3_tzeentch_initi_heavy",
+              "wh3_tzeentch_initi_halb",
+              "wh3_tzeentch_initi_dual",
+              "wh3_tzeentch_initi_cav",
+              "wh3_tzeentch_knight_lance",
+              "wh3_tzeentch_forsa",
+              "wh3_tzeentch_chosen_knight_lance",
+              "wh3_tzeentch_chosen_knight_sword",
+              "wh3_tzeentch_warriors_shield",
+              "wh3_tzeentch_warriors_halb",
+              "wh3_tzeentch_warriors_great",
+              "wh3_tzeentch_champions_shield",
+              "wh3_tzeentch_champions_heavy",
+              "wh3_tzeentch_champions_glaive",
+              "wh3_tzeentch_chosen_shield",
+              "wh3_tzeentch_chosen_heavy",
+              "wh3_tzeentch_chosen_halb",
+              "wh3_tzeentch_tzangor_heavy",
+              "wh3_tzeentch_tzangor",
+              "wh_chs_kurgan_archer",
+              "wh_chs_kurgan_horse",
+              "wh_chs_mar_dual",
+              "wh_chs_war_dual",
+              "wh_chs_war_cav",
+              "wh_chs_chosen_cav_sword",
+              "wh_chs_chosen_cav_lance",
+              "wh_chs_chosen_heavy",
+              "wh_chs_champion_halb",
+              "wh_chs_champion_heavy",
+              "wh_chs_marauder_spear",
+              "wh_chs_kurgan_dual",
+              "wh_chs_kurgan_great",
+              "wh_chs_kurgan_spear"
             ]
           }
         ],
@@ -1372,6 +1820,14 @@
               "wh3_dlc27_nor_inf_marauder_bearmen_greatweapons",
               "wh_main_chs_trolls",
               "wh_dlc01_chs_trolls_mace",
+              "wh3_dlc29_chs_mon_chaos_siege_giant",
+              "wh3_dlc29_chs_inf_chosen_mnur_ror",
+              "wh3_dlc29_chs_inf_flayerkin",
+              "wh3_dlc29_chs_inf_putrid_blightkings_axe_shield",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe_ror",
+              "wh3_dlc29_chs_inf_putrid_blightkings_great_weapons",
+              "wh3_dlc29_chs_mon_basilisk",
               "wh3_main_kho_gorebeast_chariot",
               "wh3_main_kho_cav_skullcrushers_0",
               "wh3_main_kho_inf_chaos_warhounds_0",
@@ -1406,7 +1862,122 @@
               "wh_pro04_chs_ror_forsaken",
               "wh_pro04_chs_ror_spawn",
               "wh_pro04_chs_ror_dragon_ogre",
-              "wh_pro04_nor_ror_marauder_berserkers"
+              "wh_pro04_nor_ror_marauder_berserkers",
+              "wh3_nurgle_warriors_shield",
+              "wh3_nurgle_warriors_scythe",
+              "wh3_nurgle_warriors_great",
+              "wh3_nurgle_forsa",
+              "wh3_nurgle_pestigor_heavy",
+              "wh3_nurgle_pestigor",
+              "wh3_nurgle_mar_shield",
+              "wh3_nurgle_mar_heavy",
+              "wh3_nurgle_mar_dual",
+              "wh3_nurgle_mar_spear",
+              "wh3_nurgle_infected_shield",
+              "wh3_nurgle_infected_heavy",
+              "wh3_nurgle_infected_dual",
+              "wh3_nurgle_infected_spear",
+              "wh3_nurgle_champions_shield",
+              "wh3_nurgle_champions_heavy",
+              "wh3_nurgle_champions_halb",
+              "wh3_nurgle_knight_sword",
+              "wh3_nurgle_knight_lance",
+              "wh3_nurgle_chosen_shield",
+              "wh3_nurgle_chosen_heavy",
+              "wh3_nurgle_chosen_halb",
+              "wh3_nurgle_chosen_knight_lance",
+              "wh3_nurgle_chosen_knight_sword",
+              "wh3_nurgle_ogre_great",
+              "wh3_nurgle_ogre_dual",
+              "wh3_nurgle_ogre_great_top",
+              "wh3_nurgle_ogre_dual_top",
+              "wh3_khorne_mar_dual",
+              "wh3_khorne_mar_spear",
+              "wh3_khorne_mar_shield",
+              "wh3_khorne_mar_axes",
+              "wh3_khorne_mar_cav",
+              "wh3_khorne_berse_dual",
+              "wh3_khorne_berse_shield",
+              "wh3_khorne_berse_great",
+              "wh3_khorne_champ_shield",
+              "wh3_khorne_champ_halber",
+              "wh3_khorne_knight_sword",
+              "wh3_khorne_knight_lance",
+              "wh3_khorne_chosen_shield",
+              "wh3_khorne_chosen_halber",
+              "wh3_khorne_chosen_heavy",
+              "wh3_khorne_blood_axe",
+              "wh3_khorne_blood_lance",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_khorne_troll",
+              "wh3_khorne_khorngor_shield",
+              "wh3_khorne_khorngor",
+              "wh3_khorne_champ_dual",
+              "wh3_khorne_mammoth",
+              "wh3_slaanesh_mar_great",
+              "wh3_slaanesh_mar_jav",
+              "wh3_slaanesh_mar_horse",
+              "wh3_slaanesh_serva_shield",
+              "wh3_slaanesh_serva_dual",
+              "wh3_slaanesh_serva_spear",
+              "wh3_slaanesh_serva_missile",
+              "wh3_slaanesh_warri_shield",
+              "wh3_slaanesh_warri_halberd",
+              "wh3_slaanesh_warri_great",
+              "wh3_slaanesh_serva_cav",
+              "wh3_slaanesh_knight_sword",
+              "wh3_slaanesh_knight_lance",
+              "wh3_slaanesh_torment_sword",
+              "wh3_slaanesh_torment_lances",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_dragonogre",
+              "wh3_slaanesh_slaangor",
+              "wh3_slaanesh_slaangor_jav",
+              "wh3_tzeentch_mar_shield",
+              "wh3_tzeentch_mar_heavy",
+              "wh3_tzeentch_mar_dual",
+              "wh3_tzeentch_mar_spear",
+              "wh3_tzeentch_mar_cav",
+              "wh3_tzeentch_initi_shield",
+              "wh3_tzeentch_initi_heavy",
+              "wh3_tzeentch_initi_halb",
+              "wh3_tzeentch_initi_dual",
+              "wh3_tzeentch_initi_cav",
+              "wh3_tzeentch_knight_lance",
+              "wh3_tzeentch_forsa",
+              "wh3_tzeentch_chosen_knight_lance",
+              "wh3_tzeentch_chosen_knight_sword",
+              "wh3_tzeentch_warriors_shield",
+              "wh3_tzeentch_warriors_halb",
+              "wh3_tzeentch_warriors_great",
+              "wh3_tzeentch_champions_shield",
+              "wh3_tzeentch_champions_heavy",
+              "wh3_tzeentch_champions_glaive",
+              "wh3_tzeentch_chosen_shield",
+              "wh3_tzeentch_chosen_heavy",
+              "wh3_tzeentch_chosen_halb",
+              "wh3_tzeentch_tzangor_heavy",
+              "wh3_tzeentch_tzangor",
+              "wh_chs_kurgan_archer",
+              "wh_chs_kurgan_horse",
+              "wh_chs_mar_dual",
+              "wh_chs_war_dual",
+              "wh_chs_war_cav",
+              "wh_chs_chosen_cav_sword",
+              "wh_chs_chosen_cav_lance",
+              "wh_chs_chosen_heavy",
+              "wh_chs_champion_halb",
+              "wh_chs_champion_heavy",
+              "wh_chs_marauder_spear",
+              "wh_chs_kurgan_dual",
+              "wh_chs_kurgan_great",
+              "wh_chs_kurgan_spear"
             ]
           },
           {
@@ -1417,7 +1988,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/defence"
               },
               {
-                "description": "Armour: +15 for non-Daemonic units\n\t(own army)",
+                "description": "Armour: +10 for non-Daemonic units\n\t(own army)",
                 "key": "wh3_dlc29_effect_force_stat_armour_chs_non_daemonic_units",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               }
@@ -1483,6 +2054,14 @@
               "wh3_dlc27_nor_inf_marauder_bearmen_greatweapons",
               "wh_main_chs_trolls",
               "wh_dlc01_chs_trolls_mace",
+              "wh3_dlc29_chs_mon_chaos_siege_giant",
+              "wh3_dlc29_chs_inf_chosen_mnur_ror",
+              "wh3_dlc29_chs_inf_flayerkin",
+              "wh3_dlc29_chs_inf_putrid_blightkings_axe_shield",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe",
+              "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe_ror",
+              "wh3_dlc29_chs_inf_putrid_blightkings_great_weapons",
+              "wh3_dlc29_chs_mon_basilisk",
               "wh3_main_kho_gorebeast_chariot",
               "wh3_main_kho_cav_skullcrushers_0",
               "wh3_main_kho_inf_chaos_warhounds_0",
@@ -1517,7 +2096,122 @@
               "wh_pro04_chs_ror_forsaken",
               "wh_pro04_chs_ror_spawn",
               "wh_pro04_chs_ror_dragon_ogre",
-              "wh_pro04_nor_ror_marauder_berserkers"
+              "wh_pro04_nor_ror_marauder_berserkers",
+              "wh3_nurgle_warriors_shield",
+              "wh3_nurgle_warriors_scythe",
+              "wh3_nurgle_warriors_great",
+              "wh3_nurgle_forsa",
+              "wh3_nurgle_pestigor_heavy",
+              "wh3_nurgle_pestigor",
+              "wh3_nurgle_mar_shield",
+              "wh3_nurgle_mar_heavy",
+              "wh3_nurgle_mar_dual",
+              "wh3_nurgle_mar_spear",
+              "wh3_nurgle_infected_shield",
+              "wh3_nurgle_infected_heavy",
+              "wh3_nurgle_infected_dual",
+              "wh3_nurgle_infected_spear",
+              "wh3_nurgle_champions_shield",
+              "wh3_nurgle_champions_heavy",
+              "wh3_nurgle_champions_halb",
+              "wh3_nurgle_knight_sword",
+              "wh3_nurgle_knight_lance",
+              "wh3_nurgle_chosen_shield",
+              "wh3_nurgle_chosen_heavy",
+              "wh3_nurgle_chosen_halb",
+              "wh3_nurgle_chosen_knight_lance",
+              "wh3_nurgle_chosen_knight_sword",
+              "wh3_nurgle_ogre_great",
+              "wh3_nurgle_ogre_dual",
+              "wh3_nurgle_ogre_great_top",
+              "wh3_nurgle_ogre_dual_top",
+              "wh3_khorne_mar_dual",
+              "wh3_khorne_mar_spear",
+              "wh3_khorne_mar_shield",
+              "wh3_khorne_mar_axes",
+              "wh3_khorne_mar_cav",
+              "wh3_khorne_berse_dual",
+              "wh3_khorne_berse_shield",
+              "wh3_khorne_berse_great",
+              "wh3_khorne_champ_shield",
+              "wh3_khorne_champ_halber",
+              "wh3_khorne_knight_sword",
+              "wh3_khorne_knight_lance",
+              "wh3_khorne_chosen_shield",
+              "wh3_khorne_chosen_halber",
+              "wh3_khorne_chosen_heavy",
+              "wh3_khorne_blood_axe",
+              "wh3_khorne_blood_lance",
+              "wh3_khorne_ogre_dual",
+              "wh3_khorne_ogre_heavy",
+              "wh3_khorne_troll",
+              "wh3_khorne_khorngor_shield",
+              "wh3_khorne_khorngor",
+              "wh3_khorne_champ_dual",
+              "wh3_khorne_mammoth",
+              "wh3_slaanesh_mar_great",
+              "wh3_slaanesh_mar_jav",
+              "wh3_slaanesh_mar_horse",
+              "wh3_slaanesh_serva_shield",
+              "wh3_slaanesh_serva_dual",
+              "wh3_slaanesh_serva_spear",
+              "wh3_slaanesh_serva_missile",
+              "wh3_slaanesh_warri_shield",
+              "wh3_slaanesh_warri_halberd",
+              "wh3_slaanesh_warri_great",
+              "wh3_slaanesh_serva_cav",
+              "wh3_slaanesh_knight_sword",
+              "wh3_slaanesh_knight_lance",
+              "wh3_slaanesh_torment_sword",
+              "wh3_slaanesh_torment_lances",
+              "wh3_slaanesh_champi_sword",
+              "wh3_slaanesh_champi_halberd",
+              "wh3_slaanesh_champi_great",
+              "wh3_slaanesh_chosen_heavy",
+              "wh3_slaanesh_chosen_shield",
+              "wh3_slaanesh_chosen_halberd",
+              "wh3_slaanesh_dragonogre",
+              "wh3_slaanesh_slaangor",
+              "wh3_slaanesh_slaangor_jav",
+              "wh3_tzeentch_mar_shield",
+              "wh3_tzeentch_mar_heavy",
+              "wh3_tzeentch_mar_dual",
+              "wh3_tzeentch_mar_spear",
+              "wh3_tzeentch_mar_cav",
+              "wh3_tzeentch_initi_shield",
+              "wh3_tzeentch_initi_heavy",
+              "wh3_tzeentch_initi_halb",
+              "wh3_tzeentch_initi_dual",
+              "wh3_tzeentch_initi_cav",
+              "wh3_tzeentch_knight_lance",
+              "wh3_tzeentch_forsa",
+              "wh3_tzeentch_chosen_knight_lance",
+              "wh3_tzeentch_chosen_knight_sword",
+              "wh3_tzeentch_warriors_shield",
+              "wh3_tzeentch_warriors_halb",
+              "wh3_tzeentch_warriors_great",
+              "wh3_tzeentch_champions_shield",
+              "wh3_tzeentch_champions_heavy",
+              "wh3_tzeentch_champions_glaive",
+              "wh3_tzeentch_chosen_shield",
+              "wh3_tzeentch_chosen_heavy",
+              "wh3_tzeentch_chosen_halb",
+              "wh3_tzeentch_tzangor_heavy",
+              "wh3_tzeentch_tzangor",
+              "wh_chs_kurgan_archer",
+              "wh_chs_kurgan_horse",
+              "wh_chs_mar_dual",
+              "wh_chs_war_dual",
+              "wh_chs_war_cav",
+              "wh_chs_chosen_cav_sword",
+              "wh_chs_chosen_cav_lance",
+              "wh_chs_chosen_heavy",
+              "wh_chs_champion_halb",
+              "wh_chs_champion_heavy",
+              "wh_chs_marauder_spear",
+              "wh_chs_kurgan_dual",
+              "wh_chs_kurgan_great",
+              "wh_chs_kurgan_spear"
             ]
           }
         ],
@@ -1525,6 +2219,798 @@
           "wh3_dlc29_skill_node_chs_orghotts_special_1"
         ],
         "boxed": true
+      },
+      {
+        "key": "Rad_Skill_Dump_Attack_wh3_dlc29_skill_node_set_chs_orghotts",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "Rad_Skill_Dump_Attack",
+        "tier": 20,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Martial Mastery (Skill Dump)",
+        "localised_description": "When everything else fails, there is always studying the blade. (This skill can accept up to 20 Skill Points)",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +1%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +1",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +1%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +2%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +2",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +2%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +3%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +3",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +3%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +4%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +4",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +4%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +5%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +5",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +5%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +6%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +6",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +6%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +7%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +7",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +7%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +8%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +8",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +8%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +9%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +9",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +9%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +10%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +10",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +10%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +11%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +11",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +11%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +12%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +12",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +12%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +13%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +13",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +13%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +14%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +14",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +14%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +15",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +15%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +16%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +16",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +16%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +17%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +17",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +17%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +18%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +18",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +18%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +19%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +19",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +19%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +20%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +20",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +20%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Rad_Skill_Dump_Defence_wh3_dlc29_skill_node_set_chs_orghotts",
+        "image_path": "vanilla3/campaign_ui/skills/character_defence",
+        "character_skill_key": "Rad_Skill_Dump_Defence",
+        "tier": 21,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Defensive Dedication (Skill Dump)",
+        "localised_description": "Wielding the shield is better than returning on it. (This skill can accept up to 20 Skill Points)",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +1%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +1",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +1%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +2%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +2",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +2%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +3%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +3",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +3%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +4%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +4",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +4%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +5%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +5",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +5%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +6%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +6",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +6%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +7%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +7",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +7%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +8%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +8",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +8%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +9%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +9",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +9%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +10%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +10",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +10%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +11%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +11",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +11%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +12%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +12",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +12%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +13%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +13",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +13%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +14%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +14",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +14%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +15",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +15%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +16%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +16",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +16%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +17%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +17",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +17%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +18%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +18",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +18%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +19%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +19",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +19%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +20%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +20",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +20%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          }
+        ]
       }
     ],
     [
@@ -2397,10 +3883,10 @@
   ],
   "unitStats": {
     "run_speed": 3.4,
-    "mass": 1200,
+    "mass": 1300,
     "size": "small",
-    "hit_points": 8,
-    "bonus_hit_points": 6092,
+    "hit_points": 10,
+    "bonus_hit_points": 7490,
     "armour": 122,
     "missile_block_chance": 0,
     "morale": 80,
@@ -2409,17 +3895,37 @@
     "damage_mod_physical": 0,
     "damage_mod_missile": 15,
     "damage_mod_all": 0,
-    "melee_attack": 66,
-    "melee_defence": 42,
-    "charge_bonus": 36,
+    "melee_attack": 65,
+    "melee_defence": 50,
+    "charge_bonus": 42,
     "bonus_v_large": 0,
     "bonus_v_infantry": 0,
-    "damage": 140,
-    "ap_damage": 300,
+    "damage": 155,
+    "ap_damage": 315,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 5,
     "melee_attack_interval": 4,
     "is_magical": true,
+    "attributes": [
+      {
+        "key": "causes_fear",
+        "description": " Can Cause Fear",
+        "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+      },
+      {
+        "key": "encourages",
+        "description": "Encourage",
+        "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
+      },
+      {
+        "key": "hide_forest",
+        "description": "Hide (forest)",
+        "bullet_text": "This unit can hide in forests until enemy units get too close.",
+        "icon": "vanilla3/battle_ui/ability_icons/hide_forest"
+      }
+    ],
     "abilities": [
       {
         "unit_ability": {
@@ -2538,6 +4044,29 @@
                     "duration": 30,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 1.4,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x1.4 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 20,
+                        "stat": "stat_melee_attack",
+                        "how": "add",
+                        "description": "+20 Melee Attack",
+                        "icon": "vanilla3/skins/default/icon_stat_attack"
+                      },
+                      {
+                        "value": 1.4,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x1.4 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ],
                     "attributes": [
                       {
                         "key": "executor",
@@ -2603,7 +4132,23 @@
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "heal_amount": 0.002,
-                    "hp_change_frequency": 1
+                    "hp_change_frequency": 1,
+                    "stat_effects": [
+                      {
+                        "value": 20,
+                        "stat": "stat_resistance_all",
+                        "how": "add",
+                        "description": "+20 Damage Resistance ",
+                        "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                      },
+                      {
+                        "value": 30,
+                        "stat": "stat_armour",
+                        "how": "add",
+                        "description": "+30 Armour",
+                        "icon": "vanilla3/skins/default/icon_stat_armour"
+                      }
+                    ]
                   }
                 ]
               }
@@ -2667,12 +4212,31 @@
           "wh3_dlc20_chs_inf_chosen_mnur_greatweapons",
           "wh3_dlc25_nur_cav_rot_knights",
           "wh3_dlc25_nur_cav_rot_knights_ror",
+          "wh3_dlc29_chs_inf_chosen_mnur_ror",
+          "wh3_dlc29_chs_inf_putrid_blightkings_axe_shield",
+          "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe",
+          "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe_ror",
+          "wh3_dlc29_chs_inf_putrid_blightkings_great_weapons",
           "wh3_main_nur_inf_forsaken_0",
           "wh_dlc01_chs_chosen_halberd",
           "wh_dlc01_chs_forsaken",
           "wh_main_chs_chosen",
           "wh_main_chs_chosen_great_weapons",
-          "wh_pro04_chs_ror_forsaken"
+          "wh_pro04_chs_ror_forsaken",
+          "wh3_nurgle_forsa",
+          "wh3_nurgle_champions_shield",
+          "wh3_nurgle_champions_heavy",
+          "wh3_nurgle_champions_halb",
+          "wh3_nurgle_knight_sword",
+          "wh3_nurgle_knight_lance",
+          "wh3_nurgle_chosen_shield",
+          "wh3_nurgle_chosen_heavy",
+          "wh3_nurgle_chosen_halb",
+          "wh3_nurgle_chosen_knight_lance",
+          "wh3_nurgle_chosen_knight_sword",
+          "wh_chs_chosen_cav_sword",
+          "wh_chs_chosen_cav_lance",
+          "wh_chs_chosen_heavy"
         ]
       }
     },
@@ -2974,7 +4538,7 @@
           "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
         },
         {
-          "description": "Weapon strength: +14%",
+          "description": "Weapon strength: +15%",
           "key": "wh_main_effect_character_stat_weapon_strength",
           "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character"
         }
@@ -3028,7 +4592,23 @@
                     "duration": -1,
                     "effect_type": "negative",
                     "is_hidden_in_ui": false,
-                    "fatigue_change_ratio": 0.02
+                    "fatigue_change_ratio": 0.02,
+                    "stat_effects": [
+                      {
+                        "value": -12,
+                        "stat": "stat_morale",
+                        "how": "add",
+                        "description": "-12 Leadership",
+                        "icon": "vanilla3/skins/default/icon_stat_morale"
+                      },
+                      {
+                        "value": -12,
+                        "stat": "stat_melee_defence",
+                        "how": "add",
+                        "description": "-12 Melee Defence",
+                        "icon": "vanilla3/skins/default/icon_stat_defence"
+                      }
+                    ]
                   }
                 ]
               }
@@ -3084,12 +4664,31 @@
           "wh3_dlc20_chs_inf_chosen_mnur_greatweapons",
           "wh3_dlc25_nur_cav_rot_knights",
           "wh3_dlc25_nur_cav_rot_knights_ror",
+          "wh3_dlc29_chs_inf_chosen_mnur_ror",
+          "wh3_dlc29_chs_inf_putrid_blightkings_axe_shield",
+          "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe",
+          "wh3_dlc29_chs_inf_putrid_blightkings_dual_axe_ror",
+          "wh3_dlc29_chs_inf_putrid_blightkings_great_weapons",
           "wh3_main_nur_inf_forsaken_0",
           "wh_dlc01_chs_chosen_halberd",
           "wh_dlc01_chs_forsaken",
           "wh_main_chs_chosen",
           "wh_main_chs_chosen_great_weapons",
-          "wh_pro04_chs_ror_forsaken"
+          "wh_pro04_chs_ror_forsaken",
+          "wh3_nurgle_forsa",
+          "wh3_nurgle_champions_shield",
+          "wh3_nurgle_champions_heavy",
+          "wh3_nurgle_champions_halb",
+          "wh3_nurgle_knight_sword",
+          "wh3_nurgle_knight_lance",
+          "wh3_nurgle_chosen_shield",
+          "wh3_nurgle_chosen_heavy",
+          "wh3_nurgle_chosen_halb",
+          "wh3_nurgle_chosen_knight_lance",
+          "wh3_nurgle_chosen_knight_sword",
+          "wh_chs_chosen_cav_sword",
+          "wh_chs_chosen_cav_lance",
+          "wh_chs_chosen_heavy"
         ]
       }
     },

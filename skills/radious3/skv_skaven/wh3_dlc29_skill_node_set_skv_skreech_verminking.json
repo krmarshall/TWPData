@@ -168,7 +168,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Dreaded Thirteenth Spell",
-                      "active_time": 13,
+                      "active_time": 20,
                       "effect_range": 0,
                       "num_uses": 1,
                       "recharge_time": 52,
@@ -397,7 +397,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/experience"
               },
               {
-                "description": "Ward save: +10%\n\t(accompanying Lord)",
+                "description": "Ward save: +5%\n\t(accompanying Lord)",
                 "key": "wh_main_effect_character_stat_ward_save",
                 "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
               },
@@ -454,7 +454,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Will of the Verminking",
-                      "active_time": 29,
+                      "active_time": 30,
                       "effect_range": 35,
                       "recharge_time": 120,
                       "target_enemies": false,
@@ -469,7 +469,7 @@
                           "target_enemies": false,
                           "target_self": false,
                           "target_friends": true,
-                          "duration": 29,
+                          "duration": 30,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "attributes": [
@@ -487,9 +487,18 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 29,
+                          "duration": 30,
                           "effect_type": "negative",
-                          "is_hidden_in_ui": false
+                          "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": -15,
+                              "stat": "stat_morale",
+                              "how": "add",
+                              "description": "-15 Leadership",
+                              "icon": "vanilla3/skins/default/icon_stat_morale"
+                            }
+                          ]
                         }
                       ]
                     }
@@ -528,7 +537,7 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "The Dreaded Thirteenth Spell",
-                      "active_time": 13,
+                      "active_time": 20,
                       "effect_range": 0,
                       "num_uses": 1,
                       "recharge_time": 52,
@@ -827,10 +836,10 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Plaguereaper",
-                      "active_time": 25,
+                      "active_time": 30,
                       "effect_range": 15,
                       "num_effected_friendly_units": 1,
-                      "num_uses": 2,
+                      "num_uses": 3,
                       "recharge_time": 120,
                       "target_enemies": false,
                       "target_friends": false,
@@ -851,7 +860,7 @@
                           "target_enemies": true,
                           "target_self": false,
                           "target_friends": false,
-                          "duration": 25,
+                          "duration": 30,
                           "effect_type": "negative",
                           "is_hidden_in_ui": false,
                           "damage_amount": 12,
@@ -864,7 +873,7 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
-                          "duration": 25,
+                          "duration": 30,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
                           "heal_amount": 0.008,
@@ -1069,10 +1078,10 @@
                       },
                       "is_hidden_in_ui": false,
                       "onscreen_name": "Doom Glaive",
-                      "active_time": 27,
+                      "active_time": 30,
                       "effect_range": 0,
                       "num_effected_friendly_units": 1,
-                      "num_uses": 3,
+                      "num_uses": 4,
                       "recharge_time": 120,
                       "target_enemies": false,
                       "target_friends": false,
@@ -1086,9 +1095,25 @@
                           "target_enemies": false,
                           "target_self": true,
                           "target_friends": false,
-                          "duration": 27,
+                          "duration": 30,
                           "effect_type": "positive",
                           "is_hidden_in_ui": false,
+                          "stat_effects": [
+                            {
+                              "value": 1.6,
+                              "stat": "stat_melee_damage_base",
+                              "how": "mult",
+                              "description": "x1.6 Base Weapon Damage",
+                              "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                            },
+                            {
+                              "value": 1.6,
+                              "stat": "stat_melee_damage_ap",
+                              "how": "mult",
+                              "description": "x1.6 Armour-Piercing Weapon Damage",
+                              "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                            }
+                          ],
                           "attributes": [
                             {
                               "key": "executor",
@@ -1111,6 +1136,798 @@
           "wh3_dlc29_skill_node_skv_skreech_verminking_combat_3_2",
           "wh3_dlc29_skill_node_skv_skreech_verminking_combat_3_3",
           "wh3_dlc29_skill_node_skv_skreech_verminking_combat_3_4"
+        ]
+      },
+      {
+        "key": "Rad_Skill_Dump_Attack_wh3_dlc29_skill_node_set_skv_skreech_verminking",
+        "image_path": "vanilla3/campaign_ui/skills/character_attack",
+        "character_skill_key": "Rad_Skill_Dump_Attack",
+        "tier": 20,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Martial Mastery (Skill Dump)",
+        "localised_description": "When everything else fails, there is always studying the blade. (This skill can accept up to 20 Skill Points)",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +1%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +1",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +1%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +2%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +2",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +2%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +3%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +3",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +3%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +4%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +4",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +4%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +5%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +5",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +5%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +6%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +6",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +6%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +7%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +7",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +7%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +8%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +8",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +8%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +9%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +9",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +9%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +10%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +10",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +10%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +11%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +11",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +11%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +12%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +12",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +12%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +13%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +13",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +13%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +14%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +14",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +14%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +15",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +15%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +16%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +16",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +16%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +17%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +17",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +17%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +18%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +18",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +18%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +19%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +19",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +19%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +20%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee attack: +20",
+                "key": "wh_main_effect_character_stat_melee_attack",
+                "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              },
+              {
+                "description": "Ammunition: +20%",
+                "key": "wh_main_effect_character_stat_ammunition",
+                "icon": "vanilla3/campaign_ui/effect_bundles/ammo_character"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "Rad_Skill_Dump_Defence_wh3_dlc29_skill_node_set_skv_skreech_verminking",
+        "image_path": "vanilla3/campaign_ui/skills/character_defence",
+        "character_skill_key": "Rad_Skill_Dump_Defence",
+        "tier": 21,
+        "indent": 2,
+        "points_on_creation": 0,
+        "required_num_parents": 0,
+        "visible_in_ui": true,
+        "is_background_skill": false,
+        "localised_name": "Defensive Dedication (Skill Dump)",
+        "localised_description": "Wielding the shield is better than returning on it. (This skill can accept up to 20 Skill Points)",
+        "levels": [
+          {
+            "effects": [
+              {
+                "description": "Hit points: +1%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +1",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +1%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ],
+            "unlocked_at_rank": 20
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +2%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +2",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +2%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +3%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +3",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +3%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +4%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +4",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +4%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +5%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +5",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +5%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +6%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +6",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +6%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +7%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +7",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +7%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +8%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +8",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +8%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +9%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +9",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +9%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +10%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +10",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +10%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +11%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +11",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +11%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +12%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +12",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +12%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +13%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +13",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +13%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +14%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +14",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +14%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +15%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +15",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +15%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +16%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +16",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +16%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +17%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +17",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +17%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +18%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +18",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +18%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +19%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +19",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +19%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          },
+          {
+            "effects": [
+              {
+                "description": "Hit points: +20%",
+                "key": "wh_main_effect_character_stat_unit_health",
+                "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+              },
+              {
+                "description": "Melee defence: +20",
+                "key": "wh_main_effect_character_stat_melee_defence",
+                "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+              },
+              {
+                "description": "Range: +20%",
+                "key": "wh_main_effect_character_stat_range",
+                "icon": "vanilla3/campaign_ui/effect_bundles/accuracy_character"
+              }
+            ]
+          }
         ]
       }
     ],
@@ -2763,9 +3580,9 @@
                       "vortex": {
                         "vortex_key": "wh3_dlc29_unit_abilities_warp_step",
                         "duration": 2,
-                        "damage": 9,
-                        "damage_ap": 3,
-                        "goal_radius": 15,
+                        "damage": 10,
+                        "damage_ap": 4,
+                        "goal_radius": 10,
                         "movement_speed": 0,
                         "delay": 0.1,
                         "affects_allies": false
@@ -2783,7 +3600,9 @@
             "unlocked_at_rank": 13,
             "related_unit_cards": [
               "wh2_dlc14_skv_inf_eshin_triads",
-              "wh2_dlc14_skv_inf_eshin_triads_ror"
+              "wh2_dlc14_skv_inf_eshin_triads_ror",
+              "wh2_ska_claw_star",
+              "wh2_ska_claw_sling"
             ]
           }
         ]
@@ -2826,7 +3645,16 @@
             ],
             "unlocked_at_rank": 13,
             "related_unit_cards": [
-              "wh2_main_skv_inf_skavenslave_spearmen"
+              "wh2_main_skv_inf_skavenslave_spearmen",
+              "wh2_ska_strom",
+              "wh2_ska_war_swo",
+              "wh2_ska_war_hal",
+              "wh2_ska_black_dual",
+              "wh2_ska_black_spear",
+              "wh2_ska_black_cense",
+              "wh2_ska_red_sword",
+              "wh2_ska_red_halb",
+              "wh2_ska_red_cense"
             ]
           }
         ]
@@ -2925,7 +3753,10 @@
                 ]
               }
             ],
-            "unlocked_at_rank": 13
+            "unlocked_at_rank": 13,
+            "related_unit_cards": [
+              "wh2_ska_monk"
+            ]
           }
         ]
       },
@@ -2955,7 +3786,7 @@
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
               },
               {
-                "description": "Armour: +15 for Skryre units\n\t(own army)",
+                "description": "Armour: +10 for Skryre units\n\t(own army)",
                 "key": "wh3_dlc29_effect_force_stat_armour_skryre",
                 "icon": "vanilla3/campaign_ui/effect_bundles/armour"
               },
@@ -2968,7 +3799,14 @@
             "unlocked_at_rank": 13,
             "related_unit_cards": [
               "wh2_dlc14_skv_inf_poison_wind_mortar",
-              "wh2_dlc14_skv_inf_poison_wind_mortar_ror"
+              "wh2_dlc14_skv_inf_poison_wind_mortar_ror",
+              "wh3_dlc29_skv_stormfiend_doomflayer_gauntlets",
+              "wh3_dlc29_skv_stormfiend_grinderfists",
+              "wh3_dlc29_skv_stormfiend_ratling_cannons",
+              "wh3_dlc29_skv_stormfiend_shock_gauntlets",
+              "wh3_dlc29_skv_stormfiend_warpfire_projectors",
+              "wh3_dlc29_skv_stormfiend_windlaunchers",
+              "wh3_dlc29_skv_scatterfire_team_ror"
             ]
           }
         ]
@@ -3069,7 +3907,17 @@
               "wh2_dlc16_skv_rat_ogre_mutant",
               "wh2_dlc16_skv_ror_rat_ogre_mutant",
               "wh2_dlc16_skv_wolf_rats",
-              "wh2_dlc16_skv_wolf_rats_poison"
+              "wh2_dlc16_skv_wolf_rats_poison",
+              "wh3_dlc29_skv_stormfiend_doomflayer_gauntlets",
+              "wh3_dlc29_skv_stormfiend_grinderfists",
+              "wh3_dlc29_skv_stormfiend_ratling_cannons",
+              "wh3_dlc29_skv_stormfiend_shock_gauntlets",
+              "wh3_dlc29_skv_stormfiend_warpfire_projectors",
+              "wh3_dlc29_skv_stormfiend_windlaunchers",
+              "wh3_dlc29_skv_scatterfire_team_ror",
+              "wh2_ska_black_ogre",
+              "wh2_ska_bone",
+              "wh2_ska_hell"
             ]
           }
         ]
@@ -3412,11 +4260,11 @@
   ],
   "unitStats": {
     "run_speed": 7,
-    "mass": 4000,
+    "mass": 4200,
     "size": "very_large",
-    "hit_points": 8,
-    "bonus_hit_points": 9240,
-    "armour": 66,
+    "hit_points": 10,
+    "bonus_hit_points": 10890,
+    "armour": 74,
     "missile_block_chance": 0,
     "morale": 85,
     "damage_mod_flame": 0,
@@ -3426,16 +4274,42 @@
     "damage_mod_all": 0,
     "melee_attack": 62,
     "melee_defence": 67,
-    "charge_bonus": 70,
+    "charge_bonus": 75,
     "bonus_v_large": 25,
     "bonus_v_infantry": 0,
-    "damage": 200,
+    "damage": 220,
     "ap_damage": 400,
     "splash_target_size_limit": "medium",
     "splash_attack_max_attacks": 3,
     "melee_attack_interval": 3.8,
     "can_siege": true,
     "is_magical": true,
+    "attributes": [
+      {
+        "key": "causes_fear",
+        "description": " Can Cause Fear",
+        "bullet_text": "This unit frightens all enemy units, reducing their leadership when nearby. It is also immune to fear. Fear penalties do not stack.",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_fear"
+      },
+      {
+        "key": "causes_terror",
+        "description": " Can Cause Terror",
+        "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+      },
+      {
+        "key": "daemonic",
+        "description": "Daemonic",
+        "bullet_text": "Daemonic units cannot be routed, but take damage when their Leadership is low.\n\t\n\tDaemonic units also have:\n\tPhysical Resistance\n\t Fear and Terror Immunity",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_daemonic"
+      },
+      {
+        "key": "encourages",
+        "description": "Encourage",
+        "bullet_text": "This unit provides a leadership bonus to nearby allies. Units within range of both the Lord's aura and an encouraging unit will receive the larger of the two bonuses.",
+        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_encourages"
+      }
+    ],
     "abilities": [
       {
         "unit_ability": {
@@ -3515,7 +4389,16 @@
               "target_friends": false,
               "duration": -1,
               "effect_type": "positive",
-              "is_hidden_in_ui": false
+              "is_hidden_in_ui": false,
+              "stat_effects": [
+                {
+                  "value": 40,
+                  "stat": "stat_resistance_missile",
+                  "how": "add",
+                  "description": "+40 Missile Resistance",
+                  "icon": "vanilla3/battle_ui/ability_icons/resistance_missile"
+                }
+              ]
             }
           ]
         }
@@ -3704,10 +4587,10 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Plaguereaper",
-                "active_time": 25,
+                "active_time": 30,
                 "effect_range": 15,
                 "num_effected_friendly_units": 1,
-                "num_uses": 2,
+                "num_uses": 3,
                 "recharge_time": 120,
                 "target_enemies": false,
                 "target_friends": false,
@@ -3728,7 +4611,7 @@
                     "target_enemies": true,
                     "target_self": false,
                     "target_friends": false,
-                    "duration": 25,
+                    "duration": 30,
                     "effect_type": "negative",
                     "is_hidden_in_ui": false,
                     "damage_amount": 12,
@@ -3741,7 +4624,7 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 25,
+                    "duration": 30,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
                     "heal_amount": 0.008,
@@ -3789,10 +4672,10 @@
                 },
                 "is_hidden_in_ui": false,
                 "onscreen_name": "Doom Glaive",
-                "active_time": 27,
+                "active_time": 30,
                 "effect_range": 0,
                 "num_effected_friendly_units": 1,
-                "num_uses": 3,
+                "num_uses": 4,
                 "recharge_time": 120,
                 "target_enemies": false,
                 "target_friends": false,
@@ -3806,9 +4689,25 @@
                     "target_enemies": false,
                     "target_self": true,
                     "target_friends": false,
-                    "duration": 27,
+                    "duration": 30,
                     "effect_type": "positive",
                     "is_hidden_in_ui": false,
+                    "stat_effects": [
+                      {
+                        "value": 1.6,
+                        "stat": "stat_melee_damage_base",
+                        "how": "mult",
+                        "description": "x1.6 Base Weapon Damage",
+                        "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                      },
+                      {
+                        "value": 1.6,
+                        "stat": "stat_melee_damage_ap",
+                        "how": "mult",
+                        "description": "x1.6 Armour-Piercing Weapon Damage",
+                        "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                      }
+                    ],
                     "attributes": [
                       {
                         "key": "executor",
@@ -3871,7 +4770,7 @@
                     },
                     "is_hidden_in_ui": false,
                     "onscreen_name": "The Dreaded Thirteenth Spell",
-                    "active_time": 13,
+                    "active_time": 20,
                     "effect_range": 0,
                     "num_uses": 1,
                     "recharge_time": 52,

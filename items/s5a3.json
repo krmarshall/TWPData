@@ -1010,21 +1010,302 @@
     }
   },
   {
-    "key": "stompies_anc_arcane_ebony_orb",
-    "onscreen_name": "Ebony Orb",
-    "colour_text": "A perfect sphere made from the midnight-coloured marble of Nagash's Black Pyramid. The orb has a mystic sigil carved onto its surface that glows when channelling the Winds of Magic.",
+    "key": "stompies_anc_arcane_ebony_staff",
+    "onscreen_name": "Ebony Staff",
+    "colour_text": "A smooth, midnight-coloured staff. Its surface is etched with intricate mystic sigils that only reveal themselves when its bearer channels the Winds of Magic. It is a powerful tool of evil, and Mannfred risked everything to retrieve it from a Chaos servant's fortress.",
     "ui_icon": "skins/default/equipment_items_arcane",
     "unlocked_at_rank": 18,
     "effects": [
       {
-        "description": "Winds of Magic power reserve: +10 per turn",
-        "key": "wh3_main_effect_winds_of_magic_character",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+        "description": "Cooldown: -20% to overcast spells",
+        "key": "wh2_dlc11_effect_ability_cooldown_overcast_spells",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+        "related_abilities": [
+          {
+            "effect": "wh2_dlc11_effect_ability_cooldown_overcast_spells",
+            "bonus_value_id": "recharge_mod",
+            "unit_ability": {
+              "key": "wh2_dlc11_spell_deep_fog_of_the_damned_upgraded",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_deep_fog_of_the_damned",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_area_of_hexes",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_area_of_hexes",
+                "onscreen_name": "Hex (Area)"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Fog of the Damned Upgraded",
+              "active_time": 35,
+              "effect_range": 35,
+              "mana_cost": 11,
+              "miscast_chance": 0.5,
+              "recharge_time": 44,
+              "target_enemies": false,
+              "target_friends": false,
+              "target_ground": true,
+              "target_self": false,
+              "target_intercept_range": 200,
+              "wind_up_time": 3,
+              "target_if": [
+                "Grounded"
+              ],
+              "ui_effects": [
+                {
+                  "key": "wh_main_spell_upgraded_melee_attack",
+                  "localised_text": "Greater effect on melee attack",
+                  "effect_state": "magic"
+                }
+              ],
+              "phases": [
+                {
+                  "icon": "wh2_dlc11_spell_deep_fog_of_the_damned_upgraded",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 35,
+                  "effect_type": "negative",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": -8,
+                      "stat": "stat_morale",
+                      "how": "add",
+                      "description": "-8 Leadership",
+                      "icon": "vanilla3/skins/default/icon_stat_morale"
+                    },
+                    {
+                      "value": -40,
+                      "stat": "stat_melee_attack",
+                      "how": "add",
+                      "description": "-40 Melee Attack",
+                      "icon": "vanilla3/skins/default/icon_stat_attack"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "effect": "wh2_dlc11_effect_ability_cooldown_overcast_spells",
+            "bonus_value_id": "recharge_mod",
+            "unit_ability": {
+              "key": "wh2_dlc11_spell_deep_ghost_ship_upgraded",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_deep_ghost_ship",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_wind",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_wind",
+                "onscreen_name": "Wind"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Vangheist's Revenge Upgraded",
+              "active_time": 6,
+              "effect_range": 0,
+              "mana_cost": 26,
+              "miscast_chance": 0.5,
+              "recharge_time": 54,
+              "target_enemies": true,
+              "target_friends": false,
+              "target_ground": true,
+              "target_self": false,
+              "target_intercept_range": 150,
+              "wind_up_time": 5,
+              "target_if": [
+                "Grounded",
+                "Not on or below a platform"
+              ],
+              "ui_effects": [
+                {
+                  "key": "wh_main_spell_upgraded_ap_damage",
+                  "localised_text": "Increased armour-piercing damage",
+                  "effect_state": "magic"
+                },
+                {
+                  "key": "wh2_main_spell_medium_wind",
+                  "localised_text": "Medium, forward-moving area of effect",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "wh_main_all_strong_against_units",
+                  "localised_text": "Strong vs multiple units",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "wh_main_all_weak_against_single",
+                  "localised_text": "Weak vs a single combatant",
+                  "effect_state": "negative"
+                }
+              ],
+              "vortex": {
+                "vortex_key": "wh2_dlc11_deep_ghost_ship_upgraded",
+                "duration": 3,
+                "damage": 0,
+                "damage_ap": 108,
+                "goal_radius": 7,
+                "movement_speed": 40,
+                "delay": 4.7,
+                "affects_allies": true,
+                "is_magical": true
+              }
+            }
+          },
+          {
+            "effect": "wh2_dlc11_effect_ability_cooldown_overcast_spells",
+            "bonus_value_id": "recharge_mod",
+            "unit_ability": {
+              "key": "wh2_dlc11_spell_deep_krakens_pull_upgraded",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_deep_krakens_pull",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_vortex",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_vortex",
+                "onscreen_name": "Vortex"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Kraken's Pull Upgraded",
+              "active_time": 30,
+              "effect_range": 0,
+              "mana_cost": 22,
+              "miscast_chance": 0.5,
+              "num_effected_enemy_units": 1,
+              "recharge_time": 49,
+              "target_enemies": true,
+              "target_friends": false,
+              "target_ground": true,
+              "target_self": false,
+              "target_intercept_range": 200,
+              "wind_up_time": 5,
+              "target_if": [
+                "Grounded",
+                "Not on or below a platform"
+              ],
+              "ui_effects": [
+                {
+                  "key": "wh_main_spell_upgraded_duration",
+                  "localised_text": "Extended effect duration",
+                  "effect_state": "magic"
+                },
+                {
+                  "key": "wh2_main_spell_stationary_aoe",
+                  "localised_text": "Huge, stationary area of effect",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "wh2_main_all_good_against_armour",
+                  "localised_text": "Good against armour",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "wh_main_all_strong_against_units",
+                  "localised_text": "Strong vs multiple units",
+                  "effect_state": "positive"
+                }
+              ],
+              "vortex": {
+                "vortex_key": "wh2_dlc11_spell_deep_krakens_pull_upgraded",
+                "duration": 30,
+                "damage": 0,
+                "damage_ap": 4,
+                "goal_radius": 15,
+                "movement_speed": 0,
+                "delay": 1,
+                "affects_allies": true,
+                "is_magical": true,
+                "contact_effect": {
+                  "icon": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_deep_krakens_pull",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": true,
+                  "duration": 10,
+                  "effect_type": "negative",
+                  "onscreen_name": "Kraken's Pull",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": 0.55,
+                      "stat": "scalar_speed",
+                      "how": "mult",
+                      "description": "x0.55 Speed",
+                      "icon": "vanilla3/skins/default/icon_stat_speed"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "effect": "wh2_dlc11_effect_ability_cooldown_overcast_spells",
+            "bonus_value_id": "recharge_mod",
+            "unit_ability": {
+              "key": "wh2_dlc11_spell_deep_spiteful_shot_upgraded",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh2_dlc11_spell_deep_spiteful_shot",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_augment",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                "onscreen_name": "Augment"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Spiteful Shot Upgraded",
+              "active_time": 72,
+              "effect_range": 0,
+              "mana_cost": 6,
+              "miscast_chance": 0.5,
+              "num_effected_friendly_units": 1,
+              "recharge_time": 28,
+              "target_enemies": false,
+              "target_friends": true,
+              "target_ground": false,
+              "target_self": true,
+              "target_intercept_range": 200,
+              "wind_up_time": 1,
+              "target_if": [
+                "Missile attack possible"
+              ],
+              "ui_effects": [
+                {
+                  "key": "wh_main_spell_upgraded_duration",
+                  "localised_text": "Extended effect duration",
+                  "effect_state": "magic"
+                }
+              ],
+              "phases": [
+                {
+                  "icon": "wh2_dlc11_spell_deep_spiteful_shot_upgraded",
+                  "order": 1,
+                  "target_enemies": false,
+                  "target_self": true,
+                  "target_friends": true,
+                  "duration": 72,
+                  "effect_type": "positive",
+                  "is_hidden_in_ui": false,
+                  "imbue_magical": true,
+                  "stat_effects": [
+                    {
+                      "value": 90,
+                      "stat": "stat_accuracy",
+                      "how": "add",
+                      "description": "+90 Accuracy",
+                      "icon": "vanilla3/skins/default/icon_stat_range"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
       },
       {
-        "description": "Winds of Magic cost: -25% for \"Invocation of Nehek\"",
-        "key": "stompies_effect_magic_cost_pct_invocation_of_nehek",
-        "icon": "s5a3/campaign_ui/effect_bundles/wh_main_spell_vampires_invocation_of_nehek"
+        "description": "Winds of Magic cost: -20% for overcast spells",
+        "key": "wh3_main_effect_wom_costs_overcast_percentage",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+      },
+      {
+        "description": "Miscast base chance: -25%",
+        "key": "wh_main_effect_character_stat_miscast",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
       }
     ],
     "item_set": {
@@ -1033,11 +1314,11 @@
       "description": "A century of studying Necromancy and collecting artefacts has made Mannfred an exceptionally skilled practitioner of Dark Magic.",
       "contains": [
         {
-          "name": "Ebony Orb",
+          "name": "Ebony Staff",
           "icon": "skins/default/equipment_items_arcane"
         },
         {
-          "name": "Ring of Shyish",
+          "name": "Cloak of Darkness",
           "icon": "skins/default/equipment_items_enchanted"
         },
         {
@@ -1047,10 +1328,16 @@
       ],
       "effects": [
         {
-          "description": "The Dead Rise Again: +25% chance for destroyed Undead units to be restored after battle",
-          "key": "wh3_main_effect_undead_post_battle_unit_saving_chance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment",
-          "priority": 101
+          "description": "Spell intensity: +10%",
+          "key": "wh3_main_effect_spell_mastery",
+          "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
+          "priority": 2
+        },
+        {
+          "description": "Targeting range: +10% for spells",
+          "key": "wh3_main_effect_spell_targeting_range_all",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+          "priority": 1
         }
       ]
     },
@@ -4115,17 +4402,22 @@
     "unlocked_at_rank": 18,
     "effects": [
       {
-        "description": "Winds of Magic power reserve: +5 per turn",
+        "description": "Winds of Magic power reserve: +3 per turn",
         "key": "wh3_main_effect_winds_of_magic_character",
         "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
       },
       {
-        "description": "Vampiric corruption: +5\n\t(local province)",
+        "description": "Vampiric corruption: +3\n\t(local province)",
         "key": "wh3_main_effect_corruption_vampiric_characters",
         "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
       },
       {
-        "description": "Spell resistance: -15%\n\t(enemy armies in region)",
+        "description": "Winds of Magic power reserve capacity: +10",
+        "key": "wh3_main_effect_winds_of_magic_pool_cap",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+      },
+      {
+        "description": "Spell resistance: -10%\n\t(enemy armies in region)",
         "key": "wh_main_effect_force_stat_magic_resistance_bad",
         "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
       }
@@ -4144,7 +4436,7 @@
           "icon": "skins/default/equipment_items_armour"
         },
         {
-          "name": "Blood Dragon Crest",
+          "name": "Sylvanian Crest",
           "icon": "skins/default/equipment_items_enchanted"
         }
       ],
@@ -4156,8 +4448,8 @@
           "priority": 160
         },
         {
-          "description": "Diplomatic relations: +25 with Vampire Counts",
-          "key": "wh_main_faction_political_diplomacy_mod_vampire_counts",
+          "description": "Diplomatic relations: +25 with Vampire Coast, Vampire Counts and Undead Legions",
+          "key": "wh3_main_faction_political_diplomacy_mod_vampiric_undead",
           "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
           "priority": 5
         }
@@ -4245,19 +4537,14 @@
     "unlocked_at_rank": 22,
     "effects": [
       {
-        "description": "Vampiric corruption: +3\n\t(local province)",
+        "description": "Spell intensity: +10%",
+        "key": "wh3_main_effect_spell_mastery",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
+      },
+      {
+        "description": "Vampiric corruption: +5\n\t(local province)",
         "key": "wh3_main_effect_corruption_vampiric_characters",
         "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
-      },
-      {
-        "description": "Spell resistance: 10%",
-        "key": "wh_main_effect_character_stat_magic_resistance",
-        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-      },
-      {
-        "description": "Miscast base chance: -10%",
-        "key": "wh_main_effect_character_stat_miscast",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
       },
       {
         "description": "Winds of Magic power reserve capacity: +15",
@@ -4564,9 +4851,14 @@
     "unlocked_at_rank": 8,
     "effects": [
       {
-        "description": "Armour: +5",
+        "description": "Armour: +15",
         "key": "wh_main_effect_character_stat_armour",
         "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+      },
+      {
+        "description": "Ward save: +5%",
+        "key": "wh_main_effect_character_stat_ward_save",
+        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
       },
       {
         "description": "Physical resistance: 10%",
@@ -4577,16 +4869,6 @@
         "description": "Winds of Magic cost: -50% for \"Invocation of Nehek\"",
         "key": "stompies_effect_magic_cost_pct_invocation_of_nehek",
         "icon": "s5a3/campaign_ui/effect_bundles/wh_main_spell_vampires_invocation_of_nehek"
-      },
-      {
-        "description": "Miscast base chance: -10%",
-        "key": "wh_main_effect_character_stat_miscast",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
-      },
-      {
-        "description": "Winds of Magic power reserve capacity: +10",
-        "key": "wh3_main_effect_winds_of_magic_pool_cap",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
       }
     ],
     "item_set": {
@@ -4603,7 +4885,7 @@
           "icon": "skins/default/equipment_items_armour"
         },
         {
-          "name": "Blood Dragon Crest",
+          "name": "Sylvanian Crest",
           "icon": "skins/default/equipment_items_enchanted"
         }
       ],
@@ -4615,8 +4897,8 @@
           "priority": 160
         },
         {
-          "description": "Diplomatic relations: +25 with Vampire Counts",
-          "key": "wh_main_faction_political_diplomacy_mod_vampire_counts",
+          "description": "Diplomatic relations: +25 with Vampire Coast, Vampire Counts and Undead Legions",
+          "key": "wh3_main_faction_political_diplomacy_mod_vampiric_undead",
           "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
           "priority": 5
         }
@@ -10185,9 +10467,9 @@
     }
   },
   {
-    "key": "stompies_anc_armour_gown_of_enthralment",
+    "key": "stompies_anc_armour_gown_of_enthrallment",
     "onscreen_name": "Gown of Enthallment",
-    "colour_text": "The only thing that ever made Isabella vaguely desirable was her stunning, but cold, beauty. She wears a scarlet gown over her suit of armour, but not as a display of vanity. The dress is magical, distracting and mesmerizing all who look upon it.",
+    "colour_text": "The only thing that ever made Isabella vaguely desirable was her stunning, cold beauty. She wears a scarlet gown over her suit of plate armour, but not as a display of vanity. The dress is magical, distracting and mesmerizing all who look upon it.",
     "ui_icon": "skins/default/equipment_items_armour",
     "unlocked_at_rank": 8,
     "effects": [
@@ -10210,7 +10492,7 @@
               },
               "is_hidden_in_ui": false,
               "onscreen_name": "Enthralling Beauty",
-              "effect_range": 40,
+              "effect_range": 35,
               "target_enemies": false,
               "target_friends": false,
               "target_ground": false,
@@ -10242,19 +10524,14 @@
         ]
       },
       {
-        "description": "Melee defence: +6",
-        "key": "wh_main_effect_character_stat_melee_defence",
-        "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+        "description": "Armour: +10",
+        "key": "wh_main_effect_character_stat_armour",
+        "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
       },
       {
-        "description": "Spell resistance: 15%",
+        "description": "Spell resistance: 25%",
         "key": "wh_main_effect_character_stat_magic_resistance",
         "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
-      },
-      {
-        "description": "Miscast base chance: -15%",
-        "key": "wh_main_effect_character_stat_miscast",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
       }
     ],
     "item_set": {
@@ -11277,77 +11554,6 @@
     }
   },
   {
-    "key": "stompies_anc_armour_helm_of_the_wight_king",
-    "onscreen_name": "Old King's Winged Helmet",
-    "colour_text": "A bronze helmet with metal extensions resembling soaring bat wings. Although tarnished and dulled from age, this helm still creates an inspiring aura, encouraging the ancient soldiers who still fight alongside their old king.",
-    "ui_icon": "skins/default/equipment_items_armour",
-    "unlocked_at_rank": 8,
-    "effects": [
-      {
-        "description": "Armour: +5",
-        "key": "wh_main_effect_character_stat_armour",
-        "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
-      },
-      {
-        "description": "Enemy Hero action success chance: -10%",
-        "key": "wh_main_effect_agent_action_success_chance_enemy",
-        "icon": "vanilla3/campaign_ui/effect_bundles/agent"
-      },
-      {
-        "description": "Physical resistance: 12%",
-        "key": "wh_main_effect_character_stat_physical_resistance",
-        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
-      },
-      {
-        "description": "Leadership: +9 for Grave Guard and Black Knights units\n\t(Hero's army)",
-        "key": "stompies_effect_vmp_leadership_black_knight_graveguard",
-        "icon": "vanilla3/campaign_ui/effect_bundles/morale"
-      }
-    ],
-    "item_set": {
-      "key": "stompies_lloydstein",
-      "name": "Return of the King",
-      "description": "The Barrow King goes to war once more. Armed with his full panoply, he brings a renewed fighting spirit to his loyal soldiers.",
-      "contains": [
-        {
-          "name": "Old King's Winged Helmet",
-          "icon": "skins/default/equipment_items_armour"
-        },
-        {
-          "name": "The Lloydstein Bulwark",
-          "icon": "skins/default/equipment_items_enchanted"
-        },
-        {
-          "name": "Unholy Lodestone Amulet",
-          "icon": "skins/default/equipment_items_talisman"
-        },
-        {
-          "name": "Sword of Death",
-          "icon": "skins/default/equipment_items_weapon"
-        }
-      ],
-      "effects": [
-        {
-          "description": "Melee attack: +10 for Grave Guard and Black Knights units\n\t(Hero's army)",
-          "key": "stompies_effect_vmp_melee_attack_black_knight_graveguard",
-          "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-          "priority": 109
-        }
-      ]
-    },
-    "rarity": "Unique",
-    "category": "Armour",
-    "agent_subtypes": [
-      "Wight King"
-    ],
-    "available": {
-      "factions": {},
-      "subcultures": {},
-      "cultures": {},
-      "all": true
-    }
-  },
-  {
     "key": "stompies_anc_armour_hidden_plaques_of_chaqua",
     "onscreen_name": "Hidden Plaques of Chaqua",
     "colour_text": "Tehenhauin led a massive Skink migration from Chaqua, bearing plaques which proclaimed the coming of Sotek. He now wears the golden plaques over his chest, blessing all those who fight for the Serpent god.",
@@ -11793,6 +11999,168 @@
     }
   },
   {
+    "key": "stompies_anc_armour_kraken_plate",
+    "onscreen_name": "Slick Plating",
+    "colour_text": "Pieces of crude Norscan iron plate that were drenched in the foul, oily slicks of a Rot-Kraken. When exposed to sea spray, the rancid fluids condense across the metal, causing enemy weapons to slide uselessly off its foul, slippery surface.",
+    "ui_icon": "skins/default/equipment_items_armour",
+    "unlocked_at_rank": 8,
+    "effects": [
+      {
+        "description": "Ability cooldown: -20% for Mark of the Plague Fleet",
+        "key": "stompies_effect_cooldown_ability_mark_of_the_plague_fleet",
+        "icon": "vanilla3/campaign_ui/effect_bundles/magic_cooldown",
+        "related_abilities": [
+          {
+            "effect": "stompies_effect_cooldown_ability_mark_of_the_plague_fleet",
+            "bonus_value_id": "recharge_mod",
+            "unit_ability": {
+              "key": "wh3_dlc29_item_active_mark_of_the_plague_fleet",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh3_dlc29_item_active_mark_of_the_plague_fleet",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_chain_hex",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_hex",
+                "onscreen_name": "Chain Hex"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Mark of the Plague Fleet",
+              "active_time": 30,
+              "effect_range": 0,
+              "num_effected_enemy_units": 3,
+              "recharge_time": 120,
+              "target_enemies": true,
+              "target_friends": false,
+              "target_ground": false,
+              "target_self": false,
+              "target_intercept_range": 75,
+              "ui_effects": [
+                {
+                  "key": "wh3_main_all_enemy_spreading_radius_30m",
+                  "localised_text": "Will spread to enemies within the Spread Range metres of affected unit",
+                  "effect_state": "positive"
+                },
+                {
+                  "key": "wh3_dlc29_all_three_affected_units",
+                  "localised_text": "Affects up to three units",
+                  "effect_state": "positive"
+                }
+              ],
+              "phases": [
+                {
+                  "icon": "vanilla3/battle_ui/ability_icons/wh3_dlc29_item_active_mark_of_the_plague_fleet",
+                  "order": 1,
+                  "target_enemies": true,
+                  "target_self": false,
+                  "target_friends": false,
+                  "duration": 30,
+                  "effect_type": "negative",
+                  "onscreen_name": "Mark of the Plague Fleet",
+                  "is_hidden_in_ui": false,
+                  "fatigue_change_ratio": 0.02,
+                  "spread_radius": 40,
+                  "stat_effects": [
+                    {
+                      "value": 0.5,
+                      "stat": "stat_healing_power",
+                      "how": "mult",
+                      "description": "x0.5 Incoming Healing Modifier",
+                      "icon": "vanilla3/skins/default/stat_healing_received"
+                    },
+                    {
+                      "value": -20,
+                      "stat": "stat_resistance_all",
+                      "how": "add",
+                      "description": "-20 Damage Resistance ",
+                      "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                    },
+                    {
+                      "value": -20,
+                      "stat": "stat_resistance_magic",
+                      "how": "add",
+                      "description": "-20 Spell Resistance",
+                      "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
+                    },
+                    {
+                      "value": -20,
+                      "stat": "stat_resistance_physical",
+                      "how": "add",
+                      "description": "-20 Physical Resistance",
+                      "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "description": "Armour: +10",
+        "key": "wh_main_effect_character_stat_armour",
+        "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+      },
+      {
+        "description": "Armour: +20 when fighting at sea",
+        "key": "wh3_dlc27_effect_character_stat_armour_at_sea",
+        "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+      },
+      {
+        "description": "Missile resistance: 7%",
+        "key": "wh_main_effect_character_stat_missile_resistance",
+        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+      },
+      {
+        "description": "Physical resistance: 7%",
+        "key": "wh_main_effect_character_stat_physical_resistance",
+        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+      },
+      {
+        "description": "Missile resistance: +14% when fighting at sea",
+        "key": "stompies_effect_missile_resist_at_sea",
+        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_missile"
+      },
+      {
+        "description": "Physical resistance: +14% when fighting at sea",
+        "key": "stompies_effect_physical_resist_at_sea",
+        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+      }
+    ],
+    "item_set": {
+      "key": "stompies_gutrot_spume",
+      "name": "Ocean Hunter",
+      "description": "Gutrot hunted creatures in the Sea of Claws his whole life. His army can learn a thing or two from his experiences.",
+      "contains": [
+        {
+          "name": "Slick Plating",
+          "icon": "skins/default/equipment_items_armour"
+        },
+        {
+          "name": "Tentacle Barbs",
+          "icon": "skins/default/equipment_items_enchanted"
+        }
+      ],
+      "effects": [
+        {
+          "description": "Bonus vs Large: +7\n\t(own army)",
+          "key": "wh3_dlc29_effect_force_stat_bonus_vs_large",
+          "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character",
+          "priority": 55
+        }
+      ]
+    },
+    "rarity": "Unique",
+    "category": "Armour",
+    "agent_subtypes": [
+      "Gutrot Spume"
+    ],
+    "available": {
+      "factions": {},
+      "subcultures": {},
+      "cultures": {},
+      "all": true
+    }
+  },
+  {
     "key": "stompies_anc_armour_krimson_plate_armour",
     "onscreen_name": "Krimson Plate Armour",
     "colour_text": "Heavy steel plates from the armour of slain Dwarfs were reforged to fit Gorbad and painted red so he is easily seen during chaotic battles. Greenskins claim the moans of the dead Dwarfs, whose armour was repurposed, emanates from the armour during combat.",
@@ -11956,6 +12324,126 @@
     "category": "Armour",
     "agent_subtypes": [
       "Arkhan the Black"
+    ],
+    "available": {
+      "factions": {},
+      "subcultures": {},
+      "cultures": {},
+      "all": true
+    }
+  },
+  {
+    "key": "stompies_anc_armour_lloydstein_bulwark",
+    "onscreen_name": "The Lloydstein Bulwark",
+    "colour_text": "A large kite shield enchanted long ago by Shamans of the old Sylvanian tribes. It is an eternal heirloom to the Lloydstein dynasty, even though the family died off after only a few generations.",
+    "ui_icon": "skins/default/equipment_items_armour",
+    "unlocked_at_rank": 8,
+    "effects": [
+      {
+        "description": "Passive ability: \"Ward of the Dead\"",
+        "key": "stompies_effect_ability_death_ward",
+        "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
+        "related_abilities": [
+          {
+            "effect": "stompies_effect_ability_death_ward",
+            "bonus_value_id": "enable",
+            "unit_ability": {
+              "key": "stompies_ability_death_ward",
+              "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_item_abilities_chalice_of_dark_rain",
+              "overpower_option": "",
+              "type": {
+                "key": "wh_type_ward_save",
+                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_ward_save",
+                "onscreen_name": "Ward Save"
+              },
+              "is_hidden_in_ui": false,
+              "onscreen_name": "Ward of the Dead",
+              "effect_range": 35,
+              "target_enemies": false,
+              "target_friends": false,
+              "target_ground": false,
+              "target_self": false,
+              "target_intercept_range": 0,
+              "target_if": [
+                "Hit Points less than 25%",
+                "Undead"
+              ],
+              "phases": [
+                {
+                  "icon": "stompies_ability_death_ward",
+                  "order": 1,
+                  "target_enemies": false,
+                  "target_self": true,
+                  "target_friends": true,
+                  "duration": -1,
+                  "effect_type": "positive",
+                  "is_hidden_in_ui": false,
+                  "stat_effects": [
+                    {
+                      "value": 40,
+                      "stat": "stat_resistance_all",
+                      "how": "add",
+                      "description": "+40 Damage Resistance ",
+                      "icon": "vanilla3/battle_ui/ability_icons/resistance_ward_save"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "description": "Missile block chance: +15%",
+        "key": "wh_main_effect_character_stat_missile_block",
+        "icon": "vanilla3/campaign_ui/effect_bundles/block_character"
+      },
+      {
+        "description": "Melee defence: +5",
+        "key": "wh_main_effect_character_stat_melee_defence",
+        "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
+      },
+      {
+        "description": "Physical resistance: 10%",
+        "key": "wh_main_effect_character_stat_physical_resistance",
+        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_physical"
+      }
+    ],
+    "item_set": {
+      "key": "stompies_lloydstein",
+      "name": "Return of the King",
+      "description": "The Barrow King goes to war once more. Armed with his full panoply, he brings a renewed fighting spirit to his loyal soldiers.",
+      "contains": [
+        {
+          "name": "The Lloydstein Bulwark",
+          "icon": "skins/default/equipment_items_armour"
+        },
+        {
+          "name": "Unholy Lodestone Amulet",
+          "icon": "skins/default/equipment_items_talisman"
+        },
+        {
+          "name": "Old King's Winged Helmet",
+          "icon": "skins/default/equipment_items_enchanted"
+        },
+        {
+          "name": "Sword of Death",
+          "icon": "skins/default/equipment_items_weapon"
+        }
+      ],
+      "effects": [
+        {
+          "description": "Melee attack: +8 for Grave Guard and Black Knights units\n\t(Hero's army)",
+          "key": "stompies_effect_vmp_melee_attack_black_knight_graveguard",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee",
+          "priority": 109
+        }
+      ]
+    },
+    "rarity": "Unique",
+    "category": "Armour",
+    "agent_subtypes": [
+      "Wight King"
     ],
     "available": {
       "factions": {},
@@ -18631,6 +19119,69 @@
     }
   },
   {
+    "key": "stompies_anc_enchanted_cloak_of_darkness",
+    "onscreen_name": "Cloak of Darkness",
+    "colour_text": "An elegant black hooded cloak made from silk and Dhar-tainted materials. It has been enchanted by Mannfred himself and provides some of the most potent magical defences ever created.",
+    "ui_icon": "skins/default/equipment_items_enchanted",
+    "unlocked_at_rank": 14,
+    "effects": [
+      {
+        "description": "Vampiric corruption: +3\n\t(local province)",
+        "key": "wh3_main_effect_corruption_vampiric_characters",
+        "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
+      },
+      {
+        "description": "Spell resistance: 50%",
+        "key": "wh_main_effect_character_stat_magic_resistance",
+        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
+      }
+    ],
+    "item_set": {
+      "key": "stompies_mannfred_von_carstein",
+      "name": "Dark Immortal",
+      "description": "A century of studying Necromancy and collecting artefacts has made Mannfred an exceptionally skilled practitioner of Dark Magic.",
+      "contains": [
+        {
+          "name": "Ebony Staff",
+          "icon": "skins/default/equipment_items_arcane"
+        },
+        {
+          "name": "Cloak of Darkness",
+          "icon": "skins/default/equipment_items_enchanted"
+        },
+        {
+          "name": "Pendant of Ahmose the Deathless",
+          "icon": "skins/default/equipment_items_talisman"
+        }
+      ],
+      "effects": [
+        {
+          "description": "Spell intensity: +10%",
+          "key": "wh3_main_effect_spell_mastery",
+          "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
+          "priority": 2
+        },
+        {
+          "description": "Targeting range: +10% for spells",
+          "key": "wh3_main_effect_spell_targeting_range_all",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+          "priority": 1
+        }
+      ]
+    },
+    "rarity": "Unique",
+    "category": "Enchanted Item",
+    "agent_subtypes": [
+      "Mannfred von Carstein"
+    ],
+    "available": {
+      "factions": {},
+      "subcultures": {},
+      "cultures": {},
+      "all": true
+    }
+  },
+  {
     "key": "stompies_anc_enchanted_cloak_of_the_dunes",
     "onscreen_name": "Cloak of the Desert Wind",
     "colour_text": "This fabled cloak is said to have been created by Khsar the Faceless, the god of the desert, who took on the form of the elemental wind. The cloak allows the wearer to move like a gust of wind and quickly travel great distances.",
@@ -20564,6 +21115,67 @@
     }
   },
   {
+    "key": "stompies_anc_enchanted_helm_of_the_wight_king",
+    "onscreen_name": "Old King's Winged Helmet",
+    "colour_text": "A bronze helmet with metal extensions resembling soaring bat wings. Although tarnished and dulled from age, this helm still creates an inspiring aura, encouraging the ancient soldiers who still fight alongside their old king.",
+    "ui_icon": "skins/default/equipment_items_enchanted",
+    "unlocked_at_rank": 22,
+    "effects": [
+      {
+        "description": "Armour: +10",
+        "key": "wh_main_effect_character_stat_armour",
+        "icon": "vanilla3/campaign_ui/effect_bundles/armour_character"
+      },
+      {
+        "description": "Leadership: +9 for Grave Guard and Black Knights units\n\t(Hero's army)",
+        "key": "stompies_effect_vmp_leadership_black_knight_graveguard",
+        "icon": "vanilla3/campaign_ui/effect_bundles/morale"
+      }
+    ],
+    "item_set": {
+      "key": "stompies_lloydstein",
+      "name": "Return of the King",
+      "description": "The Barrow King goes to war once more. Armed with his full panoply, he brings a renewed fighting spirit to his loyal soldiers.",
+      "contains": [
+        {
+          "name": "The Lloydstein Bulwark",
+          "icon": "skins/default/equipment_items_armour"
+        },
+        {
+          "name": "Unholy Lodestone Amulet",
+          "icon": "skins/default/equipment_items_talisman"
+        },
+        {
+          "name": "Old King's Winged Helmet",
+          "icon": "skins/default/equipment_items_enchanted"
+        },
+        {
+          "name": "Sword of Death",
+          "icon": "skins/default/equipment_items_weapon"
+        }
+      ],
+      "effects": [
+        {
+          "description": "Melee attack: +8 for Grave Guard and Black Knights units\n\t(Hero's army)",
+          "key": "stompies_effect_vmp_melee_attack_black_knight_graveguard",
+          "icon": "vanilla3/campaign_ui/effect_bundles/melee",
+          "priority": 109
+        }
+      ]
+    },
+    "rarity": "Unique",
+    "category": "Enchanted Item",
+    "agent_subtypes": [
+      "Wight King"
+    ],
+    "available": {
+      "factions": {},
+      "subcultures": {},
+      "cultures": {},
+      "all": true
+    }
+  },
+  {
     "key": "stompies_anc_enchanted_high_priest_helm",
     "onscreen_name": "Helm of the High Priest",
     "colour_text": "A tall and columnar shaped metal cap made from cruel rituals of blood and flame. Only the High Priest of Hashut may wear this helmet, for anyone else will instantly burst into flame and quickly burn into ash if they don the cap.",
@@ -21902,143 +22514,6 @@
     }
   },
   {
-    "key": "stompies_anc_enchanted_lloydstein_bulwark",
-    "onscreen_name": "The Lloydstein Bulwark",
-    "colour_text": "A large kite shield enchanted long ago by Shamans of the old Sylvanian tribes. It is an eternal heirloom to the Lloydstein dynasty, even though the family died off after only a few generations.",
-    "ui_icon": "skins/default/equipment_items_enchanted",
-    "unlocked_at_rank": 22,
-    "effects": [
-      {
-        "description": "Passive ability: \"Ward of the Dead\"",
-        "key": "stompies_effect_ability_death_ward",
-        "icon": "vanilla3/campaign_ui/effect_bundles/item_ability",
-        "related_abilities": [
-          {
-            "effect": "stompies_effect_ability_death_ward",
-            "bonus_value_id": "enable",
-            "unit_ability": {
-              "key": "stompies_ability_death_ward",
-              "icon_name": "vanilla3/battle_ui/ability_icons/wh_dlc03_item_abilities_chalice_of_dark_rain",
-              "overpower_option": "",
-              "type": {
-                "key": "wh_type_ward_save",
-                "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_ward_save",
-                "onscreen_name": "Ward Save"
-              },
-              "is_hidden_in_ui": false,
-              "onscreen_name": "Ward of the Dead",
-              "effect_range": 35,
-              "target_enemies": false,
-              "target_friends": false,
-              "target_ground": false,
-              "target_self": false,
-              "target_intercept_range": 0,
-              "phases": [
-                {
-                  "icon": "stompies_ability_death_ward",
-                  "order": 1,
-                  "target_enemies": false,
-                  "target_self": true,
-                  "target_friends": true,
-                  "duration": -1,
-                  "effect_type": "positive",
-                  "is_hidden_in_ui": false,
-                  "stat_effects": [
-                    {
-                      "value": 18,
-                      "stat": "stat_resistance_magic",
-                      "how": "add",
-                      "description": "+18 Spell Resistance",
-                      "icon": "vanilla3/battle_ui/ability_icons/resistance_magic"
-                    },
-                    {
-                      "value": 18,
-                      "stat": "stat_resistance_physical",
-                      "how": "add",
-                      "description": "+18 Physical Resistance",
-                      "icon": "vanilla3/battle_ui/ability_icons/resistance_physical"
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        ]
-      },
-      {
-        "description": "Missile block chance: +15%",
-        "key": "wh_main_effect_character_stat_missile_block",
-        "icon": "vanilla3/campaign_ui/effect_bundles/block_character"
-      },
-      {
-        "description": "Melee defence: +5",
-        "key": "wh_main_effect_character_stat_melee_defence",
-        "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-      },
-      {
-        "description": "Attribute: Expert Charge Defence",
-        "key": "wh_main_effect_attribute_enable_expert_charge_defence",
-        "icon": "vanilla3/campaign_ui/effect_bundles/charge_reflector",
-        "related_attributes": [
-          {
-            "key": "charge_defense_vs_large",
-            "description": " Charge Defence vs. Large",
-            "bullet_text": "When bracing, this unit negates the charge bonus of any large attacker.",
-            "icon": "vanilla3/battle_ui/ability_icons/charge_defense_vs_large"
-          },
-          {
-            "key": "charge_defense",
-            "description": " Expert Charge Defence",
-            "bullet_text": "When bracing, this unit negates the charge bonus of any attacker.",
-            "icon": "vanilla3/battle_ui/ability_icons/charge_defense"
-          }
-        ]
-      }
-    ],
-    "item_set": {
-      "key": "stompies_lloydstein",
-      "name": "Return of the King",
-      "description": "The Barrow King goes to war once more. Armed with his full panoply, he brings a renewed fighting spirit to his loyal soldiers.",
-      "contains": [
-        {
-          "name": "Old King's Winged Helmet",
-          "icon": "skins/default/equipment_items_armour"
-        },
-        {
-          "name": "The Lloydstein Bulwark",
-          "icon": "skins/default/equipment_items_enchanted"
-        },
-        {
-          "name": "Unholy Lodestone Amulet",
-          "icon": "skins/default/equipment_items_talisman"
-        },
-        {
-          "name": "Sword of Death",
-          "icon": "skins/default/equipment_items_weapon"
-        }
-      ],
-      "effects": [
-        {
-          "description": "Melee attack: +10 for Grave Guard and Black Knights units\n\t(Hero's army)",
-          "key": "stompies_effect_vmp_melee_attack_black_knight_graveguard",
-          "icon": "vanilla3/campaign_ui/effect_bundles/melee",
-          "priority": 109
-        }
-      ]
-    },
-    "rarity": "Unique",
-    "category": "Enchanted Item",
-    "agent_subtypes": [
-      "Wight King"
-    ],
-    "available": {
-      "factions": {},
-      "subcultures": {},
-      "cultures": {},
-      "all": true
-    }
-  },
-  {
     "key": "stompies_anc_enchanted_lupus",
     "onscreen_name": "Liber Lupus",
     "colour_text": "Also known as the Teutonengeschichte, this tome contains holy texts of the Ulrican Cult. Ulric is a warrior god and those who follow the teachings found within this tome are granted great strength.",
@@ -22666,9 +23141,9 @@
     }
   },
   {
-    "key": "stompies_anc_enchanted_mousillin_rose",
-    "onscreen_name": "",
-    "colour_text": "",
+    "key": "stompies_anc_enchanted_mousillon_rose",
+    "onscreen_name": "Mousillon Rose",
+    "colour_text": "These purple flowers only grow on the barrow mounds found in the hills of Mousillon. The rose is resistant to magic, but studying such an odd characteristic is difficult due to the poisonous nature of the flower.",
     "ui_icon": "skins/default/equipment_items_enchanted",
     "effects": [
       {
@@ -23987,79 +24462,6 @@
     "category": "Enchanted Item",
     "agent_subtypes": [
       "Durthu"
-    ],
-    "available": {
-      "factions": {},
-      "subcultures": {},
-      "cultures": {},
-      "all": true
-    }
-  },
-  {
-    "key": "stompies_anc_enchanted_red_dragon_crest",
-    "onscreen_name": "Blood Dragon Crest",
-    "colour_text": "A crest engravened with the symbol of the Ordo Draconis. It is made of a large red scale from a powerful Dragon. The Dragon's essence still lingers, enhancing the combat abilities of those who are worthy to wear the crest.",
-    "ui_icon": "skins/default/equipment_items_enchanted",
-    "unlocked_at_rank": 14,
-    "effects": [
-      {
-        "description": "Melee attack: +8",
-        "key": "wh_main_effect_character_stat_melee_attack",
-        "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-      },
-      {
-        "description": "Character's aura leadership effect: +5",
-        "key": "wh_main_effect_character_stat_aura_leadership_effect",
-        "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
-      },
-      {
-        "description": "Leadership aura size: +15%",
-        "key": "wh_main_effect_character_stat_leadership_aura_size",
-        "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
-      },
-      {
-        "description": "Melee attack: +8 for Blood Knight units\n\t(own army)",
-        "key": "wh_main_effect_force_stat_melee_attack_blood_knights",
-        "icon": "vanilla3/campaign_ui/effect_bundles/melee"
-      }
-    ],
-    "item_set": {
-      "key": "stompies_vlad_von_carstein",
-      "name": "Progenitor",
-      "description": "Vlad is now prepared to dominate the other Vampire Counts, proving he is the original Von Carstein.",
-      "contains": [
-        {
-          "name": "Unholy Charm",
-          "icon": "skins/default/equipment_items_arcane"
-        },
-        {
-          "name": "Ancient Armour of Vashanesh",
-          "icon": "skins/default/equipment_items_armour"
-        },
-        {
-          "name": "Blood Dragon Crest",
-          "icon": "skins/default/equipment_items_enchanted"
-        }
-      ],
-      "effects": [
-        {
-          "description": "Weapon strength: +10%",
-          "key": "wh_main_effect_character_stat_weapon_strength",
-          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
-          "priority": 160
-        },
-        {
-          "description": "Diplomatic relations: +25 with Vampire Counts",
-          "key": "wh_main_faction_political_diplomacy_mod_vampire_counts",
-          "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
-          "priority": 5
-        }
-      ]
-    },
-    "rarity": "Unique",
-    "category": "Enchanted Item",
-    "agent_subtypes": [
-      "Vlad von Carstein"
     ],
     "available": {
       "factions": {},
@@ -26212,59 +26614,123 @@
     }
   },
   {
-    "key": "stompies_anc_enchanted_sylvania",
-    "onscreen_name": "Ring of Shyish",
-    "colour_text": "Made from steel, but stained black from the corruption of Dark Magic. This metallic ring enhances one's ability to use the Winds of Magic to bring death.",
+    "key": "stompies_anc_enchanted_sylvanian_crest",
+    "onscreen_name": "Sylvanian Crest",
+    "colour_text": "A crest engravened with the heraldry of Sylvania. It inspires the soldiers as it is a reminder that they fight alongside the true ruler of Sylvania.",
     "ui_icon": "skins/default/equipment_items_enchanted",
     "unlocked_at_rank": 14,
     "effects": [
       {
-        "description": "Vampiric corruption: +5\n\t(local province)",
-        "key": "wh3_main_effect_corruption_vampiric_characters",
-        "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
+        "description": "Upkeep: -25% for Sylvanian Crossbownmen and Sylvanian Handgunners units\n\t(all armies)",
+        "key": "stompies_effect_vmp_upkeep_cost_sylvanian_missile_units",
+        "icon": "vanilla3/campaign_ui/effect_bundles/wh_main_vmp_vampire_counts/military_spending"
       },
       {
-        "description": "Winds of Magic cost: -25% for Lore of Death spells",
-        "key": "wh3_main_effect_ability_wom_cost_pct_death_spells",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_character"
+        "description": "Character's aura leadership effect: +5",
+        "key": "wh_main_effect_character_stat_aura_leadership_effect",
+        "icon": "vanilla3/campaign_ui/effect_bundles/morale_character"
       },
       {
-        "description": "Winds of Magic power reserve capacity: +25",
-        "key": "wh3_main_effect_winds_of_magic_pool_cap",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
+        "description": "Leadership aura size: +25%",
+        "key": "wh_main_effect_character_stat_leadership_aura_size",
+        "icon": "vanilla3/campaign_ui/effect_bundles/general_ability"
+      },
+      {
+        "description": "Melee attack: +8\n\t(own army)",
+        "key": "wh_main_effect_force_stat_melee_attack",
+        "icon": "vanilla3/campaign_ui/effect_bundles/melee"
       }
     ],
     "item_set": {
-      "key": "stompies_mannfred_von_carstein",
-      "name": "Dark Immortal",
-      "description": "A century of studying Necromancy and collecting artefacts has made Mannfred an exceptionally skilled practitioner of Dark Magic.",
+      "key": "stompies_vlad_von_carstein",
+      "name": "Progenitor",
+      "description": "Vlad is now prepared to dominate the other Vampire Counts, proving he is the original Von Carstein.",
       "contains": [
         {
-          "name": "Ebony Orb",
+          "name": "Unholy Charm",
           "icon": "skins/default/equipment_items_arcane"
         },
         {
-          "name": "Ring of Shyish",
-          "icon": "skins/default/equipment_items_enchanted"
+          "name": "Ancient Armour of Vashanesh",
+          "icon": "skins/default/equipment_items_armour"
         },
         {
-          "name": "Pendant of Ahmose the Deathless",
-          "icon": "skins/default/equipment_items_talisman"
+          "name": "Sylvanian Crest",
+          "icon": "skins/default/equipment_items_enchanted"
         }
       ],
       "effects": [
         {
-          "description": "The Dead Rise Again: +25% chance for destroyed Undead units to be restored after battle",
-          "key": "wh3_main_effect_undead_post_battle_unit_saving_chance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment",
-          "priority": 101
+          "description": "Weapon strength: +10%",
+          "key": "wh_main_effect_character_stat_weapon_strength",
+          "icon": "vanilla3/campaign_ui/effect_bundles/weapon_damage_character",
+          "priority": 160
+        },
+        {
+          "description": "Diplomatic relations: +25 with Vampire Coast, Vampire Counts and Undead Legions",
+          "key": "wh3_main_faction_political_diplomacy_mod_vampiric_undead",
+          "icon": "vanilla3/campaign_ui/effect_bundles/diplomacy",
+          "priority": 5
         }
       ]
     },
     "rarity": "Unique",
     "category": "Enchanted Item",
     "agent_subtypes": [
-      "Mannfred von Carstein"
+      "Vlad von Carstein"
+    ],
+    "available": {
+      "factions": {},
+      "subcultures": {},
+      "cultures": {},
+      "all": true
+    }
+  },
+  {
+    "key": "stompies_anc_enchanted_tentacle_barbs",
+    "onscreen_name": "Tentacle Barbs",
+    "colour_text": "Vicious barbs have sprouted from the bristling tentacles of Gutrot's mutated left side. The chitinous, serrated hooks pierce and rip the flesh of anything caught by the strong, thrashing appendages.",
+    "ui_icon": "skins/default/equipment_items_enchanted",
+    "unlocked_at_rank": 14,
+    "effects": [
+      {
+        "description": "Melee attack: +7",
+        "key": "wh_main_effect_character_stat_melee_attack",
+        "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+      },
+      {
+        "description": "Armour-piercing weapon damage: +45",
+        "key": "wh_main_effect_character_stat_ap_damage",
+        "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
+      }
+    ],
+    "item_set": {
+      "key": "stompies_gutrot_spume",
+      "name": "Ocean Hunter",
+      "description": "Gutrot hunted creatures in the Sea of Claws his whole life. His army can learn a thing or two from his experiences.",
+      "contains": [
+        {
+          "name": "Slick Plating",
+          "icon": "skins/default/equipment_items_armour"
+        },
+        {
+          "name": "Tentacle Barbs",
+          "icon": "skins/default/equipment_items_enchanted"
+        }
+      ],
+      "effects": [
+        {
+          "description": "Bonus vs Large: +7\n\t(own army)",
+          "key": "wh3_dlc29_effect_force_stat_bonus_vs_large",
+          "icon": "vanilla3/campaign_ui/effect_bundles/bonus_vs_large_character",
+          "priority": 55
+        }
+      ]
+    },
+    "rarity": "Unique",
+    "category": "Enchanted Item",
+    "agent_subtypes": [
+      "Gutrot Spume"
     ],
     "available": {
       "factions": {},
@@ -27629,24 +28095,24 @@
   {
     "key": "stompies_anc_talisman_ahmose",
     "onscreen_name": "Pendant of Ahmose the Deathless",
-    "colour_text": "This golden ankh was created by a priest of the Mortuary Cult in an attempt to extend his life. During the creation ritual, the priest accidentally poured his soul into the pendant and his body turned to dust. Other priests mockingly gave him the nickname 'the Deathless', since Ahmose's soul may still be trapped within.",
+    "colour_text": "This golden ankh was created by a priest of the Mortuary Cult in an attempt to extend his life. During the creation ritual, the priest accidentally poured his soul into the pendant and his body turned to dust. Other priests mockingly gave him the nickname 'the Deathless,' since Ahmose's soul may still be trapped within.",
     "ui_icon": "skins/default/equipment_items_talisman",
     "unlocked_at_rank": 8,
     "effects": [
       {
-        "description": "Ward save: +10%",
+        "description": "Ward save: +8%",
         "key": "wh_main_effect_character_stat_ward_save",
         "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
-      },
-      {
-        "description": "Spell resistance: 20%",
-        "key": "wh_main_effect_character_stat_magic_resistance",
-        "icon": "vanilla3/campaign_ui/effect_bundles/resistance_magic"
       },
       {
         "description": "Winds of Magic cost: -25% for \"Spirit Leech\"",
         "key": "stompies_effect_magic_cost_pct_spirit_leech",
         "icon": "s5a3/campaign_ui/effect_bundles/wh_main_spell_death_spirit_leech"
+      },
+      {
+        "description": "Barrier hit points: +300",
+        "key": "wh3_main_effect_battle_barrier_health_add",
+        "icon": "vanilla3/campaign_ui/effect_bundles/barrier"
       }
     ],
     "item_set": {
@@ -27655,11 +28121,11 @@
       "description": "A century of studying Necromancy and collecting artefacts has made Mannfred an exceptionally skilled practitioner of Dark Magic.",
       "contains": [
         {
-          "name": "Ebony Orb",
+          "name": "Ebony Staff",
           "icon": "skins/default/equipment_items_arcane"
         },
         {
-          "name": "Ring of Shyish",
+          "name": "Cloak of Darkness",
           "icon": "skins/default/equipment_items_enchanted"
         },
         {
@@ -27669,10 +28135,16 @@
       ],
       "effects": [
         {
-          "description": "The Dead Rise Again: +25% chance for destroyed Undead units to be restored after battle",
-          "key": "wh3_main_effect_undead_post_battle_unit_saving_chance",
-          "icon": "vanilla3/campaign_ui/effect_bundles/replenishment",
-          "priority": 101
+          "description": "Spell intensity: +10%",
+          "key": "wh3_main_effect_spell_mastery",
+          "icon": "vanilla3/campaign_ui/effect_bundles/wizard",
+          "priority": 2
+        },
+        {
+          "description": "Targeting range: +10% for spells",
+          "key": "wh3_main_effect_spell_targeting_range_all",
+          "icon": "vanilla3/campaign_ui/effect_bundles/magic_character",
+          "priority": 1
         }
       ]
     },
@@ -29307,7 +29779,7 @@
   {
     "key": "stompies_anc_talisman_black_gem_of_mousillon",
     "onscreen_name": "Black Gem of Mousillon",
-    "colour_text": "Mousillon is the smallest, poorest and most cursed of the Dukedoms of Bretonnia. Long ago, miners found a large black gem located at the very center of the duchy. Some claim it's the source of the land's curse, for the dead began rising from their graves after this gem was found.",
+    "colour_text": "Mousillon is the smallest, poorest a,nd most cursed of the Dukedoms of Bretonnia. Miners sometimes find large black gems located in the duchy. Some claim these gems are the source of the land's curse, for the dead begin rising from their graves when these gems are found.",
     "ui_icon": "skins/default/equipment_items_talisman",
     "effects": [
       {
@@ -29319,20 +29791,22 @@
         "description": "Vampiric corruption: +5\n\t(local province)",
         "key": "wh3_main_effect_corruption_vampiric_characters",
         "icon": "vanilla3/campaign_ui/effect_bundles/corruption_vampiric"
-      },
-      {
-        "description": "Winds of Magic power reserve capacity: +20",
-        "key": "wh3_main_effect_winds_of_magic_pool_cap",
-        "icon": "vanilla3/campaign_ui/effect_bundles/magic_campaign"
       }
     ],
-    "rarity": "Unique",
+    "rarity": "Rare",
     "category": "Talisman",
+    "randomly_dropped": true,
+    "can_be_destroyed": true,
+    "transferrable": true,
     "available": {
-      "factions": {},
+      "factions": {
+        "wh3_dlc29_nag_host_of_nagash": {
+          "name": "Host of Nagash",
+          "img": "flags/wh3_dlc29_nag_host_of_nagash"
+        }
+      },
       "subcultures": {},
-      "cultures": {},
-      "all": true
+      "cultures": {}
     }
   },
   {
@@ -29489,37 +29963,19 @@
     "unlocked_at_rank": 18,
     "effects": [
       {
+        "description": "Hit points: +20%",
+        "key": "wh_main_effect_character_stat_unit_health",
+        "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
+      },
+      {
         "description": "Ward save: +10%",
         "key": "wh_main_effect_character_stat_ward_save",
         "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
       },
       {
-        "description": "Melee attack: +5",
-        "key": "wh_main_effect_character_stat_melee_attack",
-        "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
-      },
-      {
-        "description": "Melee defence: +5",
-        "key": "wh_main_effect_character_stat_melee_defence",
-        "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-      },
-      {
-        "description": "Charge bonus: +25",
-        "key": "wh_main_effect_character_stat_charge_bonus_add",
-        "icon": "vanilla3/campaign_ui/effect_bundles/charge_character"
-      },
-      {
-        "description": "Attribute: Perfect Vigour",
-        "key": "wh2_dlc10_effect_attribute_enable_perfect_vigour",
-        "icon": "vanilla3/campaign_ui/effect_bundles/attribute_fatigue_immune",
-        "related_attributes": [
-          {
-            "key": "fatigue_immune",
-            "description": " Perfect Vigour",
-            "bullet_text": "Even when performing the most fatiguing actions, this unit never loses vigour. ",
-            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_fatigue_immune"
-          }
-        ]
+        "description": "Battle healing cap: +50%",
+        "key": "wh3_dlc20_effect_healing_cap_modifier",
+        "icon": "vanilla3/campaign_ui/effect_bundles/health_character"
       }
     ],
     "item_set": {
@@ -40122,9 +40578,14 @@
         ]
       },
       {
-        "description": "Ward save: +16%",
+        "description": "Ward save: +15%",
         "key": "wh_main_effect_character_stat_ward_save",
         "icon": "vanilla3/campaign_ui/effect_bundles/resistance_ward_save"
+      },
+      {
+        "description": "Enemy Hero action success chance: -15%",
+        "key": "wh_main_effect_agent_action_success_chance_enemy",
+        "icon": "vanilla3/campaign_ui/effect_bundles/agent"
       }
     ],
     "item_set": {
@@ -40133,16 +40594,16 @@
       "description": "The Barrow King goes to war once more. Armed with his full panoply, he brings a renewed fighting spirit to his loyal soldiers.",
       "contains": [
         {
-          "name": "Old King's Winged Helmet",
-          "icon": "skins/default/equipment_items_armour"
-        },
-        {
           "name": "The Lloydstein Bulwark",
-          "icon": "skins/default/equipment_items_enchanted"
+          "icon": "skins/default/equipment_items_armour"
         },
         {
           "name": "Unholy Lodestone Amulet",
           "icon": "skins/default/equipment_items_talisman"
+        },
+        {
+          "name": "Old King's Winged Helmet",
+          "icon": "skins/default/equipment_items_enchanted"
         },
         {
           "name": "Sword of Death",
@@ -40151,7 +40612,7 @@
       ],
       "effects": [
         {
-          "description": "Melee attack: +10 for Grave Guard and Black Knights units\n\t(Hero's army)",
+          "description": "Melee attack: +8 for Grave Guard and Black Knights units\n\t(Hero's army)",
           "key": "stompies_effect_vmp_melee_attack_black_knight_graveguard",
           "icon": "vanilla3/campaign_ui/effect_bundles/melee",
           "priority": 109
@@ -41100,14 +41561,14 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/battle_movement_character"
       },
       {
+        "description": "Melee attack: +6",
+        "key": "wh_main_effect_character_stat_melee_attack",
+        "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+      },
+      {
         "description": "Melee defence: +6",
         "key": "wh_main_effect_character_stat_melee_defence",
         "icon": "vanilla3/campaign_ui/effect_bundles/defence_character"
-      },
-      {
-        "description": "Melee attack: +6",
-        "key": "wh_main_effect_force_stat_melee_attack",
-        "icon": "vanilla3/campaign_ui/effect_bundles/melee"
       }
     ],
     "item_set": {
@@ -43347,7 +43808,12 @@
         "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
       },
       {
-        "description": "Armour-piercing weapon damage: +65",
+        "description": "Base weapon damage: +50",
+        "key": "wh2_main_effect_character_stat_weapon_strength_base",
+        "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_damage_base_character"
+      },
+      {
+        "description": "Armour-piercing weapon damage: +50",
         "key": "wh_main_effect_character_stat_ap_damage",
         "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing_character"
       },
@@ -46243,12 +46709,12 @@
     "unlocked_at_rank": 14,
     "effects": [
       {
-        "description": "Wound action: Additional 10% chance of wounding target",
+        "description": "Wound action: Additional 25% chance of wounding target",
         "key": "wh2_main_effect_agent_action_hinder_agent_wound_buff",
         "icon": "vanilla3/campaign_ui/effect_bundles/wound_time"
       },
       {
-        "description": "Melee attack: +8",
+        "description": "Melee attack: +10",
         "key": "wh_main_effect_character_stat_melee_attack",
         "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
       },
@@ -46269,16 +46735,16 @@
       "description": "The Barrow King goes to war once more. Armed with his full panoply, he brings a renewed fighting spirit to his loyal soldiers.",
       "contains": [
         {
-          "name": "Old King's Winged Helmet",
-          "icon": "skins/default/equipment_items_armour"
-        },
-        {
           "name": "The Lloydstein Bulwark",
-          "icon": "skins/default/equipment_items_enchanted"
+          "icon": "skins/default/equipment_items_armour"
         },
         {
           "name": "Unholy Lodestone Amulet",
           "icon": "skins/default/equipment_items_talisman"
+        },
+        {
+          "name": "Old King's Winged Helmet",
+          "icon": "skins/default/equipment_items_enchanted"
         },
         {
           "name": "Sword of Death",
@@ -46287,7 +46753,7 @@
       ],
       "effects": [
         {
-          "description": "Melee attack: +10 for Grave Guard and Black Knights units\n\t(Hero's army)",
+          "description": "Melee attack: +8 for Grave Guard and Black Knights units\n\t(Hero's army)",
           "key": "stompies_effect_vmp_melee_attack_black_knight_graveguard",
           "icon": "vanilla3/campaign_ui/effect_bundles/melee",
           "priority": 109
