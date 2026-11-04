@@ -6394,29 +6394,119 @@
       "visible_in_ui": false,
       "is_background_skill": true,
       "localised_name": "Ferocious",
-      "localised_description": "",
+      "localised_description": "The Celestial Emperor's loyal servants relentlessly hunt down the agents of Chaos, so that they may never find purchase within Grand Cathay.",
       "levels": [
         {
           "effects": [
             {
-              "description": "Melee attack: +8",
-              "key": "wh_main_effect_character_stat_melee_attack",
-              "icon": "vanilla3/campaign_ui/effect_bundles/melee_character"
+              "description": "Spell intensity: +15%",
+              "key": "wh3_main_effect_spell_mastery",
+              "icon": "vanilla3/campaign_ui/effect_bundles/wizard"
             },
             {
-              "description": "Reload time reduction: +10%",
-              "key": "wh_main_effect_character_stat_reload_time_reduction",
-              "icon": "vanilla3/campaign_ui/effect_bundles/icon_stat_reload_time_character"
+              "description": "Vigour loss reduction: -20%\n\t(all units in army)",
+              "key": "wh_main_effect_force_stat_vigour_loss_reduction",
+              "icon": "vanilla3/campaign_ui/effect_bundles/vigour"
             },
             {
-              "description": "Armour-piercing weapon damage: +85 when fighting against Chaos",
+              "description": "Passive ability: \"Frenzy\"\n\t(all units in army)",
+              "key": "wh_dlc08_effect_ability_enable_frenzy",
+              "icon": "vanilla3/campaign_ui/effect_bundles/general_ability",
+              "related_abilities": [
+                {
+                  "effect": "wh_dlc08_effect_ability_enable_frenzy",
+                  "bonus_value_id": "enable",
+                  "unit_ability": {
+                    "key": "wh_main_unit_passive_frenzy",
+                    "icon_name": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                    "overpower_option": "",
+                    "type": {
+                      "key": "wh_type_augment",
+                      "icon_path": "vanilla3/battle_ui/ability_icons/icon_spell_augment",
+                      "onscreen_name": "Augment"
+                    },
+                    "is_hidden_in_ui": false,
+                    "onscreen_name": "Frenzy",
+                    "effect_range": 0,
+                    "target_enemies": false,
+                    "target_friends": false,
+                    "target_ground": false,
+                    "target_self": false,
+                    "target_intercept_range": 0,
+                    "enabled_if": [
+                      "Leadership is higher than 50% of base"
+                    ],
+                    "phases": [
+                      {
+                        "icon": "vanilla3/battle_ui/ability_icons/wh_main_unit_passive_frenzy",
+                        "order": 1,
+                        "target_enemies": false,
+                        "target_self": true,
+                        "target_friends": false,
+                        "duration": -1,
+                        "effect_type": "positive",
+                        "is_hidden_in_ui": false,
+                        "stat_effects": [
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_base",
+                            "how": "mult",
+                            "description": "x1.1 Base Weapon Damage",
+                            "icon": "vanilla3/skins/default/icon_stat_damage_base"
+                          },
+                          {
+                            "value": 6,
+                            "stat": "stat_melee_attack",
+                            "how": "add",
+                            "description": "+6 Melee Attack",
+                            "icon": "vanilla3/skins/default/icon_stat_attack"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_charge_bonus",
+                            "how": "mult",
+                            "description": "x1.1 Charge Bonus",
+                            "icon": "vanilla3/skins/default/icon_stat_charge_bonus"
+                          },
+                          {
+                            "value": 1.1,
+                            "stat": "stat_melee_damage_ap",
+                            "how": "mult",
+                            "description": "x1.1 Armour-Piercing Weapon Damage",
+                            "icon": "vanilla3/skins/default/modifier_icon_armour_piercing"
+                          }
+                        ],
+                        "attributes": [
+                          {
+                            "key": "immune_to_psychology",
+                            "description": " Immune to Psychology",
+                            "bullet_text": "The unit is immune to psychological attacks (Fear & Terror).",
+                            "icon": "vanilla3/campaign_ui/effect_bundles/attribute_immune_to_psychology"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "description": "Attribute: Causes Terror",
+              "key": "wh_main_effect_attribute_enable_causes_terror",
+              "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror",
+              "related_attributes": [
+                {
+                  "key": "causes_terror",
+                  "description": " Can Cause Terror",
+                  "bullet_text": "This unit can cause terror, making its melee target rout for a short time. Units that cause terror are immune to terror and fear themselves.",
+                  "icon": "vanilla3/campaign_ui/effect_bundles/attribute_causes_terror"
+                }
+              ]
+            },
+            {
+              "description": "Armour-piercing weapon damage: +75 when fighting against Chaos",
               "key": "wh3_dlc29_effect_character_stat_ap_damage_vs_chaos",
               "icon": "vanilla3/campaign_ui/effect_bundles/armour_piercing"
-            },
-            {
-              "description": "Missile strength: +20% when fighting against Chaos factions",
-              "key": "wh3_dlc29_effect_force_stat_missile_damage_vs_chaos",
-              "icon": "vanilla3/campaign_ui/effect_bundles/ranged_damage"
             }
           ]
         }
